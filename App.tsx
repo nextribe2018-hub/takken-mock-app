@@ -8,7 +8,7 @@ import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
 import {
   BANK, FIELDS, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
-  fieldName, finishExam, judge, judgeSet, rec, speechText, topicState, topicStats, wrongTopics,
+  fieldName, finishExam, judge, judgeSet, LessonSys, rec, relatedBranch, speechText, topicState, topicStats, wrongTopics,
 } from './src/logic';
 import { loadProgress, saveProgress } from './src/storage';
 import { Colors, fonts, useColors } from './src/theme';
@@ -400,8 +400,9 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
           <Explain ctx={ctx} q={item.missed.q} your={item.missed.your} ok={false} />
         </Card>
       )}
+      {L.sys && <SysView ctx={ctx} sys={L.sys} title={t} missed={item.missed?.q} />}
       <Card ctx={ctx}>
-        <Text style={st.meta}>解説　{fieldName(f as Q['f'])}</Text>
+        <Text style={st.meta}>要点のまとめ　{fieldName(f as Q['f'])}</Text>
         <Text style={st.h2}>{t}の要点</Text>
         {L.pts.map((x, i) => <Text key={i} style={st.li}>・{x}</Text>)}
         {L.traps?.length > 0 && (
@@ -425,6 +426,83 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
       )}
       <Btn ctx={ctx} primary label="確認例題3問へ"
         onPress={() => go({ name: 'check', item, rest: queue.slice(1), qs: checkQuestions(p.hist, item.key, item.missed?.q) })} />
+    </>
+  );
+}
+
+/* ---------- 体系解説：全体像ツリー・流れ図・比較表 ---------- */
+const markOf = (x: string): 'o' | 'x' | null =>
+  /^(○|◯|必要|可|あり|できる)/.test(x) ? 'o' : /^(×|✕|不要|不可|なし|できない)/.test(x) ? 'x' : null;
+
+function SysView({ ctx, sys, title, missed }: { ctx: Ctx; sys: LessonSys; title: string; missed?: Q }) {
+  const { c, st } = ctx;
+  const hit = relatedBranch(sys, missed);
+  return (
+    <>
+      <Card ctx={ctx}>
+        <Text style={st.meta}>全体像（体系図）</Text>
+        <Text style={st.h2}>{title}の全体像</Text>
+        <Text style={st.body}>{sys.overview}</Text>
+        <View style={st.sysRoot}><Text style={st.sysRootText}>{title}</Text></View>
+        <View style={st.sysBranches}>
+          {sys.tree.map((b, i) => {
+            const on = i === hit.branch;
+            return (
+              <View key={i} style={st.sysRow}>
+                <View style={[st.sysConn, on && { borderTopColor: c.ng }]} />
+                <View style={[st.sysBox, on && { borderColor: c.ng, borderWidth: 2, backgroundColor: c.ngSoft }]}>
+                  <View style={st.sysHead}>
+                    <View style={st.sysNo}><Text style={st.sysNoText}>{i + 1}</Text></View>
+                    <Text style={st.bold}>{b.h}</Text>
+                    {on && <Text style={st.sysTag}>間違えた問題はここ</Text>}
+                  </View>
+                  {b.items.map((it, j) => (
+                    <Text key={j} style={[st.sysItem, on && j === hit.item && { color: c.ng, fontWeight: '700' }]}>・{it}</Text>
+                  ))}
+                </View>
+              </View>
+            );
+          })}
+        </View>
+      </Card>
+      {sys.flow && sys.flow.steps.length > 0 && (
+        <Card ctx={ctx}>
+          <Text style={st.meta}>流れで覚える</Text>
+          <Text style={st.h2}>{sys.flow.title}</Text>
+          {sys.flow.steps.map((x, i) => (
+            <View key={i} style={st.flowRow}>
+              <View style={st.flowRail}>
+                <View style={st.flowNo}><Text style={st.flowNoText}>{i + 1}</Text></View>
+                {i < sys.flow!.steps.length - 1 && <View style={st.flowLine} />}
+              </View>
+              <Text style={[st.body, { flex: 1, paddingTop: 2, paddingBottom: 10 }]}>{x}</Text>
+            </View>
+          ))}
+        </Card>
+      )}
+      {sys.tables.length > 0 && (
+        <Card ctx={ctx}>
+          <Text style={st.meta}>比較表・数字</Text>
+          {sys.tables.map((tb, ti) => (
+            <View key={ti} style={{ gap: 6 }}>
+              <Text style={st.bold}>{tb.title}</Text>
+              <View style={st.tblWrap}>
+                <View style={[st.tblRow, { backgroundColor: c.aiSoft }]}>
+                  {tb.head.map((h, k) => <Text key={k} style={[st.tblCell, st.tblHead, k === 0 && st.tblFirst]}>{h}</Text>)}
+                </View>
+                {tb.rows.map((r, ri) => (
+                  <View key={ri} style={[st.tblRow, ri % 2 === 1 && { backgroundColor: c.bg }]}>
+                    {r.map((cell, k) => {
+                      const m = markOf(cell);
+                      return <Text key={k} style={[st.tblCell, k === 0 && st.tblFirst, m === 'o' && { color: c.ok, fontWeight: '700' }, m === 'x' && { color: c.ng, fontWeight: '700' }]}>{cell}</Text>;
+                    })}
+                  </View>
+                ))}
+              </View>
+            </View>
+          ))}
+        </Card>
+      )}
     </>
   );
 }
@@ -555,5 +633,26 @@ function makeStyles(c: Colors) {
     judge: { fontWeight: '700', fontSize: 14, paddingVertical: 4, paddingHorizontal: 10, borderRadius: 12, overflow: 'hidden' },
     big: { fontSize: 44, fontWeight: '800', color: c.ink, fontFamily: fonts.disp },
     bigUnit: { fontSize: 18, fontWeight: '600', color: c.muted },
+    sysRoot: { alignSelf: 'flex-start', backgroundColor: c.ai, borderRadius: 10, paddingVertical: 8, paddingHorizontal: 14 },
+    sysRootText: { color: c.onAi, fontWeight: '700', fontSize: 16, fontFamily: fonts.disp },
+    sysBranches: { marginLeft: 16, borderLeftWidth: 2, borderLeftColor: c.line, paddingTop: 8, gap: 10, marginTop: -12 },
+    sysRow: { flexDirection: 'row', alignItems: 'flex-start' },
+    sysConn: { width: 16, marginTop: 22, borderTopWidth: 2, borderTopColor: c.line },
+    sysBox: { flex: 1, borderWidth: 1, borderColor: c.line, borderRadius: 10, padding: 10, gap: 2, backgroundColor: c.paper },
+    sysHead: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginBottom: 2 },
+    sysNo: { width: 22, height: 22, borderRadius: 11, backgroundColor: c.aiSoft, alignItems: 'center', justifyContent: 'center' },
+    sysNoText: { fontSize: 12, fontWeight: '700', color: c.ai },
+    sysTag: { fontSize: 11, fontWeight: '700', color: c.paper, backgroundColor: c.ng, borderRadius: 10, paddingHorizontal: 8, paddingVertical: 1, overflow: 'hidden' },
+    sysItem: { fontSize: 14, lineHeight: 22, color: c.ink, fontFamily: fonts.body },
+    flowRow: { flexDirection: 'row', gap: 12 },
+    flowRail: { width: 28, alignItems: 'center' },
+    flowNo: { width: 28, height: 28, borderRadius: 14, backgroundColor: c.ai, alignItems: 'center', justifyContent: 'center' },
+    flowNoText: { color: c.onAi, fontWeight: '700', fontSize: 13 },
+    flowLine: { flex: 1, width: 2, backgroundColor: c.ai, marginVertical: 2 },
+    tblWrap: { borderWidth: 1, borderColor: c.line, borderRadius: 8, overflow: 'hidden' },
+    tblRow: { flexDirection: 'row', borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: c.line },
+    tblCell: { flex: 1, paddingVertical: 7, paddingHorizontal: 8, fontSize: 13, lineHeight: 19, color: c.ink, fontFamily: fonts.body },
+    tblHead: { fontWeight: '700' },
+    tblFirst: { flex: 1.3, fontWeight: '700' },
   });
 }

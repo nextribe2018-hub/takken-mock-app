@@ -68,6 +68,36 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .trap b{color:var(--warn)}
 .relg{display:flex;flex-direction:column;gap:10px}
 .relg .ul{font-size:.9rem}
+/* 体系解説：全体像ツリー・流れ図・比較表 */
+.ov{margin:0;font-size:.95rem}
+.systree{display:flex;flex-direction:column}
+.sysroot{align-self:flex-start;background:var(--ai);color:var(--paper);font-weight:700;border-radius:10px;padding:8px 14px;font-family:var(--f-disp);font-size:1.05rem}
+.sysbr{position:relative;margin-left:16px;padding:12px 0 0 18px;display:flex;flex-direction:column;gap:10px}
+.sysbr::before{content:"";position:absolute;left:0;top:0;bottom:24px;border-left:2px solid var(--line)}
+.br{position:relative;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}
+.br::before{content:"";position:absolute;left:-19px;top:22px;width:18px;border-top:2px solid var(--line)}
+.br h4{margin:0 0 4px;font-size:.95rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.br h4 .no{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--ai-soft);color:var(--ai);font-size:.75rem;font-variant-numeric:tabular-nums}
+.br ul{margin:0;padding-left:1.1em;font-size:.88rem;line-height:1.65}
+.br.hit{border-color:var(--ng);border-width:2px;background:var(--ng-soft)}
+.br.hit::before{border-top-color:var(--ng)}
+.br .tag{font-size:.72rem;font-weight:700;color:var(--paper);background:var(--ng);border-radius:999px;padding:1px 8px}
+.br li.hit{font-weight:700;color:var(--ng)}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.flow li{position:relative;display:flex;gap:12px;align-items:flex-start;padding-bottom:12px}
+.flow li:last-child{padding-bottom:0}
+.flow li:not(:last-child)::before{content:"";position:absolute;left:13px;top:30px;bottom:2px;border-left:2px solid var(--ai)}
+.flow .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--ai);color:var(--paper);display:grid;place-items:center;font-weight:700;font-size:.85rem;font-variant-numeric:tabular-nums}
+.flow .s{padding-top:3px;font-size:.92rem}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px}
+.st{border-collapse:collapse;width:100%;font-size:.84rem;line-height:1.5;min-width:100%}
+.st caption{text-align:left;font-weight:700;padding:0 0 6px;font-size:.9rem}
+.st th{background:var(--ai-soft);color:var(--ink);text-align:left;font-weight:700;padding:7px 9px;white-space:nowrap;border-bottom:1px solid var(--line)}
+.st td{padding:7px 9px;border-top:1px solid var(--line);vertical-align:top}
+.st td:first-child{font-weight:700;min-width:6.5em}
+.st tr:nth-child(even) td{background:color-mix(in srgb,var(--bg) 60%,transparent)}
+.st .o{color:var(--ok);font-weight:700}.st .x{color:var(--ng);font-weight:700}
+.tbls{display:flex;flex-direction:column;gap:14px}
 .sync{font-size:.78rem;margin:4px 0 0;color:var(--muted)}
 .sync[data-s="ok"]{color:var(--ok)}
 .sync[data-s="err"]{color:var(--ng)}
@@ -300,13 +330,30 @@ function result(E,sc,used,setScores){
 }
 
 /* ---------- review: 解説 → 付随論点 → 確認例題3問 ---------- */
+const esc=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+// 間違えた問題と最も関係の深い枝（大項目）を文字の2文字組の重なりで推定する
+function bigr(x){const s=String(x).replace(/[\s、。・：（）()「」，,．.0-9０-９]/g,"");const o=new Set();for(let i=0;i<s.length-1;i++)o.add(s.slice(i,i+2));return o}
+function overlap(a,b){let n=0;b.forEach(x=>{if(a.has(x))n++});return n}
+function cellHtml(x){x=esc(x);if(/^(○|◯|必要|可|あり|できる)/.test(x))return `<span class="o">${x}</span>`;if(/^(×|✕|不要|不可|なし|できない)/.test(x))return `<span class="x">${x}</span>`;return x}
+function sysHtml(key,missed){
+  const S=(LESSON[key]||{}).sys;if(!S)return "";const t=key.split("|")[1];
+  let hitB=-1,hitI=-1;
+  if(missed){const qb=bigr(missed.q.s+missed.q.e);let best=1;
+    S.tree.forEach((b,i)=>{const sc=overlap(qb,bigr(b.h+b.items.join("")));if(sc>best){best=sc;hitB=i}});
+    if(hitB>=0){let bi=0;S.tree[hitB].items.forEach((it,j)=>{const sc=overlap(qb,bigr(it));if(sc>bi){bi=sc;hitI=j}})}}
+  const tree=`<div class="systree"><div class="sysroot">${esc(t)}</div><div class="sysbr">${S.tree.map((b,i)=>`<div class="br ${i===hitB?"hit":""}"><h4><span class="no">${i+1}</span>${esc(b.h)}${i===hitB?`<span class="tag">間違えた問題はここ</span>`:""}</h4><ul>${b.items.map((it,j)=>`<li class="${i===hitB&&j===hitI?"hit":""}">${esc(it)}</li>`).join("")}</ul></div>`).join("")}</div></div>`;
+  const flow=S.flow&&S.flow.steps&&S.flow.steps.length?`<article class="card"><div class="meta">流れで覚える</div><h2>${esc(S.flow.title)}</h2><ol class="flow">${S.flow.steps.map((x,i)=>`<li><span class="n">${i+1}</span><span class="s">${esc(x)}</span></li>`).join("")}</ol></article>`:"";
+  const tbls=S.tables&&S.tables.length?`<article class="card"><div class="meta">比較表・数字</div><div class="tbls">${S.tables.map(tb=>`<div><div style="font-weight:700;margin-bottom:6px">${esc(tb.title)}</div><div class="tw"><table class="st"><thead><tr>${tb.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${tb.rows.map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`).join("")}</div></article>`:"";
+  return `<article class="card"><div class="meta">全体像（体系図）</div><h2>${esc(t)}の全体像</h2><p class="ov">${esc(S.overview)}</p>${tree}</article>${flow}${tbls}`;
+}
 function lessonHtml(key,missed){
   const L=LESSON[key]||{pts:[],traps:[],rel:[]};const [f,t]=key.split("|");
   const relH=(L.rel||[]).filter(k=>LESSON[k]).map(k=>`<div class="kp"><b style="font-size:1rem">${k.split("|")[1]}</b><ul class="ul">${LESSON[k].pts.slice(0,3).map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
   return `
   ${missed?`<article class="card"><div class="meta">あなたが間違えた問題　${missed.q.ref==="確認"?"確認問題":missed.q.ref}</div><p class="stmt">${missed.q.s}</p>
     <div class="res ng"><span class="v">あなた：${missed.your==null?"未回答":missed.your?"○":"×"}　答え：${missed.q.a?"○":"×"}</span><span>${missed.q.e}</span><span class="memo">覚え方：<b>${missed.q.m}</b></span></div></article>`:""}
-  <article class="card"><div class="meta">解説　${FIELDS.find(x=>x[0]===f)[1]}</div><h2>${t}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${x}</li>`).join("")}</ul>
+  ${sysHtml(key,missed)}
+  <article class="card"><div class="meta">要点のまとめ　${FIELDS.find(x=>x[0]===f)[1]}</div><h2>${t}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${x}</li>`).join("")}</ul>
     ${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:""}</article>
   ${relH?`<article class="card"><div class="meta">付随する論点</div><p style="margin:0">${L.bridge||""}</p><div class="relg">${relH}</div></article>`:""}`;
 }

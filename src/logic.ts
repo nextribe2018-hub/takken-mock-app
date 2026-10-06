@@ -7,7 +7,14 @@ export type Q = {
   f: Field; t: string; ref: string; s: string; a: 0 | 1; e: string; m: string;
   i: number; k: string;
 };
-export type Lesson = { pts: string[]; traps: string[]; rel: string[]; bridge?: string };
+export type SysTable = { title: string; head: string[]; rows: string[][] };
+export type LessonSys = {
+  overview: string;
+  tree: { h: string; items: string[] }[];
+  flow: { title: string; steps: string[] } | null;
+  tables: SysTable[];
+};
+export type Lesson = { pts: string[]; traps: string[]; rel: string[]; bridge?: string; sys?: LessonSys };
 export type HistItem = { n: number; c: number; last: 0 | 1 };
 export type Hist = Record<string, HistItem>;
 export type SetState = { round: number; scores: number[] };
@@ -152,3 +159,21 @@ export function wrongTopics(qs: Q[], ans: (0 | 1 | null)[]) {
 
 export const speechText = (t: string) =>
   t.replace(/○/g, 'まる').replace(/×/g, 'ばつ').replace(/㎡/g, '平方メートル').replace(/％|%/g, 'パーセント');
+
+// 間違えた問題と最も関係の深い体系図の枝・項目を、2文字組の重なりで推定する
+const bigrams = (x: string) => {
+  const s = x.replace(/[\s、。・：（）()「」，,．.0-9０-９]/g, '');
+  const o = new Set<string>();
+  for (let i = 0; i < s.length - 1; i++) o.add(s.slice(i, i + 2));
+  return o;
+};
+const overlap = (a: Set<string>, b: Set<string>) => { let n = 0; b.forEach(x => { if (a.has(x)) n++; }); return n; };
+export function relatedBranch(sys: LessonSys, q?: Q): { branch: number; item: number } {
+  if (!q) return { branch: -1, item: -1 };
+  const qb = bigrams(q.s + q.e);
+  let branch = -1, best = 1;
+  sys.tree.forEach((b, i) => { const sc = overlap(qb, bigrams(b.h + b.items.join(''))); if (sc > best) { best = sc; branch = i; } });
+  let item = -1, bi = 0;
+  if (branch >= 0) sys.tree[branch].items.forEach((it, j) => { const sc = overlap(qb, bigrams(it)); if (sc > bi) { bi = sc; item = j; } });
+  return { branch, item };
+}

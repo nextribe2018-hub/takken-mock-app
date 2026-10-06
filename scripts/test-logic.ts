@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, relatedBranch, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -54,5 +54,17 @@ w.forEach(x => {
 // 6) すべての論点に解説がある
 const missing = topicStats({}).map(s => `${s.f}|${s.t}`).filter(k => !LESSON[k]);
 assert.deepEqual(missing, []);
+
+
+// 7) 全論点に体系解説（全体像・表）があり、表の列数がそろっている
+Object.entries(LESSON).forEach(([k, L]) => {
+  assert.ok(L.sys, `体系解説なし: ${k}`);
+  assert.ok(L.sys!.tree.length >= 3 && L.sys!.tables.length >= 1, `体系解説が薄い: ${k}`);
+  L.sys!.tables.forEach(t => t.rows.forEach(r => assert.equal(r.length, t.head.length, `${k} ${t.title}`)));
+});
+// 8) 間違えた問題に関係する枝が見つかる（全問題で枝番号が範囲内）
+let found = 0;
+BANK.forEach(q => { const s = LESSON[`${q.f}|${q.t}`].sys!; const h = relatedBranch(s, q); assert.ok(h.branch < s.tree.length); if (h.branch >= 0) found++; });
+console.log(`体系図の該当枝が見つかった問題: ${found} / ${BANK.length}`);
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
