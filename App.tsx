@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
 import {
-  BANK, FIELDS, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
+  BANK, buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINE, passEstimate, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
   fieldName, finishExam, judge, judgeSet, LessonSys, rec, relatedBranch, relatedRows, relatedTraps, speechText, topicState, topicStats, wrongTopics,
 } from './src/logic';
 import { loadProgress, saveProgress } from './src/storage';
@@ -18,8 +18,8 @@ type Missed = { q: Q; your: Ans };
 type ReviewItem = { key: string; missed?: Missed };
 type Screen =
   | { name: 'home' }
-  | { name: 'exam'; qs: Q[]; round: number }
-  | { name: 'result'; qs: Q[]; ans: Ans[]; score: number; round: number; used: number; setScores: number[] | null }
+  | { name: 'exam'; qs: Q[]; round: number; field?: Q['f'] }
+  | { name: 'result'; qs: Q[]; ans: Ans[]; score: number; round: number; used: number; setScores: number[] | null; field?: Q['f'] }
   | { name: 'lesson'; queue: ReviewItem[] }
   | { name: 'check'; item: ReviewItem; rest: ReviewItem[]; qs: Q[] }
   | { name: 'deep'; key: string; focus: number; missed?: Q; back: Screen; trail: string[] };
@@ -69,7 +69,7 @@ function Root() {
       <ScrollView ref={scrollRef}>
         <View ref={contentRef} collapsable={false} style={st.wrap}>
         {screen.name === 'home' && <Home ctx={ctx} />}
-        {screen.name === 'exam' && <Exam ctx={ctx} qs={screen.qs} round={screen.round} />}
+        {screen.name === 'exam' && <Exam ctx={ctx} qs={screen.qs} round={screen.round} field={screen.field} />}
         {screen.name === 'result' && <Result ctx={ctx} s={screen} />}
         {screen.name === 'lesson' && <LessonView ctx={ctx} queue={screen.queue} />}
         {screen.name === 'check' && <Check ctx={ctx} item={screen.item} rest={screen.rest} qs={screen.qs} />}
@@ -172,6 +172,22 @@ function Home({ ctx }: { ctx: Ctx }) {
         <Text style={st.note}>目安：10問中 8問以上で合格圏、7問は合格ライン上。5回合計で35点が7割、37点以上なら安全圏です。</Text>
       </Card>
 
+      <PassCard ctx={ctx} />
+
+      <Card ctx={ctx}>
+        <Text style={st.h2}>分野別10問テスト</Text>
+        <Text style={st.note}>1つの分野だけを10問・10分。まだ解いていない問題と前回間違えた問題を優先します。5回セットの記録には入りません。</Text>
+        <View style={st.wrapRow}>
+          {(() => { const fs = fieldStatsOf(hist); return FIELDS.map(([f, n]) => (
+            <Pressable key={f} onPress={() => go({ name: 'exam', qs: buildFieldExam(hist, f), round: 0, field: f })}
+              style={({ pressed }) => [st.kpi, { flexBasis: '47%' }, pressed && st.pressed]}>
+              <Text style={st.bold}>{n}</Text>
+              <Text style={st.note}>{fs[f].n ? `${Math.round((fs[f].c / fs[f].n) * 100)}%` : '未着手'}　{fs[f].q}/{fs[f].tot}問</Text>
+            </Pressable>
+          )); })()}
+        </View>
+      </Card>
+
       <Card ctx={ctx}>
         <Text style={st.h2}>今の実力</Text>
         <View style={st.kpis}>
@@ -194,7 +210,7 @@ function Home({ ctx }: { ctx: Ctx }) {
           {p.log.slice(-10).reverse().map(x => (
             <View key={x.at} style={st.histRow}>
               <Text style={st.note}>{x.at.slice(5, 10).replace('-', '/')} {x.at.slice(11, 16)}</Text>
-              <Text style={st.note}>第{x.round}回</Text>
+              <Text style={st.note}>{x.field ? fieldName(x.field) : `第${x.round}回`}</Text>
               <Text style={st.bold}>{x.score} / 10</Text>
               <Text style={st.note}>{Math.floor(x.sec / 60)}分{x.sec % 60}秒</Text>
             </View>
@@ -251,8 +267,50 @@ function Kpi({ ctx, label, value }: { ctx: Ctx; label: string; value: string }) 
   );
 }
 
+/* ---------- 合格の見込み ---------- */
+const fieldStatsOf = fieldStats;
+function PassCard({ ctx }: { ctx: Ctx }) {
+  const { c, st, p, go } = ctx;
+  const P = useMemo(() => passEstimate(p.hist), [p.hist]);
+  if (!P.ready) {
+    return (
+      <Card ctx={ctx}>
+        <Text style={st.h2}>合格の見込み</Text>
+        <Text style={st.note}>あと {30 - P.total}問 解くと判定します（30問以上の回答で表示）。</Text>
+        <View style={st.barBg}><View style={[st.barFg, { width: `${Math.round((P.total / 30) * 100)}%` }]} /></View>
+      </Card>
+    );
+  }
+  const pct = Math.round(P.prob * 100);
+  const j = pct >= 80 ? { tone: 'ok' as const, label: '合格圏' } : pct >= 50 ? { tone: 'mid' as const, label: '合格ライン付近' } : { tone: 'ng' as const, label: '要強化' };
+  return (
+    <Card ctx={ctx}>
+      <Text style={st.h2}>合格の見込み</Text>
+      <View style={st.row}>
+        <Text style={st.big}>{pct}<Text style={st.bigUnit}>%</Text></Text>
+        <JudgeTag ctx={ctx} {...j} />
+      </View>
+      <Text style={st.body}>予想得点 <Text style={st.bold}>{Math.round(P.mean)}点</Text> / 50（8割の確率で {P.lo}〜{P.hi}点）　合格ライン {PASS_LINE}点</Text>
+      {FIELDS.map(([f, n]) => {
+        const s = P.st[f]; const e = P.exp[f];
+        return (
+          <View key={f} style={[st.passRow, f === P.focus && { backgroundColor: c.warnSoft }]}>
+            <Text style={[st.bold, { width: 92 }]}>{n}</Text>
+            <Text style={[st.note, { width: 44 }]}>{s.n ? `${Math.round((s.c / s.n) * 100)}%` : '—'}</Text>
+            <Text style={[st.note, { width: 64 }]}>{e.toFixed(1)}/{EXAM_N[f]}</Text>
+            <View style={[st.barBg, { flex: 1 }]}><View style={[st.barFg, { width: `${Math.round((e / EXAM_N[f]) * 100)}%` }]} /></View>
+          </View>
+        );
+      })}
+      <Btn ctx={ctx} primary label={`いちばん伸ばせる「${fieldName(P.focus)}」の10問テスト`}
+        onPress={() => go({ name: 'exam', qs: buildFieldExam(p.hist, P.focus), round: 0, field: P.focus })} />
+      <Text style={st.note}>これまでの全回答（{P.total}回）から本試験50問（業20・権14・法8・税8）の得点を3,000回シミュレーションした目安。○×は4択より当てやすいため正答率を控えめに換算（正答率^1.5）。登録講習の5問免除は考慮していません。合格を保証するものではありません。</Text>
+    </Card>
+  );
+}
+
 /* ---------- 試験 ---------- */
-function Exam({ ctx, qs, round }: { ctx: Ctx; qs: Q[]; round: number }) {
+function Exam({ ctx, qs, round, field }: { ctx: Ctx; qs: Q[]; round: number; field?: Q['f'] }) {
   const { c, st, p, update, go, speak } = ctx;
   const [ans, setAns] = useState<Ans[]>(() => qs.map(() => null));
   const [cur, setCur] = useState(0);
@@ -267,10 +325,16 @@ function Exam({ ctx, qs, round }: { ctx: Ctx; qs: Q[]; round: number }) {
     if (finished.current) return;
     finished.current = true;
     const used = Math.min(LIMIT, Math.round((Date.now() - start.current) / 1000));
+    if (field) {
+      const r = finishFieldExam(p, field, qs, ansRef.current, used);
+      update(r.next);
+      go({ name: 'result', qs, ans: ansRef.current, score: r.score, round: 0, used, setScores: null, field });
+      return;
+    }
     const r = finishExam(p, qs, ansRef.current, used);
     update(r.next);
     go({ name: 'result', qs, ans: ansRef.current, score: r.score, round: r.round, used, setScores: r.setScores });
-  }, [p, qs, update, go]);
+  }, [p, qs, update, go, field]);
 
   // 経過時間は開始時刻から計算（バックグラウンドに行ってもずれない）
   useEffect(() => {
@@ -297,7 +361,7 @@ function Exam({ ctx, qs, round }: { ctx: Ctx; qs: Q[]; round: number }) {
     <>
       <View style={st.rowBetween}>
         <View>
-          <Text style={st.note}>第{round + 1}回　{qs.length - un}/{qs.length}問 回答済み</Text>
+          <Text style={st.note}>{field ? `${fieldName(field)} 10問` : `第${round + 1}回`}　{qs.length - un}/{qs.length}問 回答済み</Text>
           <Text style={[st.timer, left <= 60 && { color: c.ng }]}>{Math.floor(left / 60)}:{String(left % 60).padStart(2, '0')}</Text>
         </View>
         <Btn ctx={ctx} label="採点する" onPress={tryFinish} />
@@ -346,7 +410,7 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
   return (
     <>
       <Card ctx={ctx}>
-        <Text style={st.h2}>第{s.round + 1}回の結果</Text>
+        <Text style={st.h2}>{s.field ? `${fieldName(s.field)} 10問の結果` : `第${s.round + 1}回の結果`}</Text>
         <View style={st.row}>
           <Text style={st.big}>{s.score}<Text style={st.bigUnit}> / 10</Text></Text>
           <JudgeTag ctx={ctx} {...j} />
@@ -363,7 +427,9 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
         ) : <Text style={st.body}>全問正解です。次の回に進みましょう。</Text>}
         <View style={st.wrapRow}>
           <Btn ctx={ctx} label="ホームへ" onPress={() => go({ name: 'home' })} />
-          <Btn ctx={ctx} label={`第${p.set.round + 1}回へ進む`} onPress={() => go({ name: 'exam', qs: buildExam(p.hist, p.set.round), round: p.set.round })} />
+          {s.field
+            ? <Btn ctx={ctx} label={`もう一度 ${fieldName(s.field)} 10問`} onPress={() => go({ name: 'exam', qs: buildFieldExam(p.hist, s.field!), round: 0, field: s.field })} />
+            : <Btn ctx={ctx} label={`第${p.set.round + 1}回へ進む`} onPress={() => go({ name: 'exam', qs: buildExam(p.hist, p.set.round), round: p.set.round })} />}
         </View>
       </Card>
       {s.setScores && (
@@ -788,6 +854,9 @@ function makeStyles(c: Colors) {
     tblCell: { flex: 1, paddingVertical: 7, paddingHorizontal: 8, fontSize: 13, lineHeight: 19, color: c.ink, fontFamily: fonts.body },
     tblHead: { fontWeight: '700' },
     tblFirst: { flex: 1.3, fontWeight: '700' },
+    barBg: { height: 8, borderRadius: 4, backgroundColor: c.line, overflow: 'hidden' },
+    barFg: { height: 8, borderRadius: 4, backgroundColor: c.ai },
+    passRow: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 6, paddingHorizontal: 6, borderRadius: 6 },
     sysFocus: { borderWidth: 3, borderColor: c.ai, borderRadius: 12, padding: 2 },
     deepLink: { borderWidth: 1, borderColor: c.ai, borderRadius: 8, padding: 12, gap: 2 },
   });

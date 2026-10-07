@@ -23,7 +23,7 @@ python3 web/build.py   # Web版（Claudeアーティファクト用HTML）を再
 
 ## 構成
 - `App.tsx` 画面 ／ `src/logic.ts` ロジック ／ `src/storage.ts` 保存 ／ `src/theme.ts` 色
-- `src/data/bank.json` 問題532問 ／ `src/data/lessons.json` 解説46論点
+- `src/data/bank.json` 問題1,498問 ／ `src/data/lessons.json` 解説46論点
 - `web/` Web版のテンプレートとビルド
 
 ## 注意

@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, relatedBranch, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, relatedBranch, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -76,5 +76,23 @@ BANK.forEach(q => {
   const tr = relatedTraps(L, q); assert.ok(tr.length <= 2); tr.forEach(x => assert.ok(L.traps.includes(x)));
 });
 console.log(`関係する表の行が見つかった問題: ${withRows} / ${BANK.length}`);
+
+// 10) 分野別10問：その分野だけ・10問・重複なし。採点しても5回セットは動かない
+FIELDS.forEach(([f]) => {
+  const qs = buildFieldExam({}, f);
+  assert.equal(qs.length, 10); assert.ok(qs.every(q => q.f === f)); assert.equal(new Set(qs.map(q => q.k)).size, 10);
+  const pr = emptyProgress(); const r = finishFieldExam(pr, f, qs, qs.map(q => q.a), 120);
+  assert.equal(r.score, 10); assert.deepEqual(r.next.set, pr.set); assert.equal(r.next.log.at(-1)!.field, f);
+});
+// 11) 合格の見込み：30問未満は判定しない、正答率が高いほど確率・予想点が上がる
+assert.equal(passEstimate({}).ready, false);
+const sim = (rate: number) => { const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
+  BANK.forEach((q, i) => { if (i % 3) return; const ok = ((i * 7919) % 100) / 100 < rate; h[q.k] = { n: 1, c: ok ? 1 : 0, last: ok ? 1 : 0 }; }); return passEstimate(h); };
+const lo = sim(0.6), mid = sim(0.8), hi = sim(0.92);
+assert.ok(lo.ready && mid.ready && hi.ready);
+if (lo.ready && mid.ready && hi.ready) {
+  assert.ok(lo.prob <= mid.prob && mid.prob <= hi.prob && lo.mean < mid.mean && mid.mean < hi.mean);
+  console.log(`合格の見込み 正答率60%→${Math.round(lo.prob * 100)}%（${lo.mean.toFixed(1)}点） 80%→${Math.round(mid.prob * 100)}%（${mid.mean.toFixed(1)}点） 92%→${Math.round(hi.prob * 100)}%（${hi.mean.toFixed(1)}点）`);
+}
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);

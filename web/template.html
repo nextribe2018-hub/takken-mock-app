@@ -109,6 +109,11 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .sub2{font-size:.78rem;font-weight:500;color:var(--muted)}
 .br.focus{outline:3px solid var(--ai);outline-offset:2px}
 .card>.br::before{display:none}
+.pbar,.mbar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
+.pbar i,.mbar i{display:block;height:100%;background:var(--ai);border-radius:999px}
+.st tr.focus td{background:var(--warn-soft)}
+.fx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fx .btn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left}
 .sync{font-size:.78rem;margin:4px 0 0;color:var(--muted)}
 .sync[data-s="ok"]{color:var(--ok)}
 .sync[data-s="err"]{color:var(--ng)}
@@ -225,6 +230,42 @@ function topicStats(){
 function state(s){if(!s.n)return 0;const r=s.c/s.n;if(s.recentWrong>0||r<0.6)return 1;if(r<0.8||s.n<5)return 2;return 3}
 
 /* ---------- home ---------- */
+/* ---------- 合格の見込み（○×の積み上げから本試験50問の得点を推定） ---------- */
+const PASS_LINE=36; // 近年の合格点はおおむね33〜37点。安全側に36点で判定
+const EXAM_N={業法:20,権利:14,法令:8,税他:8};
+const FNAME=f=>FIELDS.find(x=>x[0]===f)[1];
+function fieldStats(){const o={};FIELDS.forEach(([f])=>o[f]={n:0,c:0,q:0,tot:0});
+  BANK.forEach(q=>{const s=o[q.f];s.tot++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;s.q++}});return o}
+function seeded(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gammaS(k,r){if(k<1)return gammaS(k+1,r)*Math.pow(r()||1e-12,1/k);const d=k-1/3,c=1/Math.sqrt(9*d);
+  for(;;){let x,v;do{const u1=r()||1e-12,u2=r();x=Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);v=1+c*x}while(v<=0);v=v*v*v;const u=r();
+    if(u<1-0.0331*x*x*x*x)return d*v;if(Math.log(u||1e-12)<0.5*x*x+d*(1-v+Math.log(v)))return d*v}}
+// ○×の正答率 p を本試験（4択）の正答率に控えめに換算：p^1.5
+const toExam=p=>Math.pow(p,1.5);
+function passEst(){
+  const st=fieldStats();const total=Object.values(st).reduce((a,s)=>a+s.n,0);
+  if(total<30)return {ready:false,total,st};
+  const r=seeded(20261008),S=3000;let pass=0;const sc=[];
+  for(let i=0;i<S;i++){let x=0;FIELDS.forEach(([f])=>{const s=st[f];const a=gammaS(s.c+1,r),b=gammaS(s.n-s.c+1,r);const p=toExam(a/(a+b));for(let j=0;j<EXAM_N[f];j++)if(r()<p)x++});sc.push(x);if(x>=PASS_LINE)pass++}
+  sc.sort((a,b)=>a-b);
+  const exp={};FIELDS.forEach(([f])=>{const s=st[f];exp[f]=EXAM_N[f]*toExam((s.c+1)/(s.n+2))});
+  // 伸ばすと効く分野＝本試験で落としている見込みの点が最も多い分野
+  const focus=FIELDS.map(([f])=>f).sort((a,b)=>(EXAM_N[b]-exp[b])-(EXAM_N[a]-exp[a]))[0];
+  return {ready:true,total,st,prob:pass/S,mean:sc.reduce((a,b)=>a+b,0)/S,lo:sc[Math.floor(S*0.1)],hi:sc[Math.floor(S*0.9)],exp,focus};
+}
+function passHtml(){
+  const P=passEst();
+  if(!P.ready)return `<section class="card"><h2>合格の見込み</h2><p class="note" style="margin:0">あと <b>${30-P.total}問</b> 解くと判定します（30問以上の回答で表示）。</p><div class="pbar"><i style="width:${Math.round(P.total/30*100)}%"></i></div></section>`;
+  const pct=Math.round(P.prob*100);const j=pct>=80?["j-ok","合格圏"]:pct>=50?["j-mid","合格ライン付近"]:["j-ng","要強化"];
+  const rows=FIELDS.map(([f,n])=>{const s=P.st[f];const rate=s.n?Math.round(s.c/s.n*100):null;const e=P.exp[f];
+    return `<tr class="${f===P.focus?"focus":""}"><td>${n}</td><td>${rate==null?"—":rate+"%"}</td><td style="white-space:nowrap">${e.toFixed(1)} / ${EXAM_N[f]}</td><td><div class="mbar"><i style="width:${Math.round(e/EXAM_N[f]*100)}%"></i></div></td></tr>`}).join("");
+  return `<section class="card"><h2>合格の見込み</h2>
+  <div class="row"><span class="big">${pct}<span style="font-size:1.2rem">%</span></span><span class="judge ${j[0]}">${j[1]}</span></div>
+  <p style="margin:0">予想得点 <b>${Math.round(P.mean)}点</b> / 50（8割の確率で ${P.lo}〜${P.hi}点）　合格ライン ${PASS_LINE}点</p>
+  <div class="tw"><table class="st"><thead><tr><th>分野</th><th>○×正答率</th><th>予想点</th><th style="width:30%"></th></tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="row"><button class="btn pri" data-fx="${P.focus}">いちばん伸ばせる「${FNAME(P.focus)}」の10問テスト</button></div>
+  <p class="note" style="margin:0">これまでの全回答（${P.total}回）から、本試験50問（業20・権14・法8・税8）の得点を3,000回シミュレーションした目安。○×は4択より当てやすいため、正答率を控えめに換算しています（正答率^1.5）。登録講習の5問免除は考慮していません。合格を保証するものではありません。</p></section>`;
+}
 function home(){
   clearInterval(timerId);
   const done=Object.keys(H).filter(k=>BYKEY[k]).length;
@@ -241,7 +282,13 @@ function home(){
     <div class="sets">${[0,1,2,3,4].map(k=>`<div class="slot ${k===r?"now":""}">第${k+1}回<b>${SET.scores[k]!=null?SET.scores[k]+"点":"—"}</b>業${MIX[k].業法}権${MIX[k].権利}法${MIX[k].法令}税${MIX[k].税他}</div>`).join("")}</div>
     <div class="row"><button class="btn pri" id="go">第${r+1}回を始める（10問・10分）</button>
     <label class="row note" style="gap:6px"><input type="checkbox" id="vc" ${voice?"checked":""} ${canSpeak?"":"disabled"}> 音声で出題</label></div>
-    <p class="note">合格の目安：1回10問中 <b>8問以上</b>で合格圏、7問は合格ライン上（本試験の合格点は近年50点中36〜37点前後）。5回合計で <b>35点</b>が7割、<b>37点以上</b>なら安全圏です。</p>
+    <p class="note">合格の目安：1回10問中 <b>8問以上</b>で合格圏、7問は合格ライン上（本試験の合格点は近年50点中33〜37点）。5回合計で <b>35点</b>が7割、<b>37点以上</b>なら安全圏です。</p>
+  </section>
+  ${passHtml()}
+  <section class="card">
+    <h2>分野別10問テスト</h2>
+    <p class="note" style="margin:0">1つの分野だけを10問・10分。まだ解いていない問題と前回間違えた問題を優先して出します。5回セットの記録には入りません。</p>
+    <div class="fx">${(()=>{const st=fieldStats();return FIELDS.map(([f,n])=>{const s=st[f];return `<button class="btn" data-fx="${f}"><b>${n}</b><span class="note">${s.n?Math.round(s.c/s.n*100)+"%":"未着手"}　${s.q}/${s.tot}問</span></button>`}).join("")})()}</div>
   </section>
   <section class="card">
     <h2>今の実力</h2>
@@ -252,7 +299,7 @@ function home(){
     </div>
     ${weak?`<button class="btn" id="weakAll">要復習の論点（${weak}件）を解説から復習</button>`:""}
   </section>
-  ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>第${x.round}回</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
+  ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>${x.field?FNAME(x.field):`第${x.round}回`}</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
   <section class="card">
     <h2>論点マップ</h2>
     <p class="legend">押すと、その論点の解説と確認例題3問。<span style="color:var(--ng)">赤＝要復習</span>／<span style="color:var(--warn)">黄＝習得中</span>／<span style="color:var(--ok)">緑＝習得（正答率80%以上・5回以上）</span>／無色＝未着手</p>
@@ -271,6 +318,7 @@ function home(){
   </section>`;
   syncLabel();
   $("#go").onclick=()=>startExam();
+  document.querySelectorAll("[data-fx]").forEach(b=>b.onclick=()=>startExam(b.dataset.fx));
   if(canSpeak)$("#vc").onchange=e=>{voice=e.target.checked;ls.set("tkm-voice",voice)};
   document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>startReview([{key:b.dataset.k}]));
   if(weak)$("#weakAll").onclick=()=>startReview(ts.filter(s=>state(s)===1).map(s=>({key:s.f+"|"+s.t})));
@@ -281,14 +329,16 @@ function home(){
 }
 
 /* ---------- exam ---------- */
-function startExam(){
-  const mix=MIX[SET.round];const qs=[];const ex=new Set();
-  FIELDS.forEach(([f])=>{pick(BANK.filter(q=>q.f===f),mix[f],ex).forEach(q=>{qs.push(q);ex.add(q.i)})});
-  const E={qs,ans:Array(qs.length).fill(null),cur:0,left:LIMIT,start:Date.now()};
+function startExam(field){
+  const qs=[];const ex=new Set();
+  if(field){pick(BANK.filter(q=>q.f===field),10,ex).forEach(q=>qs.push(q))}
+  else{const mix=MIX[SET.round];FIELDS.forEach(([f])=>{pick(BANK.filter(q=>q.f===f),mix[f],ex).forEach(q=>{qs.push(q);ex.add(q.i)})})}
+  const label=field?FNAME(field)+" 10問":`第${SET.round+1}回`;
+  const E={qs,ans:Array(qs.length).fill(null),cur:0,left:LIMIT,start:Date.now(),field,label};
   const render=()=>{
     const q=E.qs[E.cur];const m=Math.floor(E.left/60),s=E.left%60;
     app.innerHTML=`
-    <div class="exam-top"><div><div class="note">第${SET.round+1}回　${E.ans.filter(a=>a!=null).length}/10問 回答済み</div><div class="timer ${E.left<=60?"low":""}" id="tm">${m}:${String(s).padStart(2,"0")}</div></div><button class="btn" id="fin">採点する</button></div>
+    <div class="exam-top"><div><div class="note">${E.label}　${E.ans.filter(a=>a!=null).length}/10問 回答済み</div><div class="timer ${E.left<=60?"low":""}" id="tm">${m}:${String(s).padStart(2,"0")}</div></div><button class="btn" id="fin">採点する</button></div>
     <div class="dots">${E.qs.map((_,k)=>`<button class="dot ${E.ans[k]!=null?"ans":""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
     <article class="card"><div class="meta">問${E.cur+1}　${FIELDS.find(x=>x[0]===q.f)[1]}</div><p class="stmt">${q.s}</p>
     ${canSpeak?`<button class="btn" id="spk" style="align-self:flex-start;font-weight:500;font-size:.85rem">読み上げ</button>`:""}
@@ -308,7 +358,9 @@ function startExam(){
     $("#yes").onclick=finish;$("#no").onclick=()=>$("#cf").innerHTML=""};
   const finish=()=>{clearInterval(timerId);if(canSpeak)speechSynthesis.cancel();
     const used=LIMIT-E.left;let sc=0;E.qs.forEach((q,k)=>{const ok=E.ans[k]===q.a;if(ok)sc++;rec(q,ok)});
-    LOG.push({at:new Date(Date.now()+9*3600e3).toISOString().slice(0,19),round:SET.round+1,score:sc,sec:used});SET.scores[SET.round]=sc;SET.round=(SET.round+1)%5;const setDone=SET.round===0;const setScores=[...SET.scores];if(setDone)SET.scores=[];save();
+    const at=new Date(Date.now()+9*3600e3).toISOString().slice(0,19);
+    if(E.field){LOG.push({at,round:0,field:E.field,score:sc,sec:used});save();result(E,sc,used,null);return}
+    LOG.push({at,round:SET.round+1,score:sc,sec:used});SET.scores[SET.round]=sc;SET.round=(SET.round+1)%5;const setDone=SET.round===0;const setScores=[...SET.scores];if(setDone)SET.scores=[];save();
     result(E,sc,used,setDone?setScores:null)};
   render(); if(voice)speak(E.qs[0].s);
   clearInterval(timerId);
@@ -323,20 +375,20 @@ function result(E,sc,used,setScores){
   if(setScores){const tot=setScores.reduce((a,b)=>a+b,0);const sj=tot>=37?["j-ok","安全圏"]:tot>=35?["j-mid","合格ライン（7割）"]:["j-ng","あと"+(35-tot)+"点で7割"];
     setHtml=`<section class="card"><h2>5回セットの合計（本試験1回分）</h2><div class="row"><span class="big">${tot}<span style="font-size:1.2rem"> / 50</span></span><span class="judge ${sj[0]}">${sj[1]}</span></div><p class="note">各回：${setScores.map((s,k)=>`第${k+1}回 ${s}点`).join("　")}</p></section>`}
   app.innerHTML=`
-  <section class="card"><h2>第${(SET.round+4)%5+1}回の結果</h2>
+  <section class="card"><h2>${E.field?E.label+"の結果":`第${(SET.round+4)%5+1}回の結果`}</h2>
     <div class="row"><span class="big">${sc}<span style="font-size:1.2rem"> / 10</span></span><span class="judge ${jc}">${jt}</span></div>
     <p class="note">かかった時間 ${Math.floor(used/60)}分${used%60}秒 / 10分</p>
     ${wrongItems.length?`<p class="note">間違えた論点ごとに「解説 → 付随する論点 → 過去問の確認例題3問」の順で復習します。</p>
     <button class="btn pri" id="allw">間違えた${wrongItems.length}論点を復習する</button>
-    <div class="row">${wrongItems.map((w,j)=>`<button class="btn" data-w="${j}">${w.key.split("|")[1]}だけ</button>`).join("")}</div>`:`<p>全問正解です。次の回に進みましょう。</p>`}
-    <div class="row"><button class="btn" id="home">ホームへ</button><button class="btn" id="nx">第${SET.round+1}回へ進む</button></div>
+    <div class="row">${wrongItems.map((w,j)=>`<button class="btn" data-w="${j}">${w.key.split("|")[1]}だけ</button>`).join("")}</div>`:`<p>全問正解です。${E.field?"続けて解くと見込みの精度が上がります。":"次の回に進みましょう。"}</p>`}
+    <div class="row"><button class="btn" id="home">ホームへ</button><button class="btn" id="nx">${E.field?`もう一度 ${FNAME(E.field)} 10問`:`第${SET.round+1}回へ進む`}</button></div>
   </section>
   ${setHtml}
   <section class="rv">${E.qs.map((q,k)=>{const ok=E.ans[k]===q.a;return `<article class="card"><div class="meta">問${k+1}　${q.t}　${q.ref==="確認"?"確認問題":q.ref}</div><p class="stmt">${q.s}</p>
     <div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　あなた：${E.ans[k]==null?"未回答":E.ans[k]?"○":"×"}　答え：${q.a?"○":"×"}</span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div></article>`}).join("")}</section>`;
   document.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>startReview([wrongItems[+b.dataset.w]]));
   if(wrongItems.length)$("#allw").onclick=()=>startReview(wrongItems);
-  $("#home").onclick=home;$("#nx").onclick=()=>startExam();
+  $("#home").onclick=home;$("#nx").onclick=()=>startExam(E.field);
   window.scrollTo(0,0);
 }
 
