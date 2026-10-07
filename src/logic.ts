@@ -177,3 +177,27 @@ export function relatedBranch(sys: LessonSys, q?: Q): { branch: number; item: nu
   if (branch >= 0) sys.tree[branch].items.forEach((it, j) => { const sc = overlap(qb, bigrams(it)); if (sc > bi) { bi = sc; item = j; } });
   return { branch, item };
 }
+
+// 間違えた問題に関係する表の行だけを抜き出す（最も関係の深い表から最大4行）
+export function relatedRows(sys: LessonSys, q?: Q): { table: SysTable; rows: string[][] } | null {
+  if (!q) return null;
+  const qb = bigrams(q.s + q.e);
+  let best: { table: SysTable; rows: string[][]; sc: number } | null = null;
+  sys.tables.forEach(table => {
+    const top = table.rows.map((r, i) => ({ r, i, sc: overlap(qb, bigrams(r.join(''))) }))
+      .filter(o => o.sc >= 2).sort((a, b) => b.sc - a.sc).slice(0, 4).sort((a, b) => a.i - b.i);
+    const sc = top.reduce((a, o) => a + o.sc, 0);
+    if (top.length && (!best || sc > best.sc)) best = { table, rows: top.map(o => o.r), sc };
+  });
+  return best ? { table: (best as { table: SysTable }).table, rows: (best as { rows: string[][] }).rows } : null;
+}
+
+// 間違えた問題に関係するひっかけ（最大2件。見つからなければ先頭1件）
+export function relatedTraps(lesson: Lesson, q?: Q): string[] {
+  const traps = lesson.traps || [];
+  if (!q) return traps.slice(0, 2);
+  const qb = bigrams(q.s + q.e);
+  const r = traps.map(x => ({ x, sc: overlap(qb, bigrams(x)) })).filter(o => o.sc >= 2)
+    .sort((a, b) => b.sc - a.sc).slice(0, 2).map(o => o.x);
+  return r.length ? r : traps.slice(0, 1);
+}

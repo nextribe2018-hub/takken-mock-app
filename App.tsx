@@ -8,7 +8,7 @@ import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
 import {
   BANK, FIELDS, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
-  fieldName, finishExam, judge, judgeSet, LessonSys, rec, relatedBranch, speechText, topicState, topicStats, wrongTopics,
+  fieldName, finishExam, judge, judgeSet, LessonSys, rec, relatedBranch, relatedRows, relatedTraps, speechText, topicState, topicStats, wrongTopics,
 } from './src/logic';
 import { loadProgress, saveProgress } from './src/storage';
 import { Colors, fonts, useColors } from './src/theme';
@@ -21,7 +21,8 @@ type Screen =
   | { name: 'exam'; qs: Q[]; round: number }
   | { name: 'result'; qs: Q[]; ans: Ans[]; score: number; round: number; used: number; setScores: number[] | null }
   | { name: 'lesson'; queue: ReviewItem[] }
-  | { name: 'check'; item: ReviewItem; rest: ReviewItem[]; qs: Q[] };
+  | { name: 'check'; item: ReviewItem; rest: ReviewItem[]; qs: Q[] }
+  | { name: 'deep'; key: string; focus: number; missed?: Q; back: Screen; trail: string[] };
 
 export default function App() {
   return (
@@ -37,6 +38,12 @@ function Root() {
   const [p, setP] = useState<Progress | null>(null);
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
   const scrollRef = useRef<ScrollView>(null);
+  const contentRef = useRef<View>(null);
+  // 体系ページで、押した項目の位置までスクロールする
+  const scrollToNode = useCallback((node: View | null) => {
+    if (!node || !contentRef.current) return;
+    node.measureLayout(contentRef.current, (_x, y) => scrollRef.current?.scrollTo({ y: Math.max(0, y - 80), animated: true }), () => {});
+  }, []);
 
   useEffect(() => { loadProgress().then(setP); }, []);
 
@@ -55,16 +62,19 @@ function Root() {
     return <View style={[st.fill, st.center]}><ActivityIndicator color={c.ai} /></View>;
   }
 
-  const ctx: Ctx = { c, st, p, update, go, speak };
+  const ctx: Ctx = { c, st, p, update, go, speak, scrollToNode, screen };
   return (
     <SafeAreaView style={st.fill} edges={['top', 'left', 'right']}>
       <StatusBar style="auto" />
-      <ScrollView ref={scrollRef} contentContainerStyle={st.wrap}>
+      <ScrollView ref={scrollRef}>
+        <View ref={contentRef} collapsable={false} style={st.wrap}>
         {screen.name === 'home' && <Home ctx={ctx} />}
         {screen.name === 'exam' && <Exam ctx={ctx} qs={screen.qs} round={screen.round} />}
         {screen.name === 'result' && <Result ctx={ctx} s={screen} />}
         {screen.name === 'lesson' && <LessonView ctx={ctx} queue={screen.queue} />}
         {screen.name === 'check' && <Check ctx={ctx} item={screen.item} rest={screen.rest} qs={screen.qs} />}
+        {screen.name === 'deep' && <DeepView key={screen.key + screen.focus} ctx={ctx} s={screen} />}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -73,6 +83,7 @@ function Root() {
 type Ctx = {
   c: Colors; st: ReturnType<typeof makeStyles>; p: Progress;
   update: (p: Progress) => void; go: (s: Screen) => void; speak: (t: string) => void;
+  scrollToNode: (node: View | null) => void; screen: Screen;
 };
 
 /* ---------- 共通部品 ---------- */
@@ -382,8 +393,12 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
   const item = queue[0];
   const [f, t] = item.key.split('|');
   const L = LESSON[item.key] || { pts: [], traps: [], rel: [] };
-  useEffect(() => { if (p.voice && L.pts.length) speak(`${t}の要点。${L.pts.join('。')}`); }, [item.key]); // eslint-disable-line react-hooks/exhaustive-deps
-  const rel = (L.rel || []).filter(k => LESSON[k]);
+  useEffect(() => {
+    if (!p.voice) return;
+    const h = L.sys ? relatedBranch(L.sys, item.missed?.q) : { branch: -1 };
+    if (L.sys && h.branch >= 0) speak(`${t}、${L.sys.tree[h.branch].h}。${L.sys.tree[h.branch].items.join('。')}`);
+    else if (L.pts.length) speak(`${t}の要点。${L.pts.slice(0, 4).join('。')}`);
+  }, [item.key]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
       <View style={st.rowBetween}>
@@ -400,9 +415,131 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
           <Explain ctx={ctx} q={item.missed.q} your={item.missed.your} ok={false} />
         </Card>
       )}
-      {L.sys && <SysView ctx={ctx} sys={L.sys} title={t} missed={item.missed?.q} />}
+      <FocusView ctx={ctx} k={item.key} missed={item.missed?.q} />
+      <Btn ctx={ctx} primary label="確認例題3問へ"
+        onPress={() => go({ name: 'check', item, rest: queue.slice(1), qs: checkQuestions(p.hist, item.key, item.missed?.q) })} />
+    </>
+  );
+}
+
+/* ---------- 1段目：間違えた範囲に絞った解説＋体系へのリンク ---------- */
+function Chip({ ctx, label, no, on, dashed, onPress }: { ctx: Ctx; label: string; no?: number; on?: boolean; dashed?: boolean; onPress: () => void }) {
+  const { c, st } = ctx;
+  return (
+    <Pressable onPress={onPress} style={({ pressed }) => [st.chip, { flexDirection: 'row', alignItems: 'center', gap: 6, borderColor: on ? c.ng : c.line, backgroundColor: on ? c.ngSoft : c.paper }, dashed && { borderStyle: 'dashed' }, pressed && st.pressed]}>
+      {no != null && <View style={st.sysNo}><Text style={st.sysNoText}>{no}</Text></View>}
+      <Text style={[st.chipText, on && { color: c.ng, fontWeight: '700' }, dashed && { color: c.ai }]}>{label}</Text>
+    </Pressable>
+  );
+}
+function TableView({ ctx, title, head, rows, note }: { ctx: Ctx; title: string; head: string[]; rows: string[][]; note?: string }) {
+  const { c, st } = ctx;
+  return (
+    <View style={{ gap: 6 }}>
+      <Text style={st.bold}>{title}</Text>
+      <View style={st.tblWrap}>
+        <View style={[st.tblRow, { backgroundColor: c.aiSoft }]}>
+          {head.map((h, k) => <Text key={k} style={[st.tblCell, st.tblHead, k === 0 && st.tblFirst]}>{h}</Text>)}
+        </View>
+        {rows.map((r, ri) => (
+          <View key={ri} style={[st.tblRow, ri % 2 === 1 && { backgroundColor: c.bg }]}>
+            {r.map((cell, k) => {
+              const m = markOf(cell);
+              return <Text key={k} style={[st.tblCell, k === 0 && st.tblFirst, m === 'o' && { color: c.ok, fontWeight: '700' }, m === 'x' && { color: c.ng, fontWeight: '700' }]}>{cell}</Text>;
+            })}
+          </View>
+        ))}
+      </View>
+      {!!note && <Text style={st.note}>{note}</Text>}
+    </View>
+  );
+}
+function FocusView({ ctx, k, missed }: { ctx: Ctx; k: string; missed?: Q }) {
+  const { c, st, go, screen } = ctx;
+  const L = LESSON[k] || { pts: [], traps: [], rel: [] };
+  const t = k.split('|')[1];
+  const S = L.sys;
+  const hit = S ? relatedBranch(S, missed) : { branch: -1, item: -1 };
+  const rows = S ? relatedRows(S, missed) : null;
+  const traps = relatedTraps(L, missed);
+  const rel = (L.rel || []).filter(x => LESSON[x]);
+  const deep = (key: string, focus: number, m?: Q, trail: string[] = []) => go({ name: 'deep', key, focus, missed: m, back: screen, trail });
+  return (
+    <>
       <Card ctx={ctx}>
-        <Text style={st.meta}>要点のまとめ　{fieldName(f as Q['f'])}</Text>
+        <Text style={st.meta}>間違えた範囲の解説</Text>
+        <Text style={st.h2}>{S && hit.branch >= 0 ? `${t}：${S.tree[hit.branch].h}` : `${t}の要点`}</Text>
+        {S && hit.branch >= 0 ? (
+          <View style={[st.sysBox, { borderColor: c.ng, borderWidth: 2, backgroundColor: c.ngSoft }]}>
+            <View style={st.sysHead}>
+              <View style={st.sysNo}><Text style={st.sysNoText}>{hit.branch + 1}</Text></View>
+              <Text style={st.bold}>{S.tree[hit.branch].h}</Text>
+              <Text style={st.sysTag}>間違えた範囲</Text>
+            </View>
+            {S.tree[hit.branch].items.map((it, j) => (
+              <Text key={j} style={[st.sysItem, j === hit.item && { color: c.ng, fontWeight: '700' }]}>・{it}</Text>
+            ))}
+          </View>
+        ) : L.pts.slice(0, 4).map((x, i) => <Text key={i} style={st.li}>・{x}</Text>)}
+        {rows && <TableView ctx={ctx} title={rows.table.title} head={rows.table.head} rows={rows.rows}
+          note={rows.rows.length < rows.table.rows.length ? `表の一部（${rows.rows.length}／${rows.table.rows.length}行）。全体は「体系的に学ぶ」で。` : undefined} />}
+        {traps.length > 0 && (
+          <View style={[st.res, { backgroundColor: c.warnSoft, borderLeftColor: c.warn }]}>
+            <Text style={[st.resHead, { color: c.warn }]}>この範囲のひっかけ</Text>
+            {traps.map((x, i) => <Text key={i} style={st.li}>・{x}</Text>)}
+          </View>
+        )}
+      </Card>
+      {S && (
+        <Card ctx={ctx}>
+          <Text style={st.meta}>体系的に広げる</Text>
+          <Text style={st.note}>「{t}」は全{S.tree.length}項目。項目を押すと、その場所から詳しい解説を開きます。</Text>
+          <View style={st.wrapRow}>
+            {S.tree.map((b, i) => <Chip key={i} ctx={ctx} no={i + 1} label={b.h} on={i === hit.branch} onPress={() => deep(k, i, missed)} />)}
+          </View>
+          <Pressable onPress={() => deep(k, -1, missed)} style={({ pressed }) => [st.deepLink, pressed && st.pressed]}>
+            <Text style={[st.bold, { color: c.ai }]}>{t}を体系的に学ぶ　→</Text>
+            <Text style={st.note}>全体像・流れ図・比較表・要点</Text>
+          </Pressable>
+          {rel.length > 0 && (
+            <View style={{ gap: 6 }}>
+              {!!L.bridge && <Text style={st.note}>{L.bridge}</Text>}
+              <View style={st.wrapRow}>
+                {rel.map(x => <Chip key={x} ctx={ctx} dashed label={`${x.split('|')[1]} →`} onPress={() => deep(x, -1, undefined, [k])} />)}
+              </View>
+            </View>
+          )}
+        </Card>
+      )}
+    </>
+  );
+}
+
+/* ---------- 2段目：論点を体系的に深く学ぶページ ---------- */
+function DeepView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'deep' }> }) {
+  const { c, st, go, scrollToNode } = ctx;
+  const L = LESSON[s.key] || { pts: [], traps: [], rel: [] };
+  const t = s.key.split('|')[1];
+  const rel = (L.rel || []).filter(x => LESSON[x]);
+  const focusRef = useRef<View>(null);
+  useEffect(() => {
+    if (s.focus < 0) return;
+    const id = setTimeout(() => scrollToNode(focusRef.current), 120);
+    return () => clearTimeout(id);
+  }, [s.key, s.focus, scrollToNode]);
+  const back = () => go(s.back);
+  return (
+    <>
+      <View style={st.rowBetween}>
+        <View style={{ flex: 1 }}>
+          <Text style={st.note}>体系的に学ぶ{s.trail.length ? '　' + s.trail.map(x => x.split('|')[1]).join(' › ') + ' ›' : ''}</Text>
+          <Text style={st.bold}>{t}</Text>
+        </View>
+        <Btn ctx={ctx} label="← 復習に戻る" onPress={back} />
+      </View>
+      {L.sys && <SysView ctx={ctx} sys={L.sys} title={t} missed={s.missed} focus={s.focus} focusRef={focusRef} />}
+      <Card ctx={ctx}>
+        <Text style={st.meta}>要点のまとめ　{fieldName(s.key.split('|')[0] as Q['f'])}</Text>
         <Text style={st.h2}>{t}の要点</Text>
         {L.pts.map((x, i) => <Text key={i} style={st.li}>・{x}</Text>)}
         {L.traps?.length > 0 && (
@@ -414,18 +551,15 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
       </Card>
       {rel.length > 0 && (
         <Card ctx={ctx}>
-          <Text style={st.meta}>付随する論点</Text>
+          <Text style={st.meta}>つながる論点</Text>
           {!!L.bridge && <Text style={st.body}>{L.bridge}</Text>}
-          {rel.map(k => (
-            <View key={k} style={st.kpiWide}>
-              <Text style={st.bold}>{k.split('|')[1]}</Text>
-              {LESSON[k].pts.slice(0, 3).map((x, i) => <Text key={i} style={st.li}>・{x}</Text>)}
-            </View>
-          ))}
+          <View style={st.wrapRow}>
+            {rel.map(x => <Chip key={x} ctx={ctx} dashed label={`${x.split('|')[1]} →`}
+              onPress={() => go({ name: 'deep', key: x, focus: -1, back: s.back, trail: [...s.trail, s.key] })} />)}
+          </View>
         </Card>
       )}
-      <Btn ctx={ctx} primary label="確認例題3問へ"
-        onPress={() => go({ name: 'check', item, rest: queue.slice(1), qs: checkQuestions(p.hist, item.key, item.missed?.q) })} />
+      <Btn ctx={ctx} primary label="← 復習に戻る" onPress={back} />
     </>
   );
 }
@@ -434,7 +568,7 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
 const markOf = (x: string): 'o' | 'x' | null =>
   /^(○|◯|必要|可|あり|できる)/.test(x) ? 'o' : /^(×|✕|不要|不可|なし|できない)/.test(x) ? 'x' : null;
 
-function SysView({ ctx, sys, title, missed }: { ctx: Ctx; sys: LessonSys; title: string; missed?: Q }) {
+function SysView({ ctx, sys, title, missed, focus = -1, focusRef }: { ctx: Ctx; sys: LessonSys; title: string; missed?: Q; focus?: number; focusRef?: React.RefObject<View | null> }) {
   const { c, st } = ctx;
   const hit = relatedBranch(sys, missed);
   return (
@@ -448,13 +582,13 @@ function SysView({ ctx, sys, title, missed }: { ctx: Ctx; sys: LessonSys; title:
           {sys.tree.map((b, i) => {
             const on = i === hit.branch;
             return (
-              <View key={i} style={st.sysRow}>
+              <View key={i} style={[st.sysRow, i === focus && st.sysFocus]} ref={i === focus ? focusRef : undefined} collapsable={false}>
                 <View style={[st.sysConn, on && { borderTopColor: c.ng }]} />
                 <View style={[st.sysBox, on && { borderColor: c.ng, borderWidth: 2, backgroundColor: c.ngSoft }]}>
                   <View style={st.sysHead}>
                     <View style={st.sysNo}><Text style={st.sysNoText}>{i + 1}</Text></View>
                     <Text style={st.bold}>{b.h}</Text>
-                    {on && <Text style={st.sysTag}>間違えた問題はここ</Text>}
+                    {on && <Text style={st.sysTag}>間違えた範囲</Text>}
                   </View>
                   {b.items.map((it, j) => (
                     <Text key={j} style={[st.sysItem, on && j === hit.item && { color: c.ng, fontWeight: '700' }]}>・{it}</Text>
@@ -654,5 +788,7 @@ function makeStyles(c: Colors) {
     tblCell: { flex: 1, paddingVertical: 7, paddingHorizontal: 8, fontSize: 13, lineHeight: 19, color: c.ink, fontFamily: fonts.body },
     tblHead: { fontWeight: '700' },
     tblFirst: { flex: 1.3, fontWeight: '700' },
+    sysFocus: { borderWidth: 3, borderColor: c.ai, borderRadius: 12, padding: 2 },
+    deepLink: { borderWidth: 1, borderColor: c.ai, borderRadius: 8, padding: 12, gap: 2 },
   });
 }

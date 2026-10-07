@@ -98,6 +98,17 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .st tr:nth-child(even) td{background:color-mix(in srgb,var(--bg) 60%,transparent)}
 .st .o{color:var(--ok);font-weight:700}.st .x{color:var(--ng);font-weight:700}
 .tbls{display:flex;flex-direction:column;gap:14px}
+.mini{display:flex;flex-wrap:wrap;gap:6px}
+.mchip{font:inherit;font-size:.82rem;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.mchip .no{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:50%;background:var(--ai-soft);color:var(--ai);font-size:.7rem;font-weight:700}
+.mchip.on{border-color:var(--ng);background:var(--ng-soft);color:var(--ng);font-weight:700}
+.mchip.rel{border-style:dashed;color:var(--ai)}
+.deeplink{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border-color:var(--ai);color:var(--ai)}
+.deeplink::after{content:"→";position:absolute;right:16px}
+.deeplink{position:relative;padding-right:36px}
+.sub2{font-size:.78rem;font-weight:500;color:var(--muted)}
+.br.focus{outline:3px solid var(--ai);outline-offset:2px}
+.card>.br::before{display:none}
 .sync{font-size:.78rem;margin:4px 0 0;color:var(--muted)}
 .sync[data-s="ok"]{color:var(--ok)}
 .sync[data-s="err"]{color:var(--ng)}
@@ -335,37 +346,84 @@ const esc=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"
 function bigr(x){const s=String(x).replace(/[\s、。・：（）()「」，,．.0-9０-９]/g,"");const o=new Set();for(let i=0;i<s.length-1;i++)o.add(s.slice(i,i+2));return o}
 function overlap(a,b){let n=0;b.forEach(x=>{if(a.has(x))n++});return n}
 function cellHtml(x){x=esc(x);if(/^(○|◯|必要|可|あり|できる)/.test(x))return `<span class="o">${x}</span>`;if(/^(×|✕|不要|不可|なし|できない)/.test(x))return `<span class="x">${x}</span>`;return x}
-function sysHtml(key,missed){
-  const S=(LESSON[key]||{}).sys;if(!S)return "";const t=key.split("|")[1];
-  let hitB=-1,hitI=-1;
-  if(missed){const qb=bigr(missed.q.s+missed.q.e);let best=1;
-    S.tree.forEach((b,i)=>{const sc=overlap(qb,bigr(b.h+b.items.join("")));if(sc>best){best=sc;hitB=i}});
-    if(hitB>=0){let bi=0;S.tree[hitB].items.forEach((it,j)=>{const sc=overlap(qb,bigr(it));if(sc>bi){bi=sc;hitI=j}})}}
-  const tree=`<div class="systree"><div class="sysroot">${esc(t)}</div><div class="sysbr">${S.tree.map((b,i)=>`<div class="br ${i===hitB?"hit":""}"><h4><span class="no">${i+1}</span>${esc(b.h)}${i===hitB?`<span class="tag">間違えた問題はここ</span>`:""}</h4><ul>${b.items.map((it,j)=>`<li class="${i===hitB&&j===hitI?"hit":""}">${esc(it)}</li>`).join("")}</ul></div>`).join("")}</div></div>`;
-  const flow=S.flow&&S.flow.steps&&S.flow.steps.length?`<article class="card"><div class="meta">流れで覚える</div><h2>${esc(S.flow.title)}</h2><ol class="flow">${S.flow.steps.map((x,i)=>`<li><span class="n">${i+1}</span><span class="s">${esc(x)}</span></li>`).join("")}</ol></article>`:"";
-  const tbls=S.tables&&S.tables.length?`<article class="card"><div class="meta">比較表・数字</div><div class="tbls">${S.tables.map(tb=>`<div><div style="font-weight:700;margin-bottom:6px">${esc(tb.title)}</div><div class="tw"><table class="st"><thead><tr>${tb.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${tb.rows.map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div></div>`).join("")}</div></article>`:"";
-  return `<article class="card"><div class="meta">全体像（体系図）</div><h2>${esc(t)}の全体像</h2><p class="ov">${esc(S.overview)}</p>${tree}</article>${flow}${tbls}`;
+// 間違えた問題に最も関係する枝・項目を推定（2文字組の重なり）
+function hitOf(S,missed){
+  let b=-1,it=-1;if(!S||!missed)return {b,it};
+  const qb=bigr(missed.q.s+missed.q.e);let best=1;
+  S.tree.forEach((x,i)=>{const sc=overlap(qb,bigr(x.h+x.items.join("")));if(sc>best){best=sc;b=i}});
+  if(b>=0){let bi=0;S.tree[b].items.forEach((x,j)=>{const sc=overlap(qb,bigr(x));if(sc>bi){bi=sc;it=j}})}
+  return {b,it};
 }
-function lessonHtml(key,missed){
-  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const [f,t]=key.split("|");
-  const relH=(L.rel||[]).filter(k=>LESSON[k]).map(k=>`<div class="kp"><b style="font-size:1rem">${k.split("|")[1]}</b><ul class="ul">${LESSON[k].pts.slice(0,3).map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
-  return `
-  ${missed?`<article class="card"><div class="meta">あなたが間違えた問題　${missed.q.ref==="確認"?"確認問題":missed.q.ref}</div><p class="stmt">${missed.q.s}</p>
-    <div class="res ng"><span class="v">あなた：${missed.your==null?"未回答":missed.your?"○":"×"}　答え：${missed.q.a?"○":"×"}</span><span>${missed.q.e}</span><span class="memo">覚え方：<b>${missed.q.m}</b></span></div></article>`:""}
-  ${sysHtml(key,missed)}
-  <article class="card"><div class="meta">要点のまとめ　${FIELDS.find(x=>x[0]===f)[1]}</div><h2>${t}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${x}</li>`).join("")}</ul>
-    ${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:""}</article>
-  ${relH?`<article class="card"><div class="meta">付随する論点</div><p style="margin:0">${L.bridge||""}</p><div class="relg">${relH}</div></article>`:""}`;
+const brHtml=(x,i,hit,tag)=>`<div class="br ${hit.b===i?"hit":""}" id="br-${i}"><h4><span class="no">${i+1}</span>${esc(x.h)}${hit.b===i&&tag?`<span class="tag">${tag}</span>`:""}</h4><ul>${x.items.map((y,j)=>`<li class="${hit.b===i&&hit.it===j?"hit":""}">${esc(y)}</li>`).join("")}</ul></div>`;
+const tblHtml=(tb,rows,note)=>`<div><div style="font-weight:700;margin-bottom:6px">${esc(tb.title)}</div><div class="tw"><table class="st"><thead><tr>${tb.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${note?`<p class="note" style="margin:4px 0 0">${note}</p>`:""}</div>`;
+const missedHtml=missed=>missed?`<article class="card"><div class="meta">あなたが間違えた問題　${missed.q.ref==="確認"?"確認問題":missed.q.ref}</div><p class="stmt">${missed.q.s}</p>
+    <div class="res ng"><span class="v">あなた：${missed.your==null?"未回答":missed.your?"○":"×"}　答え：${missed.q.a?"○":"×"}</span><span>${missed.q.e}</span><span class="memo">覚え方：<b>${missed.q.m}</b></span></div></article>`:"";
+
+/* 1段目：間違えた範囲だけに絞った解説＋体系へのリンク */
+function focusHtml(key,missed){
+  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const S=L.sys;const t=key.split("|")[1];
+  const qb=missed?bigr(missed.q.s+missed.q.e):null;
+  const hit=hitOf(S,missed);
+  let body="";
+  if(S&&hit.b>=0){body+=brHtml(S.tree[hit.b],hit.b,hit,"間違えた範囲")}
+  else{body+=`<ul class="ul">${L.pts.slice(0,4).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}
+  // 関係する表の行だけを抜き出す
+  if(S&&qb){let best=null;
+    S.tables.forEach(tb=>{const rs=tb.rows.map((r,i)=>({i,r,sc:overlap(qb,bigr(r.join("")))})).filter(o=>o.sc>=2);
+      const top=rs.sort((a,b)=>b.sc-a.sc).slice(0,4).sort((a,b)=>a.i-b.i);const sc=top.reduce((a,o)=>a+o.sc,0);
+      if(top.length&&(!best||sc>best.sc))best={tb,top,sc}});
+    if(best)body+=tblHtml(best.tb,best.top.map(o=>o.r),best.top.length<best.tb.rows.length?`表の一部（${best.top.length}／${best.tb.rows.length}行）。全体は下の「体系的に学ぶ」で。`:"")}
+  // 関係するひっかけ
+  let traps=L.traps||[];
+  if(qb){const r=traps.map(x=>({x,sc:overlap(qb,bigr(x))})).filter(o=>o.sc>=2).sort((a,b)=>b.sc-a.sc).slice(0,2).map(o=>o.x);traps=r.length?r:traps.slice(0,1)}else traps=traps.slice(0,2);
+  if(traps.length)body+=`<div class="trap"><b>この範囲のひっかけ</b><ul class="ul">${traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+  const head=S&&hit.b>=0?`${esc(t)}：${esc(S.tree[hit.b].h)}`:`${esc(t)}の要点`;
+  const map=S?`<div class="mini">${S.tree.map((x,i)=>`<button class="mchip ${i===hit.b?"on":""}" data-deep="${i}"><span class="no">${i+1}</span>${esc(x.h)}</button>`).join("")}</div>`:"";
+  const rel=(L.rel||[]).filter(k=>LESSON[k]);
+  return `<article class="card"><div class="meta">間違えた範囲の解説</div><h2>${head}</h2>${body}</article>
+  ${S?`<article class="card"><div class="meta">体系的に広げる</div><p class="note" style="margin:0">「${esc(t)}」は全${S.tree.length}項目。項目を押すと、その場所から詳しい解説を開きます。</p>${map}
+    <button class="btn deeplink" data-deep="all">${esc(t)}を体系的に学ぶ<span class="sub2">全体像・流れ図・比較表・要点</span></button>
+    ${rel.length?`<div><div class="note" style="margin-bottom:6px">${esc(L.bridge||"関連する論点")}</div><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></div>`:""}</article>`:""}`;
+}
+
+/* 2段目：論点を体系的に深く学ぶページ */
+function deepHtml(key,missed){
+  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const S=L.sys;const [f,t]=key.split("|");
+  const hit=hitOf(S,missed);
+  let h="";
+  if(S){
+    h+=`<article class="card"><div class="meta">全体像（体系図）　${FIELDS.find(x=>x[0]===f)[1]}</div><h2>${esc(t)}の全体像</h2><p class="ov">${esc(S.overview)}</p><div class="systree"><div class="sysroot">${esc(t)}</div><div class="sysbr">${S.tree.map((x,i)=>brHtml(x,i,hit,"間違えた範囲")).join("")}</div></div></article>`;
+    if(S.flow&&S.flow.steps&&S.flow.steps.length)h+=`<article class="card"><div class="meta">流れで覚える</div><h2>${esc(S.flow.title)}</h2><ol class="flow">${S.flow.steps.map((x,i)=>`<li><span class="n">${i+1}</span><span class="s">${esc(x)}</span></li>`).join("")}</ol></article>`;
+    if(S.tables&&S.tables.length)h+=`<article class="card"><div class="meta">比較表・数字</div><div class="tbls">${S.tables.map(tb=>tblHtml(tb,tb.rows,"")).join("")}</div></article>`;
+  }
+  h+=`<article class="card"><div class="meta">要点のまとめ</div><h2>${esc(t)}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</article>`;
+  const rel=(L.rel||[]).filter(k=>LESSON[k]);
+  if(rel.length)h+=`<article class="card"><div class="meta">つながる論点</div><p style="margin:0">${esc(L.bridge||"")}</p><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></article>`;
+  return h;
+}
+function deepView(key,focus,missed,back,trail){
+  trail=trail||[];const t=key.split("|")[1];
+  app.innerHTML=`<div class="exam-top"><div><div class="note">体系的に学ぶ${trail.length?"　"+trail.map(k=>esc(k.split("|")[1])).join(" › ")+" ›":""}</div><div style="font-weight:700">${esc(t)}</div></div><button class="btn" id="back">← 復習に戻る</button></div>
+  ${deepHtml(key,missed)}
+  <div class="row"><button class="btn pri" id="back2">← 復習に戻る</button></div>`;
+  $("#back").onclick=back;$("#back2").onclick=back;
+  document.querySelectorAll("[data-deeprel]").forEach(b=>b.onclick=()=>deepView(b.dataset.deeprel,-1,null,back,[...trail,key]));
+  if(focus>=0){const el=document.getElementById("br-"+focus);if(el){el.classList.add("focus");el.scrollIntoView({block:"center"});return}}
+  window.scrollTo(0,0);
 }
 function startReview(queue){ // queue: [{key, missed?}]
   if(!queue.length){home();return}
   const item=queue[0],rest=queue.slice(1);const key=item.key;const [f,t]=key.split("|");
   app.innerHTML=`<div class="exam-top"><div><div class="note">復習　残り${queue.length}論点</div><div style="font-weight:700">${t}</div></div><button class="btn" id="home">ホームへ</button></div>
-  ${lessonHtml(key,item.missed)}
+  ${missedHtml(item.missed)}
+  ${focusHtml(key,item.missed)}
   <div class="row"><button class="btn pri" id="toq">確認例題3問へ</button></div>`;
   $("#home").onclick=home;
   $("#toq").onclick=()=>checkQs(item,rest);
-  if(voice){const L=LESSON[key];if(L)speak(t+"の要点。"+L.pts.join("。"))}
+  const back=()=>startReview(queue);
+  document.querySelectorAll("[data-deep]").forEach(b=>b.onclick=()=>deepView(key,b.dataset.deep==="all"?-1:+b.dataset.deep,item.missed,back));
+  document.querySelectorAll("[data-deeprel]").forEach(b=>b.onclick=()=>deepView(b.dataset.deeprel,-1,null,back,[key]));
+  if(voice){const L=LESSON[key];if(L){const S=L.sys,h=hitOf(S,item.missed);speak(h.b>=0?t+"、"+S.tree[h.b].h+"。"+S.tree[h.b].items.join("。"):t+"の要点。"+L.pts.slice(0,4).join("。"))}}
   window.scrollTo(0,0);
 }
 function checkQs(item,rest){

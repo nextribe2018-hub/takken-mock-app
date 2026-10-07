@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, relatedBranch, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, relatedBranch, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -66,5 +66,15 @@ Object.entries(LESSON).forEach(([k, L]) => {
 let found = 0;
 BANK.forEach(q => { const s = LESSON[`${q.f}|${q.t}`].sys!; const h = relatedBranch(s, q); assert.ok(h.branch < s.tree.length); if (h.branch >= 0) found++; });
 console.log(`体系図の該当枝が見つかった問題: ${found} / ${BANK.length}`);
+
+// 9) 絞り込み解説：表の抜粋は最大4行で元の表の行に含まれる、ひっかけは最大2件
+let withRows = 0;
+BANK.forEach(q => {
+  const L = LESSON[`${q.f}|${q.t}`];
+  const r = relatedRows(L.sys!, q);
+  if (r) { withRows++; assert.ok(r.rows.length >= 1 && r.rows.length <= 4); r.rows.forEach(row => assert.ok(r.table.rows.includes(row))); }
+  const tr = relatedTraps(L, q); assert.ok(tr.length <= 2); tr.forEach(x => assert.ok(L.traps.includes(x)));
+});
+console.log(`関係する表の行が見つかった問題: ${withRows} / ${BANK.length}`);
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
