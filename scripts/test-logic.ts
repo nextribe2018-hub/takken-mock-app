@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, relatedBranch, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, relatedBranch, toExam, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -94,5 +94,10 @@ if (lo.ready && mid.ready && hi.ready) {
   assert.ok(lo.prob <= mid.prob && mid.prob <= hi.prob && lo.mean < mid.mean && mid.mean < hi.mean);
   console.log(`合格の見込み 正答率60%→${Math.round(lo.prob * 100)}%（${lo.mean.toFixed(1)}点） 80%→${Math.round(mid.prob * 100)}%（${mid.mean.toFixed(1)}点） 92%→${Math.round(hi.prob * 100)}%（${hi.mean.toFixed(1)}点）`);
 }
+
+// 12) ○×→4択の換算：全問正解なら1、○×80%→約62%、85%→約70%、単調増加
+assert.equal(toExam(1), 1);
+assert.ok(Math.abs(toExam(0.8) - 0.616) < 0.002 && Math.abs(toExam(0.85) - 0.700) < 0.002);
+for (let p = 0.3; p < 1; p += 0.05) assert.ok(toExam(p + 0.05) > toExam(p));
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);

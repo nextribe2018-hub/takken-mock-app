@@ -217,10 +217,15 @@ export function relatedTraps(lesson: Lesson, q?: Q): string[] {
 }
 
 /* ---------- 合格の見込み：○×の積み上げから本試験50問の得点を推定 ---------- */
-export const PASS_LINE = 36; // 近年の合格点はおおむね33〜37点。安全側に36点
+export const PASS_LINES = [33, 34, 35, 36, 37]; // 例年の合格点は33〜37点。どの点になるかは同じ確率と仮定
 export const EXAM_N: Record<Field, number> = { 業法: 20, 権利: 14, 法令: 8, 税他: 8 };
-// ○×の正答率 p を本試験（4択）の正答率へ控えめに換算
-export const toExam = (p: number) => Math.pow(p, 1.5);
+// ○×の正答率 p から4択1問の正答率を推計：4肢それぞれを確率pで正しく判定し、
+// 「正解の肢」と判断した肢が1つならそれを選び、複数なら候補から、1つもなければ4肢から当てずっぽう
+export function toExam(p: number): number {
+  const q = 1 - p;
+  const e = p ** 3 + (3 * q * p * p) / 2 + (3 * q * q * p) / 3 + q ** 3 / 4; // 正解肢を選べたとき、誤りの肢が候補に混じる場合の当選確率
+  return p * e + (q * p ** 3) / 4;
+}
 export type FieldStat = { n: number; c: number; q: number; tot: number };
 export function fieldStats(hist: Hist): Record<Field, FieldStat> {
   const o = {} as Record<Field, FieldStat>;
@@ -244,25 +249,29 @@ function gammaS(k: number, r: () => number): number {
 }
 export type PassEstimate =
   | { ready: false; total: number; st: Record<Field, FieldStat> }
-  | { ready: true; total: number; st: Record<Field, FieldStat>; prob: number; mean: number; lo: number; hi: number; exp: Record<Field, number>; focus: Field };
+  | { ready: true; total: number; st: Record<Field, FieldStat>; prob: number; byLine: number[]; ox: number; four: number; mean: number; lo: number; hi: number; exp: Record<Field, number>; focus: Field };
 // 分野ごとの正答率の不確かさ（ベータ分布）も含めて3,000回シミュレーション
 export function passEstimate(hist: Hist, sims = 3000): PassEstimate {
   const st = fieldStats(hist);
   const total = Object.values(st).reduce((a, s) => a + s.n, 0);
   if (total < 30) return { ready: false, total, st };
   const r = seeded(20261008);
-  let pass = 0; const sc: number[] = [];
+  const sc: number[] = [];
   for (let i = 0; i < sims; i++) {
     let x = 0;
     FIELDS.forEach(([f]) => {
       const s = st[f]; const a = gammaS(s.c + 1, r), b = gammaS(s.n - s.c + 1, r); const p = toExam(a / (a + b));
       for (let j = 0; j < EXAM_N[f]; j++) if (r() < p) x++;
     });
-    sc.push(x); if (x >= PASS_LINE) pass++;
+    sc.push(x);
   }
   sc.sort((a, b) => a - b);
+  const byLine = PASS_LINES.map(t => sc.filter(x => x >= t).length / sims);
+  const prob = byLine.reduce((a, b) => a + b, 0) / byLine.length;
+  const ox = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
   const exp = {} as Record<Field, number>;
   FIELDS.forEach(([f]) => { const s = st[f]; exp[f] = EXAM_N[f] * toExam((s.c + 1) / (s.n + 2)); });
   const focus = FIELDS.map(([f]) => f).sort((a, b) => (EXAM_N[b] - exp[b]) - (EXAM_N[a] - exp[a]))[0];
-  return { ready: true, total, st, prob: pass / sims, mean: sc.reduce((a, b) => a + b, 0) / sims, lo: sc[Math.floor(sims * 0.1)], hi: sc[Math.floor(sims * 0.9)], exp, focus };
+  const four = FIELDS.reduce((a, [f]) => a + exp[f], 0) / 50;
+  return { ready: true, total, st, prob, byLine, ox, four, mean: sc.reduce((a, b) => a + b, 0) / sims, lo: sc[Math.floor(sims * 0.1)], hi: sc[Math.floor(sims * 0.9)], exp, focus };
 }

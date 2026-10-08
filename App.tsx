@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
 import {
-  BANK, buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINE, passEstimate, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
+  BANK, buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
   fieldName, finishExam, judge, judgeSet, LessonSys, rec, relatedBranch, relatedRows, relatedTraps, speechText, topicState, topicStats, wrongTopics,
 } from './src/logic';
 import { loadProgress, saveProgress } from './src/storage';
@@ -290,13 +290,19 @@ function PassCard({ ctx }: { ctx: Ctx }) {
         <Text style={st.big}>{pct}<Text style={st.bigUnit}>%</Text></Text>
         <JudgeTag ctx={ctx} {...j} />
       </View>
-      <Text style={st.body}>予想得点 <Text style={st.bold}>{Math.round(P.mean)}点</Text> / 50（8割の確率で {P.lo}〜{P.hi}点）　合格ライン {PASS_LINE}点</Text>
+      <Text style={st.body}>○×正答率 <Text style={st.bold}>{Math.round(P.ox * 100)}%</Text> → 推定4択正答率 <Text style={st.bold}>{Math.round(P.four * 100)}%</Text> → 予想得点 <Text style={st.bold}>{Math.round(P.mean)}点</Text> / 50（8割の確率で {P.lo}〜{P.hi}点）</Text>
+      <View style={st.kpis}>
+        {PASS_LINES.filter((_, i) => i % 2 === 0).map(t => (
+          <Kpi key={t} ctx={ctx} label={`合格点${t}点の年`} value={`${Math.round(P.byLine[PASS_LINES.indexOf(t)] * 100)}%`} />
+        ))}
+      </View>
       {FIELDS.map(([f, n]) => {
         const s = P.st[f]; const e = P.exp[f];
         return (
           <View key={f} style={[st.passRow, f === P.focus && { backgroundColor: c.warnSoft }]}>
             <Text style={[st.bold, { width: 92 }]}>{n}</Text>
             <Text style={[st.note, { width: 44 }]}>{s.n ? `${Math.round((s.c / s.n) * 100)}%` : '—'}</Text>
+            <Text style={[st.note, { width: 40 }]}>{Math.round((e / EXAM_N[f]) * 100)}%</Text>
             <Text style={[st.note, { width: 64 }]}>{e.toFixed(1)}/{EXAM_N[f]}</Text>
             <View style={[st.barBg, { flex: 1 }]}><View style={[st.barFg, { width: `${Math.round((e / EXAM_N[f]) * 100)}%` }]} /></View>
           </View>
@@ -304,7 +310,7 @@ function PassCard({ ctx }: { ctx: Ctx }) {
       })}
       <Btn ctx={ctx} primary label={`いちばん伸ばせる「${fieldName(P.focus)}」の10問テスト`}
         onPress={() => go({ name: 'exam', qs: buildFieldExam(p.hist, P.focus), round: 0, field: P.focus })} />
-      <Text style={st.note}>これまでの全回答（{P.total}回）から本試験50問（業20・権14・法8・税8）の得点を3,000回シミュレーションした目安。○×は4択より当てやすいため正答率を控えめに換算（正答率^1.5）。登録講習の5問免除は考慮していません。合格を保証するものではありません。</Text>
+      <Text style={st.note}>見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率。行は分野・○×正答率・推定4択正答率・予想点。4択の推計は「4肢それぞれを○×と同じ正答率で判定し、迷えば候補から選ぶ」前提の計算（例：○×80%→4択62%、85%→70%、90%→79%）で、消去法が効く人にはやや厳しめ。全回答（{P.total}回）から本試験50問を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</Text>
     </Card>
   );
 }
