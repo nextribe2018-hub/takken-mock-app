@@ -219,13 +219,31 @@ export function relatedTraps(lesson: Lesson, q?: Q): string[] {
 /* ---------- 合格の見込み：○×の積み上げから本試験50問の得点を推定 ---------- */
 export const PASS_LINES = [33, 34, 35, 36, 37]; // 例年の合格点は33〜37点。どの点になるかは同じ確率と仮定
 export const EXAM_N: Record<Field, number> = { 業法: 20, 権利: 14, 法令: 8, 税他: 8 };
-// ○×の正答率 p から4択1問の正答率を推計：4肢それぞれを確率pで正しく判定し、
-// 「正解の肢」と判断した肢が1つならそれを選び、複数なら候補から、1つもなければ4肢から当てずっぽう
-export function toExam(p: number): number {
-  const q = 1 - p;
-  const e = p ** 3 + (3 * q * p * p) / 2 + (3 * q * q * p) / 3 + q ** 3 / 4; // 正解肢を選べたとき、誤りの肢が候補に混じる場合の当選確率
-  return p * e + (q * p ** 3) / 4;
+// ○×の正答率 p から4択1問の正答率を推計（消去法・2択への絞り込みを含む）
+// 各肢の判断：S＝確信して正しく判定／U＝迷う（○×なら半々で当たる）／W＝確信して誤る。○×正答率 p = S + U/2
+// k＝○×の誤りのうち「迷い」から来る割合（0＝誤りはすべて思い込み、1＝誤りはすべて迷い）
+// 4択の解き方：「これが正解」と確信した肢の中から、なければ消せなかった（迷う）肢の中から、それもなければ4肢から選ぶ
+export function toExam(p: number, k = 0.5): number {
+  if (p < 1) k = Math.min(k, p / (1 - p)); // 迷いの割合は ○×正答率と両立する範囲に収める
+  const u = 2 * (1 - p) * k, w = (1 - p) * (1 - k), s = Math.max(0, p - k * (1 - p));
+  const pr = [s, u, w];
+  let P = 0;
+  for (let i = 0; i < 81; i++) {
+    const st = [i % 3, Math.floor(i / 3) % 3, Math.floor(i / 9) % 3, Math.floor(i / 27) % 3]; // st[0]＝正解の肢
+    let q = 1; for (const x of st) q *= pr[x];
+    if (!q) continue;
+    const flag: number[] = [], uns: number[] = [];
+    st.forEach((x, j) => { if ((j === 0 && x === 0) || (j > 0 && x === 2)) flag.push(j); if (x === 1) uns.push(j); });
+    const cand = flag.length ? flag : uns.length ? uns : [0, 1, 2, 3];
+    if (cand.includes(0)) P += q / cand.length;
+  }
+  return P;
 }
+export const SCENARIOS = [
+  { k: 0, label: '慎重（誤りはすべて思い込み）' },
+  { k: 0.5, label: '標準（誤りの半分は迷い）' },
+  { k: 1, label: '消去法が効く（誤りはすべて迷い）' },
+];
 export type FieldStat = { n: number; c: number; q: number; tot: number };
 export function fieldStats(hist: Hist): Record<Field, FieldStat> {
   const o = {} as Record<Field, FieldStat>;
@@ -247,31 +265,41 @@ function gammaS(k: number, r: () => number): number {
     if (Math.log(u || 1e-12) < 0.5 * x * x + d * (1 - v + Math.log(v))) return d * v;
   }
 }
+type SimResult = { k: number; byLine: number[]; prob: number; mean: number; lo: number; hi: number; exp: Record<Field, number>; four: number };
+export type Scenario = SimResult & { label: string };
 export type PassEstimate =
   | { ready: false; total: number; st: Record<Field, FieldStat> }
-  | { ready: true; total: number; st: Record<Field, FieldStat>; prob: number; byLine: number[]; ox: number; four: number; mean: number; lo: number; hi: number; exp: Record<Field, number>; focus: Field };
-// 分野ごとの正答率の不確かさ（ベータ分布）も含めて3,000回シミュレーション
-export function passEstimate(hist: Hist, sims = 3000): PassEstimate {
-  const st = fieldStats(hist);
-  const total = Object.values(st).reduce((a, s) => a + s.n, 0);
-  if (total < 30) return { ready: false, total, st };
+  | ({ ready: true; total: number; st: Record<Field, FieldStat>; ox: number; scen: Scenario[]; focus: Field } & SimResult);
+// 分野ごとの正答率の不確かさ（ベータ分布）も含めて本試験50問をシミュレーション
+function simulate(st: Record<Field, FieldStat>, k: number, sims: number): SimResult {
   const r = seeded(20261008);
   const sc: number[] = [];
   for (let i = 0; i < sims; i++) {
     let x = 0;
     FIELDS.forEach(([f]) => {
-      const s = st[f]; const a = gammaS(s.c + 1, r), b = gammaS(s.n - s.c + 1, r); const p = toExam(a / (a + b));
+      const s = st[f]; const a = gammaS(s.c + 1, r), b = gammaS(s.n - s.c + 1, r); const p = toExam(a / (a + b), k);
       for (let j = 0; j < EXAM_N[f]; j++) if (r() < p) x++;
     });
     sc.push(x);
   }
   sc.sort((a, b) => a - b);
   const byLine = PASS_LINES.map(t => sc.filter(x => x >= t).length / sims);
-  const prob = byLine.reduce((a, b) => a + b, 0) / byLine.length;
-  const ox = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
   const exp = {} as Record<Field, number>;
-  FIELDS.forEach(([f]) => { const s = st[f]; exp[f] = EXAM_N[f] * toExam((s.c + 1) / (s.n + 2)); });
-  const focus = FIELDS.map(([f]) => f).sort((a, b) => (EXAM_N[b] - exp[b]) - (EXAM_N[a] - exp[a]))[0];
-  const four = FIELDS.reduce((a, [f]) => a + exp[f], 0) / 50;
-  return { ready: true, total, st, prob, byLine, ox, four, mean: sc.reduce((a, b) => a + b, 0) / sims, lo: sc[Math.floor(sims * 0.1)], hi: sc[Math.floor(sims * 0.9)], exp, focus };
+  FIELDS.forEach(([f]) => { const s = st[f]; exp[f] = EXAM_N[f] * toExam((s.c + 1) / (s.n + 2), k); });
+  return {
+    k, byLine, prob: byLine.reduce((a, b) => a + b, 0) / byLine.length,
+    mean: sc.reduce((a, b) => a + b, 0) / sims, lo: sc[Math.floor(sims * 0.1)], hi: sc[Math.floor(sims * 0.9)],
+    exp, four: FIELDS.reduce((a, [f]) => a + exp[f], 0) / 50,
+  };
+}
+// 見出しは「標準」（誤りの半分は迷い）。慎重・消去法が効く場合も併せて返す
+export function passEstimate(hist: Hist, sims = 3000): PassEstimate {
+  const st = fieldStats(hist);
+  const total = Object.values(st).reduce((a, s) => a + s.n, 0);
+  if (total < 30) return { ready: false, total, st };
+  const scen = SCENARIOS.map(x => ({ ...simulate(st, x.k, sims), label: x.label }));
+  const M = scen[1];
+  const ox = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
+  const focus = FIELDS.map(([f]) => f).sort((a, b) => (EXAM_N[b] - M.exp[b]) - (EXAM_N[a] - M.exp[a]))[0];
+  return { ready: true, total, st, ox, scen, focus, ...M };
 }

@@ -296,6 +296,19 @@ function PassCard({ ctx }: { ctx: Ctx }) {
           <Kpi key={t} ctx={ctx} label={`合格点${t}点の年`} value={`${Math.round(P.byLine[PASS_LINES.indexOf(t)] * 100)}%`} />
         ))}
       </View>
+      <View style={st.tblWrap}>
+        <View style={[st.tblRow, { backgroundColor: c.aiSoft }]}>
+          {['4択での解き方', '4択', '予想点', '合格率'].map((h, i) => <Text key={h} style={[st.tblCell, st.tblHead, i === 0 && { flex: 2.2 }]}>{h}</Text>)}
+        </View>
+        {P.scen.map((x, i) => (
+          <View key={x.k} style={[st.tblRow, i === 1 && { backgroundColor: c.warnSoft }]}>
+            <Text style={[st.tblCell, { flex: 2.2 }]}>{x.label}</Text>
+            <Text style={st.tblCell}>{Math.round(x.four * 100)}%</Text>
+            <Text style={st.tblCell}>{Math.round(x.mean)}点</Text>
+            <Text style={[st.tblCell, st.tblHead]}>{Math.round(x.prob * 100)}%</Text>
+          </View>
+        ))}
+      </View>
       {FIELDS.map(([f, n]) => {
         const s = P.st[f]; const e = P.exp[f];
         return (
@@ -310,7 +323,7 @@ function PassCard({ ctx }: { ctx: Ctx }) {
       })}
       <Btn ctx={ctx} primary label={`いちばん伸ばせる「${fieldName(P.focus)}」の10問テスト`}
         onPress={() => go({ name: 'exam', qs: buildFieldExam(p.hist, P.focus), round: 0, field: P.focus })} />
-      <Text style={st.note}>見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率。行は分野・○×正答率・推定4択正答率・予想点。4択の推計は「4肢それぞれを○×と同じ正答率で判定し、迷えば候補から選ぶ」前提の計算（例：○×80%→4択62%、85%→70%、90%→79%）で、消去法が効く人にはやや厳しめ。全回答（{P.total}回）から本試験50問を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</Text>
+      <Text style={st.note}>見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（大きな数字は「標準」）。4択の推計では各肢の判断を「確信して正しい／迷う（半々）／確信して誤る」に分け、確信した肢で選び、なければ消去法で迷う肢に絞って（多くは2択）選ぶとして計算。○×の誤りのうち迷いの割合で3通りを表示（○×80%なら4択は慎重62%・標準71%・消去法が効く82%）。全回答（{P.total}回）から本試験50問を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</Text>
     </Card>
   );
 }

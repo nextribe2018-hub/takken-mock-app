@@ -95,9 +95,11 @@ if (lo.ready && mid.ready && hi.ready) {
   console.log(`合格の見込み 正答率60%→${Math.round(lo.prob * 100)}%（${lo.mean.toFixed(1)}点） 80%→${Math.round(mid.prob * 100)}%（${mid.mean.toFixed(1)}点） 92%→${Math.round(hi.prob * 100)}%（${hi.mean.toFixed(1)}点）`);
 }
 
-// 12) ○×→4択の換算：全問正解なら1、○×80%→約62%、85%→約70%、単調増加
-assert.equal(toExam(1), 1);
-assert.ok(Math.abs(toExam(0.8) - 0.616) < 0.002 && Math.abs(toExam(0.85) - 0.700) < 0.002);
-for (let p = 0.3; p < 1; p += 0.05) assert.ok(toExam(p + 0.05) > toExam(p));
+// 12) ○×→4択の換算（消去法込み）：全問正解なら1。○×80%→慎重62%・標準71%・消去法82%。p・k に対して単調増加
+assert.ok(Math.abs(toExam(1) - 1) < 1e-9);
+assert.ok(Math.abs(toExam(0.8, 0) - 0.616) < 0.002 && Math.abs(toExam(0.85, 0) - 0.700) < 0.002);
+assert.ok(Math.abs(toExam(0.8, 0.5) - 0.714) < 0.002 && Math.abs(toExam(0.8, 1) - 0.818) < 0.002);
+for (let p = 0.3; p < 0.95; p += 0.05) for (const k of [0, 0.5, 1]) assert.ok(toExam(p + 0.05, k) > toExam(p, k));
+for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) && toExam(p, 0.5) < toExam(p, 1));
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
