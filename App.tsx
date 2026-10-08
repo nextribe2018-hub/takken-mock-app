@@ -369,10 +369,20 @@ function Exam({ ctx, qs, round, field }: { ctx: Ctx; qs: Q[]; round: number; fie
 
   const q = qs[cur];
   const choose = (v: 0 | 1) => {
+    if (field) {
+      // 分野別：その場で正誤と解説を表示（答えは確定）
+      if (ans[cur] != null) return;
+      const ok = v === qs[cur].a;
+      Haptics.notificationAsync(ok ? Haptics.NotificationFeedbackType.Success : Haptics.NotificationFeedbackType.Error).catch(() => {});
+      const next = [...ans]; next[cur] = v; setAns(next);
+      if (p.voice) speak(`${ok ? '正解。' : '不正解。'}答えは${qs[cur].a ? 'まる' : 'ばつ'}。${qs[cur].e}`);
+      return;
+    }
     Haptics.selectionAsync().catch(() => {});
     const next = [...ans]; next[cur] = v; setAns(next);
     if (cur < qs.length - 1) setCur(cur + 1);
   };
+  const locked = !!field && ans[cur] != null;
   const tryFinish = () => { if (ans.some(a => a == null)) setAsk(true); else finish(); };
   const un = ans.filter(a => a == null).length;
 
@@ -388,7 +398,9 @@ function Exam({ ctx, qs, round, field }: { ctx: Ctx; qs: Q[]; round: number; fie
       <View style={st.dots}>
         {qs.map((_, k) => (
           <Pressable key={k} onPress={() => setCur(k)} accessibilityLabel={`${k + 1}問目`}
-            style={[st.dot, ans[k] != null && { backgroundColor: c.aiSoft, borderColor: c.ai }, k === cur && { borderColor: c.ink, borderWidth: 2 }]}>
+            style={[st.dot, ans[k] != null && (field
+              ? (ans[k] === qs[k].a ? { backgroundColor: c.okSoft, borderColor: c.ok } : { backgroundColor: c.ngSoft, borderColor: c.ng })
+              : { backgroundColor: c.aiSoft, borderColor: c.ai }), k === cur && { borderColor: c.ink, borderWidth: 2 }]}>
             <Text style={st.dotText}>{k + 1}</Text>
           </Pressable>
         ))}
@@ -407,12 +419,13 @@ function Exam({ ctx, qs, round, field }: { ctx: Ctx; qs: Q[]; round: number; fie
         <Text style={st.stmt}>{q.s}</Text>
         <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="読み上げ" onPress={() => speak(q.s)} /></View>
         <View style={st.ox}>
-          <View style={{ flex: 1 }}><Btn ctx={ctx} big label="○" selected={ans[cur] === 1} onPress={() => choose(1)} /></View>
-          <View style={{ flex: 1 }}><Btn ctx={ctx} big label="×" selected={ans[cur] === 0} onPress={() => choose(0)} /></View>
+          <View style={{ flex: 1 }}><Btn ctx={ctx} big label="○" disabled={locked} selected={ans[cur] === 1} onPress={() => choose(1)} /></View>
+          <View style={{ flex: 1 }}><Btn ctx={ctx} big label="×" disabled={locked} selected={ans[cur] === 0} onPress={() => choose(0)} /></View>
         </View>
+        {locked && <Explain ctx={ctx} q={q} ok={ans[cur] === q.a} />}
         <View style={st.rowBetween}>
           <Btn ctx={ctx} label="前へ" disabled={cur === 0} onPress={() => setCur(cur - 1)} />
-          <Btn ctx={ctx} label={cur < qs.length - 1 ? '次へ' : '採点する'} onPress={() => (cur < qs.length - 1 ? setCur(cur + 1) : tryFinish())} />
+          <Btn ctx={ctx} primary={locked} label={cur < qs.length - 1 ? '次へ' : '採点する'} onPress={() => (cur < qs.length - 1 ? setCur(cur + 1) : tryFinish())} />
         </View>
       </Card>
     </>

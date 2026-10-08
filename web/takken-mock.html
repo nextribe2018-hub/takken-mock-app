@@ -109,6 +109,8 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .sub2{font-size:.78rem;font-weight:500;color:var(--muted)}
 .br.focus{outline:3px solid var(--ai);outline-offset:2px}
 .card>.br::before{display:none}
+.dot.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.dot.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}
 .pbar,.mbar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
 .pbar i,.mbar i{display:block;height:100%;background:var(--ai);border-radius:999px}
 .st tr.focus td{background:var(--warn-soft)}
@@ -353,13 +355,17 @@ function startExam(field){
     const q=E.qs[E.cur];const m=Math.floor(E.left/60),s=E.left%60;
     app.innerHTML=`
     <div class="exam-top"><div><div class="note">${E.label}　${E.ans.filter(a=>a!=null).length}/10問 回答済み</div><div class="timer ${E.left<=60?"low":""}" id="tm">${m}:${String(s).padStart(2,"0")}</div></div><button class="btn" id="fin">採点する</button></div>
-    <div class="dots">${E.qs.map((_,k)=>`<button class="dot ${E.ans[k]!=null?"ans":""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
+    <div class="dots">${E.qs.map((x,k)=>`<button class="dot ${E.ans[k]!=null?(E.field?(E.ans[k]===x.a?"okd":"ngd"):"ans"):""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
     <article class="card"><div class="meta">問${E.cur+1}　${FIELDS.find(x=>x[0]===q.f)[1]}</div><p class="stmt">${q.s}</p>
     ${canSpeak?`<button class="btn" id="spk" style="align-self:flex-start;font-weight:500;font-size:.85rem">読み上げ</button>`:""}
-    <div class="ox"><button class="btn ${E.ans[E.cur]===1?"sel":""}" id="o">○</button><button class="btn ${E.ans[E.cur]===0?"sel":""}" id="x">×</button></div>
-    <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${E.cur?"":"disabled"}>前へ</button><button class="btn" id="next">${E.cur<9?"次へ":"採点する"}</button></div></article>
+    <div class="ox"><button class="btn ${E.ans[E.cur]===1?"sel":""}" id="o" ${E.field&&E.ans[E.cur]!=null?"disabled":""}>○</button><button class="btn ${E.ans[E.cur]===0?"sel":""}" id="x" ${E.field&&E.ans[E.cur]!=null?"disabled":""}>×</button></div>
+    ${E.field&&E.ans[E.cur]!=null?(()=>{const ok=E.ans[E.cur]===q.a;return `<div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　答え：${q.a?"○":"×"}　<span class="note">${q.t}　${q.ref==="確認"?"確認問題":q.ref}</span></span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div>`})():""}
+    <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${E.cur?"":"disabled"}>前へ</button><button class="btn ${E.field&&E.ans[E.cur]!=null?"pri":""}" id="next">${E.cur<9?"次へ":"採点する"}</button></div></article>
     <div id="cf"></div>`;
-    const choose=v=>{E.ans[E.cur]=v;if(E.cur<E.qs.length-1){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else render()};
+    const choose=v=>{
+      // 分野別：その場で正誤と解説を表示（答えは確定）
+      if(E.field){if(E.ans[E.cur]!=null)return;E.ans[E.cur]=v;const q0=E.qs[E.cur];render();if(voice)speak((v===q0.a?"正解。":"不正解。")+"答えは"+(q0.a?"まる":"ばつ")+"。"+q0.e);return}
+      E.ans[E.cur]=v;if(E.cur<E.qs.length-1){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else render()};
     $("#o").onclick=()=>choose(1);$("#x").onclick=()=>choose(0);
     $("#prev").onclick=()=>{E.cur--;render()};
     $("#next").onclick=()=>{if(E.cur<9){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else askFinish()};
