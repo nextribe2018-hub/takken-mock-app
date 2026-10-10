@@ -109,6 +109,7 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .sub2{font-size:.78rem;font-weight:500;color:var(--muted)}
 .br.focus{outline:3px solid var(--ai);outline-offset:2px}
 .card>.br::before{display:none}
+.tpr{font-size:.92em}.tpr small{opacity:.7;margin-left:1px}
 .dot.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
 .dot.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}
 .pbar,.mbar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
@@ -143,6 +144,12 @@ let H=ls.get("tkm-hist",{}); // key -> {n,c,last}
 if(Object.keys(H).some(k=>/^\d+$/.test(k))){const nh={};Object.keys(H).forEach(k=>{const q=/^\d+$/.test(k)?BANK[+k]:BYKEY[k];if(q)nh[q.k]=H[k]});H=nh}
 let SET=ls.get("tkm-set",{round:0,scores:[]});
 let LOG=[]; // 模試の履歴 {at,round,score,sec}
+// 論点ごとの直近10問の正誤（古い→新しい、"1"=正解）。既存の記録しかない論点は各問の最後の結果で埋める
+const tkey=q=>q.f+"|"+q.t;
+function backfillR10(h,base){const o={...(base||{})};const tmp={};BANK.forEach(q=>{const x=h[q.k];if(x&&x.n){const t=tkey(q);(tmp[t]=tmp[t]||"");tmp[t]+=(x.last?"1":"0")}});
+  Object.keys(tmp).forEach(t=>{if(!o[t])o[t]=tmp[t].slice(-10)});return o}
+let R10=backfillR10(H,ls.get("tkm-r10",{}));
+function mergeR10(a,b){const o={...(a||{})};Object.keys(b||{}).forEach(k=>{if(!o[k]||(b[k]||"").length>=o[k].length)o[k]=b[k]});return o}
 /* ---- server sync (db) ---- */
 const SYNC={db:null,ref:null,status:"local",busy:false,dirty:false,timer:null};
 function syncLabel(){const el=document.getElementById("sync");if(!el)return;const m={local:"この端末だけに保存中（サーバーに接続できません）",nort:"この端末だけに保存中：この開き方ではサーバー保存が使えません。下の「記録の引き継ぎ」でコピーを取ってください",nodb:"この端末だけに保存中：この画面ではサーバー保存が使えません（アプリの種類による）。下の「記録の引き継ぎ」でコピーを取ってください",nouser:"この端末だけに保存中：ログイン情報を取得できません。下の「記録の引き継ぎ」でコピーを取ってください",loading:"サーバーから読み込み中…",ok:"サーバーに保存済み",saving:"サーバーに保存中…",err:"サーバー保存に失敗しました（この端末には保存済み。次の回答時に再送します）"};el.textContent=m[SYNC.status]||"";el.dataset.s=SYNC.status}
@@ -150,12 +157,12 @@ async function push(){
   if(!SYNC.ref){return}
   if(SYNC.busy){SYNC.dirty=true;return}
   SYNC.busy=true;SYNC.status="saving";syncLabel();
-  try{await SYNC.ref.set({v:2,hist:H,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}
-  catch(e){if(e&&e.code==="unavailable"){await new Promise(r=>setTimeout(r,800+Math.random()*800));try{await SYNC.ref.set({v:2,hist:H,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}catch(e2){SYNC.status="err"}}else SYNC.status="err"}
+  try{await SYNC.ref.set({v:2,hist:H,r10:R10,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}
+  catch(e){if(e&&e.code==="unavailable"){await new Promise(r=>setTimeout(r,800+Math.random()*800));try{await SYNC.ref.set({v:2,hist:H,r10:R10,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}catch(e2){SYNC.status="err"}}else SYNC.status="err"}
   SYNC.busy=false;syncLabel();
   if(SYNC.dirty){SYNC.dirty=false;push()}
 }
-const save=()=>{ls.set("tkm-hist",H);ls.set("tkm-set",SET);ls.set("tkm-log",LOG);clearTimeout(SYNC.timer);SYNC.timer=setTimeout(push,600)};
+const save=()=>{ls.set("tkm-hist",H);ls.set("tkm-r10",R10);ls.set("tkm-set",SET);ls.set("tkm-log",LOG);clearTimeout(SYNC.timer);SYNC.timer=setTimeout(push,600)};
 LOG=ls.get("tkm-log",[]);
 function mergeHist(a,b){const o={...a};Object.keys(b||{}).forEach(k=>{const x=o[k],y=b[k];o[k]=!x||((y.n||0)>(x.n||0))?y:x});return o}
 async function connect(){
@@ -169,7 +176,7 @@ async function connect(){
     const snap=await SYNC.ref.get();
     if(snap.exists){const d=snap.data()||{};
       const localHad=Object.keys(H).length>0;
-      H=mergeHist(d.hist||{},H);
+      H=mergeHist(d.hist||{},H);R10=backfillR10(H,mergeR10(d.r10||{},R10));
       if(d.set&&(!localHad||(d.set.scores||[]).length>=(SET.scores||[]).length))SET=JSON.parse(JSON.stringify(d.set));
       const seenAt=new Set((d.log||[]).map(x=>x.at));LOG=[...(d.log||[]),...LOG.filter(x=>!seenAt.has(x.at))].sort((a,b)=>a.at<b.at?-1:1);
       ls.set("tkm-hist",H);ls.set("tkm-set",SET);ls.set("tkm-log",LOG);
@@ -184,7 +191,7 @@ function render0(){SYNC.status="local";syncLabel()}
 const enc=o=>"TKM1:"+btoa(unescape(encodeURIComponent(JSON.stringify(o))));
 const dec=t=>{t=(t||"").trim().replace(/\s+/g,"");if(!t.startsWith("TKM1:"))throw new Error("形式");return JSON.parse(decodeURIComponent(escape(atob(t.slice(5)))))};
 function exportRec(){
-  const code=enc({hist:H,set:SET,log:LOG.slice(-200)});
+  const code=enc({hist:H,r10:R10,set:SET,log:LOG.slice(-200)});
   const n=Object.keys(H).length;
   $("#bk").innerHTML=`<p class="note" id="bkmsg">${n}問分の記録です。下の文字列をすべてコピーして、メモ帳などに保存してください。</p><textarea id="bkt" readonly rows="4" style="width:100%;font:12px monospace;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--bg);color:var(--ink)">${code}</textarea>`;
   const ta=$("#bkt");ta.focus();ta.select();
@@ -196,7 +203,7 @@ function importRec(){
   $("#bkgo").onclick=()=>{
     let d;try{d=dec($("#bki").value)}catch(e){$("#bkerr").textContent="読み取れませんでした。TKM1: から最後まで、全部を貼り付けてください。";return}
     const hist={};Object.keys(d.hist||{}).forEach(k=>{if(BYKEY[k])hist[k]=d.hist[k]});
-    H=mergeHist(H,hist);
+    H=mergeHist(H,hist);R10=backfillR10(H,mergeR10(d.r10||{},R10));
     if(d.set&&Array.isArray(d.set.scores)&&(d.set.scores.length>=(SET.scores||[]).length))SET=JSON.parse(JSON.stringify(d.set));
     const seenAt=new Set(LOG.map(x=>x.at));LOG=[...LOG,...(d.log||[]).filter(x=>x&&x.at&&!seenAt.has(x.at))].sort((a,b)=>a.at<b.at?-1:1);
     save();home();
@@ -212,7 +219,7 @@ const clean=t=>t.replace(/○/g,"まる").replace(/×/g,"ばつ").replace(/㎡/g
 function speak(t){if(!canSpeak)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(clean(t));u.lang="ja-JP";const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.toLowerCase().startsWith("ja"));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
 let voice=ls.get("tkm-voice",false);
 
-function rec(q,ok){const h=H[q.k]||{n:0,c:0};h.n++;if(ok)h.c++;h.last=ok?1:0;H[q.k]=h}
+function rec(q,ok){const h=H[q.k]||{n:0,c:0};h.n++;if(ok)h.c++;h.last=ok?1:0;H[q.k]=h;const t=tkey(q);R10[t]=((R10[t]||"")+(ok?"1":"0")).slice(-10)}
 function prio(q){const h=H[q.k];if(!h)return 0;if(h.last===0)return 1;return 2+h.n}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function pick(pool,n,exclude){
@@ -227,6 +234,7 @@ function pick(pool,n,exclude){
 function topicStats(){
   const m={};
   BANK.forEach(q=>{const k=q.f+"|"+q.t;m[k]=m[k]||{f:q.f,t:q.t,total:0,n:0,c:0,recentWrong:0};const s=m[k];s.total++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;if(h.last===0)s.recentWrong++}});
+  Object.values(m).forEach(s=>{const r=R10[s.f+"|"+s.t]||"";s.rn=r.length;s.rc=(r.match(/1/g)||[]).length});
   return Object.values(m);
 }
 function state(s){if(!s.n)return 0;const r=s.c/s.n;if(s.recentWrong>0||r<0.6)return 1;if(r<0.8||s.n<5)return 2;return 3}
@@ -236,8 +244,10 @@ function state(s){if(!s.n)return 0;const r=s.c/s.n;if(s.recentWrong>0||r<0.6)ret
 const PASS_LINES=[33,34,35,36,37]; // 例年の合格点は33〜37点。どの点になるかは同じ確率と仮定
 const EXAM_N={業法:20,権利:14,法令:8,税他:8};
 const FNAME=f=>FIELDS.find(x=>x[0]===f)[1];
-function fieldStats(){const o={};FIELDS.forEach(([f])=>o[f]={n:0,c:0,q:0,tot:0});
-  BANK.forEach(q=>{const s=o[q.f];s.tot++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;s.q++}});return o}
+function fieldStats(){const o={};FIELDS.forEach(([f])=>o[f]={n:0,c:0,q:0,tot:0,rn:0,rc:0});
+  BANK.forEach(q=>{const s=o[q.f];s.tot++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;s.q++}});
+  // 直近：論点ごとの直近10問を分野でまとめる
+  Object.keys(R10).forEach(t=>{const f=t.split("|")[0];if(!o[f])return;const r=R10[t];o[f].rn+=r.length;o[f].rc+=(r.match(/1/g)||[]).length});return o}
 function seeded(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 function gammaS(k,r){if(k<1)return gammaS(k+1,r)*Math.pow(r()||1e-12,1/k);const d=k-1/3,c=1/Math.sqrt(9*d);
   for(;;){let x,v;do{const u1=r()||1e-12,u2=r();x=Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);v=1+c*x}while(v<=0);v=v*v*v;const u=r();
@@ -260,27 +270,31 @@ function simulate(st,k){const r=seeded(20261008),S=3000,sc=[];
 function passEst(){
   const st=fieldStats();const total=Object.values(st).reduce((a,s)=>a+s.n,0);
   if(total<30)return {ready:false,total,st};
-  const scen=SCEN.map(x=>({...x,...simulate(st,x.k)}));const M=scen[1];
-  const ox=Object.values(st).reduce((a,s)=>a+s.c,0)/total;
+  // 合格確率は直近の正答率で計算（論点ごとの直近10問を分野で合算。直近がない分野は全体を使う）
+  const rs={};FIELDS.forEach(([f])=>{const s=st[f];rs[f]=s.rn?{n:s.rn,c:s.rc}:{n:s.n,c:s.c}});
+  const scen=SCEN.map(x=>({...x,...simulate(rs,x.k)}));const M=scen[1];
+  const rn=Object.values(rs).reduce((a,s)=>a+s.n,0);
+  const ox=Object.values(rs).reduce((a,s)=>a+s.c,0)/rn;const oxAll=Object.values(st).reduce((a,s)=>a+s.c,0)/total;
   // 伸ばすと効く分野＝本試験で落としている見込みの点が最も多い分野（標準の見立て）
   const focus=FIELDS.map(([f])=>f).sort((a,b)=>(EXAM_N[b]-M.exp[b])-(EXAM_N[a]-M.exp[a]))[0];
-  return {ready:true,total,st,ox,scen,focus,...M};
+  return {ready:true,total,st,ox,oxAll,rn,scen,focus,...M};
 }
 function passHtml(){
   const P=passEst();
   if(!P.ready)return `<section class="card"><h2>合格の見込み</h2><p class="note" style="margin:0">あと <b>${30-P.total}問</b> 解くと判定します（30問以上の回答で表示）。</p><div class="pbar"><i style="width:${Math.round(P.total/30*100)}%"></i></div></section>`;
   const pct=Math.round(P.prob*100);const j=pct>=80?["j-ok","合格圏"]:pct>=50?["j-mid","合格ライン付近"]:["j-ng","要強化"];
-  const rows=FIELDS.map(([f,n])=>{const s=P.st[f];const rate=s.n?Math.round(s.c/s.n*100):null;const e=P.exp[f];
-    return `<tr class="${f===P.focus?"focus":""}"><td>${n}</td><td>${rate==null?"—":rate+"%"}</td><td>${Math.round(e/EXAM_N[f]*100)}%</td><td style="white-space:nowrap">${e.toFixed(1)} / ${EXAM_N[f]}</td></tr>`}).join("");
+  const pc=(c,n)=>n?Math.round(c/n*100)+"%":"—";
+  const rows=FIELDS.map(([f,n])=>{const s=P.st[f];const e=P.exp[f];
+    return `<tr class="${f===P.focus?"focus":""}"><td>${n}</td><td><b>${pc(s.rc,s.rn)}</b></td><td>${pc(s.c,s.n)}</td><td>${Math.round(e/EXAM_N[f]*100)}%</td><td style="white-space:nowrap">${e.toFixed(1)}/${EXAM_N[f]}</td></tr>`}).join("");
   const lines=PASS_LINES.filter((t,i)=>i%2===0).map(t=>`<div class="kp"><span>合格点${t}点の年</span><b>${Math.round(P.byLine[PASS_LINES.indexOf(t)]*100)}%</b></div>`).join("");
   return `<section class="card"><h2>合格の見込み</h2>
   <div class="row"><span class="big">${pct}<span style="font-size:1.2rem">%</span></span><span class="judge ${j[0]}">${j[1]}</span></div>
-  <p style="margin:0">○×正答率 <b>${Math.round(P.ox*100)}%</b> → 推定4択正答率 <b>${Math.round(P.four*100)}%</b> → 予想得点 <b>${Math.round(P.mean)}点</b> / 50（8割の確率で ${P.lo}〜${P.hi}点）</p>
+  <p style="margin:0">直近の○×正答率 <b>${Math.round(P.ox*100)}%</b>（全体 ${Math.round(P.oxAll*100)}%） → 推定4択正答率 <b>${Math.round(P.four*100)}%</b> → 予想得点 <b>${Math.round(P.mean)}点</b> / 50（8割の確率で ${P.lo}〜${P.hi}点）</p>
   <div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))">${lines}</div>
   <div class="tw"><table class="st"><thead><tr><th>4択での解き方</th><th>4択正答率</th><th>予想点</th><th>合格率</th></tr></thead><tbody>${P.scen.map((x,i)=>`<tr class="${i===1?"focus":""}"><td>${x.label}</td><td>${Math.round(x.four*100)}%</td><td>${Math.round(x.mean)}点</td><td><b>${Math.round(x.prob*100)}%</b></td></tr>`).join("")}</tbody></table></div>
-  <div class="tw"><table class="st"><thead><tr><th>分野</th><th>○×正答率</th><th>推定4択</th><th>予想点</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="tw"><table class="st"><thead><tr><th>分野</th><th>直近</th><th>全体</th><th>推定4択</th><th>予想点</th></tr></thead><tbody>${rows}</tbody></table></div>
   <div class="row"><button class="btn pri" data-fx="${P.focus}">いちばん伸ばせる「${FNAME(P.focus)}」の10問テスト</button></div>
-  <p class="note" style="margin:0">見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（上の大きな数字は「標準」）。4択の推計では、各肢の判断を「確信して正しい／迷う（半々）／確信して誤る」に分け、確信した肢で選び、なければ消去法で迷う肢に絞って（多くは2択）選ぶとして計算しています。○×の誤りのうち迷いによるものの割合で3通りを表示：○×80%なら4択は慎重62%・標準71%・消去法が効く82%。全回答（${P.total}回）から本試験50問（業20・権14・法8・税8）を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</p></section>`;
+  <p class="note" style="margin:0">合格確率は<b>論点ごとの直近10問</b>の正答率（分野ごとに合算、計${P.rn}問）で計算。「全体」はこれまでの全回答（${P.total}回）。見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（上の大きな数字は「標準」）。4択の推計では、各肢の判断を「確信して正しい／迷う（半々）／確信して誤る」に分け、確信した肢で選び、なければ消去法で迷う肢に絞って（多くは2択）選ぶとして計算しています。○×の誤りのうち迷いによるものの割合で3通りを表示：○×80%なら4択は慎重62%・標準71%・消去法が効く82%。本試験50問（業20・権14・法8・税8）を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</p></section>`;
 }
 function home(){
   clearInterval(timerId);
@@ -318,8 +332,8 @@ function home(){
   ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>${x.field?FNAME(x.field):`第${x.round}回`}</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
   <section class="card">
     <h2>論点マップ</h2>
-    <p class="legend">押すと、その論点の解説と確認例題3問。<span style="color:var(--ng)">赤＝要復習</span>／<span style="color:var(--warn)">黄＝習得中</span>／<span style="color:var(--ok)">緑＝習得（正答率80%以上・5回以上）</span>／無色＝未着手</p>
-    <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp s${state(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` ${Math.round(s.c/s.n*100)}%`:""}</button>`).join("")}</div></div>`).join("")}</div>
+    <p class="legend">押すと、その論点の解説と確認例題3問。数字は直近10問の正答率／全回答の正答率。<span style="color:var(--ng)">赤＝要復習</span>／<span style="color:var(--warn)">黄＝習得中</span>／<span style="color:var(--ok)">緑＝習得（正答率80%以上・5回以上）</span>／無色＝未着手</p>
+    <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp s${state(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` <span class="tpr">直近${Math.round(s.rc/Math.max(1,s.rn)*100)}%<small>/${s.rn}問</small>・全${Math.round(s.c/s.n*100)}%</span>`:""}</button>`).join("")}</div></div>`).join("")}</div>
   </section>
   <section class="card">
     <h2>記録の引き継ぎ</h2>
@@ -340,7 +354,7 @@ function home(){
   if(weak)$("#weakAll").onclick=()=>startReview(ts.filter(s=>state(s)===1).map(s=>({key:s.f+"|"+s.t})));
   $("#resetSet").onclick=()=>{SET={round:0,scores:[]};save();home()};
   $("#exp").onclick=exportRec;$("#imp").onclick=importRec;
-  $("#resetAll").onclick=()=>{$("#cf").innerHTML=`<div class="confirm row"><span>解いた記録と正答率がすべて消えます。</span><button class="btn" id="yes">消す</button><button class="btn" id="no">やめる</button></div>`;$("#yes").onclick=()=>{H={};SET={round:0,scores:[]};LOG=[];save();home()};$("#no").onclick=()=>$("#cf").innerHTML=""};
+  $("#resetAll").onclick=()=>{$("#cf").innerHTML=`<div class="confirm row"><span>解いた記録と正答率がすべて消えます。</span><button class="btn" id="yes">消す</button><button class="btn" id="no">やめる</button></div>`;$("#yes").onclick=()=>{H={};R10={};SET={round:0,scores:[]};LOG=[];save();home()};$("#no").onclick=()=>$("#cf").innerHTML=""};
   window.scrollTo(0,0);
 }
 

@@ -19,7 +19,9 @@ export type HistItem = { n: number; c: number; last: 0 | 1 };
 export type Hist = Record<string, HistItem>;
 export type SetState = { round: number; scores: number[] };
 export type LogItem = { at: string; round: number; score: number; sec: number; field?: Field };
-export type Progress = { v: 2; hist: Hist; set: SetState; log: LogItem[]; voice: boolean };
+// 論点ごとの直近10問の正誤（古い→新しい、'1'=正解）。キーは「分野|論点」
+export type Recent = Record<string, string>;
+export type Progress = { v: 2; hist: Hist; r10: Recent; set: SetState; log: LogItem[]; voice: boolean };
 
 export const FIELDS: [Field, string][] = [
   ['業法', '宅建業法'], ['権利', '権利関係'], ['法令', '法令上の制限'], ['税他', '税・その他'],
@@ -49,12 +51,26 @@ export const BANK: Q[] = (() => {
 export const BYKEY: Record<string, Q> = Object.fromEntries(BANK.map(q => [q.k, q]));
 export const LESSON = lessonsRaw as Record<string, Lesson>;
 
-export const emptyProgress = (): Progress => ({ v: 2, hist: {}, set: { round: 0, scores: [] }, log: [], voice: false });
+export const emptyProgress = (): Progress => ({ v: 2, hist: {}, r10: {}, set: { round: 0, scores: [] }, log: [], voice: false });
 
 export function rec(hist: Hist, q: Q, ok: boolean): Hist {
   const h = hist[q.k] || { n: 0, c: 0, last: 0 };
   return { ...hist, [q.k]: { n: h.n + 1, c: h.c + (ok ? 1 : 0), last: ok ? 1 : 0 } };
 }
+export const topicKey = (q: { f: string; t: string }) => `${q.f}|${q.t}`;
+// 1問の回答を記録（全体の記録＋論点ごとの直近10問）
+export function record(p: Progress, q: Q, ok: boolean): Progress {
+  const t = topicKey(q);
+  return { ...p, hist: rec(p.hist, q, ok), r10: { ...p.r10, [t]: ((p.r10[t] || '') + (ok ? '1' : '0')).slice(-10) } };
+}
+// 順番の記録がない既存データ用：各問の最後の結果で論点の直近10問を補う（既にある論点はそのまま）
+export function backfillRecent(hist: Hist, base: Recent = {}): Recent {
+  const o: Recent = { ...base }; const tmp: Recent = {};
+  BANK.forEach(q => { const h = hist[q.k]; if (h && h.n) { const t = topicKey(q); tmp[t] = (tmp[t] || '') + (h.last ? '1' : '0'); } });
+  Object.keys(tmp).forEach(t => { if (!o[t]) o[t] = tmp[t].slice(-10); });
+  return o;
+}
+const ones = (s: string) => (s.match(/1/g) || []).length;
 
 // 優先度：未出題 → 前回不正解 → 解いた回数の少ない順
 function prio(hist: Hist, q: Q) {
@@ -98,12 +114,12 @@ export function checkQuestions(hist: Hist, key: string, missed?: Q, rnd = Math.r
   return pick(hist, real.length >= 3 ? real : pool, 3, new Set(missed ? [missed.i] : []), rnd);
 }
 
-export type TopicStat = { f: Field; t: string; total: number; n: number; c: number; recentWrong: number };
-export function topicStats(hist: Hist): TopicStat[] {
+export type TopicStat = { f: Field; t: string; total: number; n: number; c: number; recentWrong: number; rn: number; rc: number };
+export function topicStats(hist: Hist, r10: Recent = backfillRecent(hist)): TopicStat[] {
   const m: Record<string, TopicStat> = {};
   BANK.forEach(q => {
     const k = q.f + '|' + q.t;
-    const s = (m[k] = m[k] || { f: q.f, t: q.t, total: 0, n: 0, c: 0, recentWrong: 0 });
+    const s = (m[k] = m[k] || { f: q.f, t: q.t, total: 0, n: 0, c: 0, recentWrong: 0, rn: (r10[k] || '').length, rc: ones(r10[k] || '') });
     s.total++;
     const h = hist[q.k];
     if (h) { s.n += h.n; s.c += h.c; if (h.last === 0) s.recentWrong++; }
@@ -135,24 +151,24 @@ export function buildFieldExam(hist: Hist, f: Field, rnd = Math.random): Q[] {
 
 // 分野別テストの採点（5回セットには入れない）
 export function finishFieldExam(p: Progress, f: Field, qs: Q[], ans: (0 | 1 | null)[], used: number) {
-  let hist = p.hist;
+  let cur = p;
   let score = 0;
-  qs.forEach((q, k) => { const ok = ans[k] === q.a; if (ok) score++; hist = rec(hist, q, ok); });
-  const next: Progress = { ...p, hist, log: [...p.log, { at: jstNow(), round: 0, field: f, score, sec: used }].slice(-500) };
+  qs.forEach((q, k) => { const ok = ans[k] === q.a; if (ok) score++; cur = record(cur, q, ok); });
+  const next: Progress = { ...cur, log: [...p.log, { at: jstNow(), round: 0, field: f, score, sec: used }].slice(-500) };
   return { next, score };
 }
 
 export function finishExam(p: Progress, qs: Q[], ans: (0 | 1 | null)[], used: number) {
-  let hist = p.hist;
+  let cur = p;
   let score = 0;
-  qs.forEach((q, k) => { const ok = ans[k] === q.a; if (ok) score++; hist = rec(hist, q, ok); });
+  qs.forEach((q, k) => { const ok = ans[k] === q.a; if (ok) score++; cur = record(cur, q, ok); });
   const round = p.set.round;
   const scores = [...p.set.scores];
   scores[round] = score;
   const nextRound = (round + 1) % 5;
   const setDone = nextRound === 0;
   const next: Progress = {
-    ...p, hist,
+    ...cur,
     set: { round: nextRound, scores: setDone ? [] : scores },
     log: [...p.log, { at: jstNow(), round: round + 1, score, sec: used }].slice(-500),
   };
@@ -244,11 +260,13 @@ export const SCENARIOS = [
   { k: 0.5, label: '標準（誤りの半分は迷い）' },
   { k: 1, label: '消去法が効く（誤りはすべて迷い）' },
 ];
-export type FieldStat = { n: number; c: number; q: number; tot: number };
-export function fieldStats(hist: Hist): Record<Field, FieldStat> {
+export type FieldStat = { n: number; c: number; q: number; tot: number; rn: number; rc: number };
+export function fieldStats(hist: Hist, r10: Recent = backfillRecent(hist)): Record<Field, FieldStat> {
   const o = {} as Record<Field, FieldStat>;
-  FIELDS.forEach(([f]) => { o[f] = { n: 0, c: 0, q: 0, tot: 0 }; });
+  FIELDS.forEach(([f]) => { o[f] = { n: 0, c: 0, q: 0, tot: 0, rn: 0, rc: 0 }; });
   BANK.forEach(q => { const s = o[q.f]; s.tot++; const h = hist[q.k]; if (h) { s.n += h.n; s.c += h.c; s.q++; } });
+  // 直近：論点ごとの直近10問を分野でまとめる
+  Object.entries(r10).forEach(([t, r]) => { const f = t.split('|')[0] as Field; if (o[f]) { o[f].rn += r.length; o[f].rc += ones(r); } });
   return o;
 }
 function seeded(a: number) {
@@ -269,9 +287,9 @@ type SimResult = { k: number; byLine: number[]; prob: number; mean: number; lo: 
 export type Scenario = SimResult & { label: string };
 export type PassEstimate =
   | { ready: false; total: number; st: Record<Field, FieldStat> }
-  | ({ ready: true; total: number; st: Record<Field, FieldStat>; ox: number; scen: Scenario[]; focus: Field } & SimResult);
+  | ({ ready: true; total: number; st: Record<Field, FieldStat>; ox: number; oxAll: number; rn: number; scen: Scenario[]; focus: Field } & SimResult);
 // 分野ごとの正答率の不確かさ（ベータ分布）も含めて本試験50問をシミュレーション
-function simulate(st: Record<Field, FieldStat>, k: number, sims: number): SimResult {
+function simulate(st: Record<Field, { n: number; c: number }>, k: number, sims: number): SimResult {
   const r = seeded(20261008);
   const sc: number[] = [];
   for (let i = 0; i < sims; i++) {
@@ -293,13 +311,18 @@ function simulate(st: Record<Field, FieldStat>, k: number, sims: number): SimRes
   };
 }
 // 見出しは「標準」（誤りの半分は迷い）。慎重・消去法が効く場合も併せて返す
-export function passEstimate(hist: Hist, sims = 3000): PassEstimate {
-  const st = fieldStats(hist);
+// 合格確率は直近の正答率（論点ごとの直近10問を分野で合算）で計算。直近がない分野は全体を使う
+export function passEstimate(hist: Hist, sims = 3000, r10: Recent = backfillRecent(hist)): PassEstimate {
+  const st = fieldStats(hist, r10);
   const total = Object.values(st).reduce((a, s) => a + s.n, 0);
   if (total < 30) return { ready: false, total, st };
-  const scen = SCENARIOS.map(x => ({ ...simulate(st, x.k, sims), label: x.label }));
+  const rs = {} as Record<Field, { n: number; c: number }>;
+  FIELDS.forEach(([f]) => { const s = st[f]; rs[f] = s.rn ? { n: s.rn, c: s.rc } : { n: s.n, c: s.c }; });
+  const scen = SCENARIOS.map(x => ({ ...simulate(rs, x.k, sims), label: x.label }));
   const M = scen[1];
-  const ox = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
+  const rn = Object.values(rs).reduce((a, s) => a + s.n, 0);
+  const ox = Object.values(rs).reduce((a, s) => a + s.c, 0) / rn;
+  const oxAll = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
   const focus = FIELDS.map(([f]) => f).sort((a, b) => (EXAM_N[b] - M.exp[b]) - (EXAM_N[a] - M.exp[a]))[0];
-  return { ready: true, total, st, ox, scen, focus, ...M };
+  return { ready: true, total, st, ox, oxAll, rn, scen, focus, ...M };
 }

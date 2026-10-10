@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, relatedBranch, toExam, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, toExam, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -101,5 +101,24 @@ assert.ok(Math.abs(toExam(0.8, 0) - 0.616) < 0.002 && Math.abs(toExam(0.85, 0) -
 assert.ok(Math.abs(toExam(0.8, 0.5) - 0.714) < 0.002 && Math.abs(toExam(0.8, 1) - 0.818) < 0.002);
 for (let p = 0.3; p < 0.95; p += 0.05) for (const k of [0, 0.5, 1]) assert.ok(toExam(p + 0.05, k) > toExam(p, k));
 for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) && toExam(p, 0.5) < toExam(p, 1));
+
+// 13) 論点ごとの直近10問：記録は最大10件・新しいものが末尾。合格確率は直近で計算
+{
+  let p = emptyProgress(); const q = BANK[0];
+  for (let i = 0; i < 12; i++) p = record(p, q, i % 3 !== 0);
+  const r = p.r10[`${q.f}|${q.t}`];
+  assert.equal(r, '1011011011'); // 12回のうち新しい10回（古い→新しい）
+  assert.equal(p.hist[q.k].n, 12);
+  // 既存データの補完：各問の最後の結果を使う
+  const bf = backfillRecent({ [q.k]: { n: 3, c: 1, last: 0 } });
+  assert.equal(bf[`${q.f}|${q.t}`], '0');
+  // 全体は低いが直近が高い → 直近の方が合格確率が高い
+  const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
+  BANK.forEach((x, i) => { if (i % 3) return; h[x.k] = { n: 5, c: 2, last: 1 }; });
+  const good: Record<string, string> = {}; const bad: Record<string, string> = {};
+  BANK.forEach(x => { good[`${x.f}|${x.t}`] = '1111111110'; bad[`${x.f}|${x.t}`] = '0000011111'; });
+  const pg = passEstimate(h, 1000, good), pb = passEstimate(h, 1000, bad);
+  assert.ok(pg.ready && pb.ready && pg.prob > pb.prob);
+}
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
