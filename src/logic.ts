@@ -135,6 +135,15 @@ export function topicState(s: TopicStat): 0 | 1 | 2 | 3 {
   return 3;
 }
 
+// 論点マップの色分け（表示専用）。直近10問の正答率で6段階、5問未満は「参考値」として薄く表示
+export type Tier = 'none' | 'perfect' | 'good' | 'mid' | 'low' | 'bad';
+export function topicTier(s: Pick<TopicStat, 'rn' | 'rc'>): { tier: Tier; few: boolean } {
+  if (!s.rn) return { tier: 'none', few: false };
+  const r = s.rc / s.rn;
+  const tier: Tier = r >= 1 ? 'perfect' : r >= 0.8 ? 'good' : r >= 0.6 ? 'mid' : r >= 0.4 ? 'low' : 'bad';
+  return { tier, few: s.rn < 5 };
+}
+
 export type Judge = { tone: 'ok' | 'mid' | 'ng'; label: string };
 export const judge = (sc: number): Judge =>
   sc >= 8 ? { tone: 'ok', label: '合格圏' } : sc === 7 ? { tone: 'mid', label: '合格ライン上' } : { tone: 'ng', label: '要復習' };

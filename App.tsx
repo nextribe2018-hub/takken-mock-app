@@ -8,10 +8,10 @@ import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
 import {
   BANK, buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
-  fieldName, finishExam, judge, judgeSet, LessonSys, record, relatedBranch, relatedRows, relatedTraps, speechText, topicState, topicStats, wrongTopics,
+  fieldName, finishExam, judge, judgeSet, LessonSys, record, relatedBranch, relatedRows, relatedTraps, speechText, topicState, topicStats, topicTier, Tier, wrongTopics,
 } from './src/logic';
 import { loadProgress, saveProgress } from './src/storage';
-import { Colors, fonts, useColors } from './src/theme';
+import { Colors, fonts, useColors, mix } from './src/theme';
 
 type Ans = 0 | 1 | null;
 type Missed = { q: Q; your: Ans };
@@ -140,8 +140,21 @@ function Home({ ctx }: { ctx: Ctx }) {
   const setTotal = p.set.scores.reduce((a, b) => a + (b || 0), 0);
   const ts = topicStats(hist, p.r10);
   const weak = ts.filter(s => topicState(s) === 1);
-  const stateColor = [c.line, c.ng, c.warn, c.ok];
-  const stateBg = [c.paper, c.ngSoft, c.warnSoft, c.okSoft];
+  // 直近10問の正答率で色分け。5問未満は点線・薄い色（参考値）
+  const tierStyle = (tier: Tier, few: boolean) => {
+    const base: Record<Tier, { fg: string; bg: string; bd: string }> = {
+      none: { fg: c.ink, bg: c.paper, bd: c.line },
+      perfect: { fg: c.paper, bg: c.ok, bd: c.ok },
+      good: { fg: c.ok, bg: c.okSoft, bd: c.ok },
+      mid: { fg: c.warn, bg: c.warnSoft, bd: c.warn },
+      low: { fg: c.or, bg: c.orSoft, bd: c.or },
+      bad: { fg: c.ng, bg: c.ngSoft, bd: c.ng },
+    };
+    const b = base[tier];
+    if (!few || tier === 'none') return b;
+    if (tier === 'perfect') return { fg: c.ink, bg: mix(c.ok, c.paper, 0.72), bd: c.ok };
+    return { fg: b.fg, bg: mix(b.bg, c.paper, 0.55), bd: mix(b.bd, c.paper, 0.45) };
+  };
 
   return (
     <>
@@ -220,17 +233,18 @@ function Home({ ctx }: { ctx: Ctx }) {
 
       <Card ctx={ctx}>
         <Text style={st.h2}>論点マップ</Text>
-        <Text style={st.note}>押すと、その論点の解説と確認例題3問。赤＝要復習／黄＝習得中／緑＝習得／無色＝未着手</Text>
+        <Text style={st.note}>押すと、その論点の解説と確認例題3問。色は直近10問の正答率：濃い緑＝100%／緑＝80%以上／黄＝60〜79%／橙＝40〜59%／赤＝40%未満／点線・薄い色＝5問未満（参考値）／無色＝未着手</Text>
         {FIELDS.map(([f, n]) => (
           <View key={f} style={{ gap: 6 }}>
             <Text style={st.h3}>{n}</Text>
             <View style={st.wrapRow}>
               {ts.filter(s => s.f === f).map(s => {
-                const k = topicState(s);
+                const { tier, few } = topicTier(s);
+                const ts2 = tierStyle(tier, few);
                 return (
                   <Pressable key={s.t} onPress={() => go({ name: 'lesson', queue: [{ key: `${s.f}|${s.t}` }] })}
-                    style={({ pressed }) => [st.chip, { borderColor: stateColor[k], backgroundColor: stateBg[k] }, pressed && st.pressed]}>
-                    <Text style={st.chipText}>{s.t}{s.n ? ` 直近${Math.round((s.rc / Math.max(1, s.rn)) * 100)}%/${s.rn}問・全${Math.round((s.c / s.n) * 100)}%` : ''}</Text>
+                    style={({ pressed }) => [st.chip, { borderColor: ts2.bd, backgroundColor: ts2.bg, borderStyle: few ? 'dashed' : 'solid', opacity: tier === 'none' ? 0.75 : 1 }, pressed && st.pressed]}>
+                    <Text style={[st.chipText, { color: ts2.fg }, tier === 'perfect' && !few && { fontWeight: '700' }]}>{s.t}{s.n ? ` 直近${Math.round((s.rc / Math.max(1, s.rn)) * 100)}%/${s.rn}問・全${Math.round((s.c / s.n) * 100)}%` : ''}</Text>
                   </Pressable>
                 );
               })}

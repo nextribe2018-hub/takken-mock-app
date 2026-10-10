@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, toExam, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, topicTier, toExam, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -119,6 +119,19 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   BANK.forEach(x => { good[`${x.f}|${x.t}`] = '1111111110'; bad[`${x.f}|${x.t}`] = '0000011111'; });
   const pg = passEstimate(h, 1000, good), pb = passEstimate(h, 1000, bad);
   assert.ok(pg.ready && pb.ready && pg.prob > pb.prob);
+}
+
+// 14) 論点マップの色：直近10問の正答率で6段階、5問未満は参考値
+{
+  const t = (rc: number, rn: number) => topicTier({ rc, rn });
+  assert.deepEqual(t(0, 0), { tier: 'none', few: false });
+  assert.deepEqual(t(10, 10), { tier: 'perfect', few: false });
+  assert.deepEqual(t(8, 10), { tier: 'good', few: false });
+  assert.deepEqual(t(7, 10), { tier: 'mid', few: false });
+  assert.deepEqual(t(4, 10), { tier: 'low', few: false });
+  assert.deepEqual(t(3, 10), { tier: 'bad', few: false });
+  assert.deepEqual(t(4, 4), { tier: 'perfect', few: true });
+  assert.deepEqual(t(4, 5), { tier: 'good', few: false });
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);

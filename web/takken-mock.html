@@ -4,16 +4,16 @@
 /* layout: ホーム（今の実力・5回セット・論点マップ）→ 試験画面（タイマー＋1問ずつ）→ 結果 → 解説と確認例題3問 */
 :root{
   --bg:#f3f4f1; --paper:#ffffff; --ink:#1f2a2e; --muted:#5d6a6e; --line:#d9ded9;
-  --ai:#24476b; --ai-soft:#e3ebf3; --ok:#2f7a4b; --ok-soft:#e2f1e7; --ng:#b8402c; --ng-soft:#f8e4df; --warn:#9a6b12; --warn-soft:#f6ecd6;
+  --ai:#24476b; --ai-soft:#e3ebf3; --ok:#2f7a4b; --ok-soft:#e2f1e7; --ng:#b8402c; --ng-soft:#f8e4df; --warn:#9a6b12; --warn-soft:#f6ecd6; --or:#b85a16; --or-soft:#fbe5d3;
   --f-disp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
   --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#141a1d; --paper:#1d2529; --ink:#e7ecea; --muted:#9aa8ab; --line:#33403f;
-  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; color-scheme:dark}}
+  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; --or:#f0a060; --or-soft:#3f2a1a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#141a1d; --paper:#1d2529; --ink:#e7ecea; --muted:#9aa8ab; --line:#33403f;
-  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; color-scheme:dark}
+  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; --or:#f0a060; --or-soft:#3f2a1a; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75}
 .wrap{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:18px}
@@ -38,10 +38,17 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .tgroup h3{font-size:.85rem;margin:0 0 6px;color:var(--muted);letter-spacing:.05em}
 .tlist{display:flex;flex-wrap:wrap;gap:6px}
 .tp{font:inherit;font-size:.8rem;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
-.tp.s0{opacity:.75}
-.tp.s1{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}
-.tp.s2{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
-.tp.s3{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.tp.t-none{opacity:.75}
+.tp.t-perfect{--c:var(--ok);--b:var(--ok);background:var(--ok);border-color:var(--ok);color:var(--paper);font-weight:700}
+.tp.t-good{--c:var(--ok);--b:var(--ok-soft)}
+.tp.t-mid{--c:var(--warn);--b:var(--warn-soft)}
+.tp.t-low{--c:var(--or);--b:var(--or-soft)}
+.tp.t-bad{--c:var(--ng);--b:var(--ng-soft)}
+.tp.t-good,.tp.t-mid,.tp.t-low,.tp.t-bad{background:var(--b);border-color:var(--c);color:var(--c)}
+.tp.few{border-style:dashed;background:color-mix(in srgb,var(--b) 45%,var(--paper));border-color:color-mix(in srgb,var(--c) 55%,var(--paper));font-weight:400}
+.tp.t-perfect.few{color:var(--ink);background:color-mix(in srgb,var(--ok) 28%,var(--paper));border-color:var(--ok)}
+.tp.few .tpr small{font-weight:700}
+.lg{display:inline-block;font-size:.72rem;padding:0 7px;border-radius:999px;border:1px solid var(--line);margin:2px 2px 0 0;cursor:default}
 .legend{font-size:.75rem;color:var(--muted)}
 .exam-top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:2;border-bottom:1px solid var(--line)}
 .timer{font-family:var(--f-disp);font-size:1.6rem;font-weight:800;font-variant-numeric:tabular-nums}
@@ -237,6 +244,7 @@ function topicStats(){
   Object.values(m).forEach(s=>{const r=R10[s.f+"|"+s.t]||"";s.rn=r.length;s.rc=(r.match(/1/g)||[]).length});
   return Object.values(m);
 }
+function tier(s){const rn=s.rn||0;if(!rn)return"t-none";const r=s.rc/rn;const t=r>=1?"t-perfect":r>=0.8?"t-good":r>=0.6?"t-mid":r>=0.4?"t-low":"t-bad";return t+(rn<5?" few":"")}
 function state(s){if(!s.n)return 0;const r=s.c/s.n;if(s.recentWrong>0||r<0.6)return 1;if(r<0.8||s.n<5)return 2;return 3}
 
 /* ---------- home ---------- */
@@ -332,8 +340,8 @@ function home(){
   ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>${x.field?FNAME(x.field):`第${x.round}回`}</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
   <section class="card">
     <h2>論点マップ</h2>
-    <p class="legend">押すと、その論点の解説と確認例題3問。数字は直近10問の正答率／全回答の正答率。<span style="color:var(--ng)">赤＝要復習</span>／<span style="color:var(--warn)">黄＝習得中</span>／<span style="color:var(--ok)">緑＝習得（正答率80%以上・5回以上）</span>／無色＝未着手</p>
-    <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp s${state(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` <span class="tpr">直近${Math.round(s.rc/Math.max(1,s.rn)*100)}%<small>/${s.rn}問</small>・全${Math.round(s.c/s.n*100)}%</span>`:""}</button>`).join("")}</div></div>`).join("")}</div>
+    <p class="legend">押すと、その論点の解説と確認例題3問。数字は直近10問の正答率／全回答の正答率。色は<b>直近10問</b>で決まります。<br><span class="tp lg t-perfect">濃い緑 100%</span><span class="tp lg t-good">緑 80%以上</span><span class="tp lg t-mid">黄 60〜79%</span><span class="tp lg t-low">橙 40〜59%</span><span class="tp lg t-bad">赤 40%未満</span><span class="tp lg t-good few">点線・薄い色＝5問未満（まだ参考値）</span><span class="tp lg t-none">無色＝未着手</span></p>
+    <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp ${tier(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` <span class="tpr">直近${Math.round(s.rc/Math.max(1,s.rn)*100)}%<small>/${s.rn}問</small>・全${Math.round(s.c/s.n*100)}%</span>`:""}</button>`).join("")}</div></div>`).join("")}</div>
   </section>
   <section class="card">
     <h2>記録の引き継ぎ</h2>
