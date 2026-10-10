@@ -1,7 +1,7 @@
 # CLAUDE.md
 
-宅建（宅地建物取引士）試験の 10分模試アプリ。Expo（SDK 57）＋ React Native ＋ TypeScript。
-App Store で「無料＋買い切り解除」で公開するのが目標。
+10分模試の総合アプリ（宅建・立教 世界史・日本史…を入口で選ぶ）。Expo（SDK 57）＋ React Native ＋ TypeScript。
+App Store で「無料＋試験ごとの買い切り解除」で公開するのが目標。
 
 **作業を始める前に `docs/HANDOFF.md` を読むこと。** 現状・決定事項・未決事項・データ仕様・TODO がまとまっている。
 
@@ -10,7 +10,7 @@ App Store で「無料＋買い切り解除」で公開するのが目標。
 - 結論の理由を示す。分からないことは分からないと言う
 - 変更したら `npm test` と `npm run typecheck` を通してから報告する
 - 仕様（出題比率・判定基準・復習の流れ）を変えるときは先に確認する
-- 問題の安定キー（`分野|論点|出典`）は変えない。学習記録が壊れる
+- 問題の安定キー（宅建は `分野|論点|出典`、立教は `id`）は変えない。学習記録が壊れる
 
 ## コマンド
 ```bash
@@ -18,13 +18,15 @@ npm install
 npx expo start
 npm test
 npm run typecheck
-python3 web/build.py   # Web版（Claudeアーティファクト用HTML）を再生成
+python3 web/build.py          # 宅建Web版（Claudeアーティファクト用HTML）を再生成
+python3 web/rikkyo/build.py   # 立教 世界史・日本史のWeb版を検査＋再生成
 ```
 
 ## 構成
-- `App.tsx` 画面 ／ `src/logic.ts` ロジック ／ `src/storage.ts` 保存 ／ `src/theme.ts` 色
-- `src/data/bank.json` 問題532問 ／ `src/data/lessons.json` 解説46論点
-- `web/` Web版のテンプレートとビルド
+- `App.tsx` 画面 ／ `src/exams.ts` 試験パック ／ `src/logic.ts` ロジック ／ `src/storage.ts` 保存 ／ `src/theme.ts` 色
+- `src/data/bank.json` 宅建532問 ／ `src/data/lessons.json` 解説46論点 ／ `src/data/rikkyo-*.json` 立教 世界史105問・日本史215問
+- 試験を増やすときは `src/exams.ts` の `EXAMS` に1件足す（`npm test` が全試験のデータ形式と出題を検査する）
+- `web/` 宅建Web版、`web/rikkyo/` 立教Web版のテンプレートとビルド
 
 ## 注意
 - `npx expo install` が失敗する環境では `expo/bundledNativeModules.json` の版を `npm install` で指定する

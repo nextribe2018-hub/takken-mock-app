@@ -2,7 +2,9 @@
 import assert from 'node:assert/strict';
 import {
   BANK, FIELDS, LESSON, MIX, buildExam, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  buildRound, choiceOrder, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
+import { EXAMS, byKey } from '../src/exams';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
 const sum: Record<string, number> = {};
@@ -55,4 +57,60 @@ w.forEach(x => {
 const missing = topicStats({}).map(s => `${s.f}|${s.t}`).filter(k => !LESSON[k]);
 assert.deepEqual(missing, []);
 
+// ---- すべての試験パック共通 ----
+const summary: string[] = [];
+for (const x of EXAMS) {
+  // 7) 問題データの形：キー一意・分野が定義済み・正解番号が範囲内
+  assert.equal(Object.keys(byKey(x)).length, x.items.length, `${x.id}: 安定キーが重複`);
+  const fs = new Set(x.fields.map(([f]) => f));
+  x.items.forEach(q => {
+    assert.ok(fs.has(q.f), `${x.id} ${q.k}: 未定義の分野 ${q.f}`);
+    if (x.format === 'ox') assert.ok(q.a === 0 || q.a === 1, `${x.id} ${q.k}: ○×の正解が不正`);
+    else {
+      assert.ok(q.c && q.c.length >= 4 && q.c.length <= 5, `${x.id} ${q.k}: 選択肢の数`);
+      assert.ok(q.a >= 0 && q.a < q.c!.length, `${x.id} ${q.k}: 正解番号が範囲外`);
+    }
+    if (x.kinds) assert.ok(x.kinds.some(([k]) => k === q.kind), `${x.id} ${q.k}: 出題区分が不正`);
+  });
+
+  // 8) 1回分：問題数どおり・重複なし・分野内訳どおり
+  for (let t = 0; t < 50; t++) {
+    const r = t % (x.rounds?.length || 1);
+    const qs = buildRound(x, {}, r);
+    assert.equal(qs.length, x.size);
+    assert.equal(new Set(qs.map(q => q.k)).size, x.size);
+    const mix = quotas(x, r);
+    assert.equal(Object.values(mix).reduce((a, b) => a + b, 0), x.size);
+    x.fields.forEach(([f]) => assert.equal(qs.filter(q => q.f === f).length, mix[f]));
+  }
+
+  // 9) 4択の表示順：全選択肢が1回ずつ・固定肢は末尾
+  if (x.format === 'choice') x.items.forEach(q => {
+    const o = choiceOrder(q);
+    assert.deepEqual([...o].sort(), q.c!.map((_, i) => i));
+    if (q.fix) assert.equal(o[o.length - 1], q.c!.length - 1);
+  });
+
+  // 10) 採点と記録：全問正解で満点、全問不正解で復習のまとまりが出る
+  let pp = emptyProgress();
+  const qs = buildRound(x, pp.hist, 0);
+  const out = finishRound(x, pp, qs, qs.map(q => q.a), 200);
+  assert.equal(out.score, x.size);
+  assert.equal(Object.keys(out.next.hist).length, x.size);
+  if (!x.rounds) assert.equal(out.next.set.round, 0);
+  pp = out.next;
+  const second = buildRound(x, pp.hist, pp.set.round);
+  assert.ok(second.every(q => !pp.hist[q.k]), `${x.id}: 未出題が優先されていない`);
+  const wrongAns = qs.map(q => (x.format === 'ox' ? 1 - q.a : (q.a + 1) % q.c!.length));
+  const wg = wrongGroups(x, qs, wrongAns);
+  assert.ok(wg.length >= 1);
+  wg.forEach(g => {
+    const rv = reviewQuestions(x, {}, g.key, g.missed.q);
+    assert.ok(rv.length >= 1 && rv.every(q => q.k !== g.missed.q.k && q.f === g.missed.q.f));
+  });
+  assert.equal(statsBy(x, out.next.hist).reduce((a, s) => a + s.n, 0), x.size);
+  summary.push(`${x.short}${x.items.length}問`);
+}
+
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
+console.log(`OK: 試験パック ${summary.join('・')}`);
