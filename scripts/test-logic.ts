@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, topicTier, toExam, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, topicTier, toExam, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -132,6 +132,22 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   assert.deepEqual(t(3, 10), { tier: 'bad', few: false });
   assert.deepEqual(t(4, 4), { tier: 'perfect', few: true });
   assert.deepEqual(t(4, 5), { tier: 'good', few: false });
+}
+
+// 15) 4択に戻す：同じp なら toExam と一致、肢の成績が上がれば4択の正解率も上がる
+{
+  for (const p of [0.6, 0.8, 0.9]) for (let j = 0; j < 4; j++) assert.ok(Math.abs(fourFromLimbs([p, p, p, p], j) - toExam(p)) < 1e-9);
+  assert.ok(fourFromLimbs([0.95, 0.6, 0.6, 0.6], 0) > fourFromLimbs([0.6, 0.6, 0.6, 0.6], 0));
+  assert.equal(refLabelJa('R03s-29'), '令和3年12月 問29'); assert.equal(refLabelJa('R01-43'), '令和元年 問43'); assert.equal(refLabelJa('H28-35'), '平成28年 問35');
+  assert.ok(Object.keys(FOUR_GROUPS).length > 500 && Object.values(FOUR_GROUPS).every(g => g.length <= 4));
+  assert.equal(fourChoice({}).n, 0);
+  const id = Object.keys(FOUR_GROUPS).find(k => FOUR_GROUPS[k].length === 3 && !/[アイウエ]/.test(FOUR_GROUPS[k][0].ref))!;
+  const g = FOUR_GROUPS[id];
+  const mk = (ok: boolean) => Object.fromEntries(g.map(q => [q.k, { n: 2, c: ok ? 2 : 0, last: (ok ? 1 : 0) as 0 | 1 }]));
+  const good = fourChoice(mk(true)), bad = fourChoice(mk(false));
+  assert.equal(good.n, 1); assert.equal(good.items[0].missing, 1); assert.equal(good.nSolid, 1);
+  assert.ok(good.items[0].prob > bad.items[0].prob);
+  console.log(`4択に戻す ${id}: 全肢正解→${Math.round(good.items[0].prob * 100)}% 全肢不正解→${Math.round(bad.items[0].prob * 100)}%（元の4択 ${Object.keys(FOUR_GROUPS).length}問）`);
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);

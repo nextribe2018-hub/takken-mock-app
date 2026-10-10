@@ -117,6 +117,11 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .br.focus{outline:3px solid var(--ai);outline-offset:2px}
 .card>.br::before{display:none}
 .tpr{font-size:.92em}.tpr small{opacity:.7;margin-left:1px}
+.lbs{display:flex;gap:3px;margin-top:3px}.lb{display:inline-grid;place-items:center;min-width:1.5em;height:1.5em;font-size:.7rem;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.lb.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}.lb.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}.lb.mi{border-style:dashed}
+.lnk{font:inherit;background:none;border:0;padding:0;color:var(--ai);text-decoration:underline;cursor:pointer;text-align:left}
+.fp{font-size:1.25rem;font-family:var(--f-disp)}
+.vok{color:var(--ok)}.vmid{color:var(--warn)}.vng{color:var(--ng)}
 .dot.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
 .dot.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}
 .pbar,.mbar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
@@ -304,6 +309,42 @@ function passHtml(){
   <div class="row"><button class="btn pri" data-fx="${P.focus}">いちばん伸ばせる「${FNAME(P.focus)}」の10問テスト</button></div>
   <p class="note" style="margin:0">合格確率は<b>論点ごとの直近10問</b>の正答率（分野ごとに合算、計${P.rn}問）で計算。「全体」はこれまでの全回答（${P.total}回）。見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（上の大きな数字は「標準」）。4択の推計では、各肢の判断を「確信して正しい／迷う（半々）／確信して誤る」に分け、確信した肢で選び、なければ消去法で迷う肢に絞って（多くは2択）選ぶとして計算しています。○×の誤りのうち迷いによるものの割合で3通りを表示：○×80%なら4択は慎重62%・標準71%・消去法が効く82%。本試験50問（業20・権14・法8・税8）を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</p></section>`;
 }
+// 過去問の4択に戻す：同じ「年度-問番号」の肢をまとめ、肢ごとの正答率から元の4択1問の正解率を推計（src/logic.ts の fourChoice と同じ）
+function fourFromLimbs(ps,ans,k){if(k==null)k=0.5;const pr=ps.map(p=>{const kk=p<1?Math.min(k,p/(1-p)):k;return[Math.max(0,p-kk*(1-p)),2*(1-p)*kk,(1-p)*(1-kk)]});let P=0;
+  for(let i=0;i<81;i++){const st=[i%3,Math.floor(i/3)%3,Math.floor(i/9)%3,Math.floor(i/27)%3];let q=1;st.forEach((x,j)=>{q*=pr[j][x]});if(!q)continue;
+    const flag=[],uns=[];st.forEach((x,j)=>{if((j===ans&&x===0)||(j!==ans&&x===2))flag.push(j);if(x===1)uns.push(j)});
+    const cand=flag.length?flag:uns.length?uns:[0,1,2,3];if(cand.includes(ans))P+=q/cand.length}return P}
+const refLabelJa=id=>{const m=id.match(/^([RH])(\d+)(s?)-(\d+)$/);if(!m)return id;return `${m[1]==="R"?"令和":"平成"}${+m[2]===1&&m[1]==="R"?"元":+m[2]}年${m[3]?"12月":""} 問${+m[4]}`};
+const FOUR_GROUPS=(()=>{const g={};BANK.forEach(q=>{const m=q.ref.match(/^(.+)-([^-]+)$/);if(!m||q.ref==="確認")return;(g[m[1]]=g[m[1]]||[]).push(q)});return g})();
+function fourChoice(){
+  const ts=topicStats(),fs=fieldStats();let tn=0,tc=0;Object.keys(H).forEach(k=>{if(BYKEY[k]){tn+=H[k].n;tc+=H[k].c}});const all=tn?tc/tn:0.7;
+  const PR=5,fr=f=>{const F=fs[f];return F.rn?(F.rc+PR*all)/(F.rn+PR):F.n?(F.c+PR*all)/(F.n+PR):all};
+  const rate=(f,t)=>{const s=ts.find(x=>x.f===f&&x.t===t),r=fr(f);if(s&&s.rn)return(s.rc+PR*r)/(s.rn+PR);if(s&&s.n)return(s.c+PR*r)/(s.n+PR);return r};
+  const cl=x=>Math.min(0.99,Math.max(0.01,x));const items=[];
+  Object.entries(FOUR_GROUPS).forEach(([id,qs])=>{const answered=qs.filter(q=>H[q.k]).length;if(!answered)return;
+    const limbs=qs.map(q=>{const h=H[q.k],pt=rate(q.f,q.t);return{q,label:q.ref.split("-").pop(),n:h?h.n:0,c:h?h.c:0,p:cl(h?(h.c+pt)/(h.n+1):pt)}});
+    const missing=Math.max(0,4-limbs.length);const fill=limbs.reduce((a,l)=>a+rate(l.q.f,l.q.t),0)/limbs.length;
+    const ps=[...limbs.map(l=>l.p),...Array(missing).fill(cl(fill))];
+    const kind=limbs.some(l=>/[アイウエ]/.test(l.label))?"count":"single";
+    const prob=kind==="count"?ps.reduce((a,b)=>a*b,1):[0,1,2,3].reduce((a,j)=>a+fourFromLimbs(ps,j),0)/4;
+    items.push({id,label:refLabelJa(id),f:qs[0].f,limbs,answered,missing,kind,prob})});
+  items.sort((a,b)=>a.prob-b.prob);const solid=items.filter(x=>x.answered>=3);
+  return{items,n:items.length,avg:items.length?items.reduce((a,x)=>a+x.prob,0)/items.length:0,nSolid:solid.length,avgSolid:solid.length?solid.reduce((a,x)=>a+x.prob,0)/solid.length:null,total:Object.keys(FOUR_GROUPS).length}}
+let FOUR_ALL=false;
+function fourHtml(){
+  const F=fourChoice();if(!F.n)return "";
+  const P=passEst();const pc=x=>Math.round(x*100)+"%";
+  const list=FOUR_ALL?F.items:F.items.slice(0,6);
+  const rows=list.map(x=>{const w=x.limbs.reduce((a,l)=>l.p<a.p?l:a);
+    const dots=x.limbs.map(l=>`<span class="lb ${l.n?(l.c/l.n>=0.5?"okd":"ngd"):""}" title="肢${l.label}">${l.label}</span>`).join("")+(x.missing?`<span class="lb mi" title="データにない肢">?</span>`.repeat(x.missing):"");
+    return `<tr><td style="white-space:nowrap"><b class="fp ${x.prob>=0.7?"vok":x.prob>=0.4?"vmid":"vng"}">${pc(x.prob)}</b><br>${x.label}<br><span class="note">${FNAME(x.f)}${x.kind==="count"?"・個数/組合せ":""}</span></td><td><button class="lnk" data-k="${w.q.f}|${w.q.t}">${[...new Set(x.limbs.map(l=>l.q.t))].join("・")}</button><div class="lbs">${dots}</div><span class="note">${x.answered}/4肢 解答済み</span></td></tr>`}).join("");
+  return `<section class="card"><h2>過去問の4択に戻すと</h2>
+  <p class="note" style="margin:0">○×に分けた肢を、元の過去問（同じ年度・問番号）ごとにまとめ直して、その4択1問を正解できる確率を推計しています。</p>
+  <div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="kp"><span>推計できた4択</span><b>${F.n}<small style="font-size:.8rem">/${F.total}問</small></b></div><div class="kp"><span>平均の正解率</span><b>${pc(F.avg)}</b></div><div class="kp"><span>3肢以上解いた${F.nSolid}問</span><b>${F.avgSolid==null?"—":pc(F.avgSolid)}</b></div></div>
+  ${P.ready?`<p style="margin:0">参考：○×正答率からの換算（上の「合格の見込み」）は <b>${pc(P.four)}</b>。3肢以上解いた問題の平均と大きく違うときは、苦手な肢が特定の問題に集まっている可能性があります。</p>`:""}
+  <div class="tw"><table class="st"><thead><tr><th>4択正解率</th><th>論点と肢</th></tr></thead><tbody>${rows}</tbody></table></div>
+  ${F.n>6?`<div class="row"><button class="btn" id="fourAll">${FOUR_ALL?"弱い6問だけ表示":`すべて表示（${F.n}問）`}</button></div>`:""}
+  <p class="note" style="margin:0">正解率の低い順。肢の色：緑＝正解／赤＝誤り／無色＝未回答／?＝データにない肢。論点名を押すと解説と確認例題へ。計算方法：解いた肢はその肢の成績を論点の直近10問の正答率で1回分ならし（1回正解しただけで100%にしない）、まだ解いていない肢・データにない肢（?）は論点の直近10問の正答率で補います（解いた数が少ない論点は分野の正答率に寄せ、数問だけで0%・100%と決めつけない）。その4肢を「合格の見込み」と同じ考え方（確信・迷い・誤信、標準）で4択に組み立て、正解の肢がどれでも同じ確率として平均。個数・組合せ問題は4肢すべての正誤が分かる確率で近似（やや厳しめ）。解いた肢が少ない問題ほど論点の平均に近づくので、3肢以上の平均も見てください。</p></section>`}
 function home(){
   clearInterval(timerId);
   const done=Object.keys(H).filter(k=>BYKEY[k]).length;
@@ -323,6 +364,7 @@ function home(){
     <p class="note">合格の目安：1回10問中 <b>8問以上</b>で合格圏、7問は合格ライン上（本試験の合格点は近年50点中33〜37点）。5回合計で <b>35点</b>が7割、<b>37点以上</b>なら安全圏です。</p>
   </section>
   ${passHtml()}
+  ${fourHtml()}
   <section class="card">
     <h2>分野別10問テスト</h2>
     <p class="note" style="margin:0">1つの分野だけを10問・10分。まだ解いていない問題と前回間違えた問題を優先して出します。5回セットの記録には入りません。</p>
@@ -356,6 +398,7 @@ function home(){
   </section>`;
   syncLabel();
   $("#go").onclick=()=>startExam();
+  if($("#fourAll"))$("#fourAll").onclick=()=>{FOUR_ALL=!FOUR_ALL;const y=scrollY;home();scrollTo(0,y)};
   document.querySelectorAll("[data-fx]").forEach(b=>b.onclick=()=>startExam(b.dataset.fx));
   if(canSpeak)$("#vc").onchange=e=>{voice=e.target.checked;ls.set("tkm-voice",voice)};
   document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>startReview([{key:b.dataset.k}]));
@@ -377,17 +420,16 @@ function startExam(field){
     const q=E.qs[E.cur];const m=Math.floor(E.left/60),s=E.left%60;
     app.innerHTML=`
     <div class="exam-top"><div><div class="note">${E.label}　${E.ans.filter(a=>a!=null).length}/10問 回答済み</div><div class="timer ${E.left<=60?"low":""}" id="tm">${m}:${String(s).padStart(2,"0")}</div></div><button class="btn" id="fin">採点する</button></div>
-    <div class="dots">${E.qs.map((x,k)=>`<button class="dot ${E.ans[k]!=null?(E.field?(E.ans[k]===x.a?"okd":"ngd"):"ans"):""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
+    <div class="dots">${E.qs.map((x,k)=>`<button class="dot ${E.ans[k]!=null?(E.ans[k]===x.a?"okd":"ngd"):""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
     <article class="card"><div class="meta">問${E.cur+1}　${FIELDS.find(x=>x[0]===q.f)[1]}</div><p class="stmt">${q.s}</p>
     ${canSpeak?`<button class="btn" id="spk" style="align-self:flex-start;font-weight:500;font-size:.85rem">読み上げ</button>`:""}
-    <div class="ox"><button class="btn ${E.ans[E.cur]===1?"sel":""}" id="o" ${E.field&&E.ans[E.cur]!=null?"disabled":""}>○</button><button class="btn ${E.ans[E.cur]===0?"sel":""}" id="x" ${E.field&&E.ans[E.cur]!=null?"disabled":""}>×</button></div>
-    ${E.field&&E.ans[E.cur]!=null?(()=>{const ok=E.ans[E.cur]===q.a;return `<div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　答え：${q.a?"○":"×"}　<span class="note">${q.t}　${q.ref==="確認"?"確認問題":q.ref}</span></span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div>`})():""}
-    <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${E.cur?"":"disabled"}>前へ</button><button class="btn ${E.field&&E.ans[E.cur]!=null?"pri":""}" id="next">${E.cur<9?"次へ":"採点する"}</button></div></article>
+    <div class="ox"><button class="btn ${E.ans[E.cur]===1?"sel":""}" id="o" ${E.ans[E.cur]!=null?"disabled":""}>○</button><button class="btn ${E.ans[E.cur]===0?"sel":""}" id="x" ${E.ans[E.cur]!=null?"disabled":""}>×</button></div>
+    ${E.ans[E.cur]!=null?(()=>{const ok=E.ans[E.cur]===q.a;return `<div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　答え：${q.a?"○":"×"}　<span class="note">${q.t}　${q.ref==="確認"?"確認問題":q.ref}</span></span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div>`})():""}
+    <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${E.cur?"":"disabled"}>前へ</button><button class="btn ${E.ans[E.cur]!=null?"pri":""}" id="next">${E.cur<9?"次へ":"採点する"}</button></div></article>
     <div id="cf"></div>`;
     const choose=v=>{
-      // 分野別：その場で正誤と解説を表示（答えは確定）
-      if(E.field){if(E.ans[E.cur]!=null)return;E.ans[E.cur]=v;const q0=E.qs[E.cur];render();if(voice)speak((v===q0.a?"正解。":"不正解。")+"答えは"+(q0.a?"まる":"ばつ")+"。"+q0.e);return}
-      E.ans[E.cur]=v;if(E.cur<E.qs.length-1){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else render()};
+      // 1問ごとにその場で正誤と解説を表示（答えは確定）。10問テスト・分野別とも同じ
+      if(E.ans[E.cur]!=null)return;E.ans[E.cur]=v;const q0=E.qs[E.cur];render();if(voice)speak((v===q0.a?"正解。":"不正解。")+"答えは"+(q0.a?"まる":"ばつ")+"。"+q0.e)};
     $("#o").onclick=()=>choose(1);$("#x").onclick=()=>choose(0);
     $("#prev").onclick=()=>{E.cur--;render()};
     $("#next").onclick=()=>{if(E.cur<9){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else askFinish()};

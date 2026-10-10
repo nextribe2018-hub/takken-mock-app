@@ -8,7 +8,7 @@ import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
 import {
   BANK, buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, LIMIT, MIX, Progress, Q, buildExam, checkQuestions, emptyProgress,
-  fieldName, finishExam, judge, judgeSet, LessonSys, record, relatedBranch, relatedRows, relatedTraps, speechText, topicState, topicStats, topicTier, Tier, wrongTopics,
+  fieldName, finishExam, judge, judgeSet, LessonSys, record, relatedBranch, relatedRows, relatedTraps, speechText, topicState, topicStats, topicTier, Tier, fourChoice, wrongTopics,
 } from './src/logic';
 import { loadProgress, saveProgress } from './src/storage';
 import { Colors, fonts, useColors, mix } from './src/theme';
@@ -186,6 +186,7 @@ function Home({ ctx }: { ctx: Ctx }) {
       </Card>
 
       <PassCard ctx={ctx} />
+      <FourCard ctx={ctx} />
 
       <Card ctx={ctx}>
         <Text style={st.h2}>分野別10問テスト</Text>
@@ -343,6 +344,56 @@ function PassCard({ ctx }: { ctx: Ctx }) {
   );
 }
 
+/* 過去問の4択に戻す：肢をまとめ直し、元の4択1問の正解率を推計 */
+function FourCard({ ctx }: { ctx: Ctx }) {
+  const { c, st, p, go } = ctx;
+  const F = useMemo(() => fourChoice(p.hist, p.r10), [p.hist, p.r10]);
+  const four = useMemo(() => passEstimate(p.hist, 500, p.r10), [p.hist, p.r10]);
+  const [all, setAll] = useState(false);
+  if (!F.n) return null;
+  const pc = (x: number) => `${Math.round(x * 100)}%`;
+  const tone = (x: number) => (x >= 0.7 ? c.ok : x >= 0.4 ? c.warn : c.ng);
+  return (
+    <Card ctx={ctx}>
+      <Text style={st.h2}>過去問の4択に戻すと</Text>
+      <Text style={st.note}>○×に分けた肢を、元の過去問（同じ年度・問番号）ごとにまとめ直して、その4択1問を正解できる確率を推計しています。</Text>
+      <View style={st.kpis}>
+        <Kpi ctx={ctx} label="推計できた4択" value={`${F.n}/${F.total}問`} />
+        <Kpi ctx={ctx} label="平均の正解率" value={pc(F.avg)} />
+        <Kpi ctx={ctx} label={`3肢以上解いた${F.nSolid}問`} value={F.avgSolid == null ? '—' : pc(F.avgSolid)} />
+      </View>
+      {four.ready && <Text style={st.body}>参考：○×正答率からの換算は <Text style={st.bold}>{pc(four.four)}</Text>。3肢以上解いた問題の平均と大きく違うときは、苦手な肢が特定の問題に集まっている可能性があります。</Text>}
+      {(all ? F.items : F.items.slice(0, 6)).map(x => {
+        const w = x.limbs.reduce((a, l) => (l.p < a.p ? l : a));
+        return (
+          <Pressable key={x.id} onPress={() => go({ name: 'lesson', queue: [{ key: `${w.q.f}|${w.q.t}` }] })}
+            style={({ pressed }) => [st.passRow, { alignItems: 'flex-start', borderTopWidth: 1, borderTopColor: c.line, paddingTop: 8 }, pressed && st.pressed]}>
+            <View style={{ width: 118 }}>
+              <Text style={[st.big, { fontSize: 22, color: tone(x.prob) }]}>{pc(x.prob)}</Text>
+              <Text style={st.bold}>{x.label}</Text>
+              <Text style={st.note}>{fieldName(x.f)}{x.kind === 'count' ? '・個数/組合せ' : ''}</Text>
+            </View>
+            <View style={{ flex: 1, gap: 4 }}>
+              <Text style={[st.body, { color: c.ai, textDecorationLine: 'underline' }]}>{[...new Set(x.limbs.map(l => l.q.t))].join('・')}</Text>
+              <View style={{ flexDirection: 'row', gap: 4 }}>
+                {x.limbs.map(l => {
+                  const col = l.n ? (l.c / l.n >= 0.5 ? c.ok : c.ng) : c.line;
+                  const bg = l.n ? (l.c / l.n >= 0.5 ? c.okSoft : c.ngSoft) : c.paper;
+                  return <Text key={l.label} style={{ minWidth: 22, textAlign: 'center', fontSize: 12, borderWidth: 1, borderRadius: 4, borderColor: col, backgroundColor: bg, color: l.n ? col : c.muted }}>{l.label}</Text>;
+                })}
+                {Array.from({ length: x.missing }, (_, i) => <Text key={`m${i}`} style={{ minWidth: 22, textAlign: 'center', fontSize: 12, borderWidth: 1, borderRadius: 4, borderStyle: 'dashed', borderColor: c.line, color: c.muted }}>?</Text>)}
+              </View>
+              <Text style={st.note}>{x.answered}/4肢 解答済み</Text>
+            </View>
+          </Pressable>
+        );
+      })}
+      {F.n > 6 && <Btn ctx={ctx} label={all ? '弱い6問だけ表示' : `すべて表示（${F.n}問）`} onPress={() => setAll(!all)} />}
+      <Text style={st.note}>正解率の低い順。肢の色：緑＝正解／赤＝誤り／無色＝未回答／?＝データにない肢。押すと、いちばん弱い肢の論点の解説と確認例題へ。計算方法：解いた肢はその肢の成績を論点の実力で1回分ならし（1回正解しただけで100%にしない）、未回答の肢・データにない肢は論点の直近10問の正答率で補う（解いた数が少ない論点は分野の正答率に寄せる）。その4肢を「合格の見込み」と同じ考え方（確信・迷い・誤信、標準）で4択に組み立て、正解の肢がどれでも同じ確率として平均。個数・組合せ問題は4肢すべての正誤が分かる確率で近似（やや厳しめ）。</Text>
+    </Card>
+  );
+}
+
 /* ---------- 試験 ---------- */
 function Exam({ ctx, qs, round, field }: { ctx: Ctx; qs: Q[]; round: number; field?: Q['f'] }) {
   const { c, st, p, update, go, speak } = ctx;
@@ -384,20 +435,16 @@ function Exam({ ctx, qs, round, field }: { ctx: Ctx; qs: Q[]; round: number; fie
 
   const q = qs[cur];
   const choose = (v: 0 | 1) => {
-    if (field) {
-      // 分野別：その場で正誤と解説を表示（答えは確定）
+    {
+      // 1問ごとにその場で正誤と解説を表示（答えは確定）。10問テスト・分野別とも同じ
       if (ans[cur] != null) return;
       const ok = v === qs[cur].a;
       Haptics.notificationAsync(ok ? Haptics.NotificationFeedbackType.Success : Haptics.NotificationFeedbackType.Error).catch(() => {});
       const next = [...ans]; next[cur] = v; setAns(next);
       if (p.voice) speak(`${ok ? '正解。' : '不正解。'}答えは${qs[cur].a ? 'まる' : 'ばつ'}。${qs[cur].e}`);
-      return;
     }
-    Haptics.selectionAsync().catch(() => {});
-    const next = [...ans]; next[cur] = v; setAns(next);
-    if (cur < qs.length - 1) setCur(cur + 1);
   };
-  const locked = !!field && ans[cur] != null;
+  const locked = ans[cur] != null;
   const tryFinish = () => { if (ans.some(a => a == null)) setAsk(true); else finish(); };
   const un = ans.filter(a => a == null).length;
 
@@ -413,9 +460,7 @@ function Exam({ ctx, qs, round, field }: { ctx: Ctx; qs: Q[]; round: number; fie
       <View style={st.dots}>
         {qs.map((_, k) => (
           <Pressable key={k} onPress={() => setCur(k)} accessibilityLabel={`${k + 1}問目`}
-            style={[st.dot, ans[k] != null && (field
-              ? (ans[k] === qs[k].a ? { backgroundColor: c.okSoft, borderColor: c.ok } : { backgroundColor: c.ngSoft, borderColor: c.ng })
-              : { backgroundColor: c.aiSoft, borderColor: c.ai }), k === cur && { borderColor: c.ink, borderWidth: 2 }]}>
+            style={[st.dot, ans[k] != null && (ans[k] === qs[k].a ? { backgroundColor: c.okSoft, borderColor: c.ok } : { backgroundColor: c.ngSoft, borderColor: c.ng }), k === cur && { borderColor: c.ink, borderWidth: 2 }]}>
             <Text style={st.dotText}>{k + 1}</Text>
           </Pressable>
         ))}

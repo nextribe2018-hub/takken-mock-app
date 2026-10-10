@@ -278,6 +278,76 @@ export function fieldStats(hist: Hist, r10: Recent = backfillRecent(hist)): Reco
   Object.entries(r10).forEach(([t, r]) => { const f = t.split('|')[0] as Field; if (o[f]) { o[f].rn += r.length; o[f].rc += ones(r); } });
   return o;
 }
+// ---- 過去問の4択に戻す：同じ「年度-問番号」の肢をまとめ、肢ごとの正答率から元の4択1問の正解率を推計 ----
+// 1肢ごとの判断が当たる確率 p[i] から、4択で正解できる確率（ans＝正解の肢の位置）。toExam と同じ「確信／迷う／誤信」モデル
+export function fourFromLimbs(ps: number[], ans: number, k = 0.5): number {
+  const pr = ps.map(p => { const kk = p < 1 ? Math.min(k, p / (1 - p)) : k; return [Math.max(0, p - kk * (1 - p)), 2 * (1 - p) * kk, (1 - p) * (1 - kk)]; });
+  let P = 0;
+  for (let i = 0; i < 81; i++) {
+    const st = [i % 3, Math.floor(i / 3) % 3, Math.floor(i / 9) % 3, Math.floor(i / 27) % 3];
+    let q = 1; st.forEach((x, j) => { q *= pr[j][x]; });
+    if (!q) continue;
+    const flag: number[] = [], uns: number[] = [];
+    st.forEach((x, j) => { if ((j === ans && x === 0) || (j !== ans && x === 2)) flag.push(j); if (x === 1) uns.push(j); });
+    const cand = flag.length ? flag : uns.length ? uns : [0, 1, 2, 3];
+    if (cand.includes(ans)) P += q / cand.length;
+  }
+  return P;
+}
+export type FourLimb = { q: Q; label: string; n: number; c: number; p: number };
+export type FourItem = {
+  id: string; label: string; f: Field; topics: string[]; limbs: FourLimb[];
+  answered: number; missing: number; kind: 'single' | 'count'; prob: number;
+};
+export type FourSummary = { items: FourItem[]; n: number; avg: number; nSolid: number; avgSolid: number | null; total: number };
+export const refLabelJa = (id: string) => {
+  const m = id.match(/^([RH])(\d+)(s?)-(\d+)$/);
+  if (!m) return id;
+  return `${m[1] === 'R' ? '令和' : '平成'}${+m[2] === 1 && m[1] === 'R' ? '元' : +m[2]}年${m[3] ? '12月' : ''} 問${+m[4]}`;
+};
+export const FOUR_GROUPS: Record<string, Q[]> = (() => {
+  const g: Record<string, Q[]> = {};
+  BANK.forEach(q => { const m = q.ref.match(/^(.+)-([^-]+)$/); if (!m || q.ref === '確認') return; (g[m[1]] = g[m[1]] || []).push(q); });
+  return g;
+})();
+export function fourChoice(hist: Hist, r10: Recent = backfillRecent(hist), k = 0.5): FourSummary {
+  const ts = topicStats(hist, r10);
+  const fs = fieldStats(hist, r10);
+  let tn = 0, tc = 0; Object.values(hist).forEach(h => { tn += h.n; tc += h.c; });
+  const all = tn ? tc / tn : 0.7;
+  // 論点の実力：直近10問の正答率を、分野の正答率5問分でならす（数問だけで0%・100%と決めつけない）。分野も全体に5問分でならす
+  const PRIOR = 5;
+  const fieldRate = (f: Field) => { const F = fs[f]; return F.rn ? (F.rc + PRIOR * all) / (F.rn + PRIOR) : F.n ? (F.c + PRIOR * all) / (F.n + PRIOR) : all; };
+  const rate = (f: Field, t: string) => {
+    const s = ts.find(x => x.f === f && x.t === t); const fr = fieldRate(f);
+    if (s && s.rn) return (s.rc + PRIOR * fr) / (s.rn + PRIOR);
+    if (s && s.n) return (s.c + PRIOR * fr) / (s.n + PRIOR);
+    return fr;
+  };
+  const clamp = (x: number) => Math.min(0.99, Math.max(0.01, x));
+  const items: FourItem[] = [];
+  Object.entries(FOUR_GROUPS).forEach(([id, qs]) => {
+    const answered = qs.filter(q => hist[q.k]).length;
+    if (!answered) return;
+    const limbs: FourLimb[] = qs.map(q => {
+      const h = hist[q.k]; const pt = rate(q.f, q.t);
+      // 解いた肢はその肢の成績を論点の実力で1回分ならす（1回正解だけで100%としない）
+      return { q, label: q.ref.split('-').pop()!, n: h ? h.n : 0, c: h ? h.c : 0, p: clamp(h ? (h.c + pt) / (h.n + 1) : pt) };
+    });
+    const missing = Math.max(0, 4 - limbs.length);
+    const fill = limbs.reduce((a, l) => a + rate(l.q.f, l.q.t), 0) / limbs.length;
+    const ps = [...limbs.map(l => l.p), ...Array(missing).fill(clamp(fill))];
+    const kind: FourItem['kind'] = limbs.some(l => /[アイウエ]/.test(l.label)) ? 'count' : 'single';
+    // 個数・組合せ問題は4肢すべての判断が要る（積で近似・やや厳しめ）。通常の4択は正解肢の位置で平均
+    const prob = kind === 'count' ? ps.reduce((a, b) => a * b, 1) : [0, 1, 2, 3].reduce((a, j) => a + fourFromLimbs(ps, j, k), 0) / 4;
+    items.push({ id, label: refLabelJa(id), f: qs[0].f, topics: [...new Set(qs.map(q => q.t))], limbs, answered, missing, kind, prob });
+  });
+  items.sort((a, b) => a.prob - b.prob);
+  const solid = items.filter(x => x.answered >= 3);
+  const avg = items.length ? items.reduce((a, x) => a + x.prob, 0) / items.length : 0;
+  return { items, n: items.length, avg, nSolid: solid.length, avgSolid: solid.length ? solid.reduce((a, x) => a + x.prob, 0) / solid.length : null, total: Object.keys(FOUR_GROUPS).length };
+}
+
 function seeded(a: number) {
   return () => { a |= 0; a = (a + 0x6d2b79f5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
