@@ -48,3 +48,4 @@
 | `kikenbutsu-otsu4` | 100 | 0 | https://claude.ai/artifact/4fHc3PkoMbjdnkgUTqsyrj |
 | `eisei-ni` | 100 | 92 | https://claude.ai/artifact/QMjyh2k7bZ553Gm3HBX6vA |
 | `eisei-ichi` | 100 | 97 | https://claude.ai/artifact/DD1EVU92e5pQgBo5aJLgtt |
+| `tohan-all` | 100 | 86 | https://claude.ai/artifact/2VhkBkV1Gf41LGGmsk8W5Y |
