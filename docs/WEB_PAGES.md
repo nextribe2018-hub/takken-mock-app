@@ -43,3 +43,4 @@
 | id | 問題数 | 過去問ベース | URL |
 |---|---|---|---|
 | `fe-kamokua` | 100 | 90 | https://claude.ai/artifact/AzyNyxngzffTGQXNQc2a4Q |
+| `itpass-all` | 100 | 91 | https://claude.ai/artifact/L2iKrttkXW9nUtf8gVwAoV |
