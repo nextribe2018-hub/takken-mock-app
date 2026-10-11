@@ -46,6 +46,6 @@
 | `itpass-all` | 200 | 181 | https://claude.ai/artifact/L2iKrttkXW9nUtf8gVwAoV |
 | `denko2-gakka` | 200 | 132 | https://claude.ai/artifact/3DYZwnEJCW1oYL8DjdgBPu |
 | `kikenbutsu-otsu4` | 200 | 0 | https://claude.ai/artifact/4fHc3PkoMbjdnkgUTqsyrj |
-| `eisei-ni` | 100 | 92 | https://claude.ai/artifact/QMjyh2k7bZ553Gm3HBX6vA |
-| `eisei-ichi` | 100 | 97 | https://claude.ai/artifact/DD1EVU92e5pQgBo5aJLgtt |
+| `eisei-ni` | 200 | 165 | https://claude.ai/artifact/QMjyh2k7bZ553Gm3HBX6vA |
+| `eisei-ichi` | 200 | 186 | https://claude.ai/artifact/DD1EVU92e5pQgBo5aJLgtt |
 | `tohan-all` | 200 | 185 | https://claude.ai/artifact/2VhkBkV1Gf41LGGmsk8W5Y |
