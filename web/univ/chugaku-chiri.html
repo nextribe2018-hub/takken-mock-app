@@ -1,0 +1,407 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>中学受験 地理 10問テスト</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* layout: 一枚の答案用紙。中央1カラム（最大640px）。問題文は試験冊子と同じ明朝、操作と数字はゴシック。 */
+:root{
+  --bg:#f2f1f6; --surface:#ffffff; --ink:#1d1a26; --muted:#676276; --line:#dbd8e4;
+  --accent:#4b2e83; --accent-ink:#ffffff; --accent-soft:#ebe5f6;
+  --ok:#1b7447; --ok-soft:#e1f2e8; --ng:#b3261e; --ng-soft:#fbe8e6; --warn:#7d5200; --warn-soft:#faefd8;
+  --f-exam:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --f-ui:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15121c; --surface:#1f1b2a; --ink:#ece9f4; --muted:#a49eb5; --line:#352f46;
+    --accent:#bba6ee; --accent-ink:#1a1328; --accent-soft:#2c2442;
+    --ok:#74d6a4; --ok-soft:#163326; --ng:#ff8f85; --ng-soft:#3c1b19; --warn:#f0c46c; --warn-soft:#382c10;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15121c; --surface:#1f1b2a; --ink:#ece9f4; --muted:#a49eb5; --line:#352f46;
+  --accent:#bba6ee; --accent-ink:#1a1328; --accent-soft:#2c2442;
+  --ok:#74d6a4; --ok-soft:#163326; --ng:#ff8f85; --ng-soft:#3c1b19; --warn:#f0c46c; --warn-soft:#382c10;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:20px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,p{margin:0}
+a{color:var(--accent)}
+
+.head{display:flex;flex-direction:column;gap:2px}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.head h1{font-family:var(--f-exam);font-weight:700;font-size:26px;line-height:1.3;text-wrap:balance}
+#app{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel h2{font-size:15px;font-weight:700}
+.lead{color:var(--muted);font-size:13px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 16px;font-weight:500;min-height:44px}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--muted)}
+.btn.sm{min-height:36px;padding:5px 12px;font-size:13px}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row.end{justify-content:flex-end}
+.row.split{justify-content:space-between}
+
+.start{border-color:var(--accent)}
+.start h2{font-family:var(--f-exam);font-size:20px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.segb{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;min-height:36px;font-size:13px}
+.segb small{color:var(--muted)}
+.segb[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+.segb[aria-pressed="true"] small{color:var(--accent)}
+.spec{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);padding:0;margin:0;list-style:none}
+.spec b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.num{display:flex;flex-direction:column;gap:0;min-width:0}
+.num b{font-size:22px;font-variant-numeric:tabular-nums;line-height:1.3}
+.num small{font-size:12px;color:var(--muted)}
+.num span{font-size:12px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.sc{font-size:12px;font-variant-numeric:tabular-nums;border-radius:999px;padding:1px 9px;background:var(--warn-soft);color:var(--warn)}
+.sc.good{background:var(--ok-soft);color:var(--ok)}
+.sc.bad{background:var(--ng-soft);color:var(--ng)}
+
+.fl{display:flex;flex-direction:column;gap:12px}
+.fi{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.fi .nm{font-weight:500;min-width:0}
+.fi .meta{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.meter{grid-column:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden;display:flex}
+.meter i{display:block;height:100%;background:var(--ok)}
+.meter i.w{background:var(--ng)}
+.fi .btn{grid-column:2;grid-row:1 / span 3}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:6px;border-radius:3px;margin-right:5px;vertical-align:middle;background:var(--line)}
+.legend i.g{background:var(--ok)} .legend i.w{background:var(--ng)}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line)}
+.bar-row{display:flex;align-items:baseline;gap:12px}
+.bar-title{font-size:12px;color:var(--muted);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.count{font-weight:700;font-variant-numeric:tabular-nums}
+.count small{color:var(--muted);font-weight:400}
+.clock{font-variant-numeric:tabular-nums;font-weight:700;padding:1px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.clock.low{background:var(--ng-soft);color:var(--ng)}
+.dots{display:flex;gap:4px}
+.dot{flex:1;height:8px;border-radius:4px;border:0;padding:0;background:var(--line);min-width:0}
+.dot.done{background:var(--accent)}
+.dot.cur{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent)}
+.dot.ok{background:var(--ok)} .dot.ng{background:var(--ng)}
+
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.chip{align-self:flex-start;font-size:12px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 10px}
+.passage{font-family:var(--f-exam);font-size:16px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;max-height:50vh;overflow-y:auto}
+.passage[lang=en]{font-family:Georgia,"Times New Roman",var(--f-exam);line-height:1.7}
+.q{font-family:var(--f-exam);font-weight:500;font-size:18px;line-height:1.85;overflow-wrap:anywhere}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:11px 12px;min-height:48px}
+.opt .mark{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--muted);line-height:1}
+.opt .txt{min-width:0;overflow-wrap:anywhere;font-family:var(--f-exam);font-size:16px;line-height:1.6;padding-top:1px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.sel .mark{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right .mark{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.opt.wrong{border-color:var(--ng);background:var(--ng-soft)}
+.opt.wrong .mark{background:var(--ng);border-color:var(--ng);color:var(--surface)}
+.opt:disabled{cursor:default;color:inherit;opacity:1}
+.ask{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.ask .btn{color:var(--ink)}
+
+.exp{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--line);padding-top:14px}
+.verdict{font-weight:700}
+.verdict.ok{color:var(--ok)} .verdict.ng{color:var(--ng)}
+.exp p{overflow-wrap:anywhere}
+.memo{background:var(--accent-soft);border-radius:8px;padding:8px 12px}
+.memo span{display:block;font-size:11px;letter-spacing:.08em;color:var(--accent);font-weight:700}
+.src{font-size:12px;color:var(--muted)}
+
+.score{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.score b{font-family:var(--f-exam);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
+.score span{color:var(--muted)}
+.judge{font-weight:700}
+.judge.good{color:var(--ok)} .judge.mid{color:var(--warn)} .judge.bad{color:var(--ng)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
+.tab{border:0;background:transparent;padding:8px 12px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;min-height:40px}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:700;border-bottom-color:var(--accent)}
+.rev{display:flex;flex-direction:column;gap:8px}
+details.it{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+details.it summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:baseline;padding:12px 14px}
+details.it summary::-webkit-details-marker{display:none}
+.ox{flex:none;font-weight:700;width:1.2em;text-align:center}
+.ox.ok{color:var(--ok)} .ox.ng{color:var(--ng)}
+.sm-t{flex:1;min-width:0;overflow-wrap:anywhere}
+.sm-t small{display:block;color:var(--muted);font-size:12px}
+.it-body{padding:0 14px 16px;display:flex;flex-direction:column;gap:12px}
+.it-body .q{font-size:16px}
+.it-body .exp{border-top:0;padding-top:0}
+.tl{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px;padding:4px 0}
+.tl li{list-style:none;display:grid;grid-template-columns:5.2em 1.4em minmax(0,1fr);gap:8px;align-items:baseline;padding:7px 0 7px 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:-6px;top:1.05em;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.tl{margin-block:0;padding-inline-start:0}
+.tl .yr{font-variant-numeric:tabular-nums;font-weight:700;text-align:right;white-space:nowrap}
+.tl .ev{min-width:0;overflow-wrap:anywhere}
+.tl .ev small{display:block;color:var(--muted);font-size:12px}
+.foot{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:420px){ .q{font-size:17px} .score b{font-size:44px} .fi{grid-template-columns:minmax(0,1fr)} .fi .btn{grid-column:1;grid-row:auto;justify-self:start} }
+@media (prefers-reduced-motion:no-preference){ .opt,.btn,.dot{transition:background-color .12s,border-color .12s} }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <p class="eyebrow">小学社会 日本の国土と産業｜中学受験 頻出知識の想定問題</p>
+    <h1>中学受験 地理 10問テスト</h1>
+  </header>
+  <main id="app"></main>
+  <footer class="foot">
+    <p>このページは文部科学省・各中学校の公式教材ではありません。中学入試の問題の権利は各中学校にあるため、入試の文面は使わず、小学校の学習指導要領と教科書の範囲に中学受験で一般的な発展事項を加えて、全国の入試で頻出の知識からすべて独自に作成した想定問題です。「想定問題」は、公表されている出題範囲・出題形式に合わせて独自に作成した問題で、実際に出題されたものではありません。解説と覚え方も独自に作成したものです。公民・時事は2026年10月1日現在の内容です。</p>
+    <p><a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1384661.htm" target="_blank" rel="noopener">学習指導要領（文部科学省）</a></p>
+    <p id="sync"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var QS=[{"id":1,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"日本の東西南北の端","q":"日本の最も南にある島はどれですか。","c":["沖ノ鳥島（おきのとりしま）","南鳥島（みなみとりしま）","与那国島（よなぐにじま）","択捉島（えとろふとう）"],"e":"日本の最も南の島は東京都に属する沖ノ鳥島です。波でけずられて島がなくならないように、まわりをコンクリートなどで守る工事が行われました。南鳥島は最も東の島、与那国島（沖縄県）は最も西の島、択捉島（北海道）は最も北の島です。4つの端の島はまとめて覚えておきましょう。","m":"北＝択捉、南＝沖ノ鳥、東＝南鳥、西＝与那国"},{"id":2,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"日本の川","q":"日本で最も長い川はどれですか。","c":["信濃川（しなのがわ）","利根川（とねがわ）","石狩川（いしかりがわ）","北上川（きたかみがわ）"],"e":"日本で最も長い川は、長野県から新潟県へ流れて日本海に注ぐ信濃川です（長野県の中では千曲川〈ちくまがわ〉とよばれます）。利根川は長さでは2番目ですが、雨水が集まる範囲（流域面積）が日本で最も広い川です。石狩川は北海道、北上川は岩手県・宮城県を流れる川で、どちらも信濃川より短い川です。","m":"長さ1位は信濃川、流域面積1位は利根川"},{"id":3,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"日本アルプス","q":"「日本アルプス」とよばれる3つの山脈の組み合わせとして正しいものはどれですか。","c":["飛騨（ひだ）山脈・木曽（きそ）山脈・赤石（あかいし）山脈","飛騨山脈・木曽山脈・奥羽（おうう）山脈","越後（えちご）山脈・木曽山脈・赤石山脈","飛騨山脈・紀伊（きい）山地・赤石山脈"],"e":"本州の中央部にならぶ飛騨山脈（北アルプス）・木曽山脈（中央アルプス）・赤石山脈（南アルプス）をまとめて日本アルプスといいます。3000m級の山が連なり「日本の屋根」ともよばれます。奥羽山脈は東北地方の中央を南北に走る山脈、越後山脈は新潟県と福島県・群馬県の境の山脈、紀伊山地は近畿地方の南部の山地で、日本アルプスにはふくまれません。","m":"北から飛騨・木曽・赤石＝北・中央・南アルプス"},{"id":4,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"扇状地","q":"川が山地から平地に出るところに、運ばれてきた砂や石が積もってできた、おうぎを広げたような形のゆるやかな斜面（しゃめん）の地形を何といいますか。水はけがよいため、果樹園に使われることが多い地形です。","c":["扇状地（せんじょうち）","三角州（さんかくす）","台地","盆地（ぼんち）"],"e":"山から流れ出た川は、平地に出ると流れが急にゆるやかになり、つぶの大きい砂や石を積もらせます。こうしてできるのが扇状地で、水はけがよいので、山梨県の甲府盆地のように、ぶどうやももなどの果樹園に利用されます。三角州は川が海や湖に流れこむ河口付近に細かい土砂が積もってできる平らな土地です。台地はまわりより一段高く平らな土地、盆地はまわりを山に囲まれた平らな土地です。","m":"山のふもと＝扇状地（果樹）、河口＝三角州"},{"id":5,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"リアス海岸","q":"出入りの多い入り組んだ海岸線のリアス海岸が見られる場所として、正しくないものはどれですか。","c":["九十九里浜（くじゅうくりはま）（千葉県）","三陸（さんりく）海岸の南部（岩手県・宮城県）","若狭（わかさ）湾（福井県・京都府）","志摩（しま）半島（三重県）"],"e":"九十九里浜は千葉県の太平洋側に長く続く、まっすぐな砂浜の海岸で、リアス海岸ではありません。リアス海岸は、山地や谷が海にしずんでできた、のこぎりの歯のように入り組んだ海岸です。三陸海岸の南部、若狭湾、志摩半島などで見られます。湾の中は波がおだやかで、かきやわかめ、真珠などの養殖に向いていますが、津波が来ると波が高くなりやすい特色もあります。","m":"リアス海岸＝三陸・若狭湾・志摩。九十九里は砂浜"},{"id":6,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"輪中","q":"岐阜県・愛知県・三重県にまたがる濃尾（のうび）平野の南西部では、こう水から家や田畑を守るため、まわりを堤防（ていぼう）で囲んだ地域がつくられてきました。これを何といいますか。","c":["輪中（わじゅう）","棚田（たなだ）","干拓地（かんたくち）","防風林（ぼうふうりん）"],"e":"濃尾平野の南西部は、木曽川・長良（ながら）川・揖斐（いび）川の3つの川（木曽三川）が集まる低い土地で、昔からこう水に苦しんできました。そこで人々は集落や田畑のまわりを堤防で囲み、輪中をつくりました。家の土台を高くした水屋（みずや）も見られます。棚田は山の斜面に階段のようにつくった田、干拓地は海や湖を堤防で仕切って水をぬいてつくった土地、防風林は強い風を防ぐための林です。","m":"輪中＝濃尾平野・木曽三川・堤防で囲む"},{"id":7,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"シラス台地","q":"鹿児島県や宮崎県南部に広がる、火山の噴火（ふんか）による灰や軽石が厚く積もってできた台地を何といいますか。","c":["シラス台地","根釧（こんせん）台地","牧ノ原（まきのはら）","関東ローム"],"e":"九州南部には、大昔の火山の大噴火で出た灰や軽石が厚く積もってできたシラス台地が広がっています。水を通しやすく、米づくりには向かないため、さつまいもや茶などの畑作や、ぶた・肉牛・にわとりを育てる畜産（ちくさん）がさかんです。根釧台地は北海道東部の酪農地帯、牧ノ原は静岡県の茶の産地として知られる台地、関東ロームは関東平野をおおう赤土の火山灰の層です。","m":"シラス台地＝九州南部・火山灰・畑作と畜産"},{"id":8,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"平野と川","q":"平野とそこを流れる川の組み合わせとして正しいものはどれですか。","c":["庄内（しょうない）平野―最上（もがみ）川","越後（えちご）平野―北上（きたかみ）川","筑紫（つくし）平野―吉野（よしの）川","石狩（いしかり）平野―天竜（てんりゅう）川"],"e":"山形県の庄内平野を流れるのは最上川で、米づくりがさかんな地域です。越後平野（新潟県）を流れるのは信濃川と阿賀野（あがの）川、筑紫平野（福岡県・佐賀県）を流れるのは筑後（ちくご）川、石狩平野（北海道）を流れるのは石狩川です。北上川は岩手県・宮城県、吉野川は徳島県など四国、天竜川は長野県・静岡県を流れる川です。","m":"庄内―最上、越後―信濃、筑紫―筑後、石狩―石狩"},{"id":9,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"排他的経済水域","q":"沿岸の国が、海の中の魚や海底の資源を自分の国のものとして利用できる「排他的経済水域（はいたてきけいざいすいいき）」は、海岸線から何海里（かいり）までの範囲（領海をのぞく）ですか。","c":["200海里","12海里","24海里","100海里"],"e":"排他的経済水域は、海岸線から200海里（約370km）までのうち、領海をのぞいた範囲です。この中の水産資源や海底の資源は、その国が利用する権利をもちます。12海里（約22km）は領海の範囲で、領海はその国の領土と同じように主権がおよぶ海です。日本は島が多いため、国土の面積に比べて排他的経済水域がとても広い国です。","m":"領海12海里、排他的経済水域200海里"},{"id":10,"k":"plan","ref":"想定問題","f":"日本の国土と地形","t":"海流","q":"日本列島の太平洋側を南から北へ流れる暖流はどれですか。","c":["黒潮（くろしお）（日本海流）","親潮（おやしお）（千島海流）","対馬（つしま）海流","リマン海流"],"e":"日本のまわりには4つの海流が流れています。太平洋側を南から北へ流れる暖流が黒潮（日本海流）、北から南へ流れる寒流が親潮（千島海流）です。日本海側には、暖流の対馬海流が北へ、寒流のリマン海流が南へ流れています。黒潮と親潮がぶつかる三陸沖は、魚のえさになるプランクトンが多い、よい漁場になっています。","m":"太平洋：黒潮（暖）・親潮（寒）、日本海：対馬（暖）・リマン（寒）"},{"id":11,"k":"plan","ref":"想定問題","f":"日本の気候","t":"日本海側の気候","q":"日本海側の地域で冬に雪が多く降るのはなぜですか。最も適切なものを選びなさい。","c":["北西から吹く季節風が日本海の上で水分をふくみ、山地にぶつかって雪を降らせるから","南東から吹く季節風が太平洋の上で水分をふくみ、山地にぶつかって雪を降らせるから","冬に台風が多く日本海側に上陸し、雨や雪をもたらすから","寒流の親潮が日本海側を流れ、冷たい空気を運んでくるから"],"e":"冬は大陸から北西の季節風が吹きます。この風は日本海をわたるときに、暖流の対馬海流の上で水分をたっぷりふくみ、中央の山地にぶつかって日本海側に大雪を降らせます。山をこえた風はかわいているので、太平洋側は冬に晴れて乾燥します。南東の季節風は夏の風です。台風は主に夏から秋に来ます。親潮は太平洋側を流れる寒流です。","m":"冬は北西の季節風→日本海側に雪、太平洋側は乾燥"},{"id":12,"k":"plan","ref":"想定問題","f":"日本の気候","t":"瀬戸内の気候","q":"瀬戸内海に面した地域は、1年を通して雨が少ない気候です。その理由として最も適切なものはどれですか。","c":["北の中国山地と南の四国山地が、夏と冬の季節風をさえぎるから","1年中、北から乾いた風が吹きつづけるから","海からはなれた内陸にあり、しめった空気が届かないから","梅雨や台風の影響をまったく受けない地域だから"],"e":"瀬戸内の地域は、北を中国山地、南を四国山地にはさまれているため、夏の南東の季節風も冬の北西の季節風も山地にさえぎられ、雨や雪が少なくなります。そのため、香川県などでは昔から水不足にそなえて、たくさんのため池がつくられてきました。瀬戸内は海に面した地域なので「内陸」ではなく、梅雨や台風の影響もまったく受けないわけではありません。","m":"瀬戸内は2つの山地にはさまれ雨が少ない→ため池"},{"id":13,"k":"plan","ref":"想定問題","f":"日本の気候","t":"中央高地の気候","q":"長野県などの中央高地（内陸）の気候の特色として最も適切なものはどれですか。","c":["1年を通して雨が少なく、夏と冬の気温の差や、昼と夜の気温の差が大きい","冬に雪がとても多く、夏はむし暑い","1年中あたたかく、雨が多い","夏に雨が多く、冬は晴れてあたたかい"],"e":"中央高地は海からはなれていて、まわりを山に囲まれているため、季節風がさえぎられて1年を通して雨が少なめです。また、海の水のように温度の変化をやわらげるはたらきがないので、夏と冬、昼と夜の気温の差が大きくなります。冬に雪が多いのは日本海側、1年中あたたかく雨が多いのは南西諸島、夏に雨が多いのは太平洋側の気候の特色です。","m":"内陸（中央高地）＝雨が少なく、気温差が大きい"},{"id":14,"k":"plan","ref":"想定問題","f":"日本の気候","t":"北海道の気候","q":"北海道の気候の特色として最も適切なものはどれですか。","c":["冬の寒さがきびしく、梅雨のはっきりした時期がほとんどない","冬もあたたかく、台風が多く通過する","1年を通して雨が少なく、ため池が多くつくられている","夏に南東の季節風が吹き、梅雨の時期の雨がとても多い"],"e":"北海道は日本の北にあるため冬の寒さがきびしく、夏はすずしい気候です。梅雨前線が北海道に届くころには弱まっていることが多く、はっきりした梅雨の時期がほとんどありません。台風が多いのは沖縄など南西諸島、ため池が多いのは瀬戸内の地域です。梅雨の雨が多いのは本州・四国・九州などです。","m":"北海道＝冬が寒く、梅雨がほとんどない"},{"id":15,"k":"plan","ref":"想定問題","f":"日本の気候","t":"やませ","q":"夏に東北地方の太平洋側に吹きつける、冷たくしめった北東の風を何といいますか。この風が長く続くと、日照不足や低温で米の不作（冷害）が起こることがあります。","c":["やませ","からっ風","フェーン現象","偏西風（へんせいふう）"],"e":"やませは、初夏から夏にかけて、寒流の親潮の上を通って東北地方の太平洋側に吹く、冷たくしめった北東の風です。霧（きり）や雲が多くなって日照時間が不足し、気温も上がらないため、稲が育たず冷害が起こることがあります。からっ風は冬に関東地方などに吹く乾いた北西風、フェーン現象は山をこえた風が高温で乾いた風になる現象、偏西風は中緯度の上空を西から東へ吹く風です。","m":"やませ＝夏・東北の太平洋側・冷害"},{"id":16,"k":"plan","ref":"想定問題","f":"日本の気候","t":"沖縄の家のくふう","q":"沖縄県の伝統的な家に見られるくふうとして、正しくないものはどれですか。","c":["屋根に積もった雪が落ちやすいように、屋根のかたむきを急にしている","強い風にそなえて、屋根を低くし、かわらをしっくいで固めている","家のまわりを石垣や防風林で囲んでいる","水不足にそなえて、屋根の上に給水タンクを置いている家がある"],"e":"沖縄は台風がよく通過するので、伝統的な家は屋根を低くし、かわらがとばないようにしっくいで固め、まわりを石垣やふくぎなどの木で囲んでいます。また、大きな川が少なく水不足になりやすいため、屋根の上に給水タンクを置く家も見られます。沖縄は冬もあたたかく雪はほとんど降らないので、雪を落とすために屋根を急にするくふうは見られません。これは雪の多い地域のくふうです。","m":"沖縄の家＝台風（低い屋根・石垣）と水不足（タンク）"},{"id":17,"k":"plan","ref":"想定問題","f":"日本の気候","t":"太平洋側の気候","q":"「夏は南東の季節風の影響で雨が多く、冬は晴れて乾燥した日が続く」という特色をもつ気候はどれですか。","c":["太平洋側の気候","日本海側の気候","瀬戸内の気候","北海道の気候"],"e":"夏は太平洋から南東の季節風が吹き、しめった空気が山地にぶつかるため、太平洋側では夏に雨が多くなります。冬は北西の季節風が山をこえて乾いた風になるため、晴れて乾燥します。日本海側は冬に雪が多い気候、瀬戸内は1年を通して雨が少ない気候、北海道は冬の寒さがきびしく梅雨がほとんどない気候です。","m":"太平洋側＝夏に雨が多く、冬は晴れて乾燥"},{"id":18,"k":"plan","ref":"想定問題","f":"日本の気候","t":"季節風の向き","q":"日本付近で吹く季節風の向きの組み合わせとして正しいものはどれですか。","c":["夏は南東から、冬は北西から吹く","夏は北西から、冬は南東から吹く","夏は北東から、冬は南西から吹く","夏も冬も西から吹く"],"e":"季節風（モンスーン）は、季節によって向きが変わる風です。日本付近では、夏は太平洋から南東の季節風が、冬はユーラシア大陸から北西の季節風が吹きます。夏の南東の風は太平洋側に、冬の北西の風は日本海側に、それぞれ多くの雨や雪をもたらします。「1年中西から吹く」のは上空の偏西風で、季節風とは別のものです。","m":"夏＝南東の季節風、冬＝北西の季節風"},{"id":19,"k":"plan","ref":"想定問題","f":"日本の気候","t":"北海道の家のくふう","q":"北海道の家に多く見られるくふうとして最も適切なものはどれですか。","c":["寒さを防ぐため、窓を二重にしたり、かべに断熱材を入れたりしている","風通しをよくするため、かべを少なくして戸を大きく開けられるようにしている","台風にそなえて、家のまわりを石垣で囲んでいる","こう水にそなえて、家の土台を高くした水屋（みずや）をつくっている"],"e":"北海道は冬の寒さがきびしいため、家の中のあたたかさをにがさないように、窓を二重にしたり、かべや床に断熱材を入れたりしています。灯油を入れておく大きなタンクを置く家や、玄関を二重にした家もあります。風通しをよくした家は暑い地域、石垣で囲んだ家は沖縄、水屋は濃尾平野の輪中地域に見られるくふうです。","m":"北海道の家＝二重窓・断熱材で寒さを防ぐ"},{"id":20,"k":"plan","ref":"想定問題","f":"日本の気候","t":"雪の多い地域の家","q":"岐阜県の白川郷（しらかわごう）や富山県の五箇山（ごかやま）に見られる、雪が積もりにくいように急なかたむきのかやぶき屋根をもつ伝統的な家のつくりを何といいますか。","c":["合掌造り（がっしょうづくり）","書院造（しょいんづくり）","寝殿造（しんでんづくり）","校倉造（あぜくらづくり）"],"e":"白川郷・五箇山は冬に雪がとても多い山あいの地域で、雪が自然にすべり落ちるよう、手を合わせたような急な屋根の合掌造りの家が建てられてきました。1995年に世界文化遺産に登録されています。書院造は室町時代に広まった、たたみやふすまのある住まいのつくり、寝殿造は平安時代の貴族の屋しき、校倉造は東大寺の正倉院のような三角の木材を組んだ倉のつくりです。","m":"白川郷・五箇山＝合掌造り（大雪にそなえる）"},{"id":21,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"促成栽培","q":"高知平野や宮崎平野では、冬でもあたたかい気候を利用し、ビニールハウスでピーマンやなすなどを育てて、ほかの産地より早い時期に出荷しています。このような栽培の方法を何といいますか。","c":["促成栽培（そくせいさいばい）","抑制栽培（よくせいさいばい）","近郊農業","輪作（りんさく）"],"e":"促成栽培は、あたたかい気候やビニールハウスを利用して、ふつうより早い時期に野菜を育てて出荷する方法です。ほかの産地の野菜が少ない冬から春に出荷できるので、高い値段で売ることができます。抑制栽培は反対に出荷の時期をおくらせる方法、近郊農業は大都市の近くで野菜などをつくる農業、輪作は同じ畑で年ごとにちがう作物を順番に育てる方法です。","m":"促成＝早く出す（高知・宮崎）、抑制＝おくらせる"},{"id":22,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"高原野菜","q":"長野県の野辺山原（のべやまはら）や群馬県の嬬恋（つまごい）村では、夏でもすずしい気候を利用してレタスやキャベツを育て、ほかの産地からの出荷が少ない夏に出荷しています。このように、出荷の時期をおくらせる栽培を何といいますか。","c":["抑制栽培（よくせいさいばい）","促成栽培","二毛作","施設園芸（しせつえんげい）"],"e":"標高が高く夏でもすずしい高原では、ふつうは春や秋に育てるレタスやキャベツなどを夏に育てて出荷します。このように出荷の時期をおくらせる方法を抑制栽培といい、こうして育てた野菜を高原野菜とよびます。促成栽培は出荷を早める方法です。二毛作は同じ田畑で1年に2回ちがう作物をつくること、施設園芸はビニールハウスなどの施設で野菜や花を育てることです。","m":"高原の夏にレタス・キャベツ＝抑制栽培"},{"id":23,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"酪農","q":"北海道東部の根釧（こんせん）台地では、夏でもすずしく、火山灰の土地で米づくりに向かないため、ある農業がさかんに行われています。それは何ですか。","c":["牛を飼い、牛乳や乳製品をつくる酪農（らくのう）","ビニールハウスで野菜を育てる施設園芸","みかんやりんごなどの果樹栽培","水田での米づくり"],"e":"根釧台地は夏でもすずしく、霧（きり）が多いうえに火山灰の土地のため、作物を育てるのに向いていませんでした。そこで、牧草を育てて乳牛を飼う酪農が大規模に行われるようになりました。農林水産省の畜産統計で、乳牛（乳用牛）の飼養頭数は北海道が長年全国1位で、全国の半分以上をしめています。ビニールハウスの野菜づくりは高知や宮崎などの暖かい地域、果樹栽培は青森や山梨など、米づくりは石狩平野などでさかんです。","m":"根釧台地＝酪農（すずしい・火山灰）"},{"id":24,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"十勝平野の畑作","q":"北海道の十勝（とかち）平野で行われている、同じ畑で年ごとに育てる作物を変えていく方法を何といいますか。土地の栄養のかたよりや病気を防ぐ目的があります。","c":["輪作","二期作","単作","混合農業"],"e":"十勝平野は日本有数の畑作地帯で、じゃがいも・小麦・てんさい（さとうの原料）・あずき・大豆などを大規模に育てています。同じ畑で同じ作物を続けてつくると、土の栄養がかたよったり病気が出やすくなったりするため、年ごとに作物を変える輪作を行っています。二期作は同じ田で1年に2回米をつくること、単作は1年に1回1つの作物だけをつくることです。混合農業は作物づくりと家畜の飼育を組み合わせたヨーロッパの農業です。","m":"十勝平野＝畑作＋輪作（じゃがいも・てんさい）"},{"id":25,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"果物の産地","q":"りんごの生産量が長年全国1位の県はどれですか。","c":["青森県","長野県","山形県","山梨県"],"e":"りんごはすずしい気候に合う果物で、農林水産省の果樹生産出荷統計で青森県が長年全国1位、長野県が2位となっています。津軽平野などで広く栽培されています。山形県はさくらんぼ（おうとう）、山梨県はぶどうやももの生産量が長年全国1位の県として知られています。果物と産地はセットで覚えましょう。","m":"りんご＝青森、さくらんぼ＝山形、ぶどう・もも＝山梨"},{"id":26,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"食料自給率","q":"日本の品目別の食料自給率（国内で消費する量のうち国内でつくられる量の割合）について、次のうち最も自給率が高いものはどれですか。","c":["米","小麦","大豆","果物"],"e":"日本は多くの食料を外国からの輸入にたよっていますが、米はほぼ国内の生産でまかなえており、品目別の自給率は長年とても高い水準です（農林水産省「食料需給表（しょくりょうじゅきゅうひょう）」）。一方、パンやめんの原料になる小麦、とうふやしょうゆの原料になる大豆は、ほとんどを輸入にたよっていて自給率が低くなっています。果物も輸入が多く、米より自給率はずっと低くなっています。","m":"米は自給率が高く、小麦・大豆は低い"},{"id":27,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"栽培漁業","q":"魚や貝の卵をかえして、ある程度の大きさまで人の手で育ててから海や川に放流し、大きくなってからとる漁業を何といいますか。","c":["栽培（さいばい）漁業","養殖業（ようしょくぎょう）","遠洋漁業","沖合漁業"],"e":"栽培漁業は、卵からかえした稚魚（ちぎょ）や稚貝（ちがい）を、ある程度の大きさまで育ててから海や川に放し、自然の中で育ったものをとる漁業です。とりすぎで減った水産資源を増やすことがねらいです。養殖業は、いけすなどで出荷する大きさになるまでずっと育てる漁業で、海に放さない点がちがいます。遠洋漁業は遠くの海で長い期間行う漁業、沖合漁業は日本の近くの沖で数日がかりで行う漁業です。","m":"放流する＝栽培漁業、最後まで育てる＝養殖業"},{"id":28,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"遠洋漁業の衰退","q":"1970年代以降、日本の遠洋漁業の漁獲量が大きく減った理由として最も適切なものはどれですか。","c":["世界の国々が200海里の水域を設けて外国の漁船の漁業を制限したことや、燃料の石油の値段が上がったこと","日本のまわりの海で赤潮が毎年発生し、魚がいなくなったこと","日本人が魚を食べなくなり、魚がまったく売れなくなったこと","漁船の数が増えすぎて、港に入りきらなくなったこと"],"e":"1970年代後半から、多くの国が海岸線から200海里の水域を設けて、外国の漁船が自由に魚をとることを制限するようになりました。また、石油危機によって漁船の燃料代が大きく上がりました。このため、遠くの海まで出かける遠洋漁業は大きく漁獲量を減らしました。赤潮は主に沿岸の問題で遠洋漁業の減少の主な原因ではなく、そのほかの選択肢も理由として適切ではありません。","m":"遠洋漁業が減った＝200海里の水域＋石油危機"},{"id":29,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"潮目","q":"三陸海岸の沖合がよい漁場になっている理由として最も適切なものはどれですか。","c":["暖流と寒流がぶつかる潮目（しおめ）があり、魚のえさになるプランクトンが多いから","1年中、海の水温がとても高く、魚が冬眠しないから","大きな川がまったく流れこまず、海の水がすんでいるから","海が浅くて波がなく、魚がにげられないから"],"e":"三陸海岸の沖合では、南から来る暖流の黒潮と北から来る寒流の親潮がぶつかり、潮目（潮境〈しおざかい〉）ができます。潮目では海の栄養分がまざり合ってプランクトンが多く集まり、それを食べる魚も集まるため、よい漁場となります。暖流の魚と寒流の魚の両方がとれるのも特色です。ほかの選択肢は、三陸沖が好漁場である理由として正しくありません。","m":"暖流と寒流がぶつかる潮目＝よい漁場（三陸沖）"},{"id":30,"k":"plan","ref":"想定問題","f":"農業・水産業","t":"養殖の産地","q":"養殖されている水産物と、その代表的な産地の組み合わせとして正しくないものはどれですか。","c":["真珠（しんじゅ）―陸奥（むつ）湾","かき―広島湾","のり―有明（ありあけ）海","ほたて貝―陸奥湾"],"e":"真珠の養殖は、三重県の英虞（あご）湾や愛媛県の宇和海（うわかい）などのおだやかな海で行われており、青森県の陸奥湾ではありません。陸奥湾はほたて貝の養殖で知られています。広島湾ではかきの養殖がさかんで、広島県はかきの養殖による生産量が長年全国1位で、全国の半分以上をしめています（農林水産省の統計）。九州の有明海は遠浅（とおあさ）で干満（かんまん）の差が大きく、のりの養殖がさかんです。","m":"ほたて＝陸奥湾、かき＝広島湾、のり＝有明海、真珠＝英虞湾"},{"id":31,"k":"plan","ref":"想定問題","f":"工業","t":"太平洋ベルト","q":"関東地方の南部から九州地方の北部にかけて、海ぞいに工業地帯・工業地域が帯のように連なっている地域を何といいますか。","c":["太平洋ベルト","シリコンロード","フォッサマグナ","東海道メガロポリス"],"e":"関東南部から東海・近畿・瀬戸内を通って九州北部まで、海ぞいに工業のさかんな地域が帯のように続いています。これを太平洋ベルトといい、原料や製品を船で運びやすいこと、人口が多く働く人を集めやすいことなどから工業が発達しました。シリコンロードは東北地方の高速道路ぞいのIC工場の集まり、フォッサマグナは本州の中央を南北に横切る大きなみぞのような地形、東海道メガロポリスは東京から大阪あたりまで大都市がつらなる地域のことで、工業地帯の帯をさす言葉ではありません。","m":"海ぞいに連なる工業地域＝太平洋ベルト"},{"id":32,"k":"plan","ref":"想定問題","f":"工業","t":"中京工業地帯","q":"愛知県を中心に広がり、自動車工業がとくにさかんで、製造品出荷額が長年全国一の工業地帯はどれですか。","c":["中京工業地帯","京浜工業地帯","阪神工業地帯","北九州工業地帯"],"e":"中京工業地帯は愛知県・三重県などに広がり、豊田市を中心とした自動車工業がとくにさかんです。機械工業の割合がとても高く、製造品出荷額は長年全国の工業地帯の中で1位です。経済産業省の統計でも、愛知県の製造品出荷額等は1977年から続けて都道府県別の全国1位です。京浜工業地帯は東京・神奈川、阪神工業地帯は大阪・兵庫、北九州工業地帯は福岡県北部に広がる工業地帯です。","m":"中京＝愛知・自動車・出荷額1位"},{"id":33,"k":"plan","ref":"想定問題","f":"工業","t":"京葉工業地域","q":"千葉県の東京湾ぞいに広がり、石油化学コンビナートや製鉄所が集まっていて、化学工業の割合がとくに高い工業地域はどれですか。","c":["京葉（けいよう）工業地域","北関東工業地域","東海工業地域","瀬戸内工業地域"],"e":"京葉工業地域は千葉県の東京湾ぞいのうめ立て地に広がり、石油化学コンビナートや製鉄所が集まっています。そのため化学工業の割合がとても高いのが特色です。北関東工業地域は内陸の群馬・栃木・茨城に広がり機械工業がさかん、東海工業地域は静岡県に広がり楽器やオートバイ・製紙などが知られています。瀬戸内工業地域は瀬戸内海ぞいに広がる工業地域です。","m":"京葉＝千葉の東京湾ぞい・化学工業"},{"id":34,"k":"plan","ref":"想定問題","f":"工業","t":"八幡製鉄所","q":"明治時代の1901年に官営（国営）の八幡（やはた）製鉄所が操業を始め、それをもとに発達した工業地帯はどれですか。","c":["北九州工業地帯（工業地域）","阪神工業地帯","京浜工業地帯","中京工業地帯"],"e":"八幡製鉄所は、近くの筑豊（ちくほう）炭田の石炭と、中国から輸入した鉄鉱石を使って鉄をつくるため、現在の福岡県北九州市につくられました。これをもとに北九州工業地帯が発達しました。その後、エネルギーの中心が石炭から石油に変わったことなどで地位が下がり、現在は「北九州工業地域」とよばれることもあります。ほかの工業地帯は八幡製鉄所とは関係がありません。","m":"八幡製鉄所（1901年）→北九州工業地帯"},{"id":35,"k":"plan","ref":"想定問題","f":"工業","t":"IC工場の立地","q":"IC（集積回路）をつくる工場が、空港や高速道路の近くに多く建てられている理由として最も適切なものはどれですか。","c":["ICは小さく軽いわりに値段が高いので、飛行機やトラックで運んでも利益が出やすいから","ICは重くて大きいので、船でしか運べないから","ICの原料の石炭を、空港から直接運びこむ必要があるから","ICをつくるには、空港の騒音が必要だから"],"e":"ICは小さくて軽いのに値段が高い製品です。運ぶのにお金がかかる飛行機やトラックを使っても十分に利益が出るため、IC工場は空港や高速道路のインターチェンジの近くに多く建てられています。九州地方はIC工場が多く「シリコンアイランド」ともよばれました。重くて大きい原料や製品を船で運ぶのは、海ぞいに立地する鉄鋼や石油化学の工場です。","m":"IC＝小さく軽く高い→空港・高速道路の近く"},{"id":36,"k":"plan","ref":"想定問題","f":"工業","t":"加工貿易","q":"原料や燃料を外国から輸入し、それを国内で製品につくりかえて外国へ輸出する貿易を何といいますか。日本は長い間、この形の貿易で工業を発展させてきました。","c":["加工貿易","中継（ちゅうけい）貿易","保護貿易","南蛮（なんばん）貿易"],"e":"資源の少ない日本は、石油や鉄鉱石などの原料・燃料を輸入し、自動車や機械などの製品につくりかえて輸出する加工貿易で工業を発展させてきました。近年は工場の海外移転などで、製品の輸入も増えています。中継貿易は他国の品物を仕入れて別の国へ売る貿易、保護貿易は関税などで国内の産業を守る貿易のやり方、南蛮貿易は戦国時代のポルトガル・スペインとの貿易です。","m":"原料を輸入→製品にして輸出＝加工貿易"},{"id":37,"k":"plan","ref":"想定問題","f":"工業","t":"産業の空洞化","q":"日本の会社が、人件費の安い外国に工場を移すことが増えた結果、国内の工場や働く場所が減ってしまうことを何といいますか。","c":["産業の空洞化（くうどうか）","地産地消（ちさんちしょう）","ドーナツ化現象","高度経済成長"],"e":"人件費や土地代が安いアジアの国々などへ工場を移す会社が増えると、日本国内では工場が閉じられ、働く場所や技術が失われていきます。これを産業の空洞化といいます。地産地消は地元でとれたものを地元で消費すること、ドーナツ化現象は都市の中心部の人口が減って周辺部の人口が増えること、高度経済成長は1950年代後半から1970年代初めまでの急速な経済の成長のことです。","m":"工場が海外へ→国内の仕事が減る＝産業の空洞化"},{"id":38,"k":"plan","ref":"想定問題","f":"工業","t":"伝統的工芸品","q":"伝統的工芸品と、それがつくられている都道府県の組み合わせとして正しくないものはどれですか。","c":["輪島塗（わじまぬり）―岩手県","南部鉄器（なんぶてっき）―岩手県","西陣織（にしじんおり）―京都府","有田焼（ありたやき）―佐賀県"],"e":"輪島塗は石川県輪島市でつくられる漆器（しっき）で、岩手県ではありません。南部鉄器は岩手県の盛岡市や奥州市でつくられる鉄器、西陣織は京都府京都市の西陣でつくられる絹織物、有田焼は佐賀県有田町でつくられる焼き物（磁器）です。伝統的工芸品は、地元でとれる原料や昔からの技術を生かしてつくられてきました。","m":"輪島塗＝石川、南部鉄器＝岩手、西陣織＝京都、有田焼＝佐賀"},{"id":39,"k":"plan","ref":"想定問題","f":"工業","t":"地場産業","q":"めがねのフレームの生産がさかんで、国内でつくられるフレームの大部分を生産している地場産業の町として知られるのはどこですか。","c":["福井県鯖江（さばえ）市","愛媛県今治（いまばり）市","新潟県燕（つばめ）市","岐阜県関（せき）市"],"e":"福井県鯖江市では、冬に雪が多く農作業ができない時期の副業として、明治時代の終わりごろからめがねづくりが始まり、現在では国内のめがねフレームの大部分をつくる地場産業に育ちました。愛媛県今治市はタオル、新潟県燕市はスプーンやフォークなどの金属洋食器、岐阜県関市は包丁などの刃物の産地として知られています。","m":"めがね＝鯖江、タオル＝今治、洋食器＝燕、刃物＝関"},{"id":40,"k":"plan","ref":"想定問題","f":"工業","t":"自動車工業のしくみ","q":"自動車の組み立て工場が、必要な部品を、必要なときに、必要な数だけ関連工場から届けてもらうしくみ（ジャスト・イン・タイム方式）のねらいとして最も適切なものはどれですか。","c":["部品をたくさんためておく必要をなくし、置き場所や費用のむだを減らすこと","関連工場の数を減らして、すべての部品を組み立て工場でつくること","部品を外国からだけ輸入するようにすること","完成した自動車を、つくったその日のうちにすべて輸出すること"],"e":"自動車は約3万個もの部品からできていて、多くの部品は組み立て工場のまわりにある関連工場でつくられています。ジャスト・イン・タイム方式では、組み立てのラインに合わせて部品を必要なときに必要な数だけ届けてもらうので、部品の在庫をかかえる必要がなく、置き場所や費用のむだを減らせます。関連工場を減らすことや、輸入・輸出だけにすることがねらいではありません。","m":"必要な部品を必要なときに必要な数だけ＝むだを減らす"},{"id":41,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"海に面していない県","q":"3つとも海に面していない県の組み合わせはどれですか。","c":["栃木県・群馬県・埼玉県","岐阜県・滋賀県・京都府","山梨県・長野県・静岡県","奈良県・和歌山県・滋賀県"],"e":"海に面していない県は、栃木県・群馬県・埼玉県・山梨県・長野県・岐阜県・滋賀県・奈良県の8つです。京都府は北部が日本海（若狭湾）に面しています。静岡県は太平洋に面し、和歌山県は紀伊半島の海ぞいにある県です。したがって、3つとも海に面していないのは栃木県・群馬県・埼玉県の組み合わせです。","m":"海なし県＝栃木・群馬・埼玉・山梨・長野・岐阜・滋賀・奈良"},{"id":42,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"接する県が多い県","q":"となりあう都道府県の数が最も多い都道府県はどれですか。","c":["長野県","岐阜県","埼玉県","京都府"],"e":"長野県は、新潟県・群馬県・埼玉県・山梨県・静岡県・愛知県・岐阜県・富山県の8つの県ととなりあっていて、全国で最も多くの都道府県と接しています。岐阜県と埼玉県はそれぞれ7つ、京都府は6つの府県と接しています。長野県は本州の中央部にあり、海に面していない県でもあります。","m":"8県と接する長野県（となりの数が全国最多）"},{"id":43,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"面積の小さい都道府県","q":"面積が最も小さい都道府県はどれですか。","c":["香川県","大阪府","東京都","沖縄県"],"e":"面積が最も小さい都道府県は四国地方の香川県です。2番目に小さいのは大阪府、3番目は東京都で、沖縄県も小さい県の一つですが香川県より広くなっています。反対に、面積が最も大きいのは北海道です。香川県は瀬戸内の気候で雨が少なく、ため池が多いことでも知られています。","m":"面積最小＝香川県、最大＝北海道"},{"id":44,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"県庁所在地","q":"県名と県庁所在地の都市名の組み合わせとして正しいものはどれですか。","c":["石川県―金沢市","茨城県―宇都宮市","群馬県―水戸市","滋賀県―松江市"],"e":"石川県の県庁所在地は金沢市です。茨城県の県庁所在地は水戸市、宇都宮市は栃木県の県庁所在地です。群馬県の県庁所在地は前橋市です。滋賀県の県庁所在地は大津市で、松江市は島根県の県庁所在地です。県名と県庁所在地の名前がちがう県は、とくに注意して覚えましょう。","m":"茨城＝水戸、栃木＝宇都宮、群馬＝前橋、滋賀＝大津"},{"id":45,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"東北地方","q":"東北地方にふくまれない県はどれですか。","c":["新潟県","秋田県","山形県","福島県"],"e":"東北地方は、青森県・岩手県・宮城県・秋田県・山形県・福島県の6県です。新潟県は東北地方のとなりにありますが、中部地方（その中の北陸）にふくまれます。新潟県は越後平野で米づくりがさかんで、東北地方の県と同じく日本海側の気候のところが多い県です。","m":"東北6県＝青森・岩手・宮城・秋田・山形・福島"},{"id":46,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"四国地方","q":"四国地方にふくまれない県はどれですか。","c":["岡山県","徳島県","香川県","愛媛県"],"e":"四国地方は、徳島県・香川県・愛媛県・高知県の4県です。岡山県は瀬戸内海をはさんで四国の北にある、中国地方の県です。岡山県と香川県は瀬戸大橋で結ばれています。中国地方と四国地方をあわせて「中国・四国地方」とよぶこともありますが、四国地方そのものには岡山県はふくまれません。","m":"四国＝徳島・香川・愛媛・高知"},{"id":47,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"県庁所在地","q":"県庁所在地が松山市である県はどれですか。","c":["愛媛県","香川県","島根県","高知県"],"e":"松山市は愛媛県の県庁所在地で、道後（どうご）温泉や松山城で知られています。香川県の県庁所在地は高松市、島根県の県庁所在地は松江市、高知県の県庁所在地は高知市です。「松」のつく県庁所在地は、松山市（愛媛県）・高松市（香川県）・松江市（島根県）とまぎらわしいので、セットで覚えましょう。","m":"松山＝愛媛、高松＝香川、松江＝島根"},{"id":48,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"中部地方の区分","q":"中部地方は北陸・中央高地・東海の3つに分けられます。北陸にふくまれない県はどれですか。","c":["長野県","新潟県","富山県","福井県"],"e":"北陸は日本海側の新潟県・富山県・石川県・福井県で、冬に雪が多く、米づくりがさかんな地域です。長野県は山梨県や岐阜県北部などとともに中央高地にふくまれ、1年を通して雨が少なく、果物や高原野菜の栽培がさかんです。東海は静岡県・愛知県・岐阜県南部など太平洋側の地域をさします。","m":"北陸＝新潟・富山・石川・福井"},{"id":49,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"近畿地方","q":"近畿地方にある2つの「府」の組み合わせとして正しいものはどれですか。","c":["京都府・大阪府","京都府・兵庫県","大阪府・奈良県","大阪府・和歌山県"],"e":"日本の都道府県のうち「府」は京都府と大阪府の2つで、どちらも近畿地方にあります。近畿地方は京都府・大阪府に、兵庫県・奈良県・和歌山県・滋賀県・三重県を加えた2府5県です。兵庫県・奈良県・和歌山県はいずれも「県」なので、府の組み合わせとしては誤りです。","m":"府は京都府と大阪府の2つ（近畿は2府5県）"},{"id":50,"k":"plan","ref":"想定問題","f":"都道府県と地域","t":"県庁所在地でない大都市","q":"次の都市のうち、県庁所在地ではないものはどれですか。","c":["北九州市","福岡市","仙台市","広島市"],"e":"北九州市は福岡県の北部にある大きな都市ですが、福岡県の県庁所在地は福岡市です。仙台市は宮城県、広島市は広島県の県庁所在地です。人口の多い大きな都市でも、県庁所在地ではないものがあります（例：北九州市、浜松市、川崎市など）。北九州市は八幡製鉄所をもとに発達した北九州工業地帯の中心都市です。","m":"福岡県の県庁所在地は福岡市（北九州市ではない）"},{"id":51,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"本州四国連絡橋","q":"本州と四国を結ぶ3つのルートのうち、道路だけでなく鉄道も通っている橋はどれですか。","c":["瀬戸大橋（岡山県倉敷市〈児島〉―香川県坂出〈さかいで〉市）","明石海峡大橋（兵庫県神戸市―淡路島）","しまなみ海道（広島県尾道〈おのみち〉市―愛媛県今治市）","関門（かんもん）橋（山口県下関市―福岡県北九州市）"],"e":"本州四国連絡橋には、神戸―鳴門ルート（明石海峡大橋・大鳴門橋）、児島―坂出ルート（瀬戸大橋）、尾道―今治ルート（しまなみ海道）の3つがあります。このうち鉄道（JR瀬戸大橋線）も通っているのは瀬戸大橋だけで、上を自動車、下を列車が走る2階建ての橋です。関門橋は本州と九州を結ぶ橋で、本州四国連絡橋ではありません。","m":"鉄道も通る本四連絡橋＝瀬戸大橋（岡山―香川）"},{"id":52,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"新幹線の開業","q":"次の新幹線を、開業した（一部区間を含め最初に開業した）年の古い順に正しくならべたものはどれですか。\nア　東北新幹線　イ　東海道新幹線　ウ　九州新幹線　エ　山陽新幹線","c":["イ→エ→ア→ウ","イ→ア→エ→ウ","エ→イ→ア→ウ","イ→エ→ウ→ア"],"e":"東海道新幹線は東京オリンピックの年の1964年に東京―新大阪間で開業しました。続いて山陽新幹線が1972年に新大阪―岡山間、1975年に博多まで開業しました。東北新幹線は1982年に大宮―盛岡間で開業し、九州新幹線は2004年に新八代（しんやつしろ）―鹿児島中央間で開業しました。したがって、イ→エ→ア→ウの順になります。","m":"東海道1964→山陽1972→東北1982→九州2004"},{"id":53,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"航空輸送","q":"飛行機で輸送されることが多い品物として最も適切なものはどれですか。","c":["IC（集積回路）や医薬品など、小さく軽くて値段が高いもの","石油や石炭など、重くて大量に運ぶもの","鉄鉱石や木材など、かさが大きいもの","自動車など、一度にたくさん運ぶ大きな製品"],"e":"飛行機は速く運べますが、一度に運べる量が少なく、運ぶ費用も高くなります。そのため、ICや医薬品、精密機械など、小さく軽いわりに値段が高い品物や、新鮮さが大切な生鮮品などの輸送に向いています。石油・石炭・鉄鉱石・木材のように重くかさばる原料や、自動車のような大きな製品は、一度に大量に運べる船で輸送されるのがふつうです。","m":"飛行機＝小さく軽く高いもの、船＝重く大量のもの"},{"id":54,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"資源の輸入先","q":"日本が鉄鋼の原料として輸入している鉄鉱石の、最大の輸入相手国はどれですか。","c":["オーストラリア","サウジアラビア","アメリカ合衆国","中国"],"e":"日本は鉄鉱石のほとんどを輸入にたよっており、財務省の貿易統計で長年オーストラリアが最大の輸入相手国です。石炭もオーストラリアからの輸入が最も多くなっています。サウジアラビアは、アラブ首長国連邦などとともに原油の主な輸入相手国です（原油の1位はこの2か国が入れかわることがあります）。アメリカ合衆国は穀物や機械など、中国は衣類や電気機器などの輸入で大きな相手国ですが、鉄鉱石の最大の相手国ではありません。","m":"鉄鉱石・石炭＝オーストラリア、原油＝西アジア"},{"id":55,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"貿易相手国","q":"日本にとって、輸出と輸入を合わせた貿易額が最も大きい相手国（2007年以降、長年1位）はどれですか。","c":["中国","アメリカ合衆国","韓国","オーストラリア"],"e":"財務省の貿易統計では、輸出と輸入を合わせた貿易額で、2007年から2025年まで毎年、中国が日本の最大の貿易相手国となっています。中国からは衣類や電気機器などを多く輸入し、日本からは機械や部品などを輸出しています。アメリカ合衆国は長く最大の相手国でしたが、2007年に中国が上回りました。韓国やオーストラリアも大切な貿易相手ですが、1位ではありません。","m":"貿易額1位の相手国＝中国（2007年以降）"},{"id":56,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"四大公害病","q":"四大公害病の一つであるイタイイタイ病について、発生した地域と原因の組み合わせとして正しいものはどれですか。","c":["富山県の神通（じんづう）川流域―カドミウム","熊本県・鹿児島県の八代海（やつしろかい）沿岸―有機水銀","新潟県の阿賀野（あがの）川流域―有機水銀","三重県の四日市市―亜硫酸（ありゅうさん）ガス"],"e":"イタイイタイ病は、富山県の神通川流域で、上流の鉱山から流れ出たカドミウムによって起こり、骨がもろくなってはげしい痛みに苦しむ病気です。熊本県・鹿児島県の八代海沿岸で有機水銀により起こったのは水俣病、新潟県の阿賀野川流域で有機水銀により起こったのは新潟水俣病、三重県四日市市で工場のけむりの亜硫酸ガスにより起こったのは四日市ぜんそくです。","m":"イタイイタイ病＝富山・神通川・カドミウム"},{"id":57,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"四日市ぜんそく","q":"四大公害病のうち、石油化学コンビナートの工場から出たけむりによる大気汚染（たいきおせん）が原因で起こったものはどれですか。","c":["四日市ぜんそく","水俣病","新潟水俣病","イタイイタイ病"],"e":"四日市ぜんそくは、三重県四日市市の石油化学コンビナートの工場から出たけむりにふくまれる亜硫酸ガスによって空気がよごれ、多くの人がぜんそくなどの病気になった公害です。水俣病と新潟水俣病は工場の排水にふくまれた有機水銀、イタイイタイ病は鉱山から出たカドミウムが原因で、いずれも水の汚染によって起こりました。","m":"大気汚染＝四日市ぜんそく、ほかの3つは水の汚染"},{"id":58,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"世界自然遺産","q":"青森県と秋田県の県境に広がり、人の手がほとんど入っていないぶなの原生林が残ることから、1993年に世界自然遺産に登録された地域はどれですか。","c":["白神山地（しらかみさんち）","知床（しれとこ）","屋久島（やくしま）","小笠原諸島（おがさわらしょとう）"],"e":"白神山地は青森県と秋田県にまたがる山地で、世界最大級のぶなの原生林が残されています。1993年に屋久島とともに日本で最初の世界自然遺産になりました。知床は北海道（2005年登録）、屋久島は鹿児島県で樹齢（じゅれい）の長い縄文すぎで知られ、小笠原諸島は東京都（2011年登録）で、独自の進化をとげた生き物が多い島々です。","m":"白神山地＝青森・秋田のぶなの原生林"},{"id":59,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"ラムサール条約","q":"水鳥などが生息する大切な湿地を守り、かしこく利用することを目的とした国際的な条約はどれですか。","c":["ラムサール条約","ワシントン条約","世界遺産条約","京都議定書（ぎていしょ）"],"e":"ラムサール条約は、水鳥などの生き物がすむ湿地を守るための条約で、日本では北海道の釧路（くしろ）湿原や滋賀県の琵琶湖などが登録されています。ワシントン条約は絶滅（ぜつめつ）のおそれのある野生の動植物の取り引きを規制する条約、世界遺産条約は人類にとって大切な自然や文化財を守る条約、京都議定書は地球温暖化の原因となる温室効果ガスを減らす取り決めです。","m":"湿地と水鳥を守る＝ラムサール条約"},{"id":60,"k":"plan","ref":"想定問題","f":"交通・貿易・環境","t":"モーダルシフト","q":"トラックで運んでいた荷物を、二酸化炭素の排出量が少ない鉄道や船による輸送に切りかえていく取り組みを何といいますか。","c":["モーダルシフト","パークアンドライド","リサイクル","ヒートアイランド"],"e":"モーダルシフトは、長いきょりの荷物を、トラックから鉄道や船などの輸送にかえていく取り組みです。一度にたくさん運べる鉄道や船は、運ぶ量あたりの二酸化炭素の排出が少ないため、地球温暖化対策になり、トラックの運転手不足の対策にもなります。パークアンドライドは自動車を駅の近くにとめて電車などに乗りかえること、リサイクルは使い終わったものを資源として再利用すること、ヒートアイランドは都市の気温がまわりより高くなる現象です。","m":"トラック→鉄道・船＝モーダルシフト"}];
+var FIELDS=["日本の国土と地形","日本の気候","農業・水産業","工業","都道府県と地域","交通・貿易・環境"];
+var KIND={past:"過去問ベース",plan:"想定問題"};
+var LS="chugaku-chiri-v1";
+var scope="all";
+try{var sc0=localStorage.getItem(LS+"-scope");if(sc0==="past"||sc0==="plan")scope=sc0}catch(e){}
+function P(){return scope==="all"?QS:QS.filter(function(q){return q.k===scope})}
+var app=document.getElementById("app");
+var byId={};QS.forEach(function(q){byId[q.id]=q});
+var S={v:1,rev:0,at:0,stats:{},hist:[]};
+var view="home",X=null,tick=null,tab="exp",armed="";
+var ref=null,busy=false,dirty=false,deb=null,fails=0,syncState="local";
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function st(id){return S.stats[id]||null}
+function A(q){return q.a||0}
+function ord(q){var n=q.c.length,i,a=[];for(i=0;i<(q.last?n-1:n);i++)a.push(i);a=shuffle(a);if(q.last)a.push(n-1);return a}
+function yearLabel(y){return y<0?"前"+(-y)+"年":y+"年"}
+
+/* ---- 記録 ---- */
+function norm(d){d=d||{};return {v:1,rev:+d.rev||0,at:+d.at||0,stats:(d.stats&&typeof d.stats==="object")?JSON.parse(JSON.stringify(d.stats)):{},hist:Array.isArray(d.hist)?JSON.parse(JSON.stringify(d.hist)):[]}}
+function loadLocal(){try{var r=localStorage.getItem(LS);if(r){var d=JSON.parse(r);if(d&&d.v===1)S=norm(d)}}catch(e){}}
+function saveLocal(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
+function setSync(s){syncState=s;var el=document.getElementById("sync");if(el)el.textContent=s==="account"?"記録の保存先：アカウント（ほかの端末でも続きから使えます）":"記録の保存先：この端末のブラウザ"}
+function save(){S.rev++;S.at=Date.now();saveLocal();if(ref){dirty=true;clearTimeout(deb);deb=setTimeout(push,1200)}}
+function push(){
+  if(!ref||busy||!dirty)return;
+  busy=true;dirty=false;
+  ref.set(JSON.parse(JSON.stringify(S))).then(function(){fails=0;setSync("account")},function(e){
+    dirty=true;fails++;
+    if(!e||e.code!=="unavailable"||fails>=2){if(e&&e.code!=="unavailable"){ref=null}setSync("local")}
+  }).then(function(){busy=false;if(dirty&&ref&&fails<2){clearTimeout(deb);deb=setTimeout(push,3000)}});
+}
+function connect(){
+  try{
+    if(!window.claude||!window.claude.use)return;
+    Promise.all([window.claude.use("db"),window.claude.use("user")]).then(function(r){
+      var db=r[0],user=r[1];if(!db||!user)return null;
+      return user.id().then(function(uid){
+        if(!uid)return null;
+        var d=db.doc("data/users/"+uid+"/progress");
+        return d.get().then(function(snap){
+          ref=d;
+          var remote=snap.exists?norm(snap.data()):null;
+          if(remote&&remote.rev>S.rev){S=remote;saveLocal();if(view==="home")home()}
+          else if(S.rev>(remote?remote.rev:0)){dirty=true;push()}
+          setSync("account");
+        });
+      });
+    }).catch(function(){ref=null;setSync("local")});
+  }catch(e){}
+}
+
+/* ---- 出題 ---- */
+function rank(q){var s=st(q.id);if(!s||!s.n)return 0;return s.last===0?1:2}
+function pick(pool,n,ex){
+  var c=shuffle(pool.filter(function(q){return !ex||!ex[q.id]}));
+  c.sort(function(a,b){return rank(a)-rank(b)||((st(a.id)||{}).t||0)-((st(b.id)||{}).t||0)});
+  return c.slice(0,n);
+}
+function quotas(n){
+  var raw=FIELDS.map(function(f){return P().filter(function(q){return q.f===f}).length*n/P().length});
+  var base=raw.map(Math.floor),rest=n-base.reduce(function(a,b){return a+b},0);
+  var ord=raw.map(function(r,i){return [r-Math.floor(r),i]}).sort(function(a,b){return b[0]-a[0]});
+  for(var k=0;k<rest;k++)base[ord[k%ord.length][1]]++;
+  return base;
+}
+function buildFull(){
+  var n=Math.min(10,P().length),qt=quotas(n),out=[],used={};
+  FIELDS.forEach(function(f,i){pick(P().filter(function(q){return q.f===f}),qt[i]).forEach(function(q){out.push(q);used[q.id]=1})});
+  if(out.length<n)pick(P(),n-out.length,used).forEach(function(q){out.push(q)});
+  return shuffle(out);
+}
+function begin(kind,f,ex){
+  var list,mode="exam",title="";
+  if(kind==="full"){list=buildFull();title="10問テスト"}
+  else if(kind==="field"){list=pick(P().filter(function(q){return q.f===f}),10);title=f+"のテスト"}
+  else if(kind==="similar"){list=pick(P().filter(function(q){return q.f===f}),5,ex);mode="drill";title=f+"をもう5問"}
+  else{list=shuffle(QS.filter(function(q){var s=st(q.id);return s&&s.n&&s.last===0})).slice(0,10);mode="drill";title="まちがえた問題の復習"}
+  if(!list.length){home();return}
+  var now=Date.now(),limit=list.length*60;
+  X={mode:mode,kind:kind,f:f||"",title:title,k:0,start:now,limit:limit,deadline:now+limit*1000,done:false,
+     items:list.map(function(q){return {id:q.id,order:ord(q),pick:null,ok:null}})};
+  view="exam";tab="exp";armed="";run();
+}
+function run(){exam();startTick();window.scrollTo(0,0)}
+function startTick(){stopTick();if(!X||X.mode!=="exam"||X.done)return;paintClock();tick=setInterval(function(){if(!X||X.done){stopTick();return}if(Date.now()>=X.deadline){grade(true)}else paintClock()},500)}
+function stopTick(){if(tick){clearInterval(tick);tick=null}}
+function paintClock(){var el=document.getElementById("clock");if(!el||!X)return;var s=Math.max(0,Math.ceil((X.deadline-Date.now())/1000));el.textContent="残り "+Math.floor(s/60)+":"+("0"+s%60).slice(-2);el.className="clock"+(s<=60?" low":"")}
+function rec(id,ok,now){var s=S.stats[id]||(S.stats[id]={n:0,ok:0,last:0,t:0});s.n++;if(ok)s.ok++;s.last=ok?1:0;s.t=now}
+function grade(auto){
+  stopTick();var now=Date.now(),score=0;
+  X.items.forEach(function(it){it.ok=it.pick===A(byId[it.id]);if(it.ok)score++;rec(it.id,it.ok,now)});
+  X.score=score;X.sec=Math.min(Math.round((now-X.start)/1000),X.limit);X.auto=!!auto;X.done=true;
+  S.hist.push({ts:now,kind:X.kind,f:X.f,score:score,total:X.items.length,sec:X.sec});
+  if(S.hist.length>60)S.hist=S.hist.slice(-60);
+  save();view="result";result();window.scrollTo(0,0);
+}
+function finishDrill(){X.done=true;X.score=X.items.filter(function(it){return it.ok}).length;view="result";result();window.scrollTo(0,0)}
+
+/* ---- 画面：ホーム ---- */
+function home(){
+  view="home";stopTick();armed="";
+  var seen=P().filter(function(q){var s=st(q.id);return s&&s.n}).length;
+  var wrong=QS.filter(function(q){var s=st(q.id);return s&&s.n&&s.last===0}).length;
+  var ex=S.hist.filter(function(h){return h.kind==="full"});
+  var avg=ex.length?(ex.reduce(function(a,h){return a+h.score/h.total*10},0)/ex.length).toFixed(1):"–";
+  var qt=quotas(Math.min(10,P().length));
+  var h='<section class="panel start"><h2>第'+(ex.length+1)+'回　10問テスト</h2>'+
+    '<div class="seg" role="group" aria-label="出題範囲">'+[["all","すべて"],["past","過去問ベース"],["plan","想定問題"]].map(function(x){var n=x[0]==="all"?QS["length"]:QS.filter(function(q){return q.k===x[0]}).length;return '<button class="segb" data-act="scope" data-s="'+x[0]+'" aria-pressed="'+(scope===x[0])+'">'+x[1]+' <small>'+n+'問</small></button>'}).join("")+'</div>'+
+    '<ul class="spec"><li>問題数 <b>10問</b></li><li>制限時間 <b>10分</b></li><li>形式 <b>選択式</b></li><li>目標 <b>8問正解</b></li></ul>'+
+    '<p class="lead">'+FIELDS.map(function(f,i){return esc(f)+" "+qt[i]+"問"}).join("、")+"。まだ解いていない問題と、前回まちがえた問題から先に出します。</p>"+
+    '<div class="row"><button class="btn pri" data-act="full">10問テストを始める</button>'+
+    (wrong?'<button class="btn" data-act="wrong">まちがえた問題を復習（'+wrong+'問）</button>':'')+'</div></section>';
+  h+='<section class="panel"><h2>これまでの成績</h2><div class="nums">'+
+    '<div class="num"><span>テスト回数</span><b>'+ex.length+'<small> 回</small></b></div>'+
+    '<div class="num"><span>平均点</span><b>'+avg+'<small> /10</small></b></div>'+
+    '<div class="num"><span>解いた問題</span><b>'+seen+'<small> /'+P().length+'問</small></b></div></div>'+
+    (ex.length?'<div class="chips" aria-label="最近のテストの得点">'+ex.slice(-8).map(function(x){var r=x.score/x.total;return '<span class="sc '+(r>=.8?"good":r<.6?"bad":"")+'">'+x.score+"/"+x.total+"</span>"}).join("")+"</div>":'<p class="lead">1回目のテストを終えると、得点と分野別の定着度がここに出ます。</p>')+
+    "</section>";
+  h+='<section class="panel"><h2>分野別の定着度</h2><div class="fl">'+FIELDS.map(function(f,i){
+    var pool=P().filter(function(q){return q.f===f}),ok=0,ng=0;
+    pool.forEach(function(q){var s=st(q.id);if(s&&s.n){if(s.last)ok++;else ng++}});
+    return '<div class="fi"><span class="nm">'+esc(f)+'</span><div class="meter" role="img" aria-label="正解 '+ok+'問、要復習 '+ng+'問、全'+pool.length+'問"><i style="width:'+(ok/pool.length*100)+'%"></i><i class="w" style="width:'+(ng/pool.length*100)+'%"></i></div>'+
+      '<span class="meta">正解 '+ok+'　要復習 '+ng+'　未出題 '+(pool.length-ok-ng)+'（全'+pool.length+'問）</span>'+
+      '<button class="btn sm" data-act="field" data-f="'+i+'">この分野を解く</button></div>';
+  }).join("")+'</div><p class="legend"><span><i class="g"></i>直近で正解</span><span><i class="w"></i>直近で不正解</span><span><i></i>未出題</span></p></section>';
+  if(seen)h+='<div class="row end"><button class="btn ghost sm" data-act="reset">'+(armed==="reset"?"本当に消す（もう一度押す）":"記録をすべて消す")+"</button></div>";
+  app.innerHTML=h;
+}
+
+/* ---- 画面：解答 ---- */
+function passHtml(q){return q.p?'<div class="passage"'+(/^[\x00-\x7F\s]+$/.test(q.p.slice(0,200))?' lang="en"':"")+'>'+esc(q.p)+"</div>":""}
+function expHtml(q,it){
+  var ok=it.pick===A(q),mine=it.pick===null?"未回答":q.c[it.pick];
+  return '<div class="exp"><p class="verdict '+(ok?"ok":"ng")+'">'+(ok?"正解":"不正解")+"　答えは「"+esc(q.c[A(q)])+"」"+(ok?"":'<br><span class="src">あなたの答え：'+esc(mine)+"</span>")+"</p>"+
+    "<p>"+esc(q.e)+"</p>"+
+    '<p class="memo"><span>覚え方</span>'+esc(q.m)+"</p>"+
+    '<p class="src">'+(q.k==="past"?"過去問ベース：中学入試 "+esc(q.ref)+"（問われた知識をもとに作り直した問題です）":"想定問題（中学入試の出題傾向に合わせて作成した問題で、実際の出題ではありません）")+"</p></div>";
+}
+function optsHtml(q,it,reveal){
+  return '<div class="opts">'+it.order.map(function(ci,j){
+    var cls="";
+    if(reveal){cls=ci===A(q)?" right":(it.pick===ci?" wrong":"")}else if(it.pick===ci)cls=" sel";
+    return '<button class="opt'+cls+'" data-act="pick" data-c="'+ci+'"'+(reveal?" disabled":"")+'><span class="mark">'+"abcde".charAt(j)+'</span><span class="txt">'+esc(q.c[ci])+"</span></button>";
+  }).join("")+"</div>";
+}
+function exam(){
+  var N=X.items.length,it=X.items[X.k],q=byId[it.id],drill=X.mode==="drill",answered=it.pick!==null,last=X.k===N-1;
+  var h='<div class="bar"><div class="bar-row"><span class="bar-title">'+esc(X.title)+'</span><span class="count">問 '+(X.k+1)+"<small> /"+N+"</small></span>"+(drill?"":'<span class="clock" id="clock"></span>')+"</div>"+
+    '<div class="dots">'+X.items.map(function(x,i){
+      var c=drill?(x.pick===null?"":(x.ok?" ok":" ng")):(x.pick===null?"":" done");
+      return '<button class="dot'+c+(i===X.k?" cur":"")+'" data-act="go" data-i="'+i+'" aria-label="問'+(i+1)+'へ"'+(drill&&x.pick===null&&i!==X.k?" disabled":"")+"></button>";
+    }).join("")+"</div></div>";
+  h+='<article class="sheet"><p class="chip">'+esc(q.f)+"｜"+KIND[q.k]+'</p>'+passHtml(q)+'<h2 class="q">'+esc(q.q)+"</h2>"+optsHtml(q,it,drill&&answered)+(drill&&answered?expHtml(q,it):"")+"</article>";
+  if(armed==="grade"){
+    var un=X.items.filter(function(x){return x.pick===null}).length;
+    h+='<div class="ask"><p>未回答が'+un+'問あります。未回答は不正解になります。</p><div class="row"><button class="btn sm" data-act="unans">未回答の問題へ</button><button class="btn sm" data-act="grade2">このまま採点する</button></div></div>';
+  }
+  h+='<div class="row split"><button class="btn ghost sm" data-act="quit">'+(armed==="quit"?(drill?"ホームへ戻る（もう一度押す）":"記録せずにやめる（もう一度押す）"):"やめる")+"</button><div class=\"row\">"+
+    '<button class="btn" data-act="prev"'+(X.k===0?" disabled":"")+">前へ</button>"+
+    (drill
+      ? (last?'<button class="btn pri" data-act="fin"'+(answered?"":" disabled")+">結果を見る</button>":'<button class="btn pri" data-act="next"'+(answered?"":" disabled")+">次へ</button>")
+      : (last?'<button class="btn pri" data-act="grade">採点する</button>':'<button class="btn pri" data-act="next">次へ</button>'))+
+    "</div></div>";
+  app.innerHTML=h;paintClock();
+}
+
+/* ---- 画面：結果 ---- */
+function result(){
+  var N=X.items.length,r=X.score/N,drill=X.mode==="drill";
+  var j=r>=.8?["good","目標クリアです。この調子で次の回へ進みましょう。"]:r>=.7?["mid","あと1問で目標の8割です。まちがえた問題の解説を読んでから次へ。"]:["bad","解説と覚え方を確認して、同じ分野をもう5問解いてみましょう。"];
+  var h='<section class="panel"><h2>'+esc(X.title)+"の結果</h2>"+
+    '<div class="score"><b>'+X.score+"</b><span>/ "+N+"問"+(drill?"":"　解答時間 "+Math.floor(X.sec/60)+"分"+("0"+X.sec%60).slice(-2)+"秒"+(X.auto?"（時間切れ）":""))+"</span></div>"+
+    '<p class="judge '+j[0]+'">'+j[1]+"</p>";
+  var wf=[];X.items.forEach(function(it){var f=byId[it.id].f;if(!it.ok&&wf.indexOf(f)<0)wf.push(f)});
+  h+='<div class="row">'+wf.map(function(f){return '<button class="btn sm" data-act="similar" data-f="'+FIELDS.indexOf(f)+'">'+esc(f)+"をもう5問</button>"}).join("")+
+    '<button class="btn sm pri" data-act="full">次の10問テスト</button><button class="btn sm" data-act="home">ホームへ</button></div></section>';
+  var hasY=X.items.every(function(it){return typeof byId[it.id].y==="number"});
+  if(hasY)h+='<div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="'+(tab==="exp")+'" data-act="tab" data-t="exp">解説</button><button class="tab" role="tab" aria-selected="'+(tab==="tl")+'" data-act="tab" data-t="tl">年表で流れを見る</button></div>';
+  if(tab==="tl"&&hasY){
+    var s=X.items.slice().sort(function(a,b){return byId[a.id].y-byId[b.id].y});
+    h+='<section class="panel"><p class="lead">今回の'+N+'問を古い順に並べました。出来事の時期と順序をあわせて確かめましょう。</p><ol class="tl">'+s.map(function(it){var q=byId[it.id];
+      return '<li><span class="yr">'+yearLabel(q.y)+'</span><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="ev">'+esc(q.t)+"<small>"+esc(q.f)+"</small></span></li>"}).join("")+"</ol></section>";
+  }else{
+    h+='<div class="rev">'+X.items.map(function(it,i){var q=byId[it.id];
+      return '<details class="it"'+(it.ok?"":" open")+'><summary><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="sm-t">問'+(i+1)+"　"+esc(q.t)+"<small>"+esc(q.f)+"｜"+KIND[q.k]+"</small></span></summary>"+
+        '<div class="it-body">'+passHtml(q)+'<p class="q">'+esc(q.q)+"</p>"+optsHtml(q,it,true)+expHtml(q,it)+"</div></details>"}).join("")+"</div>";
+  }
+  app.innerHTML=h;
+}
+
+/* ---- 操作 ---- */
+app.addEventListener("click",function(e){
+  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
+  var a=b.getAttribute("data-act");
+  if(a!=="quit"&&a!=="reset"&&a!=="grade"&&armed){var was=armed;armed="";if(was==="grade"&&a!=="grade2"&&a!=="unans"){/* 確認を閉じる */}}
+  if(a==="full")begin("full");
+  else if(a==="field")begin("field",FIELDS[+b.getAttribute("data-f")]);
+  else if(a==="wrong")begin("wrong");
+  else if(a==="similar"){var ex={};if(X)X.items.forEach(function(it){ex[it.id]=1});begin("similar",FIELDS[+b.getAttribute("data-f")],ex)}
+  else if(a==="scope"){scope=b.getAttribute("data-s");try{localStorage.setItem(LS+"-scope",scope)}catch(e){}home()}
+  else if(a==="home")home();
+  else if(a==="reset"){if(armed==="reset"){S.stats={};S.hist=[];armed="";save();home()}else{armed="reset";home()}}
+  else if(a==="tab"){tab=b.getAttribute("data-t");result()}
+  else if(!X)return;
+  else if(a==="pick"){
+    var it=X.items[X.k],ci=+b.getAttribute("data-c");
+    if(X.mode==="drill"){if(it.pick!==null)return;it.pick=ci;it.ok=ci===A(byId[it.id]);rec(it.id,it.ok,Date.now());save()}else{it.pick=ci}
+    exam();
+  }
+  else if(a==="go"){X.k=+b.getAttribute("data-i");exam()}
+  else if(a==="prev"){if(X.k>0)X.k--;exam();window.scrollTo(0,0)}
+  else if(a==="next"){if(X.k<X.items.length-1)X.k++;exam();window.scrollTo(0,0)}
+  else if(a==="grade"){if(X.items.some(function(x){return x.pick===null})){armed="grade";exam()}else grade(false)}
+  else if(a==="grade2")grade(false);
+  else if(a==="unans"){for(var i=0;i<X.items.length;i++){if(X.items[i].pick===null){X.k=i;break}}exam();window.scrollTo(0,0)}
+  else if(a==="fin")finishDrill();
+  else if(a==="quit"){if(armed==="quit"){X=null;home();window.scrollTo(0,0)}else{armed="quit";exam()}}
+});
+
+/* ---- 起動 ---- */
+function start(data){
+  loadLocal();setSync("local");
+  if(data&&data.X&&data.X.items&&data.X.items.every(function(it){return byId[it.id]})){X=data.X;view=data.view||"exam";tab=data.tab||"exp";if(view==="result"){result()}else{view="exam";exam();startTick()}}
+  else home();
+  connect();
+}
+try{if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(function(){return (view==="home"||!X)?{}:{view:view,tab:tab,X:X}})}catch(e){}
+if(window.claude&&window.claude.hot&&window.claude.hot.ready)window.claude.hot.ready(start);
+else start((window.claude&&window.claude.hot&&window.claude.hot.data)||{});
+})();
+</script>
+
+</body></html>

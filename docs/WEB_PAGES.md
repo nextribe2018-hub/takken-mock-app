@@ -37,3 +37,14 @@
 | `zeirishi-shotoku` | 100 | 70 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
 | `zeirishi-shouhi` | 100 | 46 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
 | `zeirishi-souzoku` | 100 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
+| `koukou-rekishi` | 100 | 0 | https://claude.ai/artifact/4Dg5Sji8i5NmY5P2RHGw4V |
+| `koukou-chiri` | 60 | 0 | https://claude.ai/artifact/9hyXij67QnF71D4K7f1QtD |
+| `koukou-koumin` | 60 | 0 | https://claude.ai/artifact/8CE679aVjfM3bsMTJ3B2g3 |
+| `koukou-rika` | 60 | 0 | https://claude.ai/artifact/2LT3z8BWvL2yrLtLSNnbbT |
+| `koukou-eigo` | 60 | 0 | https://claude.ai/artifact/JaW521p4wh61k8nraDqGWC |
+| `koukou-kokugo` | 60 | 0 | https://claude.ai/artifact/44mbVgcLaC3Vv2nLjPA82w |
+| `chugaku-rekishi` | 100 | 0 | https://claude.ai/artifact/Ah94zUtcS9kUXigegyiGUY |
+| `chugaku-chiri` | 60 | 0 | https://claude.ai/artifact/SZahdFehCxj1d8BCTNN1W3 |
+| `chugaku-koumin` | 60 | 0 | https://claude.ai/artifact/TBzZTna4pdFRTh8Kd2u6kG |
+| `chugaku-rika` | 60 | 0 | https://claude.ai/artifact/4dc73fZUUUjNhEki4x3pWj |
+| `chugaku-kokugo` | 60 | 0 | https://claude.ai/artifact/QPKkcg8fockX4rLRSyvNc1 |
