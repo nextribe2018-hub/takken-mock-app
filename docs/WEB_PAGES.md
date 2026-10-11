@@ -38,7 +38,7 @@
 | `zeirishi-shouhi` | 100 | 46 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
 | `zeirishi-souzoku` | 100 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
 
-## 資格試験 FP・簿記・不動産管理・社労士・行政書士（2026-10-12 追加）
+## 資格試験 FP・簿記・不動産管理・社労士・行政書士（2026-10-12 追加、2026-10-13 に各300問へ増量）
 
 | id | 問題数 | 過去問ベース | URL |
 |---|---|---|---|
@@ -46,7 +46,7 @@
 | `fp-ni` | 300 | 260 | https://claude.ai/artifact/PE3qkZVq8ZizRsz17Ajk8t |
 | `boki-san` | 300 | 0 | https://claude.ai/artifact/XAZGPQjT1bJZQVHbHTJh6e |
 | `boki-ni` | 300 | 0 | https://claude.ai/artifact/GHwMCcDn8wFQcC1pQAc9ya |
-| `kanri-all` | 100 | 72 | https://claude.ai/artifact/VBvVyBoVMczNaBMVUjHPpV |
+| `kanri-all` | 300 | 244 | https://claude.ai/artifact/VBvVyBoVMczNaBMVUjHPpV |
 | `mankan-all` | 300 | 251 | https://claude.ai/artifact/NkTNM1Bse5BYK9arRUVPBX |
 | `chintai-all` | 300 | 259 | https://claude.ai/artifact/5D2uuUoAswQoHPceHKwGzt |
 | `sharoushi-all` | 300 | 201 | https://claude.ai/artifact/KMuyEFftTZHFspvUA2uoJ5 |
