@@ -42,7 +42,7 @@
 
 | id | 問題数 | 過去問ベース | URL |
 |---|---|---|---|
-| `fe-kamokua` | 100 | 90 | https://claude.ai/artifact/AzyNyxngzffTGQXNQc2a4Q |
+| `fe-kamokua` | 200 | 128 | https://claude.ai/artifact/AzyNyxngzffTGQXNQc2a4Q |
 | `itpass-all` | 200 | 181 | https://claude.ai/artifact/L2iKrttkXW9nUtf8gVwAoV |
 | `denko2-gakka` | 100 | 87 | https://claude.ai/artifact/3DYZwnEJCW1oYL8DjdgBPu |
 | `kikenbutsu-otsu4` | 100 | 0 | https://claude.ai/artifact/4fHc3PkoMbjdnkgUTqsyrj |
