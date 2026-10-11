@@ -10,5 +10,5 @@
   "what": "登録販売者試験の問題と正答",
   "extra": "出典：関西広域連合ホームページ「登録販売者試験 過去問題及び解答」（https://www.kouiki-kansai.jp/koikirengo/jisijimu/shikakumenkyo/touroku/7607.html、令和7・8年度）、北海道「登録販売者試験問題について」（https://www.pref.hokkaido.lg.jp/hf/iyk/iry/yakuji/tourokuhannbaishashikenmondai.html、令和8年度、CC BY）、厚生労働省「登録販売者試験問題の作成に関する手引き（令和8年4月一部改訂）」（https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000082537.html）。いずれも編集・加工して作成したもので、関西広域連合・北海道・厚生労働省が作成したものではありません。法令は2026年5月1日現在のものに基づきます。試験対策用の問題であり、個別の医薬品の使用についての助言ではありません。実際の使用にあたっては添付文書を確認し、薬剤師または登録販売者に相談してください。",
   "eyebrow": "{name}｜手引き令和8年4月版・2026年5月1日現在の法令",
-  "subjects": { "all": ["登録販売者", "手引き第1〜5章"] }
+  "subjects": { "all": ["全範囲", "手引き第1〜5章"] }
 }
