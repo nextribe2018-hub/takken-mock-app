@@ -996,5 +996,999 @@
   ],
   "e": "教授は直後に「保健センターの証明書を持ってくれば木曜までに提出してよい」と言っており、延長を認めています。したがって「それは何とかなると思います」と受け入れる表現が入ります。can be arranged は「手配・調整できる」の意味です。「締め切りは変えられない」「予定通り月曜に」は、延長を認める直後の発言と矛盾します。「先月頼むべきだった」は、病気になったのが今週なので不自然です。",
   "m": "That can be arranged.＝何とかしましょう"
+ },
+ {
+  "id": 61,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：abandon",
+  "p": "Most of us assume that having more options is always better. If a shop offers fifty kinds of tea instead of five, surely every customer is more likely to find exactly what he or she wants. Yet a growing body of research suggests that the relationship between choice and satisfaction is not so simple. Beyond a certain point, adding options can make people less willing to choose at all, a reaction psychologists call choice overload.\nWhy should this happen? One reason is that comparing many alternatives takes time and mental effort. When the differences among products are small, shoppers may find the task so tiring that they ( A ) the decision altogether and leave without buying anything. Another reason is regret. The more alternatives we reject, the easier it is to imagine that one of them would have been better, and this thought can spoil our enjoyment of whatever we finally chose.\nThis does not mean that businesses should simply cut their product lines. Choice overload appears mainly when customers have no clear idea of what they want and when the options are hard to compare. Experienced buyers who know their own preferences are rarely troubled by a long menu. For everyone else, shops can help by sorting products into a few clear categories or by ( B ) a small number of popular items, so that a wide selection becomes easier to handle.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "abandon",
+   "confirm",
+   "accelerate",
+   "enjoy"
+  ],
+  "e": "空所の後に and leave without buying anything（何も買わずに店を出る）とあるので、比較に疲れて「決めることそのものを投げ出す」という意味の abandon が正解です。confirm（確認する）や enjoy（楽しむ）では何も買わずに帰ることと合いません。accelerate（加速させる）は決定を早めることになり、疲れて選べなくなるという流れと逆です。",
+  "m": "abandon＝（計画・試みを）途中で投げ出す"
+ },
+ {
+  "id": 62,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：highlight",
+  "p": "Most of us assume that having more options is always better. If a shop offers fifty kinds of tea instead of five, surely every customer is more likely to find exactly what he or she wants. Yet a growing body of research suggests that the relationship between choice and satisfaction is not so simple. Beyond a certain point, adding options can make people less willing to choose at all, a reaction psychologists call choice overload.\nWhy should this happen? One reason is that comparing many alternatives takes time and mental effort. When the differences among products are small, shoppers may find the task so tiring that they ( A ) the decision altogether and leave without buying anything. Another reason is regret. The more alternatives we reject, the easier it is to imagine that one of them would have been better, and this thought can spoil our enjoyment of whatever we finally chose.\nThis does not mean that businesses should simply cut their product lines. Choice overload appears mainly when customers have no clear idea of what they want and when the options are hard to compare. Experienced buyers who know their own preferences are rarely troubled by a long menu. For everyone else, shops can help by sorting products into a few clear categories or by ( B ) a small number of popular items, so that a wide selection becomes easier to handle.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "highlighting",
+   "concealing",
+   "discontinuing",
+   "overpricing"
+  ],
+  "e": "空所のある文は、店が客を助ける方法を述べ、so that a wide selection becomes easier to handle（豊富な品ぞろえを扱いやすくする）と目的を示しています。品ぞろえを残したまま選びやすくするには、人気の商品を「目立たせる」highlighting が適切です。concealing（隠す）や discontinuing（販売をやめる）は品ぞろえを分かりにくくしたり減らしたりする方向で、overpricing（高すぎる値を付ける）は選びやすさと関係がありません。",
+  "m": "highlight＝目立たせる・強調する"
+ },
+ {
+  "id": 63,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "選択過剰が起こる条件",
+  "p": "Most of us assume that having more options is always better. If a shop offers fifty kinds of tea instead of five, surely every customer is more likely to find exactly what he or she wants. Yet a growing body of research suggests that the relationship between choice and satisfaction is not so simple. Beyond a certain point, adding options can make people less willing to choose at all, a reaction psychologists call choice overload.\nWhy should this happen? One reason is that comparing many alternatives takes time and mental effort. When the differences among products are small, shoppers may find the task so tiring that they ( A ) the decision altogether and leave without buying anything. Another reason is regret. The more alternatives we reject, the easier it is to imagine that one of them would have been better, and this thought can spoil our enjoyment of whatever we finally chose.\nThis does not mean that businesses should simply cut their product lines. Choice overload appears mainly when customers have no clear idea of what they want and when the options are hard to compare. Experienced buyers who know their own preferences are rarely troubled by a long menu. For everyone else, shops can help by sorting products into a few clear categories or by ( B ) a small number of popular items, so that a wide selection becomes easier to handle.",
+  "q": "次の英文を読み、本文の内容と一致するものを選びなさい。",
+  "c": [
+   "People who know exactly what they want are seldom bothered by a large number of options.",
+   "Choice overload occurs whenever a shop offers more than five products.",
+   "The author advises shops to reduce the number of products they sell.",
+   "Comparing many products makes people enjoy their final choice more."
+  ],
+  "e": "第3段落に Experienced buyers who know their own preferences are rarely troubled by a long menu. とあり、好みがはっきりしている人は選択肢が多くても困らないので、これが正解です。「5種類を超えると必ず起こる」とは書かれていません。This does not mean that businesses should simply cut their product lines. とあり、商品を減らすよう勧めてもいません。多くを比べると後悔が生まれて満足が「下がる」と述べているので、最後の選択肢も逆です。",
+  "m": "選択過剰は「好みが不明確×比べにくい」ときに起こる"
+ },
+ {
+  "id": 64,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：defend oneself",
+  "p": "When people move plants and animals from one part of the world to another, the results are hard to predict. Many introduced species fail to survive in their new home. A few, however, find conditions so favorable that they spread rapidly and begin to harm the native wildlife around them. Ecologists call such organisms invasive species.\nSome of the most damaging invasions were not accidents but deliberate decisions. In several regions, farmers released a predator from abroad in the hope that it would eat the insects destroying their crops. In a number of cases the newcomer ignored the target pest and instead fed on native animals that had never encountered such an enemy. Having evolved without it, these local species had no means of ( A ) themselves, and some populations collapsed within a few decades.\nSuch experiences have made governments far more cautious. Today a species proposed for pest control is usually tested for years to make sure that it will attack only the intended target. Even so, scientists admit that no test can reproduce every condition in the wild. Prevention is therefore considered the most effective strategy: once an invasive species has become established over a wide area, removing it completely is extremely costly and often impossible. Inspecting cargo at ports and airports may seem dull, but it protects ecosystems more cheaply than any later rescue effort.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "defending",
+   "feeding",
+   "entertaining",
+   "expressing"
+  ],
+  "e": "直前に、在来の動物は「そのような敵に出会ったことがなかった」「敵のいない環境で進化してきた」とあります。そのため外来の捕食者から「身を守る」手段がなく、数が激減したという流れなので defending が正解です。feeding themselves（食べていく）は敵に出会ったことがないという理由と結びつかず、entertaining（楽しませる）、expressing（表現する）も文脈に合いません。",
+  "m": "have no means of defending oneself＝身を守る手段がない"
+ },
+ {
+  "id": 65,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "天敵導入の失敗",
+  "p": "When people move plants and animals from one part of the world to another, the results are hard to predict. Many introduced species fail to survive in their new home. A few, however, find conditions so favorable that they spread rapidly and begin to harm the native wildlife around them. Ecologists call such organisms invasive species.\nSome of the most damaging invasions were not accidents but deliberate decisions. In several regions, farmers released a predator from abroad in the hope that it would eat the insects destroying their crops. In a number of cases the newcomer ignored the target pest and instead fed on native animals that had never encountered such an enemy. Having evolved without it, these local species had no means of ( A ) themselves, and some populations collapsed within a few decades.\nSuch experiences have made governments far more cautious. Today a species proposed for pest control is usually tested for years to make sure that it will attack only the intended target. Even so, scientists admit that no test can reproduce every condition in the wild. Prevention is therefore considered the most effective strategy: once an invasive species has become established over a wide area, removing it completely is extremely costly and often impossible. Inspecting cargo at ports and airports may seem dull, but it protects ecosystems more cheaply than any later rescue effort.",
+  "q": "次の英文を読み、本文によると、害虫を駆除するために持ち込まれた捕食者が引き起こした問題として最も適当なものを選びなさい。",
+  "c": [
+   "It preyed on native animals instead of the pests it was meant to control.",
+   "It destroyed the crops that it was supposed to protect.",
+   "It failed to survive, so the pests spread even further.",
+   "It carried diseases that infected the farmers."
+  ],
+  "e": "第2段落に the newcomer ignored the target pest and instead fed on native animals とあり、駆除したい害虫を無視して在来の動物を食べたことが問題とされています。作物を荒らしたのは害虫であり、捕食者が作物を壊したとは書かれていません。「定着できずに死んだ」は第1段落の一般論で、天敵導入の失敗例ではありません。農家への病気の記述はありません。",
+  "m": "ignored the target ... instead fed on＝標的を無視して別のものを食べた"
+ },
+ {
+  "id": 66,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "外来種対策は予防が中心",
+  "p": "When people move plants and animals from one part of the world to another, the results are hard to predict. Many introduced species fail to survive in their new home. A few, however, find conditions so favorable that they spread rapidly and begin to harm the native wildlife around them. Ecologists call such organisms invasive species.\nSome of the most damaging invasions were not accidents but deliberate decisions. In several regions, farmers released a predator from abroad in the hope that it would eat the insects destroying their crops. In a number of cases the newcomer ignored the target pest and instead fed on native animals that had never encountered such an enemy. Having evolved without it, these local species had no means of ( A ) themselves, and some populations collapsed within a few decades.\nSuch experiences have made governments far more cautious. Today a species proposed for pest control is usually tested for years to make sure that it will attack only the intended target. Even so, scientists admit that no test can reproduce every condition in the wild. Prevention is therefore considered the most effective strategy: once an invasive species has become established over a wide area, removing it completely is extremely costly and often impossible. Inspecting cargo at ports and airports may seem dull, but it protects ecosystems more cheaply than any later rescue effort.",
+  "q": "次の英文を読み、本文の内容と一致するものを選びなさい。",
+  "c": [
+   "Removing an invasive species after it has spread widely is often impossible.",
+   "Most species moved to a new region spread rapidly and harm native wildlife.",
+   "Modern tests can guarantee that a control species will attack only its target.",
+   "Inspecting cargo costs more than rescuing ecosystems after an invasion."
+  ],
+  "e": "第3段落に once an invasive species has become established over a wide area, removing it completely is extremely costly and often impossible とあり、これが正解です。第1段落では多くの外来種は定着できないとあり、Most ... spread rapidly は誤りです。no test can reproduce every condition とあるので「保証できる」も誤り。貨物検査は後の救済より安く生態系を守ると書かれているので、最後の選択肢は逆です。",
+  "m": "外来種は「広がる前に防ぐ」が最も効果的"
+ },
+ {
+  "id": 67,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：分詞構文 passing",
+  "p": "In many lecture halls today, the sound of pens has been replaced by the clicking of keyboards. Typing is faster than writing by hand, so students with laptops can record far more of what a lecturer says. It would seem to follow that they should also remember more. Several studies, however, suggest the opposite.\nThe explanation lies in what happens while notes are being taken. Because most people cannot write as fast as a lecturer speaks, those using pens are forced to select the main points and put them into their own words. This process of summarizing requires them to think about the material, and that thinking helps fix it in memory. Typists, by contrast, tend to copy the lecturer's sentences word for word, ( A ) the information through their fingers without really processing it.\nIt would be a mistake, though, to conclude that laptops should be banned from classrooms. Students who type can be taught to summarize rather than transcribe, and digital notes are easier to search, share and revise. Some students with disabilities also depend on keyboards. The real lesson concerns not the ( B ) but the way it is used: what matters is whether learners actively reshape what they hear.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "passing",
+   "blocking",
+   "doubting",
+   "hiding"
+  ],
+  "e": "空所は分詞構文で、直前の「講義の文を一語一語写す」様子を言いかえています。without really processing it（よく処理しないまま）と続くので、情報を指を「素通りさせる」passing が適切です。blocking（さえぎる）や hiding（隠す）では情報を書き写していることと矛盾し、doubting（疑う）は情報を考えている状態なので「処理しない」と合いません。",
+  "m": "pass A through B＝A を B に通す（素通りさせる）"
+ },
+ {
+  "id": 68,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：tool",
+  "p": "In many lecture halls today, the sound of pens has been replaced by the clicking of keyboards. Typing is faster than writing by hand, so students with laptops can record far more of what a lecturer says. It would seem to follow that they should also remember more. Several studies, however, suggest the opposite.\nThe explanation lies in what happens while notes are being taken. Because most people cannot write as fast as a lecturer speaks, those using pens are forced to select the main points and put them into their own words. This process of summarizing requires them to think about the material, and that thinking helps fix it in memory. Typists, by contrast, tend to copy the lecturer's sentences word for word, ( A ) the information through their fingers without really processing it.\nIt would be a mistake, though, to conclude that laptops should be banned from classrooms. Students who type can be taught to summarize rather than transcribe, and digital notes are easier to search, share and revise. Some students with disabilities also depend on keyboards. The real lesson concerns not the ( B ) but the way it is used: what matters is whether learners actively reshape what they hear.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "tool",
+   "lecturer",
+   "audience",
+   "examination"
+  ],
+  "e": "空所の後に the way it is used（それの使い方）とあり、it は空所の名詞を指します。筆者はノートパソコンを禁止すべきではないと述べたうえで、問題は「道具そのもの」ではなく「その使い方」だとまとめているので tool が正解です。lecturer（講師）や audience（聴衆）、examination（試験）は「使われる」ものではなく、段落の論点（パソコンか手書きか）ともずれます。",
+  "m": "not A but B＝A ではなく B（筆者の主張は B 側）"
+ },
+ {
+  "id": 69,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "手書きノートが記憶に残る理由",
+  "p": "In many lecture halls today, the sound of pens has been replaced by the clicking of keyboards. Typing is faster than writing by hand, so students with laptops can record far more of what a lecturer says. It would seem to follow that they should also remember more. Several studies, however, suggest the opposite.\nThe explanation lies in what happens while notes are being taken. Because most people cannot write as fast as a lecturer speaks, those using pens are forced to select the main points and put them into their own words. This process of summarizing requires them to think about the material, and that thinking helps fix it in memory. Typists, by contrast, tend to copy the lecturer's sentences word for word, ( A ) the information through their fingers without really processing it.\nIt would be a mistake, though, to conclude that laptops should be banned from classrooms. Students who type can be taught to summarize rather than transcribe, and digital notes are easier to search, share and revise. Some students with disabilities also depend on keyboards. The real lesson concerns not the ( B ) but the way it is used: what matters is whether learners actively reshape what they hear.",
+  "q": "次の英文を読み、本文によると、手書きでノートを取る学生のほうが内容をよく覚えている理由として最も適当なものを選びなさい。",
+  "c": [
+   "They have to choose the key points and rephrase them, which makes them think.",
+   "They can record more of the lecturer's words than students who type.",
+   "They are less likely to be distracted by the internet during lectures.",
+   "Their notes are easier to search and revise after the lecture."
+  ],
+  "e": "第2段落に、手書きの学生は講師の話す速さについていけないため、要点を選んで自分の言葉で書くことを強いられ、その「考える過程」が記憶を定着させるとあります。より多く記録できるのはタイプする学生のほうです。インターネットによる気の散りやすさは本文に書かれていません。検索や修正がしやすいのはデジタルのノートの利点として述べられています。",
+  "m": "手書き→要約せざるを得ない→考える→記憶に残る"
+ },
+ {
+  "id": 70,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "語の意味：overlook",
+  "p": "Every year, a large share of the food produced around the world is thrown away. Some of this waste occurs on farms and during transport, but in wealthy countries a surprising amount happens in ordinary kitchens. One cause that is easy to 【overlook】 is the date printed on packages.\nMany products carry one of two kinds of date. A \"use by\" date relates to safety: after it has passed, the food may be risky to eat even if it looks and smells fine. A \"best before\" date, on the other hand, refers to quality. Food past this date may be slightly less fresh or crisp, but it is usually still safe. Surveys suggest that many consumers do not understand the difference and throw away items as soon as either date arrives.\nSome supermarkets have responded by removing \"best before\" dates from fresh fruit and vegetables altogether, trusting shoppers to judge for themselves whether an apple is still good. Others have printed clearer explanations on their packaging. Critics argue that such steps are small compared with the waste caused by farmers and food companies. Supporters reply that because households are responsible for so much of the problem, even modest changes in consumer behavior can add up to a significant reduction.",
+  "q": "次の英文を読み、本文中の【 】内の語の意味に最も近いものを選びなさい。",
+  "c": [
+   "fail to notice",
+   "watch carefully",
+   "look down on",
+   "forgive"
+  ],
+  "e": "One cause that is easy to overlook は「見落としやすい原因」という意味で、overlook は fail to notice（気づかない）に当たります。包装の日付が食品廃棄の原因だとは普通は気づかない、という流れです。watch carefully（注意深く見る）は逆の意味です。look down on は「見下す・軽蔑する」で、overlook の「（高い所から）見渡す」と混同させる誤答です。forgive（許す）は「大目に見る」の意味からの連想ですが、ここでは合いません。",
+  "m": "overlook＝見落とす（≠ look down on 見下す）"
+ },
+ {
+  "id": 71,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "use by と best before",
+  "p": "Every year, a large share of the food produced around the world is thrown away. Some of this waste occurs on farms and during transport, but in wealthy countries a surprising amount happens in ordinary kitchens. One cause that is easy to 【overlook】 is the date printed on packages.\nMany products carry one of two kinds of date. A \"use by\" date relates to safety: after it has passed, the food may be risky to eat even if it looks and smells fine. A \"best before\" date, on the other hand, refers to quality. Food past this date may be slightly less fresh or crisp, but it is usually still safe. Surveys suggest that many consumers do not understand the difference and throw away items as soon as either date arrives.\nSome supermarkets have responded by removing \"best before\" dates from fresh fruit and vegetables altogether, trusting shoppers to judge for themselves whether an apple is still good. Others have printed clearer explanations on their packaging. Critics argue that such steps are small compared with the waste caused by farmers and food companies. Supporters reply that because households are responsible for so much of the problem, even modest changes in consumer behavior can add up to a significant reduction.",
+  "q": "次の英文を読み、本文の内容と一致するものを選びなさい。",
+  "c": [
+   "Food that has passed its \"best before\" date is generally still safe to eat.",
+   "A \"use by\" date shows when food begins to lose its flavor.",
+   "Food can safely be eaten after its \"use by\" date if it looks and smells fine.",
+   "Most supermarkets have stopped printing dates on all of their products."
+  ],
+  "e": "第2段落に、best before は品質に関する日付で、過ぎても usually still safe（たいていはまだ安全）とあるので、これが正解です。use by は安全に関する日付で、見た目やにおいが問題なくても食べるのは危険かもしれないと書かれているので、2つの誤答はどちらも本文と逆です。日付表示をやめたのは「一部の」スーパーの「生鮮の果物・野菜」についてであり、Most や all of their products は言いすぎです。",
+  "m": "use by＝安全の期限／best before＝おいしさの目安"
+ },
+ {
+  "id": 72,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "批判者と支持者の主張",
+  "p": "Every year, a large share of the food produced around the world is thrown away. Some of this waste occurs on farms and during transport, but in wealthy countries a surprising amount happens in ordinary kitchens. One cause that is easy to 【overlook】 is the date printed on packages.\nMany products carry one of two kinds of date. A \"use by\" date relates to safety: after it has passed, the food may be risky to eat even if it looks and smells fine. A \"best before\" date, on the other hand, refers to quality. Food past this date may be slightly less fresh or crisp, but it is usually still safe. Surveys suggest that many consumers do not understand the difference and throw away items as soon as either date arrives.\nSome supermarkets have responded by removing \"best before\" dates from fresh fruit and vegetables altogether, trusting shoppers to judge for themselves whether an apple is still good. Others have printed clearer explanations on their packaging. Critics argue that such steps are small compared with the waste caused by farmers and food companies. Supporters reply that because households are responsible for so much of the problem, even modest changes in consumer behavior can add up to a significant reduction.",
+  "q": "次の英文を読み、最終段落の内容と一致するものを選びなさい。",
+  "c": [
+   "Supporters believe that small changes in households can make a real difference.",
+   "Critics claim that consumers are mainly responsible for food waste.",
+   "Supporters admit that removing dates has had no effect at all.",
+   "Both critics and supporters agree that farmers cause most of the waste."
+  ],
+  "e": "支持者は because households are responsible for so much of the problem, even modest changes ... can add up to a significant reduction と述べており、家庭での小さな変化でも大きな削減につながると考えているので、これが正解です。批判者は農家や食品会社による廃棄に比べて小さな対策だと言っており、消費者が主な原因だとは言っていません。支持者が「効果がない」と認めた記述はなく、両者が農家を最大の原因とすることで一致したとも書かれていません。",
+  "m": "Critics argue … / Supporters reply … の対立を整理"
+ },
+ {
+  "id": 73,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：suppress",
+  "p": "For most of human history, the night sky was filled with stars. Today, for many people who live in cities, the Milky Way is something seen only in photographs. The cause is light pollution: artificial light that is excessive or poorly directed and that brightens the night sky.\nThe loss is not only an aesthetic one. Many living things rely on the regular cycle of daylight and darkness. Birds that migrate at night use the stars to find their way, and brightly lit buildings can draw them off course until they become exhausted or crash into windows. Newly hatched sea turtles find the ocean by moving toward the brighter horizon over the water; near brightly lit beaches they may crawl inland instead. Humans, too, may be affected, since light at night can ( A ) the production of a hormone that helps regulate sleep.\nUnlike many environmental problems, light pollution could be reduced quickly and at little cost. Streetlights can be fitted with shields that direct light downward, where it is actually needed, instead of letting it ( B ) into the sky. Lights in office buildings can be switched off when nobody is working. Some towns have gone further and been recognized for protecting their dark skies, which now attract visitors who want to see the stars. In such places, darkness has turned out to be an asset rather than a sign of neglect.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "suppress",
+   "restore",
+   "protect",
+   "improve"
+  ],
+  "e": "第2段落は、夜の人工の光が鳥やウミガメに害を与える例を挙げ、Humans, too, may be affected（人間も影響を受けうる）と続けています。害の例として「睡眠を整えるホルモンの分泌を抑える」とするのが自然なので suppress が正解です。restore（回復させる）、protect（守る）、improve（改善する）はいずれもよい影響を表し、悪影響を並べる段落の流れに合いません。",
+  "m": "suppress＝抑える・抑制する"
+ },
+ {
+  "id": 74,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：escape",
+  "p": "For most of human history, the night sky was filled with stars. Today, for many people who live in cities, the Milky Way is something seen only in photographs. The cause is light pollution: artificial light that is excessive or poorly directed and that brightens the night sky.\nThe loss is not only an aesthetic one. Many living things rely on the regular cycle of daylight and darkness. Birds that migrate at night use the stars to find their way, and brightly lit buildings can draw them off course until they become exhausted or crash into windows. Newly hatched sea turtles find the ocean by moving toward the brighter horizon over the water; near brightly lit beaches they may crawl inland instead. Humans, too, may be affected, since light at night can ( A ) the production of a hormone that helps regulate sleep.\nUnlike many environmental problems, light pollution could be reduced quickly and at little cost. Streetlights can be fitted with shields that direct light downward, where it is actually needed, instead of letting it ( B ) into the sky. Lights in office buildings can be switched off when nobody is working. Some towns have gone further and been recognized for protecting their dark skies, which now attract visitors who want to see the stars. In such places, darkness has turned out to be an asset rather than a sign of neglect.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "escape",
+   "return",
+   "fall",
+   "settle"
+  ],
+  "e": "街灯に笠を付けて光を必要な下方向に向ける、という内容に対し、instead of letting it ( B ) into the sky は「空へ漏れ出させる代わりに」となるのが自然なので escape が正解です。return（戻る）は空から戻ってくる意味になり、fall（落ちる）は into the sky と方向が合いません。settle（落ち着く・定着する）も光が空へ広がる様子を表せません。",
+  "m": "let light escape into the sky＝光を空へ漏らす"
+ },
+ {
+  "id": 75,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "光害：一致しないもの",
+  "p": "For most of human history, the night sky was filled with stars. Today, for many people who live in cities, the Milky Way is something seen only in photographs. The cause is light pollution: artificial light that is excessive or poorly directed and that brightens the night sky.\nThe loss is not only an aesthetic one. Many living things rely on the regular cycle of daylight and darkness. Birds that migrate at night use the stars to find their way, and brightly lit buildings can draw them off course until they become exhausted or crash into windows. Newly hatched sea turtles find the ocean by moving toward the brighter horizon over the water; near brightly lit beaches they may crawl inland instead. Humans, too, may be affected, since light at night can ( A ) the production of a hormone that helps regulate sleep.\nUnlike many environmental problems, light pollution could be reduced quickly and at little cost. Streetlights can be fitted with shields that direct light downward, where it is actually needed, instead of letting it ( B ) into the sky. Lights in office buildings can be switched off when nobody is working. Some towns have gone further and been recognized for protecting their dark skies, which now attract visitors who want to see the stars. In such places, darkness has turned out to be an asset rather than a sign of neglect.",
+  "q": "次の英文を読み、本文の内容と一致しないものを選びなさい。",
+  "c": [
+   "Like most environmental problems, light pollution is costly and slow to reduce.",
+   "Night-migrating birds can be led off course by brightly lit buildings.",
+   "Lights near beaches can cause young sea turtles to move away from the ocean.",
+   "Some places that protect their dark skies now attract tourists."
+  ],
+  "e": "第3段落冒頭に Unlike many environmental problems, light pollution could be reduced quickly and at little cost. とあり、光害は多くの環境問題と「違って」すばやく安く減らせるとされています。したがって「費用がかかり時間もかかる」は本文と一致せず、これが答えです。夜に渡る鳥が明るい建物に引き寄せられること、明るい浜辺でウミガメの子が内陸へ向かうこと、暗い夜空を守る町に星を見る観光客が来ることは、いずれも本文に書かれています。",
+  "m": "Unlike ～＝～と違って（比較の向きに注意）"
+ },
+ {
+  "id": 76,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：skepticism",
+  "p": "Dictionaries give the impression that every word has a fixed meaning, but the history of English shows that meanings are constantly on the move. The word \"nice,\" for example, once meant \"foolish\" or \"ignorant\"; only over several centuries did it come to mean \"pleasant.\" The verb \"starve\" originally meant simply \"to die,\" by any cause, before it came to mean dying, or suffering, from hunger. Linguists distinguish several patterns of change. In narrowing, a word's meaning becomes more specific, as with \"starve.\" In broadening, the opposite happens: \"holiday\" developed from \"holy day,\" a religious festival, into any day of rest.\nWords can also rise or fall in status. Some acquire a more negative sense over time, while others become more positive. Such changes usually happen without anyone deciding them. They spread as speakers use a word in a slightly new way and others imitate them.\nFor this reason, many linguists regard complaints that a word is being \"misused\" with some ( A ). Today's error, they point out, may well become tomorrow's standard meaning, just as yesterday's errors became ours. This does not mean that anything goes in every situation; in formal writing, readers still expect words to be used in their established senses. But it does suggest that language is better understood as a living practice than as a set of fixed rules.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "skepticism",
+   "enthusiasm",
+   "gratitude",
+   "envy"
+  ],
+  "e": "直後に「今日の誤用は明日の標準的な意味になるかもしれない」と言語学者の考えが示されています。つまり「言葉が誤用されている」という苦情を、言語学者は「いくぶん懐疑的に」見ているので skepticism が正解です。regard A with skepticism で「A を疑いの目で見る」です。enthusiasm（熱意）や gratitude（感謝）では苦情に賛成していることになり、後の内容と矛盾します。envy（ねたみ）も文脈と無関係です。",
+  "m": "regard A with skepticism＝A を懐疑的に見る"
+ },
+ {
+  "id": 77,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "意味の縮小の例",
+  "p": "Dictionaries give the impression that every word has a fixed meaning, but the history of English shows that meanings are constantly on the move. The word \"nice,\" for example, once meant \"foolish\" or \"ignorant\"; only over several centuries did it come to mean \"pleasant.\" The verb \"starve\" originally meant simply \"to die,\" by any cause, before it came to mean dying, or suffering, from hunger. Linguists distinguish several patterns of change. In narrowing, a word's meaning becomes more specific, as with \"starve.\" In broadening, the opposite happens: \"holiday\" developed from \"holy day,\" a religious festival, into any day of rest.\nWords can also rise or fall in status. Some acquire a more negative sense over time, while others become more positive. Such changes usually happen without anyone deciding them. They spread as speakers use a word in a slightly new way and others imitate them.\nFor this reason, many linguists regard complaints that a word is being \"misused\" with some ( A ). Today's error, they point out, may well become tomorrow's standard meaning, just as yesterday's errors became ours. This does not mean that anything goes in every situation; in formal writing, readers still expect words to be used in their established senses. But it does suggest that language is better understood as a living practice than as a set of fixed rules.",
+  "q": "次の英文を読み、本文で narrowing（意味の縮小）の例として挙げられているものとして最も適当なものを選びなさい。",
+  "c": [
+   "\"starve\" changing from \"to die\" to dying from hunger",
+   "\"holiday\" changing from a religious festival to any day of rest",
+   "\"nice\" changing from \"foolish\" to \"pleasant\"",
+   "a word gaining a more negative sense over time"
+  ],
+  "e": "第1段落に In narrowing, a word's meaning becomes more specific, as with \"starve.\" とあり、「（どんな原因でも）死ぬ」から「飢えで死ぬ」へ意味が限定された starve が縮小の例です。holiday は「宗教的な祭日」から「休日一般」へ広がったので broadening（拡大）の例です。nice は「愚かな」から「感じのよい」へ意味が変わった例として挙げられているだけで、本文では縮小の例とされていません。意味が否定的になる変化は第2段落の「地位の上下」の話です。",
+  "m": "narrowing＝意味が狭まる／broadening＝意味が広がる"
+ },
+ {
+  "id": 78,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "言語学者の見方",
+  "p": "Dictionaries give the impression that every word has a fixed meaning, but the history of English shows that meanings are constantly on the move. The word \"nice,\" for example, once meant \"foolish\" or \"ignorant\"; only over several centuries did it come to mean \"pleasant.\" The verb \"starve\" originally meant simply \"to die,\" by any cause, before it came to mean dying, or suffering, from hunger. Linguists distinguish several patterns of change. In narrowing, a word's meaning becomes more specific, as with \"starve.\" In broadening, the opposite happens: \"holiday\" developed from \"holy day,\" a religious festival, into any day of rest.\nWords can also rise or fall in status. Some acquire a more negative sense over time, while others become more positive. Such changes usually happen without anyone deciding them. They spread as speakers use a word in a slightly new way and others imitate them.\nFor this reason, many linguists regard complaints that a word is being \"misused\" with some ( A ). Today's error, they point out, may well become tomorrow's standard meaning, just as yesterday's errors became ours. This does not mean that anything goes in every situation; in formal writing, readers still expect words to be used in their established senses. But it does suggest that language is better understood as a living practice than as a set of fixed rules.",
+  "q": "次の英文を読み、本文の内容と一致するものを選びなさい。",
+  "c": [
+   "Many linguists accept that a new use of a word may later become standard.",
+   "Linguists believe that words should never be used in new senses.",
+   "Changes in word meaning are usually decided by dictionary editors.",
+   "Linguists argue that formal writing no longer needs established meanings."
+  ],
+  "e": "第3段落に Today's error ... may well become tomorrow's standard meaning とあり、新しい使い方が後に標準になりうると言語学者が考えていることが分かるので、これが正解です。言語学者は「誤用」への苦情に懐疑的なので、新しい意味で使うべきでないとは考えていません。第2段落に意味の変化は without anyone deciding them とあり、辞書編集者が決めるのではありません。また、正式な文章では今も確立した意味で使うことが期待されると述べています。",
+  "m": "言語は「固定した規則」より「生きた営み」"
+ },
+ {
+  "id": 79,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：surprisingly",
+  "p": "Not long ago, scientific research was carried out almost entirely by professionals in laboratories and universities. Today, ordinary people increasingly take part as well. In projects known as citizen science, volunteers count birds in their gardens, photograph insects, report the first flowers of spring, or classify images of distant galaxies on their home computers.\nThe benefits for researchers are obvious. No team of scientists, however large, could watch thousands of locations at once, but volunteers spread across a whole country can. Their observations have helped track how the ranges of animals and plants shift as the climate changes. Some volunteers have even made discoveries that professionals had missed.\nSkeptics have raised doubts about the quality of data collected by amateurs. Volunteers may misidentify species or report only the sightings they find interesting. Project organizers have developed ways to deal with this. They provide training, ask several volunteers to classify the same image, and use statistical methods to detect unusual reports. Studies comparing volunteer and expert data have found that, when such checks are in place, the results can be ( A ) reliable.\nPerhaps the greatest benefit, however, lies outside the data. Participants often say that they have come to understand how science works and to pay closer attention to the nature around them.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "surprisingly",
+   "hardly",
+   "never",
+   "barely"
+  ],
+  "e": "第3段落は、アマチュアのデータの質への疑いに対し、主催者が訓練や複数人での分類、統計的な確認などの対策を取っていると述べています。その結果、対策があれば結果は「意外なほど信頼できる」とするのが自然なので surprisingly が正解です。hardly、barely（ほとんど〜ない）や never（決して〜ない）を入れると信頼できないという意味になり、対策の効果を示す流れと逆になります。",
+  "m": "対策の説明の後は「意外にも信頼できる」と肯定に"
+ },
+ {
+  "id": 80,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "データの質を保つ工夫",
+  "p": "Not long ago, scientific research was carried out almost entirely by professionals in laboratories and universities. Today, ordinary people increasingly take part as well. In projects known as citizen science, volunteers count birds in their gardens, photograph insects, report the first flowers of spring, or classify images of distant galaxies on their home computers.\nThe benefits for researchers are obvious. No team of scientists, however large, could watch thousands of locations at once, but volunteers spread across a whole country can. Their observations have helped track how the ranges of animals and plants shift as the climate changes. Some volunteers have even made discoveries that professionals had missed.\nSkeptics have raised doubts about the quality of data collected by amateurs. Volunteers may misidentify species or report only the sightings they find interesting. Project organizers have developed ways to deal with this. They provide training, ask several volunteers to classify the same image, and use statistical methods to detect unusual reports. Studies comparing volunteer and expert data have found that, when such checks are in place, the results can be ( A ) reliable.\nPerhaps the greatest benefit, however, lies outside the data. Participants often say that they have come to understand how science works and to pay closer attention to the nature around them.",
+  "q": "次の英文を読み、本文によると、データの質に対する懸念に応えて主催者が行っていることとして最も適当なものを選びなさい。",
+  "c": [
+   "having more than one volunteer classify the same image",
+   "allowing only professional scientists to report rare species",
+   "paying volunteers according to the number of their reports",
+   "limiting each project to a single location"
+  ],
+  "e": "第3段落に They provide training, ask several volunteers to classify the same image, and use statistical methods ... とあり、同じ画像を複数のボランティアに分類させることが対策の一つとして挙げられています。珍しい種の報告を専門家だけに限ることや、報告数に応じた報酬は本文にありません。また、市民科学の利点は全国の多数の地点を同時に観察できることだと述べられており、一か所に限るのは本文の趣旨と逆です。",
+  "m": "複数人の分類・訓練・統計的確認で質を保つ"
+ },
+ {
+  "id": 81,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所）",
+  "t": "空所補充：ignore",
+  "p": "Many of the world's great museums hold objects that were taken from other countries during periods of war or colonial rule. In recent decades, governments and communities in those countries have increasingly asked for such objects to be returned.\nMuseums have traditionally given several reasons for keeping them. They argue that their collections allow visitors from around the world to compare cultures side by side, and that the objects are well preserved in their care. Some also point out that laws in their own countries forbid them to give away items in their collections.\nThose who call for return reply that these arguments ( A ) the central question of how the objects were acquired. An object removed by force, they say, does not become the rightful property of a museum simply because it has been well looked after. They add that for many communities the objects are not merely works of art but part of living religious or social traditions.\nIn practice, the debate has begun to move beyond a simple choice between keeping and returning. Some museums have returned objects while agreeing to borrow them back for exhibitions; others have shared ownership or worked with communities on how items should be displayed. Such arrangements suggest that cooperation may serve both sides better than a contest over possession.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "ignore",
+   "resolve",
+   "emphasize",
+   "clarify"
+  ],
+  "e": "返還を求める側は、博物館の「世界中の人が比較できる」「よく保存されている」という理由に reply（反論）しています。続く文で「力ずくで持ち去った物は、よく管理されたからといって正当な所有物にはならない」と述べているので、博物館の主張は入手の経緯という核心の問題を「無視している」という批判になります。正解は ignore です。resolve（解決する）、emphasize（強調する）、clarify（明らかにする）では博物館の主張を認めることになり、反論になりません。",
+  "m": "反論の文脈では「論点を無視している」が定番"
+ },
+ {
+  "id": 82,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "返還論争の新しい形",
+  "p": "Many of the world's great museums hold objects that were taken from other countries during periods of war or colonial rule. In recent decades, governments and communities in those countries have increasingly asked for such objects to be returned.\nMuseums have traditionally given several reasons for keeping them. They argue that their collections allow visitors from around the world to compare cultures side by side, and that the objects are well preserved in their care. Some also point out that laws in their own countries forbid them to give away items in their collections.\nThose who call for return reply that these arguments ( A ) the central question of how the objects were acquired. An object removed by force, they say, does not become the rightful property of a museum simply because it has been well looked after. They add that for many communities the objects are not merely works of art but part of living religious or social traditions.\nIn practice, the debate has begun to move beyond a simple choice between keeping and returning. Some museums have returned objects while agreeing to borrow them back for exhibitions; others have shared ownership or worked with communities on how items should be displayed. Such arrangements suggest that cooperation may serve both sides better than a contest over possession.",
+  "q": "次の英文を読み、最終段落の内容と一致するものを選びなさい。",
+  "c": [
+   "Some museums have returned objects and then borrowed them back for exhibitions.",
+   "Most museums now refuse to discuss returning objects at all.",
+   "Communities have generally agreed that museums should keep the objects.",
+   "Sharing ownership of objects has been rejected by every museum."
+  ],
+  "e": "最終段落に Some museums have returned objects while agreeing to borrow them back for exhibitions とあり、返還したうえで展示のために借り戻す例が紹介されているので、これが正解です。議論は「保持か返還か」を超えて協力へ向かっていると述べているので、話し合いを拒むという選択肢は逆です。共同体が保持に同意したという記述はなく、others have shared ownership とあるので所有権の共有も実際に行われています。",
+  "m": "保持か返還かの二択から「協力」へ"
+ },
+ {
+  "id": 83,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "独立分詞構文 weather permitting",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n(　　), we will have lunch in the park instead of in the classroom tomorrow.",
+  "c": [
+   "Weather permitting",
+   "Weather permitted",
+   "Permitting weather",
+   "If weather permitting"
+  ],
+  "e": "〈名詞＋現在分詞〉で始まる独立分詞構文で、weather permitting は「天気が許せば」という慣用表現です（＝if the weather permits）。分詞の意味上の主語 weather を前に置くので Permitting weather の語順は誤りです。天気が「許す」側なので能動の現在分詞を使い、過去分詞 permitted は使いません。分詞構文に接続詞 if を付けるなら if the weather permits と完全な節にする必要があり、If weather permitting は誤りです。",
+  "m": "weather permitting＝天気が許せば"
+ },
+ {
+  "id": 84,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "as if＋仮定法過去完了",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nKen talked about the concert as if he (　　) it himself, but in fact he was at home that night.",
+  "c": [
+   "had attended",
+   "attends",
+   "has attended",
+   "will attend"
+  ],
+  "e": "後半の in fact he was at home that night から、ケンは実際にはコンサートに行っていないことが分かります。過去の事実に反することを「まるで〜したかのように」と表すには、as if の後に仮定法過去完了 had＋過去分詞を使うので had attended が正解です。attends や has attended は直説法で事実として述べることになり、will attend は未来の話になるので文脈に合いません。",
+  "m": "as if＋had p.p.＝（過去に）〜したかのように"
+ },
+ {
+  "id": 85,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "have＋O＋過去分詞",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nMy bicycle was making a strange noise, so I had it (　　) at the shop near the station.",
+  "c": [
+   "repaired",
+   "repair",
+   "repairing",
+   "to repair"
+  ],
+  "e": "〈have＋O＋過去分詞〉で「O を〜してもらう・〜させる」を表します。自転車は「修理される」側なので過去分詞 repaired が正解です。〈have＋O＋原形〉は O が人で、その人に動作をさせるときの形（have him repair it）なので、目的語が物の it では使えません。repairing は O が動作をしている状態を表し、to repair は have の後の補語として使いません。",
+  "m": "have＋物＋p.p.＝物を〜してもらう"
+ },
+ {
+  "id": 86,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "関係代名詞 what",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nI could hardly believe (　　) I saw at the top of the mountain: a sea of clouds stretching to the horizon.",
+  "c": [
+   "what",
+   "that",
+   "which",
+   "where"
+  ],
+  "e": "believe の目的語になり、かつ節の中で saw の目的語が欠けている（I saw （　））ので、先行詞を含む関係代名詞 what（〜するもの・こと）が入ります。that や which を関係代名詞として使うには前に先行詞が必要です。接続詞の that だと後ろが完全な文でなければならず、saw の目的語が欠けているので不可です。where は関係副詞で、後ろに完全な文が続く必要があります。",
+  "m": "先行詞なし＋後ろが不完全→what"
+ },
+ {
+  "id": 87,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "It is ＋性格の形容詞＋of 人",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIt was very thoughtful (　　) you to send me flowers while I was in the hospital.",
+  "c": [
+   "of",
+   "for",
+   "to",
+   "with"
+  ],
+  "e": "thoughtful（思いやりのある）のように人の性質を表す形容詞が来る〈It is＋形容詞＋to do〉では、不定詞の意味上の主語を of＋人で表します（＝You were very thoughtful to send ...）。important や necessary のように行為そのものを評価する形容詞では for＋人を使うので、for は誤りです。to や with は意味上の主語を表せません。kind, nice, careless, foolish なども of を取ります。",
+  "m": "人の性質の形容詞＋of 人／それ以外は for 人"
+ },
+ {
+  "id": 88,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "未来完了",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nBy the time you get back from your trip next week, we (　　) moving into our new house.",
+  "c": [
+   "will have finished",
+   "finished",
+   "have finished",
+   "had finished"
+  ],
+  "e": "By the time you get back ... next week（来週あなたが戻るまでには）と未来のある時点が示され、その時までに完了している動作を表すので、未来完了 will have＋過去分詞が正解です。時を表す副詞節の中は現在形 get でも、主節は未来の内容なので will を使います。finished は過去、have finished は現在完了で、いずれも未来の時点までの完了を表せません。had finished は過去のある時点までの完了です。",
+  "m": "By the time＋現在形, 主節は will have p.p."
+ },
+ {
+  "id": 89,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "時の副詞節は現在形",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nPlease give me a call as soon as the package (　　) at your office.",
+  "c": [
+   "arrives",
+   "will arrive",
+   "arrived",
+   "will have arrived"
+  ],
+  "e": "as soon as（〜するとすぐに）が導く節は時を表す副詞節で、未来のことでも現在形で表します。したがって arrives が正解です。will arrive や will have arrived は副詞節の中では使いません。arrived は過去形で、これから届く荷物について電話を頼む文脈に合いません。when, before, after, until, if などが導く副詞節も同じ規則に従います。",
+  "m": "時・条件の副詞節では未来も現在形"
+ },
+ {
+  "id": 90,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "関係代名詞 whose",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nWe stayed at a small hotel (　　) owner used to be a famous chef in Paris.",
+  "c": [
+   "whose",
+   "which",
+   "that",
+   "where"
+  ],
+  "e": "空所の後は owner used to be ... と名詞から始まり、「そのホテルの」オーナーという所有の関係を表しています。先行詞が人でも物でも、所有を表す関係代名詞は whose なので、これが正解です。which や that を入れると、後ろの owner の前に何も付かないまま主語と動詞がそろうことになり、関係詞節として成り立ちません。where を入れると「そのホテルでオーナーは〜だった」となり、owner に冠詞などがなく文法的に不自然です。",
+  "m": "関係詞の直後に無冠詞の名詞→whose"
+ },
+ {
+  "id": 91,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "such a 形容詞 名詞 that",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIt was (　　) that we decided to spend the whole afternoon at the beach.",
+  "c": [
+   "such a beautiful day",
+   "so a beautiful day",
+   "such beautiful day",
+   "a so beautiful day"
+  ],
+  "e": "「とても〜なので…」は〈such＋(a/an)＋形容詞＋名詞＋that〉または〈so＋形容詞＋that〉で表します。名詞 day を伴うので such a beautiful day が正解です。so を使う場合は so beautiful a day の語順になるので、so a beautiful day や a so beautiful day は誤りです。day は数えられる名詞の単数形なので、such beautiful day のように冠詞を落とすこともできません。",
+  "m": "such a＋形＋名／so＋形＋a＋名"
+ },
+ {
+  "id": 92,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "forget to do と forget doing",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nDon't forget (　　) the windows before you leave the house. It might rain this evening.",
+  "c": [
+   "to close",
+   "closing",
+   "close",
+   "having closed"
+  ],
+  "e": "forget to do は「（これから）〜するのを忘れる」、forget doing は「（過去に）〜したことを忘れる」です。家を出る前にこれから窓を閉めることを念押しする文なので to close が正解です。closing や having closed は過去にしたことを忘れるという意味になり、Don't forget の命令文に合いません。forget の後に動詞の原形 close を直接続けることはできません。",
+  "m": "forget / remember to do＝これから／doing＝過去に"
+ },
+ {
+  "id": 93,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "however＋形容詞・副詞",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n(　　) hard she tried, she could not open the lid of the jar.",
+  "c": [
+   "However",
+   "Whatever",
+   "Although",
+   "Even"
+  ],
+  "e": "〈However＋形容詞・副詞＋S＋V〉で「どんなに〜しても」という譲歩を表します（＝No matter how hard she tried）。hard という副詞を直後に置けるのは However です。Whatever は名詞として働き「何を〜しても」の意味なので、副詞の hard を直接続けられません。Although の後には完全な文が続くので Although hard she tried の語順は誤りです。Even も単独では節を導けず、even if / even though とする必要があります。",
+  "m": "However＋形/副＋S＋V＝どんなに〜しても"
+ },
+ {
+  "id": 94,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "otherwise＝さもなければ",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nI was very busy with my part-time job last weekend; (　　), I would have joined you on the hiking trip.",
+  "c": [
+   "otherwise",
+   "therefore",
+   "moreover",
+   "however"
+  ],
+  "e": "後半が would have joined（参加していただろうに）と仮定法過去完了になっており、「（実際は忙しかったが）そうでなかったら参加していた」という意味になる otherwise（さもなければ・そうでなければ）が正解です。otherwise が if I had not been busy の条件を表しています。therefore（それゆえ）、moreover（さらに）、however（しかしながら）は仮定法の条件を表せず、「忙しかった」から「参加しただろう」へ論理もつながりません。",
+  "m": "otherwise＝if not … の代わりの仮定の条件"
+ },
+ {
+  "id": 95,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "倍数表現 ～times as ... as",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe new library is (　　) the old one, so it can hold far more books.",
+  "c": [
+   "three times as large as",
+   "as three times large as",
+   "three times larger as",
+   "as large three times as"
+  ],
+  "e": "「A は B の3倍の大きさだ」は〈倍数＋as＋原級＋as〉で three times as large as と表し、倍数表現は最初の as の前に置きます。as three times large as や as large three times as は倍数の位置が誤りです。three times larger という比較級を使う言い方もありますが、その場合は than と組み合わせるので、larger as は誤りです。half や twice も同じ位置に置きます（twice as large as）。",
+  "m": "倍数は as の前：three times as ～ as"
+ },
+ {
+  "id": 96,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "put up with",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nI can't 【put up with】 the noise from the construction site next door any longer.",
+  "c": [
+   "tolerate",
+   "complain about",
+   "measure",
+   "reduce"
+  ],
+  "e": "put up with は「〜を我慢する・耐える」で、tolerate や stand、bear とほぼ同じ意味です。any longer（もはや）と組み合わせて「これ以上騒音に耐えられない」となります。complain about（〜について苦情を言う）は我慢の限界から連想されますが意味は異なります。measure（測る）や reduce（減らす）は can't と合わせても文意が通りません。",
+  "m": "put up with＝tolerate＝stand＝bear"
+ },
+ {
+  "id": 97,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "look into",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nThe police are 【looking into】 the cause of the fire at the warehouse.",
+  "c": [
+   "investigating",
+   "preventing",
+   "reporting",
+   "ignoring"
+  ],
+  "e": "look into は「〜を調べる・調査する」で、investigate や examine と同じ意味です。警察が倉庫の火事の原因を調べているという文脈に合います。preventing（防ぐ）は起きた火事の原因には使えず、reporting（報告する）は調べた後の行為です。ignoring（無視する）は逆の意味です。look after（世話をする）、look up to（尊敬する）などとの区別も大切です。",
+  "m": "look into＝investigate（調査する）"
+ },
+ {
+  "id": 98,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "turn down",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nShe 【turned down】 the job offer because it would have meant moving abroad.",
+  "c": [
+   "rejected",
+   "accepted",
+   "considered",
+   "applied for"
+  ],
+  "e": "turn down は「（申し出・依頼など）を断る」で、reject や refuse、decline と同じ意味です。海外に引っ越すことになるという理由から、仕事の申し出を断ったと読み取れます。accepted（受け入れた）は逆の意味です。considered（検討した）は断る前の段階で、理由の文とつながりにくく、applied for（応募した）は申し出を受ける側の行為として不自然です。なお turn down は「（音量など）を下げる」の意味もあります。",
+  "m": "turn down＝reject（断る）"
+ },
+ {
+  "id": 99,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "come up with",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nAfter hours of discussion, the team finally 【came up with】 a solution to the problem.",
+  "c": [
+   "thought of",
+   "gave up on",
+   "ran out of",
+   "looked down on"
+  ],
+  "e": "come up with は「（考え・案など）を思いつく・考え出す」で、think of とほぼ同じ意味です。長い話し合いの末に解決策を思いついたという文脈に合います。gave up on（〜をあきらめた）は finally と組み合わせても「解決策」を目的語にすると不自然です。ran out of（〜を切らした）、looked down on（〜を見下した）も意味が合いません。come up with は「（お金など）を用意する」の意味でも使われます。",
+  "m": "come up with＝think of（思いつく）"
+ },
+ {
+  "id": 100,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "reluctant",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nMany residents were 【reluctant】 to leave their homes even after the warning was issued.",
+  "c": [
+   "unwilling",
+   "eager",
+   "unable",
+   "proud"
+  ],
+  "e": "reluctant to do は「〜したがらない・気が進まない」で、unwilling to do とほぼ同じ意味です。警報が出た後でも家を離れたがらない住民が多かったという意味になります。eager to do（しきりに〜したがる）は逆の意味です。unable to do は「〜できない」で、能力・状況の問題を表し、気持ちの問題を表す reluctant とは異なります。proud to do（〜を誇りに思う）も文脈に合いません。",
+  "m": "reluctant＝unwilling（気が進まない）"
+ },
+ {
+  "id": 101,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "inevitable",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nSome changes in the company's structure seemed 【inevitable】 after the merger.",
+  "c": [
+   "unavoidable",
+   "unnecessary",
+   "unexpected",
+   "unpopular"
+  ],
+  "e": "inevitable は「避けられない・必然的な」で、unavoidable と同じ意味です。in-（否定）＋evitable（避けられる）という成り立ちで覚えられます。合併の後で組織の変化が避けられないように思えた、という文意になります。unnecessary（不要な）は逆に近い意味です。unexpected（予期しない）は、合併の後で当然起こるという含みと合いません。unpopular（人気のない）は意味が異なります。",
+  "m": "inevitable＝unavoidable（避けられない）"
+ },
+ {
+  "id": 102,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "account for＝explain",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nHow do you 【account for】 the sudden drop in sales last month?",
+  "c": [
+   "explain",
+   "calculate",
+   "prevent",
+   "celebrate"
+  ],
+  "e": "account for にはいくつかの意味がありますが、ここでは理由を問う How do you ... ? の文なので「〜を説明する」で、explain に当たります。「先月の急な売上減少をどう説明しますか」という意味です。calculate（計算する）は売上の額を出すことで、理由を問う文意と合いません。prevent（防ぐ）は過去の減少には使えず、celebrate（祝う）は文脈に合いません。account for は「（割合）を占める」の意味も重要です。",
+  "m": "account for＝explain／（割合を）占める"
+ },
+ {
+  "id": 103,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "on purpose",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nI'm sure he didn't break the vase 【on purpose】; it slipped out of his hands.",
+  "c": [
+   "deliberately",
+   "accidentally",
+   "carefully",
+   "completely"
+  ],
+  "e": "on purpose は「わざと・故意に」で、deliberately や intentionally と同じ意味です。後半の「手から滑り落ちた」から、「わざと割ったのではない」という文意になります。accidentally（偶然に）は by accident と同じで、逆の意味です。carefully（注意深く）や completely（完全に）は on purpose の意味とは関係がありません。",
+  "m": "on purpose＝deliberately／by accident＝accidentally"
+ },
+ {
+  "id": 104,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "count on",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nYou can always (　　) on me if you need help with your move.",
+  "c": [
+   "count",
+   "insist",
+   "focus",
+   "comment"
+  ],
+  "e": "count on A で「A を頼りにする・当てにする」を表し、rely on や depend on と同じ意味になります。引っ越しの手伝いが必要なら頼りにしてよい、という文脈に合います。insist on は「〜を強く主張する」、focus on は「〜に集中する」、comment on は「〜について意見を述べる」で、いずれも on を取りますが、「私を〜」という目的語と意味が合いません。",
+  "m": "count on＝rely on＝depend on（頼りにする）"
+ },
+ {
+  "id": 105,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "scarce",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nFresh water became 【scarce】 on the island during the long dry season.",
+  "c": [
+   "in short supply",
+   "plentiful",
+   "polluted",
+   "expensive"
+  ],
+  "e": "scarce は「乏しい・不足している」で、in short supply（供給が不足している）とほぼ同じ意味です。長い乾季の間に島で真水が不足したという文意になります。plentiful（豊富な）は逆の意味です。polluted（汚染された）や expensive（高価な）は不足の結果として起こりうることですが、scarce の意味そのものではありません。副詞 scarcely は「ほとんど〜ない」です。",
+  "m": "scarce＝in short supply（不足して）"
+ },
+ {
+  "id": 106,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "bring about",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nThe invention of the printing press 【brought about】 great changes in European society.",
+  "c": [
+   "caused",
+   "prevented",
+   "followed",
+   "described"
+  ],
+  "e": "bring about は「〜を引き起こす・もたらす」で、cause とほぼ同じ意味です。印刷機の発明がヨーロッパ社会に大きな変化をもたらしたという文意になります。prevented（妨げた）は逆の意味です。followed（〜の後に続いた）は時間の前後関係しか表さず、原因と結果の関係になりません。described（説明した）は発明が主語として不自然です。",
+  "m": "bring about＝cause（引き起こす）"
+ },
+ {
+  "id": 107,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "stand for",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nDo you know what the letters \"UN\" 【stand for】?",
+  "c": [
+   "represent",
+   "support",
+   "tolerate",
+   "replace"
+  ],
+  "e": "stand for は略語や記号について使うと「〜を表す・〜の略である」で、represent とほぼ同じ意味です。UN は United Nations（国際連合）を表します。stand for には「（主義など）を支持する」「（否定文で）〜を我慢する」の意味もありますが、略語の文字が主語のこの文では support（支持する）や tolerate（我慢する）は合いません。replace（取って代わる）も意味が異なります。",
+  "m": "stand for＝represent（略語の意味を表す）"
+ },
+ {
+  "id": 108,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "abolish",
+  "q": "次の英文の【 】内の語句の意味に最も近いものを選びなさい。\nThe school decided to 【abolish】 the rule that required students to wear hats on the way to school.",
+  "c": [
+   "do away with",
+   "put up with",
+   "keep up with",
+   "catch up with"
+  ],
+  "e": "abolish は「（制度・規則など）を廃止する」で、句動詞の do away with（〜を廃止する・なくす）と同じ意味です。通学時の帽子着用を義務づける規則を廃止することにした、という文意になります。put up with は「我慢する」、keep up with は「（遅れずに）ついていく」、catch up with は「追いつく」で、いずれも with で終わる形が似ているだけで意味が異なります。",
+  "m": "abolish＝do away with（廃止する）"
+ },
+ {
+  "id": 109,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ホテル：修理まで時間がかかる",
+  "p": "(At a hotel front desk)\nGuest: Hi, I'm in Room 512. I'm afraid the air conditioner isn't working, and it's very hot in there.\nClerk: I'm terribly sorry about that. I can send someone up to look at it, but ( 1 )\nGuest: Two hours? I was hoping to get some sleep before my meeting tonight.\nClerk: I understand. In that case, ( 2 ) There's a room available on the eighth floor with the same view.\nGuest: That would be great. Thank you.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "our maintenance staff won't be free for another two hours.",
+   "the room will be cool again in a few minutes.",
+   "you'll have to pay an extra charge for the repair.",
+   "this hotel doesn't have air conditioning in its rooms."
+  ],
+  "e": "空所の直後に客が Two hours?（2時間ですか）と驚いて聞き返しているので、係員は「2時間」という時間に触れたはずです。「保守係はあと2時間は手が空かない」が正解です。「数分で涼しくなる」なら客は困りません。追加料金の話は2時間という応答とつながりません。エアコンがないという発言は、客が「エアコンが動かない」と言っていることや、係員が修理の人を送れると述べたことと矛盾します。",
+  "m": "直後の聞き返し（Two hours?）が手がかり"
+ },
+ {
+  "id": 110,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ホテル：部屋の変更を提案",
+  "p": "(At a hotel front desk)\nGuest: Hi, I'm in Room 512. I'm afraid the air conditioner isn't working, and it's very hot in there.\nClerk: I'm terribly sorry about that. I can send someone up to look at it, but ( 1 )\nGuest: Two hours? I was hoping to get some sleep before my meeting tonight.\nClerk: I understand. In that case, ( 2 ) There's a room available on the eighth floor with the same view.\nGuest: That would be great. Thank you.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "would you prefer to move to a different room?",
+   "you'll have to wait until tomorrow morning.",
+   "I'm afraid all our rooms are fully booked tonight.",
+   "could you check out a little earlier than planned?"
+  ],
+  "e": "客が会議の前に眠りたいと言ったのに対し、係員は In that case（それなら）と代案を出し、続けて「8階に同じ眺めの部屋が空いている」と述べています。したがって「別の部屋に移るほうがよろしいですか」が正解です。「明日の朝まで待つ」は客の希望に応えていません。「満室」は直後の空室の案内と矛盾します。「早めにチェックアウト」は問題の解決になりません。",
+  "m": "In that case の後は相手の事情に応じた代案"
+ },
+ {
+  "id": 111,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "店：レシートがない",
+  "p": "(At a clothing store)\nCustomer: Excuse me. I bought this sweater here last week, but it's too small. Could I exchange it for a larger size?\nClerk: Certainly. Do you have the receipt?\nCustomer: ( 1 ) I think I threw it away with the shopping bag.\nClerk: I see. Without a receipt, I usually can't help. But if you paid by card, I can look up the record of your purchase.\nCustomer: Oh, I did pay by card. Here it is.\nClerk: Thank you. ( 2 ) Let me check the system... Yes, here it is. Now, what size would you like?",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I'm afraid I don't have it with me.",
+   "Yes, here you are.",
+   "No, I paid in cash.",
+   "I'd rather have a refund instead."
+  ],
+  "e": "空所の直後に「買い物袋と一緒に捨ててしまったと思う」と続くので、「あいにく持っていません」が正解です。Yes, here you are.（はい、どうぞ）はレシートを渡すことになり、捨てたという発言と矛盾します。「現金で払った」は、後で客が I did pay by card（カードで払いました）と言っていることと矛盾します。返金を求める発言は、サイズの交換を頼んでいる最初の発言と合わず、レシートの質問にも答えていません。",
+  "m": "直後の説明（捨てた）と矛盾しない応答を選ぶ"
+ },
+ {
+  "id": 112,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "店：カードの記録で対応",
+  "p": "(At a clothing store)\nCustomer: Excuse me. I bought this sweater here last week, but it's too small. Could I exchange it for a larger size?\nClerk: Certainly. Do you have the receipt?\nCustomer: ( 1 ) I think I threw it away with the shopping bag.\nClerk: I see. Without a receipt, I usually can't help. But if you paid by card, I can look up the record of your purchase.\nCustomer: Oh, I did pay by card. Here it is.\nClerk: Thank you. ( 2 ) Let me check the system... Yes, here it is. Now, what size would you like?",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "That should be enough.",
+   "Then I'm afraid we can't help you.",
+   "Could you pay for the sweater again?",
+   "You'll need to come back with the receipt."
+  ],
+  "e": "店員はカード払いなら購入記録を調べられると言い、客がカードを差し出しました。続けて店員は記録を確認して見つけ、サイズを尋ねています。したがって「それで十分です」が正解です。「お手伝いできません」や「レシートを持って出直してください」は、この後に店員が記録を調べて交換に応じていることと矛盾します。「もう一度代金を払ってください」も交換の手続きとして不自然です。",
+  "m": "直後の行動（記録を調べて交換）と合う一言"
+ },
+ {
+  "id": 113,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "駅：忘れ物の特徴を尋ねる",
+  "p": "(At a station office)\nPassenger: Excuse me. I left my umbrella on the train that just arrived from Yokohama.\nStaff: I see. ( 1 )\nPassenger: It's a long black one with a wooden handle. My name is written on a tag inside.\nStaff: All right. The train has already left for the next station, so I'll contact the staff there. It may take a while.\nPassenger: ( 2 ) I have an appointment in twenty minutes.\nStaff: Then please leave your phone number, and we'll call you once we find it.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Could you describe it for me?",
+   "Which platform are you going to?",
+   "How long have you had it?",
+   "Did you buy your ticket at this station?"
+  ],
+  "e": "空所の直後で乗客は「黒くて長い、木の柄の傘で、内側の札に名前が書いてある」と傘の特徴を説明しています。したがって「特徴を教えていただけますか」が正解です。「どのホームへ行くのか」や「この駅で切符を買ったか」は、傘の特徴を答える発言につながりません。「どれくらい使っているか」は傘についての質問ですが、色や形を答える応答とかみ合いません。",
+  "m": "直後の答え（色・形・名札）から質問を逆算"
+ },
+ {
+  "id": 114,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "駅：待てないと伝える",
+  "p": "(At a station office)\nPassenger: Excuse me. I left my umbrella on the train that just arrived from Yokohama.\nStaff: I see. ( 1 )\nPassenger: It's a long black one with a wooden handle. My name is written on a tag inside.\nStaff: All right. The train has already left for the next station, so I'll contact the staff there. It may take a while.\nPassenger: ( 2 ) I have an appointment in twenty minutes.\nStaff: Then please leave your phone number, and we'll call you once we find it.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I'm afraid I can't wait that long.",
+   "Then I'll wait here as long as it takes.",
+   "Don't worry, I don't need it anymore.",
+   "Thank you, but I've already found it."
+  ],
+  "e": "駅員が「時間がかかるかもしれない」と言い、乗客は空所の後に「20分後に約束がある」と続けています。さらに駅員が「では電話番号を残してください」と応じているので、「そんなに長くは待てません」が正解です。「いくらでも待ちます」は約束がある事情と矛盾し、電話番号を残す流れにもなりません。「もう要らない」「もう見つかった」では、見つけたら電話するという駅員の提案と合いません。",
+  "m": "前後の発言（時間がかかる／約束がある）をつなぐ"
+ },
+ {
+  "id": 115,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "アルバイト：代わりを頼む",
+  "p": "Yuki: Hey, Tom. Are you working at the café this Saturday?\nTom: No, I've got the day off. Why?\nYuki: My cousin's wedding was moved to Saturday, and I'm supposed to work the morning shift. ( 1 )\nTom: Hmm, I was planning to sleep in, but sure, I can do that. ( 2 )\nYuki: Of course. I can take your Wednesday evening shift. Thanks so much!\nTom: No problem. Just let the manager know so she can update the schedule.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Is there any chance you could cover for me?",
+   "Would you like to come to the wedding with me?",
+   "Could you tell the manager that I'm quitting?",
+   "Do you know what time the wedding starts?"
+  ],
+  "e": "ユキは土曜に結婚式があるのに朝のシフトが入っていると説明し、トムは「朝寝坊するつもりだったけど、いいよ」と応じています。したがって「代わりに入ってもらえないか」と頼む文が正解です。cover for A は「A の代わりを務める」です。結婚式に誘う文では、朝寝坊の予定を引き合いに出して引き受ける応答と合いません。辞めることや式の開始時刻を尋ねる文も、後のシフト交換の話につながりません。",
+  "m": "cover for A＝A の代わりを務める"
+ },
+ {
+  "id": 116,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "アルバイト：見返りを求める",
+  "p": "Yuki: Hey, Tom. Are you working at the café this Saturday?\nTom: No, I've got the day off. Why?\nYuki: My cousin's wedding was moved to Saturday, and I'm supposed to work the morning shift. ( 1 )\nTom: Hmm, I was planning to sleep in, but sure, I can do that. ( 2 )\nYuki: Of course. I can take your Wednesday evening shift. Thanks so much!\nTom: No problem. Just let the manager know so she can update the schedule.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Would you mind taking one of my shifts in return?",
+   "But you'll have to ask the manager to do it.",
+   "Why don't you skip the wedding instead?",
+   "Have you ever been to a wedding before?"
+  ],
+  "e": "空所の後でユキは Of course. I can take your Wednesday evening shift.（もちろん。あなたの水曜夜のシフトに入るよ）と答えています。したがってトムは「代わりに僕のシフトを一つ引き受けてくれる？」と見返りを頼んだと考えられます。in return は「お返しに」です。「店長に頼んで」はトムがすでに引き受けたことと矛盾し、「式を休めば」や「結婚式に行ったことはある？」は Of course と水曜のシフトの話につながりません。",
+  "m": "in return＝お返しに"
+ },
+ {
+  "id": 117,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "発表：役割分担",
+  "p": "Mei: Our presentation is next Friday, and we still haven't decided who's going to do what.\nRyan: Right. I'm happy to make the slides, since I have the most experience with the software.\nMei: Great. Then ( 1 )\nRyan: Are you sure? You told me last time that speaking in front of the class makes you nervous.\nMei: It does, but ( 2 ) Besides, if I practice enough beforehand, I should be fine.\nRyan: Good for you. Let's rehearse together on Wednesday.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "maybe I should give the talk itself.",
+   "I'll make the slides as well.",
+   "let's ask the teacher to postpone it.",
+   "you can do the talking as well."
+  ],
+  "e": "ライアンがスライド作りを引き受け、メイが Then（それなら）と続けた後、ライアンは「本当に？人前で話すと緊張すると言っていたよね」と確認しています。したがってメイは「私が発表そのものをしようか」と申し出たと考えられます。「スライドも作る」はライアンの担当と重なり、緊張の話につながりません。延期を頼む案や「話すのもあなたが」という案では、メイが人前で話すことを心配する応答と合いません。",
+  "m": "直後の Are you sure? が何への確認かを考える"
+ },
+ {
+  "id": 118,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "発表：苦手を克服する決意",
+  "p": "Mei: Our presentation is next Friday, and we still haven't decided who's going to do what.\nRyan: Right. I'm happy to make the slides, since I have the most experience with the software.\nMei: Great. Then ( 1 )\nRyan: Are you sure? You told me last time that speaking in front of the class makes you nervous.\nMei: It does, but ( 2 ) Besides, if I practice enough beforehand, I should be fine.\nRyan: Good for you. Let's rehearse together on Wednesday.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I need to get used to it sooner or later.",
+   "I'd rather not do it after all.",
+   "I've never felt nervous in my life.",
+   "you'll be giving the talk anyway."
+  ],
+  "e": "メイは「緊張する」ことを It does（そうなの）と認めたうえで but と続け、さらに Besides（それに）「十分に練習すれば大丈夫」と加えています。前向きな理由が入るので、「遅かれ早かれ慣れないといけないから」が正解です。「やはりやめておく」は練習すれば大丈夫という発言やライアンの Good for you と合いません。「一度も緊張したことがない」は It does と矛盾し、「どうせあなたが話す」は役割分担の流れと逆です。",
+  "m": "but／Besides の後は同じ方向の理由を重ねる"
+ },
+ {
+  "id": 119,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "旅行代理店：別の日を提案",
+  "p": "(At a travel agency)\nClerk: How can I help you today?\nCustomer: I'd like to book a round-trip train ticket to Kanazawa for next Friday.\nClerk: Let me see... I'm afraid all the reserved seats on Friday are sold out. ( 1 )\nCustomer: No, I need to be there by Friday evening for a conference on Saturday morning.\nClerk: In that case, there are still non-reserved seats, but the train might be crowded.\nCustomer: ( 2 ) Please go ahead.\nClerk: Certainly. I'll issue the ticket for you, then.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Could you leave on Saturday instead?",
+   "Would you like a one-way ticket instead?",
+   "How many people will be traveling with you?",
+   "Shall I book a hotel for you as well?"
+  ],
+  "e": "客は No と断り、「土曜の朝の会議のために金曜の夕方までに着く必要がある」と理由を述べています。この理由で断れるのは、金曜より遅い日への変更を提案された場合なので、「代わりに土曜に出発できますか」が正解です。片道切符の提案や人数の質問、ホテルの予約の提案に対しては、到着の期限を理由にした No の応答がかみ合いません。",
+  "m": "断る理由（金曜夕方までに）と合う提案を選ぶ"
+ },
+ {
+  "id": 120,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "旅行代理店：立つのは構わない",
+  "p": "(At a travel agency)\nClerk: How can I help you today?\nCustomer: I'd like to book a round-trip train ticket to Kanazawa for next Friday.\nClerk: Let me see... I'm afraid all the reserved seats on Friday are sold out. ( 1 )\nCustomer: No, I need to be there by Friday evening for a conference on Saturday morning.\nClerk: In that case, there are still non-reserved seats, but the train might be crowded.\nCustomer: ( 2 ) Please go ahead.\nClerk: Certainly. I'll issue the ticket for you, then.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I don't mind standing if I have to.",
+   "Then I'd rather cancel the trip.",
+   "Could you find me a reserved seat, then?",
+   "I'll wait until the reserved seats become available."
+  ],
+  "e": "係員が自由席ならまだあるが混むかもしれないと言い、客は空所の後に Please go ahead.（それで進めてください）と言って切符を発行してもらっています。したがって「必要なら立っても構いません」が正解です。旅行を取りやめるなら切符は発行されません。指定席は売り切れなので「指定席を探して」は無理な依頼で、空席待ちも金曜の夕方までに着く必要がある事情と、すぐ発行してもらう流れに合いません。",
+  "m": "I don't mind ～ing＝～しても構わない"
  }
 ]

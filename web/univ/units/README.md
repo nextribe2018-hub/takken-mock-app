@@ -22,4 +22,5 @@
 
 - 必須：unit, short, name, exam, link, linktext, subjects（科目キー → [表示名, 範囲]）
 - 任意：owner（「〇〇の公式教材ではありません」の〇〇）、who／what（過去問ベースの出典説明）、plan_only、extra、eyebrow（{name} {scope} {exam} が使える）
+- 任意：past_src（過去問の文面をそのまま使う試験の出典説明。{years} が使える。ないときは「独自に作り直した」という既定の文）
 - 単位名は既存（kindai, nichidai, meiji, waseda, todai, zeirishi）と重ねない

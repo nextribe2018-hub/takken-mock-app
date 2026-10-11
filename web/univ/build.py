@@ -62,7 +62,7 @@ EXTRA = {
 # 追加の試験は web/univ/units/<単位>.json を置くだけで組み立てられる（セッションを分けて作るときに同じファイルを触らないため）
 # 形式は web/univ/units/README.md を参照
 UNIT_SUB = {}
-OWNER, WHAT, WHO, EYEBROW = {}, {}, {}, {}
+OWNER, WHAT, WHO, EYEBROW, PAST_SRC = {}, {}, {}, {}, {}
 for f in sorted((here / "units").glob("*.json")):
     c = json.loads(f.read_text(encoding="utf-8"))
     u = c["unit"]
@@ -75,6 +75,7 @@ for f in sorted((here / "units").glob("*.json")):
     if c.get("what"): WHAT[u] = c["what"]
     if c.get("who"): WHO[u] = c["who"]
     if c.get("eyebrow"): EYEBROW[u] = c["eyebrow"]
+    if c.get("past_src"): PAST_SRC[u] = c["past_src"]
 
 
 def fields_of(qs):
@@ -96,7 +97,9 @@ def build(unit, sub):
     sname, scope = UNIT_SUB.get(unit, SUB)[sub]
     past = [q for q in qs if q["k"] == "past"]
     years = sorted({q["ref"][:4] for q in past})
-    if past:
+    if past and unit in PAST_SRC:  # 過去問の文面をそのまま使う試験（出典表示の文は単位の設定に書く）
+        src = PAST_SRC[unit].format(years="・".join(years))
+    elif past:
         what = WHAT.get(unit, "試験問題（解答は非公表）と出題のポイント" if unit == "zeirishi" else "入試問題・解答・出題意図")
         who = WHO.get(unit, "国税庁" if unit == "zeirishi" else univ)
         src = (f"「過去問ベース」は、{who}が公式に公開している{'・'.join(years)}年度の{what}をもとに、"
