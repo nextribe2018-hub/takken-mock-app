@@ -72,6 +72,20 @@ export function buildRound(x: Exam, hist: Hist, round: number, rnd = Math.random
   return x.rounds ? qs : shuffle(qs, rnd);
 }
 
+// 無料版の範囲：分野ごとに 10問に1問（分野内の並びで 0, 10, 20…番目。端数は切り上げ）。
+// 安定キーの並びで決めるので、アプリを更新しても無料の問題は変わらない
+const freeCache = new Map<string, Exam>();
+export function freeExam(x: Exam): Exam {
+  let e = freeCache.get(x.id);
+  if (!e) {
+    const seen: Record<string, number> = {};
+    const items = x.items.filter(q => (seen[q.f] = (seen[q.f] ?? -1) + 1) % 10 === 0);
+    e = { ...x, items };
+    freeCache.set(x.id, e);
+  }
+  return e;
+}
+
 // 4択の表示順（c の番号の並び）。fix のときは最後の選択肢を末尾に固定
 export function choiceOrder(q: Item, rnd = Math.random): number[] {
   const idx = (q.c || []).map((_, i) => i);
@@ -97,6 +111,14 @@ export function statsBy(x: Exam, hist: Hist): TopicStat[] {
     if (h) { s.n += h.n; s.c += h.c; if (h.last === 0) s.recentWrong++; }
   });
   return Object.values(m);
+}
+// 分野ごとにまとめた成績（歴史の「分野マップ」用。t は分野の表示名）
+export function fieldStats(x: Exam, hist: Hist): TopicStat[] {
+  const all = statsBy(x, hist);
+  return x.fields.map(([f, name]) => all.filter(s => s.f === f).reduce(
+    (a, s) => ({ ...a, total: a.total + s.total, n: a.n + s.n, c: a.c + s.c, recentWrong: a.recentWrong + s.recentWrong }),
+    { f, t: name, total: 0, n: 0, c: 0, recentWrong: 0 } as TopicStat,
+  ));
 }
 // 0=未着手 1=要復習 2=習得中 3=習得
 export function topicState(s: TopicStat): 0 | 1 | 2 | 3 {

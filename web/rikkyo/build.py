@@ -10,12 +10,14 @@ SUBJECTS = {
     "sekaishi": {"title": "立教世界史 10問テスト", "kinds": None},
     "nihonshi": {"title": "立教日本史 10問テスト", "kinds": {"past", "plan"}},
 }
-REQUIRED = ("id", "ref", "f", "t", "y", "q", "c", "e", "m")
+REQUIRED = ("id", "ref", "f", "t", "q", "c", "e", "m")
 
 
-def check(name, qs, kinds):
+def check(name, qs, kinds, need_y=None):
     """問題データの形を確かめる。おかしな所があればまとめて返す。"""
     errs, seen = [], set()
+    if need_y is None:  # 歴史は年 y を必須、英語・国語などは付けない
+        need_y = any("y" in q for q in qs)
     for i, q in enumerate(qs):
         at = f"{name}[{i}] id={q.get('id')}"
         for k in REQUIRED:
@@ -32,7 +34,7 @@ def check(name, qs, kinds):
         a = q.get("a", 0)
         if not (isinstance(a, int) and 0 <= a < len(c)):
             errs.append(f"{at}: 正解番号 a={a} が範囲外")
-        if not isinstance(q.get("y"), int):
+        if need_y and not isinstance(q.get("y"), int):
             errs.append(f"{at}: 年 y が整数でない")
         if kinds is not None and q.get("k") not in kinds:
             errs.append(f"{at}: 種別 k={q.get('k')} が不正")
