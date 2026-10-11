@@ -46,3 +46,4 @@
 | `itpass-all` | 100 | 91 | https://claude.ai/artifact/L2iKrttkXW9nUtf8gVwAoV |
 | `denko2-gakka` | 100 | 87 | https://claude.ai/artifact/3DYZwnEJCW1oYL8DjdgBPu |
 | `kikenbutsu-otsu4` | 100 | 0 | https://claude.ai/artifact/4fHc3PkoMbjdnkgUTqsyrj |
+| `eisei-ni` | 100 | 92 | https://claude.ai/artifact/QMjyh2k7bZ553Gm3HBX6vA |
