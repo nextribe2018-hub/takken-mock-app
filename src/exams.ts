@@ -146,7 +146,9 @@ const univ = (id: ExamId, name: string, short: string, raw: unknown): Exam => {
   const items = rikkyoItems(raw as RikkyoRaw[]);
   const sub = id.slice(id.indexOf('-') + 1);
   return {
-    id, name, short, group: id.startsWith('zeirishi-') ? '資格試験' : '大学入試', desc: DESC[sub], format: 'choice', fields: fieldsByYear(items), size: 10, limit: 600,
+    id, name, short, group: id.startsWith('zeirishi-') ? '資格試験' : '大学入試',
+    // 過去問ベースがない試験（明治・早稲田・東大英語）は「想定問題」と書く
+    desc: items.some(q => q.kind === 'past') ? DESC[sub] : DESC[sub].replace('過去問の知識をもとにした', '想定問題の'), format: 'choice', fields: fieldsByYear(items), size: 10, limit: 600,
     reviewBy: 'field', kinds: [['past', '過去問ベース'], ['plan', '想定問題']], storageKey: `exam-progress-v1:${id}`, items,
   };
 };

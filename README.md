@@ -11,7 +11,7 @@
 | `src/logic.ts` | 出題比率・出題選択・採点・習熟度の判定 |
 | `src/storage.ts` | 学習記録の保存（端末内。クラウド同期はここに追加予定） |
 | `src/theme.ts` | 色（ライト／ダーク）とフォント |
-| `src/data/bank.json` | 問題 532問（○×形式） |
+| `src/data/bank.json` | 問題 1,498問（○×形式） |
 | `src/data/lessons.json` | 46論点の解説・ひっかけ・付随論点 |
 | `scripts/test-logic.ts` | ロジックのテスト |
 

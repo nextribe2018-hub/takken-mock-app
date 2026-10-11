@@ -26,7 +26,7 @@ python3 web/univ/build.py     # 近大・日大・明治・早稲田・東大・
 
 ## 構成
 - `App.tsx` 画面 ／ `src/exams.ts` 試験パック ／ `src/logic.ts` ロジック ／ `src/storage.ts` 保存 ／ `src/theme.ts` 色
-- `src/data/bank.json` 宅建532問 ／ `src/data/lessons.json` 解説46論点 ／ `src/data/rikkyo-*.json` 立教 世界史105問・日本史215問 ／ `src/data/keio-*.json` 慶應 経済・商の世界史・日本史 各100問
+- `src/data/bank.json` 宅建1,498問 ／ `src/data/lessons.json` 解説46論点 ／ `src/data/rikkyo-*.json` 立教 世界史105問・日本史215問 ／ `src/data/keio-*.json` 慶應 経済・商の世界史・日本史 各100問
 - 試験を増やすときは `src/exams.ts` の `EXAMS` に1件足す（`npm test` が全試験のデータ形式と出題を検査する）
 - `web/` 宅建Web版、`web/rikkyo/` 立教Web版、`web/keio/` 慶應Web版のテンプレートとビルド
 

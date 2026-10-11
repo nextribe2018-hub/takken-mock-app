@@ -3,7 +3,7 @@
 // 将来クラウド同期を足すときはここに push/pull を追加する。
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { EXAM, Exam, ExamId, byKey } from './exams';
-import { emptyProgress, Progress } from './logic';
+import { backfillRecent, emptyProgress, Progress } from './logic';
 
 const LAST_EXAM = 'exam-last-v1';
 
@@ -19,6 +19,7 @@ export async function loadProgress(x: Exam = EXAM.takken): Promise<Progress> {
     return {
       ...base,
       hist: hist as Progress['hist'],
+      r10: backfillRecent(hist as Progress['hist'], d.r10 && typeof d.r10 === 'object' ? d.r10 : {}),
       set: d.set && Array.isArray(d.set.scores) ? d.set : base.set,
       log: Array.isArray(d.log) ? d.log : [],
       voice: !!d.voice,

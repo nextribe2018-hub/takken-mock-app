@@ -4,16 +4,16 @@
 /* layout: ホーム（今の実力・5回セット・論点マップ）→ 試験画面（タイマー＋1問ずつ）→ 結果 → 解説と確認例題3問 */
 :root{
   --bg:#f3f4f1; --paper:#ffffff; --ink:#1f2a2e; --muted:#5d6a6e; --line:#d9ded9;
-  --ai:#24476b; --ai-soft:#e3ebf3; --ok:#2f7a4b; --ok-soft:#e2f1e7; --ng:#b8402c; --ng-soft:#f8e4df; --warn:#9a6b12; --warn-soft:#f6ecd6;
+  --ai:#24476b; --ai-soft:#e3ebf3; --ok:#2f7a4b; --ok-soft:#e2f1e7; --ng:#b8402c; --ng-soft:#f8e4df; --warn:#9a6b12; --warn-soft:#f6ecd6; --or:#b85a16; --or-soft:#fbe5d3;
   --f-disp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
   --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#141a1d; --paper:#1d2529; --ink:#e7ecea; --muted:#9aa8ab; --line:#33403f;
-  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; color-scheme:dark}}
+  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; --or:#f0a060; --or-soft:#3f2a1a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#141a1d; --paper:#1d2529; --ink:#e7ecea; --muted:#9aa8ab; --line:#33403f;
-  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; color-scheme:dark}
+  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; --or:#f0a060; --or-soft:#3f2a1a; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75}
 .wrap{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:18px}
@@ -38,10 +38,17 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .tgroup h3{font-size:.85rem;margin:0 0 6px;color:var(--muted);letter-spacing:.05em}
 .tlist{display:flex;flex-wrap:wrap;gap:6px}
 .tp{font:inherit;font-size:.8rem;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
-.tp.s0{opacity:.75}
-.tp.s1{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}
-.tp.s2{background:var(--warn-soft);border-color:var(--warn);color:var(--warn)}
-.tp.s3{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.tp.t-none{opacity:.75}
+.tp.t-perfect{--c:var(--ok);--b:var(--ok);background:var(--ok);border-color:var(--ok);color:var(--paper);font-weight:700}
+.tp.t-good{--c:var(--ok);--b:var(--ok-soft)}
+.tp.t-mid{--c:var(--warn);--b:var(--warn-soft)}
+.tp.t-low{--c:var(--or);--b:var(--or-soft)}
+.tp.t-bad{--c:var(--ng);--b:var(--ng-soft)}
+.tp.t-good,.tp.t-mid,.tp.t-low,.tp.t-bad{background:var(--b);border-color:var(--c);color:var(--c)}
+.tp.few{border-style:dashed;background:color-mix(in srgb,var(--b) 45%,var(--paper));border-color:color-mix(in srgb,var(--c) 55%,var(--paper));font-weight:400}
+.tp.t-perfect.few{color:var(--ink);background:color-mix(in srgb,var(--ok) 28%,var(--paper));border-color:var(--ok)}
+.tp.few .tpr small{font-weight:700}
+.lg{display:inline-block;font-size:.72rem;padding:0 7px;border-radius:999px;border:1px solid var(--line);margin:2px 2px 0 0;cursor:default}
 .legend{font-size:.75rem;color:var(--muted)}
 .exam-top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:2;border-bottom:1px solid var(--line)}
 .timer{font-family:var(--f-disp);font-size:1.6rem;font-weight:800;font-variant-numeric:tabular-nums}
@@ -68,6 +75,60 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .trap b{color:var(--warn)}
 .relg{display:flex;flex-direction:column;gap:10px}
 .relg .ul{font-size:.9rem}
+/* 体系解説：全体像ツリー・流れ図・比較表 */
+.ov{margin:0;font-size:.95rem}
+.systree{display:flex;flex-direction:column}
+.sysroot{align-self:flex-start;background:var(--ai);color:var(--paper);font-weight:700;border-radius:10px;padding:8px 14px;font-family:var(--f-disp);font-size:1.05rem}
+.sysbr{position:relative;margin-left:16px;padding:12px 0 0 18px;display:flex;flex-direction:column;gap:10px}
+.sysbr::before{content:"";position:absolute;left:0;top:0;bottom:24px;border-left:2px solid var(--line)}
+.br{position:relative;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}
+.br::before{content:"";position:absolute;left:-19px;top:22px;width:18px;border-top:2px solid var(--line)}
+.br h4{margin:0 0 4px;font-size:.95rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.br h4 .no{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--ai-soft);color:var(--ai);font-size:.75rem;font-variant-numeric:tabular-nums}
+.br ul{margin:0;padding-left:1.1em;font-size:.88rem;line-height:1.65}
+.br.hit{border-color:var(--ng);border-width:2px;background:var(--ng-soft)}
+.br.hit::before{border-top-color:var(--ng)}
+.br .tag{font-size:.72rem;font-weight:700;color:var(--paper);background:var(--ng);border-radius:999px;padding:1px 8px}
+.br li.hit{font-weight:700;color:var(--ng)}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.flow li{position:relative;display:flex;gap:12px;align-items:flex-start;padding-bottom:12px}
+.flow li:last-child{padding-bottom:0}
+.flow li:not(:last-child)::before{content:"";position:absolute;left:13px;top:30px;bottom:2px;border-left:2px solid var(--ai)}
+.flow .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--ai);color:var(--paper);display:grid;place-items:center;font-weight:700;font-size:.85rem;font-variant-numeric:tabular-nums}
+.flow .s{padding-top:3px;font-size:.92rem}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px}
+.st{border-collapse:collapse;width:100%;font-size:.84rem;line-height:1.5;min-width:100%}
+.st caption{text-align:left;font-weight:700;padding:0 0 6px;font-size:.9rem}
+.st th{background:var(--ai-soft);color:var(--ink);text-align:left;font-weight:700;padding:7px 9px;white-space:nowrap;border-bottom:1px solid var(--line)}
+.st td{padding:7px 9px;border-top:1px solid var(--line);vertical-align:top}
+.st td:first-child{font-weight:700;min-width:6.5em}
+.st tr:nth-child(even) td{background:color-mix(in srgb,var(--bg) 60%,transparent)}
+.st .o{color:var(--ok);font-weight:700}.st .x{color:var(--ng);font-weight:700}
+.tbls{display:flex;flex-direction:column;gap:14px}
+.mini{display:flex;flex-wrap:wrap;gap:6px}
+.mchip{font:inherit;font-size:.82rem;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.mchip .no{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:50%;background:var(--ai-soft);color:var(--ai);font-size:.7rem;font-weight:700}
+.mchip.on{border-color:var(--ng);background:var(--ng-soft);color:var(--ng);font-weight:700}
+.mchip.rel{border-style:dashed;color:var(--ai)}
+.deeplink{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border-color:var(--ai);color:var(--ai)}
+.deeplink::after{content:"→";position:absolute;right:16px}
+.deeplink{position:relative;padding-right:36px}
+.sub2{font-size:.78rem;font-weight:500;color:var(--muted)}
+.br.focus{outline:3px solid var(--ai);outline-offset:2px}
+.card>.br::before{display:none}
+.tpr{font-size:.92em}.tpr small{opacity:.7;margin-left:1px}
+.lbs{display:flex;gap:3px;margin-top:3px}.lb{display:inline-grid;place-items:center;min-width:1.5em;height:1.5em;font-size:.7rem;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.lb.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}.lb.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}.lb.mi{border-style:dashed}
+.lnk{font:inherit;background:none;border:0;padding:0;color:var(--ai);text-decoration:underline;cursor:pointer;text-align:left}
+.fp{font-size:1.25rem;font-family:var(--f-disp)}
+.vok{color:var(--ok)}.vmid{color:var(--warn)}.vng{color:var(--ng)}
+.dot.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.dot.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}
+.pbar,.mbar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
+.pbar i,.mbar i{display:block;height:100%;background:var(--ai);border-radius:999px}
+.st tr.focus td{background:var(--warn-soft)}
+.fx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fx .btn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left}
 .sync{font-size:.78rem;margin:4px 0 0;color:var(--muted)}
 .sync[data-s="ok"]{color:var(--ok)}
 .sync[data-s="err"]{color:var(--ng)}
@@ -95,6 +156,12 @@ let H=ls.get("tkm-hist",{}); // key -> {n,c,last}
 if(Object.keys(H).some(k=>/^\d+$/.test(k))){const nh={};Object.keys(H).forEach(k=>{const q=/^\d+$/.test(k)?BANK[+k]:BYKEY[k];if(q)nh[q.k]=H[k]});H=nh}
 let SET=ls.get("tkm-set",{round:0,scores:[]});
 let LOG=[]; // 模試の履歴 {at,round,score,sec}
+// 論点ごとの直近10問の正誤（古い→新しい、"1"=正解）。既存の記録しかない論点は各問の最後の結果で埋める
+const tkey=q=>q.f+"|"+q.t;
+function backfillR10(h,base){const o={...(base||{})};const tmp={};BANK.forEach(q=>{const x=h[q.k];if(x&&x.n){const t=tkey(q);(tmp[t]=tmp[t]||"");tmp[t]+=(x.last?"1":"0")}});
+  Object.keys(tmp).forEach(t=>{if(!o[t])o[t]=tmp[t].slice(-10)});return o}
+let R10=backfillR10(H,ls.get("tkm-r10",{}));
+function mergeR10(a,b){const o={...(a||{})};Object.keys(b||{}).forEach(k=>{if(!o[k]||(b[k]||"").length>=o[k].length)o[k]=b[k]});return o}
 /* ---- server sync (db) ---- */
 const SYNC={db:null,ref:null,status:"local",busy:false,dirty:false,timer:null};
 function syncLabel(){const el=document.getElementById("sync");if(!el)return;const m={local:"この端末だけに保存中（サーバーに接続できません）",nort:"この端末だけに保存中：この開き方ではサーバー保存が使えません。下の「記録の引き継ぎ」でコピーを取ってください",nodb:"この端末だけに保存中：この画面ではサーバー保存が使えません（アプリの種類による）。下の「記録の引き継ぎ」でコピーを取ってください",nouser:"この端末だけに保存中：ログイン情報を取得できません。下の「記録の引き継ぎ」でコピーを取ってください",loading:"サーバーから読み込み中…",ok:"サーバーに保存済み",saving:"サーバーに保存中…",err:"サーバー保存に失敗しました（この端末には保存済み。次の回答時に再送します）"};el.textContent=m[SYNC.status]||"";el.dataset.s=SYNC.status}
@@ -102,12 +169,12 @@ async function push(){
   if(!SYNC.ref){return}
   if(SYNC.busy){SYNC.dirty=true;return}
   SYNC.busy=true;SYNC.status="saving";syncLabel();
-  try{await SYNC.ref.set({v:2,hist:H,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}
-  catch(e){if(e&&e.code==="unavailable"){await new Promise(r=>setTimeout(r,800+Math.random()*800));try{await SYNC.ref.set({v:2,hist:H,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}catch(e2){SYNC.status="err"}}else SYNC.status="err"}
+  try{await SYNC.ref.set({v:2,hist:H,r10:R10,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}
+  catch(e){if(e&&e.code==="unavailable"){await new Promise(r=>setTimeout(r,800+Math.random()*800));try{await SYNC.ref.set({v:2,hist:H,r10:R10,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});SYNC.status="ok"}catch(e2){SYNC.status="err"}}else SYNC.status="err"}
   SYNC.busy=false;syncLabel();
   if(SYNC.dirty){SYNC.dirty=false;push()}
 }
-const save=()=>{ls.set("tkm-hist",H);ls.set("tkm-set",SET);ls.set("tkm-log",LOG);clearTimeout(SYNC.timer);SYNC.timer=setTimeout(push,600)};
+const save=()=>{ls.set("tkm-hist",H);ls.set("tkm-r10",R10);ls.set("tkm-set",SET);ls.set("tkm-log",LOG);clearTimeout(SYNC.timer);SYNC.timer=setTimeout(push,600)};
 LOG=ls.get("tkm-log",[]);
 function mergeHist(a,b){const o={...a};Object.keys(b||{}).forEach(k=>{const x=o[k],y=b[k];o[k]=!x||((y.n||0)>(x.n||0))?y:x});return o}
 async function connect(){
@@ -121,7 +188,7 @@ async function connect(){
     const snap=await SYNC.ref.get();
     if(snap.exists){const d=snap.data()||{};
       const localHad=Object.keys(H).length>0;
-      H=mergeHist(d.hist||{},H);
+      H=mergeHist(d.hist||{},H);R10=backfillR10(H,mergeR10(d.r10||{},R10));
       if(d.set&&(!localHad||(d.set.scores||[]).length>=(SET.scores||[]).length))SET=JSON.parse(JSON.stringify(d.set));
       const seenAt=new Set((d.log||[]).map(x=>x.at));LOG=[...(d.log||[]),...LOG.filter(x=>!seenAt.has(x.at))].sort((a,b)=>a.at<b.at?-1:1);
       ls.set("tkm-hist",H);ls.set("tkm-set",SET);ls.set("tkm-log",LOG);
@@ -136,7 +203,7 @@ function render0(){SYNC.status="local";syncLabel()}
 const enc=o=>"TKM1:"+btoa(unescape(encodeURIComponent(JSON.stringify(o))));
 const dec=t=>{t=(t||"").trim().replace(/\s+/g,"");if(!t.startsWith("TKM1:"))throw new Error("形式");return JSON.parse(decodeURIComponent(escape(atob(t.slice(5)))))};
 function exportRec(){
-  const code=enc({hist:H,set:SET,log:LOG.slice(-200)});
+  const code=enc({hist:H,r10:R10,set:SET,log:LOG.slice(-200)});
   const n=Object.keys(H).length;
   $("#bk").innerHTML=`<p class="note" id="bkmsg">${n}問分の記録です。下の文字列をすべてコピーして、メモ帳などに保存してください。</p><textarea id="bkt" readonly rows="4" style="width:100%;font:12px monospace;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--bg);color:var(--ink)">${code}</textarea>`;
   const ta=$("#bkt");ta.focus();ta.select();
@@ -148,7 +215,7 @@ function importRec(){
   $("#bkgo").onclick=()=>{
     let d;try{d=dec($("#bki").value)}catch(e){$("#bkerr").textContent="読み取れませんでした。TKM1: から最後まで、全部を貼り付けてください。";return}
     const hist={};Object.keys(d.hist||{}).forEach(k=>{if(BYKEY[k])hist[k]=d.hist[k]});
-    H=mergeHist(H,hist);
+    H=mergeHist(H,hist);R10=backfillR10(H,mergeR10(d.r10||{},R10));
     if(d.set&&Array.isArray(d.set.scores)&&(d.set.scores.length>=(SET.scores||[]).length))SET=JSON.parse(JSON.stringify(d.set));
     const seenAt=new Set(LOG.map(x=>x.at));LOG=[...LOG,...(d.log||[]).filter(x=>x&&x.at&&!seenAt.has(x.at))].sort((a,b)=>a.at<b.at?-1:1);
     save();home();
@@ -164,7 +231,7 @@ const clean=t=>t.replace(/○/g,"まる").replace(/×/g,"ばつ").replace(/㎡/g
 function speak(t){if(!canSpeak)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(clean(t));u.lang="ja-JP";const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.toLowerCase().startsWith("ja"));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
 let voice=ls.get("tkm-voice",false);
 
-function rec(q,ok){const h=H[q.k]||{n:0,c:0};h.n++;if(ok)h.c++;h.last=ok?1:0;H[q.k]=h}
+function rec(q,ok){const h=H[q.k]||{n:0,c:0};h.n++;if(ok)h.c++;h.last=ok?1:0;H[q.k]=h;const t=tkey(q);R10[t]=((R10[t]||"")+(ok?"1":"0")).slice(-10)}
 function prio(q){const h=H[q.k];if(!h)return 0;if(h.last===0)return 1;return 2+h.n}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function pick(pool,n,exclude){
@@ -179,11 +246,105 @@ function pick(pool,n,exclude){
 function topicStats(){
   const m={};
   BANK.forEach(q=>{const k=q.f+"|"+q.t;m[k]=m[k]||{f:q.f,t:q.t,total:0,n:0,c:0,recentWrong:0};const s=m[k];s.total++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;if(h.last===0)s.recentWrong++}});
+  Object.values(m).forEach(s=>{const r=R10[s.f+"|"+s.t]||"";s.rn=r.length;s.rc=(r.match(/1/g)||[]).length});
   return Object.values(m);
 }
+function tier(s){const rn=s.rn||0;if(!rn)return"t-none";const r=s.rc/rn;const t=r>=1?"t-perfect":r>=0.8?"t-good":r>=0.6?"t-mid":r>=0.4?"t-low":"t-bad";return t+(rn<5?" few":"")}
 function state(s){if(!s.n)return 0;const r=s.c/s.n;if(s.recentWrong>0||r<0.6)return 1;if(r<0.8||s.n<5)return 2;return 3}
 
 /* ---------- home ---------- */
+/* ---------- 合格の見込み（○×の積み上げから本試験50問の得点を推定） ---------- */
+const PASS_LINES=[33,34,35,36,37]; // 例年の合格点は33〜37点。どの点になるかは同じ確率と仮定
+const EXAM_N={業法:20,権利:14,法令:8,税他:8};
+const FNAME=f=>FIELDS.find(x=>x[0]===f)[1];
+function fieldStats(){const o={};FIELDS.forEach(([f])=>o[f]={n:0,c:0,q:0,tot:0,rn:0,rc:0});
+  BANK.forEach(q=>{const s=o[q.f];s.tot++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;s.q++}});
+  // 直近：論点ごとの直近10問を分野でまとめる
+  Object.keys(R10).forEach(t=>{const f=t.split("|")[0];if(!o[f])return;const r=R10[t];o[f].rn+=r.length;o[f].rc+=(r.match(/1/g)||[]).length});return o}
+function seeded(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gammaS(k,r){if(k<1)return gammaS(k+1,r)*Math.pow(r()||1e-12,1/k);const d=k-1/3,c=1/Math.sqrt(9*d);
+  for(;;){let x,v;do{const u1=r()||1e-12,u2=r();x=Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);v=1+c*x}while(v<=0);v=v*v*v;const u=r();
+    if(u<1-0.0331*x*x*x*x)return d*v;if(Math.log(u||1e-12)<0.5*x*x+d*(1-v+Math.log(v)))return d*v}}
+// ○×の正答率 p から4択1問の正答率を推計（消去法・2択への絞り込みを含む）
+// 各肢の判断を3通りに分ける：S＝確信して正しく判定／U＝迷う（○×なら半々で当たる）／W＝確信して誤る
+// ○×正答率 p = S + U/2。k＝○×の誤りのうち「迷い」から来る割合（0＝誤りはすべて思い込み、1＝誤りはすべて迷い）
+// 4択の解き方：「これが正解」と確信した肢があればその中から、なければ確信して消せなかった（迷う）肢から、それもなければ4肢から選ぶ
+function toExam(p,k){if(k==null)k=0.5;if(p<1)k=Math.min(k,p/(1-p));const u=2*(1-p)*k,w=(1-p)*(1-k),s=Math.max(0,p-k*(1-p));const pr=[s,u,w];let P=0;
+  for(let i=0;i<81;i++){const st=[i%3,(i/3|0)%3,(i/9|0)%3,(i/27|0)%3];let q=1;for(const x of st)q*=pr[x];if(!q)continue;
+    const flag=[],uns=[];st.forEach((x,j)=>{if((j===0&&x===0)||(j>0&&x===2))flag.push(j);if(x===1)uns.push(j)});
+    const cand=flag.length?flag:uns.length?uns:[0,1,2,3];if(cand.includes(0))P+=q/cand.length}
+  return P}
+const SCEN=[{k:0,label:"慎重（誤りはすべて思い込み）"},{k:0.5,label:"標準（誤りの半分は迷い）"},{k:1,label:"消去法が効く（誤りはすべて迷い）"}];
+function simulate(st,k){const r=seeded(20261008),S=3000,sc=[];
+  for(let i=0;i<S;i++){let x=0;FIELDS.forEach(([f])=>{const s=st[f];const a=gammaS(s.c+1,r),b=gammaS(s.n-s.c+1,r);const p=toExam(a/(a+b),k);for(let j=0;j<EXAM_N[f];j++)if(r()<p)x++});sc.push(x)}
+  sc.sort((a,b)=>a-b);const byLine=PASS_LINES.map(t=>sc.filter(x=>x>=t).length/S);
+  const exp={};FIELDS.forEach(([f])=>{const s=st[f];exp[f]=EXAM_N[f]*toExam((s.c+1)/(s.n+2),k)});
+  return {k,byLine,prob:byLine.reduce((a,b)=>a+b,0)/byLine.length,mean:sc.reduce((a,b)=>a+b,0)/S,lo:sc[Math.floor(S*0.1)],hi:sc[Math.floor(S*0.9)],exp,four:FIELDS.reduce((a,[f])=>a+exp[f],0)/50}}
+function passEst(){
+  const st=fieldStats();const total=Object.values(st).reduce((a,s)=>a+s.n,0);
+  if(total<30)return {ready:false,total,st};
+  // 合格確率は直近の正答率で計算（論点ごとの直近10問を分野で合算。直近がない分野は全体を使う）
+  const rs={};FIELDS.forEach(([f])=>{const s=st[f];rs[f]=s.rn?{n:s.rn,c:s.rc}:{n:s.n,c:s.c}});
+  const scen=SCEN.map(x=>({...x,...simulate(rs,x.k)}));const M=scen[1];
+  const rn=Object.values(rs).reduce((a,s)=>a+s.n,0);
+  const ox=Object.values(rs).reduce((a,s)=>a+s.c,0)/rn;const oxAll=Object.values(st).reduce((a,s)=>a+s.c,0)/total;
+  // 伸ばすと効く分野＝本試験で落としている見込みの点が最も多い分野（標準の見立て）
+  const focus=FIELDS.map(([f])=>f).sort((a,b)=>(EXAM_N[b]-M.exp[b])-(EXAM_N[a]-M.exp[a]))[0];
+  return {ready:true,total,st,ox,oxAll,rn,scen,focus,...M};
+}
+function passHtml(){
+  const P=passEst();
+  if(!P.ready)return `<section class="card"><h2>合格の見込み</h2><p class="note" style="margin:0">あと <b>${30-P.total}問</b> 解くと判定します（30問以上の回答で表示）。</p><div class="pbar"><i style="width:${Math.round(P.total/30*100)}%"></i></div></section>`;
+  const pct=Math.round(P.prob*100);const j=pct>=80?["j-ok","合格圏"]:pct>=50?["j-mid","合格ライン付近"]:["j-ng","要強化"];
+  const pc=(c,n)=>n?Math.round(c/n*100)+"%":"—";
+  const rows=FIELDS.map(([f,n])=>{const s=P.st[f];const e=P.exp[f];
+    return `<tr class="${f===P.focus?"focus":""}"><td>${n}</td><td><b>${pc(s.rc,s.rn)}</b></td><td>${pc(s.c,s.n)}</td><td>${Math.round(e/EXAM_N[f]*100)}%</td><td style="white-space:nowrap">${e.toFixed(1)}/${EXAM_N[f]}</td></tr>`}).join("");
+  const lines=PASS_LINES.filter((t,i)=>i%2===0).map(t=>`<div class="kp"><span>合格点${t}点の年</span><b>${Math.round(P.byLine[PASS_LINES.indexOf(t)]*100)}%</b></div>`).join("");
+  return `<section class="card"><h2>合格の見込み</h2>
+  <div class="row"><span class="big">${pct}<span style="font-size:1.2rem">%</span></span><span class="judge ${j[0]}">${j[1]}</span></div>
+  <p style="margin:0">直近の○×正答率 <b>${Math.round(P.ox*100)}%</b>（全体 ${Math.round(P.oxAll*100)}%） → 推定4択正答率 <b>${Math.round(P.four*100)}%</b> → 予想得点 <b>${Math.round(P.mean)}点</b> / 50（8割の確率で ${P.lo}〜${P.hi}点）</p>
+  <div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))">${lines}</div>
+  <div class="tw"><table class="st"><thead><tr><th>4択での解き方</th><th>4択正答率</th><th>予想点</th><th>合格率</th></tr></thead><tbody>${P.scen.map((x,i)=>`<tr class="${i===1?"focus":""}"><td>${x.label}</td><td>${Math.round(x.four*100)}%</td><td>${Math.round(x.mean)}点</td><td><b>${Math.round(x.prob*100)}%</b></td></tr>`).join("")}</tbody></table></div>
+  <div class="tw"><table class="st"><thead><tr><th>分野</th><th>直近</th><th>全体</th><th>推定4択</th><th>予想点</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="row"><button class="btn pri" data-fx="${P.focus}">いちばん伸ばせる「${FNAME(P.focus)}」の10問テスト</button></div>
+  <p class="note" style="margin:0">合格確率は<b>論点ごとの直近10問</b>の正答率（分野ごとに合算、計${P.rn}問）で計算。「全体」はこれまでの全回答（${P.total}回）。見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（上の大きな数字は「標準」）。4択の推計では、各肢の判断を「確信して正しい／迷う（半々）／確信して誤る」に分け、確信した肢で選び、なければ消去法で迷う肢に絞って（多くは2択）選ぶとして計算しています。○×の誤りのうち迷いによるものの割合で3通りを表示：○×80%なら4択は慎重62%・標準71%・消去法が効く82%。本試験50問（業20・権14・法8・税8）を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</p></section>`;
+}
+// 過去問の4択に戻す：同じ「年度-問番号」の肢をまとめ、肢ごとの正答率から元の4択1問の正解率を推計（src/logic.ts の fourChoice と同じ）
+function fourFromLimbs(ps,ans,k){if(k==null)k=0.5;const pr=ps.map(p=>{const kk=p<1?Math.min(k,p/(1-p)):k;return[Math.max(0,p-kk*(1-p)),2*(1-p)*kk,(1-p)*(1-kk)]});let P=0;
+  for(let i=0;i<81;i++){const st=[i%3,Math.floor(i/3)%3,Math.floor(i/9)%3,Math.floor(i/27)%3];let q=1;st.forEach((x,j)=>{q*=pr[j][x]});if(!q)continue;
+    const flag=[],uns=[];st.forEach((x,j)=>{if((j===ans&&x===0)||(j!==ans&&x===2))flag.push(j);if(x===1)uns.push(j)});
+    const cand=flag.length?flag:uns.length?uns:[0,1,2,3];if(cand.includes(ans))P+=q/cand.length}return P}
+const refLabelJa=id=>{const m=id.match(/^([RH])(\d+)(s?)-(\d+)$/);if(!m)return id;return `${m[1]==="R"?"令和":"平成"}${+m[2]===1&&m[1]==="R"?"元":+m[2]}年${m[3]?"12月":""} 問${+m[4]}`};
+const FOUR_GROUPS=(()=>{const g={};BANK.forEach(q=>{const m=q.ref.match(/^(.+)-([^-]+)$/);if(!m||q.ref==="確認")return;(g[m[1]]=g[m[1]]||[]).push(q)});return g})();
+function fourChoice(){
+  const ts=topicStats(),fs=fieldStats();let tn=0,tc=0;Object.keys(H).forEach(k=>{if(BYKEY[k]){tn+=H[k].n;tc+=H[k].c}});const all=tn?tc/tn:0.7;
+  const PR=5,fr=f=>{const F=fs[f];return F.rn?(F.rc+PR*all)/(F.rn+PR):F.n?(F.c+PR*all)/(F.n+PR):all};
+  const rate=(f,t)=>{const s=ts.find(x=>x.f===f&&x.t===t),r=fr(f);if(s&&s.rn)return(s.rc+PR*r)/(s.rn+PR);if(s&&s.n)return(s.c+PR*r)/(s.n+PR);return r};
+  const cl=x=>Math.min(0.99,Math.max(0.01,x));const items=[];
+  Object.entries(FOUR_GROUPS).forEach(([id,qs])=>{const answered=qs.filter(q=>H[q.k]).length;if(!answered)return;
+    const limbs=qs.map(q=>{const h=H[q.k],pt=rate(q.f,q.t);return{q,label:q.ref.split("-").pop(),n:h?h.n:0,c:h?h.c:0,p:cl(h?(h.c+pt)/(h.n+1):pt)}});
+    const missing=Math.max(0,4-limbs.length);const fill=limbs.reduce((a,l)=>a+rate(l.q.f,l.q.t),0)/limbs.length;
+    const ps=[...limbs.map(l=>l.p),...Array(missing).fill(cl(fill))];
+    const kind=limbs.some(l=>/[アイウエ]/.test(l.label))?"count":"single";
+    const prob=kind==="count"?ps.reduce((a,b)=>a*b,1):[0,1,2,3].reduce((a,j)=>a+fourFromLimbs(ps,j),0)/4;
+    items.push({id,label:refLabelJa(id),f:qs[0].f,limbs,answered,missing,kind,prob})});
+  items.sort((a,b)=>a.prob-b.prob);const solid=items.filter(x=>x.answered>=3);
+  return{items,n:items.length,avg:items.length?items.reduce((a,x)=>a+x.prob,0)/items.length:0,nSolid:solid.length,avgSolid:solid.length?solid.reduce((a,x)=>a+x.prob,0)/solid.length:null,total:Object.keys(FOUR_GROUPS).length}}
+let FOUR_ALL=false;
+function fourHtml(){
+  const F=fourChoice();if(!F.n)return "";
+  const P=passEst();const pc=x=>Math.round(x*100)+"%";
+  const list=FOUR_ALL?F.items:F.items.slice(0,6);
+  const rows=list.map(x=>{const w=x.limbs.reduce((a,l)=>l.p<a.p?l:a);
+    const dots=x.limbs.map(l=>`<span class="lb ${l.n?(l.c/l.n>=0.5?"okd":"ngd"):""}" title="肢${l.label}">${l.label}</span>`).join("")+(x.missing?`<span class="lb mi" title="データにない肢">?</span>`.repeat(x.missing):"");
+    return `<tr><td style="white-space:nowrap"><b class="fp ${x.prob>=0.7?"vok":x.prob>=0.4?"vmid":"vng"}">${pc(x.prob)}</b><br>${x.label}<br><span class="note">${FNAME(x.f)}${x.kind==="count"?"・個数/組合せ":""}</span></td><td><button class="lnk" data-k="${w.q.f}|${w.q.t}">${[...new Set(x.limbs.map(l=>l.q.t))].join("・")}</button><div class="lbs">${dots}</div><span class="note">${x.answered}/4肢 解答済み</span></td></tr>`}).join("");
+  return `<section class="card"><h2>過去問の4択に戻すと</h2>
+  <p class="note" style="margin:0">○×に分けた肢を、元の過去問（同じ年度・問番号）ごとにまとめ直して、その4択1問を正解できる確率を推計しています。</p>
+  <div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="kp"><span>推計できた4択</span><b>${F.n}<small style="font-size:.8rem">/${F.total}問</small></b></div><div class="kp"><span>平均の正解率</span><b>${pc(F.avg)}</b></div><div class="kp"><span>3肢以上解いた${F.nSolid}問</span><b>${F.avgSolid==null?"—":pc(F.avgSolid)}</b></div></div>
+  ${P.ready?`<p style="margin:0">参考：○×正答率からの換算（上の「合格の見込み」）は <b>${pc(P.four)}</b>。3肢以上解いた問題の平均と大きく違うときは、苦手な肢が特定の問題に集まっている可能性があります。</p>`:""}
+  <div class="tw"><table class="st"><thead><tr><th>4択正解率</th><th>論点と肢</th></tr></thead><tbody>${rows}</tbody></table></div>
+  ${F.n>6?`<div class="row"><button class="btn" id="fourAll">${FOUR_ALL?"弱い6問だけ表示":`すべて表示（${F.n}問）`}</button></div>`:""}
+  <p class="note" style="margin:0">正解率の低い順。肢の色：緑＝正解／赤＝誤り／無色＝未回答／?＝データにない肢。論点名を押すと解説と確認例題へ。計算方法：解いた肢はその肢の成績を論点の直近10問の正答率で1回分ならし（1回正解しただけで100%にしない）、まだ解いていない肢・データにない肢（?）は論点の直近10問の正答率で補います（解いた数が少ない論点は分野の正答率に寄せ、数問だけで0%・100%と決めつけない）。その4肢を「合格の見込み」と同じ考え方（確信・迷い・誤信、標準）で4択に組み立て、正解の肢がどれでも同じ確率として平均。個数・組合せ問題は4肢すべての正誤が分かる確率で近似（やや厳しめ）。解いた肢が少ない問題ほど論点の平均に近づくので、3肢以上の平均も見てください。</p></section>`}
 function home(){
   clearInterval(timerId);
   const done=Object.keys(H).filter(k=>BYKEY[k]).length;
@@ -200,7 +361,14 @@ function home(){
     <div class="sets">${[0,1,2,3,4].map(k=>`<div class="slot ${k===r?"now":""}">第${k+1}回<b>${SET.scores[k]!=null?SET.scores[k]+"点":"—"}</b>業${MIX[k].業法}権${MIX[k].権利}法${MIX[k].法令}税${MIX[k].税他}</div>`).join("")}</div>
     <div class="row"><button class="btn pri" id="go">第${r+1}回を始める（10問・10分）</button>
     <label class="row note" style="gap:6px"><input type="checkbox" id="vc" ${voice?"checked":""} ${canSpeak?"":"disabled"}> 音声で出題</label></div>
-    <p class="note">合格の目安：1回10問中 <b>8問以上</b>で合格圏、7問は合格ライン上（本試験の合格点は近年50点中36〜37点前後）。5回合計で <b>35点</b>が7割、<b>37点以上</b>なら安全圏です。</p>
+    <p class="note">合格の目安：1回10問中 <b>8問以上</b>で合格圏、7問は合格ライン上（本試験の合格点は近年50点中33〜37点）。5回合計で <b>35点</b>が7割、<b>37点以上</b>なら安全圏です。</p>
+  </section>
+  ${passHtml()}
+  ${fourHtml()}
+  <section class="card">
+    <h2>分野別10問テスト</h2>
+    <p class="note" style="margin:0">1つの分野だけを10問・10分。まだ解いていない問題と前回間違えた問題を優先して出します。5回セットの記録には入りません。</p>
+    <div class="fx">${(()=>{const st=fieldStats();return FIELDS.map(([f,n])=>{const s=st[f];return `<button class="btn" data-fx="${f}"><b>${n}</b><span class="note">${s.n?Math.round(s.c/s.n*100)+"%":"未着手"}　${s.q}/${s.tot}問</span></button>`}).join("")})()}</div>
   </section>
   <section class="card">
     <h2>今の実力</h2>
@@ -211,11 +379,11 @@ function home(){
     </div>
     ${weak?`<button class="btn" id="weakAll">要復習の論点（${weak}件）を解説から復習</button>`:""}
   </section>
-  ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>第${x.round}回</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
+  ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>${x.field?FNAME(x.field):`第${x.round}回`}</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
   <section class="card">
     <h2>論点マップ</h2>
-    <p class="legend">押すと、その論点の解説と確認例題3問。<span style="color:var(--ng)">赤＝要復習</span>／<span style="color:var(--warn)">黄＝習得中</span>／<span style="color:var(--ok)">緑＝習得（正答率80%以上・5回以上）</span>／無色＝未着手</p>
-    <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp s${state(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` ${Math.round(s.c/s.n*100)}%`:""}</button>`).join("")}</div></div>`).join("")}</div>
+    <p class="legend">押すと、その論点の解説と確認例題3問。数字は直近10問の正答率／全回答の正答率。色は<b>直近10問</b>で決まります。<br><span class="tp lg t-perfect">濃い緑 100%</span><span class="tp lg t-good">緑 80%以上</span><span class="tp lg t-mid">黄 60〜79%</span><span class="tp lg t-low">橙 40〜59%</span><span class="tp lg t-bad">赤 40%未満</span><span class="tp lg t-good few">点線・薄い色＝5問未満（まだ参考値）</span><span class="tp lg t-none">無色＝未着手</span></p>
+    <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp ${tier(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` <span class="tpr">直近${Math.round(s.rc/Math.max(1,s.rn)*100)}%<small>/${s.rn}問</small>・全${Math.round(s.c/s.n*100)}%</span>`:""}</button>`).join("")}</div></div>`).join("")}</div>
   </section>
   <section class="card">
     <h2>記録の引き継ぎ</h2>
@@ -230,31 +398,38 @@ function home(){
   </section>`;
   syncLabel();
   $("#go").onclick=()=>startExam();
+  if($("#fourAll"))$("#fourAll").onclick=()=>{FOUR_ALL=!FOUR_ALL;const y=scrollY;home();scrollTo(0,y)};
+  document.querySelectorAll("[data-fx]").forEach(b=>b.onclick=()=>startExam(b.dataset.fx));
   if(canSpeak)$("#vc").onchange=e=>{voice=e.target.checked;ls.set("tkm-voice",voice)};
   document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>startReview([{key:b.dataset.k}]));
   if(weak)$("#weakAll").onclick=()=>startReview(ts.filter(s=>state(s)===1).map(s=>({key:s.f+"|"+s.t})));
   $("#resetSet").onclick=()=>{SET={round:0,scores:[]};save();home()};
   $("#exp").onclick=exportRec;$("#imp").onclick=importRec;
-  $("#resetAll").onclick=()=>{$("#cf").innerHTML=`<div class="confirm row"><span>解いた記録と正答率がすべて消えます。</span><button class="btn" id="yes">消す</button><button class="btn" id="no">やめる</button></div>`;$("#yes").onclick=()=>{H={};SET={round:0,scores:[]};LOG=[];save();home()};$("#no").onclick=()=>$("#cf").innerHTML=""};
+  $("#resetAll").onclick=()=>{$("#cf").innerHTML=`<div class="confirm row"><span>解いた記録と正答率がすべて消えます。</span><button class="btn" id="yes">消す</button><button class="btn" id="no">やめる</button></div>`;$("#yes").onclick=()=>{H={};R10={};SET={round:0,scores:[]};LOG=[];save();home()};$("#no").onclick=()=>$("#cf").innerHTML=""};
   window.scrollTo(0,0);
 }
 
 /* ---------- exam ---------- */
-function startExam(){
-  const mix=MIX[SET.round];const qs=[];const ex=new Set();
-  FIELDS.forEach(([f])=>{pick(BANK.filter(q=>q.f===f),mix[f],ex).forEach(q=>{qs.push(q);ex.add(q.i)})});
-  const E={qs,ans:Array(qs.length).fill(null),cur:0,left:LIMIT,start:Date.now()};
+function startExam(field){
+  const qs=[];const ex=new Set();
+  if(field){pick(BANK.filter(q=>q.f===field),10,ex).forEach(q=>qs.push(q))}
+  else{const mix=MIX[SET.round];FIELDS.forEach(([f])=>{pick(BANK.filter(q=>q.f===f),mix[f],ex).forEach(q=>{qs.push(q);ex.add(q.i)})})}
+  const label=field?FNAME(field)+" 10問":`第${SET.round+1}回`;
+  const E={qs,ans:Array(qs.length).fill(null),cur:0,left:LIMIT,start:Date.now(),field,label};
   const render=()=>{
     const q=E.qs[E.cur];const m=Math.floor(E.left/60),s=E.left%60;
     app.innerHTML=`
-    <div class="exam-top"><div><div class="note">第${SET.round+1}回　${E.ans.filter(a=>a!=null).length}/10問 回答済み</div><div class="timer ${E.left<=60?"low":""}" id="tm">${m}:${String(s).padStart(2,"0")}</div></div><button class="btn" id="fin">採点する</button></div>
-    <div class="dots">${E.qs.map((_,k)=>`<button class="dot ${E.ans[k]!=null?"ans":""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
+    <div class="exam-top"><div><div class="note">${E.label}　${E.ans.filter(a=>a!=null).length}/10問 回答済み</div><div class="timer ${E.left<=60?"low":""}" id="tm">${m}:${String(s).padStart(2,"0")}</div></div><button class="btn" id="fin">採点する</button></div>
+    <div class="dots">${E.qs.map((x,k)=>`<button class="dot ${E.ans[k]!=null?(E.ans[k]===x.a?"okd":"ngd"):""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
     <article class="card"><div class="meta">問${E.cur+1}　${FIELDS.find(x=>x[0]===q.f)[1]}</div><p class="stmt">${q.s}</p>
     ${canSpeak?`<button class="btn" id="spk" style="align-self:flex-start;font-weight:500;font-size:.85rem">読み上げ</button>`:""}
-    <div class="ox"><button class="btn ${E.ans[E.cur]===1?"sel":""}" id="o">○</button><button class="btn ${E.ans[E.cur]===0?"sel":""}" id="x">×</button></div>
-    <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${E.cur?"":"disabled"}>前へ</button><button class="btn" id="next">${E.cur<9?"次へ":"採点する"}</button></div></article>
+    <div class="ox"><button class="btn ${E.ans[E.cur]===1?"sel":""}" id="o" ${E.ans[E.cur]!=null?"disabled":""}>○</button><button class="btn ${E.ans[E.cur]===0?"sel":""}" id="x" ${E.ans[E.cur]!=null?"disabled":""}>×</button></div>
+    ${E.ans[E.cur]!=null?(()=>{const ok=E.ans[E.cur]===q.a;return `<div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　答え：${q.a?"○":"×"}　<span class="note">${q.t}　${q.ref==="確認"?"確認問題":q.ref}</span></span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div>`})():""}
+    <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${E.cur?"":"disabled"}>前へ</button><button class="btn ${E.ans[E.cur]!=null?"pri":""}" id="next">${E.cur<9?"次へ":"採点する"}</button></div></article>
     <div id="cf"></div>`;
-    const choose=v=>{E.ans[E.cur]=v;if(E.cur<E.qs.length-1){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else render()};
+    const choose=v=>{
+      // 1問ごとにその場で正誤と解説を表示（答えは確定）。10問テスト・分野別とも同じ
+      if(E.ans[E.cur]!=null)return;E.ans[E.cur]=v;const q0=E.qs[E.cur];render();if(voice)speak((v===q0.a?"正解。":"不正解。")+"答えは"+(q0.a?"まる":"ばつ")+"。"+q0.e)};
     $("#o").onclick=()=>choose(1);$("#x").onclick=()=>choose(0);
     $("#prev").onclick=()=>{E.cur--;render()};
     $("#next").onclick=()=>{if(E.cur<9){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else askFinish()};
@@ -267,7 +442,9 @@ function startExam(){
     $("#yes").onclick=finish;$("#no").onclick=()=>$("#cf").innerHTML=""};
   const finish=()=>{clearInterval(timerId);if(canSpeak)speechSynthesis.cancel();
     const used=LIMIT-E.left;let sc=0;E.qs.forEach((q,k)=>{const ok=E.ans[k]===q.a;if(ok)sc++;rec(q,ok)});
-    LOG.push({at:new Date(Date.now()+9*3600e3).toISOString().slice(0,19),round:SET.round+1,score:sc,sec:used});SET.scores[SET.round]=sc;SET.round=(SET.round+1)%5;const setDone=SET.round===0;const setScores=[...SET.scores];if(setDone)SET.scores=[];save();
+    const at=new Date(Date.now()+9*3600e3).toISOString().slice(0,19);
+    if(E.field){LOG.push({at,round:0,field:E.field,score:sc,sec:used});save();result(E,sc,used,null);return}
+    LOG.push({at,round:SET.round+1,score:sc,sec:used});SET.scores[SET.round]=sc;SET.round=(SET.round+1)%5;const setDone=SET.round===0;const setScores=[...SET.scores];if(setDone)SET.scores=[];save();
     result(E,sc,used,setDone?setScores:null)};
   render(); if(voice)speak(E.qs[0].s);
   clearInterval(timerId);
@@ -282,43 +459,107 @@ function result(E,sc,used,setScores){
   if(setScores){const tot=setScores.reduce((a,b)=>a+b,0);const sj=tot>=37?["j-ok","安全圏"]:tot>=35?["j-mid","合格ライン（7割）"]:["j-ng","あと"+(35-tot)+"点で7割"];
     setHtml=`<section class="card"><h2>5回セットの合計（本試験1回分）</h2><div class="row"><span class="big">${tot}<span style="font-size:1.2rem"> / 50</span></span><span class="judge ${sj[0]}">${sj[1]}</span></div><p class="note">各回：${setScores.map((s,k)=>`第${k+1}回 ${s}点`).join("　")}</p></section>`}
   app.innerHTML=`
-  <section class="card"><h2>第${(SET.round+4)%5+1}回の結果</h2>
+  <section class="card"><h2>${E.field?E.label+"の結果":`第${(SET.round+4)%5+1}回の結果`}</h2>
     <div class="row"><span class="big">${sc}<span style="font-size:1.2rem"> / 10</span></span><span class="judge ${jc}">${jt}</span></div>
     <p class="note">かかった時間 ${Math.floor(used/60)}分${used%60}秒 / 10分</p>
     ${wrongItems.length?`<p class="note">間違えた論点ごとに「解説 → 付随する論点 → 過去問の確認例題3問」の順で復習します。</p>
     <button class="btn pri" id="allw">間違えた${wrongItems.length}論点を復習する</button>
-    <div class="row">${wrongItems.map((w,j)=>`<button class="btn" data-w="${j}">${w.key.split("|")[1]}だけ</button>`).join("")}</div>`:`<p>全問正解です。次の回に進みましょう。</p>`}
-    <div class="row"><button class="btn" id="home">ホームへ</button><button class="btn" id="nx">第${SET.round+1}回へ進む</button></div>
+    <div class="row">${wrongItems.map((w,j)=>`<button class="btn" data-w="${j}">${w.key.split("|")[1]}だけ</button>`).join("")}</div>`:`<p>全問正解です。${E.field?"続けて解くと見込みの精度が上がります。":"次の回に進みましょう。"}</p>`}
+    <div class="row"><button class="btn" id="home">ホームへ</button><button class="btn" id="nx">${E.field?`もう一度 ${FNAME(E.field)} 10問`:`第${SET.round+1}回へ進む`}</button></div>
   </section>
   ${setHtml}
   <section class="rv">${E.qs.map((q,k)=>{const ok=E.ans[k]===q.a;return `<article class="card"><div class="meta">問${k+1}　${q.t}　${q.ref==="確認"?"確認問題":q.ref}</div><p class="stmt">${q.s}</p>
     <div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　あなた：${E.ans[k]==null?"未回答":E.ans[k]?"○":"×"}　答え：${q.a?"○":"×"}</span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div></article>`}).join("")}</section>`;
   document.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>startReview([wrongItems[+b.dataset.w]]));
   if(wrongItems.length)$("#allw").onclick=()=>startReview(wrongItems);
-  $("#home").onclick=home;$("#nx").onclick=()=>startExam();
+  $("#home").onclick=home;$("#nx").onclick=()=>startExam(E.field);
   window.scrollTo(0,0);
 }
 
 /* ---------- review: 解説 → 付随論点 → 確認例題3問 ---------- */
-function lessonHtml(key,missed){
-  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const [f,t]=key.split("|");
-  const relH=(L.rel||[]).filter(k=>LESSON[k]).map(k=>`<div class="kp"><b style="font-size:1rem">${k.split("|")[1]}</b><ul class="ul">${LESSON[k].pts.slice(0,3).map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
-  return `
-  ${missed?`<article class="card"><div class="meta">あなたが間違えた問題　${missed.q.ref==="確認"?"確認問題":missed.q.ref}</div><p class="stmt">${missed.q.s}</p>
-    <div class="res ng"><span class="v">あなた：${missed.your==null?"未回答":missed.your?"○":"×"}　答え：${missed.q.a?"○":"×"}</span><span>${missed.q.e}</span><span class="memo">覚え方：<b>${missed.q.m}</b></span></div></article>`:""}
-  <article class="card"><div class="meta">解説　${FIELDS.find(x=>x[0]===f)[1]}</div><h2>${t}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${x}</li>`).join("")}</ul>
-    ${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${x}</li>`).join("")}</ul></div>`:""}</article>
-  ${relH?`<article class="card"><div class="meta">付随する論点</div><p style="margin:0">${L.bridge||""}</p><div class="relg">${relH}</div></article>`:""}`;
+const esc=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+// 間違えた問題と最も関係の深い枝（大項目）を文字の2文字組の重なりで推定する
+function bigr(x){const s=String(x).replace(/[\s、。・：（）()「」，,．.0-9０-９]/g,"");const o=new Set();for(let i=0;i<s.length-1;i++)o.add(s.slice(i,i+2));return o}
+function overlap(a,b){let n=0;b.forEach(x=>{if(a.has(x))n++});return n}
+function cellHtml(x){x=esc(x);if(/^(○|◯|必要|可|あり|できる)/.test(x))return `<span class="o">${x}</span>`;if(/^(×|✕|不要|不可|なし|できない)/.test(x))return `<span class="x">${x}</span>`;return x}
+// 間違えた問題に最も関係する枝・項目を推定（2文字組の重なり）
+function hitOf(S,missed){
+  let b=-1,it=-1;if(!S||!missed)return {b,it};
+  const qb=bigr(missed.q.s+missed.q.e);let best=1;
+  S.tree.forEach((x,i)=>{const sc=overlap(qb,bigr(x.h+x.items.join("")));if(sc>best){best=sc;b=i}});
+  if(b>=0){let bi=0;S.tree[b].items.forEach((x,j)=>{const sc=overlap(qb,bigr(x));if(sc>bi){bi=sc;it=j}})}
+  return {b,it};
+}
+const brHtml=(x,i,hit,tag)=>`<div class="br ${hit.b===i?"hit":""}" id="br-${i}"><h4><span class="no">${i+1}</span>${esc(x.h)}${hit.b===i&&tag?`<span class="tag">${tag}</span>`:""}</h4><ul>${x.items.map((y,j)=>`<li class="${hit.b===i&&hit.it===j?"hit":""}">${esc(y)}</li>`).join("")}</ul></div>`;
+const tblHtml=(tb,rows,note)=>`<div><div style="font-weight:700;margin-bottom:6px">${esc(tb.title)}</div><div class="tw"><table class="st"><thead><tr>${tb.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${note?`<p class="note" style="margin:4px 0 0">${note}</p>`:""}</div>`;
+const missedHtml=missed=>missed?`<article class="card"><div class="meta">あなたが間違えた問題　${missed.q.ref==="確認"?"確認問題":missed.q.ref}</div><p class="stmt">${missed.q.s}</p>
+    <div class="res ng"><span class="v">あなた：${missed.your==null?"未回答":missed.your?"○":"×"}　答え：${missed.q.a?"○":"×"}</span><span>${missed.q.e}</span><span class="memo">覚え方：<b>${missed.q.m}</b></span></div></article>`:"";
+
+/* 1段目：間違えた範囲だけに絞った解説＋体系へのリンク */
+function focusHtml(key,missed){
+  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const S=L.sys;const t=key.split("|")[1];
+  const qb=missed?bigr(missed.q.s+missed.q.e):null;
+  const hit=hitOf(S,missed);
+  let body="";
+  if(S&&hit.b>=0){body+=brHtml(S.tree[hit.b],hit.b,hit,"間違えた範囲")}
+  else{body+=`<ul class="ul">${L.pts.slice(0,4).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}
+  // 関係する表の行だけを抜き出す
+  if(S&&qb){let best=null;
+    S.tables.forEach(tb=>{const rs=tb.rows.map((r,i)=>({i,r,sc:overlap(qb,bigr(r.join("")))})).filter(o=>o.sc>=2);
+      const top=rs.sort((a,b)=>b.sc-a.sc).slice(0,4).sort((a,b)=>a.i-b.i);const sc=top.reduce((a,o)=>a+o.sc,0);
+      if(top.length&&(!best||sc>best.sc))best={tb,top,sc}});
+    if(best)body+=tblHtml(best.tb,best.top.map(o=>o.r),best.top.length<best.tb.rows.length?`表の一部（${best.top.length}／${best.tb.rows.length}行）。全体は下の「体系的に学ぶ」で。`:"")}
+  // 関係するひっかけ
+  let traps=L.traps||[];
+  if(qb){const r=traps.map(x=>({x,sc:overlap(qb,bigr(x))})).filter(o=>o.sc>=2).sort((a,b)=>b.sc-a.sc).slice(0,2).map(o=>o.x);traps=r.length?r:traps.slice(0,1)}else traps=traps.slice(0,2);
+  if(traps.length)body+=`<div class="trap"><b>この範囲のひっかけ</b><ul class="ul">${traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+  const head=S&&hit.b>=0?`${esc(t)}：${esc(S.tree[hit.b].h)}`:`${esc(t)}の要点`;
+  const map=S?`<div class="mini">${S.tree.map((x,i)=>`<button class="mchip ${i===hit.b?"on":""}" data-deep="${i}"><span class="no">${i+1}</span>${esc(x.h)}</button>`).join("")}</div>`:"";
+  const rel=(L.rel||[]).filter(k=>LESSON[k]);
+  return `<article class="card"><div class="meta">間違えた範囲の解説</div><h2>${head}</h2>${body}</article>
+  ${S?`<article class="card"><div class="meta">体系的に広げる</div><p class="note" style="margin:0">「${esc(t)}」は全${S.tree.length}項目。項目を押すと、その場所から詳しい解説を開きます。</p>${map}
+    <button class="btn deeplink" data-deep="all">${esc(t)}を体系的に学ぶ<span class="sub2">全体像・流れ図・比較表・要点</span></button>
+    ${rel.length?`<div><div class="note" style="margin-bottom:6px">${esc(L.bridge||"関連する論点")}</div><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></div>`:""}</article>`:""}`;
+}
+
+/* 2段目：論点を体系的に深く学ぶページ */
+function deepHtml(key,missed){
+  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const S=L.sys;const [f,t]=key.split("|");
+  const hit=hitOf(S,missed);
+  let h="";
+  if(S){
+    h+=`<article class="card"><div class="meta">全体像（体系図）　${FIELDS.find(x=>x[0]===f)[1]}</div><h2>${esc(t)}の全体像</h2><p class="ov">${esc(S.overview)}</p><div class="systree"><div class="sysroot">${esc(t)}</div><div class="sysbr">${S.tree.map((x,i)=>brHtml(x,i,hit,"間違えた範囲")).join("")}</div></div></article>`;
+    if(S.flow&&S.flow.steps&&S.flow.steps.length)h+=`<article class="card"><div class="meta">流れで覚える</div><h2>${esc(S.flow.title)}</h2><ol class="flow">${S.flow.steps.map((x,i)=>`<li><span class="n">${i+1}</span><span class="s">${esc(x)}</span></li>`).join("")}</ol></article>`;
+    if(S.tables&&S.tables.length)h+=`<article class="card"><div class="meta">比較表・数字</div><div class="tbls">${S.tables.map(tb=>tblHtml(tb,tb.rows,"")).join("")}</div></article>`;
+  }
+  h+=`<article class="card"><div class="meta">要点のまとめ</div><h2>${esc(t)}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</article>`;
+  const rel=(L.rel||[]).filter(k=>LESSON[k]);
+  if(rel.length)h+=`<article class="card"><div class="meta">つながる論点</div><p style="margin:0">${esc(L.bridge||"")}</p><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></article>`;
+  return h;
+}
+function deepView(key,focus,missed,back,trail){
+  trail=trail||[];const t=key.split("|")[1];
+  app.innerHTML=`<div class="exam-top"><div><div class="note">体系的に学ぶ${trail.length?"　"+trail.map(k=>esc(k.split("|")[1])).join(" › ")+" ›":""}</div><div style="font-weight:700">${esc(t)}</div></div><button class="btn" id="back">← 復習に戻る</button></div>
+  ${deepHtml(key,missed)}
+  <div class="row"><button class="btn pri" id="back2">← 復習に戻る</button></div>`;
+  $("#back").onclick=back;$("#back2").onclick=back;
+  document.querySelectorAll("[data-deeprel]").forEach(b=>b.onclick=()=>deepView(b.dataset.deeprel,-1,null,back,[...trail,key]));
+  if(focus>=0){const el=document.getElementById("br-"+focus);if(el){el.classList.add("focus");el.scrollIntoView({block:"center"});return}}
+  window.scrollTo(0,0);
 }
 function startReview(queue){ // queue: [{key, missed?}]
   if(!queue.length){home();return}
   const item=queue[0],rest=queue.slice(1);const key=item.key;const [f,t]=key.split("|");
   app.innerHTML=`<div class="exam-top"><div><div class="note">復習　残り${queue.length}論点</div><div style="font-weight:700">${t}</div></div><button class="btn" id="home">ホームへ</button></div>
-  ${lessonHtml(key,item.missed)}
+  ${missedHtml(item.missed)}
+  ${focusHtml(key,item.missed)}
   <div class="row"><button class="btn pri" id="toq">確認例題3問へ</button></div>`;
   $("#home").onclick=home;
   $("#toq").onclick=()=>checkQs(item,rest);
-  if(voice){const L=LESSON[key];if(L)speak(t+"の要点。"+L.pts.join("。"))}
+  const back=()=>startReview(queue);
+  document.querySelectorAll("[data-deep]").forEach(b=>b.onclick=()=>deepView(key,b.dataset.deep==="all"?-1:+b.dataset.deep,item.missed,back));
+  document.querySelectorAll("[data-deeprel]").forEach(b=>b.onclick=()=>deepView(b.dataset.deeprel,-1,null,back,[key]));
+  if(voice){const L=LESSON[key];if(L){const S=L.sys,h=hitOf(S,item.missed);speak(h.b>=0?t+"、"+S.tree[h.b].h+"。"+S.tree[h.b].items.join("。"):t+"の要点。"+L.pts.slice(0,4).join("。"))}}
   window.scrollTo(0,0);
 }
 function checkQs(item,rest){

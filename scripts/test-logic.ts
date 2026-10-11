@@ -1,8 +1,8 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
-  buildRound, choiceOrder, fieldStats, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, topicTier, toExam, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
 import { EXAMS, byKey } from '../src/exams';
 
@@ -111,7 +111,7 @@ for (const x of EXAMS) {
   });
   assert.equal(statsBy(x, out.next.hist).reduce((a, s) => a + s.n, 0), x.size);
   // 11) 分野ごとの集計：全分野がそろい、問題数・解答数の合計が一致
-  const fst = fieldStats(x, out.next.hist);
+  const fst = fieldStatsBy(x, out.next.hist);
   assert.equal(fst.length, x.fields.length);
   assert.equal(fst.reduce((a, s) => a + s.total, 0), x.items.length);
   assert.equal(fst.reduce((a, s) => a + s.n, 0), x.size);
@@ -129,6 +129,101 @@ for (const x of EXAMS) {
   }
   if (fx.items.length < x.size) freeShort.push(`${x.short}(${fx.items.length}問)`);
   summary.push(`${x.short}${x.items.length}問`);
+}
+
+// ---- 宅建（過去問・体系解説・分野別テスト・合格の見込み） ----
+// 13) 全論点に体系解説（全体像・表）があり、表の列数がそろっている
+Object.entries(LESSON).forEach(([k, L]) => {
+  assert.ok(L.sys, `体系解説なし: ${k}`);
+  assert.ok(L.sys!.tree.length >= 3 && L.sys!.tables.length >= 1, `体系解説が薄い: ${k}`);
+  L.sys!.tables.forEach(t => t.rows.forEach(r => assert.equal(r.length, t.head.length, `${k} ${t.title}`)));
+});
+// 14) 間違えた問題に関係する枝が見つかる（全問題で枝番号が範囲内）
+let found = 0;
+BANK.forEach(q => { const s = LESSON[`${q.f}|${q.t}`].sys!; const h = relatedBranch(s, q); assert.ok(h.branch < s.tree.length); if (h.branch >= 0) found++; });
+console.log(`体系図の該当枝が見つかった問題: ${found} / ${BANK.length}`);
+
+// 15) 絞り込み解説：表の抜粋は最大4行で元の表の行に含まれる、ひっかけは最大2件
+let withRows = 0;
+BANK.forEach(q => {
+  const L = LESSON[`${q.f}|${q.t}`];
+  const r = relatedRows(L.sys!, q);
+  if (r) { withRows++; assert.ok(r.rows.length >= 1 && r.rows.length <= 4); r.rows.forEach(row => assert.ok(r.table.rows.includes(row))); }
+  const tr = relatedTraps(L, q); assert.ok(tr.length <= 2); tr.forEach(x => assert.ok(L.traps.includes(x)));
+});
+console.log(`関係する表の行が見つかった問題: ${withRows} / ${BANK.length}`);
+
+// 16) 分野別10問：その分野だけ・10問・重複なし。採点しても5回セットは動かない
+FIELDS.forEach(([f]) => {
+  const qs = buildFieldExam({}, f);
+  assert.equal(qs.length, 10); assert.ok(qs.every(q => q.f === f)); assert.equal(new Set(qs.map(q => q.k)).size, 10);
+  const pr = emptyProgress(); const r = finishFieldExam(pr, f, qs, qs.map(q => q.a), 120);
+  assert.equal(r.score, 10); assert.deepEqual(r.next.set, pr.set); assert.equal(r.next.log.at(-1)!.field, f);
+});
+// 17) 合格の見込み：30問未満は判定しない、正答率が高いほど確率・予想点が上がる
+assert.equal(passEstimate({}).ready, false);
+const sim = (rate: number) => { const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
+  BANK.forEach((q, i) => { if (i % 3) return; const ok = ((i * 7919) % 100) / 100 < rate; h[q.k] = { n: 1, c: ok ? 1 : 0, last: ok ? 1 : 0 }; }); return passEstimate(h); };
+const lo = sim(0.6), mid = sim(0.8), hi = sim(0.92);
+assert.ok(lo.ready && mid.ready && hi.ready);
+if (lo.ready && mid.ready && hi.ready) {
+  assert.ok(lo.prob <= mid.prob && mid.prob <= hi.prob && lo.mean < mid.mean && mid.mean < hi.mean);
+  console.log(`合格の見込み 正答率60%→${Math.round(lo.prob * 100)}%（${lo.mean.toFixed(1)}点） 80%→${Math.round(mid.prob * 100)}%（${mid.mean.toFixed(1)}点） 92%→${Math.round(hi.prob * 100)}%（${hi.mean.toFixed(1)}点）`);
+}
+
+// 18) ○×→4択の換算（消去法込み）：全問正解なら1。○×80%→慎重62%・標準71%・消去法82%。p・k に対して単調増加
+assert.ok(Math.abs(toExam(1) - 1) < 1e-9);
+assert.ok(Math.abs(toExam(0.8, 0) - 0.616) < 0.002 && Math.abs(toExam(0.85, 0) - 0.700) < 0.002);
+assert.ok(Math.abs(toExam(0.8, 0.5) - 0.714) < 0.002 && Math.abs(toExam(0.8, 1) - 0.818) < 0.002);
+for (let p = 0.3; p < 0.95; p += 0.05) for (const k of [0, 0.5, 1]) assert.ok(toExam(p + 0.05, k) > toExam(p, k));
+for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) && toExam(p, 0.5) < toExam(p, 1));
+
+// 19) 論点ごとの直近10問：記録は最大10件・新しいものが末尾。合格確率は直近で計算
+{
+  let p = emptyProgress(); const q = BANK[0];
+  for (let i = 0; i < 12; i++) p = record(p, q, i % 3 !== 0);
+  const r = p.r10[`${q.f}|${q.t}`];
+  assert.equal(r, '1011011011'); // 12回のうち新しい10回（古い→新しい）
+  assert.equal(p.hist[q.k].n, 12);
+  // 既存データの補完：各問の最後の結果を使う
+  const bf = backfillRecent({ [q.k]: { n: 3, c: 1, last: 0 } });
+  assert.equal(bf[`${q.f}|${q.t}`], '0');
+  // 全体は低いが直近が高い → 直近の方が合格確率が高い
+  const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
+  BANK.forEach((x, i) => { if (i % 3) return; h[x.k] = { n: 5, c: 2, last: 1 }; });
+  const good: Record<string, string> = {}; const bad: Record<string, string> = {};
+  BANK.forEach(x => { good[`${x.f}|${x.t}`] = '1111111110'; bad[`${x.f}|${x.t}`] = '0000011111'; });
+  const pg = passEstimate(h, 1000, good), pb = passEstimate(h, 1000, bad);
+  assert.ok(pg.ready && pb.ready && pg.prob > pb.prob);
+}
+
+// 20) 論点マップの色：直近10問の正答率で6段階、5問未満は参考値
+{
+  const t = (rc: number, rn: number) => topicTier({ rc, rn });
+  assert.deepEqual(t(0, 0), { tier: 'none', few: false });
+  assert.deepEqual(t(10, 10), { tier: 'perfect', few: false });
+  assert.deepEqual(t(8, 10), { tier: 'good', few: false });
+  assert.deepEqual(t(7, 10), { tier: 'mid', few: false });
+  assert.deepEqual(t(4, 10), { tier: 'low', few: false });
+  assert.deepEqual(t(3, 10), { tier: 'bad', few: false });
+  assert.deepEqual(t(4, 4), { tier: 'perfect', few: true });
+  assert.deepEqual(t(4, 5), { tier: 'good', few: false });
+}
+
+// 21) 4択に戻す：同じp なら toExam と一致、肢の成績が上がれば4択の正解率も上がる
+{
+  for (const p of [0.6, 0.8, 0.9]) for (let j = 0; j < 4; j++) assert.ok(Math.abs(fourFromLimbs([p, p, p, p], j) - toExam(p)) < 1e-9);
+  assert.ok(fourFromLimbs([0.95, 0.6, 0.6, 0.6], 0) > fourFromLimbs([0.6, 0.6, 0.6, 0.6], 0));
+  assert.equal(refLabelJa('R03s-29'), '令和3年12月 問29'); assert.equal(refLabelJa('R01-43'), '令和元年 問43'); assert.equal(refLabelJa('H28-35'), '平成28年 問35');
+  assert.ok(Object.keys(FOUR_GROUPS).length > 500 && Object.values(FOUR_GROUPS).every(g => g.length <= 4));
+  assert.equal(fourChoice({}).n, 0);
+  const id = Object.keys(FOUR_GROUPS).find(k => FOUR_GROUPS[k].length === 3 && !/[アイウエ]/.test(FOUR_GROUPS[k][0].ref))!;
+  const g = FOUR_GROUPS[id];
+  const mk = (ok: boolean) => Object.fromEntries(g.map(q => [q.k, { n: 2, c: ok ? 2 : 0, last: (ok ? 1 : 0) as 0 | 1 }]));
+  const good = fourChoice(mk(true)), bad = fourChoice(mk(false));
+  assert.equal(good.n, 1); assert.equal(good.items[0].missing, 1); assert.equal(good.nSolid, 1);
+  assert.ok(good.items[0].prob > bad.items[0].prob);
+  console.log(`4択に戻す ${id}: 全肢正解→${Math.round(good.items[0].prob * 100)}% 全肢不正解→${Math.round(bad.items[0].prob * 100)}%（元の4択 ${Object.keys(FOUR_GROUPS).length}問）`);
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
