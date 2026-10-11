@@ -929,7 +929,7 @@
    "Mai's grandmother lives with Mai's family.",
    "Mai gave up teaching because she felt tired."
   ],
-  "e": "最後の文に Now they talk on video calls twice a week（今は週に2回ビデオ通話で話している）とあるので、これが正解です。祖母は習ったことをよく忘れ、最初のメッセージは1か月後だったので「とても早く覚えた」は誤りです。祖母は lives alone（一人で暮らしている）ので、マイの家族と住んではいません。マイは疲れても never gave up（決してあきらめなかった）ので、最後の選択肢は本文と逆です。",
+  "e": "最後の文に Now they talk on video calls twice a week（今は週に2回ビデオ通話で話している）とあるので、これが正解です。祖母は習ったことをよく忘れ、最初のメッセージは1か月後だったので「とても早く覚えた」は誤りです。祖母は lives alone（一人で暮らしている）ので、マイの家族と住んではいません。マイは疲れても never gave up（決してあきらめなかった）ので、「疲れたので教えるのをやめた」という選択肢は本文と逆です。",
   "m": "twice a week＝週に2回、never gave up＝あきらめなかった"
  },
  {
@@ -982,5 +982,989 @@
   ],
   "e": "筆者は反対意見に対して I understand that idea.（その考えはわかる）と認めたうえで、However, students can still show who they are through their words and actions.（それでも言葉や行動で自分らしさを表せる）と反論しています。これが正解です。「理解できない」は I understand と逆です。自分らしさを表すべきではない、週末に私服を着ればよい、という内容は書かれていません。However の後ろに筆者の主張が来ます。",
   "m": "反論は However, の後ろに注目"
+ },
+ {
+  "id": 61,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "語の定義（部屋）",
+  "q": "次の英文が説明しているものとして正しいものを選びなさい。\nthe room where people cook meals",
+  "c": [
+   "kitchen",
+   "bedroom",
+   "bathroom",
+   "classroom"
+  ],
+  "e": "英文は「人々が食事を料理する部屋」という意味です。where は場所を説明する関係副詞で、the room where ～ で「～する部屋」となります。料理をする部屋は kitchen（台所）です。bedroom は寝室、bathroom は浴室（トイレ）、classroom は教室で、どれも料理をする場所ではありません。cook（料理する）と meals（食事）がかぎになる語です。",
+  "m": "cook meals の部屋 → kitchen"
+ },
+ {
+  "id": 62,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "arrive at / get to",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nWe arrived (　　) the airport at ten in the morning.",
+  "c": [
+   "at",
+   "to",
+   "on",
+   "for"
+  ],
+  "e": "arrive は「着く」という意味で、後ろに場所を続けるときは前置詞が必要です。駅・空港・建物のような比較的せまい地点には arrive at、都市や国のような広い場所には arrive in を使います。the airport は地点なので at が正解です。「～に着く」を get to ～ で表すときは to を使いますが、arrive to とは言わないので注意しましょう。on や for もこの意味では使いません。",
+  "m": "arrive at 地点 / arrive in 都市・国 / get to"
+ },
+ {
+  "id": 63,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "be good at ～ing",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nKenta is good (　　) playing soccer.",
+  "c": [
+   "at",
+   "in",
+   "for",
+   "with"
+  ],
+  "e": "be good at ～ は「～が得意だ」という意味の熟語です。at は前置詞なので、後ろには名詞か動名詞（～ing）が来ます。ここでは playing soccer（サッカーをすること）が続いています。be good for ～ は「～のためになる・～に効く」という別の意味なので、この文には合いません。in や with も「得意だ」の意味にはなりません。反対の「～が苦手だ」は be poor at ～ と言います。",
+  "m": "得意 = be good at / 苦手 = be poor at"
+ },
+ {
+  "id": 64,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "instead of",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nLet's walk to the station (　　) of taking a bus.",
+  "c": [
+   "instead",
+   "because",
+   "kind",
+   "front"
+  ],
+  "e": "instead of ～ は「～の代わりに・～しないで」という意味です。「バスに乗る代わりに駅まで歩こう」となり、文の意味が通ります。of は前置詞なので後ろは taking という動名詞になっています。because of ～ は「～のために（理由）」で、「バスに乗るために歩こう」では意味が通りません。kind of ～ は「～の一種」、in front of ～ は「～の前に」で、どちらもこの文には合いません。",
+  "m": "instead of ～ =「～の代わりに」"
+ },
+ {
+  "id": 65,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "派生語（名詞形）",
+  "q": "happy（幸せな）の名詞形として正しいものを選びなさい。",
+  "c": [
+   "happiness",
+   "happily",
+   "happier",
+   "unhappy"
+  ],
+  "e": "形容詞に -ness をつけると名詞になります。happy は最後の y を i にかえて -ness をつけ、happiness（幸せ）となります。happily は -ly がついた副詞で「幸せそうに」、happier は比較級で「より幸せな」、unhappy は un- がついて「不幸な」という反対の意味の形容詞です。同じように kind → kindness、sad → sadness と覚えておきましょう。",
+  "m": "形容詞＋ness → 名詞（happy→happiness）"
+ },
+ {
+  "id": 66,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "be afraid of",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nMy little brother is afraid (　　) big dogs.",
+  "c": [
+   "of",
+   "from",
+   "at",
+   "with"
+  ],
+  "e": "be afraid of ～ は「～をこわがる・～がこわい」という意味の熟語です。「弟は大きな犬をこわがっています」となります。from・at・with はこの熟語では使いません。同じ of を使う熟語には be full of ～（～でいっぱいだ）や be proud of ～（～をほこりに思う）などがあります。前置詞とセットで覚えることが大切です。",
+  "m": "こわい = be afraid of ～"
+ },
+ {
+  "id": 67,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "for the first time",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nI saw snow (　　) the first time last winter.",
+  "c": [
+   "for",
+   "at",
+   "in",
+   "on"
+  ],
+  "e": "for the first time は「初めて」という意味で、「私は去年の冬に初めて雪を見ました」となります。似た表現の at first は「最初のうちは（あとで変わる）」という意味で、the を使わず at first の形で使うので、at the first time とは言いません。in や on もこの表現では使いません。「初めて～した」は for the first time、「最初は～だった」は at first と区別しましょう。",
+  "m": "初めて = for the first time / 最初は = at first"
+ },
+ {
+  "id": 68,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "a little と a few",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nThere is (　　) water in the glass.",
+  "c": [
+   "a little",
+   "a few",
+   "many",
+   "a lot"
+  ],
+  "e": "water（水）は数えられない名詞です。数えられない名詞に「少しの」をつけるときは a little を使います。a few と many は数えられる名詞の複数形に使うので、water には使えません。また、is が使われていることからも複数形の名詞ではないとわかります。a lot は後ろに名詞を続けるとき a lot of water のように of が必要なので、この形では誤りです。",
+  "m": "数えられない→a little / 数えられる→a few"
+ },
+ {
+  "id": 69,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "be different from",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nMy idea is different (　　) yours.",
+  "c": [
+   "from",
+   "of",
+   "at",
+   "with"
+  ],
+  "e": "be different from ～ は「～とちがう」という意味の熟語です。「私の考えはあなたのものとはちがいます」となります。yours は「あなたのもの」で、ここでは your idea を表しています。of・at・with はこの熟語では使いません。反対に「～と同じ」は the same as ～ で表します。different のあとは from とセットで覚えましょう。",
+  "m": "～とちがう = be different from ～"
+ },
+ {
+  "id": 70,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "give up",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。\nA: This math problem is too difficult for me.\nB: Don't (　　) up. You can do it!",
+  "c": [
+   "give",
+   "take",
+   "look",
+   "put"
+  ],
+  "e": "give up は「あきらめる」という意味です。B は「あきらめないで。あなたならできるよ！」と A をはげましています。take up は「（趣味などを）始める」、look up は「見上げる・（辞書で）調べる」、put up は「（かざりなどを）かかげる」という意味で、どれも「難しすぎる」と言う相手へのはげましの言葉になりません。後ろの You can do it! が大きな手がかりです。",
+  "m": "あきらめる = give up"
+ },
+ {
+  "id": 71,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "不規則動詞の過去形",
+  "q": "buy（買う）の過去形として正しいものを選びなさい。",
+  "c": [
+   "bought",
+   "buyed",
+   "brought",
+   "boughted"
+  ],
+  "e": "buy は不規則に変化する動詞で、過去形・過去分詞はどちらも bought です。-ed をつけた buyed という形はありません。brought は bring（持ってくる）の過去形で、つづりが似ているのでまちがえやすい語です。boughted も存在しない形です。buy－bought－bought、bring－brought－brought、think－thought－thought のように、ought の形になる動詞はまとめて覚えましょう。",
+  "m": "buy→bought / bring→brought を区別"
+ },
+ {
+  "id": 72,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "both A and B",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\n(　　) Mika and her sister like music.",
+  "c": [
+   "Both",
+   "Either",
+   "Neither",
+   "Each"
+  ],
+  "e": "both A and B は「A と B の両方とも」という意味で、主語になると複数あつかいになります。この文の動詞は like（三人称単数の s がない形）なので、主語は複数です。Both を入れると「ミカも姉（妹）も音楽が好きです」となります。Either A or B（A か B のどちらか）や Neither A nor B（A も B も～ない）は and ではなく or・nor と組み合わせるので合いません。Each は and で二人をつなぐ形では使いません。",
+  "m": "both A and B / either A or B / neither A nor B"
+ },
+ {
+  "id": 73,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "関係代名詞（目的格）",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nThis is the book (　　) I bought yesterday.",
+  "c": [
+   "which",
+   "who",
+   "whose",
+   "what"
+  ],
+  "e": "（　）の後ろは I bought yesterday（私が昨日買った）で、bought の目的語が欠けています。前の名詞 the book（もの）を後ろから説明しているので、目的格の関係代名詞 which（that でもよい）が入ります。who は人を説明するときに使います。whose は「その～の」という所有を表し、後ろに名詞が必要です。what は前に名詞をとらず「～するもの」の意味になるので、the book の後ろには置けません。",
+  "m": "もの＋which＋主語＋動詞（目的格）"
+ },
+ {
+  "id": 74,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "過去分詞の後置修飾",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nMy father has a car (　　) in Germany.",
+  "c": [
+   "made",
+   "making",
+   "makes",
+   "to make"
+  ],
+  "e": "a car と make の関係を考えます。車は「作る」側ではなく「作られる」側なので、受け身の意味をもつ過去分詞 made を使い、a car made in Germany（ドイツで作られた車）とします。過去分詞が語句をともなうときは名詞の後ろに置きます。making は「作っている」という能動の意味になり、車が何かを作ることになるので不自然です。makes は動詞の形なので、すでに has がある文には入りません。",
+  "m": "「～された」名詞 → 名詞＋過去分詞＋語句"
+ },
+ {
+  "id": 75,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "as ～ as の比較",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nKen is as (　　) as his father.",
+  "c": [
+   "tall",
+   "taller",
+   "tallest",
+   "more tall"
+  ],
+  "e": "as ～ as … は「…と同じくらい～」という意味で、as と as の間には形容詞・副詞の原級（もとの形）を入れます。「ケンは父親と同じくらい背が高い」となり、tall が正解です。taller は比較級で than と組み合わせ、tallest は最上級で the とともに使います。more tall という形は、tall のような短い語では使いません。",
+  "m": "as＋原級＋as =「同じくらい～」"
+ },
+ {
+  "id": 76,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "make＋人＋形容詞",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nThe letter from her friend made her (　　).",
+  "c": [
+   "happy",
+   "happily",
+   "happiness",
+   "to happy"
+  ],
+  "e": "〈make＋人・もの＋形容詞〉は「（人・もの）を～の状態にする」という意味です。「友だちからの手紙は彼女を幸せにした（手紙を読んで彼女はうれしくなった）」となります。her のあとには her の状態を表す形容詞 happy が入ります。happily は副詞なので状態を表せません。happiness は名詞で、her＝happiness の関係になりません。to happy という形はありません。",
+  "m": "make＋人＋形容詞 =「人を～にする」"
+ },
+ {
+  "id": 77,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "want＋人＋to不定詞",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nI want you (　　) me with my homework.",
+  "c": [
+   "to help",
+   "help",
+   "helping",
+   "helped"
+  ],
+  "e": "〈want＋人＋to＋動詞の原形〉で「（人）に～してほしい」という意味になります。「私はあなたに宿題を手伝ってほしい」となるので to help が正解です。want は原形不定詞をとらないので、help だけでは誤りです（let や make とちがう点に注意）。helping や helped もこの形では使いません。help ＋人＋with ～ は「人の～を手伝う」という表現です。",
+  "m": "want 人 to ～ =「人に～してほしい」"
+ },
+ {
+  "id": 78,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "現在完了（完了）yet",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nI haven't finished my homework (　　).",
+  "c": [
+   "yet",
+   "already",
+   "ago",
+   "just"
+  ],
+  "e": "現在完了の否定文で「まだ～していない」というときは、文の終わりに yet を置きます。「私はまだ宿題を終えていません」となります。already（もう・すでに）は肯定文で使うのがふつうです。ago は two days ago のように過去の時点を表す語で、現在完了とはいっしょに使えません。just（ちょうど）は have と過去分詞の間に置き、肯定文で使います。",
+  "m": "否定文の「まだ」・疑問文の「もう」= yet"
+ },
+ {
+  "id": 79,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "don't have to（必要がない）",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nYou (　　) bring your lunch tomorrow. The school will give lunch to everyone.",
+  "c": [
+   "don't have to",
+   "must",
+   "have to",
+   "should"
+  ],
+  "e": "2文目に「学校が全員に昼食を出します」とあるので、1文目は「明日はお弁当を持ってくる必要はありません」という意味になるはずです。don't have to ～ は「～する必要はない」を表します。must や have to は「～しなければならない」、should は「～すべきだ」で、昼食が出るのに持ってこいと言うことになり、後ろの文と合いません。must not（～してはいけない）と don't have to の意味のちがいも確認しましょう。",
+  "m": "don't have to =「～する必要はない」"
+ },
+ {
+  "id": 80,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "条件の if（未来でも現在形）",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nIf it (　　) tomorrow, we will stay home.",
+  "c": [
+   "rains",
+   "will rain",
+   "rained",
+   "rain"
+  ],
+  "e": "「もし明日雨が降れば、私たちは家にいるつもりです」という文です。条件を表す if の中では、未来のことでも現在形を使います。主語が it（三人称単数）なので rains が正しい形です。will rain は if の中では使いません。rained は過去形で、明日のことを表しません（仮定法では主節が would になります）。rain は三人称単数の s がないので誤りです。",
+  "m": "if 節の中は未来でも現在形"
+ },
+ {
+  "id": 81,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "原形不定詞（make）",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nOur teacher made us (　　) the classroom after school.",
+  "c": [
+   "clean",
+   "to clean",
+   "cleaning",
+   "cleaned"
+  ],
+  "e": "〈make＋人＋動詞の原形〉で「（人）に～させる」という意味になります。「先生は放課後、私たちに教室をそうじさせました」となるので、原形の clean が正解です。この使い方の make のあとに to clean のような to 不定詞は置きません（受け身の文では to が必要になりますが、この文は能動態です）。cleaning や cleaned もこの形では使えません。let・help も同じように原形をとることがあります。",
+  "m": "make＋人＋原形 =「人に～させる」"
+ },
+ {
+  "id": 82,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "仮定法過去（主節の助動詞）",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nIf I knew her phone number, I (　　) her now.",
+  "c": [
+   "would call",
+   "will call",
+   "call",
+   "called"
+  ],
+  "e": "If I knew ～（もし～を知っていれば）と、現在のことなのに過去形が使われているので、事実とちがうことを仮定する仮定法過去の文です。仮定法過去では、主節に would（could など）＋動詞の原形を使います。「もし彼女の電話番号を知っていれば、今電話するのに（実際は知らない）」となります。will call は実際に起こりそうなことを表す形で、仮定法の主節には使いません。call や called も主節の形として誤りです。",
+  "m": "If＋過去形 …, 主語＋would＋原形"
+ },
+ {
+  "id": 83,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "one of the＋最上級＋複数名詞",
+  "q": "次の英文の（　）に入る最も適切なものを選びなさい。\nTokyo is one of the largest (　　) in the world.",
+  "c": [
+   "cities",
+   "city",
+   "citys",
+   "city's"
+  ],
+  "e": "〈one of the＋最上級＋複数名詞〉で「最も～な…の一つ」という意味になります。「東京は世界で最も大きな都市の一つです」となるので、複数形の cities が入ります。city は最後が〈子音字＋y〉なので、y を i にかえて -es をつけます。citys というつづりは誤りです。単数形の city や所有格の city's も、one of the ～ の後ろには置けません。",
+  "m": "one of the＋最上級＋複数形"
+ },
+ {
+  "id": 84,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法",
+  "t": "感情を表す分詞（-ing と -ed）",
+  "q": "次の英文のうち、文法的に誤りをふくむものを選びなさい。",
+  "c": [
+   "I was very exciting about the game.",
+   "The game was very exciting.",
+   "I was very excited about the game.",
+   "Everyone was surprised at the news."
+  ],
+  "e": "excite は「（人を）わくわくさせる」という意味の動詞です。-ing 形の exciting は「（ものごとが人を）わくわくさせるような」、-ed 形の excited は「（人が）わくわくした」を表します。I was very exciting ～ では「私は（人を）わくわくさせる存在だった」となり、試合に興奮したという意味になりません。I was very excited about ～ とするのが正しい形です。The game was very exciting. と Everyone was surprised at the news. は正しい文です。",
+  "m": "人が感じる→-ed / ものが感じさせる→-ing"
+ },
+ {
+  "id": 85,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "飲み物をたずねる（注文）",
+  "p": "Waiter: May I take your order?\nCustomer: Yes. I'd like a cheeseburger, please.\nWaiter: (　　)\nCustomer: Coffee, please.\nWaiter: OK. Just a moment, please.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "Anything to drink?",
+   "How much is it?",
+   "Here's your change.",
+   "How about you?"
+  ],
+  "e": "店員の May I take your order?（ご注文をうかがいます）から、レストランでの会話だとわかります。（　）のあとで客が Coffee, please.（コーヒーをお願いします）と答えているので、飲み物をたずねる Anything to drink?（お飲み物は何かいかがですか）が入ります。How much is it? は値段をたずねる言い方で、客がたずねる表現です。Here's your change.（おつりです）は会計のときの表現、How about you? は「あなたはどうですか」です。",
+  "m": "答えの文から逆に質問を考える"
+ },
+ {
+  "id": 86,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "値段をたずねる",
+  "p": "Customer: Excuse me. I like this cap. (　　)\nClerk: It's 2,000 yen.\nCustomer: OK. I'll take it.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "How much is it?",
+   "What color is it?",
+   "How many do you have?",
+   "Where did you buy it?"
+  ],
+  "e": "店員が It's 2,000 yen.（2,000円です）と答えているので、値段をたずねる How much is it?（いくらですか）が入ります。What color is it?（何色ですか）には色で答えます。How many do you have?（いくつありますか）には数で答えます。Where did you buy it?（どこで買いましたか）は、店で売っている商品について客が店員にたずねる質問としては不自然です。答えの中の yen が手がかりになります。",
+  "m": "How much ～? → 値段で答える"
+ },
+ {
+  "id": 87,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "謝罪に応じる",
+  "p": "A: I'm sorry I'm late. The bus didn't come on time.\nB: (　　) The movie hasn't started yet.\nA: Oh, good. Let's go in.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "That's all right.",
+   "You're welcome.",
+   "Yes, I am.",
+   "Me, too."
+  ],
+  "e": "A は「遅れてごめんなさい。バスが時間どおりに来なかったの」と謝っています。B は（　）のあと「映画はまだ始まっていないよ」と言っているので、相手を許す That's all right.（だいじょうぶだよ）が入ります。You're welcome. はお礼に対する返事です。Yes, I am. は I'm sorry をそのまま受けると「はい、私は残念です」のようになり不自然です。Me, too. では B も遅れたことになってしまいます。",
+  "m": "謝罪 → That's all right. / お礼 → You're welcome."
+ },
+ {
+  "id": 88,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "お礼に応じる",
+  "p": "A: Thank you for helping me with my homework, Yuki.\nB: (　　) Ask me anytime.\nA: I will. See you tomorrow.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "You're welcome.",
+   "That's too bad.",
+   "No, thank you.",
+   "Here you are."
+  ],
+  "e": "A は「宿題を手伝ってくれてありがとう」とお礼を言っています。お礼に対する返事として You're welcome.（どういたしまして）が適切です。That's too bad.（それはお気の毒に）は悪い知らせを聞いたときの言葉です。No, thank you.（いいえ、けっこうです）はすすめられたものを断るときに使います。Here you are.（はい、どうぞ）は物を手わたすときの表現です。",
+  "m": "Thank you. → You're welcome."
+ },
+ {
+  "id": 89,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "依頼を断る",
+  "p": "A: Can you help me clean the room now?\nB: (　　) I have to finish my report first. Can I help you after lunch?\nA: OK. Thanks.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "I'm sorry, but I can't.",
+   "Sure, I'd love to.",
+   "Yes, I can.",
+   "Of course."
+  ],
+  "e": "A の「今、部屋のそうじを手伝ってくれる？」という依頼に対し、B は（　）のあと「先にレポートを終わらせなければならないの。昼食のあとに手伝ってもいい？」と言っています。今は手伝えないと断っているので、I'm sorry, but I can't.（ごめんね、できないの）が入ります。Sure, I'd love to.・Yes, I can.・Of course. はどれも引き受ける返事なので、後ろの文と合いません。",
+  "m": "断るときは I'm sorry, but ～."
+ },
+ {
+  "id": 90,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "聞き返す",
+  "p": "A: The meeting will start at 3:15 in Room 2.\nB: (　　)\nA: At 3:15. Please don't be late.\nB: All right.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "Could you say that again?",
+   "What's the matter?",
+   "How are you doing?",
+   "Where is the meeting?"
+  ],
+  "e": "A が会議の開始時刻を伝えたあと、B が何かを言い、A がもう一度 At 3:15.（3時15分です）とくり返しています。B は聞き取れなかったので聞き返したと考えられ、Could you say that again?（もう一度言っていただけますか）が入ります。What's the matter?（どうしたの）や How are you doing?（元気？）には時刻で答えません。Where is the meeting? には場所で答えるはずです。",
+  "m": "聞き返す：Pardon? / Could you say that again?"
+ },
+ {
+  "id": 91,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "天気をたずねる",
+  "p": "A: Hi, Ken. How's the weather in Sapporo today?\nB: (　　) I needed a thick coat when I left home.\nA: Really? It's warm here in Fukuoka.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "It's snowing and very cold.",
+   "It's sunny and hot.",
+   "It's Monday today.",
+   "I'm fine, thank you."
+  ],
+  "e": "A は How's the weather in Sapporo today?（今日の札幌の天気はどう？）と天気をたずねています。B は（　）のあと「家を出るときに厚いコートが必要だった」と言っているので、寒い天気を表す It's snowing and very cold.（雪が降っていてとても寒いよ）が入ります。It's sunny and hot. では厚いコートは不要です。It's Monday today. は曜日、I'm fine, thank you. は体調を答える表現です。",
+  "m": "How's the weather? → 天気で答える"
+ },
+ {
+  "id": 92,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "電話（かけまちがい）",
+  "p": "A: Hello. Is this Mr. Brown's house?\nB: No, it isn't. (　　)\nA: Oh, I'm sorry.\nB: That's OK.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "I think you have the wrong number.",
+   "Speaking.",
+   "Hold on, please.",
+   "Can I take a message?"
+  ],
+  "e": "A の「ブラウンさんのお宅ですか」に対して、B は No, it isn't.（いいえ、ちがいます）と答えています。そのあと A が Oh, I'm sorry.（あ、すみません）と謝っているので、電話番号をまちがえていることを伝える I think you have the wrong number.（番号をおまちがえのようです）が入ります。Speaking.（私です）や Hold on, please.（少々お待ちください）はブラウンさんの家だった場合の言葉です。Can I take a message? も同様に、相手が正しくかけてきたときの表現です。",
+  "m": "かけまちがい → wrong number"
+ },
+ {
+  "id": 93,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "手伝いを申し出る",
+  "p": "A: These bags are so heavy.\nB: (　　)\nA: Yes, please. Thank you very much.\nB: No problem.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "Shall I carry one for you?",
+   "Shall we go shopping?",
+   "Will you carry them for me?",
+   "Can you help me?"
+  ],
+  "e": "A は「このかばんは重いなあ」と言っており、（　）のあと Yes, please.（はい、お願いします）と答えています。Shall I ～?（～しましょうか）と手伝いを申し出る文が入るので、Shall I carry one for you?（一つ運びましょうか）が正解です。Shall we ～?（いっしょに～しましょう）には Yes, let's. と答えるのがふつうです。Will you carry them for me? や Can you help me? は、かばんを持っていない B が A に頼むことになり不自然です。",
+  "m": "Shall I ～? → Yes, please. / No, thank you."
+ },
+ {
+  "id": 94,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "感想をたずねる",
+  "p": "A: (　　)\nB: I think it's interesting. The story is exciting, and the pictures are beautiful.\nA: Then I'll read it next.",
+  "q": "次の会話の（　）に入る最も適切なものを選びなさい。",
+  "c": [
+   "What do you think of this book?",
+   "Who wrote this book?",
+   "When did you read this book?",
+   "Where did you buy this book?"
+  ],
+  "e": "B は I think it's interesting.（おもしろいと思う）と、自分の感想を答えています。したがって、意見や感想をたずねる What do you think of this book?（この本をどう思いますか）が入ります。Who wrote ～? には作者の名前、When did you read ～? には時、Where did you buy ～? には場所で答えるので、I think ～. という感想の答えとは合いません。",
+  "m": "What do you think of ～? → I think ～."
+ },
+ {
+  "id": 95,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話の内容（理由）",
+  "p": "Lisa: Ms. Green is going back to Canada next month. Let's give her something from our class.\nYuta: Good idea. How about some flowers?\nLisa: Flowers are nice, but they won't last long. I want to give her something she can keep.\nYuta: I see. Then how about a photo album of our class?\nLisa: That's great! Everyone can write a message in it, too.\nYuta: OK. I'll take pictures of our classmates this week.\nLisa: Thanks. I'll buy an album at the bookstore on Saturday.",
+  "q": "次の会話を読んで、Lisa が花をおくることに賛成しなかった理由として正しいものを選びなさい。",
+  "c": [
+   "Flowers won't last long.",
+   "Flowers are too expensive.",
+   "Ms. Green doesn't like flowers.",
+   "Yuta forgot to buy flowers."
+  ],
+  "e": "Lisa は Flowers are nice, but they won't last long.（花はすてきだけど、長くはもたない）と言い、続けて「先生がずっと持っていられるものをあげたい」と述べています。この部分が理由なので Flowers won't last long. が正解です。値段が高いという話はしていません。グリーン先生が花をきらいだという発言もありません。Yuta が花を買い忘れたという内容もありません。but のあとに本当に言いたいことが来ることが多いので注意しましょう。",
+  "m": "but のあとに理由・本音が来る"
+ },
+ {
+  "id": 96,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話の内容（役割分担）",
+  "p": "Lisa: Ms. Green is going back to Canada next month. Let's give her something from our class.\nYuta: Good idea. How about some flowers?\nLisa: Flowers are nice, but they won't last long. I want to give her something she can keep.\nYuta: I see. Then how about a photo album of our class?\nLisa: That's great! Everyone can write a message in it, too.\nYuta: OK. I'll take pictures of our classmates this week.\nLisa: Thanks. I'll buy an album at the bookstore on Saturday.",
+  "q": "次の会話を読んで、Yuta がすることとして正しいものを選びなさい。",
+  "c": [
+   "He will take pictures of his classmates this week.",
+   "He will buy an album at the bookstore on Saturday.",
+   "He will send flowers to Canada.",
+   "He will write a message to Lisa."
+  ],
+  "e": "Yuta は I'll take pictures of our classmates this week.（今週クラスメートの写真をとるよ）と言っているので、これが正解です。本屋でアルバムを買うのは Lisa で、I'll buy an album at the bookstore on Saturday. と言っています。花は贈らないことになったので、カナダに花を送るという内容は誤りです。メッセージはクラスのみんながアルバムに書くもので、Lisa あての手紙ではありません。だれが I'll ～ と言ったかを確かめることが大切です。",
+  "m": "I'll ～ を言ったのはだれかを確認"
+ },
+ {
+  "id": 97,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "-thing＋形容詞＋to不定詞（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「私は何か冷たい飲み物がほしいです。」\nI want ( to / cold / drink / something ).",
+  "c": [
+   "to",
+   "cold",
+   "drink",
+   "something"
+  ],
+  "e": "「何か冷たい飲み物」は、something を形容詞 cold と to 不定詞 to drink で後ろから説明して something cold to drink と表します。-thing で終わる語（something・anything など）を形容詞で説明するときは、形容詞を後ろに置きます。さらに to drink（飲むための）がその後ろに続きます。（　）内は something → cold → to → drink の順になり、3番目は to です。cold something のように形容詞を前に置かないようにしましょう。",
+  "m": "something＋形容詞＋to＋原形"
+ },
+ {
+  "id": 98,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "過去分詞の後置修飾（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「これは英語で書かれた手紙です。」\nThis is ( written / a / in / letter ) English.",
+  "c": [
+   "written",
+   "a",
+   "in",
+   "letter"
+  ],
+  "e": "「英語で書かれた手紙」は、過去分詞 written（書かれた）を使って a letter written in English と表します。過去分詞が in English のような語句をともなうときは、名詞の後ろに置きます。（　）内は a → letter → written → in の順になり、3番目は written です。日本語の語順につられて written を letter の前に置かないようにしましょう。",
+  "m": "名詞＋過去分詞＋語句 =「～された名詞」"
+ },
+ {
+  "id": 99,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "比較級＋than any other＋単数名詞（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「富士山は日本のほかのどの山よりも高い。」\nMt. Fuji is ( any / higher / other / than ) mountain in Japan.",
+  "c": [
+   "any",
+   "higher",
+   "other",
+   "than"
+  ],
+  "e": "「ほかのどの…よりも～」は〈比較級＋than any other＋単数名詞〉で表し、最上級と同じ内容になります。正しい文は Mt. Fuji is higher than any other mountain in Japan. で、（　）内は higher → than → any → other の順になり、3番目は any です。any other の後ろの名詞は mountain のように単数形になることにも注意しましょう。Mt. Fuji is the highest mountain in Japan. と同じ意味です。",
+  "m": "比較級＋than any other＋単数 ＝ 最上級の意味"
+ },
+ {
+  "id": 100,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "It is ～ for 人 to（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、4番目に来る語を選びなさい。\n「本を読むことは私たちにとって大切です。」\nIt ( for / important / is / us / to ) read books.",
+  "c": [
+   "us",
+   "for",
+   "important",
+   "is"
+  ],
+  "e": "「（人）にとって…することは～だ」は〈It is ～ for＋人＋to＋動詞の原形〉で表します。正しい文は It is important for us to read books. で、（　）内は is → important → for → us → to の順になり、4番目は us です。It は形式的な主語で、本当の主語は to read books です。for の後ろの代名詞は us のように目的格になります。",
+  "m": "It is ～ for 人 to …"
+ },
+ {
+  "id": 101,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "How long have you（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「あなたはここにどのくらい住んでいますか。」\nHow ( you / long / lived / have ) here?",
+  "c": [
+   "you",
+   "long",
+   "lived",
+   "have"
+  ],
+  "e": "「どのくらい（の期間）～していますか」は、現在完了（継続）の疑問文〈How long have＋主語＋過去分詞 ～?〉で表します。正しい文は How long have you lived here? で、（　）内は long → have → you → lived の順になり、3番目は you です。疑問文なので have を主語 you の前に出し、過去分詞 lived はその後ろに置きます。",
+  "m": "How long have＋主語＋過去分詞?"
+ },
+ {
+  "id": 102,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "make＋人＋形容詞（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「その歌はいつも私を幸せな気持ちにしてくれます。」\nThe song ( me / always / happy / makes ).",
+  "c": [
+   "me",
+   "always",
+   "happy",
+   "makes"
+  ],
+  "e": "〈make＋人＋形容詞〉で「（人）を～の状態にする」という意味になります。always のような頻度を表す副詞は一般動詞の前に置くので、正しい文は The song always makes me happy. です。（　）内は always → makes → me → happy の順になり、3番目は me です。主語 The song が三人称単数なので makes と s がついています。",
+  "m": "always は一般動詞の前 / make 人 形容詞"
+ },
+ {
+  "id": 103,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "not as ～ as（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、4番目に来る語を選びなさい。\n「私のかばんはあなたのものほど重くありません。」\nMy bag ( as / is / heavy / not / as ) yours.",
+  "c": [
+   "heavy",
+   "as",
+   "is",
+   "not"
+  ],
+  "e": "「…ほど～ではない」は〈not as＋原級＋as …〉で表します。正しい文は My bag is not as heavy as yours. で、（　）内は is → not → as → heavy → as の順になり、4番目は heavy です。not は be 動詞 is の後ろに置きます。as と as の間には heavy の原級が入ります。yours は「あなたのもの（あなたのかばん）」という意味です。",
+  "m": "not as ～ as … =「…ほど～ない」"
+ },
+ {
+  "id": 104,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "感情の原因を表す to不定詞（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、2番目に来る語を選びなさい。\n「私はその知らせを聞いて驚きました。」\nI was ( hear / to / surprised / the ) news.",
+  "c": [
+   "to",
+   "hear",
+   "surprised",
+   "the"
+  ],
+  "e": "「～して（驚いた・うれしい）」のように感情の原因を表すときは、感情を表す語の後ろに〈to＋動詞の原形〉を置きます。正しい文は I was surprised to hear the news. で、（　）内は surprised → to → hear → the の順になり、2番目は to です。I'm glad to see you.（あなたに会えてうれしい）も同じ形です。",
+  "m": "感情の語＋to＋原形 =「～して…」"
+ },
+ {
+  "id": 105,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "動名詞の主語（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、2番目に来る語を選びなさい。\n「テニスをすることはとても楽しいです。」\nPlaying ( a / tennis / lot / is ) of fun.",
+  "c": [
+   "is",
+   "a",
+   "tennis",
+   "lot"
+  ],
+  "e": "「テニスをすること」は動名詞を使って playing tennis と表し、これが文の主語になります。正しい文は Playing tennis is a lot of fun. で、（　）内は tennis → is → a → lot の順になり、2番目は is です。動名詞が主語のときは単数あつかいなので、be 動詞は is になります。a lot of fun は「とても楽しいこと」という意味です。",
+  "m": "動名詞の主語は単数あつかい（is）"
+ },
+ {
+  "id": 106,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "so ～ that（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「私はとても疲れていたので、早く寝ました。」\nI was ( tired / so / I / that ) went to bed early.",
+  "c": [
+   "that",
+   "tired",
+   "so",
+   "I"
+  ],
+  "e": "「とても～なので…」は〈so＋形容詞・副詞＋that＋主語＋動詞〉で表します。正しい文は I was so tired that I went to bed early. で、（　）内は so → tired → that → I の順になり、3番目は that です。so の直後に tired を置き、that の後ろに結果を表す文 I went to bed early を続けます。",
+  "m": "so ～ that … =「とても～なので…」"
+ },
+ {
+  "id": 107,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "help＋人＋原形（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「この箱を運ぶのを手伝ってくれませんか。」\nWill you ( carry / me / help / this ) box?",
+  "c": [
+   "carry",
+   "me",
+   "help",
+   "this"
+  ],
+  "e": "「（人）が～するのを手伝う」は〈help＋人＋動詞の原形〉で表します。正しい文は Will you help me carry this box? で、（　）内は help → me → carry → this の順になり、3番目は carry です。Will you ～? は「～してくれませんか」という依頼の表現です。help のあとは to のない原形 carry を置く形になっています。",
+  "m": "help＋人＋原形 =「人が～するのを手伝う」"
+ },
+ {
+  "id": 108,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句の並べかえ",
+  "t": "call A B（並べかえ）",
+  "q": "次の日本文の意味になるように（　）内の語を並べかえたとき、3番目に来る語を選びなさい。\n「私たちはこの犬をポチと呼んでいます。」\nWe ( this / call / Pochi / dog ).",
+  "c": [
+   "dog",
+   "this",
+   "call",
+   "Pochi"
+  ],
+  "e": "「A を B と呼ぶ」は〈call＋A＋B〉で表します。正しい文は We call this dog Pochi. で、（　）内は call → this → dog → Pochi の順になり、3番目は dog です。A にあたる this dog を先に置き、そのあとに呼び名の Pochi を置きます。「A を B と名づける」の name A B も同じ語順です。",
+  "m": "call A B =「A を B と呼ぶ」"
+ },
+ {
+  "id": 109,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "メール（到着の日時）",
+  "p": "Hi Haruka,\nThank you for your email. I'm very excited to stay with your family next month. I will arrive at Kansai Airport at 3 p.m. on July 25. My flight is from Sydney.\nYou asked me about food. I can eat almost everything, but I can't eat raw fish. I'm sorry! I'd like to cook Japanese food with your mother. I'd also like to visit an old temple and wear a yukata at a summer festival.\nI'm bringing a small present for your family. It's a book with a lot of pictures of Australian animals. This is my first trip to Japan, so I'm a little nervous. See you soon!\nEmily",
+  "q": "次の英文は、ホームステイに来る Emily が Haruka に送ったメールです。Emily が日本に到着する日時として正しいものを選びなさい。",
+  "c": [
+   "July 25, in the afternoon",
+   "July 25, in the morning",
+   "July 3, in the afternoon",
+   "June 25, in the afternoon"
+  ],
+  "e": "メールに I will arrive at Kansai Airport at 3 p.m. on July 25. とあります。3 p.m. は午後3時なので、「7月25日の午後」が正解です。a.m. は午前、p.m. は午後を表すので、「午前」は誤りです。3 は時刻を表す数字なので「7月3日」ではありません。また、日付は June（6月）ではなく July（7月）です。時刻や日付の数字は、何を表しているかを確かめて読みましょう。",
+  "m": "a.m. = 午前 / p.m. = 午後"
+ },
+ {
+  "id": 110,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "メール（食べられないもの）",
+  "p": "Hi Haruka,\nThank you for your email. I'm very excited to stay with your family next month. I will arrive at Kansai Airport at 3 p.m. on July 25. My flight is from Sydney.\nYou asked me about food. I can eat almost everything, but I can't eat raw fish. I'm sorry! I'd like to cook Japanese food with your mother. I'd also like to visit an old temple and wear a yukata at a summer festival.\nI'm bringing a small present for your family. It's a book with a lot of pictures of Australian animals. This is my first trip to Japan, so I'm a little nervous. See you soon!\nEmily",
+  "q": "次の英文は、ホームステイに来る Emily が Haruka に送ったメールです。Emily が食べられないものとして正しいものを選びなさい。",
+  "c": [
+   "raw fish",
+   "meat",
+   "vegetables",
+   "rice"
+  ],
+  "e": "メールに I can eat almost everything, but I can't eat raw fish.（ほとんど何でも食べられますが、生の魚は食べられません）とあります。raw は「生の」という意味です。肉・野菜・ごはんについては、食べられないとは書かれていません。almost everything（ほとんどすべて）と but のあとの例外を組み合わせて読むことがポイントです。",
+  "m": "almost everything, but ～ → 例外は but の後ろ"
+ },
+ {
+  "id": 111,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "メール（内容一致）",
+  "p": "Hi Haruka,\nThank you for your email. I'm very excited to stay with your family next month. I will arrive at Kansai Airport at 3 p.m. on July 25. My flight is from Sydney.\nYou asked me about food. I can eat almost everything, but I can't eat raw fish. I'm sorry! I'd like to cook Japanese food with your mother. I'd also like to visit an old temple and wear a yukata at a summer festival.\nI'm bringing a small present for your family. It's a book with a lot of pictures of Australian animals. This is my first trip to Japan, so I'm a little nervous. See you soon!\nEmily",
+  "q": "次の英文は、ホームステイに来る Emily が Haruka に送ったメールです。メールの内容と合うものを選びなさい。",
+  "c": [
+   "Emily is bringing a book about Australian animals for Haruka's family.",
+   "Emily has been to Japan before.",
+   "Emily wants to cook Australian food for Haruka's family.",
+   "Emily will come to Japan from Sydney by ship."
+  ],
+  "e": "メールに I'm bringing a small present for your family. It's a book with a lot of pictures of Australian animals. とあるので、オーストラリアの動物の本を持ってくるという選択肢が合います。This is my first trip to Japan とあるので、日本に来たことがあるという内容は誤りです。料理は「あなたのお母さんと日本料理を作りたい」と書かれています。My flight is from Sydney とあり、船ではなく飛行機で来ます。",
+  "m": "first trip / flight など根拠の語を探す"
+ },
+ {
+  "id": 112,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "ポスター（参加費の計算）",
+  "p": "Green Hill English Day Camp\nDate: Saturday, August 9 (If it rains, the camp will be held on Saturday, August 16.)\nPlace: Green Hill Park\nTime: 9:30 a.m. - 3:00 p.m.\nWho can join: Junior high school students\nFee: 1,500 yen (Lunch is included.) If you join with your brother or sister, each person pays 1,200 yen.\nActivities: English games, making pizza, a short drama in English\nHow to join: Send an email to the city office by July 31.\nPlease bring: a water bottle, a hat, and a towel",
+  "q": "次の英文はイベントのポスターです。中学生の Takuya が、同じく中学生の姉と二人でこのキャンプに参加する場合、二人が払う金額の合計として正しいものを選びなさい。",
+  "c": [
+   "2,400 yen",
+   "3,000 yen",
+   "1,200 yen",
+   "2,700 yen"
+  ],
+  "e": "参加費は1人1,500円ですが、If you join with your brother or sister, each person pays 1,200 yen.（兄弟姉妹といっしょに参加すると、一人1,200円）と書かれています。Takuya と姉は二人とも中学生で参加できるので、1,200円×2人＝2,400円です。3,000円は割引を使わずに1,500円×2人とした場合、1,200円は一人分だけの金額、2,700円は一人だけ割引した場合の金額です。each person（一人につき）を読み落とさないようにしましょう。",
+  "m": "each person =「一人につき」→ 人数をかける"
+ },
+ {
+  "id": 113,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "ポスター（雨の場合）",
+  "p": "Green Hill English Day Camp\nDate: Saturday, August 9 (If it rains, the camp will be held on Saturday, August 16.)\nPlace: Green Hill Park\nTime: 9:30 a.m. - 3:00 p.m.\nWho can join: Junior high school students\nFee: 1,500 yen (Lunch is included.) If you join with your brother or sister, each person pays 1,200 yen.\nActivities: English games, making pizza, a short drama in English\nHow to join: Send an email to the city office by July 31.\nPlease bring: a water bottle, a hat, and a towel",
+  "q": "次の英文はイベントのポスターです。8月9日が雨だった場合について、正しいものを選びなさい。",
+  "c": [
+   "The camp will be held on August 16.",
+   "The camp will be held in the city office.",
+   "The camp will start at 3:00 p.m.",
+   "The camp will be stopped and not held this year."
+  ],
+  "e": "ポスターの Date の行に If it rains, the camp will be held on Saturday, August 16.（雨の場合、キャンプは8月16日土曜日に行われます）とあります。したがって8月16日に開かれるという選択肢が正解です。会場を市役所に変えるとは書かれていません。3:00 p.m. は終了時刻です。中止になるという記述もありません。条件を表す if の部分は、ポスター問題でよく問われます。",
+  "m": "If it rains, ～ → 雨天時の予定"
+ },
+ {
+  "id": 114,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "ポスター（内容一致）",
+  "p": "Green Hill English Day Camp\nDate: Saturday, August 9 (If it rains, the camp will be held on Saturday, August 16.)\nPlace: Green Hill Park\nTime: 9:30 a.m. - 3:00 p.m.\nWho can join: Junior high school students\nFee: 1,500 yen (Lunch is included.) If you join with your brother or sister, each person pays 1,200 yen.\nActivities: English games, making pizza, a short drama in English\nHow to join: Send an email to the city office by July 31.\nPlease bring: a water bottle, a hat, and a towel",
+  "q": "次の英文はイベントのポスターです。ポスターの内容と合うものを選びなさい。",
+  "c": [
+   "Students don't have to bring their own lunch.",
+   "Elementary school students can also join the camp.",
+   "Students must send a letter to the city office by July 31.",
+   "The camp finishes before noon."
+  ],
+  "e": "参加費の行に Lunch is included.（昼食は含まれています）とあり、持ち物にも弁当は書かれていないので、「自分の昼食を持ってくる必要はない」が合います。参加できるのは Junior high school students（中学生）だけです。申しこみは手紙ではなく email（メール）です。時間は午前9時30分から午後3時までなので、正午前に終わるわけではありません。",
+  "m": "included =「含まれている」"
+ },
+ {
+  "id": 115,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "物語（キャプテンの言葉）",
+  "p": "Riku was a member of the soccer team at his junior high school. He was a fast runner, but he didn't like to pass the ball. He always wanted to score goals by himself.\nOne day, his team lost a game 0-1. After the game, Riku said, \"I couldn't score because no one helped me.\" Then Sota, the captain, said quietly, \"Riku, you had the ball many times, but you never passed it. We were always open.\"\nRiku was angry at first, but that night he watched a video of the game. He found that Sota was right. Many times his teammates were free, but he didn't even look at them.\nThe next day, Riku said to his team, \"I'm sorry. I only thought about myself.\" After that, he practiced passing with his teammates every day after school.\nTwo months later, in the last game of the season, Riku passed the ball to Sota, and Sota scored. Their team won 1-0. Riku learned that soccer is a team sport.",
+  "q": "次の英文を読んで、試合のあとにキャプテンの Sota が Riku に伝えたこととして正しいものを選びなさい。",
+  "c": [
+   "Riku never passed the ball to his teammates.",
+   "Riku was not a fast runner.",
+   "Riku should stop playing soccer.",
+   "Riku scored a goal in the game."
+  ],
+  "e": "Sota は you had the ball many times, but you never passed it. We were always open.（何度もボールを持ったのに、一度もパスしなかった。ぼくたちはいつもフリーだった）と言っています。これを言いかえた「一度もチームメートにパスしなかった」が正解です。本文の最初に He was a fast runner とあるので、足が速くないという内容は誤りです。サッカーをやめるべきだとは言っていません。チームは0－1で負けており、リクは得点していません。",
+  "m": "never ～ =「一度も～ない」"
+ },
+ {
+  "id": 116,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "物語（気づいたこと）",
+  "p": "Riku was a member of the soccer team at his junior high school. He was a fast runner, but he didn't like to pass the ball. He always wanted to score goals by himself.\nOne day, his team lost a game 0-1. After the game, Riku said, \"I couldn't score because no one helped me.\" Then Sota, the captain, said quietly, \"Riku, you had the ball many times, but you never passed it. We were always open.\"\nRiku was angry at first, but that night he watched a video of the game. He found that Sota was right. Many times his teammates were free, but he didn't even look at them.\nThe next day, Riku said to his team, \"I'm sorry. I only thought about myself.\" After that, he practiced passing with his teammates every day after school.\nTwo months later, in the last game of the season, Riku passed the ball to Sota, and Sota scored. Their team won 1-0. Riku learned that soccer is a team sport.",
+  "q": "次の英文を読んで、Riku が試合のビデオを見て気づいたこととして正しいものを選びなさい。",
+  "c": [
+   "His teammates were often free, but he didn't look at them.",
+   "His teammates didn't run fast enough.",
+   "Sota made many mistakes in the game.",
+   "The other team was much stronger than his team."
+  ],
+  "e": "本文に He found that Sota was right. Many times his teammates were free, but he didn't even look at them.（ソウタが正しいとわかった。何度もチームメートがフリーだったのに、彼は見ることさえしなかった）とあります。したがって「チームメートはよくフリーだったのに、自分は見ていなかった」が正解です。チームメートの足がおそかった、ソウタがミスをした、相手チームがずっと強かったという内容は書かれていません。found that ～ の後ろが気づいた内容です。",
+  "m": "found that ～ の後ろ = 気づいたこと"
+ },
+ {
+  "id": 117,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "物語（内容一致）",
+  "p": "Riku was a member of the soccer team at his junior high school. He was a fast runner, but he didn't like to pass the ball. He always wanted to score goals by himself.\nOne day, his team lost a game 0-1. After the game, Riku said, \"I couldn't score because no one helped me.\" Then Sota, the captain, said quietly, \"Riku, you had the ball many times, but you never passed it. We were always open.\"\nRiku was angry at first, but that night he watched a video of the game. He found that Sota was right. Many times his teammates were free, but he didn't even look at them.\nThe next day, Riku said to his team, \"I'm sorry. I only thought about myself.\" After that, he practiced passing with his teammates every day after school.\nTwo months later, in the last game of the season, Riku passed the ball to Sota, and Sota scored. Their team won 1-0. Riku learned that soccer is a team sport.",
+  "q": "次の英文を読んで、本文の内容と合うものを選びなさい。",
+  "c": [
+   "In the last game, Sota scored a goal after Riku passed the ball to him.",
+   "Riku scored the winning goal in the last game.",
+   "Riku stopped practicing soccer for two months.",
+   "Riku's team lost the last game of the season."
+  ],
+  "e": "最後の段落に Riku passed the ball to Sota, and Sota scored. Their team won 1-0. とあるので、「最後の試合で、リクのパスを受けてソウタが得点した」が合います。得点したのはリクではなくソウタです。リクは毎日放課後にパスの練習をしたので、練習をやめたわけではありません。Two months later は「2か月後」という意味です。チームは1－0で勝っているので、負けたという内容も誤りです。",
+  "m": "だれが何をしたかを主語で確かめる"
+ },
+ {
+  "id": 118,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "調査報告（人数）",
+  "p": "Our class did a survey about reading. We asked the 35 students in our class, \"How many books did you read last month?\" Twelve students read no books. Fifteen students read one or two books, and eight students read three books or more.\nWe also asked the students who read no books, \"Why didn't you read?\" The most common answer was \"I didn't have time because of club activities.\" The second most common answer was \"I don't know which books are interesting.\"\nSo we have an idea. We will make a \"Book Board\" in our classroom. Each student will write the title of a good book and a short comment on a card. We hope the board will help everyone find interesting books. Our school has ten minutes of reading time every morning, and we want to use that time better.",
+  "q": "次の英文は、あるクラスの調査についての発表です。先月1冊以上の本を読んだ生徒は何人か、正しいものを選びなさい。",
+  "c": [
+   "23",
+   "12",
+   "15",
+   "20"
+  ],
+  "e": "クラスの生徒は35人で、本を1冊も読まなかった生徒が12人、1〜2冊が15人、3冊以上が8人です。1冊以上読んだ生徒は 15＋8＝23人です（35－12＝23人でも求められます）。12人は1冊も読まなかった生徒の数、15人は1〜2冊読んだ生徒だけの数です。20人は本文のどの数とも合いません。two books, and eight students read three books or more の or more（以上）まで正しく読み取りましょう。",
+  "m": "～ or more =「～以上」"
+ },
+ {
+  "id": 119,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "調査報告（理由）",
+  "p": "Our class did a survey about reading. We asked the 35 students in our class, \"How many books did you read last month?\" Twelve students read no books. Fifteen students read one or two books, and eight students read three books or more.\nWe also asked the students who read no books, \"Why didn't you read?\" The most common answer was \"I didn't have time because of club activities.\" The second most common answer was \"I don't know which books are interesting.\"\nSo we have an idea. We will make a \"Book Board\" in our classroom. Each student will write the title of a good book and a short comment on a card. We hope the board will help everyone find interesting books. Our school has ten minutes of reading time every morning, and we want to use that time better.",
+  "q": "次の英文は、あるクラスの調査についての発表です。本を読まなかった生徒の答えで最も多かった理由として正しいものを選びなさい。",
+  "c": [
+   "They didn't have time because of club activities.",
+   "They didn't know which books were interesting.",
+   "They didn't like reading.",
+   "There were not enough books at school."
+  ],
+  "e": "本文に The most common answer was \"I didn't have time because of club activities.\"（最も多かった答えは「部活動のために時間がなかった」）とあります。したがって部活動で時間がなかったが正解です。「どの本がおもしろいかわからない」は The second most common answer（2番目に多かった答え）です。読書がきらい、学校の本が足りないという答えは書かれていません。most common（最も多い）と second（2番目）の区別に注意しましょう。",
+  "m": "the most common =「最も多い」"
+ },
+ {
+  "id": 120,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "読解",
+  "t": "調査報告（取り組みの目的）",
+  "p": "Our class did a survey about reading. We asked the 35 students in our class, \"How many books did you read last month?\" Twelve students read no books. Fifteen students read one or two books, and eight students read three books or more.\nWe also asked the students who read no books, \"Why didn't you read?\" The most common answer was \"I didn't have time because of club activities.\" The second most common answer was \"I don't know which books are interesting.\"\nSo we have an idea. We will make a \"Book Board\" in our classroom. Each student will write the title of a good book and a short comment on a card. We hope the board will help everyone find interesting books. Our school has ten minutes of reading time every morning, and we want to use that time better.",
+  "q": "次の英文は、あるクラスの調査についての発表です。クラスで Book Board を作る目的として正しいものを選びなさい。",
+  "c": [
+   "To help students find interesting books.",
+   "To make the morning reading time longer.",
+   "To stop students from joining club activities.",
+   "To count how many books each student reads."
+  ],
+  "e": "本文に We hope the board will help everyone find interesting books.（この掲示板がみんながおもしろい本を見つける助けになることを願っている）とあります。これは「どの本がおもしろいかわからない」という答えへの対策です。朝読書の時間を長くするとは書かれておらず、「その時間をもっとうまく使いたい」と述べています。部活動をやめさせる、読んだ冊数を数えるという内容もありません。",
+  "m": "We hope ～ に目的・願いが書かれる"
  }
 ]
