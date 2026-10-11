@@ -44,3 +44,4 @@
 |---|---|---|---|
 | `fe-kamokua` | 100 | 90 | https://claude.ai/artifact/AzyNyxngzffTGQXNQc2a4Q |
 | `itpass-all` | 100 | 91 | https://claude.ai/artifact/L2iKrttkXW9nUtf8gVwAoV |
+| `denko2-gakka` | 100 | 87 | https://claude.ai/artifact/3DYZwnEJCW1oYL8DjdgBPu |
