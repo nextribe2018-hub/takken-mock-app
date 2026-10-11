@@ -1,12 +1,12 @@
 // 出題・採点・習熟度のロジック（画面に依存しない純粋な関数）
-import bankRaw from './data/bank.json';
+// 試験ごとの違いは src/exams.ts の Exam に持たせ、ここの関数は Exam を受け取る。
+// 末尾の「宅建用」は、画面（App.tsx）が使っている従来の関数名を残したもの。
 import lessonsRaw from './data/lessons.json';
+import { EXAM, Exam, Item } from './exams';
 
 export type Field = '業法' | '権利' | '法令' | '税他';
-export type Q = {
-  f: Field; t: string; ref: string; s: string; a: 0 | 1; e: string; m: string;
-  i: number; k: string;
-};
+// 宅建の問題（exams.ts の Item を分野と○×の正解に絞った形。安定キー k は 分野|論点|出典、重複は #n）
+export type Q = Item & { f: Field; a: 0 | 1 };
 export type SysTable = { title: string; head: string[]; rows: string[][] };
 export type LessonSys = {
   overview: string;
@@ -23,43 +23,17 @@ export type LogItem = { at: string; round: number; score: number; sec: number; f
 export type Recent = Record<string, string>;
 export type Progress = { v: 2; hist: Hist; r10: Recent; set: SetState; log: LogItem[]; voice: boolean };
 
-export const FIELDS: [Field, string][] = [
-  ['業法', '宅建業法'], ['権利', '権利関係'], ['法令', '法令上の制限'], ['税他', '税・その他'],
-];
-export const fieldName = (f: Field) => FIELDS.find(x => x[0] === f)![1];
-
-// 5回で本試験50問の比率（業法20・権利14・法令8・税他8）
-export const MIX: Record<Field, number>[] = [
-  { 業法: 4, 権利: 3, 法令: 2, 税他: 1 },
-  { 業法: 4, 権利: 3, 法令: 2, 税他: 1 },
-  { 業法: 4, 権利: 3, 法令: 2, 税他: 1 },
-  { 業法: 4, 権利: 3, 法令: 1, 税他: 2 },
-  { 業法: 4, 権利: 2, 法令: 1, 税他: 3 },
-];
-export const LIMIT = 600;
-
-// 問題ごとの安定キー（分野|論点|出典、重複は #n）
-export const BANK: Q[] = (() => {
-  const seen: Record<string, number> = {};
-  return (bankRaw as Omit<Q, 'i' | 'k'>[]).map((q, i) => {
-    let k = `${q.f}|${q.t}|${q.ref}`;
-    seen[k] = (seen[k] || 0) + 1;
-    if (seen[k] > 1) k += '#' + seen[k];
-    return { ...q, i, k } as Q;
-  });
-})();
-export const BYKEY: Record<string, Q> = Object.fromEntries(BANK.map(q => [q.k, q]));
 export const LESSON = lessonsRaw as Record<string, Lesson>;
 
 export const emptyProgress = (): Progress => ({ v: 2, hist: {}, r10: {}, set: { round: 0, scores: [] }, log: [], voice: false });
 
-export function rec(hist: Hist, q: Q, ok: boolean): Hist {
+export function rec(hist: Hist, q: Item, ok: boolean): Hist {
   const h = hist[q.k] || { n: 0, c: 0, last: 0 };
   return { ...hist, [q.k]: { n: h.n + 1, c: h.c + (ok ? 1 : 0), last: ok ? 1 : 0 } };
 }
 export const topicKey = (q: { f: string; t: string }) => `${q.f}|${q.t}`;
 // 1問の回答を記録（全体の記録＋論点ごとの直近10問）
-export function record(p: Progress, q: Q, ok: boolean): Progress {
+export function record(p: Progress, q: Item, ok: boolean): Progress {
   const t = topicKey(q);
   return { ...p, hist: rec(p.hist, q, ok), r10: { ...p.r10, [t]: ((p.r10[t] || '') + (ok ? '1' : '0')).slice(-10) } };
 }
@@ -73,7 +47,7 @@ export function backfillRecent(hist: Hist, base: Recent = {}): Recent {
 const ones = (s: string) => (s.match(/1/g) || []).length;
 
 // 優先度：未出題 → 前回不正解 → 解いた回数の少ない順
-function prio(hist: Hist, q: Q) {
+function prio(hist: Hist, q: Item) {
   const h = hist[q.k];
   if (!h) return 0;
   if (h.last === 0) return 1;
@@ -87,37 +61,74 @@ export function shuffle<T>(a: T[], rnd = Math.random): T[] {
   }
   return b;
 }
-export function pick(hist: Hist, pool: Q[], n: number, exclude: Set<number>, rnd = Math.random): Q[] {
+export function pick<T extends Item>(hist: Hist, pool: T[], n: number, exclude: Set<number>, rnd = Math.random): T[] {
   const c = shuffle(pool.filter(q => !exclude.has(q.i)), rnd);
   c.sort((x, y) => prio(hist, x) - prio(hist, y));
-  const out: Q[] = [];
+  const out: T[] = [];
   const used = new Set<string>();
   for (const q of c) { if (out.length >= n) break; if (!used.has(q.t)) { out.push(q); used.add(q.t); } }
   for (const q of c) { if (out.length >= n) break; if (!out.includes(q)) out.push(q); }
   return out;
 }
 
-export function buildExam(hist: Hist, round: number, rnd = Math.random): Q[] {
-  const mix = MIX[round];
-  const qs: Q[] = [];
-  const ex = new Set<number>();
-  FIELDS.forEach(([f]) => {
-    pick(hist, BANK.filter(q => q.f === f), mix[f], ex, rnd).forEach(q => { qs.push(q); ex.add(q.i); });
-  });
-  return qs;
+// 分野ごとの出題数：rounds があればその回の内訳、なければ問題数に比例（端数は大きい順に配る）
+export function quotas(x: Exam, round: number): Record<string, number> {
+  if (x.rounds) return x.rounds[round % x.rounds.length];
+  const n = Math.min(x.size, x.items.length);
+  const raw = x.fields.map(([f]) => (x.items.filter(q => q.f === f).length * n) / x.items.length);
+  const base = raw.map(Math.floor);
+  const ord = raw.map((r, i) => [r - Math.floor(r), i]).sort((a, b) => b[0] - a[0]);
+  const rest = n - base.reduce((a, b) => a + b, 0);
+  for (let k = 0; k < rest; k++) base[ord[k % ord.length][1]]++;
+  return Object.fromEntries(x.fields.map(([f], i) => [f, base[i]]));
 }
 
-export function checkQuestions(hist: Hist, key: string, missed?: Q, rnd = Math.random): Q[] {
+// 1回分を組む。rounds のある試験（宅建）は分野順、ない試験は混ぜて出す
+export function buildRound(x: Exam, hist: Hist, round: number, rnd = Math.random): Item[] {
+  const mix = quotas(x, round);
+  const qs: Item[] = [];
+  const ex = new Set<number>();
+  x.fields.forEach(([f]) => {
+    pick(hist, x.items.filter(q => q.f === f), mix[f] || 0, ex, rnd).forEach(q => { qs.push(q); ex.add(q.i); });
+  });
+  const n = Math.min(x.size, x.items.length);
+  if (qs.length < n) pick(hist, x.items, n - qs.length, ex, rnd).forEach(q => qs.push(q));
+  return x.rounds ? qs : shuffle(qs, rnd);
+}
+
+// 無料版の範囲：分野ごとに 10問に1問（分野内の並びで 0, 10, 20…番目。端数は切り上げ）。
+// 安定キーの並びで決めるので、アプリを更新しても無料の問題は変わらない
+const freeCache = new Map<string, Exam>();
+export function freeExam(x: Exam): Exam {
+  let e = freeCache.get(x.id);
+  if (!e) {
+    const seen: Record<string, number> = {};
+    const items = x.items.filter(q => (seen[q.f] = (seen[q.f] ?? -1) + 1) % 10 === 0);
+    e = { ...x, items };
+    freeCache.set(x.id, e);
+  }
+  return e;
+}
+
+// 4択の表示順（c の番号の並び）。fix のときは最後の選択肢を末尾に固定
+export function choiceOrder(q: Item, rnd = Math.random): number[] {
+  const idx = (q.c || []).map((_, i) => i);
+  if (!q.fix) return shuffle(idx, rnd);
+  return [...shuffle(idx.slice(0, -1), rnd), idx[idx.length - 1]];
+}
+
+export function reviewQuestions<T extends Item>(x: Exam, hist: Hist, key: string, missed?: T, rnd = Math.random): T[] {
   const [f, t] = key.split('|');
-  const pool = BANK.filter(q => q.f === f && q.t === t);
+  const pool = (x.items as T[]).filter(q => q.f === f && (x.reviewBy === 'field' || q.t === t));
   const real = pool.filter(q => q.ref !== '確認');
   return pick(hist, real.length >= 3 ? real : pool, 3, new Set(missed ? [missed.i] : []), rnd);
 }
 
-export type TopicStat = { f: Field; t: string; total: number; n: number; c: number; recentWrong: number; rn: number; rc: number };
-export function topicStats(hist: Hist, r10: Recent = backfillRecent(hist)): TopicStat[] {
-  const m: Record<string, TopicStat> = {};
-  BANK.forEach(q => {
+// 論点ごとの成績。rn/rc は論点の直近10問（r10）の回答数・正解数。f は宅建では Field、他の試験では分野名
+export type TopicStat<F extends string = Field> = { f: F; t: string; total: number; n: number; c: number; recentWrong: number; rn: number; rc: number };
+export function statsBy(x: Exam, hist: Hist, r10: Recent = {}): TopicStat<string>[] {
+  const m: Record<string, TopicStat<string>> = {};
+  x.items.forEach(q => {
     const k = q.f + '|' + q.t;
     const s = (m[k] = m[k] || { f: q.f, t: q.t, total: 0, n: 0, c: 0, recentWrong: 0, rn: (r10[k] || '').length, rc: ones(r10[k] || '') });
     s.total++;
@@ -126,8 +137,17 @@ export function topicStats(hist: Hist, r10: Recent = backfillRecent(hist)): Topi
   });
   return Object.values(m);
 }
+// 分野ごとにまとめた成績（歴史の「分野マップ」用。t は分野の表示名）
+// 宅建の合格の見込み用の fieldStats(hist, r10) と区別するため fieldStatsBy とする
+export function fieldStatsBy(x: Exam, hist: Hist, r10: Recent = {}): TopicStat<string>[] {
+  const all = statsBy(x, hist, r10);
+  return x.fields.map(([f, name]) => all.filter(s => s.f === f).reduce(
+    (a, s) => ({ ...a, total: a.total + s.total, n: a.n + s.n, c: a.c + s.c, recentWrong: a.recentWrong + s.recentWrong, rn: a.rn + s.rn, rc: a.rc + s.rc }),
+    { f, t: name, total: 0, n: 0, c: 0, recentWrong: 0, rn: 0, rc: 0 } as TopicStat<string>,
+  ));
+}
 // 0=未着手 1=要復習 2=習得中 3=習得
-export function topicState(s: TopicStat): 0 | 1 | 2 | 3 {
+export function topicState(s: TopicStat<string>): 0 | 1 | 2 | 3 {
   if (!s.n) return 0;
   const r = s.c / s.n;
   if (s.recentWrong > 0 || r < 0.6) return 1;
@@ -152,7 +172,57 @@ export const judgeSet = (tot: number): Judge =>
 
 export const jstNow = () => new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 19);
 
-// 試験を採点し、新しい進捗を返す
+// 試験を採点し、新しい進捗を返す。ans は ox なら 1/0、choice なら c の番号
+// 記録は record()（全体の記録＋論点ごとの直近10問）。rounds のない試験は回数を数えない
+export function finishRound(x: Exam, p: Progress, qs: Item[], ans: (number | null)[], used: number) {
+  let cur = p;
+  let score = 0;
+  qs.forEach((q, k) => { const ok = ans[k] === q.a; if (ok) score++; cur = record(cur, q, ok); });
+  const R = x.rounds?.length || 1;
+  const round = p.set.round % R;
+  const scores = [...p.set.scores];
+  scores[round] = score;
+  const nextRound = (round + 1) % R;
+  const setDone = !!x.rounds && nextRound === 0;
+  const next: Progress = {
+    ...cur,
+    set: { round: nextRound, scores: setDone ? [] : scores },
+    log: [...p.log, { at: jstNow(), round: round + 1, score, sec: used }].slice(-500),
+  };
+  return { next, score, round, setScores: setDone ? scores : null };
+}
+
+// 間違えたまとまり（宅建＝論点、歴史＝分野）ごとに最初の1問を返す
+export function wrongGroups<T extends Item, A extends number | null>(x: Exam, qs: T[], ans: A[]) {
+  const out: { key: string; missed: { q: T; your: A } }[] = [];
+  const seen = new Set<string>();
+  qs.forEach((q, k) => {
+    if (ans[k] !== q.a) {
+      const key = q.f + '|' + (x.reviewBy === 'topic' ? q.t : '');
+      if (!seen.has(key)) { seen.add(key); out.push({ key, missed: { q, your: ans[k] } }); }
+    }
+  });
+  return out;
+}
+
+export const speechText = (t: string) =>
+  t.replace(/○/g, 'まる').replace(/×/g, 'ばつ').replace(/㎡/g, '平方メートル').replace(/％|%/g, 'パーセント');
+
+// ---- 宅建用（App.tsx の従来の呼び方） ----
+export const TAKKEN = EXAM.takken;
+export const BANK = TAKKEN.items as Q[];
+export const FIELDS = TAKKEN.fields as [Field, string][];
+export const fieldName = (f: Field) => FIELDS.find(x => x[0] === f)![1];
+export const MIX = TAKKEN.rounds as Record<Field, number>[];
+export const LIMIT = TAKKEN.limit;
+export const BYKEY: Record<string, Q> = Object.fromEntries(BANK.map(q => [q.k, q]));
+export const buildExam = (hist: Hist, round: number, rnd = Math.random) => buildRound(TAKKEN, hist, round, rnd) as Q[];
+export const checkQuestions = (hist: Hist, key: string, missed?: Q, rnd = Math.random) => reviewQuestions(TAKKEN, hist, key, missed, rnd);
+export function topicStats(hist: Hist, r10: Recent = backfillRecent(hist)): TopicStat[] {
+  return statsBy(TAKKEN, hist, r10) as TopicStat[];
+}
+export const finishExam = (p: Progress, qs: Q[], ans: (0 | 1 | null)[], used: number) => finishRound(TAKKEN, p, qs, ans, used);
+
 // 分野別10問テスト：その分野から10問（未出題・前回不正解を優先、論点を分散）
 export function buildFieldExam(hist: Hist, f: Field, rnd = Math.random): Q[] {
   return pick(hist, BANK.filter(q => q.f === f), 10, new Set(), rnd);
@@ -166,38 +236,7 @@ export function finishFieldExam(p: Progress, f: Field, qs: Q[], ans: (0 | 1 | nu
   const next: Progress = { ...cur, log: [...p.log, { at: jstNow(), round: 0, field: f, score, sec: used }].slice(-500) };
   return { next, score };
 }
-
-export function finishExam(p: Progress, qs: Q[], ans: (0 | 1 | null)[], used: number) {
-  let cur = p;
-  let score = 0;
-  qs.forEach((q, k) => { const ok = ans[k] === q.a; if (ok) score++; cur = record(cur, q, ok); });
-  const round = p.set.round;
-  const scores = [...p.set.scores];
-  scores[round] = score;
-  const nextRound = (round + 1) % 5;
-  const setDone = nextRound === 0;
-  const next: Progress = {
-    ...cur,
-    set: { round: nextRound, scores: setDone ? [] : scores },
-    log: [...p.log, { at: jstNow(), round: round + 1, score, sec: used }].slice(-500),
-  };
-  return { next, score, round, setScores: setDone ? scores : null };
-}
-
-export function wrongTopics(qs: Q[], ans: (0 | 1 | null)[]) {
-  const out: { key: string; missed: { q: Q; your: 0 | 1 | null } }[] = [];
-  const seen = new Set<string>();
-  qs.forEach((q, k) => {
-    if (ans[k] !== q.a) {
-      const key = q.f + '|' + q.t;
-      if (!seen.has(key)) { seen.add(key); out.push({ key, missed: { q, your: ans[k] } }); }
-    }
-  });
-  return out;
-}
-
-export const speechText = (t: string) =>
-  t.replace(/○/g, 'まる').replace(/×/g, 'ばつ').replace(/㎡/g, '平方メートル').replace(/％|%/g, 'パーセント');
+export const wrongTopics = (qs: Q[], ans: (0 | 1 | null)[]) => wrongGroups(TAKKEN, qs, ans);
 
 // 間違えた問題と最も関係の深い体系図の枝・項目を、2文字組の重なりで推定する
 const bigrams = (x: string) => {

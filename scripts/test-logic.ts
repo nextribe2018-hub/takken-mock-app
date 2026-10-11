@@ -2,7 +2,9 @@
 import assert from 'node:assert/strict';
 import {
   BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, topicTier, toExam, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
+import { EXAMS, byKey } from '../src/exams';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
 const sum: Record<string, number> = {};
@@ -55,19 +57,93 @@ w.forEach(x => {
 const missing = topicStats({}).map(s => `${s.f}|${s.t}`).filter(k => !LESSON[k]);
 assert.deepEqual(missing, []);
 
+// ---- すべての試験パック共通 ----
+const summary: string[] = [];
+const freeShort: string[] = [];
+for (const x of EXAMS) {
+  // 7) 問題データの形：キー一意・分野が定義済み・正解番号が範囲内
+  assert.equal(Object.keys(byKey(x)).length, x.items.length, `${x.id}: 安定キーが重複`);
+  const fs = new Set(x.fields.map(([f]) => f));
+  x.items.forEach(q => {
+    assert.ok(fs.has(q.f), `${x.id} ${q.k}: 未定義の分野 ${q.f}`);
+    if (x.format === 'ox') assert.ok(q.a === 0 || q.a === 1, `${x.id} ${q.k}: ○×の正解が不正`);
+    else {
+      assert.ok(q.c && q.c.length >= 4 && q.c.length <= 5, `${x.id} ${q.k}: 選択肢の数`);
+      assert.ok(q.a >= 0 && q.a < q.c!.length, `${x.id} ${q.k}: 正解番号が範囲外`);
+    }
+    if (x.kinds) assert.ok(x.kinds.some(([k]) => k === q.kind), `${x.id} ${q.k}: 出題区分が不正`);
+  });
 
-// 7) 全論点に体系解説（全体像・表）があり、表の列数がそろっている
+  // 8) 1回分：問題数どおり・重複なし・分野内訳どおり
+  for (let t = 0; t < 50; t++) {
+    const r = t % (x.rounds?.length || 1);
+    const qs = buildRound(x, {}, r);
+    assert.equal(qs.length, x.size);
+    assert.equal(new Set(qs.map(q => q.k)).size, x.size);
+    const mix = quotas(x, r);
+    assert.equal(Object.values(mix).reduce((a, b) => a + b, 0), x.size);
+    x.fields.forEach(([f]) => assert.equal(qs.filter(q => q.f === f).length, mix[f]));
+  }
+
+  // 9) 4択の表示順：全選択肢が1回ずつ・固定肢は末尾
+  if (x.format === 'choice') x.items.forEach(q => {
+    const o = choiceOrder(q);
+    assert.deepEqual([...o].sort(), q.c!.map((_, i) => i));
+    if (q.fix) assert.equal(o[o.length - 1], q.c!.length - 1);
+  });
+
+  // 10) 採点と記録：全問正解で満点、全問不正解で復習のまとまりが出る
+  let pp = emptyProgress();
+  const qs = buildRound(x, pp.hist, 0);
+  const out = finishRound(x, pp, qs, qs.map(q => q.a), 200);
+  assert.equal(out.score, x.size);
+  assert.equal(Object.keys(out.next.hist).length, x.size);
+  if (!x.rounds) assert.equal(out.next.set.round, 0);
+  pp = out.next;
+  const second = buildRound(x, pp.hist, pp.set.round);
+  assert.ok(second.every(q => !pp.hist[q.k]), `${x.id}: 未出題が優先されていない`);
+  const wrongAns = qs.map(q => (x.format === 'ox' ? 1 - q.a : (q.a + 1) % q.c!.length));
+  const wg = wrongGroups(x, qs, wrongAns);
+  assert.ok(wg.length >= 1);
+  wg.forEach(g => {
+    const rv = reviewQuestions(x, {}, g.key, g.missed.q);
+    assert.ok(rv.length >= 1 && rv.every(q => q.k !== g.missed.q.k && q.f === g.missed.q.f));
+  });
+  assert.equal(statsBy(x, out.next.hist).reduce((a, s) => a + s.n, 0), x.size);
+  // 11) 分野ごとの集計：全分野がそろい、問題数・解答数の合計が一致
+  const fst = fieldStatsBy(x, out.next.hist);
+  assert.equal(fst.length, x.fields.length);
+  assert.equal(fst.reduce((a, s) => a + s.total, 0), x.items.length);
+  assert.equal(fst.reduce((a, s) => a + s.n, 0), x.size);
+  // 12) 無料版：分野ごとに10分の1（切り上げ）・全分野を含む・1回分が無料の問題だけで組める
+  const fx = freeExam(x);
+  x.fields.forEach(([f]) => {
+    const n = x.items.filter(q => q.f === f).length;
+    assert.equal(fx.items.filter(q => q.f === f).length, Math.ceil(n / 10), `${x.id} ${f}: 無料の問題数`);
+  });
+  const freeKeys = new Set(fx.items.map(q => q.k));
+  for (let t = 0; t < 20; t++) {
+    const fr = buildRound(fx, {}, t % (x.rounds?.length || 1));
+    assert.equal(fr.length, Math.min(x.size, fx.items.length));
+    assert.ok(fr.every(q => freeKeys.has(q.k)), `${x.id}: 無料版に有料の問題が混ざった`);
+  }
+  if (fx.items.length < x.size) freeShort.push(`${x.short}(${fx.items.length}問)`);
+  summary.push(`${x.short}${x.items.length}問`);
+}
+
+// ---- 宅建（過去問・体系解説・分野別テスト・合格の見込み） ----
+// 13) 全論点に体系解説（全体像・表）があり、表の列数がそろっている
 Object.entries(LESSON).forEach(([k, L]) => {
   assert.ok(L.sys, `体系解説なし: ${k}`);
   assert.ok(L.sys!.tree.length >= 3 && L.sys!.tables.length >= 1, `体系解説が薄い: ${k}`);
   L.sys!.tables.forEach(t => t.rows.forEach(r => assert.equal(r.length, t.head.length, `${k} ${t.title}`)));
 });
-// 8) 間違えた問題に関係する枝が見つかる（全問題で枝番号が範囲内）
+// 14) 間違えた問題に関係する枝が見つかる（全問題で枝番号が範囲内）
 let found = 0;
 BANK.forEach(q => { const s = LESSON[`${q.f}|${q.t}`].sys!; const h = relatedBranch(s, q); assert.ok(h.branch < s.tree.length); if (h.branch >= 0) found++; });
 console.log(`体系図の該当枝が見つかった問題: ${found} / ${BANK.length}`);
 
-// 9) 絞り込み解説：表の抜粋は最大4行で元の表の行に含まれる、ひっかけは最大2件
+// 15) 絞り込み解説：表の抜粋は最大4行で元の表の行に含まれる、ひっかけは最大2件
 let withRows = 0;
 BANK.forEach(q => {
   const L = LESSON[`${q.f}|${q.t}`];
@@ -77,14 +153,14 @@ BANK.forEach(q => {
 });
 console.log(`関係する表の行が見つかった問題: ${withRows} / ${BANK.length}`);
 
-// 10) 分野別10問：その分野だけ・10問・重複なし。採点しても5回セットは動かない
+// 16) 分野別10問：その分野だけ・10問・重複なし。採点しても5回セットは動かない
 FIELDS.forEach(([f]) => {
   const qs = buildFieldExam({}, f);
   assert.equal(qs.length, 10); assert.ok(qs.every(q => q.f === f)); assert.equal(new Set(qs.map(q => q.k)).size, 10);
   const pr = emptyProgress(); const r = finishFieldExam(pr, f, qs, qs.map(q => q.a), 120);
   assert.equal(r.score, 10); assert.deepEqual(r.next.set, pr.set); assert.equal(r.next.log.at(-1)!.field, f);
 });
-// 11) 合格の見込み：30問未満は判定しない、正答率が高いほど確率・予想点が上がる
+// 17) 合格の見込み：30問未満は判定しない、正答率が高いほど確率・予想点が上がる
 assert.equal(passEstimate({}).ready, false);
 const sim = (rate: number) => { const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
   BANK.forEach((q, i) => { if (i % 3) return; const ok = ((i * 7919) % 100) / 100 < rate; h[q.k] = { n: 1, c: ok ? 1 : 0, last: ok ? 1 : 0 }; }); return passEstimate(h); };
@@ -95,14 +171,14 @@ if (lo.ready && mid.ready && hi.ready) {
   console.log(`合格の見込み 正答率60%→${Math.round(lo.prob * 100)}%（${lo.mean.toFixed(1)}点） 80%→${Math.round(mid.prob * 100)}%（${mid.mean.toFixed(1)}点） 92%→${Math.round(hi.prob * 100)}%（${hi.mean.toFixed(1)}点）`);
 }
 
-// 12) ○×→4択の換算（消去法込み）：全問正解なら1。○×80%→慎重62%・標準71%・消去法82%。p・k に対して単調増加
+// 18) ○×→4択の換算（消去法込み）：全問正解なら1。○×80%→慎重62%・標準71%・消去法82%。p・k に対して単調増加
 assert.ok(Math.abs(toExam(1) - 1) < 1e-9);
 assert.ok(Math.abs(toExam(0.8, 0) - 0.616) < 0.002 && Math.abs(toExam(0.85, 0) - 0.700) < 0.002);
 assert.ok(Math.abs(toExam(0.8, 0.5) - 0.714) < 0.002 && Math.abs(toExam(0.8, 1) - 0.818) < 0.002);
 for (let p = 0.3; p < 0.95; p += 0.05) for (const k of [0, 0.5, 1]) assert.ok(toExam(p + 0.05, k) > toExam(p, k));
 for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) && toExam(p, 0.5) < toExam(p, 1));
 
-// 13) 論点ごとの直近10問：記録は最大10件・新しいものが末尾。合格確率は直近で計算
+// 19) 論点ごとの直近10問：記録は最大10件・新しいものが末尾。合格確率は直近で計算
 {
   let p = emptyProgress(); const q = BANK[0];
   for (let i = 0; i < 12; i++) p = record(p, q, i % 3 !== 0);
@@ -121,7 +197,7 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   assert.ok(pg.ready && pb.ready && pg.prob > pb.prob);
 }
 
-// 14) 論点マップの色：直近10問の正答率で6段階、5問未満は参考値
+// 20) 論点マップの色：直近10問の正答率で6段階、5問未満は参考値
 {
   const t = (rc: number, rn: number) => topicTier({ rc, rn });
   assert.deepEqual(t(0, 0), { tier: 'none', few: false });
@@ -134,7 +210,7 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   assert.deepEqual(t(4, 5), { tier: 'good', few: false });
 }
 
-// 15) 4択に戻す：同じp なら toExam と一致、肢の成績が上がれば4択の正解率も上がる
+// 21) 4択に戻す：同じp なら toExam と一致、肢の成績が上がれば4択の正解率も上がる
 {
   for (const p of [0.6, 0.8, 0.9]) for (let j = 0; j < 4; j++) assert.ok(Math.abs(fourFromLimbs([p, p, p, p], j) - toExam(p)) < 1e-9);
   assert.ok(fourFromLimbs([0.95, 0.6, 0.6, 0.6], 0) > fourFromLimbs([0.6, 0.6, 0.6, 0.6], 0));
@@ -151,3 +227,5 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
+console.log(`OK: 試験パック ${summary.join('・')}`);
+if (freeShort.length) console.log(`注意: 無料版が1回分（10問）に満たない試験 ${freeShort.join('・')}`);
