@@ -37,3 +37,9 @@
 | `zeirishi-shotoku` | 100 | 70 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
 | `zeirishi-shouhi` | 100 | 46 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
 | `zeirishi-souzoku` | 100 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
+
+## 資格試験（2026-10-12 追加）
+
+| id | 問題数 | 過去問ベース | URL |
+|---|---|---|---|
+| `fe-kamokua` | 100 | 90 | https://claude.ai/artifact/AzyNyxngzffTGQXNQc2a4Q |
