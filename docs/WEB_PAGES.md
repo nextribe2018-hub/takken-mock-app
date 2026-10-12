@@ -45,7 +45,7 @@
 | `fp-san` | 500 | 172 | https://claude.ai/artifact/2V1sE9SP6yVDu2VSZmRxVk |
 | `fp-ni` | 300 | 260 | https://claude.ai/artifact/PE3qkZVq8ZizRsz17Ajk8t |
 | `boki-san` | 300 | 0 | https://claude.ai/artifact/XAZGPQjT1bJZQVHbHTJh6e |
-| `boki-ni` | 300 | 0 | https://claude.ai/artifact/GHwMCcDn8wFQcC1pQAc9ya |
+| `boki-ni` | 500 | 0 | https://claude.ai/artifact/GHwMCcDn8wFQcC1pQAc9ya |
 | `kanri-all` | 300 | 244 | https://claude.ai/artifact/VBvVyBoVMczNaBMVUjHPpV |
 | `mankan-all` | 300 | 251 | https://claude.ai/artifact/NkTNM1Bse5BYK9arRUVPBX |
 | `chintai-all` | 300 | 259 | https://claude.ai/artifact/5D2uuUoAswQoHPceHKwGzt |
