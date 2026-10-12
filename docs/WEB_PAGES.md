@@ -23,7 +23,7 @@
 | `waseda-kokugo` | 60 | 0 | https://claude.ai/artifact/72fpcZTCkTbgwXVwBXSv4A |
 | `todai-eigo` | 60 | 0 | https://claude.ai/artifact/Hjchh8gRcfXZZccBeSYLhM |
 | `todai-kokugo` | 60 | 29 | https://claude.ai/artifact/QT4LFPTV8tteM2SLwX4N9E |
-| `todai-sugaku-bun` | 60 | 31 | https://claude.ai/artifact/925rVGJjXS33K3opHNBvMZ |
+| `todai-sugaku-bun` | 200 | 64 | https://claude.ai/artifact/925rVGJjXS33K3opHNBvMZ |
 | `todai-sugaku-ri` | 60 | 31 | https://claude.ai/artifact/UxL9BJUUDossS74XRJMnaH |
 | `todai-nihonshi` | 200 | 102 | https://claude.ai/artifact/JhqjaFiZaSfY3DCEMB1HbN |
 | `todai-chiri` | 200 | 90 | https://claude.ai/artifact/Um7QqcLmr8i6NZZ1Cmidnk |
