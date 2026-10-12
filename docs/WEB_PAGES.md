@@ -8,7 +8,7 @@
 | `kindai-nihonshi` | 200 | 143 | https://claude.ai/artifact/Ee6zAk4pUQtiSzKd15ZJbR |
 | `kindai-sekaishi` | 200 | 136 | https://claude.ai/artifact/Fviwt1QsYuvaMaoSt2vQaN |
 | `kindai-eigo` | 200 | 117 | https://claude.ai/artifact/Mzrjcy714iNHNfWNkmaBYo |
-| `kindai-kokugo` | 60 | 25 | https://claude.ai/artifact/WFisHye6gXGCxiCJT9z6Xr |
+| `kindai-kokugo` | 200 | 79 | https://claude.ai/artifact/WFisHye6gXGCxiCJT9z6Xr |
 | `nichidai-nihonshi` | 200 | 139 | https://claude.ai/artifact/661bJ9TM3nrHd6k3UxaC8H |
 | `nichidai-sekaishi` | 200 | 145 | https://claude.ai/artifact/LqDopEjwkuAaxPVBEXMwYQ |
 | `nichidai-eigo` | 200 | 120 | https://claude.ai/artifact/PZUkKnCbUhz72sKzi143Lp |
