@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, limbExam, limbExamBy, knownRate, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, topicPlan, limbExam, limbExamBy, knownRate, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
   buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
 import { EXAMS, byKey } from '../src/exams';
@@ -265,6 +265,24 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   const P = passEstimate(Object.fromEntries(BANK.filter((_, i) => i % 3 === 0).map((q, i) => [q.k, { n: 1, c: i % 5 ? 1 : 0, last: (i % 5 ? 1 : 0) as 0 | 1 }])), 1000);
   assert.ok(P.ready && P.scen[1].label.startsWith('分かる肢'));
   if (P.ready) console.log(`分かる肢の数で判定 ○×80%→4択${Math.round(limbExam(0.8) * 100)}%（慎重${Math.round(P.scen[0].four * 100)}%／見出し${Math.round(P.four * 100)}%／消去法${Math.round(P.scen[2].four * 100)}%）`);
+}
+
+// 18) 論点ごとの計算：分野ごとに重みの合計が1、得意な論点を伸ばすと予想点が上がる
+{
+  const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
+  BANK.forEach((q, i) => { if (i % 2) return; h[q.k] = { n: 2, c: 1, last: 1 }; });
+  const plan = topicPlan(h);
+  FIELDS.forEach(([f]) => { const pl = plan[f]; assert.ok(Math.abs(pl.un + pl.tops.reduce((a, t) => a + t.w, 0) - 1) < 1e-9); });
+  const base = passEstimate(h, 500);
+  const t0 = BANK.find(q => q.f === '業法')!; const h2 = { ...h };
+  BANK.filter(q => q.f === t0.f && q.t === t0.t).forEach(q => { h2[q.k] = { n: 3, c: 3, last: 1 }; });
+  const r2 = backfillRecent(h2); r2[`${t0.f}|${t0.t}`] = '1111111111';
+  const up = passEstimate(h2, 500, r2);
+  assert.ok(base.ready && up.ready);
+  if (base.ready && up.ready) {
+    assert.ok(up.exp['業法'] > base.exp['業法']);
+    assert.ok(Math.abs(base.limbs.reduce((a, b) => a + b, 0) - 1) < 1e-9);
+  }
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);

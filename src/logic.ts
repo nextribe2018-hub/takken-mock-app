@@ -448,15 +448,53 @@ export function adjustedRates(hist: Hist, r10: Recent = backfillRecent(hist)): R
 
 export type PassEstimate =
   | { ready: false; total: number; st: Record<Field, FieldStat> }
-  | ({ ready: true; total: number; st: Record<Field, FieldStat>; adj: Record<Field, AdjRate>; ox: number; oxAdj: number; oxAll: number; rn: number; scen: Scenario[]; focus: Field } & SimResult);
+  | ({ ready: true; total: number; st: Record<Field, FieldStat>; adj: Record<Field, AdjRate>; limbs: number[]; ox: number; oxAdj: number; oxAll: number; rn: number; scen: Scenario[]; focus: Field } & SimResult);
 // 分野ごとの正答率の不確かさ（ベータ分布）も含めて本試験50問をシミュレーション
-function simulate(st: Record<Field, { n: number; c: number }>, k: number, sims: number): SimResult {
+// 論点ごとの計算用：分野ごとに「解いた論点（重み・直近の問題数・補正後の正答数）」と「未着手の論点の重み」
+export type TopicPlan = Record<Field, { un: number; tops: { t: string; w: number; n: number; c: number }[] }>;
+export const TOPIC_PRIOR = 2; // 解いた数が少ない論点は分野の正答率に2問分寄せる
+export function topicPlan(hist: Hist, r10: Recent = backfillRecent(hist)): TopicPlan {
+  const o = {} as TopicPlan;
+  FIELDS.forEach(([f]) => { o[f] = { un: 0, tops: [] }; });
+  const ts = topicStats(hist, r10);
+  const tot = {} as Record<Field, number>; FIELDS.forEach(([f]) => { tot[f] = ts.filter(x => x.f === f).reduce((a, x) => a + x.total, 0) || 1; });
+  // 重み＝問題集でのその論点の問題数（本試験での出題の多さの目安）
+  ts.forEach(x => { const w = x.total / tot[x.f]; if (x.rn) o[x.f].tops.push({ t: x.t, w, n: x.rn, c: adjustTopic(x.rc, x.rn, x.c, x.n) * x.rn }); else o[x.f].un += w; });
+  return o;
+}
+// 4択換算は表引きで高速化（0.1%刻み）
+const RATE_TABLE: Record<number, Float64Array> = {};
+function examRateFast(p: number, k: number): number {
+  let t = RATE_TABLE[k];
+  if (!t) { t = RATE_TABLE[k] = new Float64Array(1001); for (let i = 0; i <= 1000; i++) t[i] = examRate(i / 1000, k); }
+  return t[Math.round(Math.min(1, Math.max(0, p)) * 1000)];
+}
+// 分野の4択正答率＝論点ごとの4択正答率を重みで平均（未着手の論点は分野の正答率 pf）
+function fieldFour(pl: TopicPlan[Field], pf: number, k: number, draw?: (a: number, b: number) => number): number {
+  let x = pl.un * examRateFast(pf, k);
+  pl.tops.forEach(t => { const a = t.c + TOPIC_PRIOR * pf, b = t.n - t.c + TOPIC_PRIOR * (1 - pf); x += t.w * examRateFast(draw ? draw(a, b) : a / (a + b), k); });
+  return x;
+}
+// 分かる肢の数の内訳（本試験の配点で重みづけ）
+export function planBreakdown(plan: TopicPlan, rs: Record<Field, { n: number; c: number }>): number[] {
+  const out = [0, 0, 0, 0];
+  FIELDS.forEach(([f]) => {
+    const pf = (rs[f].c + 1) / (rs[f].n + 2), wf = EXAM_N[f] / 50, pl = plan[f];
+    const add = (p: number, w: number) => limbBreakdown(p).forEach((v, i) => { out[i] += wf * w * v; });
+    add(pf, pl.un);
+    pl.tops.forEach(t => add((t.c + TOPIC_PRIOR * pf) / (t.n + TOPIC_PRIOR), t.w));
+  });
+  return out;
+}
+function simulate(st: Record<Field, { n: number; c: number }>, k: number, sims: number, plan: TopicPlan): SimResult {
   const r = seeded(20261008);
+  const beta = (a: number, b: number) => { const x = gammaS(a, r), y = gammaS(b, r); return x / (x + y); };
   const sc: number[] = [];
   for (let i = 0; i < sims; i++) {
     let x = 0;
     FIELDS.forEach(([f]) => {
-      const s = st[f]; const a = gammaS(s.c + 1, r), b = gammaS(s.n - s.c + 1, r); const p = examRate(a / (a + b), k);
+      const s = st[f]; const pf = beta(s.c + 1, s.n - s.c + 1);
+      const p = fieldFour(plan[f], pf, k, beta);
       for (let j = 0; j < EXAM_N[f]; j++) if (r() < p) x++;
     });
     sc.push(x);
@@ -464,15 +502,15 @@ function simulate(st: Record<Field, { n: number; c: number }>, k: number, sims: 
   sc.sort((a, b) => a - b);
   const byLine = PASS_LINES.map(t => sc.filter(x => x >= t).length / sims);
   const exp = {} as Record<Field, number>;
-  FIELDS.forEach(([f]) => { const s = st[f]; exp[f] = EXAM_N[f] * examRate((s.c + 1) / (s.n + 2), k); });
+  FIELDS.forEach(([f]) => { const s = st[f]; exp[f] = EXAM_N[f] * fieldFour(plan[f], (s.c + 1) / (s.n + 2), k); });
   return {
     k, byLine, prob: byLine.reduce((a, b) => a + b, 0) / byLine.length,
     mean: sc.reduce((a, b) => a + b, 0) / sims, lo: sc[Math.floor(sims * 0.1)], hi: sc[Math.floor(sims * 0.9)],
     exp, four: FIELDS.reduce((a, [f]) => a + exp[f], 0) / 50,
   };
 }
-// 見出しは「標準」（誤りの半分は迷い）。慎重・消去法が効く場合も併せて返す
-// 合格確率は直近の正答率（論点ごとの直近10問を分野で合算）で計算。直近がない分野は全体を使う
+// 見出しは「分かる肢の数で判定」。慎重・消去法が効く場合も併せて返す
+// 合格確率は論点ごとの直近10問（過去平均で補正）から論点ごとに4択へ換算し、分野で重みづけて合わせる
 export function passEstimate(hist: Hist, sims = 3000, r10: Recent = backfillRecent(hist)): PassEstimate {
   const st = fieldStats(hist, r10);
   const total = Object.values(st).reduce((a, s) => a + s.n, 0);
@@ -481,7 +519,10 @@ export function passEstimate(hist: Hist, sims = 3000, r10: Recent = backfillRece
   const adj = adjustedRates(hist, r10);
   const rs = {} as Record<Field, { n: number; c: number }>;
   FIELDS.forEach(([f]) => { rs[f] = { n: adj[f].n, c: adj[f].c }; });
-  const scen = SCENARIOS.map(x => ({ ...simulate(rs, x.k, sims), label: x.label }));
+  // 論点ごとの正答率から4択に換算して分野で合わせる
+  const plan = topicPlan(hist, r10);
+  const scen = SCENARIOS.map(x => ({ ...simulate(rs, x.k, sims, plan), label: x.label }));
+  const limbs = planBreakdown(plan, rs);
   const M = scen[1];
   const rn = Object.values(rs).reduce((a, s) => a + s.n, 0);
   const oxAdj = Object.values(rs).reduce((a, s) => a + s.c, 0) / rn;
@@ -489,5 +530,5 @@ export function passEstimate(hist: Hist, sims = 3000, r10: Recent = backfillRece
   const ox = rawN ? Object.values(st).reduce((a, s) => a + s.rc, 0) / rawN : oxAdj;
   const oxAll = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
   const focus = FIELDS.map(([f]) => f).sort((a, b) => (EXAM_N[b] - M.exp[b]) - (EXAM_N[a] - M.exp[a]))[0];
-  return { ready: true, total, st, adj, ox, oxAdj, oxAll, rn, scen, focus, ...M };
+  return { ready: true, total, st, adj, ox, oxAdj, oxAll, rn, scen, focus, limbs, ...M };
 }

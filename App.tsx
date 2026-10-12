@@ -10,7 +10,7 @@ import { EXAM, EXAMS, Exam, ExamId, Item } from './src/exams';
 import {
   buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, Progress, Q,
   buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, judge, judgeSet, LessonSys, record,
-  relatedBranch, relatedRows, relatedTraps, reviewQuestions, speechText, statsBy, topicState, topicTier, Tier, fourChoice, limbBreakdown, knownRate, wrongGroups,
+  relatedBranch, relatedRows, relatedTraps, reviewQuestions, speechText, statsBy, topicState, topicTier, Tier, fourChoice, wrongGroups,
 } from './src/logic';
 import { loadLastExam, loadProgress, saveLastExam, saveProgress } from './src/storage';
 import { Colors, fonts, useColors, mix } from './src/theme';
@@ -501,8 +501,8 @@ function PassCard({ ctx }: { ctx: Ctx }) {
         <JudgeTag ctx={ctx} {...j} />
       </View>
       <Text style={st.body}>直近の○×正答率 {Math.round(P.ox * 100)}% → 過去平均で補正して <Text style={st.bold}>{Math.round(P.oxAdj * 100)}%</Text>（全体 {Math.round(P.oxAll * 100)}%） → 推定4択正答率 <Text style={st.bold}>{Math.round(P.four * 100)}%</Text> → 予想得点 <Text style={st.bold}>{Math.round(P.mean)}点</Text> / 50（8割の確率で {P.lo}〜{P.hi}点）</Text>
-      {(() => { const b = limbBreakdown(P.oxAdj); const r = (x: number) => `${Math.round(x * 100)}%`; return (
-        <Text style={st.note}>4択1問あたり：確実に分かる肢の率 <Text style={st.bold}>{r(knownRate(P.oxAdj))}</Text>（○×{r(P.oxAdj)}から当てずっぽう分を除く）→ 4肢中 <Text style={st.bold}>3つ以上分かる {r(b[3])}</Text>（正解確定）／2つ {r(b[2])}（1/2）／1つ {r(b[1])}（1/3）／1つも分からない {r(b[0])}（1/4）</Text>); })()}
+      {(() => { const b = P.limbs; const r = (x: number) => `${Math.round(x * 100)}%`; return (
+        <Text style={st.note}>4択1問あたり（論点ごとの正解率から計算し、本試験の配点で平均）：4肢中 <Text style={st.bold}>3つ以上分かる {r(b[3])}</Text>（正解確定）／2つ {r(b[2])}（1/2）／1つ {r(b[1])}（1/3）／1つも分からない {r(b[0])}（1/4）</Text>); })()}
       <View style={st.kpis}>
         {PASS_LINES.filter((_, i) => i % 2 === 0).map(t => (
           <Kpi key={t} ctx={ctx} label={`合格点${t}点の年`} value={`${Math.round(P.byLine[PASS_LINES.indexOf(t)] * 100)}%`} />
@@ -539,7 +539,7 @@ function PassCard({ ctx }: { ctx: Ctx }) {
       })}
       <Btn ctx={ctx} primary label={`いちばん伸ばせる「${fieldName(ctx.x, P.focus)}」の10問テスト`}
         onPress={() => startFieldExam(ctx, P.focus)} />
-      <Text style={st.note}>合格確率は論点ごとの直近10問の正答率（分野ごとに合算、計{P.rn}問）で計算。分野の行は 採用（補正後の直近）／全体／推定4択／予想点。直近が一時的に極端に悪くても下がりすぎないよう、論点ごとに過去平均で補正：①直近10問と、その論点の全回答の正答率を半々で見る（直近が10問未満なら過去平均の比重が大きくなる。たまたま全問正解のときも同じくならす）②それでも過去平均より10ポイント以上は下げない。見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（大きな数字は「分かる肢の数で判定」）。4択の推計：まず○×正答率pから当てずっぽうで当たった分を除き、肢を確実に判断できる率を s＝2p−1 とする（○×は勘でも半分当たるため。p≦50%なら s＝0）。4肢のうち確実に分かる肢の数は s の二項分布で、3肢以上分かれば正解が確定（100%）、2肢なら残り2つから1/2、1肢なら残り3つから1/3、1つも分からなくても4つから1/4（25%）で当たるとして合計。○×80%なら4択は71%。比較として、誤った肢を思い込みで選んでしまう「慎重」、誤りがすべて迷いで消去法が効く「消去法が効く」も表示。全回答（{P.total}回）から本試験50問を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</Text>
+      <Text style={st.note}>合格確率は論点ごとの直近10問の正答率（分野ごとに合算、計{P.rn}問）で計算。分野の行は 採用（補正後の直近）／全体／推定4択／予想点。直近が一時的に極端に悪くても下がりすぎないよう、論点ごとに過去平均で補正：①直近10問と、その論点の全回答の正答率を半々で見る（直近が10問未満なら過去平均の比重が大きくなる。たまたま全問正解のときも同じくならす）②それでも過去平均より10ポイント以上は下げない。見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（大きな数字は「分かる肢の数で判定」）。4択の推計は論点ごと：各論点の正解率（直近10問を過去平均で補正、解いた数が少ない論点は分野の正答率に2問分寄せる、未着手の論点は分野の正答率）から4択の正解率を出し、問題集でのその論点の問題数（出題の多さの目安）で重みづけて分野の4択正答率にする。論点ごとの計算は、正解率pから当てずっぽうで当たった分を除き、肢を確実に判断できる率を s＝2p−1 とする（○×は勘でも半分当たるため。p≦50%なら s＝0）。4肢のうち確実に分かる肢の数は s の二項分布で、3肢以上分かれば正解が確定（100%）、2肢なら残り2つから1/2、1肢なら残り3つから1/3、1つも分からなくても4つから1/4（25%）で当たるとして合計。○×80%なら4択は71%。比較として、誤った肢を思い込みで選んでしまう「慎重」、誤りがすべて迷いで消去法が効く「消去法が効く」も表示。全回答（{P.total}回）から本試験50問を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</Text>
     </Card>
   );
 }
