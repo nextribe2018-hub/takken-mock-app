@@ -51,3 +51,9 @@
 | `chintai-all` | 500 | 350 | https://claude.ai/artifact/5D2uuUoAswQoHPceHKwGzt |
 | `sharoushi-all` | 500 | 210 | https://claude.ai/artifact/KMuyEFftTZHFspvUA2uoJ5 |
 | `gyosei-all` | 500 | 306 | https://claude.ai/artifact/HhnjJdtqYgAxXZJ93tTicn |
+
+## 資格試験 第2弾（2026-10-13 追加）
+
+| id | 問題数 | 過去問ベース | URL |
+|---|---|---|---|
+| `denken3-denryoku` | 100 | 85 | https://claude.ai/artifact/PoLVwJUobFoDEb6QhUxwGp |
