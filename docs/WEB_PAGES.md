@@ -38,11 +38,11 @@
 | `zeirishi-shouhi` | 100 | 46 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
 | `zeirishi-souzoku` | 100 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
 
-## 資格試験 FP・簿記・不動産管理・社労士・行政書士（2026-10-12 追加、2026-10-13 に各300問へ増量）
+## 資格試験 FP・簿記・不動産管理・社労士・行政書士（2026-10-12 追加、2026-10-13 に各300問、以後500問へ増量）
 
 | id | 問題数 | 過去問ベース | URL |
 |---|---|---|---|
-| `fp-san` | 300 | 170 | https://claude.ai/artifact/2V1sE9SP6yVDu2VSZmRxVk |
+| `fp-san` | 500 | 172 | https://claude.ai/artifact/2V1sE9SP6yVDu2VSZmRxVk |
 | `fp-ni` | 300 | 260 | https://claude.ai/artifact/PE3qkZVq8ZizRsz17Ajk8t |
 | `boki-san` | 300 | 0 | https://claude.ai/artifact/XAZGPQjT1bJZQVHbHTJh6e |
 | `boki-ni` | 300 | 0 | https://claude.ai/artifact/GHwMCcDn8wFQcC1pQAc9ya |
