@@ -29,7 +29,7 @@
 | `todai-chiri` | 60 | 51 | https://claude.ai/artifact/Um7QqcLmr8i6NZZ1Cmidnk |
 | `todai-butsuri` | 60 | 48 | https://claude.ai/artifact/B37oWrkyt9HsowZCkM2i4r |
 | `todai-kagaku` | 60 | 46 | https://claude.ai/artifact/5zmBB984tD5trgKMXKDoe5 |
-| `todai-sekaishi` | 100 | 70 | https://claude.ai/artifact/VKhh2Q8SMCqvuD8NWM9wwK |
+| `todai-sekaishi` | 200 | 121 | https://claude.ai/artifact/VKhh2Q8SMCqvuD8NWM9wwK |
 | `todai-seibutsu` | 60 | 48 | https://claude.ai/artifact/WqLWSSFaKe3vdcSeUPoqbw |
 | `zeirishi-boki` | 500 | 246 | https://claude.ai/artifact/EQUepUHRpBqkYywD6KMin6 |
 | `zeirishi-zaihyo` | 500 | 285 | https://claude.ai/artifact/CVD7XPnJPbNCpTygLkSd4L |
