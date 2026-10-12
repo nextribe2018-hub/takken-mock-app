@@ -44,7 +44,7 @@
 |---|---|---|---|
 | `fe-kamokua` | 200 | 128 | https://claude.ai/artifact/AzyNyxngzffTGQXNQc2a4Q |
 | `itpass-all` | 300 | 262 | https://claude.ai/artifact/L2iKrttkXW9nUtf8gVwAoV |
-| `denko2-gakka` | 200 | 132 | https://claude.ai/artifact/3DYZwnEJCW1oYL8DjdgBPu |
+| `denko2-gakka` | 300 | 191 | https://claude.ai/artifact/3DYZwnEJCW1oYL8DjdgBPu |
 | `kikenbutsu-otsu4` | 300 | 0 | https://claude.ai/artifact/4fHc3PkoMbjdnkgUTqsyrj |
 | `eisei-ni` | 200 | 165 | https://claude.ai/artifact/QMjyh2k7bZ553Gm3HBX6vA |
 | `eisei-ichi` | 200 | 186 | https://claude.ai/artifact/DD1EVU92e5pQgBo5aJLgtt |
