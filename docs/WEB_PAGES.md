@@ -12,7 +12,7 @@
 | `nichidai-nihonshi` | 200 | 139 | https://claude.ai/artifact/661bJ9TM3nrHd6k3UxaC8H |
 | `nichidai-sekaishi` | 200 | 145 | https://claude.ai/artifact/LqDopEjwkuAaxPVBEXMwYQ |
 | `nichidai-eigo` | 200 | 120 | https://claude.ai/artifact/PZUkKnCbUhz72sKzi143Lp |
-| `nichidai-kokugo` | 60 | 27 | https://claude.ai/artifact/5hbVUHDtihjuPvdh4nNRzX |
+| `nichidai-kokugo` | 200 | 66 | https://claude.ai/artifact/5hbVUHDtihjuPvdh4nNRzX |
 | `meiji-nihonshi` | 200 | 70 | https://claude.ai/artifact/C3LqyK2Y9BN3Wrk4HisTzV |
 | `meiji-sekaishi` | 200 | 70 | https://claude.ai/artifact/BLKrPtzgWbS5mDuYnE37za |
 | `meiji-eigo` | 200 | 53 | https://claude.ai/artifact/2XG3hyPiVdKqH64QWe7tqw |
