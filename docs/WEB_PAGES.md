@@ -27,7 +27,7 @@
 | `todai-sugaku-ri` | 60 | 31 | https://claude.ai/artifact/UxL9BJUUDossS74XRJMnaH |
 | `todai-nihonshi` | 200 | 102 | https://claude.ai/artifact/JhqjaFiZaSfY3DCEMB1HbN |
 | `todai-chiri` | 200 | 90 | https://claude.ai/artifact/Um7QqcLmr8i6NZZ1Cmidnk |
-| `todai-butsuri` | 60 | 48 | https://claude.ai/artifact/B37oWrkyt9HsowZCkM2i4r |
+| `todai-butsuri` | 200 | 88 | https://claude.ai/artifact/B37oWrkyt9HsowZCkM2i4r |
 | `todai-kagaku` | 60 | 46 | https://claude.ai/artifact/5zmBB984tD5trgKMXKDoe5 |
 | `todai-sekaishi` | 200 | 121 | https://claude.ai/artifact/VKhh2Q8SMCqvuD8NWM9wwK |
 | `todai-seibutsu` | 60 | 48 | https://claude.ai/artifact/WqLWSSFaKe3vdcSeUPoqbw |
