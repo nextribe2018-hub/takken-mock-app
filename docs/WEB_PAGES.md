@@ -60,3 +60,4 @@
 | `denken3-riron` | 100 | 81 | https://claude.ai/artifact/311ucRRBqYMBdVKZD6ML1k |
 | `denken3-kikai` | 100 | 88 | https://claude.ai/artifact/FaGfSVh9o79rnKQm5DLDPL |
 | `denken3-houki` | 100 | 77 | https://claude.ai/artifact/L53GNXbQbDSW5emdpaoFyk |
+| `denko2-all` | 300 | 254 | https://claude.ai/artifact/W8FzgiP3pG2Ua5mbCNHXtc |
