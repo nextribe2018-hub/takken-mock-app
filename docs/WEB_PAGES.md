@@ -32,7 +32,7 @@
 | `todai-sekaishi` | 100 | 70 | https://claude.ai/artifact/VKhh2Q8SMCqvuD8NWM9wwK |
 | `todai-seibutsu` | 60 | 48 | https://claude.ai/artifact/WqLWSSFaKe3vdcSeUPoqbw |
 | `zeirishi-boki` | 300 | 189 | https://claude.ai/artifact/EQUepUHRpBqkYywD6KMin6 |
-| `zeirishi-zaihyo` | 300 | 239 | https://claude.ai/artifact/CVD7XPnJPbNCpTygLkSd4L |
+| `zeirishi-zaihyo` | 500 | 285 | https://claude.ai/artifact/CVD7XPnJPbNCpTygLkSd4L |
 | `zeirishi-houjin` | 300 | 169 | https://claude.ai/artifact/5svegi4HDdsJmhaRdpknYA |
 | `zeirishi-shotoku` | 300 | 184 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
 | `zeirishi-shouhi` | 300 | 149 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
