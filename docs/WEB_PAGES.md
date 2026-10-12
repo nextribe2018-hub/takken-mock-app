@@ -55,3 +55,4 @@
 | `boiler2-all` | 200 | 182 | https://claude.ai/artifact/75Fzbh3wS4N84Bv5QHoiF5 |
 | `kango-all` | 200 | 200 | https://claude.ai/artifact/AiSqs9V2BMBC9719QFKLsB |
 | `kanrigyo-all` | 100 | 93 | https://claude.ai/artifact/WQ3pUuqBPe1jUdifbpyyxR |
+| `sg-kamokua` | 100 | 95 | https://claude.ai/artifact/LJvkJyFakHE9f8Ww2dHzHD |
