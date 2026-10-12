@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, topicTier, toExam, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
 } from '../src/logic';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
@@ -148,6 +148,31 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   assert.equal(good.n, 1); assert.equal(good.items[0].missing, 1); assert.equal(good.nSolid, 1);
   assert.ok(good.items[0].prob > bad.items[0].prob);
   console.log(`4択に戻す ${id}: 全肢正解→${Math.round(good.items[0].prob * 100)}% 全肢不正解→${Math.round(bad.items[0].prob * 100)}%（元の4択 ${Object.keys(FOUR_GROUPS).length}問）`);
+}
+
+// 16) 直近の極端な不調の補正：過去平均でならし、過去平均−15pt より下げない
+{
+  // 全30回で20回正解（67%）、うち直近10問は全問不正解 → ならし(0+10×0.67)/20=33% → 下限 67−10=57%
+  const a = adjustTopic(0, 10, 20, 30);
+  assert.ok(Math.abs(a - (20 / 30 - ADJ_FLOOR)) < 1e-9);
+  // 軽い不調はならしだけ：全50回40正解(80%)・直近7/10 → (7+8)/20=75%
+  assert.ok(Math.abs(adjustTopic(7, 10, 40, 50) - 15 / 20) < 1e-9);
+  // 良い方向の偶然もならす：全20回12正解(60%)・直近10/10 → (10+6)/20=80%（100%にしない）
+  assert.ok(Math.abs(adjustTopic(10, 10, 12, 20) - 16 / 20) < 1e-9);
+  // 直近と全体が同じなら変わらない
+  assert.ok(Math.abs(adjustTopic(8, 10, 8, 10) - 0.8) < 1e-9);
+  // 合格確率：直近だけ極端に悪いと、補正ありの方が下がり方が小さい
+  const q0 = BANK.filter((_, i) => i % 3 === 0);
+  const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
+  q0.forEach(x => { h[x.k] = { n: 4, c: 3, last: 0 }; }); // 全体75%
+  const r: Record<string, string> = {}; q0.forEach(x => { r[`${x.f}|${x.t}`] = '0000000000'; });
+  const P = passEstimate(h, 1000, r);
+  assert.ok(P.ready);
+  if (P.ready) {
+    assert.ok(P.ox === 0 && P.oxAdj >= 0.75 - ADJ_FLOOR - 1e-9);
+    const ad = adjustedRates(h, r); Object.values(ad).forEach(x => assert.ok(x.adj >= 0.75 - ADJ_FLOOR - 1e-9 && x.raw === 0));
+    console.log(`直近0%・全体75%の補正: 採用${Math.round(P.oxAdj * 100)}% → 合格確率${Math.round(P.prob * 100)}%`);
+  }
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);

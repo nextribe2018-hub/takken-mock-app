@@ -364,9 +364,31 @@ function gammaS(k: number, r: () => number): number {
 }
 type SimResult = { k: number; byLine: number[]; prob: number; mean: number; lo: number; hi: number; exp: Record<Field, number>; four: number };
 export type Scenario = SimResult & { label: string };
+// 直近の極端な不調で合格確率が下がりすぎないよう、論点ごとに過去平均で補正する
+//  ① 直近10問に「その論点の全回答の正答率」を ADJ_PRIOR 問分足してならす（良い方向の偶然も同じくならす）
+//  ② それでも過去平均より ADJ_FLOOR 以上は下げない（悪い方向だけの下限）
+export const ADJ_PRIOR = 10; // 直近10問と過去平均を半々で見る
+export const ADJ_FLOOR = 0.10;
+export function adjustTopic(rc: number, rn: number, c: number, n: number): number {
+  if (!rn) return n ? c / n : 0;
+  const all = n ? c / n : rc / rn;
+  const blended = (rc + ADJ_PRIOR * all) / (rn + ADJ_PRIOR);
+  return Math.max(blended, all - ADJ_FLOOR);
+}
+export type AdjRate = { n: number; c: number; raw: number | null; adj: number };
+// 分野ごとの合格確率用の成績。n は直近の問題数（不確かさの幅は直近の数で決める）、c は補正後の正答数
+export function adjustedRates(hist: Hist, r10: Recent = backfillRecent(hist)): Record<Field, AdjRate> {
+  const st = fieldStats(hist, r10);
+  const o = {} as Record<Field, AdjRate>;
+  FIELDS.forEach(([f]) => { o[f] = { n: 0, c: 0, raw: st[f].rn ? st[f].rc / st[f].rn : null, adj: 0 }; });
+  topicStats(hist, r10).forEach(s => { if (!s.rn) return; const r = o[s.f]; r.n += s.rn; r.c += adjustTopic(s.rc, s.rn, s.c, s.n) * s.rn; });
+  FIELDS.forEach(([f]) => { const r = o[f], s = st[f]; if (!r.n) { r.n = s.n; r.c = s.c; } r.adj = r.n ? r.c / r.n : 0; });
+  return o;
+}
+
 export type PassEstimate =
   | { ready: false; total: number; st: Record<Field, FieldStat> }
-  | ({ ready: true; total: number; st: Record<Field, FieldStat>; ox: number; oxAll: number; rn: number; scen: Scenario[]; focus: Field } & SimResult);
+  | ({ ready: true; total: number; st: Record<Field, FieldStat>; adj: Record<Field, AdjRate>; ox: number; oxAdj: number; oxAll: number; rn: number; scen: Scenario[]; focus: Field } & SimResult);
 // 分野ごとの正答率の不確かさ（ベータ分布）も含めて本試験50問をシミュレーション
 function simulate(st: Record<Field, { n: number; c: number }>, k: number, sims: number): SimResult {
   const r = seeded(20261008);
@@ -395,13 +417,17 @@ export function passEstimate(hist: Hist, sims = 3000, r10: Recent = backfillRece
   const st = fieldStats(hist, r10);
   const total = Object.values(st).reduce((a, s) => a + s.n, 0);
   if (total < 30) return { ready: false, total, st };
+  // 直近10問（論点ごと）を過去平均で補正した成績で計算。直近がない分野は全体を使う
+  const adj = adjustedRates(hist, r10);
   const rs = {} as Record<Field, { n: number; c: number }>;
-  FIELDS.forEach(([f]) => { const s = st[f]; rs[f] = s.rn ? { n: s.rn, c: s.rc } : { n: s.n, c: s.c }; });
+  FIELDS.forEach(([f]) => { rs[f] = { n: adj[f].n, c: adj[f].c }; });
   const scen = SCENARIOS.map(x => ({ ...simulate(rs, x.k, sims), label: x.label }));
   const M = scen[1];
   const rn = Object.values(rs).reduce((a, s) => a + s.n, 0);
-  const ox = Object.values(rs).reduce((a, s) => a + s.c, 0) / rn;
+  const oxAdj = Object.values(rs).reduce((a, s) => a + s.c, 0) / rn;
+  const rawN = Object.values(st).reduce((a, s) => a + s.rn, 0);
+  const ox = rawN ? Object.values(st).reduce((a, s) => a + s.rc, 0) / rawN : oxAdj;
   const oxAll = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
   const focus = FIELDS.map(([f]) => f).sort((a, b) => (EXAM_N[b] - M.exp[b]) - (EXAM_N[a] - M.exp[a]))[0];
-  return { ready: true, total, st, ox, oxAll, rn, scen, focus, ...M };
+  return { ready: true, total, st, adj, ox, oxAdj, oxAll, rn, scen, focus, ...M };
 }
