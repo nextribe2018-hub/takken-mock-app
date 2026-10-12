@@ -16,7 +16,7 @@
 | `meiji-nihonshi` | 200 | 70 | https://claude.ai/artifact/C3LqyK2Y9BN3Wrk4HisTzV |
 | `meiji-sekaishi` | 200 | 70 | https://claude.ai/artifact/BLKrPtzgWbS5mDuYnE37za |
 | `meiji-eigo` | 200 | 53 | https://claude.ai/artifact/2XG3hyPiVdKqH64QWe7tqw |
-| `meiji-kokugo` | 60 | 0 | https://claude.ai/artifact/YZbcG2VBg8ruZ5AeaLj2vo |
+| `meiji-kokugo` | 200 | 62 | https://claude.ai/artifact/YZbcG2VBg8ruZ5AeaLj2vo |
 | `waseda-nihonshi` | 100 | 0 | https://claude.ai/artifact/RYe7d9JLQ2i5bWKAFm7Wkm |
 | `waseda-sekaishi` | 100 | 0 | https://claude.ai/artifact/YSTuDD2r4vHEsAWsMrcqpt |
 | `waseda-eigo` | 60 | 0 | https://claude.ai/artifact/7tpcob8K8ppHDX1dpBbATw |
