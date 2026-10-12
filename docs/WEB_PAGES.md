@@ -63,3 +63,11 @@
 | `denko2-all` | 300 | 254 | https://claude.ai/artifact/W8FzgiP3pG2Ua5mbCNHXtc |
 | `denko1-all` | 200 | 178 | https://claude.ai/artifact/3iqs4o9axKHiE5fdjEko8k |
 | `sg-all` | 300 | 142 | https://claude.ai/artifact/WW6NdtgXtNPNBVeE1xt7aw |
+
+## 福祉系国家試験（過去問題を原文のまま掲載、2026-10-13 追加）
+
+社会福祉振興・試験センターの利用条件（文言を一切変えない・解説が同センターと無関係であることを明示）に合わせ、問題文・事例・選択肢は原文のまま（`fix: true` で選択肢の順も原文どおり）。解説・覚え方は独自作成。「2つ選びなさい」・図が必要な問題・正答が複数の問題は収録しない。
+
+| id | 問題数 | 過去問題（原文） | URL |
+|---|---|---|---|
+| `shakai-all` | 178 | 178 | https://claude.ai/artifact/9eL6cNVu5Mqa6dFge96JKK |
