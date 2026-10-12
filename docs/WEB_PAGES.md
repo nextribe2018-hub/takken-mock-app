@@ -49,3 +49,5 @@
 | `eisei-ni` | 200 | 165 | https://claude.ai/artifact/QMjyh2k7bZ553Gm3HBX6vA |
 | `eisei-ichi` | 200 | 186 | https://claude.ai/artifact/DD1EVU92e5pQgBo5aJLgtt |
 | `tohan-all` | 300 | 279 | https://claude.ai/artifact/2VhkBkV1Gf41LGGmsk8W5Y |
+| `fp-2kyu` | 100 | 95 | https://claude.ai/artifact/KdzqzfEY2x2jc5JknajGvh |
+| `fp-3kyu` | 100 | 100 | https://claude.ai/artifact/72KUqkwyDbP95Z1eg43gUB |
