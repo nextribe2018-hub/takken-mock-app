@@ -62,7 +62,7 @@ EXTRA = {
 # 追加の試験は web/univ/units/<単位>.json を置くだけで組み立てられる（セッションを分けて作るときに同じファイルを触らないため）
 # 形式は web/univ/units/README.md を参照
 UNIT_SUB = {}
-OWNER, WHAT, WHO, EYEBROW = {}, {}, {}, {}
+OWNER, WHAT, WHO, EYEBROW, PASTSRC = {}, {}, {}, {}, {}
 for f in sorted((here / "units").glob("*.json")):
     c = json.loads(f.read_text(encoding="utf-8"))
     u = c["unit"]
@@ -75,6 +75,7 @@ for f in sorted((here / "units").glob("*.json")):
     if c.get("what"): WHAT[u] = c["what"]
     if c.get("who"): WHO[u] = c["who"]
     if c.get("eyebrow"): EYEBROW[u] = c["eyebrow"]
+    if c.get("past_src"): PASTSRC[u] = c["past_src"]  # 過去問を原文のまま載せる試験の説明（{years} で年度）
 
 
 def fields_of(qs):
@@ -99,7 +100,8 @@ def build(unit, sub):
     if past:
         what = WHAT.get(unit, "試験問題（解答は非公表）と出題のポイント" if unit == "zeirishi" else "入試問題・解答・出題意図")
         who = WHO.get(unit, "国税庁" if unit == "zeirishi" else univ)
-        src = (f"「過去問ベース」は、{who}が公式に公開している{'・'.join(years)}年度の{what}をもとに、"
+        src = (PASTSRC[unit].format(years="・".join(years)) if unit in PASTSRC else
+               f"「過去問ベース」は、{who}が公式に公開している{'・'.join(years)}年度の{what}をもとに、"
                "問われた知識を選択式に作り直した問題です。設問文・選択肢・本文は独自に作成したもので、実際の試験の文面とは異なります。")
     else:
         src = PLAN_ONLY[unit]

@@ -18,7 +18,7 @@ for i, q in enumerate(qs):
     for k in REQ:
         if k not in q or q[k] in ("", None, []):
             errs.append(f"{at}: {k} がない")
-    extra = set(q) - set(REQ) - {"a", "last"} - ({"p"} if mode == "lang" else set())
+    extra = set(q) - set(REQ) - {"a", "last", "fix"} - ({"p"} if mode == "lang" else set())
     if extra:
         errs.append(f"{at}: 余計なキー {sorted(extra)}")
     if q.get("id") in ids:
@@ -40,11 +40,13 @@ for i, q in enumerate(qs):
     a = q.get("a", 0)
     if not (isinstance(a, int) and 0 <= a < len(c)):
         errs.append(f"{at}: a={a} が範囲外")
-    if a != 0 and not q.get("last"):
-        errs.append(f"{at}: a≠0 は last=true（末尾固定肢が正解）のときだけ")
+    if q.get("fix") not in (None, True):
+        errs.append(f"{at}: fix は true のときだけ書く")
+    if a != 0 and not q.get("last") and not q.get("fix"):
+        errs.append(f"{at}: a≠0 は last=true（末尾固定肢が正解）か fix=true（原文の順で出す）のときだけ")
     if q.get("last") and not any(w in c[-1] for w in ALL_WORDS):
         errs.append(f"{at}: last=true なのに最後の選択肢が「すべて…／あてはまるものがない」でない")
-    if not q.get("last") and any(w in x for x in c for w in ALL_WORDS if x.startswith(w)):
+    if not q.get("last") and not q.get("fix") and any(w in x for x in c for w in ALL_WORDS if x.startswith(w)):
         errs.append(f"{at}: 「すべて…」の選択肢があるなら last=true")
     if mode == "history" and not isinstance(q.get("y"), int):
         errs.append(f"{at}: y は整数")
