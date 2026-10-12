@@ -36,7 +36,7 @@ UNITS = {
     "nichidai": ("日大", "日本大学", "一般選抜N方式第1期・経済学部A個別方式",
                  "https://www.nihon-u.ac.jp/admission_info/application/date/past_test/", "日本大学 過去の入試問題（公式）"),
     "meiji": ("明治", "明治大学", "一般選抜（全学部統一入試・学部別入試）",
-              "https://www.meiji.ac.jp/exam/information/guidelines/index.html", "明治大学 一般選抜 入試要項（公式）"),
+              "https://www.meiji.ac.jp/exam/information/qfki0t00000jg2m1.html", "明治大学 過去問題等（公式）"),
     "waseda": ("早稲田", "早稲田大学", "一般選抜（商・社会科学・教育・文学部）",
                "https://www.waseda.jp/inst/admission/", "早稲田大学 入学センター（公式）"),
     "todai": ("東大", "東京大学", "前期日程 第2次学力試験",
@@ -47,7 +47,7 @@ UNITS = {
 
 # 想定問題だけのときの理由
 PLAN_ONLY = {
-    "meiji": "明治大学の一般選抜の問題は公式サイトで公開されていないため、すべて独自に作成した想定問題です。",
+    "meiji": "明治大学は2026年度一般選抜の問題・解答例を公式ページ（リンク先は赤本オンライン）で公開していますが、この科目はすべて独自に作成した想定問題です。",
     "waseda": "早稲田大学の過去問題は今回参照していないため、すべて独自に作成した想定問題です。",
     "todai": "東京大学の英語の問題冊子は著作権の都合で公開されていないため、すべて独自に作成した想定問題です。",
 }
@@ -57,6 +57,32 @@ EXTRA = {
     "zeirishi": ("出典：国税庁ホームページ（https://www.nta.go.jp/taxes/zeirishi/zeirishishiken/zeirishi.htm）の税理士試験の試験問題を加工して作成。"
                  "法令等は令和8年4月3日現在施行のもの（所得税法の計算は令和7年分）に基づきます。税務の個別の助言ではありません。"),
 }
+
+
+# 追加の試験は web/univ/units/<単位>.json を置くだけで組み立てられる（セッションを分けて作るときに同じファイルを触らないため）
+# 形式は web/univ/units/README.md を参照
+UNIT_SUB = {}
+OWNER, WHAT, WHO, EYEBROW, PASTSRC = {}, {}, {}, {}, {}
+for f in sorted((here / "units").glob("*.json")):
+    c = json.loads(f.read_text(encoding="utf-8"))
+    u = c["unit"]
+    assert u not in UNITS, f"{f.name}: 単位 {u} は既にある"
+    UNITS[u] = (c["short"], c["name"], c["exam"], c["link"], c["linktext"])
+    UNIT_SUB[u] = {k: tuple(v) for k, v in c["subjects"].items()}
+    if c.get("plan_only"): PLAN_ONLY[u] = c["plan_only"]
+    if c.get("extra"): EXTRA[u] = c["extra"]
+    if c.get("owner"): OWNER[u] = c["owner"]
+    if c.get("what"): WHAT[u] = c["what"]
+    if c.get("who"): WHO[u] = c["who"]
+    if c.get("eyebrow"): EYEBROW[u] = c["eyebrow"]
+    if c.get("past_src"): PASTSRC[u] = c["past_src"]  # 過去問を原文のまま載せる試験の説明（{years} で年度）
+
+# 明治：2026年度から公式ページ「過去問題等」（リンク先は赤本オンライン）で問題を公開。利用は公表後1か月以内に利用報告が必要
+WHO["meiji"] = "明治大学"
+WHAT["meiji"] = ("一般選抜 学部別入学試験の問題・解答例・出題の意図"
+                 "（明治大学の公式ページ「過去問題等」のリンク先、赤本オンラインで公開）")
+EXTRA["meiji"] = ("出典：明治大学 2026年度 一般選抜 学部別入学試験（学部・大問・設問番号は各問に記載）。"
+                  "明治大学の入試問題を改変して利用しています。解説・覚え方は明治大学が公表したものではありません。")
 
 
 def fields_of(qs):
@@ -75,25 +101,28 @@ def build(unit, sub):
     if errs:
         return errs
     short, univ, exam, link, linktext = UNITS[unit]
-    sname, scope = SUB[sub]
+    sname, scope = UNIT_SUB.get(unit, SUB)[sub]
     past = [q for q in qs if q["k"] == "past"]
     years = sorted({q["ref"][:4] for q in past})
     if past:
-        what = "試験問題（解答は非公表）と出題のポイント" if unit == "zeirishi" else "入試問題・解答・出題意図"
-        who = "国税庁" if unit == "zeirishi" else univ
-        src = (f"「過去問ベース」は、{who}が公式に公開している{'・'.join(years)}年度の{what}をもとに、"
+        what = WHAT.get(unit, "試験問題（解答は非公表）と出題のポイント" if unit == "zeirishi" else "入試問題・解答・出題意図")
+        who = WHO.get(unit, "国税庁" if unit == "zeirishi" else univ)
+        src = (PASTSRC[unit].format(years="・".join(years)) if unit in PASTSRC else
+               f"「過去問ベース」は、{who}が公式に公開している{'・'.join(years)}年度の{what}をもとに、"
                "問われた知識を選択式に作り直した問題です。設問文・選択肢・本文は独自に作成したもので、実際の試験の文面とは異なります。")
     else:
         src = PLAN_ONLY[unit]
     foot = (
-        f"このページは{'国税庁・国税審議会' if unit == 'zeirishi' else univ}の公式教材ではありません。{src}"
-        "「想定問題」は、公表されている出題範囲・出題形式に合わせて独自に作成した問題で、実際に出題されたものではありません。"
+        f"このページは{OWNER.get(unit, '国税庁・国税審議会' if unit == 'zeirishi' else univ)}の公式教材ではありません。{src}"
+        + ("「想定問題」は、公表されている出題範囲・出題形式に合わせて独自に作成した問題で、実際に出題されたものではありません。"
+           if any(q["k"] == "plan" for q in qs) else "")
         + ("英語・現代文の本文は独自に作成した文章です。古文・漢文は著作権の切れた古典の原文を使っています。" if sub in ("eigo", "kokugo") else "")
         + "解説と覚え方も独自に作成したものです。" + EXTRA.get(unit, "")
     )
     rep = {
         "__TITLE__": f"{short} {sname} 10問テスト",
-        "__EYEBROW__": f"{scope}｜{univ} {exam}" if unit != "zeirishi" else f"税理士試験（{exam}）｜{scope}・令和8年4月3日現在の法令",
+        "__EYEBROW__": EYEBROW[unit].format(scope=scope, name=univ, exam=exam) if unit in EYEBROW
+        else f"{scope}｜{univ} {exam}" if unit != "zeirishi" else f"税理士試験（{exam}）｜{scope}・令和8年4月3日現在の法令",
         "__FOOT__": foot,
         "__FIELDS__": dump(fields_of(qs)),
         "__LS__": f"{xid}-v1",
@@ -118,7 +147,7 @@ def build(unit, sub):
 def main():
     errs = []
     for unit in UNITS:
-        for sub in SUB:
+        for sub in UNIT_SUB.get(unit, SUB):
             if (root / f"src/data/{unit}-{sub}.json").exists():
                 errs += build(unit, sub)
     if errs:
