@@ -120,6 +120,10 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .lbs{display:flex;gap:3px;margin-top:3px}.lb{display:inline-grid;place-items:center;min-width:1.5em;height:1.5em;font-size:.7rem;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
 .lb.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}.lb.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}.lb.mi{border-style:dashed}
 .lnk{font:inherit;background:none;border:0;padding:0;color:var(--ai);text-decoration:underline;cursor:pointer;text-align:left}
+.fourcard{font:inherit;color:inherit;background:none;border:0;padding:0;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;cursor:pointer}
+.fourcard .fc-l{display:flex;flex-direction:column;gap:2px}.fourcard .fc-t{font-family:var(--f-disp);font-weight:700;font-size:1.15rem}
+.fourcard .fc-r{display:flex;flex-direction:column;align-items:flex-end}.fourcard .fc-r .fp{font-size:1.8rem;line-height:1.1}
+.fourcard:focus-visible{outline:2px solid var(--ai);outline-offset:4px}
 .fp{font-size:1.25rem;font-family:var(--f-disp)}
 .vok{color:var(--ok)}.vmid{color:var(--warn)}.vng{color:var(--ng)}
 .dot.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
@@ -357,25 +361,35 @@ function fourChoice(){
     items.push({id,label:refLabelJa(id),f:qs[0].f,limbs,answered,missing,kind,prob})});
   items.sort((a,b)=>a.prob-b.prob);const solid=items.filter(x=>x.answered>=3);
   return{items,n:items.length,avg:items.length?items.reduce((a,x)=>a+x.prob,0)/items.length:0,nSolid:solid.length,avgSolid:solid.length?solid.reduce((a,x)=>a+x.prob,0)/solid.length:null,total:Object.keys(FOUR_GROUPS).length}}
-let FOUR_ALL=false;
+// ホームには平均の正解率だけ。問題ごとの一覧は fourView()（別画面）
 function fourHtml(){
-  const F=fourChoice();if(!F.n)return "";
-  const P=passEst();const pc=x=>Math.round(x*100)+"%";
-  const list=FOUR_ALL?F.items:F.items.slice(0,6);
-  const rows=list.map(x=>{const w=x.limbs.reduce((a,l)=>l.p<a.p?l:a);
+  const F=fourChoice();if(!F.n)return "";const pc=x=>Math.round(x*100)+"%";
+  return `<section class="card"><button class="fourcard" id="openFour" aria-label="過去問の4択の一覧を開く">
+    <span class="fc-l"><span class="fc-t">過去問の4択に戻すと</span><span class="note">4択1問を正解できる確率（${F.n}問分の平均）</span></span>
+    <span class="fc-r"><b class="fp ${F.avg>=0.7?"vok":F.avg>=0.4?"vmid":"vng"}">${pc(F.avg)}</b><span class="note">一覧 ›</span></span></button></section>`}
+function fourView(){
+  clearInterval(timerId);
+  const F=fourChoice();const pc=x=>Math.round(x*100)+"%";
+  const rows=F.items.map(x=>{const w=x.limbs.reduce((a,l)=>l.p<a.p?l:a);
     const dots=x.limbs.map(l=>`<span class="lb ${l.n?(l.c/l.n>=0.5?"okd":"ngd"):""}" title="肢${l.label}">${l.label}</span>`).join("")+(x.missing?`<span class="lb mi" title="データにない肢">?</span>`.repeat(x.missing):"");
     return `<tr><td style="white-space:nowrap"><b class="fp ${x.prob>=0.7?"vok":x.prob>=0.4?"vmid":"vng"}">${pc(x.prob)}</b><br>${x.label}<br><span class="note">${FNAME(x.f)}${x.kind==="count"?"・個数/組合せ":""}</span></td><td><button class="lnk" data-k="${w.q.f}|${w.q.t}">${[...new Set(x.limbs.map(l=>l.q.t))].join("・")}</button><div class="lbs">${dots}</div><span class="note">${x.answered}/4肢 解答済み</span></td></tr>`}).join("");
-  return `<section class="card"><h2>過去問の4択に戻すと</h2>
-  <div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="kp"><span>推計できた4択</span><b>${F.n}<small style="font-size:.8rem">/${F.total}問</small></b></div><div class="kp"><span>平均の正解率</span><b>${pc(F.avg)}</b></div><div class="kp"><span>3肢以上解いた${F.nSolid}問</span><b>${F.avgSolid==null?"—":pc(F.avgSolid)}</b></div></div>
-  <div class="tw"><table class="st"><thead><tr><th>4択正解率</th><th>論点と肢</th></tr></thead><tbody>${rows}</tbody></table></div>
-  ${F.n>6?`<div class="row"><button class="btn" id="fourAll">${FOUR_ALL?"弱い6問だけ表示":`すべて表示（${F.n}問）`}</button></div>`:""}
-  <p class="note" style="margin:0">正解率の低い順。肢の色：緑＝正解／赤＝誤り／?＝データにない肢。<button class="lnk" data-notes="four" style="white-space:nowrap">※ 計算方法</button></p></section>`}
-function notesView(sec){
+  app.innerHTML=`<div class="exam-top"><div style="font-weight:700">過去問の4択に戻すと</div><button class="btn" id="back">← 戻る</button></div>
+  <section class="card"><div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="kp"><span>推計できた4択</span><b>${F.n}<small style="font-size:.8rem">/${F.total}問</small></b></div><div class="kp"><span>平均の正解率</span><b>${pc(F.avg)}</b></div><div class="kp"><span>3肢以上解いた${F.nSolid}問</span><b>${F.avgSolid==null?"—":pc(F.avgSolid)}</b></div></div>
+  <p class="note" style="margin:0">正解率の低い順。論点名を押すと解説と確認例題へ。肢の色：緑＝正解／赤＝誤り／?＝データにない肢。<button class="lnk" id="fourNotes" style="white-space:nowrap">※ 計算方法</button></p>
+  ${F.n?`<div class="tw"><table class="st"><thead><tr><th>4択正解率</th><th>論点と肢</th></tr></thead><tbody>${rows}</tbody></table></div>`:`<p>まだ推計できる問題がありません。</p>`}</section>
+  <div class="row"><button class="btn" id="back2">← 戻る</button></div>`;
+  scrollTo(0,0);
+  const back=()=>{home();scrollTo(0,FOUR_RET)};$("#back").onclick=back;$("#back2").onclick=back;
+  $("#fourNotes").onclick=()=>notesView("four",()=>fourView());
+  document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>startReview([{key:b.dataset.k}]));
+}
+let FOUR_RET=0;
+function notesView(sec,ret){
   clearInterval(timerId);
   app.innerHTML=`<div class="exam-top"><div style="font-weight:700">計算方法・注意事項</div><button class="btn" id="back">← 戻る</button></div>
   ${NOTES.map(([id,title,ps])=>`<section class="card" id="n-${id}"><h2>${title}</h2>${ps.map(t=>`<p style="margin:0">${esc(t)}</p>`).join("")}</section>`).join("")}
   <div class="row"><button class="btn" id="back2">← 戻る</button></div>`;
-  const y=NOTES_RET;const back=()=>{home();scrollTo(0,y)};$("#back").onclick=back;$("#back2").onclick=back;
+  const y=NOTES_RET;const back=ret||(()=>{home();scrollTo(0,y)});$("#back").onclick=back;$("#back2").onclick=back;
   const el=document.getElementById("n-"+sec);if(el)el.scrollIntoView();else scrollTo(0,0)}
 let NOTES_RET=0;
 function home(){
@@ -432,7 +446,7 @@ function home(){
   syncLabel();
   $("#go").onclick=()=>startExam();
   document.querySelectorAll("[data-notes]").forEach(b=>b.onclick=()=>{NOTES_RET=scrollY;notesView(b.dataset.notes)});
-  if($("#fourAll"))$("#fourAll").onclick=()=>{FOUR_ALL=!FOUR_ALL;const y=scrollY;home();scrollTo(0,y)};
+  if($("#openFour"))$("#openFour").onclick=()=>{FOUR_RET=scrollY;fourView()};
   document.querySelectorAll("[data-fx]").forEach(b=>b.onclick=()=>startExam(b.dataset.fx));
   if(canSpeak)$("#vc").onchange=e=>{voice=e.target.checked;ls.set("tkm-voice",voice)};
   document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>startReview([{key:b.dataset.k}]));

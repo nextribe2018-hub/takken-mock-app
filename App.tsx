@@ -33,7 +33,9 @@ type Screen =
   | { name: 'check'; item: ReviewItem; rest: ReviewItem[]; qs: Item[]; orders: Order[] }
   | { name: 'deep'; key: string; focus: number; missed?: Q; back: Screen; trail: string[] }
   // 計算方法・注意事項（ホームには載せない説明）
-  | { name: 'notes'; sec: string };
+  | { name: 'notes'; sec: string; back?: Screen }
+  // 過去問の4択に戻した一覧
+  | { name: 'four' };
 
 const ordersFor = (x: Exam, qs: Item[]): Order[] => qs.map(q => (x.format === 'choice' ? choiceOrder(q) : []));
 // 宅建だけの機能（合格の見込み・分野別10問・体系解説・1問ごとの即時採点など）を出すか
@@ -107,7 +109,8 @@ function Root() {
         {screen.name === 'lesson' && <LessonView ctx={ctx} queue={screen.queue} />}
         {screen.name === 'check' && <Check ctx={ctx} s={screen} />}
         {screen.name === 'deep' && <DeepView key={screen.key + screen.focus} ctx={ctx} s={screen} />}
-        {screen.name === 'notes' && <NotesView ctx={ctx} sec={screen.sec} />}
+        {screen.name === 'notes' && <NotesView ctx={ctx} sec={screen.sec} back={screen.back} />}
+        {screen.name === 'four' && <FourView ctx={ctx} />}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -550,22 +553,49 @@ function PassCard({ ctx }: { ctx: Ctx }) {
 }
 
 /* 過去問の4択に戻す：肢をまとめ直し、元の4択1問の正解率を推計 */
+// ホームには平均の正解率だけ。押すと問題ごとの一覧（FourView）を開く
 function FourCard({ ctx }: { ctx: Ctx }) {
   const { c, st, p, go } = ctx;
   const F = useMemo(() => fourChoice(p.hist, p.r10), [p.hist, p.r10]);
-  const [all, setAll] = useState(false);
   if (!F.n) return null;
+  const tone = F.avg >= 0.7 ? c.ok : F.avg >= 0.4 ? c.warn : c.ng;
+  return (
+    <Pressable onPress={() => go({ name: 'four' })} accessibilityRole="button" accessibilityLabel="過去問の4択の一覧を開く"
+      style={({ pressed }) => [pressed && st.pressed]}>
+      <Card ctx={ctx}>
+        <View style={st.rowBetween}>
+          <View style={{ flex: 1, gap: 2 }}>
+            <Text style={st.h2}>過去問の4択に戻すと</Text>
+            <Text style={st.note}>4択1問を正解できる確率（{F.n}問分の平均）</Text>
+          </View>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text style={[st.big, { fontSize: 30, color: tone }]}>{Math.round(F.avg * 100)}%</Text>
+            <Text style={st.note}>一覧 ›</Text>
+          </View>
+        </View>
+      </Card>
+    </Pressable>
+  );
+}
+function FourView({ ctx }: { ctx: Ctx }) {
+  const { c, st, p, go } = ctx;
+  const F = useMemo(() => fourChoice(p.hist, p.r10), [p.hist, p.r10]);
   const pc = (x: number) => `${Math.round(x * 100)}%`;
   const tone = (x: number) => (x >= 0.7 ? c.ok : x >= 0.4 ? c.warn : c.ng);
   return (
-    <Card ctx={ctx}>
-      <Text style={st.h2}>過去問の4択に戻すと</Text>
-      <View style={st.kpis}>
-        <Kpi ctx={ctx} label="推計できた4択" value={`${F.n}/${F.total}問`} />
-        <Kpi ctx={ctx} label="平均の正解率" value={pc(F.avg)} />
-        <Kpi ctx={ctx} label={`3肢以上解いた${F.nSolid}問`} value={F.avgSolid == null ? '—' : pc(F.avgSolid)} />
+    <>
+      <View style={st.rowBetween}>
+        <Text style={st.h2}>過去問の4択に戻すと</Text>
+        <Btn ctx={ctx} label="← 戻る" onPress={() => go({ name: 'home' })} />
       </View>
-      {(all ? F.items : F.items.slice(0, 6)).map(x => {
+      <Card ctx={ctx}>
+        <View style={st.kpis}>
+          <Kpi ctx={ctx} label="推計できた4択" value={`${F.n}/${F.total}問`} />
+          <Kpi ctx={ctx} label="平均の正解率" value={pc(F.avg)} />
+          <Kpi ctx={ctx} label={`3肢以上解いた${F.nSolid}問`} value={F.avgSolid == null ? '—' : pc(F.avgSolid)} />
+        </View>
+        <NotesLink ctx={ctx} sec="four" back={{ name: 'four' }} lead="正解率の低い順。論点名を押すと解説と確認例題へ。肢の色：緑＝正解／赤＝誤り／?＝データにない肢。" />
+      {F.items.map(x => {
         const w = x.limbs.reduce((a, l) => (l.p < a.p ? l : a));
         return (
           <Pressable key={x.id} onPress={() => go({ name: 'lesson', queue: [{ key: `${w.q.f}|${w.q.t}` }] })}
@@ -590,9 +620,9 @@ function FourCard({ ctx }: { ctx: Ctx }) {
           </Pressable>
         );
       })}
-      {F.n > 6 && <Btn ctx={ctx} label={all ? '弱い6問だけ表示' : `すべて表示（${F.n}問）`} onPress={() => setAll(!all)} />}
-      <NotesLink ctx={ctx} sec="four" lead="正解率の低い順。肢の色：緑＝正解／赤＝誤り／?＝データにない肢。" />
-    </Card>
+      </Card>
+      <Btn ctx={ctx} label="← 戻る" onPress={() => go({ name: 'home' })} />
+    </>
   );
 }
 
@@ -893,13 +923,13 @@ function FocusView({ ctx, k, missed }: { ctx: Ctx; k: string; missed?: Q }) {
 
 /* ---------- 2段目：論点を体系的に深く学ぶページ ---------- */
 /* 計算方法・注意事項：説明文はホームに載せず、ここにまとめる（文章は src/data/notes.json。Web版と共通） */
-function NotesLink({ ctx, sec, lead }: { ctx: Ctx; sec: string; lead: string }) {
+function NotesLink({ ctx, sec, lead, back }: { ctx: Ctx; sec: string; lead: string; back?: Screen }) {
   const { c, st, go } = ctx;
   return (
-    <Text style={st.note}>{lead}<Text style={{ color: c.ai, textDecorationLine: 'underline' }} onPress={() => go({ name: 'notes', sec })} accessibilityRole="link">※ 計算方法</Text></Text>
+    <Text style={st.note}>{lead}<Text style={{ color: c.ai, textDecorationLine: 'underline' }} onPress={() => go({ name: 'notes', sec, back })} accessibilityRole="link">※ 計算方法</Text></Text>
   );
 }
-function NotesView({ ctx, sec }: { ctx: Ctx; sec: string }) {
+function NotesView({ ctx, sec, back }: { ctx: Ctx; sec: string; back?: Screen }) {
   const { st, go, scrollToNode } = ctx;
   const refs = useRef<Record<string, View | null>>({});
   useEffect(() => { const id = setTimeout(() => scrollToNode(refs.current[sec] ?? null), 120); return () => clearTimeout(id); }, [sec, scrollToNode]);
@@ -907,7 +937,7 @@ function NotesView({ ctx, sec }: { ctx: Ctx; sec: string }) {
     <>
       <View style={st.rowBetween}>
         <Text style={st.h2}>計算方法・注意事項</Text>
-        <Btn ctx={ctx} label="← 戻る" onPress={() => go({ name: 'home' })} />
+        <Btn ctx={ctx} label="← 戻る" onPress={() => go(back ?? { name: 'home' })} />
       </View>
       {NOTES.map(([id, title, ps]) => (
         <View key={id} ref={el => { refs.current[id] = el; }} collapsable={false}>
@@ -917,7 +947,7 @@ function NotesView({ ctx, sec }: { ctx: Ctx; sec: string }) {
           </Card>
         </View>
       ))}
-      <Btn ctx={ctx} label="← 戻る" onPress={() => go({ name: 'home' })} />
+      <Btn ctx={ctx} label="← 戻る" onPress={() => go(back ?? { name: 'home' })} />
     </>
   );
 }
