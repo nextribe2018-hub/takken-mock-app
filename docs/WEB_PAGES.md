@@ -51,3 +51,4 @@
 | `tohan-all` | 300 | 279 | https://claude.ai/artifact/2VhkBkV1Gf41LGGmsk8W5Y |
 | `fp-2kyu` | 100 | 95 | https://claude.ai/artifact/KdzqzfEY2x2jc5JknajGvh |
 | `fp-3kyu` | 100 | 100 | https://claude.ai/artifact/72KUqkwyDbP95Z1eg43gUB |
+| `denko1-gakka` | 100 | 93 | https://claude.ai/artifact/NduUuJjF8hMGnCLWEEnfqC |
