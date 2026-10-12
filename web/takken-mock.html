@@ -274,11 +274,17 @@ function toExam(p,k){if(k==null)k=0.5;if(p<1)k=Math.min(k,p/(1-p));const u=2*(1-
     const flag=[],uns=[];st.forEach((x,j)=>{if((j===0&&x===0)||(j>0&&x===2))flag.push(j);if(x===1)uns.push(j)});
     const cand=flag.length?flag:uns.length?uns:[0,1,2,3];if(cand.includes(0))P+=q/cand.length}
   return P}
-const SCEN=[{k:0,label:"慎重（誤りはすべて思い込み）"},{k:0.5,label:"標準（誤りの半分は迷い）"},{k:1,label:"消去法が効く（誤りはすべて迷い）"}];
+// 分かる肢の数で判定（src/logic.ts の limbExam / limbExamBy と同じ）
+const LIMB=-1,LIMB_GUESS=[1/4,1/3,1/2,1,1],knownRate=p=>Math.max(0,2*p-1);
+function limbExam(p){const s=knownRate(p),C=[1,4,6,4,1];return C.reduce((a,c,k)=>a+c*s**k*(1-s)**(4-k)*LIMB_GUESS[k],0)}
+function limbExamBy(ps){const s=ps.map(knownRate);let P=0;for(let m=0;m<16;m++){let q=1,K=0;s.forEach((x,i)=>{if(m>>i&1){q*=x;K++}else q*=1-x});P+=q*LIMB_GUESS[K]}return P}
+function limbBreakdown(p){const s=knownRate(p),C=[1,4,6,4,1],d=C.map((c,k)=>c*s**k*(1-s)**(4-k));return[d[0],d[1],d[2],d[3]+d[4]]}
+const examRate=(p,k)=>k===LIMB?limbExam(p):toExam(p,k);
+const SCEN=[{k:0,label:"慎重（誤りはすべて思い込み）"},{k:LIMB,label:"分かる肢の数で判定（当てずっぽう分を除く）"},{k:1,label:"消去法が効く（誤りはすべて迷い）"}];
 function simulate(st,k){const r=seeded(20261008),S=3000,sc=[];
-  for(let i=0;i<S;i++){let x=0;FIELDS.forEach(([f])=>{const s=st[f];const a=gammaS(s.c+1,r),b=gammaS(s.n-s.c+1,r);const p=toExam(a/(a+b),k);for(let j=0;j<EXAM_N[f];j++)if(r()<p)x++});sc.push(x)}
+  for(let i=0;i<S;i++){let x=0;FIELDS.forEach(([f])=>{const s=st[f];const a=gammaS(s.c+1,r),b=gammaS(s.n-s.c+1,r);const p=examRate(a/(a+b),k);for(let j=0;j<EXAM_N[f];j++)if(r()<p)x++});sc.push(x)}
   sc.sort((a,b)=>a-b);const byLine=PASS_LINES.map(t=>sc.filter(x=>x>=t).length/S);
-  const exp={};FIELDS.forEach(([f])=>{const s=st[f];exp[f]=EXAM_N[f]*toExam((s.c+1)/(s.n+2),k)});
+  const exp={};FIELDS.forEach(([f])=>{const s=st[f];exp[f]=EXAM_N[f]*examRate((s.c+1)/(s.n+2),k)});
   return {k,byLine,prob:byLine.reduce((a,b)=>a+b,0)/byLine.length,mean:sc.reduce((a,b)=>a+b,0)/S,lo:sc[Math.floor(S*0.1)],hi:sc[Math.floor(S*0.9)],exp,four:FIELDS.reduce((a,[f])=>a+exp[f],0)/50}}
 // 直近の極端な不調の補正（src/logic.ts の adjustTopic / adjustedRates と同じ）
 const ADJ_PRIOR=10,ADJ_FLOOR=0.10;
@@ -310,11 +316,12 @@ function passHtml(){
   return `<section class="card"><h2>合格の見込み</h2>
   <div class="row"><span class="big">${pct}<span style="font-size:1.2rem">%</span></span><span class="judge ${j[0]}">${j[1]}</span></div>
   <p style="margin:0">直近の○×正答率 ${Math.round(P.ox*100)}% → 過去平均で補正して <b>${Math.round(P.oxAdj*100)}%</b>（全体 ${Math.round(P.oxAll*100)}%） → 推定4択正答率 <b>${Math.round(P.four*100)}%</b> → 予想得点 <b>${Math.round(P.mean)}点</b> / 50（8割の確率で ${P.lo}〜${P.hi}点）</p>
+  ${(()=>{const b=limbBreakdown(P.oxAdj),r=x=>Math.round(x*100)+"%";return `<p class="note" style="margin:0">4択1問あたり：確実に分かる肢の率 <b>${r(knownRate(P.oxAdj))}</b>（○×${r(P.oxAdj)}から当てずっぽう分を除く）→ 4肢中 <b>3つ以上分かる ${r(b[3])}</b>（正解確定）／2つ ${r(b[2])}（1/2）／1つ ${r(b[1])}（1/3）／1つも分からない ${r(b[0])}（1/4）</p>`})()}
   <div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))">${lines}</div>
   <div class="tw"><table class="st"><thead><tr><th>4択での解き方</th><th>4択正答率</th><th>予想点</th><th>合格率</th></tr></thead><tbody>${P.scen.map((x,i)=>`<tr class="${i===1?"focus":""}"><td>${x.label}</td><td>${Math.round(x.four*100)}%</td><td>${Math.round(x.mean)}点</td><td><b>${Math.round(x.prob*100)}%</b></td></tr>`).join("")}</tbody></table></div>
   <div class="tw"><table class="st"><thead><tr><th>分野</th><th>採用</th><th>全体</th><th>推定4択</th><th>予想点</th></tr></thead><tbody>${rows}</tbody></table></div>
   <div class="row"><button class="btn pri" data-fx="${P.focus}">いちばん伸ばせる「${FNAME(P.focus)}」の10問テスト</button></div>
-  <p class="note" style="margin:0">合格確率は<b>論点ごとの直近10問</b>の正答率（分野ごとに合算、計${P.rn}問）で計算。ただし直近が一時的に極端に悪くても下がりすぎないよう、論点ごとに<b>過去平均で補正</b>しています：①直近10問と、その論点の全回答の正答率を半々で見る（直近が10問未満なら過去平均の比重が大きくなる。たまたま全問正解のときも同じくならす）②それでも過去平均より10ポイント以上は下げない。表の「採用」が補正後の正答率です。「全体」はこれまでの全回答（${P.total}回）。見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（上の大きな数字は「標準」）。4択の推計では、各肢の判断を「確信して正しい／迷う（半々）／確信して誤る」に分け、確信した肢で選び、なければ消去法で迷う肢に絞って（多くは2択）選ぶとして計算しています。○×の誤りのうち迷いによるものの割合で3通りを表示：○×80%なら4択は慎重62%・標準71%・消去法が効く82%。本試験50問（業20・権14・法8・税8）を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</p></section>`;
+  <p class="note" style="margin:0">合格確率は<b>論点ごとの直近10問</b>の正答率（分野ごとに合算、計${P.rn}問）で計算。ただし直近が一時的に極端に悪くても下がりすぎないよう、論点ごとに<b>過去平均で補正</b>しています：①直近10問と、その論点の全回答の正答率を半々で見る（直近が10問未満なら過去平均の比重が大きくなる。たまたま全問正解のときも同じくならす）②それでも過去平均より10ポイント以上は下げない。表の「採用」が補正後の正答率です。「全体」はこれまでの全回答（${P.total}回）。見込み＝例年の合格点33〜37点のどれになっても同じ確率として平均した合格確率（上の大きな数字は「分かる肢の数で判定」）。4択の推計：まず○×正答率pから当てずっぽうで当たった分を除き、肢を確実に判断できる率を s＝2p−1 とする（○×は勘でも半分当たるため。p≦50%なら s＝0）。4肢のうち確実に分かる肢の数は s の二項分布で、3肢以上分かれば正解が確定（100%）、2肢なら残り2つから1/2、1肢なら残り3つから1/3、1つも分からなくても4つから1/4（25%）で当たるとして合計。○×80%なら4択は71%。比較として、誤った肢を思い込みで選んでしまう「慎重」、誤りがすべて迷いで消去法が効く「消去法が効く」も表示。本試験50問（業20・権14・法8・税8）を3,000回シミュレーション。5問免除は考慮していません。合格を保証するものではありません。</p></section>`;
 }
 // 過去問の4択に戻す：同じ「年度-問番号」の肢をまとめ、肢ごとの正答率から元の4択1問の正解率を推計（src/logic.ts の fourChoice と同じ）
 function fourFromLimbs(ps,ans,k){if(k==null)k=0.5;const pr=ps.map(p=>{const kk=p<1?Math.min(k,p/(1-p)):k;return[Math.max(0,p-kk*(1-p)),2*(1-p)*kk,(1-p)*(1-kk)]});let P=0;
@@ -333,7 +340,7 @@ function fourChoice(){
     const missing=Math.max(0,4-limbs.length);const fill=limbs.reduce((a,l)=>a+rate(l.q.f,l.q.t),0)/limbs.length;
     const ps=[...limbs.map(l=>l.p),...Array(missing).fill(cl(fill))];
     const kind=limbs.some(l=>/[アイウエ]/.test(l.label))?"count":"single";
-    const prob=kind==="count"?ps.reduce((a,b)=>a*b,1):[0,1,2,3].reduce((a,j)=>a+fourFromLimbs(ps,j),0)/4;
+    const prob=kind==="count"?ps.reduce((a,b)=>a*b,1):limbExamBy(ps);
     items.push({id,label:refLabelJa(id),f:qs[0].f,limbs,answered,missing,kind,prob})});
   items.sort((a,b)=>a.prob-b.prob);const solid=items.filter(x=>x.answered>=3);
   return{items,n:items.length,avg:items.length?items.reduce((a,x)=>a+x.prob,0)/items.length:0,nSolid:solid.length,avgSolid:solid.length?solid.reduce((a,x)=>a+x.prob,0)/solid.length:null,total:Object.keys(FOUR_GROUPS).length}}
@@ -351,7 +358,7 @@ function fourHtml(){
   ${P.ready?`<p style="margin:0">参考：○×正答率からの換算（上の「合格の見込み」）は <b>${pc(P.four)}</b>。3肢以上解いた問題の平均と大きく違うときは、苦手な肢が特定の問題に集まっている可能性があります。</p>`:""}
   <div class="tw"><table class="st"><thead><tr><th>4択正解率</th><th>論点と肢</th></tr></thead><tbody>${rows}</tbody></table></div>
   ${F.n>6?`<div class="row"><button class="btn" id="fourAll">${FOUR_ALL?"弱い6問だけ表示":`すべて表示（${F.n}問）`}</button></div>`:""}
-  <p class="note" style="margin:0">正解率の低い順。肢の色：緑＝正解／赤＝誤り／無色＝未回答／?＝データにない肢。論点名を押すと解説と確認例題へ。計算方法：解いた肢はその肢の成績を論点の直近10問の正答率で1回分ならし（1回正解しただけで100%にしない）、まだ解いていない肢・データにない肢（?）は論点の直近10問の正答率で補います（解いた数が少ない論点は分野の正答率に寄せ、数問だけで0%・100%と決めつけない）。その4肢を「合格の見込み」と同じ考え方（確信・迷い・誤信、標準）で4択に組み立て、正解の肢がどれでも同じ確率として平均。個数・組合せ問題は4肢すべての正誤が分かる確率で近似（やや厳しめ）。解いた肢が少ない問題ほど論点の平均に近づくので、3肢以上の平均も見てください。</p></section>`}
+  <p class="note" style="margin:0">正解率の低い順。肢の色：緑＝正解／赤＝誤り／無色＝未回答／?＝データにない肢。論点名を押すと解説と確認例題へ。計算方法：解いた肢はその肢の成績を論点の直近10問の正答率で1回分ならし（1回正解しただけで100%にしない）、まだ解いていない肢・データにない肢（?）は論点の直近10問の正答率で補います（解いた数が少ない論点は分野の正答率に寄せ、数問だけで0%・100%と決めつけない）。その4肢を「合格の見込み」と同じ考え方（分かる肢が3つ以上なら確定、2つなら1/2、1つなら1/3、0でも1/4）で4択に組み立て。個数・組合せ問題は4肢すべての正誤が分かる確率で近似（やや厳しめ）。解いた肢が少ない問題ほど論点の平均に近づくので、3肢以上の平均も見てください。</p></section>`}
 function home(){
   clearInterval(timerId);
   const done=Object.keys(H).filter(k=>BYKEY[k]).length;

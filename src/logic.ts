@@ -303,9 +303,30 @@ export function toExam(p: number, k = 0.5): number {
   }
   return P;
 }
+// 分かる肢の数で判定（見出し）：確実に分かる率 s＝max(0, 2p−1)（○×の当てずっぽう分を除く）。
+// 分かる肢の数 K〜二項(4, s)。K≧3 なら正解確定、K＝2 は残り2択で1/2、K＝1 は1/3、K＝0 でも1/4
+export const LIMB = -1;
+export const LIMB_GUESS = [1 / 4, 1 / 3, 1 / 2, 1, 1];
+export const knownRate = (p: number) => Math.max(0, 2 * p - 1);
+export function limbExam(p: number): number {
+  const s = knownRate(p); const C = [1, 4, 6, 4, 1];
+  return C.reduce((a, c, k) => a + c * s ** k * (1 - s) ** (4 - k) * LIMB_GUESS[k], 0);
+}
+// 肢ごとに分かる率が違う場合（過去問の4択に戻すとき）。16通りの「分かる／分からない」を数え上げる
+export function limbExamBy(ps: number[]): number {
+  const s = ps.map(knownRate); let P = 0;
+  for (let m = 0; m < 16; m++) { let q = 1, K = 0; s.forEach((x, i) => { if (m >> i & 1) { q *= x; K++; } else q *= 1 - x; }); P += q * LIMB_GUESS[K]; }
+  return P;
+}
+// 分かる肢の数の内訳 [0肢,1肢,2肢,3肢以上] の確率
+export function limbBreakdown(p: number): number[] {
+  const s = knownRate(p); const C = [1, 4, 6, 4, 1]; const d = C.map((c, k) => c * s ** k * (1 - s) ** (4 - k));
+  return [d[0], d[1], d[2], d[3] + d[4]];
+}
+const examRate = (p: number, k: number) => (k === LIMB ? limbExam(p) : toExam(p, k));
 export const SCENARIOS = [
   { k: 0, label: '慎重（誤りはすべて思い込み）' },
-  { k: 0.5, label: '標準（誤りの半分は迷い）' },
+  { k: LIMB, label: '分かる肢の数で判定（当てずっぽう分を除く）' },
   { k: 1, label: '消去法が効く（誤りはすべて迷い）' },
 ];
 export type FieldStat = { n: number; c: number; q: number; tot: number; rn: number; rc: number };
@@ -378,7 +399,7 @@ export function fourChoice(hist: Hist, r10: Recent = backfillRecent(hist), k = 0
     const ps = [...limbs.map(l => l.p), ...Array(missing).fill(clamp(fill))];
     const kind: FourItem['kind'] = limbs.some(l => /[アイウエ]/.test(l.label)) ? 'count' : 'single';
     // 個数・組合せ問題は4肢すべての判断が要る（積で近似・やや厳しめ）。通常の4択は正解肢の位置で平均
-    const prob = kind === 'count' ? ps.reduce((a, b) => a * b, 1) : [0, 1, 2, 3].reduce((a, j) => a + fourFromLimbs(ps, j, k), 0) / 4;
+    const prob = kind === 'count' ? ps.reduce((a, b) => a * b, 1) : limbExamBy(ps);
     items.push({ id, label: refLabelJa(id), f: qs[0].f, topics: [...new Set(qs.map(q => q.t))], limbs, answered, missing, kind, prob });
   });
   items.sort((a, b) => a.prob - b.prob);
@@ -435,7 +456,7 @@ function simulate(st: Record<Field, { n: number; c: number }>, k: number, sims: 
   for (let i = 0; i < sims; i++) {
     let x = 0;
     FIELDS.forEach(([f]) => {
-      const s = st[f]; const a = gammaS(s.c + 1, r), b = gammaS(s.n - s.c + 1, r); const p = toExam(a / (a + b), k);
+      const s = st[f]; const a = gammaS(s.c + 1, r), b = gammaS(s.n - s.c + 1, r); const p = examRate(a / (a + b), k);
       for (let j = 0; j < EXAM_N[f]; j++) if (r() < p) x++;
     });
     sc.push(x);
@@ -443,7 +464,7 @@ function simulate(st: Record<Field, { n: number; c: number }>, k: number, sims: 
   sc.sort((a, b) => a - b);
   const byLine = PASS_LINES.map(t => sc.filter(x => x >= t).length / sims);
   const exp = {} as Record<Field, number>;
-  FIELDS.forEach(([f]) => { const s = st[f]; exp[f] = EXAM_N[f] * toExam((s.c + 1) / (s.n + 2), k); });
+  FIELDS.forEach(([f]) => { const s = st[f]; exp[f] = EXAM_N[f] * examRate((s.c + 1) / (s.n + 2), k); });
   return {
     k, byLine, prob: byLine.reduce((a, b) => a + b, 0) / byLine.length,
     mean: sc.reduce((a, b) => a + b, 0) / sims, lo: sc[Math.floor(sims * 0.1)], hi: sc[Math.floor(sims * 0.9)],

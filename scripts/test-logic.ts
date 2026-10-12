@@ -1,7 +1,7 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, limbExam, limbExamBy, knownRate, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
   buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
 import { EXAMS, byKey } from '../src/exams';
@@ -194,7 +194,7 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   const good: Record<string, string> = {}; const bad: Record<string, string> = {};
   BANK.forEach(x => { good[`${x.f}|${x.t}`] = '1111111110'; bad[`${x.f}|${x.t}`] = '0000011111'; });
   const pg = passEstimate(h, 1000, good), pb = passEstimate(h, 1000, bad);
-  assert.ok(pg.ready && pb.ready && pg.prob > pb.prob);
+  assert.ok(pg.ready && pb.ready && pg.prob >= pb.prob && pg.mean > pb.mean); // 全体40%と低いので合格確率はどちらも0%近く、予想点で比べる
 }
 
 // 20) 論点マップの色：直近10問の正答率で6段階、5問未満は参考値
@@ -249,6 +249,22 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
     const ad = adjustedRates(h, r); Object.values(ad).forEach(x => assert.ok(x.adj >= 0.75 - ADJ_FLOOR - 1e-9 && x.raw === 0));
     console.log(`直近0%・全体75%の補正: 採用${Math.round(P.oxAdj * 100)}% → 合格確率${Math.round(P.prob * 100)}%`);
   }
+}
+
+// 17) 分かる肢の数で判定：s=2p−1、3肢以上で確定・2肢1/2・1肢1/3・0肢1/4
+{
+  assert.ok(Math.abs(knownRate(0.8) - 0.6) < 1e-12 && knownRate(0.4) === 0);
+  assert.ok(Math.abs(limbExam(0.8) - 0.7056) < 1e-9); // 0.4752 + 0.1728 + 0.0512 + 0.0064
+  assert.ok(Math.abs(limbExam(1) - 1) < 1e-12);
+  for (const p of [0, 0.3, 0.5]) assert.ok(Math.abs(limbExam(p) - 0.25) < 1e-12); // 1つも分からなくても25%
+  for (let p = 0.5; p < 0.99; p += 0.05) assert.ok(limbExam(p + 0.05) > limbExam(p) && limbExam(p) >= 0.25);
+  for (const p of [0.6, 0.75, 0.9]) assert.ok(Math.abs(limbExamBy([p, p, p, p]) - limbExam(p)) < 1e-12);
+  assert.ok(limbExamBy([1, 1, 1, 0.5]) === 1); // 3肢分かれば確定
+  assert.ok(Math.abs(limbExamBy([1, 1, 0.5, 0.5]) - 0.5) < 1e-12); // 2肢だけ分かる→1/2
+  assert.ok(Math.abs(limbExamBy([1, 0.5, 0.5, 0.5]) - 1 / 3) < 1e-12); // 1肢だけ→1/3
+  const P = passEstimate(Object.fromEntries(BANK.filter((_, i) => i % 3 === 0).map((q, i) => [q.k, { n: 1, c: i % 5 ? 1 : 0, last: (i % 5 ? 1 : 0) as 0 | 1 }])), 1000);
+  assert.ok(P.ready && P.scen[1].label.startsWith('分かる肢'));
+  if (P.ready) console.log(`分かる肢の数で判定 ○×80%→4択${Math.round(limbExam(0.8) * 100)}%（慎重${Math.round(P.scen[0].four * 100)}%／見出し${Math.round(P.four * 100)}%／消去法${Math.round(P.scen[2].four * 100)}%）`);
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
