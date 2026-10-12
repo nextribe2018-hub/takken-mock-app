@@ -10,7 +10,7 @@ import { EXAM, EXAMS, Exam, ExamId, Item } from './src/exams';
 import {
   buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, Progress, Q,
   buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, judge, judgeSet, LessonSys, record,
-  relatedBranch, relatedRows, relatedTraps, reviewQuestions, speechText, statsBy, topicState, topicTier, Tier, fourChoice, wrongGroups,
+  relatedBranch, relatedRows, relatedTraps, reviewQuestions, reviewCount, reviewJudge, speechText, statsBy, topicState, topicTier, Tier, fourChoice, orderExamples, Lesson, wrongGroups,
 } from './src/logic';
 import { loadLastExam, loadProgress, saveLastExam, saveProgress } from './src/storage';
 import { Colors, fonts, useColors, mix } from './src/theme';
@@ -139,7 +139,7 @@ const nextLabel = (x: Exam, p: Progress) => (x.rounds ? `第${p.set.round + 1}�
 const startExam = (ctx: Ctx) => {
   const { x, p, go } = ctx;
   const round = x.rounds ? p.set.round : 0;
-  const qs = buildRound(x, p.hist, round);
+  const qs = buildRound(x, p.hist, round, Math.random, p.set); // 5回のセットで論点が一巡するように
   go({ name: 'exam', qs, orders: ordersFor(x, qs), round });
 };
 // 宅建の分野別10問テストを始める
@@ -439,8 +439,8 @@ function Home({ ctx }: { ctx: Ctx }) {
         <Text style={st.h2}>{unit}マップ</Text>
         <Text style={st.note}>
           {tk
-            ? '押すと、その論点の解説と確認例題3問。色は直近10問の正答率：濃い緑＝100%／緑＝80%以上／黄＝60〜79%／橙＝40〜59%／赤＝40%未満／点線・薄い色＝5問未満（参考値）／無色＝未着手'
-            : `押すと、その${unit}の${x.reviewBy === 'topic' ? '解説と' : ''}確認例題3問。赤＝要復習／黄＝習得中／緑＝習得／無色＝未着手`}
+            ? '押すと、その論点の解説と確認例題5問。色は直近10問の正答率：濃い緑＝100%／緑＝80%以上／黄＝60〜79%／橙＝40〜59%／赤＝40%未満／点線・薄い色＝5問未満（参考値）／無色＝未着手'
+            : `押すと、その${unit}の${x.reviewBy === 'topic' ? '解説と' : ''}確認例題${reviewCount(x)}問。赤＝要復習／黄＝習得中／緑＝習得／無色＝未着手`}
         </Text>
         {x.reviewBy === 'topic'
           ? x.fields.map(([f, n]) => (
@@ -752,7 +752,7 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
           <>
             <Text style={st.note}>
               {x.reviewBy === 'topic'
-                ? '間違えた論点ごとに「解説 → 付随する論点 → 確認例題3問」の順で復習します。'
+                ? '間違えた論点ごとに「解説（具体例・周辺知識つき） → 付随する論点 → 確認例題5問」の順で復習します。'
                 : '間違えた分野ごとに「間違えた問題の解説 → 同じ分野の確認例題3問」の順で復習します。'}
             </Text>
             <Btn ctx={ctx} primary label={`間違えた${wrong.length}${unit}を復習する`} onPress={() => startReview(ctx, wrong)} />
@@ -823,7 +823,7 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
         </Card>
       )}
       {x.reviewBy === 'topic' && <FocusView ctx={ctx} k={item.key} missed={item.missed?.q as Q | undefined} />}
-      <Btn ctx={ctx} primary label={x.reviewBy === 'topic' ? '確認例題3問へ' : `${title}の確認例題3問へ`} onPress={toCheck} />
+      <Btn ctx={ctx} primary label={x.reviewBy === 'topic' ? `確認例題${reviewCount(x)}問へ` : `${title}の確認例題${reviewCount(x)}問へ`} onPress={toCheck} />
     </>
   );
 }
@@ -896,6 +896,8 @@ function FocusView({ ctx, k, missed }: { ctx: Ctx; k: string; missed?: Q }) {
           </View>
         )}
       </Card>
+      <ExamplesCard ctx={ctx} L={L} q={missed} />
+      <AroundCard ctx={ctx} L={L} />
       {S && (
         <Card ctx={ctx}>
           <Text style={st.meta}>体系的に広げる</Text>
@@ -922,6 +924,41 @@ function FocusView({ ctx, k, missed }: { ctx: Ctx; k: string; missed?: Q }) {
 }
 
 /* ---------- 2段目：論点を体系的に深く学ぶページ ---------- */
+/* 具体例（間違えた問題に近い例を先頭に）と周辺知識 */
+function ExamplesCard({ ctx, L, q }: { ctx: Ctx; L: Lesson; q?: { s: string; e: string } }) {
+  const { c, st } = ctx;
+  const o = orderExamples(L, q);
+  if (!o.length) return null;
+  return (
+    <Card ctx={ctx}>
+      <Text style={st.meta}>具体例で理解する</Text>
+      {o.map(({ ex, near }, i) => (
+        <View key={i} style={{ borderWidth: 1, borderRadius: 8, padding: 10, gap: 4, borderColor: near ? c.ai : c.line, backgroundColor: near ? c.aiSoft : 'transparent' }}>
+          {near && <Text style={{ alignSelf: 'flex-start', fontSize: 11, fontWeight: '700', color: c.ai, borderWidth: 1, borderColor: c.ai, borderRadius: 999, paddingHorizontal: 8 }}>この問題に近い例</Text>}
+          <Text style={st.bold}>{ex.t}</Text>
+          <Text style={st.body}>{ex.s}</Text>
+          <Text style={[st.body, st.bold]}>→ {ex.p}</Text>
+        </View>
+      ))}
+    </Card>
+  );
+}
+function AroundCard({ ctx, L }: { ctx: Ctx; L: Lesson }) {
+  const { st } = ctx;
+  if (!L.around?.length) return null;
+  return (
+    <Card ctx={ctx}>
+      <Text style={st.meta}>あわせて覚える周辺知識</Text>
+      {L.around.map((a, i) => (
+        <View key={i} style={{ gap: 2 }}>
+          <Text style={st.bold}>{a.h}</Text>
+          <Text style={st.body}>{a.b}</Text>
+        </View>
+      ))}
+    </Card>
+  );
+}
+
 /* 計算方法・注意事項：説明文はホームに載せず、ここにまとめる（文章は src/data/notes.json。Web版と共通） */
 function NotesLink({ ctx, sec, lead, back }: { ctx: Ctx; sec: string; lead: string; back?: Screen }) {
   const { c, st, go } = ctx;
@@ -985,6 +1022,8 @@ function DeepView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'deep' }> }
           </View>
         )}
       </Card>
+      <ExamplesCard ctx={ctx} L={L} q={s.missed} />
+      <AroundCard ctx={ctx} L={L} />
       {rel.length > 0 && (
         <Card ctx={ctx}>
           <Text style={st.meta}>つながる論点</Text>
@@ -1077,7 +1116,7 @@ function SysView({ ctx, sys, title, missed, focus = -1, focusRef }: { ctx: Ctx; 
   );
 }
 
-/* ---------- 確認例題3問 ---------- */
+/* ---------- 確認例題（宅建5問・その他3問）。1問ごとに正誤と解説 ---------- */
 function Check({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'check' }> }) {
   const { st, x, p, update, go, speak } = ctx;
   const { item, rest, qs, orders } = s;
@@ -1091,19 +1130,20 @@ function Check({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'check' }> }) 
   useEffect(() => { if (p.voice && k < qs.length) speak(speakText(qs[k], orders[k])); }, [k]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (k >= qs.length) {
-    const ok = right === qs.length;
+    const J = reviewJudge(right, qs.length);
+    const ok = J.tone === 'ok';
     return (
       <Card ctx={ctx}>
         <Text style={st.h2}>{title}　確認例題の結果</Text>
         <View style={st.row}>
           <Text style={st.big}>{right}<Text style={st.bigUnit}> / {qs.length}</Text></Text>
-          <JudgeTag ctx={ctx} tone={ok ? 'ok' : right >= 2 ? 'mid' : 'ng'} label={ok ? '習得' : right >= 2 ? 'もう一息' : '要復習'} />
+          <JudgeTag ctx={ctx} {...J} />
         </View>
         <Text style={st.note}>
-          {ok ? `この${x.reviewBy === 'topic' ? '論点' : '分野'}は理解できています。` : x.reviewBy === 'topic' ? 'もう一度、解説を読んでから別の3問に挑戦できます。' : '別の3問にもう一度挑戦できます。'}
+          {ok ? `この${x.reviewBy === 'topic' ? '論点' : '分野'}は理解できています。` : x.reviewBy === 'topic' ? `もう一度、解説を読んでから別の${reviewCount(x)}問に挑戦できます。` : `別の${reviewCount(x)}問にもう一度挑戦できます。`}
         </Text>
         <View style={st.wrapRow}>
-          {!ok && <Btn ctx={ctx} label={x.reviewBy === 'topic' ? '解説に戻ってもう一度' : 'もう一度3問'} onPress={() => startReview(ctx, [item, ...rest])} />}
+          {!ok && <Btn ctx={ctx} label={x.reviewBy === 'topic' ? '解説に戻ってもう一度' : `もう一度${reviewCount(x)}問`} onPress={() => startReview(ctx, [item, ...rest])} />}
           {rest.length
             ? <Btn ctx={ctx} primary label={`次の${x.reviewBy === 'topic' ? '論点' : '分野'}へ（残り${rest.length}）`} onPress={() => startReview(ctx, rest)} />
             : <Btn ctx={ctx} primary label={x.rounds ? `第${p.set.round + 1}回の模試へ` : '次の模試へ'} onPress={() => startExam(ctx)} />}

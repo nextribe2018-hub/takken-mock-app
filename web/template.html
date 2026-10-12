@@ -1,7 +1,7 @@
 <title>宅建 10分模試</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <style>
-/* layout: ホーム（今の実力・5回セット・論点マップ）→ 試験画面（タイマー＋1問ずつ）→ 結果 → 解説と確認例題3問 */
+/* layout: ホーム（今の実力・5回セット・論点マップ）→ 試験画面（タイマー＋1問ずつ）→ 結果 → 解説と確認例題5問 */
 :root{
   --bg:#f3f4f1; --paper:#ffffff; --ink:#1f2a2e; --muted:#5d6a6e; --line:#d9ded9;
   --ai:#24476b; --ai-soft:#e3ebf3; --ok:#2f7a4b; --ok-soft:#e2f1e7; --ng:#b8402c; --ng-soft:#f8e4df; --warn:#9a6b12; --warn-soft:#f6ecd6; --or:#b85a16; --or-soft:#fbe5d3;
@@ -120,6 +120,11 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .lbs{display:flex;gap:3px;margin-top:3px}.lb{display:inline-grid;place-items:center;min-width:1.5em;height:1.5em;font-size:.7rem;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
 .lb.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}.lb.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}.lb.mi{border-style:dashed}
 .lnk{font:inherit;background:none;border:0;padding:0;color:var(--ai);text-decoration:underline;cursor:pointer;text-align:left}
+.exb{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.exb.near{border-color:var(--ai);background:var(--ai-soft)}
+.exb p{margin:0}.exb .exp{font-weight:700}
+.exb .tag{align-self:flex-start;font-size:.72rem;font-weight:700;color:var(--ai);border:1px solid var(--ai);border-radius:999px;padding:0 8px}
+.ard{margin:0;display:grid;gap:8px}.ard dt{font-weight:700}.ard dd{margin:0;color:var(--ink)}
 .fourcard{font:inherit;color:inherit;background:none;border:0;padding:0;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;cursor:pointer}
 .fourcard .fc-l{display:flex;flex-direction:column;gap:2px}.fourcard .fc-t{font-family:var(--f-disp);font-weight:700;font-size:1.15rem}
 .fourcard .fc-r{display:flex;flex-direction:column;align-items:flex-end}.fourcard .fc-r .fp{font-size:1.8rem;line-height:1.1}
@@ -239,6 +244,12 @@ let voice=ls.get("tkm-voice",false);
 function rec(q,ok){const h=H[q.k]||{n:0,c:0};h.n++;if(ok)h.c++;h.last=ok?1:0;H[q.k]=h;const t=tkey(q);R10[t]=((R10[t]||"")+(ok?"1":"0")).slice(-10)}
 function prio(q){const h=H[q.k];if(!h)return 0;if(h.last===0)return 1;return 2+h.n}
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+// 5回のセットで論点を一巡させる選び方（src/logic.ts の pickCover と同じ）：持ち越し論点 → このセットで未出題の論点 → 出した論点
+function pickCover(pool,n,exclude){const used=new Set(SET.topics||[]),carry=new Set(SET.carry||[]);
+  const rank=q=>{const k=q.f+"|"+q.t;return carry.has(k)&&!used.has(k)?0:used.has(k)?2:1};
+  const c=shuffle(pool.filter(q=>!exclude.has(q.i)));c.sort((a,b)=>rank(a)-rank(b)||prio(a)-prio(b));
+  const out=[],seen=new Set();for(const q of c){if(out.length>=n)break;if(!seen.has(q.t)){out.push(q);seen.add(q.t)}}
+  for(const q of c){if(out.length>=n)break;if(!out.includes(q))out.push(q)}return out}
 function pick(pool,n,exclude){
   const c=shuffle(pool.filter(q=>!exclude.has(q.i)));
   c.sort((a,b)=>prio(a)-prio(b));
@@ -429,7 +440,7 @@ function home(){
   ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>${x.field?FNAME(x.field):`第${x.round}回`}</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
   <section class="card">
     <h2>論点マップ</h2>
-    <p class="legend">押すと、その論点の解説と確認例題3問。数字は直近10問の正答率／全回答の正答率。色は<b>直近10問</b>で決まります。<br><span class="tp lg t-perfect">濃い緑 100%</span><span class="tp lg t-good">緑 80%以上</span><span class="tp lg t-mid">黄 60〜79%</span><span class="tp lg t-low">橙 40〜59%</span><span class="tp lg t-bad">赤 40%未満</span><span class="tp lg t-good few">点線・薄い色＝5問未満（まだ参考値）</span><span class="tp lg t-none">無色＝未着手</span></p>
+    <p class="legend">押すと、その論点の解説と確認例題5問。数字は直近10問の正答率／全回答の正答率。色は<b>直近10問</b>で決まります。<br><span class="tp lg t-perfect">濃い緑 100%</span><span class="tp lg t-good">緑 80%以上</span><span class="tp lg t-mid">黄 60〜79%</span><span class="tp lg t-low">橙 40〜59%</span><span class="tp lg t-bad">赤 40%未満</span><span class="tp lg t-good few">点線・薄い色＝5問未満（まだ参考値）</span><span class="tp lg t-none">無色＝未着手</span></p>
     <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp ${tier(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` <span class="tpr">直近${Math.round(s.rc/Math.max(1,s.rn)*100)}%<small>/${s.rn}問</small>・全${Math.round(s.c/s.n*100)}%</span>`:""}</button>`).join("")}</div></div>`).join("")}</div>
   </section>
   <section class="card">
@@ -461,7 +472,7 @@ function home(){
 function startExam(field){
   const qs=[];const ex=new Set();
   if(field){pick(BANK.filter(q=>q.f===field),10,ex).forEach(q=>qs.push(q))}
-  else{const mix=MIX[SET.round];FIELDS.forEach(([f])=>{pick(BANK.filter(q=>q.f===f),mix[f],ex).forEach(q=>{qs.push(q);ex.add(q.i)})})}
+  else{const mix=MIX[SET.round];FIELDS.forEach(([f])=>{pickCover(BANK.filter(q=>q.f===f),mix[f],ex).forEach(q=>{qs.push(q);ex.add(q.i)})})}
   const label=field?FNAME(field)+" 10問":`第${SET.round+1}回`;
   const E={qs,ans:Array(qs.length).fill(null),cur:0,left:LIMIT,start:Date.now(),field,label};
   const render=()=>{
@@ -492,7 +503,11 @@ function startExam(field){
     const used=LIMIT-E.left;let sc=0;E.qs.forEach((q,k)=>{const ok=E.ans[k]===q.a;if(ok)sc++;rec(q,ok)});
     const at=new Date(Date.now()+9*3600e3).toISOString().slice(0,19);
     if(E.field){LOG.push({at,round:0,field:E.field,score:sc,sec:used});save();result(E,sc,used,null);return}
-    LOG.push({at,round:SET.round+1,score:sc,sec:used});SET.scores[SET.round]=sc;SET.round=(SET.round+1)%5;const setDone=SET.round===0;const setScores=[...SET.scores];if(setDone)SET.scores=[];save();
+    LOG.push({at,round:SET.round+1,score:sc,sec:used});
+    // このセットで出した論点を記録し、セットが終わったら出し切れなかった論点を次のセットへ持ち越す
+    SET.topics=[...new Set([...(SET.round===0?[]:SET.topics||[]),...E.qs.map(q=>q.f+"|"+q.t)])];
+    SET.scores[SET.round]=sc;SET.round=(SET.round+1)%5;const setDone=SET.round===0;const setScores=[...SET.scores];
+    if(setDone){const allT=[...new Set(BANK.map(q=>q.f+"|"+q.t))];SET.carry=allT.filter(k=>!SET.topics.includes(k));SET.topics=[];SET.scores=[]}save();
     result(E,sc,used,setDone?setScores:null)};
   render(); if(voice)speak(E.qs[0].s);
   clearInterval(timerId);
@@ -510,7 +525,7 @@ function result(E,sc,used,setScores){
   <section class="card"><h2>${E.field?E.label+"の結果":`第${(SET.round+4)%5+1}回の結果`}</h2>
     <div class="row"><span class="big">${sc}<span style="font-size:1.2rem"> / 10</span></span><span class="judge ${jc}">${jt}</span></div>
     <p class="note">かかった時間 ${Math.floor(used/60)}分${used%60}秒 / 10分</p>
-    ${wrongItems.length?`<p class="note">間違えた論点ごとに「解説 → 付随する論点 → 過去問の確認例題3問」の順で復習します。</p>
+    ${wrongItems.length?`<p class="note">間違えた論点ごとに「解説（具体例・周辺知識つき） → 付随する論点 → 過去問の確認例題5問」の順で復習します。</p>
     <button class="btn pri" id="allw">間違えた${wrongItems.length}論点を復習する</button>
     <div class="row">${wrongItems.map((w,j)=>`<button class="btn" data-w="${j}">${w.key.split("|")[1]}だけ</button>`).join("")}</div>`:`<p>全問正解です。${E.field?"続けて解くと見込みの精度が上がります。":"次の回に進みましょう。"}</p>`}
     <div class="row"><button class="btn" id="home">ホームへ</button><button class="btn" id="nx">${E.field?`もう一度 ${FNAME(E.field)} 10問`:`第${SET.round+1}回へ進む`}</button></div>
@@ -524,7 +539,7 @@ function result(E,sc,used,setScores){
   window.scrollTo(0,0);
 }
 
-/* ---------- review: 解説 → 付随論点 → 確認例題3問 ---------- */
+/* ---------- review: 解説（具体例・周辺知識） → 付随論点 → 確認例題5問（1問ごとに正誤と解説） ---------- */
 const esc=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 // 間違えた問題と最も関係の深い枝（大項目）を文字の2文字組の重なりで推定する
 function bigr(x){const s=String(x).replace(/[\s、。・：（）()「」，,．.0-9０-９]/g,"");const o=new Set();for(let i=0;i<s.length-1;i++)o.add(s.slice(i,i+2));return o}
@@ -544,6 +559,13 @@ const missedHtml=missed=>missed?`<article class="card"><div class="meta">あな�
     <div class="res ng"><span class="v">あなた：${missed.your==null?"未回答":missed.your?"○":"×"}　答え：${missed.q.a?"○":"×"}</span><span>${missed.q.e}</span><span class="memo">覚え方：<b>${missed.q.m}</b></span></div></article>`:"";
 
 /* 1段目：間違えた範囲だけに絞った解説＋体系へのリンク */
+// 具体例と周辺知識（src/logic.ts の orderExamples と同じ並べ方）
+function orderExamples(L,q){const ex=L.ex||[];if(!q)return ex.map(x=>({ex:x,near:false}));const text=q.s+q.e;
+  const sc=ex.map((x,i)=>({x,i,n:x.kw.filter(k=>text.includes(k)).length}));sc.sort((a,b)=>b.n-a.n||a.i-b.i);return sc.map((o,j)=>({ex:o.x,near:j===0&&o.n>0}))}
+function exHtml(L,missed){const o=orderExamples(L,missed&&missed.q);if(!o.length)return "";
+  return `<article class="card"><div class="meta">具体例で理解する</div>${o.map(({ex,near})=>`<div class="exb${near?" near":""}">${near?`<span class="tag">この問題に近い例</span>`:""}<b>${esc(ex.t)}</b><p>${esc(ex.s)}</p><p class="exp">→ ${esc(ex.p)}</p></div>`).join("")}</article>`}
+function aroundHtml(L){const a=L.around||[];if(!a.length)return "";
+  return `<article class="card"><div class="meta">あわせて覚える周辺知識</div><dl class="ard">${a.map(x=>`<dt>${esc(x.h)}</dt><dd>${esc(x.b)}</dd>`).join("")}</dl></article>`}
 function focusHtml(key,missed){
   const L=LESSON[key]||{pts:[],traps:[],rel:[]};const S=L.sys;const t=key.split("|")[1];
   const qb=missed?bigr(missed.q.s+missed.q.e):null;
@@ -565,6 +587,7 @@ function focusHtml(key,missed){
   const map=S?`<div class="mini">${S.tree.map((x,i)=>`<button class="mchip ${i===hit.b?"on":""}" data-deep="${i}"><span class="no">${i+1}</span>${esc(x.h)}</button>`).join("")}</div>`:"";
   const rel=(L.rel||[]).filter(k=>LESSON[k]);
   return `<article class="card"><div class="meta">間違えた範囲の解説</div><h2>${head}</h2>${body}</article>
+  ${exHtml(L,missed)}${aroundHtml(L)}
   ${S?`<article class="card"><div class="meta">体系的に広げる</div><p class="note" style="margin:0">「${esc(t)}」は全${S.tree.length}項目。項目を押すと、その場所から詳しい解説を開きます。</p>${map}
     <button class="btn deeplink" data-deep="all">${esc(t)}を体系的に学ぶ<span class="sub2">全体像・流れ図・比較表・要点</span></button>
     ${rel.length?`<div><div class="note" style="margin-bottom:6px">${esc(L.bridge||"関連する論点")}</div><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></div>`:""}</article>`:""}`;
@@ -581,6 +604,7 @@ function deepHtml(key,missed){
     if(S.tables&&S.tables.length)h+=`<article class="card"><div class="meta">比較表・数字</div><div class="tbls">${S.tables.map(tb=>tblHtml(tb,tb.rows,"")).join("")}</div></article>`;
   }
   h+=`<article class="card"><div class="meta">要点のまとめ</div><h2>${esc(t)}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</article>`;
+  h+=exHtml(L,missed)+aroundHtml(L);
   const rel=(L.rel||[]).filter(k=>LESSON[k]);
   if(rel.length)h+=`<article class="card"><div class="meta">つながる論点</div><p style="margin:0">${esc(L.bridge||"")}</p><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></article>`;
   return h;
@@ -601,7 +625,7 @@ function startReview(queue){ // queue: [{key, missed?}]
   app.innerHTML=`<div class="exam-top"><div><div class="note">復習　残り${queue.length}論点</div><div style="font-weight:700">${t}</div></div><button class="btn" id="home">ホームへ</button></div>
   ${missedHtml(item.missed)}
   ${focusHtml(key,item.missed)}
-  <div class="row"><button class="btn pri" id="toq">確認例題3問へ</button></div>`;
+  <div class="row"><button class="btn pri" id="toq">確認例題5問へ</button></div>`;
   $("#home").onclick=home;
   $("#toq").onclick=()=>checkQs(item,rest);
   const back=()=>startReview(queue);
@@ -615,13 +639,14 @@ function checkQs(item,rest){
   const ex=new Set(item.missed?[item.missed.q.i]:[]);
   let pool=BANK.filter(q=>q.f===f&&q.t===t);
   let real=pool.filter(q=>q.ref!=="確認");
-  const qs=pick(real.length>=3?real:pool,3,ex);
+  const N=5; // 確認例題の問題数（src/logic.ts の reviewCount と同じ）
+  const qs=pick(real.length>=N?real:pool,N,ex);
   let k=0,right=0;
   const render=()=>{
     if(k>=qs.length){
-      const ok=right===qs.length;
-      app.innerHTML=`<section class="card"><h2>${t}　確認例題の結果</h2><div class="row"><span class="big">${right}<span style="font-size:1.2rem"> / ${qs.length}</span></span><span class="judge ${ok?"j-ok":right>=2?"j-mid":"j-ng"}">${ok?"習得":right>=2?"もう一息":"要復習"}</span></div>
-      <p class="note">${ok?"この論点は理解できています。":"もう一度、解説を読んでから別の3問に挑戦できます。"}</p>
+      const J=right>=Math.ceil(qs.length*0.8)?["j-ok","習得"]:right>=Math.ceil(qs.length*0.6)?["j-mid","もう一息"]:["j-ng","要復習"];const ok=J[0]==="j-ok";
+      app.innerHTML=`<section class="card"><h2>${t}　確認例題の結果</h2><div class="row"><span class="big">${right}<span style="font-size:1.2rem"> / ${qs.length}</span></span><span class="judge ${J[0]}">${J[1]}</span></div>
+      <p class="note">${ok?"この論点は理解できています。":"もう一度、解説を読んでから別の5問に挑戦できます。"}</p>
       <div class="row">${ok?"":`<button class="btn" id="again">解説に戻ってもう一度</button>`}
       ${rest.length?`<button class="btn pri" id="next">次の論点へ（残り${rest.length}）</button>`:`<button class="btn pri" id="nx">第${SET.round+1}回の模試へ</button>`}
       <button class="btn" id="home">ホームへ</button></div></section>`;

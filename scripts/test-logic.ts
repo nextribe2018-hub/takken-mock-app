@@ -1,8 +1,8 @@
 // ロジックの簡易テスト: npx tsx scripts/test-logic.ts
 import assert from 'node:assert/strict';
 import {
-  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, topicPlan, limbExam, limbExamBy, knownRate, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
-  buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
+  BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, orderExamples, topicPlan, limbExam, limbExamBy, knownRate, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
+  buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, TAKKEN, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
 import { EXAMS, byKey } from '../src/exams';
 
@@ -49,7 +49,8 @@ const w = wrongTopics(qs, ans);
 assert.ok(w.length >= 1);
 w.forEach(x => {
   const c = checkQuestions({}, x.key, x.missed.q);
-  assert.ok(c.length >= 1 && c.length <= 3);
+  assert.equal(c.length, 5); // 宅建の確認例題は論点ごとに5問
+  assert.equal(new Set(c.map(q => q.k)).size, 5);
   assert.ok(c.every(q => q.k !== x.missed.q.k));
 });
 
@@ -282,6 +283,46 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   if (base.ready && up.ready) {
     assert.ok(up.exp['業法'] > base.exp['業法']);
     assert.ok(Math.abs(base.limbs.reduce((a, b) => a + b, 0) - 1) < 1e-9);
+  }
+}
+
+// 19) 解説の具体例（3つ）と周辺知識（4〜5個）が全論点にあり、問題に近い例が先頭に来る
+{
+  Object.entries(LESSON).forEach(([k, L]) => {
+    assert.equal(L.ex?.length, 3, `具体例: ${k}`);
+    assert.ok((L.around?.length || 0) >= 4 && (L.around?.length || 0) <= 5, `周辺知識: ${k}`);
+    L.ex!.forEach(x => assert.ok(x.t && x.s && x.p && x.kw.length >= 3, `具体例の形: ${k}`));
+  });
+  let near = 0;
+  BANK.forEach(q => { const o = orderExamples(LESSON[`${q.f}|${q.t}`], q); assert.equal(o.length, 3); if (o[0].near) near++; });
+  console.log(`間違えた問題に近い具体例が見つかった問題: ${near} / ${BANK.length}`);
+}
+
+// 20) 10問×5回で論点が一巡：各回10問はすべて別の論点、1セットで業16・法7・税7は全論点、権利は14論点。
+//     出し切れなかった権利の2論点は次のセットで必ず出る。分野の出題数（業20・権14・法8・税8）は変わらない
+{
+  const X = TAKKEN;
+  const allT = new Set(BANK.map(q => q.f + '|' + q.t));
+  for (let trial = 0; trial < 20; trial++) {
+    let pr = emptyProgress();
+    let prevCarry: string[] = [];
+    for (let set = 0; set < 2; set++) {
+      const seen = new Set<string>(); const per: Record<string, number> = {};
+      for (let r = 0; r < 5; r++) {
+        const qs = buildExam(pr.hist, pr.set.round, Math.random, pr.set);
+        assert.equal(qs.length, 10);
+        assert.equal(new Set(qs.map(q => q.f + '|' + q.t)).size, 10, '1回の中で論点が重なった');
+        qs.forEach(q => { seen.add(q.f + '|' + q.t); per[q.f] = (per[q.f] || 0) + 1; });
+        pr = finishRound(X, pr, qs, qs.map(q => (Math.random() < 0.7 ? q.a : 1 - q.a)), 300).next;
+      }
+      assert.deepEqual(per, { 業法: 20, 権利: 14, 法令: 8, 税他: 8 });
+      assert.ok(seen.size >= 44, `1セットで${seen.size}論点`);
+      prevCarry.forEach(k => assert.ok(seen.has(k), `持ち越し ${k} が出ていない`));
+      assert.deepEqual(new Set([...seen, ...(pr.set.carry || [])]), allT);
+      assert.equal(pr.set.round, 0); assert.deepEqual(pr.set.topics, []);
+      prevCarry = pr.set.carry || [];
+      assert.ok(prevCarry.length <= 2 && prevCarry.every(k => k.startsWith('権利')));
+    }
   }
 }
 

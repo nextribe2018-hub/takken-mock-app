@@ -14,10 +14,23 @@ export type LessonSys = {
   flow: { title: string; steps: string[] } | null;
   tables: SysTable[];
 };
-export type Lesson = { pts: string[]; traps: string[]; rel: string[]; bridge?: string; sys?: LessonSys };
+// 具体例（t 見出し・s 場面・p 結論と理由・kw 問題文との照合用キーワード）と周辺知識
+export type LessonEx = { t: string; s: string; p: string; kw: string[] };
+export type LessonAround = { h: string; b: string };
+export type Lesson = { pts: string[]; traps: string[]; rel: string[]; bridge?: string; sys?: LessonSys; ex?: LessonEx[]; around?: LessonAround[] };
+// 間違えた問題に近い具体例を先頭に（キーワードが問題文・解説に多く含まれる順）。near は先頭が問題に関係するとき true
+export function orderExamples(L: Lesson, q?: { s: string; e: string }): { ex: LessonEx; near: boolean }[] {
+  const ex = L.ex || [];
+  if (!q) return ex.map(x => ({ ex: x, near: false }));
+  const text = q.s + q.e;
+  const sc = ex.map((x, i) => ({ x, i, n: x.kw.filter(k => text.includes(k)).length }));
+  sc.sort((a, b) => b.n - a.n || a.i - b.i);
+  return sc.map((o, j) => ({ ex: o.x, near: j === 0 && o.n > 0 }));
+}
 export type HistItem = { n: number; c: number; last: 0 | 1 };
 export type Hist = Record<string, HistItem>;
-export type SetState = { round: number; scores: number[] };
+// topics＝このセット（5回）で出した論点（「分野|論点」）、carry＝前のセットで出し切れなかった論点（次のセットで優先）
+export type SetState = { round: number; scores: number[]; topics?: string[]; carry?: string[] };
 export type LogItem = { at: string; round: number; score: number; sec: number; field?: Field };
 // 論点ごとの直近10問の正誤（古い→新しい、'1'=正解）。キーは「分野|論点」
 export type Recent = Record<string, string>;
@@ -83,13 +96,27 @@ export function quotas(x: Exam, round: number): Record<string, number> {
   return Object.fromEntries(x.fields.map(([f], i) => [f, base[i]]));
 }
 
-// 1回分を組む。rounds のある試験（宅建）は分野順、ない試験は混ぜて出す
-export function buildRound(x: Exam, hist: Hist, round: number, rnd = Math.random): Item[] {
+// 論点を一巡させる選び方：前セットの持ち越し論点 → このセットでまだ出していない論点 → 出した論点 の順。
+// 同じ順位の中は従来どおり（未出題 → 前回不正解 → 回答の少ない問題）。1回の中では論点が重ならないようにする
+export function pickCover<T extends Item>(hist: Hist, pool: T[], n: number, exclude: Set<number>, set: SetState, rnd = Math.random): T[] {
+  const used = new Set(set.topics || []), carry = new Set(set.carry || []);
+  const rank = (q: T) => { const k = q.f + '|' + q.t; return carry.has(k) && !used.has(k) ? 0 : used.has(k) ? 2 : 1; };
+  const c = shuffle(pool.filter(q => !exclude.has(q.i)), rnd);
+  c.sort((a, b) => rank(a) - rank(b) || prio(hist, a) - prio(hist, b));
+  const out: T[] = [];
+  const seen = new Set<string>();
+  for (const q of c) { if (out.length >= n) break; if (!seen.has(q.t)) { out.push(q); seen.add(q.t); } }
+  for (const q of c) { if (out.length >= n) break; if (!out.includes(q)) out.push(q); }
+  return out;
+}
+// 1回分を組む。rounds のある試験（宅建）は分野順で、5回のセットで論点が一巡するように選ぶ。ない試験は混ぜて出す
+export function buildRound(x: Exam, hist: Hist, round: number, rnd = Math.random, set?: SetState): Item[] {
   const mix = quotas(x, round);
   const qs: Item[] = [];
   const ex = new Set<number>();
   x.fields.forEach(([f]) => {
-    pick(hist, x.items.filter(q => q.f === f), mix[f] || 0, ex, rnd).forEach(q => { qs.push(q); ex.add(q.i); });
+    const pool = x.items.filter(q => q.f === f), n = mix[f] || 0;
+    (x.rounds && set ? pickCover(hist, pool, n, ex, set, rnd) : pick(hist, pool, n, ex, rnd)).forEach(q => { qs.push(q); ex.add(q.i); });
   });
   const n = Math.min(x.size, x.items.length);
   if (qs.length < n) pick(hist, x.items, n - qs.length, ex, rnd).forEach(q => qs.push(q));
@@ -117,11 +144,17 @@ export function choiceOrder(q: Item, rnd = Math.random): number[] {
   return [...shuffle(idx.slice(0, -1), rnd), idx[idx.length - 1]];
 }
 
+// 確認例題の問題数：論点ごとに復習する試験（宅建）は5問、分野ごとの試験は3問
+export const reviewCount = (x: Exam) => (x.reviewBy === 'topic' ? 5 : 3);
+// 確認例題の判定：習得＝8割以上（5問なら4問）、もう一息＝6割以上
+export const reviewJudge = (right: number, n: number): Judge =>
+  right >= Math.ceil(n * 0.8) ? { tone: 'ok', label: '習得' } : right >= Math.ceil(n * 0.6) ? { tone: 'mid', label: 'もう一息' } : { tone: 'ng', label: '要復習' };
 export function reviewQuestions<T extends Item>(x: Exam, hist: Hist, key: string, missed?: T, rnd = Math.random): T[] {
   const [f, t] = key.split('|');
+  const n = reviewCount(x);
   const pool = (x.items as T[]).filter(q => q.f === f && (x.reviewBy === 'field' || q.t === t));
   const real = pool.filter(q => q.ref !== '確認');
-  return pick(hist, real.length >= 3 ? real : pool, 3, new Set(missed ? [missed.i] : []), rnd);
+  return pick(hist, real.length >= n ? real : pool, n, new Set(missed ? [missed.i] : []), rnd);
 }
 
 // 論点ごとの成績。rn/rc は論点の直近10問（r10）の回答数・正解数。f は宅建では Field、他の試験では分野名
@@ -184,9 +217,13 @@ export function finishRound(x: Exam, p: Progress, qs: Item[], ans: (number | nul
   scores[round] = score;
   const nextRound = (round + 1) % R;
   const setDone = !!x.rounds && nextRound === 0;
+  // このセットで出した論点を記録。セットが終わったら、出し切れなかった論点を次のセットへ持ち越す
+  const topics = [...new Set([...(round === 0 ? [] : p.set.topics || []), ...qs.map(q => q.f + '|' + q.t)])];
+  const allTopics = [...new Set(x.items.map(q => q.f + '|' + q.t))];
+  const carry = setDone ? allTopics.filter(k => !topics.includes(k)) : (p.set.carry || []);
   const next: Progress = {
     ...cur,
-    set: { round: nextRound, scores: setDone ? [] : scores },
+    set: x.rounds ? { round: nextRound, scores: setDone ? [] : scores, topics: setDone ? [] : topics, carry } : { round: nextRound, scores: setDone ? [] : scores },
     log: [...p.log, { at: jstNow(), round: round + 1, score, sec: used }].slice(-500),
   };
   return { next, score, round, setScores: setDone ? scores : null };
@@ -216,7 +253,7 @@ export const fieldName = (f: Field) => FIELDS.find(x => x[0] === f)![1];
 export const MIX = TAKKEN.rounds as Record<Field, number>[];
 export const LIMIT = TAKKEN.limit;
 export const BYKEY: Record<string, Q> = Object.fromEntries(BANK.map(q => [q.k, q]));
-export const buildExam = (hist: Hist, round: number, rnd = Math.random) => buildRound(TAKKEN, hist, round, rnd) as Q[];
+export const buildExam = (hist: Hist, round: number, rnd = Math.random, set?: SetState) => buildRound(TAKKEN, hist, round, rnd, set) as Q[];
 export const checkQuestions = (hist: Hist, key: string, missed?: Q, rnd = Math.random) => reviewQuestions(TAKKEN, hist, key, missed, rnd);
 export function topicStats(hist: Hist, r10: Recent = backfillRecent(hist)): TopicStat[] {
   return statsBy(TAKKEN, hist, r10) as TopicStat[];
