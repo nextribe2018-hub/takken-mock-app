@@ -48,6 +48,6 @@
 | `boki-ni` | 500 | 0 | https://claude.ai/artifact/GHwMCcDn8wFQcC1pQAc9ya |
 | `kanri-all` | 300 | 244 | https://claude.ai/artifact/VBvVyBoVMczNaBMVUjHPpV |
 | `mankan-all` | 500 | 377 | https://claude.ai/artifact/NkTNM1Bse5BYK9arRUVPBX |
-| `chintai-all` | 300 | 259 | https://claude.ai/artifact/5D2uuUoAswQoHPceHKwGzt |
+| `chintai-all` | 500 | 350 | https://claude.ai/artifact/5D2uuUoAswQoHPceHKwGzt |
 | `sharoushi-all` | 500 | 210 | https://claude.ai/artifact/KMuyEFftTZHFspvUA2uoJ5 |
 | `gyosei-all` | 300 | 258 | https://claude.ai/artifact/HhnjJdtqYgAxXZJ93tTicn |
