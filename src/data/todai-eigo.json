@@ -1,0 +1,1034 @@
+[
+ {
+  "id": 1,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：道案内アプリと認知地図",
+  "p": "When people navigate with turn-by-turn directions on a phone, they reliably reach their destinations, yet they often cannot retrace the route afterwards. Researchers who study spatial cognition explain this not as a failure of memory but as a consequence of what attention is asked to do. A traveller following instructions attends to the next command rather than to the relations among landmarks, and it is precisely those relations, not the landmarks themselves, from which a mental map is built. In this sense the device does not weaken a faculty so much as relieve it of the very work through which it develops. Some critics conclude that we should abandon such tools altogether, but this is to mistake the problem. The aim is not to refuse assistance but to decide which kinds of effort are worth preserving. A driver delivering parcels in an unfamiliar city may gain nothing from building a mental map she will never use again, whereas a child learning to move around her own neighbourhood may lose a great deal. The question, then, is not whether technology makes us less capable, but which capacities we are willing to let it carry for us, and under what circumstances.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "道案内に従うと注意が目印どうしの関係から離れるため頭の中の地図が育たないが、問題は道具を拒むことではなく、どの場面でどの能力の働きを道具に任せるかを見極めることである。",
+   "道案内アプリは人間の記憶力そのものを衰えさせるので、とくに子どもには使わせないようにすべきである。",
+   "頭の中の地図は目印を一つ一つ覚えることで作られるので、アプリを使う人も目印を意識して記憶する努力をすべきである。",
+   "配達員と子どもではアプリの使い方が異なり、技術が年齢によって異なる影響を与えることが分かる。"
+  ],
+  "e": "本文は、①道案内に従うと注意が「次の指示」に向き、地図の材料である目印どうしの関係に向かない、②だから能力は「弱まる」というより育つための作業を免除される、③道具を捨てよという結論は問題の取り違えで、どの努力を残すかを場面ごとに決めることが大切、という流れです。正解はこの三点を押さえています。「記憶力そのものを衰えさせる」は本文が否定する見方（not as a failure of memory）、「目印を覚える」は not the landmarks themselves に反します。配達員と子どもは「場面による違い」の例であり、年齢差が主題ではありません。",
+  "m": "要約は「現象→原因→誤った結論の否定→筆者の問い」の順で"
+ },
+ {
+  "id": 2,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：批判の誤りを指摘する理由",
+  "p": "When people navigate with turn-by-turn directions on a phone, they reliably reach their destinations, yet they often cannot retrace the route afterwards. Researchers who study spatial cognition explain this not as a failure of memory but as a consequence of what attention is asked to do. A traveller following instructions attends to the next command rather than to the relations among landmarks, and it is precisely those relations, not the landmarks themselves, from which a mental map is built. In this sense the device does not weaken a faculty so much as relieve it of the very work through which it develops. Some critics conclude that we should abandon such tools altogether, but this is to mistake the problem. The aim is not to refuse assistance but to decide which kinds of effort are worth preserving. A driver delivering parcels in an unfamiliar city may gain nothing from building a mental map she will never use again, whereas a child learning to move around her own neighbourhood may lose a great deal. The question, then, is not whether technology makes us less capable, but which capacities we are willing to let it carry for us, and under what circumstances.",
+  "q": "本文中の this is to mistake the problem（第5文）について、筆者がそのように述べる理由として最も適切なものを選びなさい。",
+  "c": [
+   "Because the real issue is not whether to use assistance at all, but which forms of mental effort deserve to be kept in which situations.",
+   "Because the critics have failed to notice that navigation devices actually improve people's memory of landmarks.",
+   "Because abandoning navigation devices would make it impossible for delivery drivers to do their jobs.",
+   "Because the critics confuse the memory of routes with the memory of the people one meets on the way."
+  ],
+  "e": "直後の文 The aim is not to refuse assistance but to decide which kinds of effort are worth preserving が理由そのものです。「道具を捨てるか否か」ではなく「どの努力を残すか」が問題だ、というのが筆者の立場です。道具が目印の記憶を「改善する」とは書かれていません。配達員の例は「地図を作っても得るものがない場面」の例で、仕事ができなくなるという話ではありません。出会う人の記憶の話は本文にありません。",
+  "m": "not A but B の B に筆者の主張がある"
+ },
+ {
+  "id": 3,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：間接的な言い方の二つの機能",
+  "p": "Why do people so often say less than they mean? A request phrased as a question—'Would you mind closing the window?'—is, strictly speaking, inefficient: it takes longer to say than a direct command and risks being misunderstood. Linguists have long explained such indirectness as a form of politeness, a way of leaving the listener room to refuse without either party losing face. But this explanation, though correct as far as it goes, overlooks a second function. Indirect speech allows a speaker to say something while preserving the possibility of denying that it was said. A suggestion that a permit might be approved more quickly if a gift were offered, a remark to a reluctant witness about how much he must love his children, an invitation to stay for 'one more drink' at the end of an evening: in each case the speaker communicates clearly enough to be understood, yet not so clearly that the meaning could be proved. Indirectness, on this view, is not only a courtesy extended to the listener but also a protection the speaker extends to himself.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "間接的な言い方には、聞き手が断る余地を残す礼儀としての働きに加えて、話し手が後で自分の意図を否認できる余地を残すという自己防衛の働きもある。",
+   "間接的な言い方は時間がかかり誤解も招くので、はっきりした命令や依頼に置き換えるべきである。",
+   "言語学者の「礼儀」という説明は誤りであり、間接的な言い方の本当の働きは話し手の自己防衛だけである。",
+   "間接的な言い方は、賄賂や脅しなど不正な目的をもつ場面に限って用いられる。"
+  ],
+  "e": "本文は「礼儀という従来の説明は、それなりに正しいが（correct as far as it goes）第二の働きを見落としている」と述べ、その第二の働き＝「言ったことを否認できる可能性を残す」ことを、贈り物で許可が早まるというほのめかしなどの例で示し、最後に not only A but also B でまとめています。正解はこの両方を含みます。「置き換えるべき」という主張はありません。従来の説明を「誤り」とし「だけ」と限定する選択肢は、not only … but also の構造に反します。賄賂などは例であり、用いられる場面を限定してはいません。",
+  "m": "correct as far as it goes＝部分的には正しい"
+ },
+ {
+  "id": 4,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：議論の展開のしかた",
+  "p": "Why do people so often say less than they mean? A request phrased as a question—'Would you mind closing the window?'—is, strictly speaking, inefficient: it takes longer to say than a direct command and risks being misunderstood. Linguists have long explained such indirectness as a form of politeness, a way of leaving the listener room to refuse without either party losing face. But this explanation, though correct as far as it goes, overlooks a second function. Indirect speech allows a speaker to say something while preserving the possibility of denying that it was said. A suggestion that a permit might be approved more quickly if a gift were offered, a remark to a reluctant witness about how much he must love his children, an invitation to stay for 'one more drink' at the end of an evening: in each case the speaker communicates clearly enough to be understood, yet not so clearly that the meaning could be proved. Indirectness, on this view, is not only a courtesy extended to the listener but also a protection the speaker extends to himself.",
+  "q": "この英文の議論の進め方を説明したものとして最も適切なものを選びなさい。",
+  "c": [
+   "An accepted explanation is granted to be partly right, and then an additional function is proposed and illustrated with examples.",
+   "Two rival explanations are presented, and the author concludes that neither of them can be correct.",
+   "A common practice is criticised as inefficient, and the author recommends a more direct way of speaking.",
+   "The history of a linguistic theory is traced from its origins to its eventual rejection by most scholars."
+  ],
+  "e": "第3文で従来の「礼儀」説を挙げ、第4文で though correct as far as it goes（それなりに正しいが）と一部を認めたうえで a second function を示し、具体例（贈り物で許可が早まるというほのめかし、証人への遠回しの脅し）で裏づけています。二つの説をどちらも否定してはいません。冒頭の「非効率」は問題提起であり、直接的な話し方を勧めてはいません。学説の歴史を追う文章でもありません。",
+  "m": "譲歩（認める）→新しい論点→具体例→まとめ"
+ },
+ {
+  "id": 5,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：観光と「本物」の文化",
+  "p": "Tourists often complain that the places they visit have been spoiled by tourism: that the traditional festival has become a performance staged for cameras, and that the old market now sells souvenirs instead of vegetables. The complaint assumes that there was once an authentic version of the place, untouched by outsiders, which the visitor has arrived just too late to see. Yet most of the traditions that tourists seek were themselves shaped by earlier contact, trade, and migration; the 'unspoiled' village of one century was frequently the bustling crossroads of another. To demand that a culture remain as it was at some arbitrary moment is to deny its members the right to change that every living culture exercises. The more interesting question is not whether a place has changed, but who has had a say in how it changed.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "観光客が惜しむ「本物」の姿は、外部との交流の中で変わり続けてきた文化の一時点を恣意的に固定したものにすぎず、問うべきは変化の有無ではなく変化のあり方を誰が決めたかである。",
+   "観光は伝統文化を損なうので、観光客の数を制限して土地の本来の姿を守るべきである。",
+   "どの文化も外部との接触から生まれた以上、伝統という考え方そのものに意味はない。",
+   "観光客は訪れるのが遅すぎたため、手つかずの本物の文化を見る機会を失ってしまった。"
+  ],
+  "e": "本文は、①観光客の不満は「かつて手つかずの本物があった」という前提に立つ、②しかし伝統の多くは交易や移住などの接触で形づくられてきた、③ある時点の姿にとどまれと求めるのは変化する権利の否定、④問うべきは「誰が変化に関わったか」、という流れです。正解はこれを押さえています。観光客の数の制限は主張していません。「伝統に意味はない」は言い過ぎです。最後の選択肢は筆者が批判する前提そのものです。",
+  "m": "筆者が批判する「前提」を見抜くことが要約の鍵"
+ },
+ {
+  "id": 6,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：筆者が批判する前提",
+  "p": "Tourists often complain that the places they visit have been spoiled by tourism: that the traditional festival has become a performance staged for cameras, and that the old market now sells souvenirs instead of vegetables. The complaint assumes that there was once an authentic version of the place, untouched by outsiders, which the visitor has arrived just too late to see. Yet most of the traditions that tourists seek were themselves shaped by earlier contact, trade, and migration; the 'unspoiled' village of one century was frequently the bustling crossroads of another. To demand that a culture remain as it was at some arbitrary moment is to deny its members the right to change that every living culture exercises. The more interesting question is not whether a place has changed, but who has had a say in how it changed.",
+  "q": "筆者が批判している考え方として最も適切なものを選びなさい。",
+  "c": [
+   "The belief that a culture possesses a fixed, original form which any change necessarily corrupts.",
+   "The belief that local people should have a voice in deciding how their town develops.",
+   "The belief that trade and migration have influenced traditions in many parts of the world.",
+   "The belief that markets selling vegetables are more useful to residents than souvenir shops."
+  ],
+  "e": "第2文 The complaint assumes that there was once an authentic version of the place, untouched by outsiders が批判の対象である前提です。第3・4文でこれを「伝統自体が接触で形づくられた」「ある時点に固定せよと求めるのは変化の権利の否定」と退けています。「地元の人が変化に関わるべき」は最終文が示す筆者自身の関心に近く、批判の対象ではありません。交易や移住の影響は筆者が根拠として使っている事実です。野菜と土産物の有用性は論じていません。",
+  "m": "The complaint assumes… の「前提」が批判の標的"
+ },
+ {
+  "id": 7,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：プライバシーと文脈",
+  "p": "'If you have nothing to hide, you have nothing to fear.' The argument is persuasive because it frames privacy as the concern of people with something shameful to conceal. Yet privacy has less to do with secrecy than with control over context. Most of us are willing to tell our doctors things we would never tell our employers, and to share with close friends details we would not want published. Nothing in this information is necessarily shameful; what matters is who knows it and for what purpose. The harm of surveillance, then, lies not chiefly in the exposure of secrets but in the collapse of the separate contexts in which we present ourselves differently—and legitimately so—to different people.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "プライバシーの核心は秘密を隠すことより、情報を誰が何のために知るかという文脈を自分で管理することにあり、監視の害は相手ごとに異なる自己の示し方を成り立たせる文脈の区別を壊す点にある。",
+   "隠すべきことがない人は監視を恐れる必要がないので、プライバシーを強く主張するのはやましい人だけである。",
+   "医師や友人には何を話してもよいが、雇用主には個人的な情報を一切伝えてはならない。",
+   "監視の最大の害は、恥ずべき秘密が公になり、本人の評判が損なわれることにある。"
+  ],
+  "e": "第3文 privacy has less to do with secrecy than with control over context（秘密よりも文脈の管理に関わる）が主張の中心で、医師・雇用主・友人の例で説明し、最終文で監視の害を「秘密の暴露」ではなく「文脈の区別の崩壊」だとしています。2番目は筆者が反論している主張そのものです。3番目は例を規範に取り違えています。4番目は not chiefly in the exposure of secrets に反します。",
+  "m": "less A than B＝AというよりむしろB"
+ },
+ {
+  "id": 8,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：反論される主張の説得力",
+  "p": "'If you have nothing to hide, you have nothing to fear.' The argument is persuasive because it frames privacy as the concern of people with something shameful to conceal. Yet privacy has less to do with secrecy than with control over context. Most of us are willing to tell our doctors things we would never tell our employers, and to share with close friends details we would not want published. Nothing in this information is necessarily shameful; what matters is who knows it and for what purpose. The harm of surveillance, then, lies not chiefly in the exposure of secrets but in the collapse of the separate contexts in which we present ourselves differently—and legitimately so—to different people.",
+  "q": "筆者によれば、冒頭の主張（'If you have nothing to hide...'）が説得力をもってしまうのはなぜか。最も適切なものを選びなさい。",
+  "c": [
+   "Because it presents privacy as something that matters only to people who have shameful secrets.",
+   "Because most people really do have nothing that they would prefer to keep private.",
+   "Because surveillance has in fact rarely caused harm to ordinary citizens.",
+   "Because it correctly identifies the collapse of contexts as the main danger of surveillance."
+  ],
+  "e": "第2文 The argument is persuasive because it frames privacy as the concern of people with something shameful to conceal が直接の根拠です。プライバシーを「やましい人の問題」という枠にはめるから説得力があるように見える、という指摘です。多くの人に隠したいことがない、監視の害は少ない、とは書かれていません。文脈の崩壊は筆者自身の主張で、冒頭の主張が見抜いている点ではありません。",
+  "m": "frame A as B＝AをBという枠で捉えさせる"
+ },
+ {
+  "id": 9,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：学習の手ごたえと定着",
+  "p": "Students who reread their notes before an examination usually feel that they are learning, and teachers who explain material with great clarity are usually rated highly. Both impressions are understandable, and both can be misleading. A large body of research suggests that the conditions which make learning feel smooth are often not the conditions under which it lasts. Material that is easy to process at the moment of study tends to be forgotten quickly, while material that requires effort to retrieve—because it was tested, spaced out over time, or mixed with other topics—tends to endure. The difficulty is that the beneficial kind of struggle feels like failure while it is happening. A learner who judges her progress by how fluent she feels will therefore systematically choose the methods that serve her least.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "学習が順調だと感じられる条件と知識が定着する条件は一致しないことが多く、思い出す努力を要する方法ほど定着するが、その苦労は失敗のように感じられるため、手ごたえで進歩を測る学習者は効果の薄い方法を選びがちである。",
+   "ノートの読み返しや分かりやすい説明は、学習を定着させる最も確実な方法である。",
+   "学習はつねに苦痛を伴うべきであり、楽しく感じられる学習には効果がない。",
+   "教師の評価は説明の分かりやすさではなく、生徒の試験の点数だけで決めるべきである。"
+  ],
+  "e": "本文は、①読み返しや明快な説明は「学べている」感覚を生むが誤解を招きうる、②スムーズに感じる条件と定着する条件は別、③テスト・分散・混ぜ合わせなど思い出す努力が必要な学習ほど残る、④その苦労は失敗のように感じられるので、流暢さで進歩を判断すると逆効果の方法を選ぶ、という流れです。2番目は本文が否定する印象です。3番目は「つねに苦痛」と一般化しすぎです。教師の評価方法の提案はありません。",
+  "m": "感じる手ごたえ≠実際の定着"
+ },
+ {
+  "id": 10,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：結論文の意味",
+  "p": "Students who reread their notes before an examination usually feel that they are learning, and teachers who explain material with great clarity are usually rated highly. Both impressions are understandable, and both can be misleading. A large body of research suggests that the conditions which make learning feel smooth are often not the conditions under which it lasts. Material that is easy to process at the moment of study tends to be forgotten quickly, while material that requires effort to retrieve—because it was tested, spaced out over time, or mixed with other topics—tends to endure. The difficulty is that the beneficial kind of struggle feels like failure while it is happening. A learner who judges her progress by how fluent she feels will therefore systematically choose the methods that serve her least.",
+  "q": "最終文 A learner who judges her progress by how fluent she feels will therefore systematically choose the methods that serve her least. の内容として最も適切なものを選びなさい。",
+  "c": [
+   "Since effective methods feel like failure, a learner who trusts her sense of ease will consistently prefer the less effective ones.",
+   "A learner who speaks fluently will always make faster progress than one who struggles.",
+   "Learners who judge their own progress carefully will usually choose the best methods.",
+   "Because fluency is the goal of learning, methods that produce it quickly should be chosen."
+  ],
+  "e": "therefore が前文 the beneficial kind of struggle feels like failure while it is happening を受けています。有益な苦労は「失敗している感じ」を伴うので、「すらすらできる感じ」で進歩を判断すると、いちばん役に立たない方法を一貫して（systematically）選んでしまう、という意味です。fluent は「話すのが流暢」ではなく「処理がすらすら進む感覚」です。3・4番目は本文の結論と逆です。",
+  "m": "therefore は直前の文を受ける"
+ },
+ {
+  "id": 11,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：地図と科学モデル",
+  "p": "A map that showed everything would be useless. To be of any help, a map must leave out almost all of what it represents—the individual trees, the colour of the doors, the people in the streets—and the choice of what to omit depends on the purpose for which it is made. A subway diagram that distorts distances beyond recognition may be the best possible guide for a passenger, and the worst possible guide for someone walking above ground. Scientific models work in much the same way. They are often criticised for being unrealistic, as though their simplifications were an embarrassing compromise. But a model's value lies precisely in what it ignores, provided that what it ignores does not matter for the question being asked. The proper objection to a model, then, is never simply that it is unrealistic, but that it is unrealistic in the wrong respects.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "地図が目的に応じて大半を省くからこそ役立つように、科学のモデルも問いに関係のないものを無視する点に価値があり、批判すべきは非現実的であることそのものではなく、問いにとって重要な点で現実から外れていることである。",
+   "科学のモデルは現実を単純化しすぎているので、できるだけ多くの要素を取り込んで現実に近づけるべきである。",
+   "地下鉄の路線図は距離を正しく表していないので、乗客にとっても歩行者にとっても不便である。",
+   "地図とモデルはどちらも現実を正確に写すことを目的としており、省略はやむを得ない妥協である。"
+  ],
+  "e": "本文は地図の比喩から入り、「何を省くかは目的で決まる」と述べたうえで科学モデルに当てはめ、「モデルの価値は無視するものにこそある（問いに関係しない限り）」「正当な批判は誤った点で非現実的なことだ」と結論します。2番目は筆者が退ける批判の立場です。路線図は乗客には最良の案内になりうると書かれています。4番目の「やむを得ない妥協」は as though … an embarrassing compromise として否定されています。",
+  "m": "比喩（地図）→本題（モデル）→結論の三段構成"
+ },
+ {
+  "id": 12,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：「誤った点で非現実的」の意味",
+  "p": "A map that showed everything would be useless. To be of any help, a map must leave out almost all of what it represents—the individual trees, the colour of the doors, the people in the streets—and the choice of what to omit depends on the purpose for which it is made. A subway diagram that distorts distances beyond recognition may be the best possible guide for a passenger, and the worst possible guide for someone walking above ground. Scientific models work in much the same way. They are often criticised for being unrealistic, as though their simplifications were an embarrassing compromise. But a model's value lies precisely in what it ignores, provided that what it ignores does not matter for the question being asked. The proper objection to a model, then, is never simply that it is unrealistic, but that it is unrealistic in the wrong respects.",
+  "q": "最終文の unrealistic in the wrong respects が指す内容として最も適切なものを選びなさい。",
+  "c": [
+   "Simplifying or leaving out features that actually matter for the question the model is meant to answer.",
+   "Including so many details that the model becomes as complicated as reality itself.",
+   "Being criticised by people who do not understand the purpose of scientific models.",
+   "Failing to show features, such as trees and doors, that make a map look attractive."
+  ],
+  "e": "直前の文に provided that what it ignores does not matter for the question being asked（無視するものが問いにとって重要でない限り）とあります。裏返せば、問いにとって重要な点を無視・単純化していることが「誤った点で非現実的」ということです。細部を入れすぎることは逆の話です。批判者の無理解や地図の見た目の美しさは論点ではありません。",
+  "m": "provided that＝〜という条件で"
+ },
+ {
+  "id": 13,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：翻訳できない語",
+  "p": "It is often said that some words cannot be translated. [ 1 ] The Portuguese saudade, for instance, is regularly described as untranslatable, yet readers of English have no difficulty understanding a paragraph that explains it. What such claims usually mean is not that the meaning cannot be conveyed, but that it cannot be conveyed in a single word. [ 2 ] A language that lacks a term for a particular feeling does not leave its speakers incapable of having that feeling; it merely obliges them to describe it at greater length. Yet the length of a description is not a trivial matter. [ 3 ] What must be assembled from several words is less likely to be noticed, named, and passed on, and so it gradually recedes from the shared world of a community even if no individual is unable to grasp it.",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "The claim is repeated so often that it has come to seem self-evident.",
+   "Concepts that are expensive to express tend to be expressed less often.",
+   "Translators, therefore, should avoid such words entirely.",
+   "This proves that speakers of different languages inhabit different worlds."
+  ],
+  "e": "空所の直後は The Portuguese saudade, for instance と「翻訳できないと言われる語」の例が続くので、空所には第1文の主張を受けてそれを話題として広げる文が入ります。「その主張はあまりに繰り返されて自明に見える」が自然です。2番目は第3段階（説明の長さが重要だ）の内容で、ここでは早すぎます。3番目の therefore は前に根拠がありません。4番目は「理解できない」方向の主張で、直後の「英語の読者は難なく理解する」と矛盾します。",
+  "m": "直後の for instance が何の例かを確認する"
+ },
+ {
+  "id": 14,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：翻訳できない語",
+  "p": "It is often said that some words cannot be translated. [ 1 ] The Portuguese saudade, for instance, is regularly described as untranslatable, yet readers of English have no difficulty understanding a paragraph that explains it. What such claims usually mean is not that the meaning cannot be conveyed, but that it cannot be conveyed in a single word. [ 2 ] A language that lacks a term for a particular feeling does not leave its speakers incapable of having that feeling; it merely obliges them to describe it at greater length. Yet the length of a description is not a trivial matter. [ 3 ] What must be assembled from several words is less likely to be noticed, named, and passed on, and so it gradually recedes from the shared world of a community even if no individual is unable to grasp it.",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "This distinction matters, because the two claims have very different implications.",
+   "Indeed, the feeling it names is unknown to anyone outside Portugal.",
+   "Dictionaries, after all, are written by people who know only one language.",
+   "This is why bilingual speakers often feel that they have two personalities."
+  ],
+  "e": "直前で「意味が伝えられない」ことと「一語では伝えられない」ことを区別し、直後で「語がなくても感情は持てる、長く説明する必要があるだけ」と、二つの主張の違いがもたらす帰結を述べています。したがって「この区別は重要だ、二つの主張の含意は大きく異なるから」が入ります。2番目は「英語の読者も理解できる」に反します。辞書の作り手やバイリンガルの性格は文脈と無関係です。",
+  "m": "空所の前後の「つなぎ役」になる文を選ぶ"
+ },
+ {
+  "id": 15,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：翻訳できない語",
+  "p": "It is often said that some words cannot be translated. [ 1 ] The Portuguese saudade, for instance, is regularly described as untranslatable, yet readers of English have no difficulty understanding a paragraph that explains it. What such claims usually mean is not that the meaning cannot be conveyed, but that it cannot be conveyed in a single word. [ 2 ] A language that lacks a term for a particular feeling does not leave its speakers incapable of having that feeling; it merely obliges them to describe it at greater length. Yet the length of a description is not a trivial matter. [ 3 ] What must be assembled from several words is less likely to be noticed, named, and passed on, and so it gradually recedes from the shared world of a community even if no individual is unable to grasp it.",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Concepts that are expensive to express tend to be expressed less often.",
+   "Length, after all, is a matter of style rather than of meaning.",
+   "Speakers of English, for example, have never experienced saudade.",
+   "Translators, therefore, should avoid such words entirely."
+  ],
+  "e": "直前の「説明の長さは些細なことではない」を受け、直後の「いくつもの語を組み合わせなければならないものは気づかれ、名づけられ、伝えられにくい」へつなぐ文が必要です。「表現にコストのかかる概念は表現される頻度が下がる」がぴったりです。2番目は「長さは些細ではない」と矛盾します。3番目は「語がなくても感情は持てる」という本文の立場に反します。4番目は根拠のない結論です。",
+  "m": "Yet … not a trivial matter の理由を述べる文"
+ },
+ {
+  "id": 16,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：科学的知見の確立",
+  "p": "Popular accounts of science tend to celebrate the moment of discovery: the experiment that worked, the insight that arrived in the bath. [ 1 ] Most published findings are not confirmed by any dramatic event at all; they simply survive, year after year, the attempts of other researchers to build on them. A result that cannot be reproduced does not collapse with a bang either. [ 2 ] Other laboratories try to use it, fail, and quietly turn to more promising lines of work, often without publishing their failures. This silent process is efficient in one sense, since it spares the field from endless public dispute. [ 3 ] Because unsuccessful attempts leave little trace, a newcomer may spend years pursuing a result that the most experienced researchers privately abandoned long ago.",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Such stories are memorable, but they misrepresent how knowledge is actually secured.",
+   "In another sense, however, it is remarkably wasteful.",
+   "Such stories explain why scientists rarely make mistakes.",
+   "Instead, it is slowly abandoned."
+  ],
+  "e": "直前は「発見の瞬間を称える通俗的な語り」、直後は「多くの知見は劇的な出来事ではなく、他の研究者の試みに耐えることで確かになる」です。両者をつなぐには「そうした話は記憶に残るが、知識が実際に確立される仕方を誤って伝えている」が適切です。2番目は「ある意味では効率的」の後でなければ意味をなしません。3番目は文脈にない主張です。4番目の Instead と it は前に受けるものがありません。",
+  "m": "Such stories＝直前の「発見の物語」を受ける"
+ },
+ {
+  "id": 17,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：科学的知見の確立",
+  "p": "Popular accounts of science tend to celebrate the moment of discovery: the experiment that worked, the insight that arrived in the bath. [ 1 ] Most published findings are not confirmed by any dramatic event at all; they simply survive, year after year, the attempts of other researchers to build on them. A result that cannot be reproduced does not collapse with a bang either. [ 2 ] Other laboratories try to use it, fail, and quietly turn to more promising lines of work, often without publishing their failures. This silent process is efficient in one sense, since it spares the field from endless public dispute. [ 3 ] Because unsuccessful attempts leave little trace, a newcomer may spend years pursuing a result that the most experienced researchers privately abandoned long ago.",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Instead, it is slowly abandoned.",
+   "Instead, it is denounced in a famous public debate.",
+   "As a result, it is immediately retracted by the journal that published it.",
+   "Such stories are memorable, but they misrepresent how knowledge is actually secured."
+  ],
+  "e": "直前は「再現できない結果も派手に崩れるわけではない」、直後は「他の研究室が使おうとして失敗し、静かに別の研究に移る」です。否定の後に Instead で「ゆっくり見捨てられる」と言い換えるのが自然です。2番目の「有名な公開論争」は quietly や「公の論争を避けられる」という後の記述と矛盾します。3番目の「直ちに撤回」も「静かに」の流れに合いません。4番目は第1空所の位置の文です。",
+  "m": "not … with a bang → Instead, slowly"
+ },
+ {
+  "id": 18,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：科学的知見の確立",
+  "p": "Popular accounts of science tend to celebrate the moment of discovery: the experiment that worked, the insight that arrived in the bath. [ 1 ] Most published findings are not confirmed by any dramatic event at all; they simply survive, year after year, the attempts of other researchers to build on them. A result that cannot be reproduced does not collapse with a bang either. [ 2 ] Other laboratories try to use it, fail, and quietly turn to more promising lines of work, often without publishing their failures. This silent process is efficient in one sense, since it spares the field from endless public dispute. [ 3 ] Because unsuccessful attempts leave little trace, a newcomer may spend years pursuing a result that the most experienced researchers privately abandoned long ago.",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "In another sense, however, it is remarkably wasteful.",
+   "In this sense, it is the ideal way to correct errors.",
+   "This is why failed experiments are always published.",
+   "Instead, it is slowly abandoned."
+  ],
+  "e": "直前の efficient in one sense（ある意味では効率的）は、「別の意味では」という対比を予告しています。直後は「失敗の記録が残らないので新人が何年も無駄にする」と非効率の具体例です。したがって「しかし別の意味では、ひどく無駄が多い」が入ります。2番目は直後の問題点と矛盾します。3番目は「失敗を公表しないことが多い」に反します。4番目は第2空所の文です。",
+  "m": "in one sense ↔ in another sense の対応"
+ },
+ {
+  "id": 19,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：退屈の効用",
+  "p": "We tend to treat boredom as a problem to be eliminated, and modern life offers an endless supply of remedies. [ 1 ] Yet some psychologists suggest that boredom performs a useful function. It is, in their view, a signal that our current activity has ceased to engage us and that we ought to seek something more meaningful. [ 2 ] If every moment of potential tedium is immediately filled with a screen, the signal never has a chance to do its work. We do not feel bored, but neither are we prompted to ask what we would rather be doing. [ 3 ] The cure for boredom, in other words, may do more harm than the condition it relieves.",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "A phone in the pocket guarantees that no queue or train journey need ever be dull.",
+   "As a result, boredom has become more common than ever before.",
+   "Like pain, it is unpleasant precisely so that we will not ignore it.",
+   "The discomfort disappears, and with it the question it was meant to raise."
+  ],
+  "e": "直前の「現代生活は退屈の対処法を無限に提供する」の具体例として「ポケットの携帯電話のおかげで、行列も電車の旅も退屈である必要がない」が入ります。2番目は「対処法が豊富」と矛盾します。3番目は「退屈には役割がある」という内容で、次の Yet（しかし役に立つと言う心理学者もいる）と対比になりません。4番目は信号が消える話で、まだ「信号」が出てきていない段階では早すぎます。",
+  "m": "具体例は抽象的な主張の直後に置く"
+ },
+ {
+  "id": 20,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：退屈の効用",
+  "p": "We tend to treat boredom as a problem to be eliminated, and modern life offers an endless supply of remedies. [ 1 ] Yet some psychologists suggest that boredom performs a useful function. It is, in their view, a signal that our current activity has ceased to engage us and that we ought to seek something more meaningful. [ 2 ] If every moment of potential tedium is immediately filled with a screen, the signal never has a chance to do its work. We do not feel bored, but neither are we prompted to ask what we would rather be doing. [ 3 ] The cure for boredom, in other words, may do more harm than the condition it relieves.",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Like pain, it is unpleasant precisely so that we will not ignore it.",
+   "For this reason, it should be treated with medication.",
+   "Most people, however, rarely experience it after childhood.",
+   "The discomfort disappears, and with it the question it was meant to raise."
+  ],
+  "e": "直前で退屈は「今の活動が心をとらえていない、もっと意味のあることを探せという信号」だと説明されています。そこに「痛みと同じく、無視されないようにこそ不快なのだ」と加えると、信号としての性質の説明になります。2番目の薬で治すは本文の主張と逆です。3番目は「誰もが退屈を消そうとする」という前提に合いません。4番目は直後の「画面で埋めれば信号が働かない」より後に来るべき内容です。",
+  "m": "信号（signal）の説明を補う比喩"
+ },
+ {
+  "id": 21,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：退屈の効用",
+  "p": "We tend to treat boredom as a problem to be eliminated, and modern life offers an endless supply of remedies. [ 1 ] Yet some psychologists suggest that boredom performs a useful function. It is, in their view, a signal that our current activity has ceased to engage us and that we ought to seek something more meaningful. [ 2 ] If every moment of potential tedium is immediately filled with a screen, the signal never has a chance to do its work. We do not feel bored, but neither are we prompted to ask what we would rather be doing. [ 3 ] The cure for boredom, in other words, may do more harm than the condition it relieves.",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "The discomfort disappears, and with it the question it was meant to raise.",
+   "Screens, therefore, are the most effective remedy we have.",
+   "This is why psychologists recommend avoiding every activity that bores us.",
+   "Boredom, in short, has no function at all."
+  ],
+  "e": "直前は「退屈は感じないが、本当は何をしたいかと問うよう促されもしない」、直後は「言い換えれば、退屈の治療はその症状より害が大きいかもしれない」です。間に「不快感は消えるが、それとともに不快感が投げかけるはずだった問いも消える」が入ると in other words の言い換えが成立します。2番目は結論と逆です。3番目は直前の内容から導けず、直後の in other words による言い換えも成り立ちません。4番目は「退屈には役割がある」という本文の立場と矛盾します。",
+  "m": "in other words の前には同じ内容の文が来る"
+ },
+ {
+  "id": 22,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：都市と自然",
+  "p": "Cities have long been imagined as the opposite of nature, places where the wild has been ( 1 ) in favour of the built. Ecologists who survey urban areas, however, increasingly find that cities harbour a surprising variety of species, some of which are rarely found in the surrounding countryside. Intensive agriculture has turned much of the rural landscape into what one might call a green desert: fields that look natural but are ( 2 ) to almost every species except the crop itself. By contrast, the disorderly patchwork of a city—abandoned lots, railway embankments, neglected gardens—offers a range of habitats that no efficient farmer would tolerate. None of this means that cities are good for nature ( 3 ); many species cannot survive in them at all. But it does suggest that the line between the urban and the natural is less sharp than we assume.",
+  "q": "次の英文の空所（ 1 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "pushed aside",
+   "carefully preserved",
+   "warmly celebrated",
+   "closely imitated"
+  ],
+  "e": "in favour of the built（人工物を優先して）とあるので、自然は「押しのけられた」と考えるのが自然です。都市を「自然の正反対」と見る従来の見方の説明でもあります。「大切に保存された」「温かく称えられた」は in favour of the built と矛盾します。「忠実に模倣された」も「自然の正反対」というイメージに合いません。",
+  "m": "in favour of A＝Aを優先して（他を退けて）"
+ },
+ {
+  "id": 23,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：都市と自然",
+  "p": "Cities have long been imagined as the opposite of nature, places where the wild has been ( 1 ) in favour of the built. Ecologists who survey urban areas, however, increasingly find that cities harbour a surprising variety of species, some of which are rarely found in the surrounding countryside. Intensive agriculture has turned much of the rural landscape into what one might call a green desert: fields that look natural but are ( 2 ) to almost every species except the crop itself. By contrast, the disorderly patchwork of a city—abandoned lots, railway embankments, neglected gardens—offers a range of habitats that no efficient farmer would tolerate. None of this means that cities are good for nature ( 3 ); many species cannot survive in them at all. But it does suggest that the line between the urban and the natural is less sharp than we assume.",
+  "q": "次の英文の空所（ 2 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "hostile",
+   "indispensable",
+   "similar",
+   "attractive"
+  ],
+  "e": "green desert（緑の砂漠）とは「見た目は自然だが生き物がほとんどいない土地」のたとえです。空所は「作物以外のほぼすべての種にとって〜」で、be hostile to（〜にとって住みにくい・敵対的な）が合います。indispensable（不可欠な）や attractive（魅力的な）は「砂漠」と逆の意味です。similar to は「作物以外の種に似ている」となり意味をなしません。",
+  "m": "be hostile to A＝Aにとって敵対的・不適な"
+ },
+ {
+  "id": 24,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：都市と自然",
+  "p": "Cities have long been imagined as the opposite of nature, places where the wild has been ( 1 ) in favour of the built. Ecologists who survey urban areas, however, increasingly find that cities harbour a surprising variety of species, some of which are rarely found in the surrounding countryside. Intensive agriculture has turned much of the rural landscape into what one might call a green desert: fields that look natural but are ( 2 ) to almost every species except the crop itself. By contrast, the disorderly patchwork of a city—abandoned lots, railway embankments, neglected gardens—offers a range of habitats that no efficient farmer would tolerate. None of this means that cities are good for nature ( 3 ); many species cannot survive in them at all. But it does suggest that the line between the urban and the natural is less sharp than we assume.",
+  "q": "次の英文の空所（ 3 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "without qualification",
+   "by no means",
+   "in vain",
+   "on purpose"
+  ],
+  "e": "直後に「多くの種は都市ではまったく生きられない」と限定を加えているので、「都市が無条件に（without qualification）自然にとってよいという意味ではない」が適切です。by no means は None of this means とすでに否定があるため二重否定となり、文が成り立ちません。in vain（むなしく・無駄に）、on purpose（わざと）は「自然にとってよい」を修飾しても意味をなしません。",
+  "m": "without qualification＝無条件に・全面的に"
+ },
+ {
+  "id": 25,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部の意味：専門家への信頼",
+  "p": "Few of us can check the claims of a climate scientist or a cardiologist for ourselves, and so we must decide whom to trust without being able to judge what they say. This predicament is often presented as a weakness peculiar to modern democracy, but it is (1)【as old as the division of labour itself】. No farmer in a medieval village could assess the blacksmith's metallurgy; he could only observe whether the ploughs held. What has changed is not our dependence on others but (2)【the visibility of the seams】: we now see experts disagree in public, and we hear, often within the same hour, from people who merely sound like experts. Under these conditions, distrust is not necessarily a sign of ignorance. It may instead be (3)【a reasonable response to an unreasonable situation】, one in which the cues we once relied on—titles, institutions, a confident tone—can be imitated at almost no cost.",
+  "q": "【 】で示した下線部（1）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "The problem has existed ever since people began to specialize in different kinds of work.",
+   "The problem began when democracy divided citizens into competing parties.",
+   "The problem is a recent consequence of industrial mass production.",
+   "The problem can be solved by dividing labour more fairly among citizens."
+  ],
+  "e": "as old as the division of labour itself は「分業そのものと同じくらい古い」、つまり人々が仕事を分担し専門化して以来ずっとある問題だという意味です。直後の中世の農民と鍛冶屋の例（農民は鍛冶の技術を評価できず、鋤が壊れないかを見るしかない）がこれを裏づけます。「民主主義」「近代の産業」に原因を求める選択肢は「近代特有ではない」という趣旨に反します。分業を公平にするという解決策は語られていません。",
+  "m": "as old as A＝Aと同じくらい古い（Aの頃からある）"
+ },
+ {
+  "id": 26,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部の意味：専門家への信頼",
+  "p": "Few of us can check the claims of a climate scientist or a cardiologist for ourselves, and so we must decide whom to trust without being able to judge what they say. This predicament is often presented as a weakness peculiar to modern democracy, but it is (1)【as old as the division of labour itself】. No farmer in a medieval village could assess the blacksmith's metallurgy; he could only observe whether the ploughs held. What has changed is not our dependence on others but (2)【the visibility of the seams】: we now see experts disagree in public, and we hear, often within the same hour, from people who merely sound like experts. Under these conditions, distrust is not necessarily a sign of ignorance. It may instead be (3)【a reasonable response to an unreasonable situation】, one in which the cues we once relied on—titles, institutions, a confident tone—can be imitated at almost no cost.",
+  "q": "【 】で示した下線部（2）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "The points at which the system of expert knowledge visibly shows its divisions and weaknesses.",
+   "The boundaries between rich and poor citizens in modern societies.",
+   "The special clothing that once distinguished professionals from ordinary workers.",
+   "The formal rules that govern how public debates must be conducted."
+  ],
+  "e": "seam は「縫い目・継ぎ目」で、ここでは専門知の体制の「ほころび・継ぎ目」の比喩です。コロンの後に「専門家が公の場で意見を対立させるのを目にし、専門家らしく聞こえるだけの人の話も聞く」と具体的に説明されています。つまり、かつては見えなかった専門知の分裂や弱点が見えるようになったということです。貧富の境界、職業の服装、討論の規則はいずれも本文と無関係です。",
+  "m": "比喩はコロン以下の説明で確かめる"
+ },
+ {
+  "id": 27,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部の意味：専門家への信頼",
+  "p": "Few of us can check the claims of a climate scientist or a cardiologist for ourselves, and so we must decide whom to trust without being able to judge what they say. This predicament is often presented as a weakness peculiar to modern democracy, but it is (1)【as old as the division of labour itself】. No farmer in a medieval village could assess the blacksmith's metallurgy; he could only observe whether the ploughs held. What has changed is not our dependence on others but (2)【the visibility of the seams】: we now see experts disagree in public, and we hear, often within the same hour, from people who merely sound like experts. Under these conditions, distrust is not necessarily a sign of ignorance. It may instead be (3)【a reasonable response to an unreasonable situation】, one in which the cues we once relied on—titles, institutions, a confident tone—can be imitated at almost no cost.",
+  "q": "【 】で示した下線部（3）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "Distrust makes sense because the signals once used to identify reliable experts can now be easily faked.",
+   "Distrust makes sense because experts today are generally less competent than in the past.",
+   "Distrust makes sense because ordinary people can now verify experts' claims for themselves.",
+   "Distrust makes sense because institutions have deliberately hidden their disagreements."
+  ],
+  "e": "下線部の後の one in which … can be imitated at almost no cost が「不合理な状況」の中身です。肩書き・組織・自信ある口調といった、かつて頼りにした手がかりがほとんどコストなしに真似できる状況では、不信は無知のしるしではなく合理的な反応だ、ということです。専門家の能力低下は書かれていません。一般の人が自分で確かめられないことは第1文の前提です。組織が意見の対立を隠したのではなく、むしろ公に見えるようになったのです。",
+  "m": "one in which … が直前の名詞を説明する"
+ },
+ {
+  "id": 28,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：父の領収書",
+  "p": "My father kept every receipt he had ever been given, filed by year in shoeboxes that (1)【colonized】 the top of his wardrobe and then, gradually, the spare room. When I was a teenager I thought this was simply what happened to men of his generation, a kind of (2)【harmless sediment】 left behind by decades of careful living. It was only after his death, sorting through the boxes with my sister, that I understood they were not records of money at all. On the back of a cinema ticket from 1974 he had written my mother's name, and the date, and nothing else. A bill from a seaside café carried a child's drawing of a crab—mine, my sister said, though I had no memory of it. We sat on the floor until the light went, (3)【reading our own lives back to ourselves in his handwriting】.",
+  "q": "【 】で示した下線部（1）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "gradually spread over and took up the space of",
+   "were neatly decorated with bright colours on",
+   "were removed one by one from",
+   "were carefully protected from the dust of"
+  ],
+  "e": "colonize は本来「植民地にする」ですが、ここでは靴箱が「洋服だんすの上を、さらに少しずつ空き部屋まで占領していった」という比喩です。then, gradually, the spare room と範囲が広がっていく様子からも「徐々に広がって場所を占めた」が適切です。装飾、取り除く、ほこりから守るはいずれも文脈に合いません。",
+  "m": "colonize（比喩）＝じわじわ占領する"
+ },
+ {
+  "id": 29,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：父の領収書",
+  "p": "My father kept every receipt he had ever been given, filed by year in shoeboxes that (1)【colonized】 the top of his wardrobe and then, gradually, the spare room. When I was a teenager I thought this was simply what happened to men of his generation, a kind of (2)【harmless sediment】 left behind by decades of careful living. It was only after his death, sorting through the boxes with my sister, that I understood they were not records of money at all. On the back of a cinema ticket from 1974 he had written my mother's name, and the date, and nothing else. A bill from a seaside café carried a child's drawing of a crab—mine, my sister said, though I had no memory of it. We sat on the floor until the light went, (3)【reading our own lives back to ourselves in his handwriting】.",
+  "q": "【 】で示した下線部（2）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "something that slowly piles up over the years without doing any real damage",
+   "a dangerous habit that gradually damaged his health",
+   "a valuable collection that could later be sold for money",
+   "a sign of mental illness that needed medical treatment"
+  ],
+  "e": "sediment は「沈殿物・堆積物」で、長い年月の間に自然にたまっていくものの比喩です。harmless（害のない）が付いているので「何年もかけて少しずつたまるが、特に害はないもの」となります。10代の語り手は、それを「父の世代の男性にありがちなこと」と軽く見ていたのです。健康を害する、売れる収集品、病気の兆候はいずれも harmless や語り手の当時の受け止め方に合いません。",
+  "m": "sediment＝少しずつ積もるもの"
+ },
+ {
+  "id": 30,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部の意味：父の領収書",
+  "p": "My father kept every receipt he had ever been given, filed by year in shoeboxes that (1)【colonized】 the top of his wardrobe and then, gradually, the spare room. When I was a teenager I thought this was simply what happened to men of his generation, a kind of (2)【harmless sediment】 left behind by decades of careful living. It was only after his death, sorting through the boxes with my sister, that I understood they were not records of money at all. On the back of a cinema ticket from 1974 he had written my mother's name, and the date, and nothing else. A bill from a seaside café carried a child's drawing of a crab—mine, my sister said, though I had no memory of it. We sat on the floor until the light went, (3)【reading our own lives back to ourselves in his handwriting】.",
+  "q": "【 】で示した下線部（3）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "discovering, through the notes their father had left, how he had seen and treasured moments of their family life",
+   "reading aloud the letters that they had written to their father as children",
+   "checking whether their father's records of his spending had been accurate",
+   "writing down their own memories so that they would not be lost after his death"
+  ],
+  "e": "語り手ときょうだいが見つけたのは、映画の半券の裏の母の名前と日付、海辺の食堂の勘定書に描かれた子どものカニの絵などでした。つまり領収書は「お金の記録ではまったくなかった」のです。下線部は「父の筆跡を通して、自分たち自身の人生を読み返していた」という意味で、父がどのように家族の時間を見て大切にしていたかを知ったということです。子どもの頃の手紙、支出の確認、自分たちで記録を書くことは本文にありません。",
+  "m": "not records of money at all が読解の鍵"
+ },
+ {
+  "id": 31,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：孤独な天才像",
+  "p": "We like to imagine that great works spring (1)【fully formed】 from the minds of their creators, and the romantic image of the solitary genius has proved remarkably durable. Historians of art and science, however, tend to (2)【take a dimmer view】 of it. Again and again they find that the same idea occurred to several people at about the same time, which suggests that the conditions for a discovery matter at least as much as the individual who happens to make it. This is not to deny that some people are more gifted than others. It is rather to say that talent, like a seed, (3)【needs the right soil】: without the instruments, the vocabulary, and the arguments of a particular moment, even the most brilliant mind would have nothing to work with.",
+  "q": "【 】で示した下線部（1）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "complete from the very beginning, without any process of gradual development",
+   "only after many years of patient revision",
+   "in a shape designed to suit public taste",
+   "as close copies of earlier works"
+  ],
+  "e": "spring fully formed from … は「〜から完成した姿で飛び出す」という意味で、制作の過程や時間を経ずに最初から完成している、というロマン主義的な天才像を表します。直後の the romantic image of the solitary genius（孤独な天才というロマン主義的イメージ）もそれを示します。「長年の推敲」はこの像と逆です。大衆の好み、先行作品の模倣はいずれも文脈にありません。",
+  "m": "spring fully formed＝いきなり完成形で現れる"
+ },
+ {
+  "id": 32,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：孤独な天才像",
+  "p": "We like to imagine that great works spring (1)【fully formed】 from the minds of their creators, and the romantic image of the solitary genius has proved remarkably durable. Historians of art and science, however, tend to (2)【take a dimmer view】 of it. Again and again they find that the same idea occurred to several people at about the same time, which suggests that the conditions for a discovery matter at least as much as the individual who happens to make it. This is not to deny that some people are more gifted than others. It is rather to say that talent, like a seed, (3)【needs the right soil】: without the instruments, the vocabulary, and the arguments of a particular moment, even the most brilliant mind would have nothing to work with.",
+  "q": "【 】で示した下線部（2）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "be more skeptical about",
+   "know less about",
+   "be more enthusiastic about",
+   "be confused by"
+  ],
+  "e": "take a dim view of A は「Aを好ましく思わない・懐疑的に見る」という慣用表現で、dimmer は比較級です。however（しかし）で「私たちが好む天才像」と対比され、続いて「同じ考えがほぼ同時に複数の人に浮かんだ例が繰り返し見つかる」と天才像を疑う根拠が示されます。「知識が少ない」「より熱心だ」は文脈と逆、「混乱している」は根拠がありません。",
+  "m": "take a dim view of＝よく思わない"
+ },
+ {
+  "id": 33,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部の意味：孤独な天才像",
+  "p": "We like to imagine that great works spring (1)【fully formed】 from the minds of their creators, and the romantic image of the solitary genius has proved remarkably durable. Historians of art and science, however, tend to (2)【take a dimmer view】 of it. Again and again they find that the same idea occurred to several people at about the same time, which suggests that the conditions for a discovery matter at least as much as the individual who happens to make it. This is not to deny that some people are more gifted than others. It is rather to say that talent, like a seed, (3)【needs the right soil】: without the instruments, the vocabulary, and the arguments of a particular moment, even the most brilliant mind would have nothing to work with.",
+  "q": "【 】で示した下線部（3）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "Individual ability can only bear fruit when the circumstances of the time supply what it requires.",
+   "Talent must be developed through physical labour such as farming.",
+   "Only people born in fertile regions can become great artists or scientists.",
+   "Gifted people should be separated from others so that their talent can grow."
+  ],
+  "e": "才能を種に、時代の条件を土にたとえています。コロン以下で「特定の時代の道具・語彙・議論がなければ、どんなに優れた頭脳も取り組む材料がない」と説明されているので、「個人の能力は、時代の状況が必要なものを与えるときに初めて実を結ぶ」が正解です。農作業、肥沃な地域、才能ある人の隔離はいずれも比喩を文字どおりに取ったり、本文と逆の方向に読んだりしたものです。",
+  "m": "比喩の「種」と「土」が何を指すかを対応させる"
+ },
+ {
+  "id": 34,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：考える時間",
+  "p": "(1)【It is not so much that we lack the time to think as that we have arranged our lives so as never to need it.】 Every gap in the day is filled before it can open, and every question that might have lingered is answered within seconds by a search. (2)【What would once have occupied an afternoon of puzzled reflection is now settled before we have properly understood what we were asking.】 The loss is hard to see, because nothing seems to be missing. (3)【Only when we find ourselves, by accident, without a signal do we notice how unaccustomed we have become to leaving a question open.】",
+  "q": "【 】で示した下線部（1）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "私たちは考える時間がないというよりも、むしろ考える時間が決して必要にならないように生活を整えてしまったのだ。",
+   "私たちには考える時間がないので、考える必要が決して生じないように生活を整えてきたのだ。",
+   "考える時間が足りないことは、生活をうまく整えさえすれば決して問題にならない。",
+   "私たちは考える時間を持たず、それを必要としない生活を整えることもできていない。"
+  ],
+  "e": "It is not so much that A as that B は「AというよりむしろBなのだ」という構文です。A＝we lack the time to think、B＝we have arranged our lives so as never to need it（考える時間を決して必要としないように生活を整えた）。it は the time (to think) を指します。2番目は「AだからB」と因果関係に誤読しています。3番目は条件文として読み、4番目は両方を否定しており、いずれも構文を取り違えています。",
+  "m": "not so much A as B＝AというよりむしろB"
+ },
+ {
+  "id": 35,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：考える時間",
+  "p": "(1)【It is not so much that we lack the time to think as that we have arranged our lives so as never to need it.】 Every gap in the day is filled before it can open, and every question that might have lingered is answered within seconds by a search. (2)【What would once have occupied an afternoon of puzzled reflection is now settled before we have properly understood what we were asking.】 The loss is hard to see, because nothing seems to be missing. (3)【Only when we find ourselves, by accident, without a signal do we notice how unaccustomed we have become to leaving a question open.】",
+  "q": "【 】で示した下線部（2）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "かつてなら午後いっぱい頭を悩ませて考え込んだであろう事柄が、今では自分が何を問うていたのかをきちんと理解しないうちに片がついてしまう。",
+   "かつて午後いっぱい頭を悩ませた事柄も、今では何を問うべきかを理解した後で落ち着いて解決できるようになった。",
+   "午後に頭を悩ませて考えることは、自分が何を問うているかを理解するまでは決して落ち着かない。",
+   "かつて午後に考え込んだ人々は、今では自分の問いを理解する前に眠ってしまう。"
+  ],
+  "e": "What would once have occupied an afternoon of puzzled reflection が主語で、would have occupied は「（以前なら）〜を占めたであろう」という過去の推量です。is now settled は「今では決着がつく」、before we have properly understood what we were asking は「何を問うていたのかをきちんと理解しないうちに」です。2番目は before を「後で」と逆に訳しています。3番目は What 節を主語として読めていません。4番目の「眠ってしまう」は settle の誤訳です。",
+  "m": "before＋完了形＝〜しないうちに"
+ },
+ {
+  "id": 36,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：考える時間",
+  "p": "(1)【It is not so much that we lack the time to think as that we have arranged our lives so as never to need it.】 Every gap in the day is filled before it can open, and every question that might have lingered is answered within seconds by a search. (2)【What would once have occupied an afternoon of puzzled reflection is now settled before we have properly understood what we were asking.】 The loss is hard to see, because nothing seems to be missing. (3)【Only when we find ourselves, by accident, without a signal do we notice how unaccustomed we have become to leaving a question open.】",
+  "q": "【 】で示した下線部（3）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "偶然に電波の届かない状況に置かれて初めて、私たちは問いを未解決のままにしておくことにいかに不慣れになったかに気づく。",
+   "偶然に電波が届かなくなったときだけ、私たちは問いを開いたままにする習慣を身につける。",
+   "電波が届かないことに偶然気づくと、私たちはすぐに問いを解決しようとするようになる。",
+   "私たちは偶然に信号を見つけたときにだけ、問いを未解決のままにすることがいかに大切かに気づく。"
+  ],
+  "e": "Only when … do we notice は否定的な副詞句が文頭に出て倒置が起きた形で、「…して初めて〜に気づく」と訳します。without a signal は（携帯電話の）電波がない状態、how unaccustomed we have become to leaving a question open は「問いを開いたままにしておくことにいかに不慣れになってしまったか」です。2番目は notice を「身につける」と誤訳し、3番目は文意が逆です。4番目は without を読み落とし、unaccustomed を「大切」と誤っています。",
+  "m": "Only when … do S V＝…して初めてSはVする"
+ },
+ {
+  "id": 37,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：Hardly … when",
+  "p": "The new rules on campus parking had been debated for months. (a)［Hardly had the committee］ (b)［announced its decision］ (c)［than protests began］ (d)［to spread among the students,］ (e)［forcing the president to reconsider.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) than protests began",
+   "(a) Hardly had the committee",
+   "(b) announced its decision",
+   "(d) to spread among the students,",
+   "(e) forcing the president to reconsider."
+  ],
+  "e": "Hardly［Scarcely］ had S done … は when か before と組み合わせて「…するとすぐに」を表します。than と組むのは No sooner had S done … than の場合です。したがって(c)は when protests began とすべきです。(a)は否定の副詞 Hardly が文頭に出た倒置で正しく、(b)は過去分詞で had に続きます。(d) begin to do、(e)は結果を表す分詞構文で、いずれも正しい形です。",
+  "m": "Hardly … when／No sooner … than の組を混同しない"
+ },
+ {
+  "id": 38,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：主語と動詞の一致",
+  "p": "Open science has become a central concern in many fields. The number of researchers (a)［who］ (b)［are willing to share their raw data］ (c)［have increased steadily,］ (d)［partly because funding agencies］ (e)［now require it.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) have increased steadily,",
+   "(a) who",
+   "(b) are willing to share their raw data",
+   "(d) partly because funding agencies",
+   "(e) now require it."
+  ],
+  "e": "主語は The number（数）で単数なので、動詞は has increased としなければなりません。of researchers who … に惑わされないことが大切です。(a)の who は researchers を先行詞とする関係代名詞、(b)の are は先行詞 researchers（複数）に一致しているので正しい形です。(d) partly because は「一つには〜だから」、(e)の require は主語 funding agencies（複数）に一致しています。",
+  "m": "the number of＋複数名詞→単数扱い／a number of→複数扱い"
+ },
+ {
+  "id": 39,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：関係詞の選択",
+  "p": "My grandmother left her hometown more than sixty years ago. The village (a)［which she was born］ (b)［has changed so much that］ she (c)［barely recognizes it,］ (d)［though the old well］ (e)［still stands in the square.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) which she was born",
+   "(b) has changed so much that",
+   "(c) barely recognizes it,",
+   "(d) though the old well",
+   "(e) still stands in the square."
+  ],
+  "e": "be born は自動詞の受動形で目的語を取らないため、関係代名詞 which だけでは関係節の中に入る場所がありません。where she was born または in which she was born とする必要があります。(b)は so … that 構文、(c) barely は「ほとんど〜ない」、(d) though は接続詞、(e) stand は「（建物などが）立っている」で、いずれも正しい用法です。",
+  "m": "関係節内に欠けた名詞がなければ関係副詞か前置詞＋which"
+ },
+ {
+  "id": 40,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：look forward to＋動名詞",
+  "p": "The discovery was announced at a press conference last week. Many scholars (a)［look forward to］ (b)［see the newly discovered letters,］ (c)［which are expected to］ (d)［shed light on］ the poet's (e)［final years.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) see the newly discovered letters,",
+   "(a) look forward to",
+   "(c) which are expected to",
+   "(d) shed light on",
+   "(e) final years."
+  ],
+  "e": "look forward to の to は前置詞なので、後には名詞か動名詞が来ます。(b)は seeing the newly discovered letters としなければなりません。(c)の be expected to do は不定詞の to で、後の(d) shed light on（〜を解明する）は原形で正しい形です。which の先行詞は letters なので are も正しく、(e) final years も問題ありません。",
+  "m": "look forward to / be used to / object to の to は前置詞"
+ },
+ {
+  "id": 41,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：the＋比較級, the＋比較級",
+  "p": "Historians have only recently gained access to the diaries of factory workers. (a)［The more closely we examine］ (b)［the historical record,］ (c)［more contradictions we discover］ (d)［between official accounts and］ (e)［what ordinary people wrote.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) more contradictions we discover",
+   "(a) The more closely we examine",
+   "(b) the historical record,",
+   "(d) between official accounts and",
+   "(e) what ordinary people wrote."
+  ],
+  "e": "「〜すればするほど…」は The＋比較級 …, the＋比較級 … の形で、後半にも the が必要です。(c)は the more contradictions we discover としなければなりません。(a)は前半として正しい形です。(b)は examine の目的語、(d) between A and B、(e)の what は関係代名詞で「普通の人々が書いたこと」となり、いずれも正しいです。",
+  "m": "The＋比較級, the＋比較級（後半の the を落とさない）"
+ },
+ {
+  "id": 42,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：不可算名詞",
+  "p": "Writing a long essay for the first time can be overwhelming. The professor gave us (a)［several useful advices］ (b)［on how to］ (c)［organize a long essay,］ (d)［none of which I had］ (e)［thought of before.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) several useful advices",
+   "(b) on how to",
+   "(c) organize a long essay,",
+   "(d) none of which I had",
+   "(e) thought of before."
+  ],
+  "e": "advice は不可算名詞なので複数形にできず、several とも結びつきません。several useful pieces of advice や some useful advice とします。(b) how to do は「〜の仕方」、(c)は原形で正しく、(d) none of which は前の内容を受ける非制限用法の関係代名詞、(e) think of は「〜を思いつく」で had thought は過去完了として正しい形です。",
+  "m": "advice, information, furniture, news は数えない"
+ },
+ {
+  "id": 43,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：one of＋複数名詞",
+  "p": "The fall of ancient empires has been explained in many ways. Climate change is (a)［one of the most］ (b)［influential factor］ (c)［that historians have］ (d)［used to explain］ (e)［the decline of such empires.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) influential factor",
+   "(a) one of the most",
+   "(c) that historians have",
+   "(d) used to explain",
+   "(e) the decline of such empires."
+  ],
+  "e": "one of the＋最上級＋名詞 では、名詞は複数形にします（「最も〜なものの一つ」）。(b)は influential factors とすべきです。(a)は正しい形です。(c) that は factors を先行詞とする関係代名詞で、(d) use A to do（Aを〜するのに用いる）の A が関係詞になっています。(e)も正しい名詞句です。",
+  "m": "one of the＋最上級＋複数名詞"
+ },
+ {
+  "id": 44,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：連鎖関係詞節の格",
+  "p": "The award ceremony was held in Stockholm last December. The scientist (a)［whom many believe］ (b)［first identified the virus］ (c)［refused］ (d)［to accept any personal credit,］ (e)［insisting that it had been a team effort.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) whom many believe",
+   "(b) first identified the virus",
+   "(c) refused",
+   "(d) to accept any personal credit,",
+   "(e) insisting that it had been a team effort."
+  ],
+  "e": "many believe の後に (that) S first identified the virus が続く形で、関係詞は identified の主語の役割をしています。したがって主格の who を使い、who many believe first identified the virus とします。(b)は関係節内の動詞句で正しく、(c) refuse to do、(d)の不定詞、(e)の付帯状況を表す分詞構文と、その中の過去完了も正しい形です。",
+  "m": "S believe（挿入）の後に動詞→関係詞は主格 who"
+ },
+ {
+  "id": 45,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：lie と lay",
+  "p": "Exhausted after the long journey, she (a)［had laid on the sofa］ (b)［for nearly an hour］ (c)［before she noticed］ (d)［that someone］ (e)［had left a note on the table.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) had laid on the sofa",
+   "(b) for nearly an hour",
+   "(c) before she noticed",
+   "(d) that someone",
+   "(e) had left a note on the table."
+  ],
+  "e": "「横たわる」は自動詞 lie（lie–lay–lain）で、過去完了は had lain です。laid は他動詞 lay（横たえる）の過去・過去分詞で、目的語が必要です。(b) for nearly an hour は期間、(c)の before 節は過去形で「〜する前に」、(d) that 節、(e) had left は気づいた時点より前の出来事を表す過去完了で正しい形です。冒頭の Exhausted は分詞構文で、主語 she と一致しています。",
+  "m": "lie–lay–lain（自）／lay–laid–laid（他）"
+ },
+ {
+  "id": 46,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：enough の位置",
+  "p": "The new hypothesis attracted wide attention when it was first proposed. However, it was (a)［not enough convincing］ (b)［to persuade those］ (c)［who had spent their careers］ (d)［studying the problem］ (e)［from another angle.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) not enough convincing",
+   "(b) to persuade those",
+   "(c) who had spent their careers",
+   "(d) studying the problem",
+   "(e) from another angle."
+  ],
+  "e": "副詞の enough は形容詞・副詞の後に置きます。(a)は not convincing enough としなければなりません（名詞を修飾する形容詞の enough は名詞の前に置けます）。(b) enough … to do の to 不定詞と those（人々）、(c)の関係代名詞 who、(d) spend A doing（Aを〜して過ごす）、(e) from another angle（別の角度から）はいずれも正しいです。",
+  "m": "形容詞＋enough to do（enough は後ろ）"
+ },
+ {
+  "id": 47,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：Not only の倒置",
+  "p": "The arrival of the railway transformed nineteenth-century Britain. (a)［Not only it changed］ (b)［the way people traveled,］ but the railway (c)［also altered］ (d)［how they thought about］ (e)［time itself.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) Not only it changed",
+   "(b) the way people traveled,",
+   "(c) also altered",
+   "(d) how they thought about",
+   "(e) time itself."
+  ],
+  "e": "否定の語句 Not only が文頭に出ると、その節は疑問文の語順（倒置）になります。(a)は Not only did it change としなければなりません。(b) the way S V（〜する仕方）は正しく、(c) also は but の後の節で用いられています。(d) how 節は altered の目的語、(e)の itself は time を強調する再帰代名詞で、いずれも正しい形です。",
+  "m": "否定語句が文頭→倒置（Not only did S V）"
+ },
+ {
+  "id": 48,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：他動詞 mention",
+  "p": "The lecture was part of a series on social history. In it, the historian (a)［mentioned about the role of］ (b)［women in the movement,］ (c)［a topic that］ (d)［had long been］ (e)［neglected by scholars.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) mentioned about the role of",
+   "(b) women in the movement,",
+   "(c) a topic that",
+   "(d) had long been",
+   "(e) neglected by scholars."
+  ],
+  "e": "mention は他動詞なので、前置詞 about を付けずに直接目的語を取ります。(a)は mentioned the role of としなければなりません（discuss, enter, approach なども同様）。(b)は of の目的語、(c) a topic は前の内容と同格で、that は関係代名詞、(d)(e) had long been neglected は「長い間無視されてきた」という受動態の過去完了で、正しい形です。",
+  "m": "mention / discuss / reach / marry は前置詞なしで目的語"
+ },
+ {
+  "id": 49,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：時計店の祖父",
+  "p": "The shop had been closing for eleven years. That, at least, was how my aunt put it: every January my grandfather announced that this would be the last year, and every December he renewed the lease. By the time I came to stay with him, the summer I turned fifteen, the window display had not been changed since before I was born, and most of the clocks on the walls had stopped at different hours, so that the room seemed to exist in several times at once.\nI had expected to be bored, and for the first week I was. Customers were rare, and those who came seldom bought anything; they brought watches that had belonged to their parents and asked whether they could be made to run again. My grandfather would turn each one over in his fingers for a long time before answering. Often the answer was no. Once, after an elderly woman had left with her husband's watch still silent in her handbag, I asked him why he had not simply told her at once.\n'Because she did not come to have it repaired,' he said. 'She came to be told that someone had tried.'\nI thought this was the kind of thing old men say to make their failures sound wise. It was years later, standing in a hospital corridor with a doctor who took a long moment before speaking, that I understood what he had been giving those people, and how little it had cost him, and how much.",
+  "q": "本文の内容と一致するものを選びなさい。",
+  "c": [
+   "Although the grandfather said every year that he would close the shop, he kept renewing the lease.",
+   "The narrator's aunt ran the shop together with the grandfather.",
+   "The clocks on the walls had been set to show the time in different cities.",
+   "Most customers came to the shop to buy new watches as presents."
+  ],
+  "e": "冒頭で「店は11年間閉店し続けていた」と逆説的に述べ、「毎年1月にこれが最後の年だと言い、毎年12月に賃貸契約を更新した」と説明しています。叔母はそう表現した（put it）だけで、店を手伝ってはいません。時計は「別々の時刻で止まっていた」のであって、各地の時刻に合わせたのではありません。客は親の形見の時計を持ち込み、めったに何も買わなかったと書かれています。",
+  "m": "冒頭の逆説（closing for eleven years）は直後で説明される"
+ },
+ {
+  "id": 50,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：時計店の祖父",
+  "p": "The shop had been closing for eleven years. That, at least, was how my aunt put it: every January my grandfather announced that this would be the last year, and every December he renewed the lease. By the time I came to stay with him, the summer I turned fifteen, the window display had not been changed since before I was born, and most of the clocks on the walls had stopped at different hours, so that the room seemed to exist in several times at once.\nI had expected to be bored, and for the first week I was. Customers were rare, and those who came seldom bought anything; they brought watches that had belonged to their parents and asked whether they could be made to run again. My grandfather would turn each one over in his fingers for a long time before answering. Often the answer was no. Once, after an elderly woman had left with her husband's watch still silent in her handbag, I asked him why he had not simply told her at once.\n'Because she did not come to have it repaired,' he said. 'She came to be told that someone had tried.'\nI thought this was the kind of thing old men say to make their failures sound wise. It was years later, standing in a hospital corridor with a doctor who took a long moment before speaking, that I understood what he had been giving those people, and how little it had cost him, and how much.",
+  "q": "本文中の 'She came to be told that someone had tried.' で祖父が言おうとしたこととして最も適切なものを選びなさい。",
+  "c": [
+   "女性は時計が直ることよりも、誰かが時間をかけて真剣に向き合ってくれたと知ることを求めていたということ。",
+   "女性は修理代を払いたくなかったので、試しただけだと言ってほしかったということ。",
+   "女性は自分で修理を試みたことを、専門家に認めてほしかったということ。",
+   "女性は、亡くなった夫が生前に時計を直そうとしていたことを知りたかったということ。"
+  ],
+  "e": "祖父は Because she did not come to have it repaired（修理してもらうために来たのではない）と言い、続けて「誰かが試みてくれたと言ってもらうために来た」と述べています。すぐに断らず長い時間をかけて時計を確かめたのは、その「試みた」という事実を相手に渡すためでした。修理代、本人の修理、夫の修理の試みはどれも本文に根拠がありません。最終段落の病院の場面も、結果よりも真剣に向き合ってもらうことの意味を語り手が悟る場面です。",
+  "m": "come to be told＝言ってもらうために来る"
+ },
+ {
+  "id": 51,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：時計店の祖父",
+  "p": "The shop had been closing for eleven years. That, at least, was how my aunt put it: every January my grandfather announced that this would be the last year, and every December he renewed the lease. By the time I came to stay with him, the summer I turned fifteen, the window display had not been changed since before I was born, and most of the clocks on the walls had stopped at different hours, so that the room seemed to exist in several times at once.\nI had expected to be bored, and for the first week I was. Customers were rare, and those who came seldom bought anything; they brought watches that had belonged to their parents and asked whether they could be made to run again. My grandfather would turn each one over in his fingers for a long time before answering. Often the answer was no. Once, after an elderly woman had left with her husband's watch still silent in her handbag, I asked him why he had not simply told her at once.\n'Because she did not come to have it repaired,' he said. 'She came to be told that someone had tried.'\nI thought this was the kind of thing old men say to make their failures sound wise. It was years later, standing in a hospital corridor with a doctor who took a long moment before speaking, that I understood what he had been giving those people, and how little it had cost him, and how much.",
+  "q": "最終段落に表れた語り手の祖父への見方の変化として最も適切なものを選びなさい。",
+  "c": [
+   "The narrator first dismissed the grandfather's words as an excuse for failure, but later, through a painful experience of the narrator's own, recognized them as a genuine kindness.",
+   "The narrator first admired the grandfather's wisdom, but later realized that he had simply been too lazy to repair the watches.",
+   "The narrator always believed that the grandfather was a skilled craftsman whose repairs never failed.",
+   "The narrator came to think that doctors and watchmakers share the same technical skills."
+  ],
+  "e": "15歳の語り手は祖父の言葉を「老人が失敗を賢く聞こえさせるために言うようなこと」と思っていました。何年も後、病院の廊下で医師が話し出す前に長い間を置いたとき、祖父が人々に与えていたもの（真剣に向き合ったという事実）と、それが祖父にとっていかにわずかな負担で、同時にいかに大きな負担でもあったか（how little it had cost him, and how much）を理解しました。2番目は変化の向きが逆です。祖父はしばしば「直せない」と答えていた（Often the answer was no）ので、3番目も誤りです。4番目は技術の話ではありません。",
+  "m": "It was … that I understood＝…して初めて理解した"
+ },
+ {
+  "id": 52,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：母の言語",
+  "p": "For most of my childhood, my mother's language was the one she used for the telephone. When her sister called from abroad, she would carry the receiver into the kitchen and close the door, and through the frosted glass I could hear her voice change—grow faster, louder, and somehow younger—in a way it never did when she spoke to us. I understood perhaps one word in twenty. I did not ask her to teach me, and she did not offer. It seemed to both of us, I think, that the language belonged to a life she had left behind, and that to bring it into our house would be to admit how much of her remained there.\nAt university I enrolled in an evening course, telling no one. The teacher was a young man who had grown up in the same city as my mother, and when he corrected my pronunciation he would sometimes laugh and say that I sounded like somebody's grandmother. I did not tell him why.\nThe first time I spoke to my mother in her own language, she was peeling potatoes at the sink. I said only that the soup smelled good. She did not turn round. For a long moment the only sound was the knife against the potato, and I began to fear that I had made a terrible mistake. Then she answered me—slowly, the way one speaks to a child—and asked who had taught me to talk like her mother.",
+  "q": "語り手が母親に言語を教えてほしいと頼まなかった理由として、本文から読み取れる最も適切なものを選びなさい。",
+  "c": [
+   "Both of them seemed to feel that the language belonged to the mother's past, and bringing it home would reveal how strongly she was still tied to that past.",
+   "The mother had told the narrator that the language was too difficult for a child to learn.",
+   "The narrator was not interested in the language until a university teacher encouraged that interest.",
+   "The narrator thought that the language was useful only for telephone calls with relatives."
+  ],
+  "e": "第1段落最終文に「その言語は母が後にしてきた人生に属し、家に持ち込むことは、母のどれほど多くの部分がまだそこにあるかを認めることになると、二人とも感じていた」とあります。母が「難しすぎる」と言った記述はありません。語り手は自分から誰にも言わずに夜間講座に入ったので、教師に勧められたのではありません。「電話でしか役に立たない」は、語り手が言語を使う場面を述べただけで、頼まなかった理由ではありません。",
+  "m": "It seemed to both of us … that 〜 が理由の核心"
+ },
+ {
+  "id": 53,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：母の言語",
+  "p": "For most of my childhood, my mother's language was the one she used for the telephone. When her sister called from abroad, she would carry the receiver into the kitchen and close the door, and through the frosted glass I could hear her voice change—grow faster, louder, and somehow younger—in a way it never did when she spoke to us. I understood perhaps one word in twenty. I did not ask her to teach me, and she did not offer. It seemed to both of us, I think, that the language belonged to a life she had left behind, and that to bring it into our house would be to admit how much of her remained there.\nAt university I enrolled in an evening course, telling no one. The teacher was a young man who had grown up in the same city as my mother, and when he corrected my pronunciation he would sometimes laugh and say that I sounded like somebody's grandmother. I did not tell him why.\nThe first time I spoke to my mother in her own language, she was peeling potatoes at the sink. I said only that the soup smelled good. She did not turn round. For a long moment the only sound was the knife against the potato, and I began to fear that I had made a terrible mistake. Then she answered me—slowly, the way one speaks to a child—and asked who had taught me to talk like her mother.",
+  "q": "教師の言葉（I sounded like somebody's grandmother）と最終文を合わせて考えたとき、推測できることとして最も適切なものを選びなさい。",
+  "c": [
+   "The narrator's way of speaking had an old-fashioned quality that reminded the mother of her own mother.",
+   "The teacher was mocking the narrator because she learned much more slowly than the other students.",
+   "The narrator had secretly been taught the language by her grandmother over the telephone.",
+   "The narrator's pronunciation was so poor that the mother could not understand what the narrator had said."
+  ],
+  "e": "教師は語り手の発音を「誰かのおばあさんのようだ」と笑い、最終文で母は「誰に私の母のような話し方を教わったのか」と尋ねています。この二つを結ぶと、語り手の話し方に古い世代を思わせる響きがあり、それが母に自分の母親を思い出させた、と推測できます。教師が学習の遅さをからかったとは書かれていません。祖母から電話で習った記述はありません。母は返事をして「誰に教わったのか」と尋ねているので、語り手の言葉が通じなかったわけでもありません。",
+  "m": "離れた二か所の描写を結びつけて推測する"
+ },
+ {
+  "id": 54,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：母の言語",
+  "p": "For most of my childhood, my mother's language was the one she used for the telephone. When her sister called from abroad, she would carry the receiver into the kitchen and close the door, and through the frosted glass I could hear her voice change—grow faster, louder, and somehow younger—in a way it never did when she spoke to us. I understood perhaps one word in twenty. I did not ask her to teach me, and she did not offer. It seemed to both of us, I think, that the language belonged to a life she had left behind, and that to bring it into our house would be to admit how much of her remained there.\nAt university I enrolled in an evening course, telling no one. The teacher was a young man who had grown up in the same city as my mother, and when he corrected my pronunciation he would sometimes laugh and say that I sounded like somebody's grandmother. I did not tell him why.\nThe first time I spoke to my mother in her own language, she was peeling potatoes at the sink. I said only that the soup smelled good. She did not turn round. For a long moment the only sound was the knife against the potato, and I began to fear that I had made a terrible mistake. Then she answered me—slowly, the way one speaks to a child—and asked who had taught me to talk like her mother.",
+  "q": "母親がしばらく振り向かずに黙っていた間の語り手の気持ちとして最も適切なものを選びなさい。",
+  "c": [
+   "The narrator feared having intruded on something private and upset the mother.",
+   "The narrator felt proud of having finally mastered a difficult foreign language.",
+   "The narrator was bored by the sound of the knife against the potato.",
+   "The narrator was angry that the mother was deliberately ignoring the narrator."
+  ],
+  "e": "本文に I began to fear that I had made a terrible mistake（ひどい過ちを犯したのではないかと恐れ始めた）とあります。母の言語は母が後にしてきた人生に属するもので、それを家に持ち込むことは避けてきた、という第1段落の内容をふまえると、母の大切で私的な領域に踏み込んでしまったのではないかという不安だと分かります。誇らしさ、退屈、怒りはいずれも fear と合いません。",
+  "m": "心情は直接の描写（began to fear）を根拠に"
+ },
+ {
+  "id": 55,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：数値による管理",
+  "p": "Organisations increasingly manage what they can measure, and there is much to be said for this. Numbers allow comparisons across time and place, expose favouritism, and make it harder for the powerful to hide their failures behind vague assurances. A hospital that reports its waiting times can be held to account in a way that one which merely promises to care for its patients cannot.\nYet the very features that make numbers useful also make them dangerous. A measure is chosen because it is thought to track something we value but cannot observe directly—the quality of care, say, or what students actually know. Once people are rewarded or punished according to that measure, however, they have every reason to improve the number by whatever means are cheapest, and the cheapest means seldom coincide with improving the thing itself. Teachers drill pupils in the format of examinations; hospitals reclassify patients so that they no longer count as waiting. The indicator rises while the reality it was meant to indicate stays where it was, or declines.\nThe usual response is to devise better measures, and sometimes this helps. But it cannot solve the underlying problem, which is not technical but a matter of attention. Any figure, however sophisticated, captures only part of what matters, and the more weight we place on it, the more we invite people to neglect the rest. The alternative is not to abandon measurement but to treat numbers as questions rather than verdicts—as prompts to go and look, instead of substitutes for looking.",
+  "q": "筆者によれば、数値が「危険」になるのはなぜか。最も適切なものを選びなさい。",
+  "c": [
+   "When rewards depend on a measure, people tend to raise the figure by the easiest route rather than by improving what it was meant to reflect.",
+   "Numbers are usually calculated incorrectly by organisations that lack technical experts.",
+   "Numbers make it impossible to compare institutions across time and place.",
+   "Powerful people use numbers to hide their failures behind vague assurances."
+  ],
+  "e": "第2段落で「数値に応じて賞罰が与えられると、人は最も安上がりな方法で数値を上げようとし、その方法は対象そのものの改善とめったに一致しない」と述べ、試験形式の反復練習や患者の分類変更を例に挙げています。計算の誤りは論点ではありません。比較を可能にすることは数値の利点として挙げられています。4番目は逆で、数値は「曖昧な約束の陰に失敗を隠すこと」を難しくするとされています。",
+  "m": "指標が目標になると、指標と実態がずれる"
+ },
+ {
+  "id": 56,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：数値による管理",
+  "p": "Organisations increasingly manage what they can measure, and there is much to be said for this. Numbers allow comparisons across time and place, expose favouritism, and make it harder for the powerful to hide their failures behind vague assurances. A hospital that reports its waiting times can be held to account in a way that one which merely promises to care for its patients cannot.\nYet the very features that make numbers useful also make them dangerous. A measure is chosen because it is thought to track something we value but cannot observe directly—the quality of care, say, or what students actually know. Once people are rewarded or punished according to that measure, however, they have every reason to improve the number by whatever means are cheapest, and the cheapest means seldom coincide with improving the thing itself. Teachers drill pupils in the format of examinations; hospitals reclassify patients so that they no longer count as waiting. The indicator rises while the reality it was meant to indicate stays where it was, or declines.\nThe usual response is to devise better measures, and sometimes this helps. But it cannot solve the underlying problem, which is not technical but a matter of attention. Any figure, however sophisticated, captures only part of what matters, and the more weight we place on it, the more we invite people to neglect the rest. The alternative is not to abandon measurement but to treat numbers as questions rather than verdicts—as prompts to go and look, instead of substitutes for looking.",
+  "q": "筆者の結論として最も適切なものを選びなさい。",
+  "c": [
+   "Numbers should be used as starting points for closer inquiry rather than as final judgments.",
+   "With enough technical effort, better measures will eventually solve the problem completely.",
+   "Organisations should stop using numerical measures and rely on personal impressions instead.",
+   "Schools misuse numbers far more seriously than hospitals do."
+  ],
+  "e": "最終文で「代わりの道は測定をやめることではなく、数値を判決ではなく問いとして扱うこと、つまり見ることの代用品ではなく見に行くきっかけとして扱うことだ」と述べています。より良い指標は「役立つこともあるが根本問題は解決できない」とされているので2番目は誤りです。測定をやめるのは not to abandon measurement に反します。学校と病院の比較はしていません。",
+  "m": "questions rather than verdicts＝判決でなく問い"
+ },
+ {
+  "id": 57,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：数値による管理",
+  "p": "Organisations increasingly manage what they can measure, and there is much to be said for this. Numbers allow comparisons across time and place, expose favouritism, and make it harder for the powerful to hide their failures behind vague assurances. A hospital that reports its waiting times can be held to account in a way that one which merely promises to care for its patients cannot.\nYet the very features that make numbers useful also make them dangerous. A measure is chosen because it is thought to track something we value but cannot observe directly—the quality of care, say, or what students actually know. Once people are rewarded or punished according to that measure, however, they have every reason to improve the number by whatever means are cheapest, and the cheapest means seldom coincide with improving the thing itself. Teachers drill pupils in the format of examinations; hospitals reclassify patients so that they no longer count as waiting. The indicator rises while the reality it was meant to indicate stays where it was, or declines.\nThe usual response is to devise better measures, and sometimes this helps. But it cannot solve the underlying problem, which is not technical but a matter of attention. Any figure, however sophisticated, captures only part of what matters, and the more weight we place on it, the more we invite people to neglect the rest. The alternative is not to abandon measurement but to treat numbers as questions rather than verdicts—as prompts to go and look, instead of substitutes for looking.",
+  "q": "本文の内容と一致するものを選びなさい。",
+  "c": [
+   "The author regards the problem as lying in how attention is directed, not merely in the technical design of measures.",
+   "The author argues that vague assurances are more reliable than published figures.",
+   "The author believes that drilling pupils in exam formats improves what they actually know.",
+   "The author claims that hospitals should stop publishing their waiting times."
+  ],
+  "e": "第3段落に the underlying problem, which is not technical but a matter of attention（根本の問題は技術ではなく注意の向け方の問題だ）とあります。曖昧な約束より数値のほうが説明責任を問えると述べているので2番目は逆です。試験形式の反復練習は「数値だけが上がり実態は変わらない」例です。待ち時間の公表は説明責任の例として肯定的に挙げられています。",
+  "m": "not A but B＝AではなくB（筆者の判断はB）"
+ },
+ {
+  "id": 58,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：忘却とデジタル記録",
+  "p": "For most of human history, information was lost unless someone made an effort to keep it. Records had to be written by hand, copied, stored, and protected from fire and damp, and only what someone judged worth the trouble survived. Today the relationship has been reversed. Digital storage is so cheap that it is easier to keep everything than to decide what to discard, and so our messages, photographs, and casual remarks accumulate without anyone having chosen to preserve them.\nIt is tempting to see this as pure gain. Historians of the future, after all, will know far more about our daily lives than we know about those of our ancestors. But individuals and societies have always relied on forgetting as much as on memory. A person who could never forget an insult would find forgiveness almost impossible; a community that kept every youthful mistake permanently on display would leave little room for anyone to become someone different. Forgetting, in this sense, is not merely a failure of storage but a condition of change.\nSome legal systems have begun to recognise a right to have certain information removed from public view after a period of time. Critics object that this amounts to rewriting history, and the concern is not frivolous. Yet the purpose of such rules is not to make the past disappear but to restore something like the gradual fading that once happened of its own accord—to let the past remain available to those with a reason to seek it, without forcing it on everyone else.",
+  "q": "本文中の Today the relationship has been reversed. の内容として最も適切なものを選びなさい。",
+  "c": [
+   "Whereas preserving records once required deliberate effort, it is now discarding them that requires a conscious decision.",
+   "Whereas people once forgot easily, they now have much better natural memories.",
+   "Whereas records were once cheap to keep, they are now extremely expensive to store.",
+   "Whereas historians once knew everything about daily life, they now know very little."
+  ],
+  "e": "第1文で「かつては誰かが労力をかけて残さない限り、情報は失われた」とあり、「関係が逆転した」とはこれが逆になったことです。直後に「保存が安いので、何を捨てるか決めるより全部とっておくほうが楽」とあり、今では「残す」ではなく「捨てる」ほうに判断と労力がいる、ということです。人の記憶力の向上の話ではありません。保存のコストは逆に安くなりました。歴史家の知識の比較は未来についての話で、内容も逆です。",
+  "m": "reversed は直前の文と対比して読む"
+ },
+ {
+  "id": 59,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：忘却とデジタル記録",
+  "p": "For most of human history, information was lost unless someone made an effort to keep it. Records had to be written by hand, copied, stored, and protected from fire and damp, and only what someone judged worth the trouble survived. Today the relationship has been reversed. Digital storage is so cheap that it is easier to keep everything than to decide what to discard, and so our messages, photographs, and casual remarks accumulate without anyone having chosen to preserve them.\nIt is tempting to see this as pure gain. Historians of the future, after all, will know far more about our daily lives than we know about those of our ancestors. But individuals and societies have always relied on forgetting as much as on memory. A person who could never forget an insult would find forgiveness almost impossible; a community that kept every youthful mistake permanently on display would leave little room for anyone to become someone different. Forgetting, in this sense, is not merely a failure of storage but a condition of change.\nSome legal systems have begun to recognise a right to have certain information removed from public view after a period of time. Critics object that this amounts to rewriting history, and the concern is not frivolous. Yet the purpose of such rules is not to make the past disappear but to restore something like the gradual fading that once happened of its own accord—to let the past remain available to those with a reason to seek it, without forcing it on everyone else.",
+  "q": "筆者が Forgetting … is … a condition of change と述べる理由として最も適切なものを選びなさい。",
+  "c": [
+   "Without the fading of past insults and mistakes, people would have little chance to forgive or to be seen as having changed.",
+   "Forgetting frees up storage space so that new information can be recorded.",
+   "People who forget their mistakes are likely to repeat them and therefore never change.",
+   "Historians need people to forget the past so that they can rediscover it."
+  ],
+  "e": "直前の二つの例が根拠です。侮辱を決して忘れられない人は許すことがほぼ不可能になり、若い頃の過ちをすべて永久に掲示しておく共同体では、誰も別の人間になる余地がない、と述べています。だから忘却は単なる保存の失敗ではなく変化の条件なのです。記憶容量を空けるという技術的な話は not merely a failure of storage が退ける見方です。3番目は筆者の論と逆の方向で、4番目は本文にありません。",
+  "m": "condition＝必要条件（〜を可能にするもの）"
+ },
+ {
+  "id": 60,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：忘却とデジタル記録",
+  "p": "For most of human history, information was lost unless someone made an effort to keep it. Records had to be written by hand, copied, stored, and protected from fire and damp, and only what someone judged worth the trouble survived. Today the relationship has been reversed. Digital storage is so cheap that it is easier to keep everything than to decide what to discard, and so our messages, photographs, and casual remarks accumulate without anyone having chosen to preserve them.\nIt is tempting to see this as pure gain. Historians of the future, after all, will know far more about our daily lives than we know about those of our ancestors. But individuals and societies have always relied on forgetting as much as on memory. A person who could never forget an insult would find forgiveness almost impossible; a community that kept every youthful mistake permanently on display would leave little room for anyone to become someone different. Forgetting, in this sense, is not merely a failure of storage but a condition of change.\nSome legal systems have begun to recognise a right to have certain information removed from public view after a period of time. Critics object that this amounts to rewriting history, and the concern is not frivolous. Yet the purpose of such rules is not to make the past disappear but to restore something like the gradual fading that once happened of its own accord—to let the past remain available to those with a reason to seek it, without forcing it on everyone else.",
+  "q": "情報の削除を求める権利について、筆者の考えとして最も適切なものを選びなさい。",
+  "c": [
+   "It aims to recreate the natural fading of information while keeping the past available to those with a genuine reason to look for it.",
+   "It should be rejected, because any removal of information amounts to rewriting history.",
+   "It ensures that unpleasant parts of the past are permanently erased from all records.",
+   "The critics' objection to it is completely groundless and should be ignored."
+  ],
+  "e": "最終文に「こうした規則の目的は過去を消すことではなく、かつて自然に起きていた緩やかな風化に近いものを取り戻すこと、すなわち理由のある人には過去を利用可能にしたまま、それを他の全員に押しつけないことだ」とあります。筆者は批判を the concern is not frivolous（軽く扱える懸念ではない）と認めたうえで Yet と反論しているので、2番目の全面否定も4番目の「根拠がない」も誤りです。3番目は not to make the past disappear に反します。",
+  "m": "譲歩（not frivolous）＋ Yet＝筆者の本音"
+ }
+]

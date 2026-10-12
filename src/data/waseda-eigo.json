@@ -1,0 +1,1002 @@
+[
+ {
+  "id": 1,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "デフォルト効果：自動加入の結果",
+  "p": "When people are asked to make a choice, economists traditionally assumed that the way the options are presented should not matter. A rational person, the argument went, weighs costs and benefits and picks whatever serves her best, regardless of which box happens to be ticked in advance. A large body of research now suggests otherwise. In many settings, the option that takes effect when a person does nothing, known as the default, exerts a remarkable pull on behavior.\nConsider workplace pension plans. When firms require new employees to sign up actively, many of them never get around to it, even though the plan offers generous matching funds. When the same firms enroll workers automatically and let them leave if they wish, participation often rises sharply. Few of those enrolled by default go on to quit, and most keep the contribution rate the employer happened to choose.\nWhy should a mere starting point carry so much weight? Several explanations have been offered. Making a decision requires effort, and people tend to put off tasks whose rewards lie far in the future. A default may also be read as a quiet recommendation: if the employer chose this rate, perhaps it is sensible. Finally, giving up something one already has tends to feel like a loss, and a loss tends to be felt more strongly than a gain of the same size.\nCritics worry that designing defaults amounts to manipulation, since it steers people without their full awareness. Defenders reply that some option must be the default anyway; there is no neutral way to present a form. The real question, they argue, is not whether to shape choices but how to do so openly. Even so, a default that suits the average worker may serve poorly those whose needs differ.",
+  "q": "次の英文を読み、企業が従業員を年金制度に自動加入させた場合について、本文の内容に最も合うものを選びなさい。",
+  "c": [
+   "Participation tends to increase, and most workers keep the contribution rate set by the employer.",
+   "Participation increases at first, but most workers later decide to leave the plan.",
+   "Workers who are enrolled automatically usually choose a higher contribution rate than the employer set.",
+   "Participation rises only among workers who were already planning to join actively."
+  ],
+  "e": "第2段落に「自動加入にして脱退を認めると参加率が急上昇することが多い」「デフォルトで加入した人のうち脱退する人は少なく、多くは雇用主がたまたま選んだ拠出率を維持する」とあり、正解の内容と一致します。「多くが後で脱退する」は Few ... go on to quit に反します。「雇用主の設定より高い率を選ぶ」は本文の記述と逆です。「もともと加入予定だった人だけ増える」という限定は本文にありません。",
+  "m": "Few ... go on to quit＝やめる人はほとんどいない"
+ },
+ {
+  "id": 2,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "デフォルト効果：理由（NOT問題）",
+  "p": "When people are asked to make a choice, economists traditionally assumed that the way the options are presented should not matter. A rational person, the argument went, weighs costs and benefits and picks whatever serves her best, regardless of which box happens to be ticked in advance. A large body of research now suggests otherwise. In many settings, the option that takes effect when a person does nothing, known as the default, exerts a remarkable pull on behavior.\nConsider workplace pension plans. When firms require new employees to sign up actively, many of them never get around to it, even though the plan offers generous matching funds. When the same firms enroll workers automatically and let them leave if they wish, participation often rises sharply. Few of those enrolled by default go on to quit, and most keep the contribution rate the employer happened to choose.\nWhy should a mere starting point carry so much weight? Several explanations have been offered. Making a decision requires effort, and people tend to put off tasks whose rewards lie far in the future. A default may also be read as a quiet recommendation: if the employer chose this rate, perhaps it is sensible. Finally, giving up something one already has tends to feel like a loss, and a loss tends to be felt more strongly than a gain of the same size.\nCritics worry that designing defaults amounts to manipulation, since it steers people without their full awareness. Defenders reply that some option must be the default anyway; there is no neutral way to present a form. The real question, they argue, is not whether to shape choices but how to do so openly. Even so, a default that suits the average worker may serve poorly those whose needs differ.",
+  "q": "次の英文を読み、デフォルト（初期設定）が行動に強い影響を与える理由として、本文で挙げられていないものを選びなさい。",
+  "c": [
+   "People believe that defaults are legally difficult to change.",
+   "People tend to postpone decisions whose benefits lie in the distant future.",
+   "People may interpret a default as an implicit recommendation.",
+   "People tend to feel that giving up what they already have is a loss."
+  ],
+  "e": "第3段落は理由を3つ挙げています。①決定には労力がかかり、見返りが遠い先の課題は先送りされがち、②デフォルトは暗黙の推奨と受け取られうる、③すでに持っているものを手放すのは損失に感じられ、損失は同じ大きさの利得より強く感じられる。「デフォルトは法的に変更しにくいと信じている」という理由は本文になく、これが正解です。本文ではむしろ「脱退してもよい（let them leave if they wish）」と変更が自由なことが示されています。",
+  "m": "理由列挙は段落内の Making… / may also… / Finally… を数える"
+ },
+ {
+  "id": 3,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "デフォルト効果：擁護派の主張",
+  "p": "When people are asked to make a choice, economists traditionally assumed that the way the options are presented should not matter. A rational person, the argument went, weighs costs and benefits and picks whatever serves her best, regardless of which box happens to be ticked in advance. A large body of research now suggests otherwise. In many settings, the option that takes effect when a person does nothing, known as the default, exerts a remarkable pull on behavior.\nConsider workplace pension plans. When firms require new employees to sign up actively, many of them never get around to it, even though the plan offers generous matching funds. When the same firms enroll workers automatically and let them leave if they wish, participation often rises sharply. Few of those enrolled by default go on to quit, and most keep the contribution rate the employer happened to choose.\nWhy should a mere starting point carry so much weight? Several explanations have been offered. Making a decision requires effort, and people tend to put off tasks whose rewards lie far in the future. A default may also be read as a quiet recommendation: if the employer chose this rate, perhaps it is sensible. Finally, giving up something one already has tends to feel like a loss, and a loss tends to be felt more strongly than a gain of the same size.\nCritics worry that designing defaults amounts to manipulation, since it steers people without their full awareness. Defenders reply that some option must be the default anyway; there is no neutral way to present a form. The real question, they argue, is not whether to shape choices but how to do so openly. Even so, a default that suits the average worker may serve poorly those whose needs differ.",
+  "q": "次の英文を読み、デフォルトの設計を擁護する人々の考えとして最も適当なものを選びなさい。",
+  "c": [
+   "Because some option must be preset anyway, the real issue is how to shape choices transparently.",
+   "Defaults should be eliminated so that people can make fully neutral choices.",
+   "Defaults never influence people without their awareness, so they cannot be manipulative.",
+   "A default that suits the average worker will serve all workers equally well."
+  ],
+  "e": "第4段落で擁護派は「どれかの選択肢はどうしてもデフォルトになる。中立的な書式の示し方はない」と述べ、「問題は選択に影響を与えるかどうかではなく、どう公然と行うかだ」と主張しています。正解はこの要約です。「デフォルトを廃止すべき」は「中立はありえない」という主張と矛盾します。「意識されずに影響することはない」は批判派の前提（without their full awareness）を否定するもので、擁護派の論点ではありません。最後の選択肢は本文末尾の「平均に合わない人には不向き」と逆です。",
+  "m": "not whether A but how B＝AかどうかではなくBの仕方が問題"
+ },
+ {
+  "id": 4,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "標準時：鉄道以前",
+  "p": "Before the middle of the nineteenth century, most towns kept their own time. Noon was the moment the sun stood highest over the local church or town hall, and because the sun moves westward, a town a few dozen kilometers to the east reached noon a little earlier than its neighbor. For centuries this caused little trouble. Travel was slow, and a gap of several minutes between places hardly mattered to someone who needed a whole day to cover the distance between them.\nThe railway changed this. Trains made it possible to cross a region in hours, and timetables had to tell passengers when a train would leave one station and reach another. If each station followed its own local time, a single schedule might refer to dozens of slightly different clocks, and the risk of confusion, and even of collision on single-track lines, grew. Railway companies therefore began to adopt one standard time across their networks, usually that of a major city. Over the following decades, governments turned this practice into law, and the world was eventually divided into time zones.\nThe change was not welcomed everywhere. In some places residents complained that an abstract time set by distant authorities had replaced the natural rhythm of the sun. A few towns kept two clocks on public buildings, one showing local time and the other railway time, as if unwilling to choose between them.\nHistorians have argued that standard time did more than make travel efficient. It encouraged people to coordinate their lives with strangers far away, and it turned punctuality, measured to the minute, into a widely shared value. In this sense, the clock on the station wall helped to shape a new kind of social discipline, one that factories and schools would later reinforce.",
+  "q": "次の英文を読み、鉄道の普及以前に町ごとの時刻の違いがほとんど問題にならなかった理由として、本文に最も合うものを選びなさい。",
+  "c": [
+   "Travel was so slow that a difference of a few minutes made little practical difference.",
+   "Every town adjusted its clocks to the time of the nearest large city.",
+   "The sun reached its highest point at the same moment in all nearby towns.",
+   "Governments had already passed laws requiring towns to share the same time."
+  ],
+  "e": "第1段落に「移動は遅く、二つの場所の間を移動するのに丸一日かかる人にとって、数分の差はほとんど問題にならなかった」とあります。正解はこれを言い換えたものです。「最寄りの大都市の時刻に合わせた」は鉄道会社が後に行ったことで、それ以前の話ではありません。太陽が最も高くなる時刻は東の町ほど早いと本文にあり、「同時」は誤りです。法律化は鉄道の普及後の出来事です。",
+  "m": "hardly mattered＝ほとんど問題にならなかった"
+ },
+ {
+  "id": 5,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "標準時：二つの時計",
+  "p": "Before the middle of the nineteenth century, most towns kept their own time. Noon was the moment the sun stood highest over the local church or town hall, and because the sun moves westward, a town a few dozen kilometers to the east reached noon a little earlier than its neighbor. For centuries this caused little trouble. Travel was slow, and a gap of several minutes between places hardly mattered to someone who needed a whole day to cover the distance between them.\nThe railway changed this. Trains made it possible to cross a region in hours, and timetables had to tell passengers when a train would leave one station and reach another. If each station followed its own local time, a single schedule might refer to dozens of slightly different clocks, and the risk of confusion, and even of collision on single-track lines, grew. Railway companies therefore began to adopt one standard time across their networks, usually that of a major city. Over the following decades, governments turned this practice into law, and the world was eventually divided into time zones.\nThe change was not welcomed everywhere. In some places residents complained that an abstract time set by distant authorities had replaced the natural rhythm of the sun. A few towns kept two clocks on public buildings, one showing local time and the other railway time, as if unwilling to choose between them.\nHistorians have argued that standard time did more than make travel efficient. It encouraged people to coordinate their lives with strangers far away, and it turned punctuality, measured to the minute, into a widely shared value. In this sense, the clock on the station wall helped to shape a new kind of social discipline, one that factories and schools would later reinforce.",
+  "q": "次の英文を読み、一部の町が公共の建物に時計を二つ掲げた理由について、本文から最も適切に推測できるものを選びなさい。",
+  "c": [
+   "They were reluctant to give up local solar time completely, even while accepting railway time.",
+   "The law required every public building to display both local time and railway time.",
+   "Train drivers needed a second clock to avoid collisions on single-track lines.",
+   "Two competing railway companies used different standard times in the same town."
+  ],
+  "e": "第3段落は、標準時が歓迎されなかった例として「現地時刻と鉄道時刻の二つの時計を掲げ、どちらかを選びたくないかのようだった（as if unwilling to choose between them）」と述べています。ここから、鉄道時刻を受け入れつつも太陽に基づく現地時刻を完全には手放したくなかった、と推測できます。法律で義務づけられた、運転士のため、鉄道会社が二社あった、という記述はいずれも本文にありません。",
+  "m": "as if unwilling to ～＝～したくないかのように"
+ },
+ {
+  "id": 6,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "標準時：歴史家の見解",
+  "p": "Before the middle of the nineteenth century, most towns kept their own time. Noon was the moment the sun stood highest over the local church or town hall, and because the sun moves westward, a town a few dozen kilometers to the east reached noon a little earlier than its neighbor. For centuries this caused little trouble. Travel was slow, and a gap of several minutes between places hardly mattered to someone who needed a whole day to cover the distance between them.\nThe railway changed this. Trains made it possible to cross a region in hours, and timetables had to tell passengers when a train would leave one station and reach another. If each station followed its own local time, a single schedule might refer to dozens of slightly different clocks, and the risk of confusion, and even of collision on single-track lines, grew. Railway companies therefore began to adopt one standard time across their networks, usually that of a major city. Over the following decades, governments turned this practice into law, and the world was eventually divided into time zones.\nThe change was not welcomed everywhere. In some places residents complained that an abstract time set by distant authorities had replaced the natural rhythm of the sun. A few towns kept two clocks on public buildings, one showing local time and the other railway time, as if unwilling to choose between them.\nHistorians have argued that standard time did more than make travel efficient. It encouraged people to coordinate their lives with strangers far away, and it turned punctuality, measured to the minute, into a widely shared value. In this sense, the clock on the station wall helped to shape a new kind of social discipline, one that factories and schools would later reinforce.",
+  "q": "次の英文を読み、最終段落で述べられている歴史家の見解に最も合うものを選びなさい。",
+  "c": [
+   "Standard time helped make minute-level punctuality a common social value.",
+   "Standard time was first introduced by factories and schools and later adopted by railways.",
+   "Standard time weakened the connection between people in distant places.",
+   "Standard time was valued only because it made travel more efficient."
+  ],
+  "e": "最終段落では、標準時は移動を効率化した以上のことをした、すなわち遠く離れた見知らぬ人と生活を調整させ、分単位の時間厳守を広く共有された価値に変えたと述べています。正解はこれと一致します。工場や学校は後にこの規律を「強化した（would later reinforce）」のであり、起源ではありません。「遠くの人とのつながりを弱めた」は本文と逆です。「効率化のためだけ」は did more than と矛盾します。",
+  "m": "did more than ～＝～以上のことをした"
+ },
+ {
+  "id": 7,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "出版バイアス：20チームの例",
+  "p": "Scientific journals have long preferred to publish studies that report striking, positive results. A paper showing that a new drug works, or that some habit predicts success, is more likely to attract readers than one concluding that nothing of interest was found. This preference seems harmless, but it can distort the picture of the world that the published record presents.\nImagine that twenty research teams test whether a certain food improves memory, and that in reality it has no effect. By chance alone, one or two of these teams may obtain results that appear significant. If only those studies are published while the others stay in desk drawers, readers will conclude that the evidence for the effect is consistent, when in fact it is nothing of the kind. Researchers call this the \"file drawer problem.\"\nThe difficulty is made worse by the pressures on scientists themselves. Careers depend on publications, and publications depend on findings that editors find exciting. Under such conditions, researchers may be tempted, often with no intention to deceive, to try several ways of analyzing their data and report only the one that yields a clear result.\nIn recent years, a number of reforms have been proposed. One is preregistration, in which researchers state their hypotheses and methods before collecting data, so that later changes become visible. Another is the \"registered report,\" which a journal agrees to publish on the basis of its design rather than its outcome. Supporters argue that such measures reward careful questions rather than lucky answers. Skeptics note that not all research can be planned in advance, and that exploratory work, which often leads to unexpected discoveries, should not be viewed with suspicion simply because its path was not mapped beforehand.",
+  "q": "次の英文を読み、20の研究チームの例で読者が誤った結論に至る理由として、本文に最も合うものを選びなさい。",
+  "c": [
+   "Only the few studies that happened to show an effect by chance are published.",
+   "Most of the twenty teams deliberately falsify their data.",
+   "The food actually improves memory, but most teams fail to detect it.",
+   "Journals publish all twenty studies but readers ignore the negative ones."
+  ],
+  "e": "第2段落の想定では、実際には効果がないのに、偶然だけで1〜2チームが有意に見える結果を得ます。それだけが出版され、残りが机の引き出しにしまわれると、読者は「証拠は一貫している」と誤解します。正解はこの仕組みです。意図的な改ざんの話はここにはありません。「実際は効果がある」は in reality it has no effect と逆です。全研究が出版されるなら、この問題は起きません。",
+  "m": "file drawer problem＝否定的結果がしまい込まれる問題"
+ },
+ {
+  "id": 8,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "出版バイアス：研究者の分析",
+  "p": "Scientific journals have long preferred to publish studies that report striking, positive results. A paper showing that a new drug works, or that some habit predicts success, is more likely to attract readers than one concluding that nothing of interest was found. This preference seems harmless, but it can distort the picture of the world that the published record presents.\nImagine that twenty research teams test whether a certain food improves memory, and that in reality it has no effect. By chance alone, one or two of these teams may obtain results that appear significant. If only those studies are published while the others stay in desk drawers, readers will conclude that the evidence for the effect is consistent, when in fact it is nothing of the kind. Researchers call this the \"file drawer problem.\"\nThe difficulty is made worse by the pressures on scientists themselves. Careers depend on publications, and publications depend on findings that editors find exciting. Under such conditions, researchers may be tempted, often with no intention to deceive, to try several ways of analyzing their data and report only the one that yields a clear result.\nIn recent years, a number of reforms have been proposed. One is preregistration, in which researchers state their hypotheses and methods before collecting data, so that later changes become visible. Another is the \"registered report,\" which a journal agrees to publish on the basis of its design rather than its outcome. Supporters argue that such measures reward careful questions rather than lucky answers. Skeptics note that not all research can be planned in advance, and that exploratory work, which often leads to unexpected discoveries, should not be viewed with suspicion simply because its path was not mapped beforehand.",
+  "q": "次の英文を読み、データ分析に関する研究者の行動について、本文の内容に最も合うものを選びなさい。",
+  "c": [
+   "Researchers may report only a favorable analysis even without meaning to mislead anyone.",
+   "Researchers usually invent data in order to satisfy journal editors.",
+   "Researchers are required by editors to report every analysis they have tried.",
+   "Researchers' careers rarely depend on the number of papers they publish."
+  ],
+  "e": "第3段落に「研究者は、しばしば欺く意図がまったくないまま、データをいくつかの方法で分析し、明確な結果が出たものだけを報告したくなることがある」とあります。正解はこの内容です。データの捏造は述べられていません。編集者がすべての分析の報告を求めるという記述もありません。「キャリアは出版に左右されない」は Careers depend on publications と逆です。",
+  "m": "with no intention to deceive＝だますつもりなく"
+ },
+ {
+  "id": 9,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "出版バイアス：懐疑派の懸念",
+  "p": "Scientific journals have long preferred to publish studies that report striking, positive results. A paper showing that a new drug works, or that some habit predicts success, is more likely to attract readers than one concluding that nothing of interest was found. This preference seems harmless, but it can distort the picture of the world that the published record presents.\nImagine that twenty research teams test whether a certain food improves memory, and that in reality it has no effect. By chance alone, one or two of these teams may obtain results that appear significant. If only those studies are published while the others stay in desk drawers, readers will conclude that the evidence for the effect is consistent, when in fact it is nothing of the kind. Researchers call this the \"file drawer problem.\"\nThe difficulty is made worse by the pressures on scientists themselves. Careers depend on publications, and publications depend on findings that editors find exciting. Under such conditions, researchers may be tempted, often with no intention to deceive, to try several ways of analyzing their data and report only the one that yields a clear result.\nIn recent years, a number of reforms have been proposed. One is preregistration, in which researchers state their hypotheses and methods before collecting data, so that later changes become visible. Another is the \"registered report,\" which a journal agrees to publish on the basis of its design rather than its outcome. Supporters argue that such measures reward careful questions rather than lucky answers. Skeptics note that not all research can be planned in advance, and that exploratory work, which often leads to unexpected discoveries, should not be viewed with suspicion simply because its path was not mapped beforehand.",
+  "q": "次の英文を読み、改革案に対する懐疑派の懸念として最も適当なものを選びなさい。",
+  "c": [
+   "Exploratory research might be unfairly regarded as less trustworthy.",
+   "Preregistration would make it impossible to change methods at all.",
+   "Registered reports would encourage journals to publish only positive results.",
+   "Careful research questions would no longer be rewarded."
+  ],
+  "e": "最終段落で懐疑派は「すべての研究を事前に計画できるわけではない」「予想外の発見につながることが多い探索的研究を、道筋が事前に描かれていないという理由だけで疑いの目で見るべきではない」と述べています。正解はこれに対応します。事前登録は「後の変更を見えるようにする」ものであり、変更を不可能にするとは書かれていません。登録報告は結果でなく設計で採否を決めるので、肯定的結果だけを載せる方向には働きません。最後の選択肢は支持派の主張と逆です。",
+  "m": "skeptics note that ～＝懐疑派の論点を拾う"
+ },
+ {
+  "id": 10,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "贈与：関係が強まる理由",
+  "p": "In many societies, a gift is never simply a gift. Anthropologists who studied exchange in small communities observed that offering something to another person created an expectation that something would eventually be returned. To refuse a gift could be taken as an insult, and to accept one without ever giving back could leave a person in a position of lasting inferiority. Gifts, in other words, built and maintained relationships precisely because they placed people in each other's debt.\nAt first sight, modern market exchange seems to work on the opposite principle. When I buy bread from a shop, I pay the agreed price, and the deal is complete. Neither the baker nor I owe each other anything further, and we may never meet again. The very purpose of money, one might say, is to settle accounts so fully that no relationship needs to remain.\nYet the contrast can be overstated. Even in highly commercial societies, people take great care over the gifts they give to friends and relatives. Giving cash to a close friend on her birthday is often thought awkward, while a carefully chosen object, though it may cost the same, is welcomed. This suggests that what matters is not the value transferred but the attention and knowledge that the choice reveals. Similarly, people who return a favor too quickly, as if eager to be free of the obligation, may be thought cold.\nSome scholars therefore argue that the two forms of exchange coexist within every society, each governing a different sphere of life. Markets allow strangers to trade efficiently without trust, while gifts sustain the ties of intimacy that markets cannot create. Problems arise, they suggest, when the logic of one sphere invades the other, as when friendship is measured in money.",
+  "q": "次の英文を読み、人類学者の観察によると、贈り物が人間関係を築き維持した理由として最も適当なものを選びなさい。",
+  "c": [
+   "Gifts created obligations that bound giver and receiver to each other.",
+   "Gifts allowed people to settle their accounts completely.",
+   "Gifts were always of equal value, so no one felt inferior.",
+   "Gifts could be refused without causing any offense."
+  ],
+  "e": "第1段落の最後に「贈り物は、人々を互いに借りのある状態に置くからこそ（precisely because）、関係を築き維持した」とあります。正解は「義務を生み、贈り手と受け手を結びつけた」です。「貸し借りを完全に清算する」は第2段落で述べられた貨幣の役割です。「等価なので劣位を感じない」は、お返しをしないと劣位に置かれるという記述に反します。断ることは侮辱と受け取られうるとあるので、最後の選択肢も誤りです。",
+  "m": "in each other's debt＝互いに借りがある"
+ },
+ {
+  "id": 11,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "贈与：現金が気まずい理由",
+  "p": "In many societies, a gift is never simply a gift. Anthropologists who studied exchange in small communities observed that offering something to another person created an expectation that something would eventually be returned. To refuse a gift could be taken as an insult, and to accept one without ever giving back could leave a person in a position of lasting inferiority. Gifts, in other words, built and maintained relationships precisely because they placed people in each other's debt.\nAt first sight, modern market exchange seems to work on the opposite principle. When I buy bread from a shop, I pay the agreed price, and the deal is complete. Neither the baker nor I owe each other anything further, and we may never meet again. The very purpose of money, one might say, is to settle accounts so fully that no relationship needs to remain.\nYet the contrast can be overstated. Even in highly commercial societies, people take great care over the gifts they give to friends and relatives. Giving cash to a close friend on her birthday is often thought awkward, while a carefully chosen object, though it may cost the same, is welcomed. This suggests that what matters is not the value transferred but the attention and knowledge that the choice reveals. Similarly, people who return a favor too quickly, as if eager to be free of the obligation, may be thought cold.\nSome scholars therefore argue that the two forms of exchange coexist within every society, each governing a different sphere of life. Markets allow strangers to trade efficiently without trust, while gifts sustain the ties of intimacy that markets cannot create. Problems arise, they suggest, when the logic of one sphere invades the other, as when friendship is measured in money.",
+  "q": "次の英文を読み、親しい友人の誕生日に現金を贈ることが気まずいと考えられる理由として、本文から最も適切に推測できるものを選びなさい。",
+  "c": [
+   "Cash does not reveal the giver's attention to and knowledge of the friend.",
+   "Cash is usually worth less than a carefully chosen object.",
+   "Giving cash is forbidden by custom in most commercial societies.",
+   "Cash makes the receiver feel obliged to return the gift too quickly."
+  ],
+  "e": "第3段落は、同じ値段でも現金は気まずく、よく選んだ品物は喜ばれると述べ、「大切なのは移転される価値ではなく、選択が示す気配りと知識だ」と結論しています。したがって、現金にはその気配りや相手への理解が表れないことが理由です。「品物より価値が低い」は though it may cost the same に反します。「慣習で禁じられている」は言い過ぎです。お返しが早すぎることは別の例として出ているだけで、現金の理由ではありません。",
+  "m": "not the value but the attention＝価値でなく気配り"
+ },
+ {
+  "id": 12,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "贈与：全体の要旨",
+  "p": "In many societies, a gift is never simply a gift. Anthropologists who studied exchange in small communities observed that offering something to another person created an expectation that something would eventually be returned. To refuse a gift could be taken as an insult, and to accept one without ever giving back could leave a person in a position of lasting inferiority. Gifts, in other words, built and maintained relationships precisely because they placed people in each other's debt.\nAt first sight, modern market exchange seems to work on the opposite principle. When I buy bread from a shop, I pay the agreed price, and the deal is complete. Neither the baker nor I owe each other anything further, and we may never meet again. The very purpose of money, one might say, is to settle accounts so fully that no relationship needs to remain.\nYet the contrast can be overstated. Even in highly commercial societies, people take great care over the gifts they give to friends and relatives. Giving cash to a close friend on her birthday is often thought awkward, while a carefully chosen object, though it may cost the same, is welcomed. This suggests that what matters is not the value transferred but the attention and knowledge that the choice reveals. Similarly, people who return a favor too quickly, as if eager to be free of the obligation, may be thought cold.\nSome scholars therefore argue that the two forms of exchange coexist within every society, each governing a different sphere of life. Markets allow strangers to trade efficiently without trust, while gifts sustain the ties of intimacy that markets cannot create. Problems arise, they suggest, when the logic of one sphere invades the other, as when friendship is measured in money.",
+  "q": "次の英文を読み、本文全体の主張に最も合うものを選びなさい。",
+  "c": [
+   "Market exchange and gift exchange each have their proper sphere within the same society.",
+   "Modern commercial societies have completely abandoned the logic of the gift.",
+   "Money is the most effective means of creating lasting personal ties.",
+   "Gift exchange allows strangers to trade more efficiently than markets do."
+  ],
+  "e": "筆者はまず贈与と市場交換を対比したうえで、その対比は誇張されうると述べ、最終段落で「二つの交換形態はすべての社会に共存し、それぞれ生活の異なる領域を支配する」とまとめています。正解はこれと一致します。商業社会でも贈り物に気を遣うとあるので「完全に捨てた」は誤りです。貨幣は関係を残さないために清算するものなので、3番目も誤りです。見知らぬ人どうしの効率的な取引は市場の役割として書かれています。",
+  "m": "最終段落の some scholars argue が要旨になりやすい"
+ },
+ {
+  "id": 13,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "共有資源：破滅の予測",
+  "p": "For much of the twentieth century, a simple argument dominated thinking about shared natural resources such as fisheries, forests and pastures. If a resource belongs to no one in particular, each user has a reason to take as much as possible before others do, since the benefit of taking more goes to the individual while the cost of depletion is spread across everyone. The predicted result is ruin. Two remedies seemed to follow: either the state should take control of the resource, or it should be divided into private property so that each owner bears the results of his own actions.\nField research later complicated this picture. Investigators who visited villages managing irrigation systems, mountain pastures and coastal fisheries found that many communities had used shared resources sustainably for generations, without either central control or private ownership. They had developed rules about who could use the resource, when, and how much, and they had ways of monitoring one another and of punishing those who broke the rules, with penalties that grew more severe for repeated offenses.\nThese arrangements were not always successful. They tended to work best where the group of users was clearly defined, where members could take part in changing the rules, and where outside authorities respected the community's right to organize itself. Where those conditions were absent, collapse remained a danger.\nThe lesson drawn by researchers was not that communities always know best, but that the choice between state and market was too narrow. Rules designed by distant officials could ignore local knowledge, and private ownership could be impossible for resources such as migrating fish. Institutions built from below offered a third option, one that policy makers had overlooked.",
+  "q": "次の英文を読み、第1段落で共有資源の「破滅」が予測された理由として最も適当なものを選びなさい。",
+  "c": [
+   "Each user gains individually from taking more, while the costs are shared by all.",
+   "The state usually takes too much of the resource for its own purposes.",
+   "Private owners tend to ignore the results of their own actions.",
+   "Natural resources such as fish migrate too often to be counted."
+  ],
+  "e": "第1段落では、資源が誰のものでもない場合、多く取る利益は個人に入り、枯渇の損失は全員に分散されるので、各利用者は他人より先にできるだけ多く取ろうとし、その結果が破滅だと説明されています。正解はこれを言い換えたものです。国家の取りすぎは述べられていません。私有化は「各所有者が自分の行為の結果を負う」ための解決策として挙げられており、3番目は逆です。魚の回遊は最終段落で私有化の難しさの例として出てくるもので、破滅の理由ではありません。",
+  "m": "benefit は個人、cost は全員に＝共有地の悲劇"
+ },
+ {
+  "id": 14,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "共有資源：成功の条件（NOT問題）",
+  "p": "For much of the twentieth century, a simple argument dominated thinking about shared natural resources such as fisheries, forests and pastures. If a resource belongs to no one in particular, each user has a reason to take as much as possible before others do, since the benefit of taking more goes to the individual while the cost of depletion is spread across everyone. The predicted result is ruin. Two remedies seemed to follow: either the state should take control of the resource, or it should be divided into private property so that each owner bears the results of his own actions.\nField research later complicated this picture. Investigators who visited villages managing irrigation systems, mountain pastures and coastal fisheries found that many communities had used shared resources sustainably for generations, without either central control or private ownership. They had developed rules about who could use the resource, when, and how much, and they had ways of monitoring one another and of punishing those who broke the rules, with penalties that grew more severe for repeated offenses.\nThese arrangements were not always successful. They tended to work best where the group of users was clearly defined, where members could take part in changing the rules, and where outside authorities respected the community's right to organize itself. Where those conditions were absent, collapse remained a danger.\nThe lesson drawn by researchers was not that communities always know best, but that the choice between state and market was too narrow. Rules designed by distant officials could ignore local knowledge, and private ownership could be impossible for resources such as migrating fish. Institutions built from below offered a third option, one that policy makers had overlooked.",
+  "q": "次の英文を読み、共同体による資源管理がうまくいきやすい条件として、本文で述べられていないものを選びなさい。",
+  "c": [
+   "The users are wealthy enough to hire outside inspectors.",
+   "The group of users is clearly defined.",
+   "Members can participate in changing the rules.",
+   "Outside authorities respect the community's right to organize itself."
+  ],
+  "e": "第3段落は、うまくいきやすい条件として①利用者の集団が明確に定められている、②成員がルールの変更に参加できる、③外部の当局が共同体の自己組織の権利を尊重する、の3つを挙げています。「利用者が外部の監視員を雇えるほど豊かである」は述べられていません。第2段落にあるとおり、監視は互いに行う（monitoring one another）ものとして書かれています。",
+  "m": "条件は where ～, where ～, where ～ の並列で探す"
+ },
+ {
+  "id": 15,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "共有資源：研究者の教訓",
+  "p": "For much of the twentieth century, a simple argument dominated thinking about shared natural resources such as fisheries, forests and pastures. If a resource belongs to no one in particular, each user has a reason to take as much as possible before others do, since the benefit of taking more goes to the individual while the cost of depletion is spread across everyone. The predicted result is ruin. Two remedies seemed to follow: either the state should take control of the resource, or it should be divided into private property so that each owner bears the results of his own actions.\nField research later complicated this picture. Investigators who visited villages managing irrigation systems, mountain pastures and coastal fisheries found that many communities had used shared resources sustainably for generations, without either central control or private ownership. They had developed rules about who could use the resource, when, and how much, and they had ways of monitoring one another and of punishing those who broke the rules, with penalties that grew more severe for repeated offenses.\nThese arrangements were not always successful. They tended to work best where the group of users was clearly defined, where members could take part in changing the rules, and where outside authorities respected the community's right to organize itself. Where those conditions were absent, collapse remained a danger.\nThe lesson drawn by researchers was not that communities always know best, but that the choice between state and market was too narrow. Rules designed by distant officials could ignore local knowledge, and private ownership could be impossible for resources such as migrating fish. Institutions built from below offered a third option, one that policy makers had overlooked.",
+  "q": "次の英文を読み、研究者たちが引き出した教訓として最も適当なものを選びなさい。",
+  "c": [
+   "Choosing only between state control and private ownership overlooks a third possibility.",
+   "Local communities always manage resources better than governments do.",
+   "Private ownership is the best solution for resources such as migrating fish.",
+   "Rules designed by distant officials are more reliable than local knowledge."
+  ],
+  "e": "最終段落に「教訓は、共同体が常に最善を知っているということではなく、国家か市場かという選択が狭すぎたということだ」とあり、下から作られる制度が第三の選択肢だと述べています。正解はこれと一致します。「常に共同体のほうがよい」は not that communities always know best で否定されています。回遊魚は私有が不可能な例として挙げられています。遠くの役人のルールは地域の知識を無視しうると批判されています。",
+  "m": "not that A but that B＝Aではなく、Bということ"
+ },
+ {
+  "id": 16,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：hard to maintain",
+  "p": "Most of us assume that memory works like a recording. We experience an event, store a copy of it somewhere in the brain, and later play it back more or less faithfully. Decades of psychological research have made this picture hard to ( A ). Remembering, it turns out, is less like replaying a video than like rebuilding a scene from scattered pieces, with gaps filled in by expectation and later information.\nIn one well-known type of experiment, people watch a short film of a traffic accident and are then asked questions about it. When the question uses a more violent verb, asking how fast the cars were going when they \"smashed\" rather than \"hit\" each other, people give higher estimates of speed. Some even report seeing broken glass that was never in the film. The wording of a single question, in other words, can [alter] what people believe they saw.\nSuch findings carry serious implications for the courtroom. Eyewitness testimony is often highly persuasive to juries, especially when a witness speaks with confidence. Yet confidence and accuracy are only loosely related, and a witness's certainty may grow over time as the story is retold, even as the memory itself becomes less reliable. Several cases in which convicted people were later cleared by new evidence had relied heavily on witnesses who were ( B ) but mistaken.\nIt would be wrong, however, to conclude that memory is simply defective. A system that rebuilds rather than records has advantages. It allows us to draw general lessons from particular experiences, to combine fragments into new ideas, and to imagine the future by rearranging pieces of the past. The flexibility that makes memory unreliable as a witness may be the very feature that makes it useful as a guide to action.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "maintain",
+   "abandon",
+   "criticize",
+   "overlook"
+  ],
+  "e": "直前の文は「記憶は録画のようなものだ」という通念、直後の文は「想起は断片から場面を組み立て直すことに近い」と、通念を否定しています。したがって「数十年の研究によって、この見方は維持しにくくなった」となる maintain が正解です。abandon（捨てる）や criticize（批判する）を入れると「捨てにくく／批判しにくくなった」となり、通念を支持する逆の意味になります。overlook（見落とす）も文脈に合いません。",
+  "m": "make A hard to maintain＝Aを支持しにくくする"
+ },
+ {
+  "id": 17,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：alter",
+  "p": "Most of us assume that memory works like a recording. We experience an event, store a copy of it somewhere in the brain, and later play it back more or less faithfully. Decades of psychological research have made this picture hard to ( A ). Remembering, it turns out, is less like replaying a video than like rebuilding a scene from scattered pieces, with gaps filled in by expectation and later information.\nIn one well-known type of experiment, people watch a short film of a traffic accident and are then asked questions about it. When the question uses a more violent verb, asking how fast the cars were going when they \"smashed\" rather than \"hit\" each other, people give higher estimates of speed. Some even report seeing broken glass that was never in the film. The wording of a single question, in other words, can [alter] what people believe they saw.\nSuch findings carry serious implications for the courtroom. Eyewitness testimony is often highly persuasive to juries, especially when a witness speaks with confidence. Yet confidence and accuracy are only loosely related, and a witness's certainty may grow over time as the story is retold, even as the memory itself becomes less reliable. Several cases in which convicted people were later cleared by new evidence had relied heavily on witnesses who were ( B ) but mistaken.\nIt would be wrong, however, to conclude that memory is simply defective. A system that rebuilds rather than records has advantages. It allows us to draw general lessons from particular experiences, to combine fragments into new ideas, and to imagine the future by rearranging pieces of the past. The flexibility that makes memory unreliable as a witness may be the very feature that makes it useful as a guide to action.",
+  "q": "次の英文を読み、下線部［alter］に最も意味が近いものを選びなさい。",
+  "c": [
+   "modify",
+   "confirm",
+   "record",
+   "reveal"
+  ],
+  "e": "alter は「変える・改変する」の意味で、modify が最も近いです。直前で、質問の動詞を smashed にすると速度の推定が上がり、存在しなかった割れたガラスを見たと報告する人まで出る、と述べています。つまり質問の言い回し一つで「見たと信じている内容」が変わってしまうということです。confirm（確認する）、record（記録する）、reveal（明らかにする）では、記憶が書き換わるという実験の要点を表せません。",
+  "m": "alter＝modify＝change"
+ },
+ {
+  "id": 18,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：confident but mistaken",
+  "p": "Most of us assume that memory works like a recording. We experience an event, store a copy of it somewhere in the brain, and later play it back more or less faithfully. Decades of psychological research have made this picture hard to ( A ). Remembering, it turns out, is less like replaying a video than like rebuilding a scene from scattered pieces, with gaps filled in by expectation and later information.\nIn one well-known type of experiment, people watch a short film of a traffic accident and are then asked questions about it. When the question uses a more violent verb, asking how fast the cars were going when they \"smashed\" rather than \"hit\" each other, people give higher estimates of speed. Some even report seeing broken glass that was never in the film. The wording of a single question, in other words, can [alter] what people believe they saw.\nSuch findings carry serious implications for the courtroom. Eyewitness testimony is often highly persuasive to juries, especially when a witness speaks with confidence. Yet confidence and accuracy are only loosely related, and a witness's certainty may grow over time as the story is retold, even as the memory itself becomes less reliable. Several cases in which convicted people were later cleared by new evidence had relied heavily on witnesses who were ( B ) but mistaken.\nIt would be wrong, however, to conclude that memory is simply defective. A system that rebuilds rather than records has advantages. It allows us to draw general lessons from particular experiences, to combine fragments into new ideas, and to imagine the future by rearranging pieces of the past. The flexibility that makes memory unreliable as a witness may be the very feature that makes it useful as a guide to action.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "confident",
+   "hesitant",
+   "dishonest",
+   "absent"
+  ],
+  "e": "この段落は「陪審員は自信をもって話す証人に説得されやすいが、自信と正確さの関係は弱い」と述べています。その例として、後に無実とわかった事件は「自信はあるが間違っていた」証人に大きく頼っていた、とつながるので confident が正解です。hesitant（ためらいがちな）では、自信の問題を論じる段落の流れに合いません。dishonest（不誠実な）は意図的なうそを意味し、記憶の誤りという論点とずれます。absent（不在の）は証言と両立しません。",
+  "m": "confidence と accuracy は別物"
+ },
+ {
+  "id": 19,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：revived the debate",
+  "p": "Every wave of technological change has been accompanied by fears that machines will leave large numbers of people without work. In the early nineteenth century, textile workers in England smashed the machines they believed were destroying their livelihoods. Similar fears returned with the computer. Today, advances in artificial intelligence have ( A ) the debate once more.\nLooking back, economists generally conclude that the most dramatic predictions did not come true. Although particular jobs vanished, new ones emerged. Rising productivity lowered prices, which left consumers with more money to spend on other goods and services, and that spending in turn created demand for workers elsewhere.\nThis reassuring story, however, [glosses over] an important point. The fact that employment recovered in the long run says little about the people who lost their jobs in the short run. A weaver in his fifties could not easily become a railway engineer, and many displaced workers never regained their former income. The gains from technology were real, but they were unevenly shared, across groups and generations.\nSome researchers argue that the present wave may differ from earlier ones in a crucial respect. Earlier machines mainly replaced physical labor or routine calculation, leaving tasks that required judgment, language and social skill to human beings. Newer systems are beginning to perform some of these tasks as well. If so, the range of work in which humans keep a clear advantage may shrink faster than before. ( B ), others caution that such predictions have been made before, and that the capacity of economies to invent new kinds of work has often been underestimated. Both sides agree that the pace of adjustment, and who bears its costs, will depend heavily on public policy.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "revived",
+   "settled",
+   "abandoned",
+   "prevented"
+  ],
+  "e": "第1段落は、機械が仕事を奪うという不安が19世紀の織物労働者の時代からコンピュータの時代まで繰り返し現れてきたと述べています。そして「今日、AIの進歩がその議論を再び（once more）〜した」と続くので、「よみがえらせた」の revived が正解です。settled（決着させた）や abandoned（放棄した）は once more と合わず、第4段落で議論が続いていることとも矛盾します。prevented（妨げた）も文意に合いません。",
+  "m": "once more がヒント＝revive（再燃させる）"
+ },
+ {
+  "id": 20,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：gloss over",
+  "p": "Every wave of technological change has been accompanied by fears that machines will leave large numbers of people without work. In the early nineteenth century, textile workers in England smashed the machines they believed were destroying their livelihoods. Similar fears returned with the computer. Today, advances in artificial intelligence have ( A ) the debate once more.\nLooking back, economists generally conclude that the most dramatic predictions did not come true. Although particular jobs vanished, new ones emerged. Rising productivity lowered prices, which left consumers with more money to spend on other goods and services, and that spending in turn created demand for workers elsewhere.\nThis reassuring story, however, [glosses over] an important point. The fact that employment recovered in the long run says little about the people who lost their jobs in the short run. A weaver in his fifties could not easily become a railway engineer, and many displaced workers never regained their former income. The gains from technology were real, but they were unevenly shared, across groups and generations.\nSome researchers argue that the present wave may differ from earlier ones in a crucial respect. Earlier machines mainly replaced physical labor or routine calculation, leaving tasks that required judgment, language and social skill to human beings. Newer systems are beginning to perform some of these tasks as well. If so, the range of work in which humans keep a clear advantage may shrink faster than before. ( B ), others caution that such predictions have been made before, and that the capacity of economies to invent new kinds of work has often been underestimated. Both sides agree that the pace of adjustment, and who bears its costs, will depend heavily on public policy.",
+  "q": "次の英文を読み、下線部［glosses over］の意味に最も近いものを選びなさい。",
+  "c": [
+   "pays too little attention to",
+   "explains in great detail",
+   "strongly emphasizes",
+   "openly rejects"
+  ],
+  "e": "gloss over は「（問題などを）うわべを取り繕って済ませる・軽く扱う」の意味です。直後で「長期的に雇用が回復した事実は、短期的に職を失った人々についてほとんど何も語らない」と、楽観的な話が見落としている点を指摘しているので、「十分な注意を払っていない」が最も近い意味です。「詳しく説明する」「強調する」は逆の意味です。「公然と否定する」も、触れずに済ませるという意味とは異なります。",
+  "m": "gloss over＝ごまかす・さっと済ませる"
+ },
+ {
+  "id": 21,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：On the other hand",
+  "p": "Every wave of technological change has been accompanied by fears that machines will leave large numbers of people without work. In the early nineteenth century, textile workers in England smashed the machines they believed were destroying their livelihoods. Similar fears returned with the computer. Today, advances in artificial intelligence have ( A ) the debate once more.\nLooking back, economists generally conclude that the most dramatic predictions did not come true. Although particular jobs vanished, new ones emerged. Rising productivity lowered prices, which left consumers with more money to spend on other goods and services, and that spending in turn created demand for workers elsewhere.\nThis reassuring story, however, [glosses over] an important point. The fact that employment recovered in the long run says little about the people who lost their jobs in the short run. A weaver in his fifties could not easily become a railway engineer, and many displaced workers never regained their former income. The gains from technology were real, but they were unevenly shared, across groups and generations.\nSome researchers argue that the present wave may differ from earlier ones in a crucial respect. Earlier machines mainly replaced physical labor or routine calculation, leaving tasks that required judgment, language and social skill to human beings. Newer systems are beginning to perform some of these tasks as well. If so, the range of work in which humans keep a clear advantage may shrink faster than before. ( B ), others caution that such predictions have been made before, and that the capacity of economies to invent new kinds of work has often been underestimated. Both sides agree that the pace of adjustment, and who bears its costs, will depend heavily on public policy.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "On the other hand",
+   "As a result",
+   "For this reason",
+   "In other words"
+  ],
+  "e": "空所の前では「今回の波は判断や言語の仕事まで代替し始めており、人間の優位な領域が以前より速く縮むかもしれない」という一部の研究者の主張、後では「他の人々は、そうした予測は以前にもなされ、新しい仕事を生む経済の力は過小評価されてきたと警告する」という反対の立場が述べられています。対立する見解を並べる On the other hand が正解です。As a result と For this reason は因果関係、In other words は言い換えを表すので不適当です。",
+  "m": "some argue ～ / others caution ～＝対比"
+ },
+ {
+  "id": 22,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：credible",
+  "p": "Democratic politics is usually imagined as a contest. Parties compete for votes and seats, interest groups lobby for advantage, and elections decide which side wins. Critics have long complained that this model rewards slogans more than reasoning, and that voters are rarely asked to consider the arguments of those they disagree with. In response, a number of countries and cities have experimented with an alternative: the citizens' assembly.\nA citizens' assembly brings together a group of ordinary people, chosen at random but balanced to reflect the population by age, gender, region and other traits. Over several weekends, members hear from experts and advocates on a disputed issue, discuss the evidence in small groups, and finally make recommendations. Because members are not seeking reelection, they are free to change their minds, and observers often report that they do.\nSupporters claim that such bodies can break deadlocks that elected politicians are unable or unwilling to resolve. When a proposal comes from people much like themselves who have studied the question carefully, voters may find it more ( A ) than one produced by professional politicians. Several assemblies have tackled divisive social issues and produced proposals that voters later approved.\nSkeptics raise practical and principled objections. Randomly selected members, they note, have no mandate from the electorate and cannot be held [accountable] at the next election. The results also depend heavily on how the agenda is framed and which experts are invited, which gives considerable influence to the organizers. For these reasons, most proposals treat assemblies not as a ( B ) for elected legislatures but as a supplement to them, offering advice that politicians or voters remain free to accept or reject.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "credible",
+   "obscure",
+   "partisan",
+   "trivial"
+  ],
+  "e": "空所を含む文は「自分たちとよく似た人々が問題を注意深く検討して出した提案は、職業政治家の提案より〜だと有権者は感じるかもしれない」という意味です。この段落は市民議会の支持者の主張を述べており、次の文で「その提案が後に有権者に承認された」と続くので、「信頼できる」の credible が正解です。obscure（不明瞭な）、partisan（党派的な）、trivial（ささいな）は、いずれも支持者の主張として肯定的な流れに合いません。",
+  "m": "credible＝信頼できる（credit と同語源）"
+ },
+ {
+  "id": 23,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：accountable",
+  "p": "Democratic politics is usually imagined as a contest. Parties compete for votes and seats, interest groups lobby for advantage, and elections decide which side wins. Critics have long complained that this model rewards slogans more than reasoning, and that voters are rarely asked to consider the arguments of those they disagree with. In response, a number of countries and cities have experimented with an alternative: the citizens' assembly.\nA citizens' assembly brings together a group of ordinary people, chosen at random but balanced to reflect the population by age, gender, region and other traits. Over several weekends, members hear from experts and advocates on a disputed issue, discuss the evidence in small groups, and finally make recommendations. Because members are not seeking reelection, they are free to change their minds, and observers often report that they do.\nSupporters claim that such bodies can break deadlocks that elected politicians are unable or unwilling to resolve. When a proposal comes from people much like themselves who have studied the question carefully, voters may find it more ( A ) than one produced by professional politicians. Several assemblies have tackled divisive social issues and produced proposals that voters later approved.\nSkeptics raise practical and principled objections. Randomly selected members, they note, have no mandate from the electorate and cannot be held [accountable] at the next election. The results also depend heavily on how the agenda is framed and which experts are invited, which gives considerable influence to the organizers. For these reasons, most proposals treat assemblies not as a ( B ) for elected legislatures but as a supplement to them, offering advice that politicians or voters remain free to accept or reject.",
+  "q": "次の英文を読み、下線部［accountable］の意味として最も適当なものを選びなさい。",
+  "c": [
+   "responsible to voters for their decisions",
+   "able to count votes accurately",
+   "eligible to stand as candidates",
+   "well informed about the issues"
+  ],
+  "e": "be held accountable は「（行動・決定について）責任を問われる」の意味です。くじで選ばれた議員は有権者から委任を受けておらず、次の選挙で落選させることで責任を問うこともできない、という懐疑派の指摘です。正解は「自分の決定について有権者に責任を負う」です。count（数える）からの連想で「票を正確に数えられる」を選ばないよう注意が必要です。「立候補資格がある」「問題に詳しい」も語の意味とは違います。",
+  "m": "hold A accountable＝Aに責任を問う"
+ },
+ {
+  "id": 24,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：substitute for",
+  "p": "Democratic politics is usually imagined as a contest. Parties compete for votes and seats, interest groups lobby for advantage, and elections decide which side wins. Critics have long complained that this model rewards slogans more than reasoning, and that voters are rarely asked to consider the arguments of those they disagree with. In response, a number of countries and cities have experimented with an alternative: the citizens' assembly.\nA citizens' assembly brings together a group of ordinary people, chosen at random but balanced to reflect the population by age, gender, region and other traits. Over several weekends, members hear from experts and advocates on a disputed issue, discuss the evidence in small groups, and finally make recommendations. Because members are not seeking reelection, they are free to change their minds, and observers often report that they do.\nSupporters claim that such bodies can break deadlocks that elected politicians are unable or unwilling to resolve. When a proposal comes from people much like themselves who have studied the question carefully, voters may find it more ( A ) than one produced by professional politicians. Several assemblies have tackled divisive social issues and produced proposals that voters later approved.\nSkeptics raise practical and principled objections. Randomly selected members, they note, have no mandate from the electorate and cannot be held [accountable] at the next election. The results also depend heavily on how the agenda is framed and which experts are invited, which gives considerable influence to the organizers. For these reasons, most proposals treat assemblies not as a ( B ) for elected legislatures but as a supplement to them, offering advice that politicians or voters remain free to accept or reject.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "substitute",
+   "tribute",
+   "sequel",
+   "motive"
+  ],
+  "e": "空所の後で「議会の補完物として（as a supplement to them）」と対比されているので、not as a substitute for A but as a supplement to A（Aの代わりではなく補完として）とするのが自然です。市民議会は議会に取って代わるのではなく、政治家や有権者が採否を決められる助言を与える、という最後の部分とも合います。tribute（賛辞）、sequel（続編）、motive（動機）はいずれも for と組み合わせても文意が通りません。",
+  "m": "substitute for A＝Aの代わり／supplement to A＝Aの補足"
+ },
+ {
+  "id": 25,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：withstand",
+  "p": "When antibiotics came into wide use in the 1940s, they transformed medicine. Infections that had routinely killed patients became easy to treat, and operations that had been too dangerous to attempt became common. Yet even some of the scientists who developed these drugs warned that bacteria might learn to ( A ) them, and that warning has proved accurate.\nResistance arises through natural selection. In any large population of bacteria, a few individuals may carry genetic changes that allow them to survive a particular drug. When the drug is applied, the others die, while the resistant ones survive and multiply until they dominate the population. Bacteria can also pass resistance genes to one another, even across species, which lets resistance spread far faster than it would through inheritance alone.\nHuman behavior has sped up this process. Antibiotics are often prescribed for illnesses caused by viruses, such as the common cold, against which they are useless. In many countries, large quantities of antibiotics are given to farm animals, not to cure disease but to promote growth, creating ideal conditions for resistant strains to emerge.\nThe problem is made worse by economics. Developing a new antibiotic is expensive, and because doctors are rightly urged to save new drugs for cases in which older ones fail, sales of a successful new antibiotic are likely to be modest. Drug companies therefore have little [incentive] to invest in the field, and few new classes of antibiotics have reached the market in recent decades. Some experts have proposed that governments pay companies a fixed reward for developing useful antibiotics, ( B ) of how many doses are eventually sold, so that the goal of protecting new drugs no longer conflicts with the goal of making a profit.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "withstand",
+   "produce",
+   "detect",
+   "imitate"
+  ],
+  "e": "科学者たちが警告したのは、細菌がやがて抗生物質に「耐える」ようになるかもしれないということで、それが正しかったとわかったと述べています。第2段落の「耐性は自然選択によって生じる」という説明にもつながるので、withstand（耐える・持ちこたえる）が正解です。細菌が抗生物質を produce（作る）、detect（検出する）、imitate（まねる）では、耐性の話につながりません。",
+  "m": "withstand＝resist＝耐える"
+ },
+ {
+  "id": 26,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：incentive",
+  "p": "When antibiotics came into wide use in the 1940s, they transformed medicine. Infections that had routinely killed patients became easy to treat, and operations that had been too dangerous to attempt became common. Yet even some of the scientists who developed these drugs warned that bacteria might learn to ( A ) them, and that warning has proved accurate.\nResistance arises through natural selection. In any large population of bacteria, a few individuals may carry genetic changes that allow them to survive a particular drug. When the drug is applied, the others die, while the resistant ones survive and multiply until they dominate the population. Bacteria can also pass resistance genes to one another, even across species, which lets resistance spread far faster than it would through inheritance alone.\nHuman behavior has sped up this process. Antibiotics are often prescribed for illnesses caused by viruses, such as the common cold, against which they are useless. In many countries, large quantities of antibiotics are given to farm animals, not to cure disease but to promote growth, creating ideal conditions for resistant strains to emerge.\nThe problem is made worse by economics. Developing a new antibiotic is expensive, and because doctors are rightly urged to save new drugs for cases in which older ones fail, sales of a successful new antibiotic are likely to be modest. Drug companies therefore have little [incentive] to invest in the field, and few new classes of antibiotics have reached the market in recent decades. Some experts have proposed that governments pay companies a fixed reward for developing useful antibiotics, ( B ) of how many doses are eventually sold, so that the goal of protecting new drugs no longer conflicts with the goal of making a profit.",
+  "q": "次の英文を読み、下線部［incentive］に最も意味が近いものを選びなさい。",
+  "c": [
+   "motive",
+   "permission",
+   "capacity",
+   "obligation"
+  ],
+  "e": "incentive は「（行動を促す）動機・誘因」です。新しい抗生物質は開発費が高いのに、医師が切り札として温存するので売上は控えめになる。だから製薬会社にはこの分野に投資する動機がほとんどない、という流れです。motive が最も近い意味です。permission（許可）、capacity（能力）、obligation（義務）は、利益が見込めないので投資しない、という経済的な理由づけと合いません。",
+  "m": "incentive＝motive（やる気を起こさせるもの）"
+ },
+ {
+  "id": 27,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：regardless of",
+  "p": "When antibiotics came into wide use in the 1940s, they transformed medicine. Infections that had routinely killed patients became easy to treat, and operations that had been too dangerous to attempt became common. Yet even some of the scientists who developed these drugs warned that bacteria might learn to ( A ) them, and that warning has proved accurate.\nResistance arises through natural selection. In any large population of bacteria, a few individuals may carry genetic changes that allow them to survive a particular drug. When the drug is applied, the others die, while the resistant ones survive and multiply until they dominate the population. Bacteria can also pass resistance genes to one another, even across species, which lets resistance spread far faster than it would through inheritance alone.\nHuman behavior has sped up this process. Antibiotics are often prescribed for illnesses caused by viruses, such as the common cold, against which they are useless. In many countries, large quantities of antibiotics are given to farm animals, not to cure disease but to promote growth, creating ideal conditions for resistant strains to emerge.\nThe problem is made worse by economics. Developing a new antibiotic is expensive, and because doctors are rightly urged to save new drugs for cases in which older ones fail, sales of a successful new antibiotic are likely to be modest. Drug companies therefore have little [incentive] to invest in the field, and few new classes of antibiotics have reached the market in recent decades. Some experts have proposed that governments pay companies a fixed reward for developing useful antibiotics, ( B ) of how many doses are eventually sold, so that the goal of protecting new drugs no longer conflicts with the goal of making a profit.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "regardless",
+   "because",
+   "instead",
+   "ahead"
+  ],
+  "e": "提案の趣旨は、最終的な販売量と関係なく一定の報酬を払えば、新薬を温存するという目標と利益を上げるという目標が対立しなくなる、というものです。「〜に関係なく」の regardless of が正解です。because of を入れると「販売量のために」となり、販売量と報酬を切り離すという趣旨と逆になります。instead of、ahead of は文意が通りません。",
+  "m": "regardless of＝irrespective of＝～に関係なく"
+ },
+ {
+  "id": 28,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：opaque",
+  "p": "It is natural to assume that native speakers of English hold an advantage in international communication. They can express subtle ideas without searching for words. Yet researchers who study conversations among speakers from many countries have reported a surprising pattern: native speakers are sometimes the hardest participants to understand.\nThe reason lies partly in habits that native speakers rarely notice. They tend to speak quickly, to use idioms drawn from local culture, and to make jokes whose meaning depends on shared background. Non-native speakers, by contrast, often develop a simpler, more explicit style when talking with one another. They check whether they have been understood, rephrase difficult points, and avoid expressions that might be [opaque] to listeners from other regions. As a result, a meeting among people who all learned English as a second language may run more smoothly than one that includes a single native speaker.\nThis finding challenges the view that the goal of language learning is to sound as much like a native speaker as possible. If English is used mainly as a common tool among people with different first languages, then the measure of success may be ( A ) rather than accuracy in imitating any one national variety. A learner who speaks with a clear accent but adapts readily to different listeners may communicate better than one who has mastered every local idiom.\nNone of this means that standards no longer matter. Grammar that departs too far from shared norms can still cause misunderstanding, and learners preparing for certain careers may need a specific variety. ( B ), the research suggests that native speakers themselves may need to learn something: how to adjust their language for listeners who do not share their assumptions.",
+  "q": "次の英文を読み、下線部［opaque］の意味として最も適当なものを選びなさい。",
+  "c": [
+   "difficult to understand",
+   "likely to offend",
+   "very familiar",
+   "too formal"
+  ],
+  "e": "opaque はもともと「不透明な」ですが、ここでは表現について「意味がわかりにくい」の意味です。非母語話者どうしは、理解されたかを確かめ、難しい点を言い換え、他の地域の聞き手には〜かもしれない表現を避ける、という流れで、前の段落の「母語話者は地域文化の慣用句を使う」とも対応しています。「不快にさせる」「なじみがある」「堅すぎる」では、理解しやすさを論じる段落に合いません。",
+  "m": "opaque⇔transparent（わかりやすい）"
+ },
+ {
+  "id": 29,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：intelligibility",
+  "p": "It is natural to assume that native speakers of English hold an advantage in international communication. They can express subtle ideas without searching for words. Yet researchers who study conversations among speakers from many countries have reported a surprising pattern: native speakers are sometimes the hardest participants to understand.\nThe reason lies partly in habits that native speakers rarely notice. They tend to speak quickly, to use idioms drawn from local culture, and to make jokes whose meaning depends on shared background. Non-native speakers, by contrast, often develop a simpler, more explicit style when talking with one another. They check whether they have been understood, rephrase difficult points, and avoid expressions that might be [opaque] to listeners from other regions. As a result, a meeting among people who all learned English as a second language may run more smoothly than one that includes a single native speaker.\nThis finding challenges the view that the goal of language learning is to sound as much like a native speaker as possible. If English is used mainly as a common tool among people with different first languages, then the measure of success may be ( A ) rather than accuracy in imitating any one national variety. A learner who speaks with a clear accent but adapts readily to different listeners may communicate better than one who has mastered every local idiom.\nNone of this means that standards no longer matter. Grammar that departs too far from shared norms can still cause misunderstanding, and learners preparing for certain careers may need a specific variety. ( B ), the research suggests that native speakers themselves may need to learn something: how to adjust their language for listeners who do not share their assumptions.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "intelligibility",
+   "authenticity",
+   "uniformity",
+   "speed"
+  ],
+  "e": "英語が母語の異なる人々の共通の道具として使われるなら、成功の尺度は特定の国の英語をまねる正確さではなく「わかってもらえること」かもしれない、という主張です。直後の「なまりがあっても聞き手に合わせられる学習者のほうがよく伝わる」もこれを支えるので、intelligibility（理解されやすさ）が正解です。authenticity（本物らしさ）は母語話者らしさを目指す従来の見方に近く、文脈と逆です。uniformity（画一性）や speed（速さ）も本文の論点と合いません。",
+  "m": "intelligible＝理解できる（intelligent と区別）"
+ },
+ {
+  "id": 30,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：At the same time",
+  "p": "It is natural to assume that native speakers of English hold an advantage in international communication. They can express subtle ideas without searching for words. Yet researchers who study conversations among speakers from many countries have reported a surprising pattern: native speakers are sometimes the hardest participants to understand.\nThe reason lies partly in habits that native speakers rarely notice. They tend to speak quickly, to use idioms drawn from local culture, and to make jokes whose meaning depends on shared background. Non-native speakers, by contrast, often develop a simpler, more explicit style when talking with one another. They check whether they have been understood, rephrase difficult points, and avoid expressions that might be [opaque] to listeners from other regions. As a result, a meeting among people who all learned English as a second language may run more smoothly than one that includes a single native speaker.\nThis finding challenges the view that the goal of language learning is to sound as much like a native speaker as possible. If English is used mainly as a common tool among people with different first languages, then the measure of success may be ( A ) rather than accuracy in imitating any one national variety. A learner who speaks with a clear accent but adapts readily to different listeners may communicate better than one who has mastered every local idiom.\nNone of this means that standards no longer matter. Grammar that departs too far from shared norms can still cause misunderstanding, and learners preparing for certain careers may need a specific variety. ( B ), the research suggests that native speakers themselves may need to learn something: how to adjust their language for listeners who do not share their assumptions.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "At the same time",
+   "In short",
+   "For example",
+   "As a result"
+  ],
+  "e": "空所の前では「基準が不要になったわけではない（文法の逸脱は誤解を生み、特定の英語が必要な人もいる）」と学習者側への留保を述べ、後では「母語話者自身も学ぶべきことがある」と別の観点を加えています。「その一方で・同時に」と別の面を示す At the same time が正解です。In short（要するに）はまとめ、For example は具体例、As a result は結果を導く表現で、どれも前後の関係に合いません。",
+  "m": "At the same time＝その一方で（譲歩・別の観点）"
+ },
+ {
+  "id": 31,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：Hardly ... when",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nHardly [had] the committee [announced] its decision [than] protests [broke out] across the country.",
+  "c": [
+   "than",
+   "had",
+   "announced",
+   "broke out"
+  ],
+  "e": "「〜するとすぐに…した」は Hardly [Scarcely] had S p.p. when [before] S' V（過去形）で表します。than と組むのは No sooner had S p.p. than ... のほうなので、than を when か before に直す必要があります。Hardly が文頭に来ると倒置が起こるので had the committee announced は正しく、主節が過去完了、後半が過去形 broke out という時制の組み合わせも正しい形です。",
+  "m": "Hardly … when／No sooner … than"
+ },
+ {
+  "id": 32,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：受動態 be influenced",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nNot until the late twentieth century [did] most economists [begin] to take seriously the idea that [people's] choices [are often influencing] by emotion.",
+  "c": [
+   "are often influencing",
+   "did",
+   "begin",
+   "people's"
+  ],
+  "e": "choices（選択）は感情に「影響される」側なので、受動態の are often influenced by emotion とすべきです。by emotion という行為者を示す句も受動態であることを示しています。Not until ～ が文頭に出ると主節は疑問文の語順に倒置されるので、did most economists begin は正しい形です。people's choices の所有格も正しい表現です。",
+  "m": "Not until ～ did S V＝～になって初めて"
+ },
+ {
+  "id": 33,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：despite の用法",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\n[Despite of] the heavy rain, the opening ceremony [was held] [as scheduled] [in] the open air.",
+  "c": [
+   "Despite of",
+   "was held",
+   "as scheduled",
+   "in"
+  ],
+  "e": "despite は前置詞なので、後ろに直接名詞を置き、of は付けません。「〜にもかかわらず」は despite the heavy rain か in spite of the heavy rain とします。in spite of と混同して despite of とする誤りが狙われやすいポイントです。was held（開催された）、as scheduled（予定どおり）、in the open air（屋外で）はいずれも正しい表現です。",
+  "m": "despite＝in spite of（despite of は不可）"
+ },
+ {
+  "id": 34,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：a number of の一致",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nA number of [critical] questions [remains] unanswered, [despite] the [considerable] effort the researchers have made.",
+  "c": [
+   "remains",
+   "critical",
+   "despite",
+   "considerable"
+  ],
+  "e": "A number of ～ は「いくつかの〜・多くの〜」の意味で、主語の中心は questions（複数）なので、動詞は remain とすべきです。The number of ～（〜の数）なら number が主語なので単数で受けますが、ここは a number of です。despite は前置詞として名詞 the effort を直接とっており正しく、critical や considerable も形容詞として正しく名詞を修飾しています。",
+  "m": "a number of＋複数動詞／the number of＋単数動詞"
+ },
+ {
+  "id": 35,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：懸垂分詞",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nHaving been raised [in] a bilingual household, [it was] easy for her [to switch] between the two languages [without] hesitation.",
+  "c": [
+   "it was",
+   "in",
+   "to switch",
+   "without"
+  ],
+  "e": "分詞構文の意味上の主語は、原則として主節の主語と一致しなければなりません。「バイリンガルの家庭で育てられた」のは彼女なので、主節の主語を she にして she found it easy to switch ～ とする必要があります。it was のままでは it が育てられたことになってしまいます（懸垂分詞）。raised in a household（家庭で育つ）の in、easy for her to switch の不定詞、without hesitation（ためらわずに）はいずれも正しい表現です。",
+  "m": "分詞構文の主語＝主節の主語"
+ },
+ {
+  "id": 36,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "仮定法：Without ～",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n( ) the support of his colleagues, the project would have failed long before its completion.",
+  "c": [
+   "Without",
+   "With",
+   "Unless",
+   "Except"
+  ],
+  "e": "主節が would have failed（仮定法過去完了）なので、「もし〜がなかったら」という条件を表す Without が入ります（But for や If it had not been for と同じ意味）。With では「支援があったら失敗しただろう」となり意味が逆になります。Unless は接続詞なので、後ろに名詞だけでなく節が必要です。Except は「〜を除いて」で、条件の意味になりません。",
+  "m": "Without A＝But for A＝If it had not been for A"
+ },
+ {
+  "id": 37,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "仮定法現在：demand that",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe opposition party demanded that the full report ( ) published before the vote.",
+  "c": [
+   "be",
+   "being",
+   "to be",
+   "has been"
+  ],
+  "e": "demand, insist, require, suggest など要求・提案を表す動詞の後の that 節では、動詞の原形（仮定法現在）か should＋原形を使います。主語が the full report で「公表される」という受動の意味なので be published が正解です。that 節には主語に対応する述語動詞が必要なので、分詞の being や不定詞の to be は入りません。has been は直説法の現在完了で、過去の要求の内容を表す that 節には使いません。",
+  "m": "要求・提案の that 節＝(should)＋原形"
+ },
+ {
+  "id": 38,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "so ～ that 構文",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe village is ( ) that it does not appear on most maps of the region.",
+  "c": [
+   "so small",
+   "such small",
+   "too small",
+   "very small"
+  ],
+  "e": "「とても小さいので〜」は so＋形容詞＋that 節で表します。such は名詞を含む句と組むので、such a small village that ～ なら可能ですが、such small だけでは不可です。too ～ は that 節ではなく to 不定詞と組み（too small to appear ～）、very small that という形もありません。",
+  "m": "so＋形容詞＋that／such (a)＋形容詞＋名詞＋that"
+ },
+ {
+  "id": 39,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "仮定法：倒置 Had S p.p.",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nHad the government acted sooner, the economic crisis ( ) avoided.",
+  "c": [
+   "could have been",
+   "could be",
+   "can have been",
+   "had been"
+  ],
+  "e": "文頭の Had the government acted は If the government had acted の if を省略した倒置で、過去の事実に反する仮定（仮定法過去完了）です。主節は助動詞の過去形＋have p.p. になるので could have been avoided が正解です。could be は現在の推量になり、時制が合いません。can have been は「〜したはずがある」という推量で、仮定法の主節には使いません。had been を入れると主節の形として成り立ちません。",
+  "m": "Had S p.p., S would/could have p.p."
+ },
+ {
+  "id": 40,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "前置詞＋関係代名詞",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe theory, ( ) he devoted the last decade of his life, was finally accepted by the scientific community.",
+  "c": [
+   "to which",
+   "which",
+   "in that",
+   "for what"
+  ],
+  "e": "devote A to B（AをBにささげる）の B が先行詞 the theory にあたるので、前置詞 to を関係代名詞の前に置いた to which が正解です。which だけでは to が不足します。that は前置詞の直後に置けず、カンマの後の非制限用法にも使えません。what は先行詞を含む関係代名詞なので、the theory という先行詞があるこの文には使えません。",
+  "m": "devote A to B → to which"
+ },
+ {
+  "id": 41,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "ambiguous（あいまいな）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe minister's remarks were deliberately ( ), allowing supporters and critics alike to read into them whatever they wished.",
+  "c": [
+   "ambiguous",
+   "explicit",
+   "candid",
+   "concise"
+  ],
+  "e": "支持者も批判者も「好きな意味を読み取れる」ようにした、という後半から、発言はわざと「あいまいな」ものだったとわかります。ambiguous が正解です。explicit（明確な）や candid（率直な）だと、解釈の余地がなくなるので後半と矛盾します。concise（簡潔な）は短さを表す語で、多様に解釈できることの説明にはなりません。",
+  "m": "ambiguous＝2通り以上に解釈できる"
+ },
+ {
+  "id": 42,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "cast doubt on",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe newly discovered documents ( ) doubt on the long-accepted account of the treaty's origins.",
+  "c": [
+   "cast",
+   "made",
+   "took",
+   "gave"
+  ],
+  "e": "cast doubt on A で「Aに疑いを投げかける」というコロケーション（決まった語の組み合わせ）です。cast は過去形も cast なので、ここでは過去の意味で使われています。made、took、gave は doubt on とは結びつきません。ほかにも throw doubt on、raise doubts about などの言い方があります。",
+  "m": "cast doubt on＝～に疑問を投げかける"
+ },
+ {
+  "id": 43,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "hold water",
+  "q": "次の英文の下線部［ ］に最も意味が近いものを選びなさい。\nHer argument sounds attractive, but it does not [hold water] once you examine the statistics.",
+  "c": [
+   "remain logically convincing",
+   "move people emotionally",
+   "attract public attention",
+   "follow the usual format"
+  ],
+  "e": "hold water は「（理論・議論が）筋が通る・正しいと認められる」という意味のイディオムで、主に否定文で使います。統計を調べると議論が成り立たない、という文意なので「論理的に説得力を保つ」が正解です。水を入れても漏れない器のように、穴のない議論というイメージです。感情に訴える、注目を集める、形式に従う、はいずれも意味が違います。",
+  "m": "not hold water＝穴があって成り立たない"
+ },
+ {
+  "id": 44,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "attribute A to B",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nAnalysts ( ) the sharp rise in food prices to the poor harvest of the previous year.",
+  "c": [
+   "attributed",
+   "contributed",
+   "distributed",
+   "accounted"
+  ],
+  "e": "attribute A to B で「AをBのせいにする・Aの原因をBに帰する」です。価格の高騰の原因を不作に帰した、という意味になります。contribute A to B は「AをBに寄付・貢献する」、distribute A to B は「AをBに配る」で文意に合いません。account は account for A（Aを説明する）の形で使い、account A to B という形はありません。",
+  "m": "attribute A to B＝AをBのせいにする"
+ },
+ {
+  "id": 45,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "in the absence of",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIn the ( ) of reliable evidence, the court had no choice but to dismiss the case.",
+  "c": [
+   "absence",
+   "vacancy",
+   "emptiness",
+   "omission"
+  ],
+  "e": "in the absence of A で「Aがないので・Aがない場合に」という決まった表現です。信頼できる証拠がないので裁判所は訴えを退けるしかなかった、という意味になります。vacancy（空席・空室）、emptiness（空っぽであること）、omission（省略・脱落）はいずれも「〜がない」に通じる語ですが、in the ～ of の形で「〜がないので」という意味にはなりません。lack を使うなら for lack of A という形になります。",
+  "m": "in the absence of＝～がないので"
+ },
+ {
+  "id": 46,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "shelve（棚上げする）",
+  "q": "次の英文の下線部［ ］に最も意味が近いものを選びなさい。\nFacing strong opposition, the committee decided to [shelve] the redevelopment plan for the time being.",
+  "c": [
+   "postpone consideration of",
+   "put into practice",
+   "reject permanently",
+   "announce publicly"
+  ],
+  "e": "shelve は「棚に置く」から転じて「（計画などを）棚上げする・先送りする」の意味です。for the time being（当分の間）という語句とも合い、「検討を延期する」が正解です。put into practice（実行する）は逆の意味です。reject permanently（永久に却下する）は、一時的な保留という shelve の意味とずれます。announce publicly（公表する）も違います。",
+  "m": "shelve＝put off＝棚上げ"
+ },
+ {
+  "id": 47,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "indispensable（不可欠な）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nHer contribution to the project was ( ); without it, nothing of value would have been achieved.",
+  "c": [
+   "indispensable",
+   "negligible",
+   "superficial",
+   "redundant"
+  ],
+  "e": "後半の「それがなければ価値あることは何も達成されなかっただろう」から、貢献は「不可欠な」ものだったとわかります。indispensable が正解です。negligible（無視できるほど小さい）、superficial（表面的な）、redundant（余分な）はいずれも貢献を低く評価する語で、後半と矛盾します。",
+  "m": "indispensable＝essential＝なくてはならない"
+ },
+ {
+  "id": 48,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "undermine（むしばむ）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe series of scandals seriously ( ) public trust in the government.",
+  "c": [
+   "undermined",
+   "underwent",
+   "understated",
+   "undertook"
+  ],
+  "e": "undermine は「（信頼・権威などを）徐々に損なう・むしばむ」で、trust を目的語にとるのに最も適しています。一連のスキャンダルが政府への信頼を大きく損なった、という意味です。underwent（undergo：経験する・受ける）、understated（understate：控えめに言う）、undertook（undertake：引き受ける）は、いずれも under- で始まる紛らわしい語ですが、文意に合いません。",
+  "m": "undermine＝徐々に弱める"
+ },
+ {
+  "id": 49,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "come to terms with",
+  "q": "次の英文の下線部［ ］に最も意味が近いものを選びなさい。\nIt took him several years to [come to terms with] the failure of his first company.",
+  "c": [
+   "accept",
+   "forget",
+   "explain",
+   "repeat"
+  ],
+  "e": "come to terms with A は「A（つらい現実など）を受け入れる・Aと折り合いをつける」という意味のイディオムです。最初の会社の失敗を受け入れるのに数年かかった、という意味なので accept が最も近い意味です。forget（忘れる）は受け入れるのとは違い、explain（説明する）や repeat（繰り返す）も意味が違います。",
+  "m": "come to terms with＝受け入れる・折り合う"
+ },
+ {
+  "id": 50,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "abstruse（難解な）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe professor's lecture was so ( ) that even specialists in the field struggled to follow it.",
+  "c": [
+   "abstruse",
+   "lucid",
+   "trivial",
+   "brief"
+  ],
+  "e": "so ～ that 構文で「専門家でさえついていくのに苦労した」と続くので、講義は「難解な」ものだったはずです。abstruse（難解な）が正解です。lucid（明快な）は逆の意味です。trivial（ささいな）や brief（短い）では、専門家が苦労する理由になりません。abstruse は難度の高い語なので、obscure（わかりにくい）とあわせて覚えておきましょう。",
+  "m": "abstruse⇔lucid（明快な）"
+ },
+ {
+  "id": 51,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ゼミ前の会話：同意して理由を述べる",
+  "p": "Kenta: Did you finish the reading for tomorrow's seminar?\nMaya: Most of it. The chapter on urban planning was heavy going, though.\nKenta: Tell me about it. ( 1 ) I had to read some paragraphs three times.\nMaya: Same here. But I think the main argument is that cities should be designed around people, not cars.\nKenta: Right. Although I'm not sure I buy it entirely. ( 2 )\nMaya: That's a fair point. Rural areas would need a different approach.\nKenta: Exactly. Anyway, do you want to meet up before the seminar to compare notes?\nMaya: ( 3 ) How about the library café at ten?\nKenta: Perfect. See you there.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "The author's style isn't exactly reader-friendly.",
+   "I finished it in about ten minutes.",
+   "I haven't even opened the book yet.",
+   "The chapter was surprisingly light reading."
+  ],
+  "e": "Maya が「都市計画の章は読むのが大変だった（heavy going）」と言い、Kenta は Tell me about it.（まったくだよ）と同意しています。空所の後で「段落によっては3回読まなければならなかった」と続くので、「著者の文体は読み手に優しいとは言えない」が入ります。「10分で読み終えた」「軽い読み物だった」は同意の内容と矛盾し、「まだ本を開いてもいない」は3回読んだという発言と矛盾します。",
+  "m": "Tell me about it.＝まったくだ（同意）"
+ },
+ {
+  "id": 52,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ゼミ前の会話：反論の提示",
+  "p": "Kenta: Did you finish the reading for tomorrow's seminar?\nMaya: Most of it. The chapter on urban planning was heavy going, though.\nKenta: Tell me about it. ( 1 ) I had to read some paragraphs three times.\nMaya: Same here. But I think the main argument is that cities should be designed around people, not cars.\nKenta: Right. Although I'm not sure I buy it entirely. ( 2 )\nMaya: That's a fair point. Rural areas would need a different approach.\nKenta: Exactly. Anyway, do you want to meet up before the seminar to compare notes?\nMaya: ( 3 ) How about the library café at ten?\nKenta: Perfect. See you there.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "What about people who live where there's no public transport?",
+   "Cars are becoming more expensive every year.",
+   "I've never actually been to a big city.",
+   "The author is a famous architect, isn't she?"
+  ],
+  "e": "Kenta は「全面的には賛成できない（I'm not sure I buy it）」と述べ、Maya が「もっともな指摘ね。地方では違うやり方が必要でしょうね」と応じています。したがって空所には、車中心でない都市設計が当てはまらない例として「公共交通機関がない所に住む人はどうなの？」が入ります。車の値段や大都市に行った経験、著者の職業は、地方では違うやり方が必要という Maya の返答につながりません。",
+  "m": "buy＝（意見を）受け入れる、That's a fair point.＝もっともだ"
+ },
+ {
+  "id": 53,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ゼミ前の会話：誘いへの応答",
+  "p": "Kenta: Did you finish the reading for tomorrow's seminar?\nMaya: Most of it. The chapter on urban planning was heavy going, though.\nKenta: Tell me about it. ( 1 ) I had to read some paragraphs three times.\nMaya: Same here. But I think the main argument is that cities should be designed around people, not cars.\nKenta: Right. Although I'm not sure I buy it entirely. ( 2 )\nMaya: That's a fair point. Rural areas would need a different approach.\nKenta: Exactly. Anyway, do you want to meet up before the seminar to compare notes?\nMaya: ( 3 ) How about the library café at ten?\nKenta: Perfect. See you there.",
+  "q": "次の会話文を読み、空所（3）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Sounds good.",
+   "I'm afraid I can't make it.",
+   "No, I've already compared them.",
+   "That's none of your business."
+  ],
+  "e": "Kenta が「ゼミの前に会ってノートを比べないか」と誘い、Maya は空所の後で「10時に図書館のカフェはどう？」と具体的な時間と場所を提案しています。誘いを受け入れる Sounds good. が正解です。「都合がつかない」「もう比べた」と断ったあとに待ち合わせを提案するのは不自然です。「あなたには関係ない」は失礼なうえ、文脈にも合いません。",
+  "m": "Sounds good.＝いいね（誘いへの承諾）"
+ },
+ {
+  "id": 54,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "取引交渉：感想を尋ねる",
+  "p": "Client: Thank you for sending the revised proposal. My team has gone through it carefully.\nSupplier: I'm glad to hear that. ( 1 )\nClient: On the whole, yes. The design is excellent. The problem is the delivery schedule. Six weeks is longer than we can afford.\nSupplier: I see. ( 2 ) If we bring in additional staff, we could probably cut it to four weeks, but that would add about ten percent to the cost.\nClient: Hmm, that's a significant increase. Is there any room for compromise?\nSupplier: Well, if you could accept delivery in two stages, say half the order in four weeks and the rest in six, ( 3 )\nClient: That might work. Let me discuss it with my team and get back to you.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Did it meet your expectations?",
+   "When will you send us the payment?",
+   "Why did you reject it so quickly?",
+   "Have you received it yet?"
+  ],
+  "e": "直後に顧客が On the whole, yes.（全体としてはそうです）と答え、デザインは優れているが納期が問題だと続けています。したがって「ご期待に沿えましたか」と評価を尋ねる質問が入ります。冒頭で顧客が「丁寧に検討した」と言っているので、「もう受け取りましたか」「なぜすぐ却下したのか」は不自然です。支払いの時期を尋ねる質問には yes で答えられません。",
+  "m": "On the whole＝全体として（一部に不満あり）"
+ },
+ {
+  "id": 55,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "取引交渉：対応を約束する",
+  "p": "Client: Thank you for sending the revised proposal. My team has gone through it carefully.\nSupplier: I'm glad to hear that. ( 1 )\nClient: On the whole, yes. The design is excellent. The problem is the delivery schedule. Six weeks is longer than we can afford.\nSupplier: I see. ( 2 ) If we bring in additional staff, we could probably cut it to four weeks, but that would add about ten percent to the cost.\nClient: Hmm, that's a significant increase. Is there any room for compromise?\nSupplier: Well, if you could accept delivery in two stages, say half the order in four weeks and the rest in six, ( 3 )\nClient: That might work. Let me discuss it with my team and get back to you.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Let me see what we can do.",
+   "I'm afraid that's out of the question.",
+   "Then we'll cancel the order.",
+   "You should have told us earlier."
+  ],
+  "e": "納期が長すぎるという指摘を受け、供給側は空所の後で「追加の人員を入れれば4週間に短縮できる」と解決策を示しています。「何ができるか検討させてください」が自然な流れです。「それは論外です」「では注文を取り消します」と言った直後に短縮案を出すのは矛盾します。「もっと早く言うべきだった」は相手を責める言い方で、そのまま提案に移る流れに合いません。",
+  "m": "Let me see what we can do.＝検討してみます"
+ },
+ {
+  "id": 56,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "取引交渉：妥協案",
+  "p": "Client: Thank you for sending the revised proposal. My team has gone through it carefully.\nSupplier: I'm glad to hear that. ( 1 )\nClient: On the whole, yes. The design is excellent. The problem is the delivery schedule. Six weeks is longer than we can afford.\nSupplier: I see. ( 2 ) If we bring in additional staff, we could probably cut it to four weeks, but that would add about ten percent to the cost.\nClient: Hmm, that's a significant increase. Is there any room for compromise?\nSupplier: Well, if you could accept delivery in two stages, say half the order in four weeks and the rest in six, ( 3 )\nClient: That might work. Let me discuss it with my team and get back to you.",
+  "q": "次の会話文を読み、空所（3）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "we could keep the price as it is.",
+   "we would need to raise the price by twenty percent.",
+   "we could not deliver anything for six weeks.",
+   "you would have to find another supplier."
+  ],
+  "e": "顧客は「10%の値上げは大きい。妥協の余地はないか」と尋ねています。供給側が「2回に分けて納品してよければ」と条件を出しているので、その見返りとして「価格は据え置ける」が入ります。顧客も That might work.（それなら何とかなりそうだ）と前向きに応じています。20%の値上げや6週間何も届かない案、他社を探せという返答は妥協案にならず、顧客の反応とも合いません。",
+  "m": "if you could ～, we could ～＝条件付きの譲歩"
+ },
+ {
+  "id": 57,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ボランティアの会話：期間を尋ねる",
+  "p": "Aya: You look exhausted. Rough day?\nBen: Kind of. I spent the whole afternoon at the food bank sorting donations.\nAya: I didn't know you volunteered there. ( 1 )\nBen: About a year now. It started as a class assignment, but I kept going.\nAya: That's impressive. I've been meaning to do something like that, but I never seem to find the time.\nBen: ( 2 ) They're always short of people on weekend mornings, and it's only a couple of hours.\nAya: Maybe I'll give it a try.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "How long have you been doing that?",
+   "Why did you decide to quit?",
+   "How much do they pay you?",
+   "When is it going to open?"
+  ],
+  "e": "空所の直後で Ben が「もう1年くらいになる（About a year now.）」と期間を答えているので、継続期間を尋ねる How long have you been doing that? が正解です。Ben は今日も活動しており、続けている（I kept going）ので、「なぜやめたのか」は誤りです。ボランティアなので給料の質問は不自然です。フードバンクはすでに活動しているので、「いつ開くのか」も合いません。",
+  "m": "How long have you been ～ing?→期間で答える"
+ },
+ {
+  "id": 58,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ボランティアの会話：誘う",
+  "p": "Aya: You look exhausted. Rough day?\nBen: Kind of. I spent the whole afternoon at the food bank sorting donations.\nAya: I didn't know you volunteered there. ( 1 )\nBen: About a year now. It started as a class assignment, but I kept going.\nAya: That's impressive. I've been meaning to do something like that, but I never seem to find the time.\nBen: ( 2 ) They're always short of people on weekend mornings, and it's only a couple of hours.\nAya: Maybe I'll give it a try.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Why not come along with me this Saturday?",
+   "Then you'd better stay away from it.",
+   "I don't blame you. It's a waste of time.",
+   "They don't take any new volunteers."
+  ],
+  "e": "Aya は「やりたいと思っているが時間が見つからない」と言っています。Ben は空所の後で「週末の朝はいつも人手不足だし、2時間くらいだけだ」と、気軽に参加できることを伝えています。「今週の土曜に一緒に来ない？」と誘う表現が入り、Aya の「やってみようかな」にもつながります。「近づかないほうがいい」「時間の無駄だ」「新しいボランティアは受け入れていない」は、どれも後の流れと矛盾します。",
+  "m": "Why not ～?＝～してはどう？（勧誘）"
+ },
+ {
+  "id": 59,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "図書館での会話：状況の説明",
+  "p": "Student: Excuse me. I'm looking for a book that's listed in the catalog, but it isn't on the shelf.\nLibrarian: Let me check. It says here that it was returned yesterday afternoon, so ( 1 )\nStudent: I see. Could you let me know when it's available? I need it for a paper due on Friday.\nLibrarian: Certainly. But ( 2 ) There's an electronic version you can read on the library website.\nStudent: Oh, that's even better. Thank you so much.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "it may not have been put back on the shelf yet.",
+   "it has been missing for several months.",
+   "you'll have to wait until next year.",
+   "you must have borrowed it yourself."
+  ],
+  "e": "司書は「昨日の午後に返却された」と確認し、so（だから）で結論を続けています。返却されたばかりなので「まだ棚に戻されていないのかもしれない」が自然です。may not have p.p. は「〜していないかもしれない」という過去の推量です。「数か月行方不明」は昨日返却されたことと矛盾します。「来年まで待つ」は理由がつながらず、「あなた自身が借りたに違いない」も根拠がありません。",
+  "m": "may not have p.p.＝～しなかったかもしれない"
+ },
+ {
+  "id": 60,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "図書館での会話：代案の提示",
+  "p": "Student: Excuse me. I'm looking for a book that's listed in the catalog, but it isn't on the shelf.\nLibrarian: Let me check. It says here that it was returned yesterday afternoon, so ( 1 )\nStudent: I see. Could you let me know when it's available? I need it for a paper due on Friday.\nLibrarian: Certainly. But ( 2 ) There's an electronic version you can read on the library website.\nStudent: Oh, that's even better. Thank you so much.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "you may not need to wait at all.",
+   "I'm afraid you're out of luck.",
+   "you should choose a different topic.",
+   "the book can't be read anywhere else."
+  ],
+  "e": "空所の後で司書は「図書館のウェブサイトで読める電子版がある」と代わりの方法を示し、学生も「そのほうがいい」と喜んでいます。したがって「待つ必要はまったくないかもしれません」が入ります。But で始まり、知らせを待つという前の話から流れを変えている点もヒントです。「運が悪い」「テーマを変えるべき」「ほかでは読めない」は、電子版があるという直後の発言と矛盾します。",
+  "m": "Alternatively／But ～＝代案を出す合図"
+ }
+]

@@ -1,0 +1,407 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>近大 英語 10問テスト</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* layout: 一枚の答案用紙。中央1カラム（最大640px）。問題文は試験冊子と同じ明朝、操作と数字はゴシック。 */
+:root{
+  --bg:#f2f1f6; --surface:#ffffff; --ink:#1d1a26; --muted:#676276; --line:#dbd8e4;
+  --accent:#4b2e83; --accent-ink:#ffffff; --accent-soft:#ebe5f6;
+  --ok:#1b7447; --ok-soft:#e1f2e8; --ng:#b3261e; --ng-soft:#fbe8e6; --warn:#7d5200; --warn-soft:#faefd8;
+  --f-exam:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --f-ui:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15121c; --surface:#1f1b2a; --ink:#ece9f4; --muted:#a49eb5; --line:#352f46;
+    --accent:#bba6ee; --accent-ink:#1a1328; --accent-soft:#2c2442;
+    --ok:#74d6a4; --ok-soft:#163326; --ng:#ff8f85; --ng-soft:#3c1b19; --warn:#f0c46c; --warn-soft:#382c10;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15121c; --surface:#1f1b2a; --ink:#ece9f4; --muted:#a49eb5; --line:#352f46;
+  --accent:#bba6ee; --accent-ink:#1a1328; --accent-soft:#2c2442;
+  --ok:#74d6a4; --ok-soft:#163326; --ng:#ff8f85; --ng-soft:#3c1b19; --warn:#f0c46c; --warn-soft:#382c10;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:20px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,p{margin:0}
+a{color:var(--accent)}
+
+.head{display:flex;flex-direction:column;gap:2px}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.head h1{font-family:var(--f-exam);font-weight:700;font-size:26px;line-height:1.3;text-wrap:balance}
+#app{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel h2{font-size:15px;font-weight:700}
+.lead{color:var(--muted);font-size:13px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 16px;font-weight:500;min-height:44px}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--muted)}
+.btn.sm{min-height:36px;padding:5px 12px;font-size:13px}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row.end{justify-content:flex-end}
+.row.split{justify-content:space-between}
+
+.start{border-color:var(--accent)}
+.start h2{font-family:var(--f-exam);font-size:20px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.segb{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;min-height:36px;font-size:13px}
+.segb small{color:var(--muted)}
+.segb[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+.segb[aria-pressed="true"] small{color:var(--accent)}
+.spec{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);padding:0;margin:0;list-style:none}
+.spec b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.num{display:flex;flex-direction:column;gap:0;min-width:0}
+.num b{font-size:22px;font-variant-numeric:tabular-nums;line-height:1.3}
+.num small{font-size:12px;color:var(--muted)}
+.num span{font-size:12px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.sc{font-size:12px;font-variant-numeric:tabular-nums;border-radius:999px;padding:1px 9px;background:var(--warn-soft);color:var(--warn)}
+.sc.good{background:var(--ok-soft);color:var(--ok)}
+.sc.bad{background:var(--ng-soft);color:var(--ng)}
+
+.fl{display:flex;flex-direction:column;gap:12px}
+.fi{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.fi .nm{font-weight:500;min-width:0}
+.fi .meta{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.meter{grid-column:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden;display:flex}
+.meter i{display:block;height:100%;background:var(--ok)}
+.meter i.w{background:var(--ng)}
+.fi .btn{grid-column:2;grid-row:1 / span 3}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:6px;border-radius:3px;margin-right:5px;vertical-align:middle;background:var(--line)}
+.legend i.g{background:var(--ok)} .legend i.w{background:var(--ng)}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line)}
+.bar-row{display:flex;align-items:baseline;gap:12px}
+.bar-title{font-size:12px;color:var(--muted);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.count{font-weight:700;font-variant-numeric:tabular-nums}
+.count small{color:var(--muted);font-weight:400}
+.clock{font-variant-numeric:tabular-nums;font-weight:700;padding:1px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.clock.low{background:var(--ng-soft);color:var(--ng)}
+.dots{display:flex;gap:4px}
+.dot{flex:1;height:8px;border-radius:4px;border:0;padding:0;background:var(--line);min-width:0}
+.dot.done{background:var(--accent)}
+.dot.cur{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent)}
+.dot.ok{background:var(--ok)} .dot.ng{background:var(--ng)}
+
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.chip{align-self:flex-start;font-size:12px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 10px}
+.passage{font-family:var(--f-exam);font-size:16px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;max-height:50vh;overflow-y:auto}
+.passage[lang=en]{font-family:Georgia,"Times New Roman",var(--f-exam);line-height:1.7}
+.q{font-family:var(--f-exam);font-weight:500;font-size:18px;line-height:1.85;overflow-wrap:anywhere}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:11px 12px;min-height:48px}
+.opt .mark{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--muted);line-height:1}
+.opt .txt{min-width:0;overflow-wrap:anywhere;font-family:var(--f-exam);font-size:16px;line-height:1.6;padding-top:1px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.sel .mark{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right .mark{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.opt.wrong{border-color:var(--ng);background:var(--ng-soft)}
+.opt.wrong .mark{background:var(--ng);border-color:var(--ng);color:var(--surface)}
+.opt:disabled{cursor:default;color:inherit;opacity:1}
+.ask{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.ask .btn{color:var(--ink)}
+
+.exp{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--line);padding-top:14px}
+.verdict{font-weight:700}
+.verdict.ok{color:var(--ok)} .verdict.ng{color:var(--ng)}
+.exp p{overflow-wrap:anywhere}
+.memo{background:var(--accent-soft);border-radius:8px;padding:8px 12px}
+.memo span{display:block;font-size:11px;letter-spacing:.08em;color:var(--accent);font-weight:700}
+.src{font-size:12px;color:var(--muted)}
+
+.score{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.score b{font-family:var(--f-exam);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
+.score span{color:var(--muted)}
+.judge{font-weight:700}
+.judge.good{color:var(--ok)} .judge.mid{color:var(--warn)} .judge.bad{color:var(--ng)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
+.tab{border:0;background:transparent;padding:8px 12px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;min-height:40px}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:700;border-bottom-color:var(--accent)}
+.rev{display:flex;flex-direction:column;gap:8px}
+details.it{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+details.it summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:baseline;padding:12px 14px}
+details.it summary::-webkit-details-marker{display:none}
+.ox{flex:none;font-weight:700;width:1.2em;text-align:center}
+.ox.ok{color:var(--ok)} .ox.ng{color:var(--ng)}
+.sm-t{flex:1;min-width:0;overflow-wrap:anywhere}
+.sm-t small{display:block;color:var(--muted);font-size:12px}
+.it-body{padding:0 14px 16px;display:flex;flex-direction:column;gap:12px}
+.it-body .q{font-size:16px}
+.it-body .exp{border-top:0;padding-top:0}
+.tl{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px;padding:4px 0}
+.tl li{list-style:none;display:grid;grid-template-columns:5.2em 1.4em minmax(0,1fr);gap:8px;align-items:baseline;padding:7px 0 7px 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:-6px;top:1.05em;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.tl{margin-block:0;padding-inline-start:0}
+.tl .yr{font-variant-numeric:tabular-nums;font-weight:700;text-align:right;white-space:nowrap}
+.tl .ev{min-width:0;overflow-wrap:anywhere}
+.tl .ev small{display:block;color:var(--muted);font-size:12px}
+.foot{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:420px){ .q{font-size:17px} .score b{font-size:44px} .fi{grid-template-columns:minmax(0,1fr)} .fi .btn{grid-column:1;grid-row:auto;justify-self:start} }
+@media (prefers-reduced-motion:no-preference){ .opt,.btn,.dot{transition:background-color .12s,border-color .12s} }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <p class="eyebrow">英語｜近畿大学 一般入試前期A日程（医学部以外の全学部共通問題）</p>
+    <h1>近大 英語 10問テスト</h1>
+  </header>
+  <main id="app"></main>
+  <footer class="foot">
+    <p>このページは近畿大学の公式教材ではありません。「過去問ベース」は、近畿大学が公式に公開している2025・2026年度の入試問題・解答・出題意図をもとに、問われた知識を選択式に作り直した問題です。設問文・選択肢・本文は独自に作成したもので、実際の試験の文面とは異なります。「想定問題」は、公表されている出題範囲・出題形式に合わせて独自に作成した問題で、実際に出題されたものではありません。英語・現代文の本文は独自に作成した文章です。古文・漢文は著作権の切れた古典の原文を使っています。解説と覚え方も独自に作成したものです。</p>
+    <p><a href="https://kindai.jp/exam/past/" target="_blank" rel="noopener">近畿大学 過去の入試問題（公式）</a></p>
+    <p id="sync"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var QS=[{"id":1,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅲ〕 問1","f":"文法・語法","t":"more than one＋単数名詞","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nMore than one （　） left unanswered on the answer sheet, so Tom lost some points.","c":["question was","question were","questions was","questions were"],"e":"〈more than one＋名詞〉は意味の上では「2つ以上」ですが、文法上は one に引きずられて名詞は単数形、動詞も単数で受けます。したがって question was が正解です。question were は動詞が複数で不可、questions was / questions were は one の後に複数名詞を置いている点で誤りです。","m":"more than one＋単数名詞＋単数動詞"},{"id":2,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅲ〕 問3","f":"文法・語法","t":"such that（程度・結果）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe noise from the construction site was （　） that nobody in the office could concentrate.","c":["such","so","very","too"],"e":"be動詞の後に形容詞がなく、すぐ that 節が続く形は〈S is such that ...〉「Sは非常なもので…するほどだ」です。such が補語の働きをします。so は so loud that のように後に形容詞・副詞が必要なので、ここでは不可です。very と too は that 節と結びついて結果を表す用法がありません。","m":"形容詞なしで that 節 → such that"},{"id":3,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅲ〕 問4","f":"文法・語法","t":"非制限用法の which（前置詞が後ろに残る形）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nMy uncle showed me some old coins, （　） I didn't know the value of.","c":["which","that","what","whose"],"e":"先行詞 some old coins をコンマの後で補足説明する非制限用法で、the value of の of の目的語が欠けています（the value of the coins）。前置詞の目的語になれ、コンマの後に置ける関係代名詞は which です。that は非制限用法では使えません。what は先行詞を含むので先行詞がある文では不可、whose は直後に名詞が必要です。","m":"コンマ＋関係代名詞は which（that 不可）"},{"id":4,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅲ〕 問6","f":"文法・語法","t":"Provided (that)＝もし…ならば","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\n（　） the weather stays fine, the festival will be held outdoors as planned.","c":["Provided","Moreover","Therefore","Despite"],"e":"Provided (that) S V は「もし…ならば・…という条件で」という接続詞の働きをし、if とほぼ同じ意味です。「天気が良ければ予定通り屋外で行う」となり文意が通ります。Moreover「さらに」と Therefore「それゆえ」は副詞なので、2つの節をつなぐことはできません。Despite は前置詞なので、後に S V の節を置けません。","m":"Provided / Providing (that)＝if"},{"id":5,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅲ〕 問7","f":"文法・語法","t":"appreciate it if ...","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nI would appreciate （　） let me know your schedule by Monday.","c":["it if you would","it you would","you to","for you to"],"e":"appreciate は「〜をありがたく思う」という他動詞で、人を目的語にとれません。if 節の内容を受ける形式上の目的語 it を置き、I would appreciate it if you would ... 「…していただけるとありがたいです」とするのが定型です。it you would は if がなく不可、appreciate you to do や appreciate for you to do という形はありません。","m":"I'd appreciate it if 〜＝丁寧な依頼"},{"id":6,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅲ〕 問8","f":"文法・語法","t":"had better not＋原形","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nYou had （　） stay up late tonight; you have an early flight tomorrow.","c":["better not","better not to","not better","better to not"],"e":"had better は助動詞のように働き、後に動詞の原形を置きます。否定形は better の直後に not を置いて had better not do「〜しないほうがよい」となります。better not to は to が不要、not better は not の位置が誤りです。better to not も to を置く点で誤りです。","m":"had better not do（to を付けない）"},{"id":7,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅲ〕 問1","f":"文法・語法","t":"付帯状況 with＋O＋過去分詞","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe old man sat quietly on the bench with his arms （　）.","c":["folded","fold","folding","to fold"],"e":"〈with＋O＋分詞〉は「Oが…した状態で」という付帯状況を表します。腕は「組まれる」側なので、Oと分詞が受け身の関係になり過去分詞 folded を使います（腕を組んで）。folding は腕が自分で何かを組む能動の意味になり不可です。原形 fold や to fold はこの構文では使いません。","m":"with＋O＋p.p.＝Oが〜された状態で"},{"id":8,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅲ〕 問2","f":"文法・語法","t":"the very＋最上級","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nThis is （　） best pizza I have ever eaten.","c":["the very","the much","very the","the by far"],"e":"最上級を強める語には very、much、by far などがありますが、語順が異なります。very は the の後に置いて the very best とします。much と by far は the の前に置き、much the best / by far the best となります。したがって the much、the by far は語順が誤りで、very the も誤りです。","m":"the very best / by far the best"},{"id":9,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅲ〕 問4","f":"文法・語法","t":"関係代名詞 as（前文・後文を受ける）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\n（　） is often the case with him, Ken was late for the meeting again.","c":["As","Which","What","That"],"e":"As is often the case with A は「Aにはよくあることだが」という定型表現です。as は関係代名詞として後ろの主節全体（ケンが遅刻したこと）を先取りして受け、文頭に置くことができます。which は前の節を受ける場合でも文頭に置けません。What や That ではこの慣用表現になりません。","m":"As is often the case with 〜＝〜にはよくあることだが"},{"id":10,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅲ〕 問5","f":"文法・語法","t":"none of（3者以上の否定）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nI called three shops about the spare part, but （　） of them had it in stock.","c":["none","neither","no","nobody"],"e":"3つ以上のものについて「どれも〜ない」は none of them で表します。neither of は2者について「どちらも〜ない」なので、three shops には使えません。no は形容詞的に名詞の前に置く語で、no of という形はありません。nobody は of を伴って使いません。","m":"2者は neither、3者以上は none"},{"id":11,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅲ〕 問6","f":"文法・語法","t":"Those＋分詞（〜する人々）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\n（　） wishing to join the trip must sign up at the office by Friday.","c":["Those","That","What","Who"],"e":"those は「人々」の意味で、後ろに分詞・関係詞・形容詞句を伴って Those wishing to ...「…したいと望む人々」となります（Those who wish to ... と同じ）。That は「人々」を表せず、What は名詞節を作るので後ろに完全な動詞が必要です。Who を主語にして直接分詞をつなぐことはできません。","m":"those＋分詞・who＝〜する人々"},{"id":12,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅲ〕 問2","f":"文法・語法","t":"使役動詞 make の受動態","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe passengers were made （　） the bus because of an engine problem.","c":["to get off","get off","getting off","to getting off"],"e":"能動態では make O do「Oに〜させる」と原形を使いますが、受動態にすると be made to do となり to が復活します。したがって were made to get off が正解です。get off は能動態の形を残したままで誤りです。getting off、to getting off は make の受動態には使いません。","m":"make O do → be made to do"},{"id":13,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅲ〕 問3","f":"文法・語法","t":"However much S V（譲歩）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nHowever （　） you practice, you cannot master the violin in a month.","c":["much","many","more","most"],"e":"〈However＋形容詞・副詞＋S V〉は「どんなに…しても」という譲歩を表します。ここでは practice の量・程度を表す副詞 much を用い、However much you practice「どんなに練習しても」となります。many は数えられる名詞を修飾する形容詞で動詞の程度を表せません。比較級 more や最上級 most はこの構文では使いません。","m":"However＋形容詞/副詞＋S V＝どんなに〜でも"},{"id":14,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅲ〕 問7","f":"文法・語法","t":"名詞＋of which（＝whose＋名詞）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe company launched a new app, the design （　） was praised by many users.","c":["of which","by which","with which","whose"],"e":"the design of which は「その（アプリの）デザイン」の意味で、whose design と同じ働きをします。「そのデザインは多くの利用者に称賛された」となり文意が通ります。by which、with which は「デザインがアプリによって／で」となり意味が成り立ちません。whose は直後に名詞が必要で、the design whose という語順にはなりません。","m":"the 名詞 of which＝whose 名詞"},{"id":15,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅲ〕 問8","f":"文法・語法","t":"in which case（その場合は）","q":"次の英文の空所に入れるのに最も適当なものを選びなさい。\nIt may snow heavily tomorrow, （　） the school will be closed.","c":["in which case","in case","in the case","which case"],"e":"in which case は関係形容詞 which を使った表現で「その場合には」の意味です。前の節「明日大雪になるかもしれない」を受け、「その場合は休校になる」と続きます。in case は「〜するといけないから」の意味の接続詞で文意に合わず、in the case は後に of などが必要です。which case だけでは前置詞が足りません。","m":"〜, in which case …＝その場合は…"},{"id":16,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅴ〕 問4","f":"語彙・イディオム","t":"undertake（引き受ける）","q":"次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to take on a task or duty as your own responsibility and get started on it\n（ｂ）Despite the risks, the explorer chose to （　） a long journey across the desert alone.","c":["undertake","undergo","assign","approve"],"e":"（ａ）は「仕事や義務を自分の責任として引き受け、取りかかる」の意味で、undertake「（仕事・旅などを）引き受ける、企てる」にあたります。undertake a journey「旅に乗り出す」も自然な組み合わせです。undergo は「（手術・変化など）を経験する、受ける」、assign は「（仕事など）を人に割り当てる」、approve は「〜を承認する」で、自分で責任を負って始めるという（ａ）の意味にならず、（ｂ）の「一人で砂漠を横断する旅」にも合いません。","m":"undertake＝引き受ける／undergo＝経験する"},{"id":17,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅴ〕 問2","f":"語彙・イディオム","t":"anxiety（不安）","q":"次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）a feeling of strong worry about something that might happen\n（ｂ）Waiting for the test results filled her with （　）.","c":["anxiety","curiosity","relief","disgust"],"e":"（ａ）は「起こるかもしれないことへの強い心配の気持ち」で、anxiety「不安」です。curiosity は「好奇心」、relief は「安心」で心配とは逆の気持ち、disgust は「嫌悪」です。検査結果を待つ場面にも anxiety が自然に合います。","m":"anxiety＝不安（形容詞 anxious）"},{"id":18,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅴ〕 問4","f":"語彙・イディオム","t":"accelerate（加速させる）","q":"次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to increase the speed at which a change or process develops\n（ｂ）The government hopes the new policy will （　） the shift to renewable energy.","c":["accelerate","fasten","postpone","preserve"],"e":"（ａ）は「変化や過程が進む速さを上げる」の意味で accelerate「〜を加速させる、促進する」です。fasten は fast と似ていますが「〜を留める、固定する」の意味で速度とは関係ありません。postpone は「延期する」で逆の意味、preserve は「保存する」です。","m":"accelerate＝速める／fasten＝留める"},{"id":19,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅴ〕 問5","f":"語彙・イディオム","t":"fulfill（満たす・果たす）","q":"次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to do or satisfy what is required or expected\n（ｂ）Applicants who do not （　） the requirements listed below will not be considered.","c":["fulfill","cease","deny","consume"],"e":"（ａ）は「求められること・期待されることを行う、満たす」で、fulfill「（条件・義務）を満たす、果たす」です。fulfill the requirements「要件を満たす」はよく使う組み合わせで、「下記の要件を満たさない応募者は選考の対象外」となります。cease は「やめる」、deny は「否定する」、consume は「消費する」で、要件を満たす意味になりません。","m":"fulfill the requirements＝条件を満たす"},{"id":20,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅴ〕 問2","f":"語彙・イディオム","t":"clumsy（不器用な）","q":"次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）moving in a careless, unskillful way and often dropping or breaking things\n（ｂ）I'm so （　） that I broke two plates while washing the dishes.","c":["clumsy","elegant","flexible","generous"],"e":"（ａ）は「動作が不注意でぎこちなく、よく物を落としたり壊したりする」で clumsy「不器用な」です。皿を2枚割ったという（ｂ）の文脈にも合います。elegant「優雅な」は逆の意味、flexible は「柔軟な」、generous は「気前のよい」で、いずれも定義に合いません。","m":"clumsy＝不器用な・ぎこちない"},{"id":21,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅴ〕 問4","f":"語彙・イディオム","t":"affirmative（肯定の）","q":"次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）showing that someone says \"yes\" or agrees\n（ｂ）When I asked if she would join the team, she gave an （　） answer: \"Yes, of course!\"","c":["affirmative","aggressive","awkward","ambiguous"],"e":"（ａ）は「『はい』と言う、同意することを示す」で affirmative「肯定の」です。（ｂ）も彼女の答えが \"Yes, of course!\" とはっきり示されており、an affirmative answer「肯定の返事」が合います。ambiguous「あいまいな」や awkward「気まずい・ぎこちない」は answer と結びつく語ですが、（ａ）の定義に合わず、はっきり「もちろん」と答えた内容とも合いません。aggressive は「攻撃的な」です。","m":"affirmative＝肯定の⇔negative"},{"id":22,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅳ〕 問1","f":"語彙・イディオム","t":"run into（偶然出会う）","q":"次の英文の意味に最も近いものを選びなさい。\nI ran into my former teacher at the airport last week.","c":["I met my former teacher by chance at the airport last week.","I made an appointment to see my former teacher at the airport last week.","I hurried to pick up my former teacher at the airport last week.","I looked everywhere for my former teacher at the airport last week."],"e":"run into A は「Aに偶然出会う」で、come across A や meet A by chance と同じ意味です。したがって by chance を含む文が最も近い意味です。約束して会う（made an appointment）、急いで迎えに行く（hurried to pick up）、あちこち探す（looked everywhere for）は、いずれも「偶然」の意味がありません。","m":"run into / come across＝偶然出会う"},{"id":23,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅳ〕 問1","f":"語彙・イディオム","t":"call it a day（切り上げる）","q":"次の英文の意味に最も近いものを選びなさい。\nWe had been cleaning the garage since morning, so we decided to call it a day.","c":["We had been cleaning the garage since morning, so we decided to stop working for the day.","We had been cleaning the garage since morning, so we decided to take a short rest.","We had been cleaning the garage since morning, so we decided to ask our neighbors for help.","We had been cleaning the garage since morning, so we decided to keep working until midnight."],"e":"call it a day は「（その日の仕事を）切り上げる、終わりにする」という口語表現です。stop working for the day が同じ意味になります。take a short rest は「少し休憩する」で、後で再開する含みがあるため異なります。手伝いを頼む、真夜中まで続けるも意味が合いません。","m":"call it a day＝今日はここまでにする"},{"id":24,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅳ〕 問2","f":"語彙・イディオム","t":"hold one's tongue（黙っている）","q":"次の英文の意味に最も近いものを選びなさい。\nEmma wanted to argue with her boss, but she held her tongue.","c":["Emma wanted to argue with her boss, but she said nothing.","Emma wanted to argue with her boss, so she told him exactly what she thought.","Emma wanted to argue with her boss, but she apologized to him instead.","Emma wanted to argue with her boss, so she asked a colleague to speak for her."],"e":"hold one's tongue は「口をつぐむ、言いたいことを言わずに黙っている」という意味です。said nothing「何も言わなかった」が最も近い意味です。思ったことをそのまま言う、代わりに謝る、同僚に代弁を頼む、はいずれも「黙っていた」という意味とは異なります。","m":"hold one's tongue＝黙っている"},{"id":25,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅳ〕 問3","f":"語彙・イディオム","t":"by no means（決して〜ない）","q":"次の英文の意味に最も近いものを選びなさい。\nWinning the national championship is by no means easy.","c":["Winning the national championship is not easy at all.","Winning the national championship is easy in some ways.","Winning the national championship is never impossible.","Winning the national championship is easier than people think."],"e":"by no means は「決して〜ない」という強い否定で、not ... at all と同じ意味です。「全国大会で優勝するのは決して簡単ではない」となります。easy in some ways「ある面では簡単」や easier than people think「思ったより簡単」は肯定の意味です。never impossible は「不可能ではない」で、否定する対象が異なります。","m":"by no means＝not at all（決して〜ない）"},{"id":26,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅳ〕 問2","f":"語彙・イディオム","t":"make heads or tails of（理解する）","q":"次の英文の意味に最も近いものを選びなさい。\nI couldn't make heads or tails of the instructions for the new printer.","c":["I couldn't understand the instructions for the new printer at all.","I couldn't find the first page of the instructions for the new printer.","I couldn't decide whether to read the instructions for the new printer.","I couldn't translate the instructions for the new printer into Japanese."],"e":"make heads or tails of A は主に否定文で使い、「Aがさっぱりわからない」という意味になります（can't make heads or tails of）。understand ... at all を否定した文が同じ意味です。heads「頭」から最初のページを連想させる選択肢や、読むかどうか迷う、和訳できないという文は、理解できないという意味とは異なります。","m":"can't make heads or tails of＝さっぱりわからない"},{"id":27,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅳ〕 問4","f":"語彙・イディオム","t":"turn over a new leaf（心を入れ替える）","q":"次の英文の意味に最も近いものを選びなさい。\nAfter failing the exam, Ryo decided to turn over a new leaf.","c":["After failing the exam, Ryo decided to change his ways and make a fresh start.","After failing the exam, Ryo decided to give up studying completely.","After failing the exam, Ryo decided to keep studying in the same way as before.","After failing the exam, Ryo decided to read his textbook again from the last page."],"e":"turn over a new leaf は「（ページをめくるように）心を入れ替えて出直す、生活態度を改める」という意味です。change his ways and make a fresh start が最も近い意味です。勉強をやめる、以前と同じやり方を続けるは「改める」の意味と逆です。leaf を本のページと結びつけた最後の選択肢は、字義通りの誤読です。","m":"turn over a new leaf＝心を入れ替える"},{"id":28,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅱ〕 問3","f":"語彙・イディオム","t":"tolerate（耐える）","q":"次の英文の空所に入れるのに最も適当な語を選びなさい。\nCamels can （　） high temperatures and go for days without drinking water.","c":["tolerate","remain","vary","value"],"e":"目的語 high temperatures をとり、「高温に耐える」となる tolerate「〜に耐える、我慢する」が正解です。ラクダが水なしで何日も過ごせるという後半の内容とも合います。remain「〜のままである」と vary「変わる」は目的語をとる使い方ではこの意味になりません。value は「〜を重んじる」で文意に合いません。","m":"tolerate＝〜に耐える（＝put up with）"},{"id":29,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅱ〕 問1","f":"語彙・イディオム","t":"vary（変わる・異なる）","q":"次の英文の空所に入れるのに最も適当な語を選びなさい。\nThe price of vegetables can （　） greatly depending on the weather.","c":["vary","remain","control","value"],"e":"vary は自動詞で「（状況によって）変わる、異なる」の意味です。depending on ...「…によって」と相性がよく、「野菜の値段は天候によって大きく変わる」となります。remain は「〜のままである」で greatly depending on と合いません。control と value は他動詞で目的語が必要なので、ここでは使えません。","m":"vary depending on 〜＝〜によって変わる"},{"id":30,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅱ〕 問6","f":"語彙・イディオム","t":"manipulate（操作する）","q":"次の英文の空所に入れるのに最も適当な語を選びなさい。\nWith a small joystick, the pilot can （　） the camera on the drone to get a better view.","c":["manipulate","tolerate","worship","originate"],"e":"manipulate は「（機械・道具など）を巧みに操作する」の意味で、ジョイスティックでドローンのカメラを動かすという文脈に合います。tolerate は「〜に耐える」、worship は「〜を崇拝する」で文意に合いません。originate は「生じる、始まる」という意味の自動詞が中心で、道具を動かす意味はありません。","m":"manipulate＝（巧みに）操作する"},{"id":31,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅵ〕 [A]","f":"整序英作文","t":"Not until 〜 倒置","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「雨がやんではじめて、子どもたちは外に出た。」\nNot (　)(　)(　)(　)(　)(　) outside.\n［ the children / did / go / stopped / the rain / until ］","c":["did","stopped","the children","go"],"e":"完成文は Not until the rain stopped did the children go outside. です。「…してはじめて〜した」は It was not until ... that ～ でも表せますが、Not until ... を文頭に出すと主節が疑問文の語順（did＋S＋原形）に倒置されます。よって until / the rain / stopped / did / the children / go の順になり、4番目は did です。","m":"Not until 〜 did S do＝〜してはじめてSは…した"},{"id":32,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅵ〕 [B]","f":"整序英作文","t":"must have had O do","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「彼は整備士に車を修理してもらったに違いない。」\nHe (　)(　)(　)(　)(　)(　).\n［ repair / have / his car / a mechanic / must / had ］","c":["a mechanic","had","repair","have"],"e":"完成文は He must have had a mechanic repair his car. です。過去のことへの確信は〈must have＋過去分詞〉「〜したに違いない」で表し、使役「人に〜してもらう」は〈have＋人＋動詞の原形〉です。この have を過去分詞 had にして must have had とつなぎます。順に must / have / had / a mechanic / repair / his car で、4番目は a mechanic です。","m":"must have p.p.＋have 人 do"},{"id":33,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅵ〕 [C]","f":"整序英作文","t":"have no hesitation in -ing","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「彼女はためらうことなく、どの大学に出願するかを決めた。」\nShe had no hesitation (　)(　)(　)(　)(　)(　) to.\n［ university / in / apply / to / deciding / which ］","c":["to","which","apply","deciding"],"e":"完成文は She had no hesitation in deciding which university to apply to. です。have no hesitation in -ing は「ためらわずに〜する」で、in の後は動名詞 deciding です。「どの大学に出願するか」は〈which＋名詞＋to do〉で which university to apply to となり、最後の to は apply to「〜に出願する」の前置詞です。5番目は to です。","m":"have no hesitation in -ing＝ためらわず〜する"},{"id":34,"k":"past","ref":"2026年度 前期A 1/24 〔Ⅵ〕 [D]","f":"整序英作文","t":"far beyond what could have been","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、3番目に来るものを選びなさい。\n「新製品の売り上げは、誰もが想像しえたよりもはるかに多かった。」\nThe sales of the new product were (　)(　)(　)(　)(　)(　) imagined.\n［ could / anyone / far / have / what / beyond ］","c":["what","beyond","could","anyone"],"e":"完成文は The sales of the new product were far beyond what anyone could have imagined. です。beyond A は「Aを超えて」、far はそれを強めて「はるかに」の意味です。what は「〜すること・もの」を表す関係代名詞で、what anyone could have imagined「誰もが想像しえたこと」となります。far / beyond / what / anyone / could / have の順で3番目は what です。","m":"far beyond what S could have p.p."},{"id":35,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅵ〕 [A]","f":"整序英作文","t":"仮定法過去完了の倒置（had S p.p.）","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「もしもっと早く家を出ていたら、私たちはその電車に間に合っただろう。」\nWe (　)(　)(　)(　)(　)(　) left home earlier.\n［ caught / we / had / the train / would / have ］","c":["had","caught","we","have"],"e":"完成文は We would have caught the train had we left home earlier. です。過去の事実に反する仮定は仮定法過去完了で、主節は would have＋過去分詞、if 節は if we had left です。if を省略すると had が主語の前に出て had we left という倒置になります。would / have / caught / the train / had / we の順で、5番目は had です。","m":"If S had p.p. → Had S p.p.（倒置）"},{"id":36,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅵ〕 [B]","f":"整序英作文","t":"with A in mind","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「この公園は高齢者のことを念頭に置いて設計された。」\nThis park was (　)(　)(　)(　)(　)(　).\n［ mind / elderly / in / designed / people / with ］","c":["people","in","with","elderly"],"e":"完成文は This park was designed with elderly people in mind. です。with A in mind は「Aを念頭に置いて、Aのことを考えて」という意味で、A が in mind の前に入る点に注意します。受動態 was designed の後にこの句を続け、designed / with / elderly / people / in / mind の順になります。4番目は people です。","m":"with A in mind＝Aを念頭に置いて"},{"id":37,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅵ〕 [C]","f":"整序英作文","t":"be found to have p.p.","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「その男性は書類を盗んでいたことがわかった。」\nThe man (　)(　)(　)(　)(　)(　).\n［ stolen / was / the documents / have / found / to ］","c":["have","to","stolen","found"],"e":"完成文は The man was found to have stolen the documents. です。find O to do「Oが〜するとわかる」を受動態にすると be found to do になります。盗んだのは「わかった」時点より前なので、完了不定詞 to have＋過去分詞を使います。was / found / to / have / stolen / the documents の順で、4番目は have です。","m":"述語動詞より前のこと→to have p.p."},{"id":38,"k":"past","ref":"2026年度 前期A 1/25 〔Ⅵ〕 [D]","f":"整序英作文","t":"倍数表現 twice the length of","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「この橋は川の向こうにある橋の2倍の長さだ。」\nThis bridge (　)(　)(　)(　)(　)(　) across the river.\n［ of / the / the one / is / length / twice ］","c":["length","twice","of","the one"],"e":"完成文は This bridge is twice the length of the one across the river. です。倍数表現は〈倍数＋the＋名詞（length, size など）＋of A〉で「Aの〜倍の長さ」を表せます（twice as long as A と同じ意味）。the one は bridge の繰り返しを避ける代名詞です。is / twice / the / length / of / the one の順で、4番目は length です。","m":"倍数＋the length of A＝Aの○倍の長さ"},{"id":39,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅵ〕 [C]","f":"整序英作文","t":"with a view to -ing","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「彼はいつか海外で働くことを目指して英語を勉強している。」\nHe is studying English (　)(　)(　)(　)(　)(　).\n［ abroad / a view / someday / working / with / to ］","c":["working","to","a view","abroad"],"e":"完成文は He is studying English with a view to working abroad someday. です。with a view to -ing は「〜する目的で、〜を目指して」という意味で、この to は前置詞なので後ろは動名詞 working になります（to work としない点が頻出）。with / a view / to / working / abroad / someday の順で、4番目は working です。","m":"with a view to -ing（to は前置詞）"},{"id":40,"k":"past","ref":"2025年度 前期A 1/26 〔Ⅵ〕 [D]","f":"整序英作文","t":"The time will come when 〜","q":"日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「彼は、人々が火星に住む時が来ると信じている。」\nHe believes (　)(　)(　)(　)(　)(　) will live on Mars.\n［ when / come / people / the time / will / that ］","c":["when","will","come","the time"],"e":"完成文は He believes that the time will come when people will live on Mars. です。「〜する時が来る」は The time will come when ～ で表し、主語 the time と、それを修飾する関係副詞 when の節が離れる形が定型です。この when 節は名詞を修飾する形容詞節なので、未来のことは will で表します（時を表す副詞節ではない）。that / the time / will / come / when / people の順で、5番目は when です。","m":"The time will come when 〜＝〜する時が来る"},{"id":41,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：直後の応答から判断","p":"A: Hi, Mika. I heard you joined the volunteer club at the community center.\nB: Yes, I did. We teach children to read on Saturday mornings.\nA: That sounds nice, but （ 1 ）\nB: Not at all. Most of the kids are really eager to learn, so it's fun.\nA: I'd like to try it too, but I'm not sure I'd be good with children.\nB: （ 2 ）\nA: Okay, maybe I will. When is the next session?\nB: This Saturday at ten. （ 3 ）\nA: Great. I'll see you there.","q":"対話文の空所（ 1 ）に入れるのに最も適当なものを選びなさい。","c":["isn't it hard to keep them interested?","how did you find out about the club?","why did you quit the club so soon?","is it difficult to find the center?"],"e":"空所の直後でBは Not at all. と答え、「子どもたちはとても学びたがっているので楽しい」と続けています。したがって「子どもたちの興味を保つのは大変ではないか」と尋ねる文が自然です。クラブを知ったきっかけや場所の質問には Not at all では答えられず、「楽しい」という理由もつながりません。Bはクラブに入ったばかりで、やめた（quit）という話とも矛盾します。","m":"Not at all の後の理由から質問を逆算する"},{"id":42,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：勧誘の表現","p":"A: Hi, Mika. I heard you joined the volunteer club at the community center.\nB: Yes, I did. We teach children to read on Saturday mornings.\nA: That sounds nice, but （ 1 ）\nB: Not at all. Most of the kids are really eager to learn, so it's fun.\nA: I'd like to try it too, but I'm not sure I'd be good with children.\nB: （ 2 ）\nA: Okay, maybe I will. When is the next session?\nB: This Saturday at ten. （ 3 ）\nA: Great. I'll see you there.","q":"対話文の空所（ 2 ）に入れるのに最も適当なものを選びなさい。","c":["Why don't you come and watch first? You can decide after that.","You're right. You'd better not come, then.","I don't think children enjoy reading these days.","The center will be closed for the rest of the month."],"e":"Aが「子どもの相手がうまくできるか自信がない」と言ったのに対し、空所の後でAは「じゃあ、そうしてみようかな。次はいつ？」と答えています。Why don't you ...?「…してはどう？」と見学を勧める文が流れに合います。来ない方がよいと言えば maybe I will とつながらず、センターが閉まるならBが次回を「今週土曜」と答えることと矛盾します。","m":"Why don't you 〜?＝〜してはどう？（勧誘）"},{"id":43,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：申し出の表現","p":"A: Hi, Mika. I heard you joined the volunteer club at the community center.\nB: Yes, I did. We teach children to read on Saturday mornings.\nA: That sounds nice, but （ 1 ）\nB: Not at all. Most of the kids are really eager to learn, so it's fun.\nA: I'd like to try it too, but I'm not sure I'd be good with children.\nB: （ 2 ）\nA: Okay, maybe I will. When is the next session?\nB: This Saturday at ten. （ 3 ）\nA: Great. I'll see you there.","q":"対話文の空所（ 3 ）に入れるのに最も適当なものを選びなさい。","c":["I'll meet you at the front entrance and introduce you to everyone.","Sorry, but visitors aren't allowed to join the session.","I went there by myself last Saturday.","It was canceled because of the heavy rain."],"e":"Bは次回が「今週土曜の10時」と伝え、Aは「いいね、そこで会おう」と答えています。入口で待ち合わせてみんなに紹介すると申し出る文が自然につながります。見学者は参加できないと言えば Great と答える流れに合いません。先週一人で行った話は無関係で、中止になったと言えば直前の日時の案内と矛盾します。","m":"前後の発言と矛盾しない選択肢を選ぶ"},{"id":44,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：店での交換","p":"A: Excuse me. I bought this jacket here last week, but （ 1 ）\nB: I'm sorry to hear that. Do you have the receipt?\nA: Yes, here it is. I'd like to exchange it for a larger one.\nB: Let me check ... （ 2 ）\nA: Oh, that's too bad. Could you order one for me, then?\nB: Certainly. It should arrive in about five days. （ 3 ）\nA: A text message would be best. Thank you.","q":"対話文の空所（ 1 ）に入れるのに最も適当なものを選びなさい。","c":["it's a little too tight around the shoulders.","I'd like to buy two more in the same size.","it's the best jacket I've ever bought.","I left it on the train yesterday."],"e":"店員は I'm sorry to hear that.「それはお気の毒に」と答え、Aはその後「大きいサイズと交換したい」と言っています。したがって、肩回りが少しきついという不満を述べる文が入ります。同じサイズをさらに2着買いたい、最高のジャケットだ、という発言には sorry to hear that が合いません。電車に置き忘れたなら、手元にあるジャケットを交換する話になりません。","m":"店員の反応と次の要望から不満の内容を推測"},{"id":45,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：在庫切れの伝え方","p":"A: Excuse me. I bought this jacket here last week, but （ 1 ）\nB: I'm sorry to hear that. Do you have the receipt?\nA: Yes, here it is. I'd like to exchange it for a larger one.\nB: Let me check ... （ 2 ）\nA: Oh, that's too bad. Could you order one for me, then?\nB: Certainly. It should arrive in about five days. （ 3 ）\nA: A text message would be best. Thank you.","q":"対話文の空所（ 2 ）に入れるのに最も適当なものを選びなさい。","c":["I'm afraid we don't have that size in stock right now.","Here you are. This one is two sizes larger.","You can't exchange it without a receipt.","This jacket is on sale today."],"e":"空所の後でAは「それは残念。では取り寄せてもらえますか」と言っているので、店員は大きいサイズの在庫がないと伝えたと分かります。I'm afraid ... は残念なことを丁寧に伝える表現です。大きいサイズを渡したなら残念がる理由がありません。Aはすでにレシートを渡しているので、レシートがないと交換できないという発言は不自然です。セールの話は注文の依頼につながりません。","m":"I'm afraid 〜＝残念ながら〜です"},{"id":46,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：連絡方法の質問","p":"A: Excuse me. I bought this jacket here last week, but （ 1 ）\nB: I'm sorry to hear that. Do you have the receipt?\nA: Yes, here it is. I'd like to exchange it for a larger one.\nB: Let me check ... （ 2 ）\nA: Oh, that's too bad. Could you order one for me, then?\nB: Certainly. It should arrive in about five days. （ 3 ）\nA: A text message would be best. Thank you.","q":"対話文の空所（ 3 ）に入れるのに最も適当なものを選びなさい。","c":["How would you like us to contact you when it arrives?","Would you like it in a smaller size instead?","Shall I give you a refund instead?","Will you pay in cash or by card?"],"e":"Aは空所の後で「ショートメッセージが一番いいです」と答えているので、店員は連絡方法を尋ねたと分かります。How would you like us to contact you? が正解です。小さいサイズにするか、返金にするか、支払い方法は何か、という質問に「ショートメッセージがいい」と答えるのは不自然です。","m":"答えの内容から質問を逆算する"},{"id":47,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：理由の説明","p":"A: You look tired, Ken. Were you up late last night?\nB: Yeah, I was working on my history presentation until two.\nA: Is it due tomorrow?\nB: No, it's not until next Friday. （ 1 ）\nA: I see. （ 2 ） You won't do well if you're exhausted.\nB: You're right. I'll go to bed earlier tonight.","q":"対話文の空所（ 1 ）に入れるのに最も適当なものを選びなさい。","c":["But I wanted to finish it early so I could relax this weekend.","That's why I haven't started working on it yet.","So I have to finish it by tonight.","Actually, the teacher said we don't need to make one."],"e":"発表の締め切りは来週金曜で、まだ先なのに夜遅くまで作業していた理由を述べる文が入ります。「週末にゆっくりできるよう早めに終わらせたかった」が自然です。まだ始めていないという文は、2時まで作業していたという発言と矛盾します。今夜までに仕上げる必要があるなら締め切りが来週金曜という話と合わず、発表が不要なら作業する理由がありません。","m":"締め切りと行動のずれを説明する文を選ぶ"},{"id":48,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：忠告の表現","p":"A: You look tired, Ken. Were you up late last night?\nB: Yeah, I was working on my history presentation until two.\nA: Is it due tomorrow?\nB: No, it's not until next Friday. （ 1 ）\nA: I see. （ 2 ） You won't do well if you're exhausted.\nB: You're right. I'll go to bed earlier tonight.","q":"対話文の空所（ 2 ）に入れるのに最も適当なものを選びなさい。","c":["Still, you shouldn't stay up so late.","Then you should stay up even later tonight.","Then you don't have to do it at all.","Then let's watch a movie all night."],"e":"空所の後でAは「疲れきっていたらうまくいかないよ」と続け、Bは「そうだね。今夜は早く寝るよ」と答えています。夜更かしを控えるよう忠告する Still, you shouldn't stay up so late. が正解です。Still は「それでも」の意味です。もっと夜更かしするように言う文、一晩中映画を見ようと誘う文は、早く寝るという返事と逆です。発表をしなくてよいという発言も文脈に合いません。","m":"Still＝それでも（譲歩の後の忠告）"},{"id":49,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：天気予報","p":"A: Are we still going hiking on Sunday?\nB: I checked the forecast, and （ 1 ）\nA: Oh no. Should we cancel it, then?\nB: How about going on Saturday instead? It's supposed to be sunny all day.\nA: （ 2 ） I have a part-time job until three on Saturday.\nB: No problem. We can choose a short trail and start in the afternoon.","q":"対話文の空所（ 1 ）に入れるのに最も適当なものを選びなさい。","c":["it's going to rain heavily that day.","it'll be perfect weather for hiking.","it says Saturday will be stormy.","the trail is closed every Saturday."],"e":"空所の後でAは「えっ、じゃあ中止にする？」と言っているので、日曜日の天気が悪いという内容が入ります。最高のハイキング日和という文では中止を考える理由がありません。土曜日が嵐という文は、Bがその後「土曜は一日中晴れの予報」と言うことと矛盾します。土曜日は登山道が閉鎖という文も、土曜日に行こうという提案と合いません。","m":"Oh no の反応から悪い知らせを選ぶ"},{"id":50,"k":"plan","ref":"想定問題","f":"会話文","t":"会話文：都合の悪さを伝える","p":"A: Are we still going hiking on Sunday?\nB: I checked the forecast, and （ 1 ）\nA: Oh no. Should we cancel it, then?\nB: How about going on Saturday instead? It's supposed to be sunny all day.\nA: （ 2 ） I have a part-time job until three on Saturday.\nB: No problem. We can choose a short trail and start in the afternoon.","q":"対話文の空所（ 2 ）に入れるのに最も適当なものを選びなさい。","c":["Saturday is a little difficult for me.","Perfect. I'm free all day on Saturday.","Let's just go on Sunday as we planned.","I've never been hiking before."],"e":"空所の直後でAは「土曜日は3時までアルバイトがある」と理由を述べ、Bは「問題ないよ、短いコースを選んで午後から出発しよう」と答えています。したがって土曜日は少し都合が悪いと伝える文が入ります。一日中空いているという文は、アルバイトがあるという直後の発言と矛盾します。日曜日は雨の予報なので予定通り日曜日に行く案は流れに合わず、ハイキングの経験の話は理由とつながりません。","m":"直後の理由とつながる発言を選ぶ"},{"id":51,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（睡眠と記憶）：第1段落","p":"Many students believe that staying up all night is the best way to prepare for an exam. However, research on sleep suggests that this habit may do more harm than good. While we sleep, the brain does not simply rest. Instead, it actively sorts the information we took in during the day, keeping what seems important and letting go of what does not.\nIn one experiment, two groups of volunteers learned a list of word pairs in the evening. One group slept normally, while the other stayed awake through the night. The next day, both groups were tested. Those who had slept remembered noticeably more word pairs than those who had not, even though both groups had studied for the same amount of time.\nScientists think that deep sleep plays a special role in this process. During deep sleep, signals travel between the part of the brain that stores new memories for a short time and the areas where long-term memories are kept. In this way, fresh memories become more stable.\nThis does not mean that sleep can replace study. Rather, it suggests that study and sleep work together. A student who reviews notes in the evening and then gets a full night's rest is likely to remember more than one who gives up sleep to study longer.","q":"本文の第1段落の内容に合うものとして最も適当なものを選びなさい。","c":["The brain sorts and selects information while we are asleep.","The brain stops working completely while we are asleep.","Staying up all night has been proven to be the best way to study.","The brain keeps every piece of information it receives during the day."],"e":"第1段落に「眠っている間、脳は単に休んでいるのではなく、日中に取り入れた情報を活発に整理し、重要なものを残してそうでないものを手放す」とあります。これに合うのは「脳は睡眠中に情報を整理・選別する」です。脳が完全に停止するという文は does not simply rest と矛盾します。徹夜が最善だと証明されたという文は、多くの学生がそう信じているだけで研究は逆を示しています。すべての情報を保持するという文も letting go of と矛盾します。","m":"本文の言い換え（sort＝整理する）を見抜く"},{"id":52,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（睡眠と記憶）：実験の内容","p":"Many students believe that staying up all night is the best way to prepare for an exam. However, research on sleep suggests that this habit may do more harm than good. While we sleep, the brain does not simply rest. Instead, it actively sorts the information we took in during the day, keeping what seems important and letting go of what does not.\nIn one experiment, two groups of volunteers learned a list of word pairs in the evening. One group slept normally, while the other stayed awake through the night. The next day, both groups were tested. Those who had slept remembered noticeably more word pairs than those who had not, even though both groups had studied for the same amount of time.\nScientists think that deep sleep plays a special role in this process. During deep sleep, signals travel between the part of the brain that stores new memories for a short time and the areas where long-term memories are kept. In this way, fresh memories become more stable.\nThis does not mean that sleep can replace study. Rather, it suggests that study and sleep work together. A student who reviews notes in the evening and then gets a full night's rest is likely to remember more than one who gives up sleep to study longer.","q":"本文の第2段落で述べられている実験の内容に合うものとして最も適当なものを選びなさい。","c":["Volunteers who slept recalled more word pairs, although both groups studied for the same time.","The group that stayed awake studied for longer than the group that slept.","Both groups remembered almost the same number of word pairs.","The volunteers learned the word pairs early in the morning."],"e":"第2段落によると、2つのグループは夕方に単語の組を覚え、一方は普通に眠り、もう一方は徹夜しました。翌日のテストでは、眠ったグループの方が「両グループの学習時間は同じだったにもかかわらず」明らかに多くを覚えていました。これに合うのが正解の文です。学習時間は同じなので、起きていたグループの方が長く勉強したという文は誤りです。ほぼ同数を覚えていたという文は noticeably more と矛盾し、朝に覚えたという文も in the evening と合いません。","m":"even though 以下の条件も必ず確認する"},{"id":53,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（睡眠と記憶）：内容不一致","p":"Many students believe that staying up all night is the best way to prepare for an exam. However, research on sleep suggests that this habit may do more harm than good. While we sleep, the brain does not simply rest. Instead, it actively sorts the information we took in during the day, keeping what seems important and letting go of what does not.\nIn one experiment, two groups of volunteers learned a list of word pairs in the evening. One group slept normally, while the other stayed awake through the night. The next day, both groups were tested. Those who had slept remembered noticeably more word pairs than those who had not, even though both groups had studied for the same amount of time.\nScientists think that deep sleep plays a special role in this process. During deep sleep, signals travel between the part of the brain that stores new memories for a short time and the areas where long-term memories are kept. In this way, fresh memories become more stable.\nThis does not mean that sleep can replace study. Rather, it suggests that study and sleep work together. A student who reviews notes in the evening and then gets a full night's rest is likely to remember more than one who gives up sleep to study longer.","q":"本文の内容に合わないものを選びなさい。","c":["Getting enough sleep makes studying unnecessary.","Deep sleep is believed to help new memories become more stable.","Reviewing notes in the evening and then sleeping well can help memory.","Signals pass between different parts of the brain during deep sleep."],"e":"最終段落に「これは睡眠が勉強の代わりになるという意味ではない」とあるので、「十分に眠れば勉強は不要になる」は本文に合いません。深い睡眠が新しい記憶を安定させるという内容と、深い睡眠中に脳の部位の間で信号が行き来するという内容は第3段落に合います。夜にノートを見直してしっかり眠ると記憶に役立つという内容は第4段落に合います。","m":"This does not mean ... に注意（否定の要点）"},{"id":54,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（ヒートアイランド）：夜も暑い理由","p":"On summer afternoons, the center of a large city is often several degrees hotter than the countryside around it. This is known as the urban heat island effect. Roads and buildings made of concrete and asphalt absorb heat from the sun during the day and release it slowly at night, so cities stay warm even after the sun goes down. Heat from air conditioners and cars adds to the problem.\nHigher temperatures are not just uncomfortable. They increase the use of electricity for cooling, and they can be dangerous for elderly people and small children, who are more likely to suffer from heatstroke.\nMany cities are now trying to reduce the effect by adding more green space. Planting trees along streets provides shade, and plants release water into the air through their leaves, which cools the surrounding area. Some cities also encourage \"green roofs,\" which are roofs covered with soil and plants. A green roof can keep the building below it cooler and reduce the amount of energy needed for air conditioning.\nOf course, green roofs are not free. They are heavier than ordinary roofs and need regular care. Still, many city planners believe that the benefits are worth the cost.","q":"本文によると、都市が日没後も暖かいままである理由として最も適当なものを選びなさい。","c":["Concrete and asphalt slowly release the heat they absorbed during the day.","Cities receive more sunlight in the evening than the countryside does.","Air conditioners in cities are turned off at night.","The countryside absorbs more heat during the day than cities do."],"e":"第1段落に「コンクリートやアスファルトの道路や建物は日中に太陽の熱を吸収し、夜にゆっくり放出する。そのため日が沈んだ後も都市は暖かい」とあります。正解はこの内容の言い換えです。都市の方が夕方に日光を多く受けるという記述はありません。エアコンは熱を加える原因として挙げられていますが、夜に止めるという話はありません。田舎の方が熱を吸収するという文は本文の内容と逆です。","m":"so の前が理由（原因→結果の流れ）"},{"id":55,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（ヒートアイランド）：内容不一致","p":"On summer afternoons, the center of a large city is often several degrees hotter than the countryside around it. This is known as the urban heat island effect. Roads and buildings made of concrete and asphalt absorb heat from the sun during the day and release it slowly at night, so cities stay warm even after the sun goes down. Heat from air conditioners and cars adds to the problem.\nHigher temperatures are not just uncomfortable. They increase the use of electricity for cooling, and they can be dangerous for elderly people and small children, who are more likely to suffer from heatstroke.\nMany cities are now trying to reduce the effect by adding more green space. Planting trees along streets provides shade, and plants release water into the air through their leaves, which cools the surrounding area. Some cities also encourage \"green roofs,\" which are roofs covered with soil and plants. A green roof can keep the building below it cooler and reduce the amount of energy needed for air conditioning.\nOf course, green roofs are not free. They are heavier than ordinary roofs and need regular care. Still, many city planners believe that the benefits are worth the cost.","q":"本文の内容に合わないものを選びなさい。","c":["Green roofs are lighter than ordinary roofs and need little care.","Trees planted along streets provide shade.","Plants cool the area around them by releasing water through their leaves.","Higher temperatures lead to greater use of electricity for cooling."],"e":"最終段落に「屋上緑化は通常の屋根より重く、定期的な手入れが必要だ」とあるので、「軽くて手入れがほとんど要らない」は本文に合いません。街路樹が日陰を作ること、植物が葉から水分を出して周囲を冷やすことは第3段落に、気温の上昇で冷房の電力使用が増えることは第2段落に書かれており、いずれも本文に合います。","m":"heavier / regular care と逆の記述を探す"},{"id":56,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（ヒートアイランド）：語の意味","p":"On summer afternoons, the center of a large city is often several degrees hotter than the countryside around it. This is known as the urban heat island effect. Roads and buildings made of concrete and asphalt absorb heat from the sun during the day and release it slowly at night, so cities stay warm even after the sun goes down. Heat from air conditioners and cars adds to the problem.\nHigher temperatures are not just uncomfortable. They increase the use of electricity for cooling, and they can be dangerous for elderly people and small children, who are more likely to suffer from heatstroke.\nMany cities are now trying to reduce the effect by adding more green space. Planting trees along streets provides shade, and plants release water into the air through their leaves, which cools the surrounding area. Some cities also encourage \"green roofs,\" which are roofs covered with soil and plants. A green roof can keep the building below it cooler and reduce the amount of energy needed for air conditioning.\nOf course, green roofs are not free. They are heavier than ordinary roofs and need regular care. Still, many city planners believe that the benefits are worth the cost.","q":"本文の第1段落の release に最も意味の近いものを選びなさい。","c":["give off","take in","keep back","cut down"],"e":"release it slowly at night の it は日中に吸収した熱を指し、「夜にゆっくりと（熱を）放出する」という意味です。give off は「（熱・光・においなど）を発する、出す」で最も近い意味です。take in は「取り入れる」で、直前の absorb に近く逆の意味です。keep back は「とどめておく」、cut down は「減らす、切り倒す」で文意に合いません。","m":"release＝give off（放出する）⇔absorb"},{"id":57,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（図書館の役割）：変化の理由","p":"For a long time, public libraries were seen mainly as quiet places for borrowing books. Visitors were expected to whisper, and the most important job of the staff was to keep the books in order. Today, however, many libraries are changing their role.\nOne reason is that people can now find a great deal of information online. If libraries only lent books, fewer people might visit them. To stay useful, many libraries have begun to offer new services. Some hold computer classes for older people who are not used to the internet. Others provide rooms where students can study together and talk freely, or spaces where local groups can hold meetings.\nSome people worry that these changes will make libraries noisy and that books will be forgotten. Librarians respond that the purpose of a library has always been to help people learn, and that books remain at the heart of their work. The new services, they say, simply give more people a reason to come through the door, and once they are inside, many of them leave with a book in their hands.","q":"本文によると、多くの図書館が新しいサービスを始めた理由として最も適当なものを選びなさい。","c":["People can now get a lot of information online, so libraries need to stay useful.","The government ordered libraries to stop lending books.","Older people no longer want to read books.","Librarians wanted their libraries to become even quieter."],"e":"第2段落に「一つの理由は、人々が今ではオンラインで多くの情報を得られることだ。図書館が本を貸すだけなら訪れる人は減るかもしれない。役に立ち続けるために新しいサービスを始めた」とあります。これに合うのが正解です。政府の命令や、高齢者が本を読みたがらないという記述はありません。また、新しいサービスは自由に話せる部屋などで、より静かにするためのものではありません。","m":"One reason is that 〜 が理由の目印"},{"id":58,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（図書館の役割）：司書の考え","p":"For a long time, public libraries were seen mainly as quiet places for borrowing books. Visitors were expected to whisper, and the most important job of the staff was to keep the books in order. Today, however, many libraries are changing their role.\nOne reason is that people can now find a great deal of information online. If libraries only lent books, fewer people might visit them. To stay useful, many libraries have begun to offer new services. Some hold computer classes for older people who are not used to the internet. Others provide rooms where students can study together and talk freely, or spaces where local groups can hold meetings.\nSome people worry that these changes will make libraries noisy and that books will be forgotten. Librarians respond that the purpose of a library has always been to help people learn, and that books remain at the heart of their work. The new services, they say, simply give more people a reason to come through the door, and once they are inside, many of them leave with a book in their hands.","q":"本文の第3段落で述べられている司書（librarians）の考えとして最も適当なものを選びなさい。","c":["Books are still central to their work, and the new services bring in more visitors.","Libraries should get rid of most of their books.","Libraries should go back to being completely silent places.","The main purpose of a library is to keep books in order."],"e":"司書たちは「図書館の目的は昔から人々の学びを助けることで、本は今も仕事の中心にある」と答え、新しいサービスは来館の理由を増やし、多くの人が本を借りて帰ると述べています。これに合うのが正解です。本を処分すべきという考えは books remain at the heart と矛盾します。完全に静かな場所に戻るべきだという考えは述べられていません。本を整理しておくことは、かつての職員の主な仕事として第1段落に出てくる内容で、司書が考える図書館の目的ではありません。","m":"respond that 以下が司書の主張"},{"id":59,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（食品ロス）：内容一致","p":"Food waste is a serious problem in many wealthy countries. When we think of it, we often imagine restaurants and supermarkets throwing away unsold food. In fact, a large part of the waste comes from ordinary homes.\nThere are several reasons for this. People sometimes buy more than they need, especially when items are on sale. The food is then forgotten at the back of the refrigerator until it goes bad. Another cause is confusion about date labels. Many people throw food away as soon as the date printed on the package has passed, even when it is still safe to eat. Some labels show the date until which the food tastes best, not the last day on which it can be eaten safely.\nSmall changes in daily habits can make a difference. Planning meals for the week, making a shopping list, and checking what is already in the refrigerator before going shopping can all help. Turning leftovers into new dishes is another simple idea. If each household wasted a little less, the total amount of waste would fall considerably.","q":"本文の内容に合うものとして最も適当なものを選びなさい。","c":["A large share of food waste is produced in ordinary households.","Most food waste comes from restaurants rather than from homes.","People rarely buy more food than they need, even during sales.","Food is always unsafe to eat once the date on the package has passed."],"e":"第1段落に「実は廃棄の大部分は普通の家庭から出ている」とあり、正解はその言い換えです。飲食店やスーパーは「私たちがよく思い浮かべるもの」として挙げられているだけで、大部分がそこから出るとは書かれていません。第2段落には、セールのときに必要以上に買ってしまうことがあるとあります。また、表示の日付を過ぎてもまだ安全に食べられる場合があると書かれているので、「常に危険」は誤りです。","m":"In fact の後に筆者の主張が来る"},{"id":60,"k":"plan","ref":"想定問題","f":"長文読解","t":"長文（食品ロス）：語の意味","p":"Food waste is a serious problem in many wealthy countries. When we think of it, we often imagine restaurants and supermarkets throwing away unsold food. In fact, a large part of the waste comes from ordinary homes.\nThere are several reasons for this. People sometimes buy more than they need, especially when items are on sale. The food is then forgotten at the back of the refrigerator until it goes bad. Another cause is confusion about date labels. Many people throw food away as soon as the date printed on the package has passed, even when it is still safe to eat. Some labels show the date until which the food tastes best, not the last day on which it can be eaten safely.\nSmall changes in daily habits can make a difference. Planning meals for the week, making a shopping list, and checking what is already in the refrigerator before going shopping can all help. Turning leftovers into new dishes is another simple idea. If each household wasted a little less, the total amount of waste would fall considerably.","q":"本文の最終文の considerably に最も意味の近いものを選びなさい。","c":["a great deal","slightly","suddenly","carefully"],"e":"considerably は形容詞 considerable「かなりの、相当な」の副詞形で、「かなり、大いに」という意味です。the total amount of waste would fall considerably は「廃棄の総量はかなり減るだろう」となり、a great deal「大いに」が最も近い意味です。slightly は「わずかに」で逆の意味、suddenly は「突然に」、carefully は「注意深く」で、程度を表す意味になりません。","m":"considerably＝a great deal（かなり）"}];
+var FIELDS=["文法・語法","語彙・イディオム","整序英作文","会話文","長文読解"];
+var KIND={past:"過去問ベース",plan:"想定問題"};
+var LS="kindai-eigo-v1";
+var scope="all";
+try{var sc0=localStorage.getItem(LS+"-scope");if(sc0==="past"||sc0==="plan")scope=sc0}catch(e){}
+function P(){return scope==="all"?QS:QS.filter(function(q){return q.k===scope})}
+var app=document.getElementById("app");
+var byId={};QS.forEach(function(q){byId[q.id]=q});
+var S={v:1,rev:0,at:0,stats:{},hist:[]};
+var view="home",X=null,tick=null,tab="exp",armed="";
+var ref=null,busy=false,dirty=false,deb=null,fails=0,syncState="local";
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function st(id){return S.stats[id]||null}
+function A(q){return q.a||0}
+function ord(q){var n=q.c.length,i,a=[];for(i=0;i<(q.last?n-1:n);i++)a.push(i);a=shuffle(a);if(q.last)a.push(n-1);return a}
+function yearLabel(y){return y<0?"前"+(-y)+"年":y+"年"}
+
+/* ---- 記録 ---- */
+function norm(d){d=d||{};return {v:1,rev:+d.rev||0,at:+d.at||0,stats:(d.stats&&typeof d.stats==="object")?JSON.parse(JSON.stringify(d.stats)):{},hist:Array.isArray(d.hist)?JSON.parse(JSON.stringify(d.hist)):[]}}
+function loadLocal(){try{var r=localStorage.getItem(LS);if(r){var d=JSON.parse(r);if(d&&d.v===1)S=norm(d)}}catch(e){}}
+function saveLocal(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
+function setSync(s){syncState=s;var el=document.getElementById("sync");if(el)el.textContent=s==="account"?"記録の保存先：アカウント（ほかの端末でも続きから使えます）":"記録の保存先：この端末のブラウザ"}
+function save(){S.rev++;S.at=Date.now();saveLocal();if(ref){dirty=true;clearTimeout(deb);deb=setTimeout(push,1200)}}
+function push(){
+  if(!ref||busy||!dirty)return;
+  busy=true;dirty=false;
+  ref.set(JSON.parse(JSON.stringify(S))).then(function(){fails=0;setSync("account")},function(e){
+    dirty=true;fails++;
+    if(!e||e.code!=="unavailable"||fails>=2){if(e&&e.code!=="unavailable"){ref=null}setSync("local")}
+  }).then(function(){busy=false;if(dirty&&ref&&fails<2){clearTimeout(deb);deb=setTimeout(push,3000)}});
+}
+function connect(){
+  try{
+    if(!window.claude||!window.claude.use)return;
+    Promise.all([window.claude.use("db"),window.claude.use("user")]).then(function(r){
+      var db=r[0],user=r[1];if(!db||!user)return null;
+      return user.id().then(function(uid){
+        if(!uid)return null;
+        var d=db.doc("data/users/"+uid+"/progress");
+        return d.get().then(function(snap){
+          ref=d;
+          var remote=snap.exists?norm(snap.data()):null;
+          if(remote&&remote.rev>S.rev){S=remote;saveLocal();if(view==="home")home()}
+          else if(S.rev>(remote?remote.rev:0)){dirty=true;push()}
+          setSync("account");
+        });
+      });
+    }).catch(function(){ref=null;setSync("local")});
+  }catch(e){}
+}
+
+/* ---- 出題 ---- */
+function rank(q){var s=st(q.id);if(!s||!s.n)return 0;return s.last===0?1:2}
+function pick(pool,n,ex){
+  var c=shuffle(pool.filter(function(q){return !ex||!ex[q.id]}));
+  c.sort(function(a,b){return rank(a)-rank(b)||((st(a.id)||{}).t||0)-((st(b.id)||{}).t||0)});
+  return c.slice(0,n);
+}
+function quotas(n){
+  var raw=FIELDS.map(function(f){return P().filter(function(q){return q.f===f}).length*n/P().length});
+  var base=raw.map(Math.floor),rest=n-base.reduce(function(a,b){return a+b},0);
+  var ord=raw.map(function(r,i){return [r-Math.floor(r),i]}).sort(function(a,b){return b[0]-a[0]});
+  for(var k=0;k<rest;k++)base[ord[k%ord.length][1]]++;
+  return base;
+}
+function buildFull(){
+  var n=Math.min(10,P().length),qt=quotas(n),out=[],used={};
+  FIELDS.forEach(function(f,i){pick(P().filter(function(q){return q.f===f}),qt[i]).forEach(function(q){out.push(q);used[q.id]=1})});
+  if(out.length<n)pick(P(),n-out.length,used).forEach(function(q){out.push(q)});
+  return shuffle(out);
+}
+function begin(kind,f,ex){
+  var list,mode="exam",title="";
+  if(kind==="full"){list=buildFull();title="10問テスト"}
+  else if(kind==="field"){list=pick(P().filter(function(q){return q.f===f}),10);title=f+"のテスト"}
+  else if(kind==="similar"){list=pick(P().filter(function(q){return q.f===f}),5,ex);mode="drill";title=f+"をもう5問"}
+  else{list=shuffle(QS.filter(function(q){var s=st(q.id);return s&&s.n&&s.last===0})).slice(0,10);mode="drill";title="まちがえた問題の復習"}
+  if(!list.length){home();return}
+  var now=Date.now(),limit=list.length*60;
+  X={mode:mode,kind:kind,f:f||"",title:title,k:0,start:now,limit:limit,deadline:now+limit*1000,done:false,
+     items:list.map(function(q){return {id:q.id,order:ord(q),pick:null,ok:null}})};
+  view="exam";tab="exp";armed="";run();
+}
+function run(){exam();startTick();window.scrollTo(0,0)}
+function startTick(){stopTick();if(!X||X.mode!=="exam"||X.done)return;paintClock();tick=setInterval(function(){if(!X||X.done){stopTick();return}if(Date.now()>=X.deadline){grade(true)}else paintClock()},500)}
+function stopTick(){if(tick){clearInterval(tick);tick=null}}
+function paintClock(){var el=document.getElementById("clock");if(!el||!X)return;var s=Math.max(0,Math.ceil((X.deadline-Date.now())/1000));el.textContent="残り "+Math.floor(s/60)+":"+("0"+s%60).slice(-2);el.className="clock"+(s<=60?" low":"")}
+function rec(id,ok,now){var s=S.stats[id]||(S.stats[id]={n:0,ok:0,last:0,t:0});s.n++;if(ok)s.ok++;s.last=ok?1:0;s.t=now}
+function grade(auto){
+  stopTick();var now=Date.now(),score=0;
+  X.items.forEach(function(it){it.ok=it.pick===A(byId[it.id]);if(it.ok)score++;rec(it.id,it.ok,now)});
+  X.score=score;X.sec=Math.min(Math.round((now-X.start)/1000),X.limit);X.auto=!!auto;X.done=true;
+  S.hist.push({ts:now,kind:X.kind,f:X.f,score:score,total:X.items.length,sec:X.sec});
+  if(S.hist.length>60)S.hist=S.hist.slice(-60);
+  save();view="result";result();window.scrollTo(0,0);
+}
+function finishDrill(){X.done=true;X.score=X.items.filter(function(it){return it.ok}).length;view="result";result();window.scrollTo(0,0)}
+
+/* ---- 画面：ホーム ---- */
+function home(){
+  view="home";stopTick();armed="";
+  var seen=P().filter(function(q){var s=st(q.id);return s&&s.n}).length;
+  var wrong=QS.filter(function(q){var s=st(q.id);return s&&s.n&&s.last===0}).length;
+  var ex=S.hist.filter(function(h){return h.kind==="full"});
+  var avg=ex.length?(ex.reduce(function(a,h){return a+h.score/h.total*10},0)/ex.length).toFixed(1):"–";
+  var qt=quotas(Math.min(10,P().length));
+  var h='<section class="panel start"><h2>第'+(ex.length+1)+'回　10問テスト</h2>'+
+    '<div class="seg" role="group" aria-label="出題範囲">'+[["all","すべて"],["past","過去問ベース"],["plan","想定問題"]].map(function(x){var n=x[0]==="all"?QS["length"]:QS.filter(function(q){return q.k===x[0]}).length;return '<button class="segb" data-act="scope" data-s="'+x[0]+'" aria-pressed="'+(scope===x[0])+'">'+x[1]+' <small>'+n+'問</small></button>'}).join("")+'</div>'+
+    '<ul class="spec"><li>問題数 <b>10問</b></li><li>制限時間 <b>10分</b></li><li>形式 <b>選択式</b></li><li>目標 <b>8問正解</b></li></ul>'+
+    '<p class="lead">'+FIELDS.map(function(f,i){return esc(f)+" "+qt[i]+"問"}).join("、")+"。まだ解いていない問題と、前回まちがえた問題から先に出します。</p>"+
+    '<div class="row"><button class="btn pri" data-act="full">10問テストを始める</button>'+
+    (wrong?'<button class="btn" data-act="wrong">まちがえた問題を復習（'+wrong+'問）</button>':'')+'</div></section>';
+  h+='<section class="panel"><h2>これまでの成績</h2><div class="nums">'+
+    '<div class="num"><span>テスト回数</span><b>'+ex.length+'<small> 回</small></b></div>'+
+    '<div class="num"><span>平均点</span><b>'+avg+'<small> /10</small></b></div>'+
+    '<div class="num"><span>解いた問題</span><b>'+seen+'<small> /'+P().length+'問</small></b></div></div>'+
+    (ex.length?'<div class="chips" aria-label="最近のテストの得点">'+ex.slice(-8).map(function(x){var r=x.score/x.total;return '<span class="sc '+(r>=.8?"good":r<.6?"bad":"")+'">'+x.score+"/"+x.total+"</span>"}).join("")+"</div>":'<p class="lead">1回目のテストを終えると、得点と分野別の定着度がここに出ます。</p>')+
+    "</section>";
+  h+='<section class="panel"><h2>分野別の定着度</h2><div class="fl">'+FIELDS.map(function(f,i){
+    var pool=P().filter(function(q){return q.f===f}),ok=0,ng=0;
+    pool.forEach(function(q){var s=st(q.id);if(s&&s.n){if(s.last)ok++;else ng++}});
+    return '<div class="fi"><span class="nm">'+esc(f)+'</span><div class="meter" role="img" aria-label="正解 '+ok+'問、要復習 '+ng+'問、全'+pool.length+'問"><i style="width:'+(ok/pool.length*100)+'%"></i><i class="w" style="width:'+(ng/pool.length*100)+'%"></i></div>'+
+      '<span class="meta">正解 '+ok+'　要復習 '+ng+'　未出題 '+(pool.length-ok-ng)+'（全'+pool.length+'問）</span>'+
+      '<button class="btn sm" data-act="field" data-f="'+i+'">この分野を解く</button></div>';
+  }).join("")+'</div><p class="legend"><span><i class="g"></i>直近で正解</span><span><i class="w"></i>直近で不正解</span><span><i></i>未出題</span></p></section>';
+  if(seen)h+='<div class="row end"><button class="btn ghost sm" data-act="reset">'+(armed==="reset"?"本当に消す（もう一度押す）":"記録をすべて消す")+"</button></div>";
+  app.innerHTML=h;
+}
+
+/* ---- 画面：解答 ---- */
+function passHtml(q){return q.p?'<div class="passage"'+(/^[\x00-\x7F\s]+$/.test(q.p.slice(0,200))?' lang="en"':"")+'>'+esc(q.p)+"</div>":""}
+function expHtml(q,it){
+  var ok=it.pick===A(q),mine=it.pick===null?"未回答":q.c[it.pick];
+  return '<div class="exp"><p class="verdict '+(ok?"ok":"ng")+'">'+(ok?"正解":"不正解")+"　答えは「"+esc(q.c[A(q)])+"」"+(ok?"":'<br><span class="src">あなたの答え：'+esc(mine)+"</span>")+"</p>"+
+    "<p>"+esc(q.e)+"</p>"+
+    '<p class="memo"><span>覚え方</span>'+esc(q.m)+"</p>"+
+    '<p class="src">'+(q.k==="past"?"過去問ベース：近畿大学 "+esc(q.ref)+"（問われた知識をもとに作り直した問題です）":"想定問題（近畿大学の出題傾向に合わせて作成した問題で、実際の出題ではありません）")+"</p></div>";
+}
+function optsHtml(q,it,reveal){
+  return '<div class="opts">'+it.order.map(function(ci,j){
+    var cls="";
+    if(reveal){cls=ci===A(q)?" right":(it.pick===ci?" wrong":"")}else if(it.pick===ci)cls=" sel";
+    return '<button class="opt'+cls+'" data-act="pick" data-c="'+ci+'"'+(reveal?" disabled":"")+'><span class="mark">'+"abcde".charAt(j)+'</span><span class="txt">'+esc(q.c[ci])+"</span></button>";
+  }).join("")+"</div>";
+}
+function exam(){
+  var N=X.items.length,it=X.items[X.k],q=byId[it.id],drill=X.mode==="drill",answered=it.pick!==null,last=X.k===N-1;
+  var h='<div class="bar"><div class="bar-row"><span class="bar-title">'+esc(X.title)+'</span><span class="count">問 '+(X.k+1)+"<small> /"+N+"</small></span>"+(drill?"":'<span class="clock" id="clock"></span>')+"</div>"+
+    '<div class="dots">'+X.items.map(function(x,i){
+      var c=drill?(x.pick===null?"":(x.ok?" ok":" ng")):(x.pick===null?"":" done");
+      return '<button class="dot'+c+(i===X.k?" cur":"")+'" data-act="go" data-i="'+i+'" aria-label="問'+(i+1)+'へ"'+(drill&&x.pick===null&&i!==X.k?" disabled":"")+"></button>";
+    }).join("")+"</div></div>";
+  h+='<article class="sheet"><p class="chip">'+esc(q.f)+"｜"+KIND[q.k]+'</p>'+passHtml(q)+'<h2 class="q">'+esc(q.q)+"</h2>"+optsHtml(q,it,drill&&answered)+(drill&&answered?expHtml(q,it):"")+"</article>";
+  if(armed==="grade"){
+    var un=X.items.filter(function(x){return x.pick===null}).length;
+    h+='<div class="ask"><p>未回答が'+un+'問あります。未回答は不正解になります。</p><div class="row"><button class="btn sm" data-act="unans">未回答の問題へ</button><button class="btn sm" data-act="grade2">このまま採点する</button></div></div>';
+  }
+  h+='<div class="row split"><button class="btn ghost sm" data-act="quit">'+(armed==="quit"?(drill?"ホームへ戻る（もう一度押す）":"記録せずにやめる（もう一度押す）"):"やめる")+"</button><div class=\"row\">"+
+    '<button class="btn" data-act="prev"'+(X.k===0?" disabled":"")+">前へ</button>"+
+    (drill
+      ? (last?'<button class="btn pri" data-act="fin"'+(answered?"":" disabled")+">結果を見る</button>":'<button class="btn pri" data-act="next"'+(answered?"":" disabled")+">次へ</button>")
+      : (last?'<button class="btn pri" data-act="grade">採点する</button>':'<button class="btn pri" data-act="next">次へ</button>'))+
+    "</div></div>";
+  app.innerHTML=h;paintClock();
+}
+
+/* ---- 画面：結果 ---- */
+function result(){
+  var N=X.items.length,r=X.score/N,drill=X.mode==="drill";
+  var j=r>=.8?["good","目標クリアです。この調子で次の回へ進みましょう。"]:r>=.7?["mid","あと1問で目標の8割です。まちがえた問題の解説を読んでから次へ。"]:["bad","解説と覚え方を確認して、同じ分野をもう5問解いてみましょう。"];
+  var h='<section class="panel"><h2>'+esc(X.title)+"の結果</h2>"+
+    '<div class="score"><b>'+X.score+"</b><span>/ "+N+"問"+(drill?"":"　解答時間 "+Math.floor(X.sec/60)+"分"+("0"+X.sec%60).slice(-2)+"秒"+(X.auto?"（時間切れ）":""))+"</span></div>"+
+    '<p class="judge '+j[0]+'">'+j[1]+"</p>";
+  var wf=[];X.items.forEach(function(it){var f=byId[it.id].f;if(!it.ok&&wf.indexOf(f)<0)wf.push(f)});
+  h+='<div class="row">'+wf.map(function(f){return '<button class="btn sm" data-act="similar" data-f="'+FIELDS.indexOf(f)+'">'+esc(f)+"をもう5問</button>"}).join("")+
+    '<button class="btn sm pri" data-act="full">次の10問テスト</button><button class="btn sm" data-act="home">ホームへ</button></div></section>';
+  var hasY=X.items.every(function(it){return typeof byId[it.id].y==="number"});
+  if(hasY)h+='<div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="'+(tab==="exp")+'" data-act="tab" data-t="exp">解説</button><button class="tab" role="tab" aria-selected="'+(tab==="tl")+'" data-act="tab" data-t="tl">年表で流れを見る</button></div>';
+  if(tab==="tl"&&hasY){
+    var s=X.items.slice().sort(function(a,b){return byId[a.id].y-byId[b.id].y});
+    h+='<section class="panel"><p class="lead">今回の'+N+'問を古い順に並べました。出来事の時期と順序をあわせて確かめましょう。</p><ol class="tl">'+s.map(function(it){var q=byId[it.id];
+      return '<li><span class="yr">'+yearLabel(q.y)+'</span><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="ev">'+esc(q.t)+"<small>"+esc(q.f)+"</small></span></li>"}).join("")+"</ol></section>";
+  }else{
+    h+='<div class="rev">'+X.items.map(function(it,i){var q=byId[it.id];
+      return '<details class="it"'+(it.ok?"":" open")+'><summary><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="sm-t">問'+(i+1)+"　"+esc(q.t)+"<small>"+esc(q.f)+"｜"+KIND[q.k]+"</small></span></summary>"+
+        '<div class="it-body">'+passHtml(q)+'<p class="q">'+esc(q.q)+"</p>"+optsHtml(q,it,true)+expHtml(q,it)+"</div></details>"}).join("")+"</div>";
+  }
+  app.innerHTML=h;
+}
+
+/* ---- 操作 ---- */
+app.addEventListener("click",function(e){
+  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
+  var a=b.getAttribute("data-act");
+  if(a!=="quit"&&a!=="reset"&&a!=="grade"&&armed){var was=armed;armed="";if(was==="grade"&&a!=="grade2"&&a!=="unans"){/* 確認を閉じる */}}
+  if(a==="full")begin("full");
+  else if(a==="field")begin("field",FIELDS[+b.getAttribute("data-f")]);
+  else if(a==="wrong")begin("wrong");
+  else if(a==="similar"){var ex={};if(X)X.items.forEach(function(it){ex[it.id]=1});begin("similar",FIELDS[+b.getAttribute("data-f")],ex)}
+  else if(a==="scope"){scope=b.getAttribute("data-s");try{localStorage.setItem(LS+"-scope",scope)}catch(e){}home()}
+  else if(a==="home")home();
+  else if(a==="reset"){if(armed==="reset"){S.stats={};S.hist=[];armed="";save();home()}else{armed="reset";home()}}
+  else if(a==="tab"){tab=b.getAttribute("data-t");result()}
+  else if(!X)return;
+  else if(a==="pick"){
+    var it=X.items[X.k],ci=+b.getAttribute("data-c");
+    if(X.mode==="drill"){if(it.pick!==null)return;it.pick=ci;it.ok=ci===A(byId[it.id]);rec(it.id,it.ok,Date.now());save()}else{it.pick=ci}
+    exam();
+  }
+  else if(a==="go"){X.k=+b.getAttribute("data-i");exam()}
+  else if(a==="prev"){if(X.k>0)X.k--;exam();window.scrollTo(0,0)}
+  else if(a==="next"){if(X.k<X.items.length-1)X.k++;exam();window.scrollTo(0,0)}
+  else if(a==="grade"){if(X.items.some(function(x){return x.pick===null})){armed="grade";exam()}else grade(false)}
+  else if(a==="grade2")grade(false);
+  else if(a==="unans"){for(var i=0;i<X.items.length;i++){if(X.items[i].pick===null){X.k=i;break}}exam();window.scrollTo(0,0)}
+  else if(a==="fin")finishDrill();
+  else if(a==="quit"){if(armed==="quit"){X=null;home();window.scrollTo(0,0)}else{armed="quit";exam()}}
+});
+
+/* ---- 起動 ---- */
+function start(data){
+  loadLocal();setSync("local");
+  if(data&&data.X&&data.X.items&&data.X.items.every(function(it){return byId[it.id]})){X=data.X;view=data.view||"exam";tab=data.tab||"exp";if(view==="result"){result()}else{view="exam";exam();startTick()}}
+  else home();
+  connect();
+}
+try{if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(function(){return (view==="home"||!X)?{}:{view:view,tab:tab,X:X}})}catch(e){}
+if(window.claude&&window.claude.hot&&window.claude.hot.ready)window.claude.hot.ready(start);
+else start((window.claude&&window.claude.hot&&window.claude.hot.data)||{});
+})();
+</script>
+
+</body></html>
