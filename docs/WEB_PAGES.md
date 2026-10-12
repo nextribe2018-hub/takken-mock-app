@@ -35,7 +35,7 @@
 | `zeirishi-zaihyo` | 500 | 285 | https://claude.ai/artifact/CVD7XPnJPbNCpTygLkSd4L |
 | `zeirishi-houjin` | 300 | 169 | https://claude.ai/artifact/5svegi4HDdsJmhaRdpknYA |
 | `zeirishi-shotoku` | 300 | 184 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
-| `zeirishi-shouhi` | 300 | 149 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
+| `zeirishi-shouhi` | 500 | 216 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
 | `zeirishi-souzoku` | 300 | 173 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
 
 ## 資格試験 FP・簿記・不動産管理・社労士・行政書士（2026-10-12 追加、2026-10-13 に各300問、以後500問へ増量）
