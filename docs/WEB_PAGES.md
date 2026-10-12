@@ -34,7 +34,7 @@
 | `zeirishi-boki` | 500 | 246 | https://claude.ai/artifact/EQUepUHRpBqkYywD6KMin6 |
 | `zeirishi-zaihyo` | 500 | 285 | https://claude.ai/artifact/CVD7XPnJPbNCpTygLkSd4L |
 | `zeirishi-houjin` | 300 | 169 | https://claude.ai/artifact/5svegi4HDdsJmhaRdpknYA |
-| `zeirishi-shotoku` | 300 | 184 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
+| `zeirishi-shotoku` | 500 | 227 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
 | `zeirishi-shouhi` | 500 | 216 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
 | `zeirishi-souzoku` | 300 | 173 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
 
