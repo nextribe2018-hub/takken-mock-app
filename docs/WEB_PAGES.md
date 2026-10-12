@@ -52,3 +52,4 @@
 | `fp-2kyu` | 100 | 95 | https://claude.ai/artifact/KdzqzfEY2x2jc5JknajGvh |
 | `fp-3kyu` | 100 | 100 | https://claude.ai/artifact/72KUqkwyDbP95Z1eg43gUB |
 | `denko1-gakka` | 100 | 93 | https://claude.ai/artifact/NduUuJjF8hMGnCLWEEnfqC |
+| `boiler2-all` | 100 | 98 | https://claude.ai/artifact/75Fzbh3wS4N84Bv5QHoiF5 |
