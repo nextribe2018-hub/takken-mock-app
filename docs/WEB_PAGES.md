@@ -71,3 +71,4 @@
 | id | 問題数 | 過去問題（原文） | URL |
 |---|---|---|---|
 | `shakai-all` | 178 | 178 | https://claude.ai/artifact/9eL6cNVu5Mqa6dFge96JKK |
+| `kaigo-all` | 369 | 369 | https://claude.ai/artifact/452joheaiZka5eQV3Yq34S |
