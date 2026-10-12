@@ -57,3 +57,5 @@
 | id | 問題数 | 過去問ベース | URL |
 |---|---|---|---|
 | `denken3-denryoku` | 100 | 85 | https://claude.ai/artifact/PoLVwJUobFoDEb6QhUxwGp |
+| `denken3-riron` | 100 | 81 | https://claude.ai/artifact/311ucRRBqYMBdVKZD6ML1k |
+| `denken3-kikai` | 100 | 88 | https://claude.ai/artifact/FaGfSVh9o79rnKQm5DLDPL |
