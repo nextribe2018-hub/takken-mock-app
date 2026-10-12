@@ -53,4 +53,4 @@
 | `fp-3kyu` | 100 | 100 | https://claude.ai/artifact/72KUqkwyDbP95Z1eg43gUB |
 | `denko1-gakka` | 100 | 93 | https://claude.ai/artifact/NduUuJjF8hMGnCLWEEnfqC |
 | `boiler2-all` | 100 | 98 | https://claude.ai/artifact/75Fzbh3wS4N84Bv5QHoiF5 |
-| `kango-all` | 100 | 100 | https://claude.ai/artifact/AiSqs9V2BMBC9719QFKLsB |
+| `kango-all` | 200 | 200 | https://claude.ai/artifact/AiSqs9V2BMBC9719QFKLsB |
