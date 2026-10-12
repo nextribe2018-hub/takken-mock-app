@@ -43,7 +43,7 @@
 | id | 問題数 | 過去問ベース | URL |
 |---|---|---|---|
 | `fp-san` | 500 | 172 | https://claude.ai/artifact/2V1sE9SP6yVDu2VSZmRxVk |
-| `fp-ni` | 300 | 260 | https://claude.ai/artifact/PE3qkZVq8ZizRsz17Ajk8t |
+| `fp-ni` | 500 | 320 | https://claude.ai/artifact/PE3qkZVq8ZizRsz17Ajk8t |
 | `boki-san` | 500 | 0 | https://claude.ai/artifact/XAZGPQjT1bJZQVHbHTJh6e |
 | `boki-ni` | 500 | 0 | https://claude.ai/artifact/GHwMCcDn8wFQcC1pQAc9ya |
 | `kanri-all` | 500 | 307 | https://claude.ai/artifact/VBvVyBoVMczNaBMVUjHPpV |
