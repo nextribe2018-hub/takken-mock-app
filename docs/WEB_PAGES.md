@@ -7,7 +7,7 @@
 |---|---|---|---|
 | `kindai-nihonshi` | 200 | 143 | https://claude.ai/artifact/Ee6zAk4pUQtiSzKd15ZJbR |
 | `kindai-sekaishi` | 200 | 136 | https://claude.ai/artifact/Fviwt1QsYuvaMaoSt2vQaN |
-| `kindai-eigo` | 60 | 40 | https://claude.ai/artifact/Mzrjcy714iNHNfWNkmaBYo |
+| `kindai-eigo` | 200 | 117 | https://claude.ai/artifact/Mzrjcy714iNHNfWNkmaBYo |
 | `kindai-kokugo` | 60 | 25 | https://claude.ai/artifact/WFisHye6gXGCxiCJT9z6Xr |
 | `nichidai-nihonshi` | 200 | 139 | https://claude.ai/artifact/661bJ9TM3nrHd6k3UxaC8H |
 | `nichidai-sekaishi` | 100 | 72 | https://claude.ai/artifact/LqDopEjwkuAaxPVBEXMwYQ |
@@ -24,7 +24,7 @@
 | `todai-eigo` | 60 | 0 | https://claude.ai/artifact/Hjchh8gRcfXZZccBeSYLhM |
 | `todai-kokugo` | 200 | 46 | https://claude.ai/artifact/QT4LFPTV8tteM2SLwX4N9E |
 | `todai-sugaku-bun` | 200 | 64 | https://claude.ai/artifact/925rVGJjXS33K3opHNBvMZ |
-| `todai-sugaku-ri` | 60 | 31 | https://claude.ai/artifact/UxL9BJUUDossS74XRJMnaH |
+| `todai-sugaku-ri` | 200 | 70 | https://claude.ai/artifact/UxL9BJUUDossS74XRJMnaH |
 | `todai-nihonshi` | 200 | 102 | https://claude.ai/artifact/JhqjaFiZaSfY3DCEMB1HbN |
 | `todai-chiri` | 200 | 90 | https://claude.ai/artifact/Um7QqcLmr8i6NZZ1Cmidnk |
 | `todai-butsuri` | 200 | 88 | https://claude.ai/artifact/B37oWrkyt9HsowZCkM2i4r |
