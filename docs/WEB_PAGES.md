@@ -6,7 +6,7 @@
 | id | 問題数 | 過去問ベース | URL |
 |---|---|---|---|
 | `kindai-nihonshi` | 200 | 143 | https://claude.ai/artifact/Ee6zAk4pUQtiSzKd15ZJbR |
-| `kindai-sekaishi` | 100 | 65 | https://claude.ai/artifact/Fviwt1QsYuvaMaoSt2vQaN |
+| `kindai-sekaishi` | 200 | 136 | https://claude.ai/artifact/Fviwt1QsYuvaMaoSt2vQaN |
 | `kindai-eigo` | 60 | 40 | https://claude.ai/artifact/Mzrjcy714iNHNfWNkmaBYo |
 | `kindai-kokugo` | 60 | 25 | https://claude.ai/artifact/WFisHye6gXGCxiCJT9z6Xr |
 | `nichidai-nihonshi` | 200 | 139 | https://claude.ai/artifact/661bJ9TM3nrHd6k3UxaC8H |
