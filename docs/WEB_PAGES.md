@@ -32,11 +32,11 @@
 | `todai-sekaishi` | 200 | 70 | https://claude.ai/artifact/VKhh2Q8SMCqvuD8NWM9wwK |
 | `todai-seibutsu` | 120 | 48 | https://claude.ai/artifact/WqLWSSFaKe3vdcSeUPoqbw |
 | `zeirishi-boki` | 200 | 74 | https://claude.ai/artifact/EQUepUHRpBqkYywD6KMin6 |
-| `zeirishi-zaihyo` | 100 | 85 | https://claude.ai/artifact/CVD7XPnJPbNCpTygLkSd4L |
-| `zeirishi-houjin` | 100 | 67 | https://claude.ai/artifact/5svegi4HDdsJmhaRdpknYA |
-| `zeirishi-shotoku` | 100 | 70 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
-| `zeirishi-shouhi` | 100 | 46 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
-| `zeirishi-souzoku` | 100 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
+| `zeirishi-zaihyo` | 200 | 85 | https://claude.ai/artifact/CVD7XPnJPbNCpTygLkSd4L |
+| `zeirishi-houjin` | 200 | 67 | https://claude.ai/artifact/5svegi4HDdsJmhaRdpknYA |
+| `zeirishi-shotoku` | 200 | 70 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
+| `zeirishi-shouhi` | 200 | 46 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
+| `zeirishi-souzoku` | 200 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
 | `koukou-rekishi` | 200 | 0 | https://claude.ai/artifact/4Dg5Sji8i5NmY5P2RHGw4V |
 | `koukou-chiri` | 120 | 0 | https://claude.ai/artifact/9hyXij67QnF71D4K7f1QtD |
 | `koukou-koumin` | 120 | 0 | https://claude.ai/artifact/8CE679aVjfM3bsMTJ3B2g3 |
