@@ -998,5 +998,1005 @@
   ],
   "e": "空所の後で司書は「図書館のウェブサイトで読める電子版がある」と代わりの方法を示し、学生も「そのほうがいい」と喜んでいます。したがって「待つ必要はまったくないかもしれません」が入ります。But で始まり、知らせを待つという前の話から流れを変えている点もヒントです。「運が悪い」「テーマを変えるべき」「ほかでは読めない」は、電子版があるという直後の発言と矛盾します。",
   "m": "Alternatively／But ～＝代案を出す合図"
+ },
+ {
+  "id": 61,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "市民科学：科学者にとっての利点",
+  "p": "For most of the history of modern science, research was carried out by trained professionals in universities, laboratories and government agencies. Ordinary people appeared mainly as subjects to be studied or as an audience to be informed. In recent decades, however, a growing number of projects have invited members of the public to take part in research itself. Volunteers count birds in their gardens, record the dates on which flowers bloom, or classify galaxies in images posted online.\nThe appeal for scientists is easy to see. Many questions in ecology require observations spread across huge areas and long periods. No research team could afford to send paid staff to thousands of places every spring for decades, but volunteers can collect such data at little cost.\nProfessional researchers were at first doubtful about data gathered by amateurs. Their concern was not unreasonable: a beginner may confuse similar species or record observations carelessly. Project designers have responded by providing training and simple identification guides, asking several volunteers to classify the same item independently, and using statistical methods to detect records that look unusual. Studies comparing volunteer and expert data have found that, with such safeguards, the two are often similar in accuracy.\nSupporters argue that the benefits go beyond the data. Participants often say they have come to notice their local environment more closely, and some become active in protecting it. Critics, though, point out that volunteers tend to be concentrated in wealthier, more urban areas, so the resulting maps may say more about where people live than about where animals do.",
+  "q": "次の英文を読み、科学者が一般の参加者を研究に招くことの利点として、本文に最も合うものを選びなさい。",
+  "c": [
+   "Volunteers make it possible to gather observations over areas and periods too large for paid staff.",
+   "Volunteers are generally more accurate observers than professional researchers.",
+   "Volunteers can see galaxies that professional astronomers are unable to observe.",
+   "Universities no longer employ enough trained researchers to carry out field work."
+  ],
+  "e": "第2段落に「広大な地域・長期間にわたる観察が必要だが、有給の職員を何千か所にも毎春何十年も派遣する余裕はない。ボランティアなら少ない費用で集められる」とあり、正解と一致します。「専門家より正確」は、第3段落で「安全策があれば同程度の正確さ」とあるだけで、上回るとは述べていません。「専門家に見えない銀河が見える」「大学の研究者が足りない」は本文に書かれていません。",
+  "m": "市民科学の強み＝広い範囲・長い期間のデータ"
+ },
+ {
+  "id": 62,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "市民科学：データの質",
+  "p": "For most of the history of modern science, research was carried out by trained professionals in universities, laboratories and government agencies. Ordinary people appeared mainly as subjects to be studied or as an audience to be informed. In recent decades, however, a growing number of projects have invited members of the public to take part in research itself. Volunteers count birds in their gardens, record the dates on which flowers bloom, or classify galaxies in images posted online.\nThe appeal for scientists is easy to see. Many questions in ecology require observations spread across huge areas and long periods. No research team could afford to send paid staff to thousands of places every spring for decades, but volunteers can collect such data at little cost.\nProfessional researchers were at first doubtful about data gathered by amateurs. Their concern was not unreasonable: a beginner may confuse similar species or record observations carelessly. Project designers have responded by providing training and simple identification guides, asking several volunteers to classify the same item independently, and using statistical methods to detect records that look unusual. Studies comparing volunteer and expert data have found that, with such safeguards, the two are often similar in accuracy.\nSupporters argue that the benefits go beyond the data. Participants often say they have come to notice their local environment more closely, and some become active in protecting it. Critics, though, point out that volunteers tend to be concentrated in wealthier, more urban areas, so the resulting maps may say more about where people live than about where animals do.",
+  "q": "次の英文を読み、一般の参加者が集めたデータの質について、本文の内容に最も合うものを選びなさい。",
+  "c": [
+   "With suitable safeguards, volunteer data can be about as accurate as data collected by experts.",
+   "Professional researchers' doubts turned out to be groundless from the very beginning.",
+   "Volunteers must pass a formal examination before they are allowed to record data.",
+   "Records that look unusual are automatically deleted without being checked by anyone."
+  ],
+  "e": "第3段落の最後に「そうした安全策があれば、両者はしばしば正確さが同程度である」とあり、正解と一致します。専門家の懸念については not unreasonable（もっともな）と述べているので、「最初から根拠がなかった」は誤りです。行われているのは訓練や識別ガイドの提供で、「正式な試験」は書かれていません。統計的手法は異常な記録を「見つける（detect）」ためのもので、「自動的に削除する」とは述べていません。",
+  "m": "not unreasonable＝もっともな（二重否定）"
+ },
+ {
+  "id": 63,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "市民科学：批判派の懸念",
+  "p": "For most of the history of modern science, research was carried out by trained professionals in universities, laboratories and government agencies. Ordinary people appeared mainly as subjects to be studied or as an audience to be informed. In recent decades, however, a growing number of projects have invited members of the public to take part in research itself. Volunteers count birds in their gardens, record the dates on which flowers bloom, or classify galaxies in images posted online.\nThe appeal for scientists is easy to see. Many questions in ecology require observations spread across huge areas and long periods. No research team could afford to send paid staff to thousands of places every spring for decades, but volunteers can collect such data at little cost.\nProfessional researchers were at first doubtful about data gathered by amateurs. Their concern was not unreasonable: a beginner may confuse similar species or record observations carelessly. Project designers have responded by providing training and simple identification guides, asking several volunteers to classify the same item independently, and using statistical methods to detect records that look unusual. Studies comparing volunteer and expert data have found that, with such safeguards, the two are often similar in accuracy.\nSupporters argue that the benefits go beyond the data. Participants often say they have come to notice their local environment more closely, and some become active in protecting it. Critics, though, point out that volunteers tend to be concentrated in wealthier, more urban areas, so the resulting maps may say more about where people live than about where animals do.",
+  "q": "次の英文を読み、批判的な人々が指摘する問題として最も適当なものを選びなさい。",
+  "c": [
+   "The data may reflect where participants live rather than where wildlife is actually found.",
+   "Volunteers gradually lose interest in their local environment.",
+   "Wealthy volunteers tend to exaggerate the number of animals they observe.",
+   "Urban areas contain too few species to be worth studying at all."
+  ],
+  "e": "最終段落で批判派は「参加者は裕福で都市的な地域に集中しがちなので、できあがった地図は動物のいる場所より人の住む場所を示しているかもしれない」と述べており、正解と一致します。「地元の環境への関心を失う」は、参加者が環境をよく見るようになるという記述と逆です。「数を誇張する」や「都市には研究する価値がない」は本文にありません。",
+  "m": "say more about A than B＝BよりAを示す"
+ },
+ {
+  "id": 64,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "プラセボ：新薬の試験での位置づけ",
+  "p": "Doctors have long known that patients sometimes feel better after receiving a treatment that contains no active ingredient. A sugar pill presented as a painkiller can reduce reported pain. This phenomenon, the placebo effect, was once regarded mainly as a nuisance. When a new drug is tested, it is compared with a placebo, and the drug is judged effective only if it performs better than the dummy treatment. In this setting, the placebo effect is simply background noise to be subtracted.\nMore recently, researchers have begun to study the effect for its own sake. Several factors appear to strengthen it. Expensive-looking pills tend to work better than cheap ones, and injections better than tablets. The manner of the doctor also matters: patients who are treated warmly and given time to describe their symptoms often report greater improvement than those who receive the same placebo from a hurried, distant doctor.\nPerhaps the most surprising finding comes from studies in which patients are told openly that they are receiving a placebo. One might expect the effect to vanish once the deception is removed. In several small trials, however, patients with conditions such as chronic back pain reported improvements even though they knew the pills contained nothing active. Researchers suspect that the ritual of treatment itself, taking a pill at fixed times as part of a plan, may trigger the body's own responses.\nNone of this means that placebos can cure everything. Their effects are strongest on symptoms that patients report themselves, such as pain, fatigue or nausea, and much weaker on measurable conditions such as the size of a tumor. Still, the findings suggest that the relationship between doctor and patient is not an extra added to medicine but part of the treatment.",
+  "q": "次の英文を読み、新薬の試験においてプラセボが従来果たしてきた役割として、本文に最も合うものを選びなさい。",
+  "c": [
+   "It served as a standard that a new drug had to outperform.",
+   "It was regarded as a cheap substitute for expensive drugs.",
+   "It was used mainly to make patients trust their doctors more.",
+   "It was given only to patients who refused to take real drugs."
+  ],
+  "e": "第1段落に「新薬を試験するときはプラセボと比較され、偽の治療より効果が上回った場合にだけ有効と判断される」とあり、プラセボは新薬が超えるべき基準だったことがわかります。「高価な薬の安い代用品」「医師への信頼を高めるため」「本物の薬を拒んだ患者だけに与えた」という記述は本文にありません。むしろプラセボ効果は「差し引くべき雑音」として扱われていたと述べています。",
+  "m": "dummy treatment＝偽の治療（比較の基準）"
+ },
+ {
+  "id": 65,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "プラセボ：だまさない投与",
+  "p": "Doctors have long known that patients sometimes feel better after receiving a treatment that contains no active ingredient. A sugar pill presented as a painkiller can reduce reported pain. This phenomenon, the placebo effect, was once regarded mainly as a nuisance. When a new drug is tested, it is compared with a placebo, and the drug is judged effective only if it performs better than the dummy treatment. In this setting, the placebo effect is simply background noise to be subtracted.\nMore recently, researchers have begun to study the effect for its own sake. Several factors appear to strengthen it. Expensive-looking pills tend to work better than cheap ones, and injections better than tablets. The manner of the doctor also matters: patients who are treated warmly and given time to describe their symptoms often report greater improvement than those who receive the same placebo from a hurried, distant doctor.\nPerhaps the most surprising finding comes from studies in which patients are told openly that they are receiving a placebo. One might expect the effect to vanish once the deception is removed. In several small trials, however, patients with conditions such as chronic back pain reported improvements even though they knew the pills contained nothing active. Researchers suspect that the ritual of treatment itself, taking a pill at fixed times as part of a plan, may trigger the body's own responses.\nNone of this means that placebos can cure everything. Their effects are strongest on symptoms that patients report themselves, such as pain, fatigue or nausea, and much weaker on measurable conditions such as the size of a tumor. Still, the findings suggest that the relationship between doctor and patient is not an extra added to medicine but part of the treatment.",
+  "q": "次の英文を読み、患者にプラセボであることを伝えたうえで投与した研究の結果として、本文に最も合うものを選びなさい。",
+  "c": [
+   "Some patients reported improvements even though they knew the pills contained nothing active.",
+   "The effect disappeared as soon as patients learned the truth about the pills.",
+   "The openly given placebos worked better than real painkillers.",
+   "Researchers concluded that the patients had secretly received active drugs."
+  ],
+  "e": "第3段落に「効果は消えると予想されるが、いくつかの小規模な試験では、慢性の腰痛などの患者が、有効成分が入っていないと知っていたにもかかわらず改善を報告した」とあり、正解と一致します。「真実を知るとすぐ効果が消えた」は予想（One might expect）であって結果とは逆です。「本物の鎮痛剤より効いた」「実は有効な薬が与えられていた」は本文にありません。",
+  "m": "One might expect ～, however …＝予想を覆す展開"
+ },
+ {
+  "id": 66,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "プラセボ：筆者の結論",
+  "p": "Doctors have long known that patients sometimes feel better after receiving a treatment that contains no active ingredient. A sugar pill presented as a painkiller can reduce reported pain. This phenomenon, the placebo effect, was once regarded mainly as a nuisance. When a new drug is tested, it is compared with a placebo, and the drug is judged effective only if it performs better than the dummy treatment. In this setting, the placebo effect is simply background noise to be subtracted.\nMore recently, researchers have begun to study the effect for its own sake. Several factors appear to strengthen it. Expensive-looking pills tend to work better than cheap ones, and injections better than tablets. The manner of the doctor also matters: patients who are treated warmly and given time to describe their symptoms often report greater improvement than those who receive the same placebo from a hurried, distant doctor.\nPerhaps the most surprising finding comes from studies in which patients are told openly that they are receiving a placebo. One might expect the effect to vanish once the deception is removed. In several small trials, however, patients with conditions such as chronic back pain reported improvements even though they knew the pills contained nothing active. Researchers suspect that the ritual of treatment itself, taking a pill at fixed times as part of a plan, may trigger the body's own responses.\nNone of this means that placebos can cure everything. Their effects are strongest on symptoms that patients report themselves, such as pain, fatigue or nausea, and much weaker on measurable conditions such as the size of a tumor. Still, the findings suggest that the relationship between doctor and patient is not an extra added to medicine but part of the treatment.",
+  "q": "次の英文を読み、最終段落から読み取れる筆者の考えとして最も適当なものを選びなさい。",
+  "c": [
+   "The way doctors treat their patients can itself contribute to the effect of treatment.",
+   "Placebos could replace most conventional drugs if they were given openly.",
+   "Placebos have their strongest effects on measurable conditions such as tumors.",
+   "The placebo effect is merely background noise and should be ignored by doctors."
+  ],
+  "e": "最終段落の最後で「医師と患者の関係は医療に付け足されたおまけではなく、治療の一部だ」と述べており、正解と合います。冒頭で「プラセボが何でも治せるわけではない」と断っているので「大部分の薬の代わりになる」は誤りです。効果が強いのは痛み・疲労など患者が自分で報告する症状で、腫瘍の大きさのような測定できる状態には弱いので、その記述も逆です。「雑音として無視すべき」は、かつての見方で筆者の結論ではありません。",
+  "m": "not A but B＝AではなくB（筆者の主張）"
+ },
+ {
+  "id": 67,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "文化財返還：「普遍的博物館」の主張",
+  "p": "Many of the great museums of Europe and North America hold objects that were taken from other parts of the world during the colonial era. Some were purchased, some were given as gifts, and some were seized during military campaigns. For a long time, museums defended their right to keep such collections by arguing that they are \"universal\" institutions, where visitors from every country can compare the achievements of different cultures side by side under one roof.\nIn recent years, this argument has come under growing pressure. Governments and communities in the countries of origin have asked for the return of objects that they regard as part of their history, and in some cases as sacred. They point out that it is far easier for a tourist in London or Paris to see these objects than for the descendants of the people who made them. Several museums have now agreed to return particular items, especially those whose removal was clearly violent.\nMuseum officials often raise practical objections. They ask whether the receiving institutions have the facilities to preserve fragile materials, and they worry that returning one object will lead to claims for thousands of others. Supporters of return respond that the first concern can be addressed through cooperation, such as sharing conservation expertise and arranging loans, and that the second is not a valid reason to refuse claims that are justified.\nSome observers suggest that the debate is gradually changing what museums understand themselves to be. Rather than owners who guard objects forever, museums may come to see themselves as temporary caretakers, responsible for telling the full story of how each object arrived in their galleries, including the parts of that story that reflect badly on the museum.",
+  "q": "次の英文を読み、博物館が収蔵品を保持する根拠として長く主張してきた内容に最も合うものを選びなさい。",
+  "c": [
+   "Keeping objects from many cultures in one place allows visitors to compare them.",
+   "Objects that were bought legally can never be claimed by other countries.",
+   "Museums in the countries of origin are too small to attract visitors.",
+   "Sacred objects should be shown only to people who share the same beliefs."
+  ],
+  "e": "第1段落で、博物館は自らを「普遍的」な施設だとし、「あらゆる国の来館者が一つの屋根の下で異なる文化の業績を並べて比べられる」と主張してきたと述べています。正解はこの内容です。「合法的に買ったものは請求されない」「原産国の博物館は小さい」「信仰を同じくする人だけに見せるべき」は、どれも本文で博物館の主張として述べられていません。",
+  "m": "side by side under one roof＝一か所に並べて"
+ },
+ {
+  "id": 68,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "文化財返還：返還支持派の反論",
+  "p": "Many of the great museums of Europe and North America hold objects that were taken from other parts of the world during the colonial era. Some were purchased, some were given as gifts, and some were seized during military campaigns. For a long time, museums defended their right to keep such collections by arguing that they are \"universal\" institutions, where visitors from every country can compare the achievements of different cultures side by side under one roof.\nIn recent years, this argument has come under growing pressure. Governments and communities in the countries of origin have asked for the return of objects that they regard as part of their history, and in some cases as sacred. They point out that it is far easier for a tourist in London or Paris to see these objects than for the descendants of the people who made them. Several museums have now agreed to return particular items, especially those whose removal was clearly violent.\nMuseum officials often raise practical objections. They ask whether the receiving institutions have the facilities to preserve fragile materials, and they worry that returning one object will lead to claims for thousands of others. Supporters of return respond that the first concern can be addressed through cooperation, such as sharing conservation expertise and arranging loans, and that the second is not a valid reason to refuse claims that are justified.\nSome observers suggest that the debate is gradually changing what museums understand themselves to be. Rather than owners who guard objects forever, museums may come to see themselves as temporary caretakers, responsible for telling the full story of how each object arrived in their galleries, including the parts of that story that reflect badly on the museum.",
+  "q": "次の英文を読み、博物館側の実務上の懸念に対する返還支持派の反論として最も適当なものを選びなさい。",
+  "c": [
+   "Worries about preservation can be dealt with through cooperation between institutions.",
+   "Fragile objects should remain permanently where they are now displayed.",
+   "Museums should return every object at once to avoid further claims.",
+   "Receiving institutions already have better facilities than European museums."
+  ],
+  "e": "第3段落で返還支持派は、保存設備の懸念（the first concern）は「保存技術の共有や貸し出しなどの協力で対処できる」と答えています。正解はこの内容です。「壊れやすい物はそのまま置くべき」は博物館側に近い考えで、支持派の反論ではありません。「すべてを一度に返す」とは述べておらず、二つ目の懸念には「正当な請求を拒む理由にならない」と答えているだけです。「受け入れ側の設備のほうが優れている」も本文にありません。",
+  "m": "the first / the second＝前に挙げた二つの懸念"
+ },
+ {
+  "id": 69,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "文化財返還：博物館像の変化",
+  "p": "Many of the great museums of Europe and North America hold objects that were taken from other parts of the world during the colonial era. Some were purchased, some were given as gifts, and some were seized during military campaigns. For a long time, museums defended their right to keep such collections by arguing that they are \"universal\" institutions, where visitors from every country can compare the achievements of different cultures side by side under one roof.\nIn recent years, this argument has come under growing pressure. Governments and communities in the countries of origin have asked for the return of objects that they regard as part of their history, and in some cases as sacred. They point out that it is far easier for a tourist in London or Paris to see these objects than for the descendants of the people who made them. Several museums have now agreed to return particular items, especially those whose removal was clearly violent.\nMuseum officials often raise practical objections. They ask whether the receiving institutions have the facilities to preserve fragile materials, and they worry that returning one object will lead to claims for thousands of others. Supporters of return respond that the first concern can be addressed through cooperation, such as sharing conservation expertise and arranging loans, and that the second is not a valid reason to refuse claims that are justified.\nSome observers suggest that the debate is gradually changing what museums understand themselves to be. Rather than owners who guard objects forever, museums may come to see themselves as temporary caretakers, responsible for telling the full story of how each object arrived in their galleries, including the parts of that story that reflect badly on the museum.",
+  "q": "次の英文を読み、最終段落から推測できる今後の博物館の姿として最も適当なものを選びなさい。",
+  "c": [
+   "Museums may explain how their objects were acquired, even when this is unflattering to them.",
+   "Museums will stop displaying objects from other cultures entirely.",
+   "Museums will become permanent owners with stronger legal rights.",
+   "Museums will focus only on stories that improve their reputation."
+  ],
+  "e": "最終段落に、博物館は永久の所有者ではなく一時的な管理者と考えるようになり、「その物が展示室に来た経緯の全体を、博物館にとって不名誉な部分も含めて語る責任を負う」とあります。正解はこの内容に合います。「他文化の物の展示をやめる」とは述べていません。「永久の所有者」は Rather than で否定された姿です。「評判を高める話だけ」は reflect badly（悪く映る）部分も語るという記述と逆です。",
+  "m": "reflect badly on ～＝～の評判を落とす"
+ },
+ {
+  "id": 70,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "ヒートアイランド：原因（NOT問題）",
+  "p": "On a hot summer night, the center of a large city can be several degrees warmer than the surrounding countryside. This difference, known as the urban heat island effect, arises because roads, roofs and walls absorb sunlight during the day and release the stored heat slowly at night. Air conditioners, cars and factories add still more heat, while the lack of vegetation means that less water evaporates to cool the air.\nThe consequences are not merely a matter of comfort. During heat waves, death rates rise, particularly among elderly people living alone and those without access to cooling. Because poorer neighborhoods often have fewer parks and trees, and more of their residents cannot afford air conditioning, the burden of extreme heat tends to fall unequally.\nCities have experimented with many responses. Painting roofs white or light gray allows them to reflect more sunlight. Some pavements are designed to let rainwater soak in and later evaporate. The most popular measure, however, has been planting trees. A mature tree shades the ground beneath it and releases water vapor through its leaves, and a street lined with trees can be noticeably cooler than a bare one nearby.\nYet planting trees is not as simple as it sounds. Young trees need regular watering for several years, and in crowded streets their roots must compete for space with pipes and cables underground. A tree planted today will provide significant shade only a decade or more later. Urban planners therefore stress that trees work best as part of a broader strategy, combined with changes to buildings and materials and with programs that check on vulnerable residents during heat waves.",
+  "q": "次の英文を読み、都市の中心部が周辺より暑くなる原因として、本文で挙げられていないものを選びなさい。",
+  "c": [
+   "Clouds trap more heat over cities than over the countryside.",
+   "Roads and roofs store heat during the day and release it at night.",
+   "Machines such as air conditioners and cars give off additional heat.",
+   "A lack of plants means that less cooling occurs through evaporation."
+  ],
+  "e": "第1段落は原因として、道路・屋根・壁が昼に熱をため夜にゆっくり放出すること、エアコン・車・工場がさらに熱を加えること、植物が少なく蒸発による冷却が減ることの三つを挙げています。「雲が都市の上で熱を閉じ込める」という説明は本文のどこにもないので、これが正解です。ほかの三つはそれぞれ本文の記述と一致します。",
+  "m": "原因は「蓄熱・排熱・緑の不足」の三つ"
+ },
+ {
+  "id": 71,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "ヒートアイランド：負担の不平等",
+  "p": "On a hot summer night, the center of a large city can be several degrees warmer than the surrounding countryside. This difference, known as the urban heat island effect, arises because roads, roofs and walls absorb sunlight during the day and release the stored heat slowly at night. Air conditioners, cars and factories add still more heat, while the lack of vegetation means that less water evaporates to cool the air.\nThe consequences are not merely a matter of comfort. During heat waves, death rates rise, particularly among elderly people living alone and those without access to cooling. Because poorer neighborhoods often have fewer parks and trees, and more of their residents cannot afford air conditioning, the burden of extreme heat tends to fall unequally.\nCities have experimented with many responses. Painting roofs white or light gray allows them to reflect more sunlight. Some pavements are designed to let rainwater soak in and later evaporate. The most popular measure, however, has been planting trees. A mature tree shades the ground beneath it and releases water vapor through its leaves, and a street lined with trees can be noticeably cooler than a bare one nearby.\nYet planting trees is not as simple as it sounds. Young trees need regular watering for several years, and in crowded streets their roots must compete for space with pipes and cables underground. A tree planted today will provide significant shade only a decade or more later. Urban planners therefore stress that trees work best as part of a broader strategy, combined with changes to buildings and materials and with programs that check on vulnerable residents during heat waves.",
+  "q": "次の英文を読み、猛暑の負担が不平等に生じる理由として、本文に最も合うものを選びなさい。",
+  "c": [
+   "Poorer areas tend to have less greenery and more residents who cannot pay for air conditioning.",
+   "Poorer areas are usually built much closer to factories than wealthy ones.",
+   "Elderly people tend to move into wealthy neighborhoods as they grow older.",
+   "Wealthy residents use so much air conditioning that it heats poorer areas."
+  ],
+  "e": "第2段落に「貧しい地区は公園や木が少ないことが多く、エアコンを買えない住民も多いので、猛暑の負担は不平等にかかりがちだ」とあり、正解と一致します。「工場に近い」「高齢者が裕福な地区に移る」「裕福な住民のエアコンが貧しい地区を暑くする」は、どれも本文に書かれていない理由です。because 節の中身がそのまま答えになっています。",
+  "m": "Because ～, the burden … falls unequally"
+ },
+ {
+  "id": 72,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "ヒートアイランド：植樹の位置づけ",
+  "p": "On a hot summer night, the center of a large city can be several degrees warmer than the surrounding countryside. This difference, known as the urban heat island effect, arises because roads, roofs and walls absorb sunlight during the day and release the stored heat slowly at night. Air conditioners, cars and factories add still more heat, while the lack of vegetation means that less water evaporates to cool the air.\nThe consequences are not merely a matter of comfort. During heat waves, death rates rise, particularly among elderly people living alone and those without access to cooling. Because poorer neighborhoods often have fewer parks and trees, and more of their residents cannot afford air conditioning, the burden of extreme heat tends to fall unequally.\nCities have experimented with many responses. Painting roofs white or light gray allows them to reflect more sunlight. Some pavements are designed to let rainwater soak in and later evaporate. The most popular measure, however, has been planting trees. A mature tree shades the ground beneath it and releases water vapor through its leaves, and a street lined with trees can be noticeably cooler than a bare one nearby.\nYet planting trees is not as simple as it sounds. Young trees need regular watering for several years, and in crowded streets their roots must compete for space with pipes and cables underground. A tree planted today will provide significant shade only a decade or more later. Urban planners therefore stress that trees work best as part of a broader strategy, combined with changes to buildings and materials and with programs that check on vulnerable residents during heat waves.",
+  "q": "次の英文を読み、都市計画の専門家の考えとして最も適当なものを選びなさい。",
+  "c": [
+   "Trees should be combined with other measures, since their benefits take time and they need care.",
+   "Trees are ineffective and should be replaced entirely by white roofs.",
+   "Trees can provide full shade within a year if they are watered regularly.",
+   "Trees should be planted only on streets with no pipes or cables underground."
+  ],
+  "e": "最終段落で、若木は数年間水やりが必要で、十分な日陰をつくるのは10年以上先だと述べたうえで、専門家は「木は建物や素材の変更、弱い立場の住民を見回る取り組みと組み合わせた、より広い戦略の一部として最もよく機能する」と強調しています。正解はこの内容です。木に効果がないとは述べておらず、「1年で十分な日陰」は a decade or more に反します。地下の管との競合は課題として挙げているだけで、そうした道に植えるなとは言っていません。",
+  "m": "work best as part of a broader strategy"
+ },
+ {
+  "id": 73,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "消滅危機言語：言語が失われる過程",
+  "p": "Of the roughly seven thousand languages spoken in the world today, linguists estimate that a large share may no longer be spoken by the end of this century. A language rarely dies because its speakers suddenly abandon it. More often, parents who speak a minority language decide that their children will have better opportunities if they grow up speaking the dominant language of schools, jobs and the media. Each generation then uses the old language a little less, until only a few elderly speakers remain.\nWhy should the loss of a language concern anyone other than its speakers? One answer is scientific. Each language represents a distinct solution to the problem of organizing sounds, words and meanings, and linguists cannot understand the full range of what human language can do if they study only a few major languages. Another answer concerns knowledge. Long-settled communities often encode detailed information about local plants, animals and seasons in their vocabulary, and some of that information is recorded nowhere else.\nEfforts to revive endangered languages have produced mixed results. Recording the last speakers preserves a valuable archive, but a dictionary on a shelf does not keep a language alive. The most successful programs have been those that create new speakers, for example by running nursery schools in which young children spend the whole day immersed in the language. Such programs depend on the commitment of parents, who must be persuaded that the language is worth passing on.\nSome scholars warn against treating revival purely as a matter of saving data. For many communities, regaining their language is bound up with recovering a sense of identity and dignity that was damaged by past policies which punished children for speaking it at school.",
+  "q": "次の英文を読み、言語が話されなくなる典型的な過程として、本文に最も合うものを選びなさい。",
+  "c": [
+   "Parents choose the dominant language for their children, and the old language is used less with each generation.",
+   "Speakers usually give up the language all at once when they move to a large city.",
+   "Children refuse to learn the language even when their parents want to pass it on.",
+   "Linguists fail to record the language before the last speaker dies."
+  ],
+  "e": "第1段落に「話者が突然捨てることはまれで、多くは親が支配的な言語で育てたほうが子の機会が広がると判断し、世代ごとに使用が少しずつ減る」とあり、正解と一致します。「一度に捨てる」は rarely ... suddenly abandon に反します。「親が望んでも子が拒む」は本文の説明（親の判断）と逆です。記録の失敗は言語が失われる過程として述べられていません。",
+  "m": "rarely ～. More often …＝典型はあとの方"
+ },
+ {
+  "id": 74,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "消滅危機言語：成功した再生策",
+  "p": "Of the roughly seven thousand languages spoken in the world today, linguists estimate that a large share may no longer be spoken by the end of this century. A language rarely dies because its speakers suddenly abandon it. More often, parents who speak a minority language decide that their children will have better opportunities if they grow up speaking the dominant language of schools, jobs and the media. Each generation then uses the old language a little less, until only a few elderly speakers remain.\nWhy should the loss of a language concern anyone other than its speakers? One answer is scientific. Each language represents a distinct solution to the problem of organizing sounds, words and meanings, and linguists cannot understand the full range of what human language can do if they study only a few major languages. Another answer concerns knowledge. Long-settled communities often encode detailed information about local plants, animals and seasons in their vocabulary, and some of that information is recorded nowhere else.\nEfforts to revive endangered languages have produced mixed results. Recording the last speakers preserves a valuable archive, but a dictionary on a shelf does not keep a language alive. The most successful programs have been those that create new speakers, for example by running nursery schools in which young children spend the whole day immersed in the language. Such programs depend on the commitment of parents, who must be persuaded that the language is worth passing on.\nSome scholars warn against treating revival purely as a matter of saving data. For many communities, regaining their language is bound up with recovering a sense of identity and dignity that was damaged by past policies which punished children for speaking it at school.",
+  "q": "次の英文を読み、言語の再生の取り組みのうち最も成功してきたものとして、本文に合うものを選びなさい。",
+  "c": [
+   "Programs that create new speakers, such as nursery schools that immerse children in the language",
+   "Projects that produce dictionaries and recordings of the last remaining speakers",
+   "Classes that teach the language only to adults who already speak it well",
+   "Efforts to translate local knowledge into the dominant language"
+  ],
+  "e": "第3段落に「最も成功したのは新しい話者を生み出すもので、たとえば幼い子どもが一日中その言語に浸る保育施設を運営するものだ」とあり、正解と一致します。辞書や録音は「貴重な記録になるが、棚の上の辞書は言語を生かし続けない」と、成功例とは区別されています。「すでに話せる大人だけに教える」「支配的な言語に翻訳する」は本文にありません。",
+  "m": "create new speakers＝話し手を新たに育てる"
+ },
+ {
+  "id": 75,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（内容一致）",
+  "t": "消滅危機言語：話者以外への影響",
+  "p": "Of the roughly seven thousand languages spoken in the world today, linguists estimate that a large share may no longer be spoken by the end of this century. A language rarely dies because its speakers suddenly abandon it. More often, parents who speak a minority language decide that their children will have better opportunities if they grow up speaking the dominant language of schools, jobs and the media. Each generation then uses the old language a little less, until only a few elderly speakers remain.\nWhy should the loss of a language concern anyone other than its speakers? One answer is scientific. Each language represents a distinct solution to the problem of organizing sounds, words and meanings, and linguists cannot understand the full range of what human language can do if they study only a few major languages. Another answer concerns knowledge. Long-settled communities often encode detailed information about local plants, animals and seasons in their vocabulary, and some of that information is recorded nowhere else.\nEfforts to revive endangered languages have produced mixed results. Recording the last speakers preserves a valuable archive, but a dictionary on a shelf does not keep a language alive. The most successful programs have been those that create new speakers, for example by running nursery schools in which young children spend the whole day immersed in the language. Such programs depend on the commitment of parents, who must be persuaded that the language is worth passing on.\nSome scholars warn against treating revival purely as a matter of saving data. For many communities, regaining their language is bound up with recovering a sense of identity and dignity that was damaged by past policies which punished children for speaking it at school.",
+  "q": "次の英文を読み、言語の消滅が話者以外の人々にとっても問題になる理由として、本文で述べられているものを選びなさい。",
+  "c": [
+   "Some knowledge about local nature exists only in the vocabulary of such languages.",
+   "Minority languages are easier for linguists to learn than major languages.",
+   "Major languages would become less useful if minority languages disappeared.",
+   "Every endangered language is closely related to a major world language."
+  ],
+  "e": "第2段落は理由を二つ挙げています。一つは科学的理由（少数の大言語だけでは人間の言語の可能性の全体がわからない）、もう一つは知識に関するもので「地元の動植物や季節についての詳しい情報が語彙に織り込まれ、その一部はほかのどこにも記録されていない」とあります。正解は後者に一致します。「学びやすい」「大言語が役に立たなくなる」「大言語と近縁」はどれも本文にありません。",
+  "m": "recorded nowhere else＝ほかに記録がない"
+ },
+ {
+  "id": 76,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：fail to engage",
+  "p": "Boredom has a poor reputation. It is usually treated as an unpleasant state to be escaped as quickly as possible, and modern technology makes escape easy: a phone in one's pocket offers an endless supply of distraction. Psychologists, however, have begun to ask whether boredom might serve a useful purpose.\nOne proposal is that boredom works like a signal. Just as pain warns us that something is wrong with the body, boredom tells us that our current activity is failing to ( A ) us, and pushes us to look for something more meaningful. On this view, the problem is not boredom itself but the way we respond to it. If we immediately reach for a screen, we silence the signal without acting on its message.\nSome experiments suggest that boredom can also [foster] creativity. In one kind of study, participants first complete a dull task, such as copying numbers from a list, and are then asked to think of as many uses as possible for an ordinary object, such as a paper cup. Those who had been bored often produce more, and more unusual, ideas than those who skipped the dull task. Researchers suggest that when the outside world offers little stimulation, the mind begins to wander, and wandering thoughts can form unexpected connections.\nThe evidence is not yet ( B ). Some attempts to repeat such experiments have found weaker effects, and chronic boredom, which some people experience day after day, is linked to unhappiness rather than inspiration. Nevertheless, the research invites us to reconsider the habit of filling every idle moment. A few minutes without input may be less a waste of time than an opportunity.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "engage",
+   "bother",
+   "tire",
+   "delay"
+  ],
+  "e": "退屈は痛みと同じく「信号」で、今の活動が自分を（ A ）できていないことを知らせ、もっと意味のあることを探すよう促す、という文脈です。「心を引きつける・夢中にさせる」engage を入れると、退屈＝今の活動に心が向いていない、という意味になり筋が通ります。bother（悩ませる）や tire（疲れさせる）を入れると「悩ませ／疲れさせられていない」となり退屈の説明になりません。delay（遅らせる）も意味が通りません。",
+  "m": "engage＝（注意・関心を）引きつける"
+ },
+ {
+  "id": 77,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：foster",
+  "p": "Boredom has a poor reputation. It is usually treated as an unpleasant state to be escaped as quickly as possible, and modern technology makes escape easy: a phone in one's pocket offers an endless supply of distraction. Psychologists, however, have begun to ask whether boredom might serve a useful purpose.\nOne proposal is that boredom works like a signal. Just as pain warns us that something is wrong with the body, boredom tells us that our current activity is failing to ( A ) us, and pushes us to look for something more meaningful. On this view, the problem is not boredom itself but the way we respond to it. If we immediately reach for a screen, we silence the signal without acting on its message.\nSome experiments suggest that boredom can also [foster] creativity. In one kind of study, participants first complete a dull task, such as copying numbers from a list, and are then asked to think of as many uses as possible for an ordinary object, such as a paper cup. Those who had been bored often produce more, and more unusual, ideas than those who skipped the dull task. Researchers suggest that when the outside world offers little stimulation, the mind begins to wander, and wandering thoughts can form unexpected connections.\nThe evidence is not yet ( B ). Some attempts to repeat such experiments have found weaker effects, and chronic boredom, which some people experience day after day, is linked to unhappiness rather than inspiration. Nevertheless, the research invites us to reconsider the habit of filling every idle moment. A few minutes without input may be less a waste of time than an opportunity.",
+  "q": "次の英文を読み、下線部［foster］に最も意味が近いものを選びなさい。",
+  "c": [
+   "encourage",
+   "prevent",
+   "measure",
+   "replace"
+  ],
+  "e": "直後に、退屈な作業をした人のほうが紙コップの使い道を多く、しかも独創的に思いついたという実験が紹介されています。つまり退屈が創造性を「育てる・促す」ということで、foster は encourage に近い意味です。prevent（妨げる）は実験結果と逆です。measure（測る）や replace（取って代わる）では、退屈と創造性の関係を述べる文になりません。",
+  "m": "foster＝育てる・促進する（＝promote）"
+ },
+ {
+  "id": 78,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：not yet conclusive",
+  "p": "Boredom has a poor reputation. It is usually treated as an unpleasant state to be escaped as quickly as possible, and modern technology makes escape easy: a phone in one's pocket offers an endless supply of distraction. Psychologists, however, have begun to ask whether boredom might serve a useful purpose.\nOne proposal is that boredom works like a signal. Just as pain warns us that something is wrong with the body, boredom tells us that our current activity is failing to ( A ) us, and pushes us to look for something more meaningful. On this view, the problem is not boredom itself but the way we respond to it. If we immediately reach for a screen, we silence the signal without acting on its message.\nSome experiments suggest that boredom can also [foster] creativity. In one kind of study, participants first complete a dull task, such as copying numbers from a list, and are then asked to think of as many uses as possible for an ordinary object, such as a paper cup. Those who had been bored often produce more, and more unusual, ideas than those who skipped the dull task. Researchers suggest that when the outside world offers little stimulation, the mind begins to wander, and wandering thoughts can form unexpected connections.\nThe evidence is not yet ( B ). Some attempts to repeat such experiments have found weaker effects, and chronic boredom, which some people experience day after day, is linked to unhappiness rather than inspiration. Nevertheless, the research invites us to reconsider the habit of filling every idle moment. A few minutes without input may be less a waste of time than an opportunity.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "conclusive",
+   "collected",
+   "irrelevant",
+   "harmful"
+  ],
+  "e": "直後に「同じ実験を繰り返すと効果が弱かった例もある」「慢性的な退屈は不幸と結びつく」と、前段の主張を弱める事実が続きます。したがって「証拠はまだ決定的ではない」となる conclusive が正解です。collected（集められた）を入れると、すでに実験が行われている本文と矛盾します。irrelevant（無関係な）や harmful（有害な）は、続く内容とつながりません。",
+  "m": "conclusive＝決定的な（evidence と相性がよい）"
+ },
+ {
+  "id": 79,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：allow O to do",
+  "p": "Complaints about information overload are often treated as a uniquely modern problem, a side effect of the internet and the smartphone. Historians of the book, however, point out that similar complaints were heard soon after printing spread across fifteenth-century Europe. Before printing, books were copied by hand, and even a wealthy scholar might own only a few dozen. Within a few generations of the first presses, the number of available titles had multiplied, and scholars began to worry that no one could read everything worth knowing.\nTheir response was not to stop reading but to invent new tools for managing texts. Printers added tables of contents and alphabetical indexes so that readers could find what they needed without reading a book from beginning to end. Scholars compiled huge reference works that collected extracts from many authors, ( A ) readers to consult a single volume instead of a whole library. Some kept notebooks in which they copied useful passages under headings, creating personal systems of retrieval.\nThese techniques changed how people read. Reading had once meant slow, repeated study of a small number of texts; it increasingly came to include rapid searching and selective consultation. Critics at the time complained that readers were becoming [superficial], gathering fragments without grasping whole arguments. ( B ), defenders argued that no one could master the expanding world of learning without such shortcuts.\nThe parallel with our own era is striking. Search engines and digital summaries are, in a sense, descendants of the index and the reference book, and the debate about whether they make us shallower echoes a debate of five centuries ago. History suggests that each flood of information produces both anxiety and invention.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "allowing",
+   "forbidding",
+   "warning",
+   "reminding"
+  ],
+  "e": "学者たちは多くの著者の抜粋を集めた大部の参考書を編み、それが「読者が図書館全体ではなく一冊を調べれば済むようにした」という文脈です。〈allow O to do〉（Oが～できるようにする）の分詞構文 allowing が正解です。forbidding（禁じる）では情報を扱いやすくする工夫という段落の趣旨と逆になります。warning（警告する）や reminding（思い出させる）も to do を続けられますが、意味が通りません。",
+  "m": "allow O to do＝Oが～できるようにする"
+ },
+ {
+  "id": 80,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：superficial",
+  "p": "Complaints about information overload are often treated as a uniquely modern problem, a side effect of the internet and the smartphone. Historians of the book, however, point out that similar complaints were heard soon after printing spread across fifteenth-century Europe. Before printing, books were copied by hand, and even a wealthy scholar might own only a few dozen. Within a few generations of the first presses, the number of available titles had multiplied, and scholars began to worry that no one could read everything worth knowing.\nTheir response was not to stop reading but to invent new tools for managing texts. Printers added tables of contents and alphabetical indexes so that readers could find what they needed without reading a book from beginning to end. Scholars compiled huge reference works that collected extracts from many authors, ( A ) readers to consult a single volume instead of a whole library. Some kept notebooks in which they copied useful passages under headings, creating personal systems of retrieval.\nThese techniques changed how people read. Reading had once meant slow, repeated study of a small number of texts; it increasingly came to include rapid searching and selective consultation. Critics at the time complained that readers were becoming [superficial], gathering fragments without grasping whole arguments. ( B ), defenders argued that no one could master the expanding world of learning without such shortcuts.\nThe parallel with our own era is striking. Search engines and digital summaries are, in a sense, descendants of the index and the reference book, and the debate about whether they make us shallower echoes a debate of five centuries ago. History suggests that each flood of information produces both anxiety and invention.",
+  "q": "次の英文を読み、下線部［superficial］の意味として最も適当なものを選びなさい。",
+  "c": [
+   "lacking depth of understanding",
+   "too critical of authors",
+   "unwilling to read new books",
+   "dependent on their teachers"
+  ],
+  "e": "直後の分詞句 gathering fragments without grasping whole arguments（議論全体をつかまずに断片を集めている）が superficial の中身を説明しています。したがって「理解の深さに欠ける」が正解です。「著者に批判的すぎる」「新しい本を読みたがらない」「教師に頼りきり」は、断片的な読み方への批判という文脈と関係がありません。最終段落の shallower（より浅い）とも対応しています。",
+  "m": "superficial＝表面的な（⇔ profound）"
+ },
+ {
+  "id": 81,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：In reply",
+  "p": "Complaints about information overload are often treated as a uniquely modern problem, a side effect of the internet and the smartphone. Historians of the book, however, point out that similar complaints were heard soon after printing spread across fifteenth-century Europe. Before printing, books were copied by hand, and even a wealthy scholar might own only a few dozen. Within a few generations of the first presses, the number of available titles had multiplied, and scholars began to worry that no one could read everything worth knowing.\nTheir response was not to stop reading but to invent new tools for managing texts. Printers added tables of contents and alphabetical indexes so that readers could find what they needed without reading a book from beginning to end. Scholars compiled huge reference works that collected extracts from many authors, ( A ) readers to consult a single volume instead of a whole library. Some kept notebooks in which they copied useful passages under headings, creating personal systems of retrieval.\nThese techniques changed how people read. Reading had once meant slow, repeated study of a small number of texts; it increasingly came to include rapid searching and selective consultation. Critics at the time complained that readers were becoming [superficial], gathering fragments without grasping whole arguments. ( B ), defenders argued that no one could master the expanding world of learning without such shortcuts.\nThe parallel with our own era is striking. Search engines and digital summaries are, in a sense, descendants of the index and the reference book, and the debate about whether they make us shallower echoes a debate of five centuries ago. History suggests that each flood of information produces both anxiety and invention.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "In reply",
+   "For example",
+   "Similarly",
+   "In addition"
+  ],
+  "e": "前の文は批判者の不満（読者が表面的になっている）、空所の後は擁護者の反論（そうした近道なしには学問を修められない）です。批判に対して応じる流れなので「それに答えて」の In reply が入ります。For example は具体例を導く語で、反論の前には置けません。Similarly（同様に）や In addition（さらに）は同じ方向の内容を続ける語なので、対立する二つの立場をつなぐのに合いません。",
+  "m": "批判 → In reply → 反論"
+ },
+ {
+  "id": 82,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：vulnerable to",
+  "p": "When a species is carried by humans to a region where it did not previously live, it usually fails to survive. Occasionally, however, a newcomer thrives, spreads rapidly and causes serious harm to the plants and animals already there. Such species are called invasive, and they are considered one of the leading threats to biodiversity worldwide.\nIslands have been especially ( A ) to invasions. Many island birds evolved without ground-dwelling predators and therefore never developed the habit of fleeing or nesting out of reach. When rats, cats or snakes arrived on ships, these birds had no defense, and a number of species were wiped out within a few decades.\nOne reason invaders can be so successful is that they leave their natural enemies behind. In its native range, a plant may be kept in check by insects and diseases that have evolved alongside it. In a new environment, free from these pressures, it may grow faster and produce more seeds than any local competitor. This insight has led to biological control: the deliberate release of an invader's natural enemy to [curb] its spread.\nBiological control, however, carries risks of its own. In several notorious cases, an animal introduced to control a pest ignored its intended target and attacked native species instead, creating a second invasion on top of the first. Today, candidates for release are tested extensively to confirm that they feed only on the target species. Prevention is still regarded as far cheaper than cure. Inspecting cargo, cleaning ships and restricting the trade in risky species cost little ( B ) the expense of trying to remove an invader once it has become established.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "vulnerable",
+   "resistant",
+   "indifferent",
+   "accustomed"
+  ],
+  "e": "続く文で、島の鳥は地上の捕食者のいない環境で進化したため逃げる習性がなく、船でネズミやネコが来ると身を守れず、数十年で絶滅した種もあると説明しています。島は外来種の侵入に「弱い」ので vulnerable to が正解です。resistant（抵抗力がある）は逆の意味です。indifferent（無関心な）は意味が合わず、accustomed to（慣れている）も、防御手段がなかったという説明と矛盾します。",
+  "m": "be vulnerable to ～＝～に弱い・さらされやすい"
+ },
+ {
+  "id": 83,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：curb",
+  "p": "When a species is carried by humans to a region where it did not previously live, it usually fails to survive. Occasionally, however, a newcomer thrives, spreads rapidly and causes serious harm to the plants and animals already there. Such species are called invasive, and they are considered one of the leading threats to biodiversity worldwide.\nIslands have been especially ( A ) to invasions. Many island birds evolved without ground-dwelling predators and therefore never developed the habit of fleeing or nesting out of reach. When rats, cats or snakes arrived on ships, these birds had no defense, and a number of species were wiped out within a few decades.\nOne reason invaders can be so successful is that they leave their natural enemies behind. In its native range, a plant may be kept in check by insects and diseases that have evolved alongside it. In a new environment, free from these pressures, it may grow faster and produce more seeds than any local competitor. This insight has led to biological control: the deliberate release of an invader's natural enemy to [curb] its spread.\nBiological control, however, carries risks of its own. In several notorious cases, an animal introduced to control a pest ignored its intended target and attacked native species instead, creating a second invasion on top of the first. Today, candidates for release are tested extensively to confirm that they feed only on the target species. Prevention is still regarded as far cheaper than cure. Inspecting cargo, cleaning ships and restricting the trade in risky species cost little ( B ) the expense of trying to remove an invader once it has become established.",
+  "q": "次の英文を読み、下線部［curb］に最も意味が近いものを選びなさい。",
+  "c": [
+   "restrain",
+   "encourage",
+   "observe",
+   "explain"
+  ],
+  "e": "生物的防除とは、外来種の天敵をわざと放して、その広がりを「抑える」ことです。直前の段落の kept in check（抑えられている）とも対応しており、curb は restrain（抑制する）に近い意味です。encourage（促す）は逆の意味です。observe（観察する）や explain（説明する）では、天敵を放つ目的になりません。",
+  "m": "curb＝抑える（＝restrain, check）"
+ },
+ {
+  "id": 84,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：compared with",
+  "p": "When a species is carried by humans to a region where it did not previously live, it usually fails to survive. Occasionally, however, a newcomer thrives, spreads rapidly and causes serious harm to the plants and animals already there. Such species are called invasive, and they are considered one of the leading threats to biodiversity worldwide.\nIslands have been especially ( A ) to invasions. Many island birds evolved without ground-dwelling predators and therefore never developed the habit of fleeing or nesting out of reach. When rats, cats or snakes arrived on ships, these birds had no defense, and a number of species were wiped out within a few decades.\nOne reason invaders can be so successful is that they leave their natural enemies behind. In its native range, a plant may be kept in check by insects and diseases that have evolved alongside it. In a new environment, free from these pressures, it may grow faster and produce more seeds than any local competitor. This insight has led to biological control: the deliberate release of an invader's natural enemy to [curb] its spread.\nBiological control, however, carries risks of its own. In several notorious cases, an animal introduced to control a pest ignored its intended target and attacked native species instead, creating a second invasion on top of the first. Today, candidates for release are tested extensively to confirm that they feed only on the target species. Prevention is still regarded as far cheaper than cure. Inspecting cargo, cleaning ships and restricting the trade in risky species cost little ( B ) the expense of trying to remove an invader once it has become established.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "compared with",
+   "in addition to",
+   "as well as",
+   "instead of"
+  ],
+  "e": "直前の文で「予防は駆除よりはるかに安い」と述べ、具体的に「積み荷の検査などの費用は、定着した外来種を取り除く費用と比べればわずかだ」と続けています。比較の基準を示す compared with が正解です。in addition to や as well as（～に加えて）を入れると、予防の費用が駆除の費用に上乗せされる意味になり、主張と合いません。instead of（～の代わりに）では cost little とつながりません。",
+  "m": "A cost little compared with B＝Bに比べAは安い"
+ },
+ {
+  "id": 85,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：economical",
+  "p": "Lists of \"untranslatable\" words circulate widely. They typically include a term from another language that supposedly has no equivalent in English, such as a word for the pleasure of reading in bed or for sunlight filtering through leaves. Such lists are entertaining, but translators often find the idea behind them misleading.\nThe claim that a word is untranslatable usually means only that English has no single word with the same meaning. Yet translation has never been a matter of replacing words one by one. A skilled translator can convey the meaning of a compact foreign term with a phrase, a sentence or a carefully chosen context. Something may be lost in style, since a single word is more ( A ) than a long explanation, but the idea itself can be communicated.\nA more serious difficulty lies elsewhere. Every language makes some distinctions [obligatory]. Some languages require speakers to mark whether they saw an event themselves or heard about it from someone else; others require a choice between formal and informal forms of \"you.\" When translating from a language that does not mark such a distinction into one that does, the translator is forced to make a decision the original author never made. It is these hidden choices, rather than exotic vocabulary, that make translation genuinely hard.\nSome writers go further and claim that because languages divide experience differently, their speakers live in different mental worlds. Most linguists today accept only a weak version of this idea. Language may make certain distinctions easier to notice or remember, but it does not ( B ) speakers from understanding concepts for which their language lacks a word. If it did, explaining an \"untranslatable\" word would be impossible, and the lists themselves could not exist.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "economical",
+   "tedious",
+   "clumsy",
+   "repetitive"
+  ],
+  "e": "訳者は外国語の短い一語の意味を句や文で伝えられるが、「一語のほうが長い説明より（ A ）なので、文体の面では何かが失われるかもしれない」という文脈です。一語の利点を表す語が必要なので、「むだがない・簡潔な」の economical が正解です。tedious（退屈な）、clumsy（ぎこちない）、repetitive（繰り返しの多い）は、むしろ長い説明の欠点にあたる語で、一語のほうがそうだとすると、失われるものがあるという流れになりません。",
+  "m": "economical＝（言葉に）むだがない"
+ },
+ {
+  "id": 86,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：obligatory",
+  "p": "Lists of \"untranslatable\" words circulate widely. They typically include a term from another language that supposedly has no equivalent in English, such as a word for the pleasure of reading in bed or for sunlight filtering through leaves. Such lists are entertaining, but translators often find the idea behind them misleading.\nThe claim that a word is untranslatable usually means only that English has no single word with the same meaning. Yet translation has never been a matter of replacing words one by one. A skilled translator can convey the meaning of a compact foreign term with a phrase, a sentence or a carefully chosen context. Something may be lost in style, since a single word is more ( A ) than a long explanation, but the idea itself can be communicated.\nA more serious difficulty lies elsewhere. Every language makes some distinctions [obligatory]. Some languages require speakers to mark whether they saw an event themselves or heard about it from someone else; others require a choice between formal and informal forms of \"you.\" When translating from a language that does not mark such a distinction into one that does, the translator is forced to make a decision the original author never made. It is these hidden choices, rather than exotic vocabulary, that make translation genuinely hard.\nSome writers go further and claim that because languages divide experience differently, their speakers live in different mental worlds. Most linguists today accept only a weak version of this idea. Language may make certain distinctions easier to notice or remember, but it does not ( B ) speakers from understanding concepts for which their language lacks a word. If it did, explaining an \"untranslatable\" word would be impossible, and the lists themselves could not exist.",
+  "q": "次の英文を読み、下線部［obligatory］に最も意味が近いものを選びなさい。",
+  "c": [
+   "compulsory",
+   "optional",
+   "occasional",
+   "artificial"
+  ],
+  "e": "直後に「目撃したか伝聞かの区別を話者に求める（require）言語」「敬称と親称の you の選択を求める言語」が例として挙げられています。つまり、その言語では区別することが「義務的・必須」であり、obligatory は compulsory に近い意味です。optional（任意の）は逆の意味です。occasional（時々の）や artificial（人工的な）は、require を用いた具体例と対応しません。",
+  "m": "obligatory＝義務的な（⇔ optional）"
+ },
+ {
+  "id": 87,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：prevent O from -ing",
+  "p": "Lists of \"untranslatable\" words circulate widely. They typically include a term from another language that supposedly has no equivalent in English, such as a word for the pleasure of reading in bed or for sunlight filtering through leaves. Such lists are entertaining, but translators often find the idea behind them misleading.\nThe claim that a word is untranslatable usually means only that English has no single word with the same meaning. Yet translation has never been a matter of replacing words one by one. A skilled translator can convey the meaning of a compact foreign term with a phrase, a sentence or a carefully chosen context. Something may be lost in style, since a single word is more ( A ) than a long explanation, but the idea itself can be communicated.\nA more serious difficulty lies elsewhere. Every language makes some distinctions [obligatory]. Some languages require speakers to mark whether they saw an event themselves or heard about it from someone else; others require a choice between formal and informal forms of \"you.\" When translating from a language that does not mark such a distinction into one that does, the translator is forced to make a decision the original author never made. It is these hidden choices, rather than exotic vocabulary, that make translation genuinely hard.\nSome writers go further and claim that because languages divide experience differently, their speakers live in different mental worlds. Most linguists today accept only a weak version of this idea. Language may make certain distinctions easier to notice or remember, but it does not ( B ) speakers from understanding concepts for which their language lacks a word. If it did, explaining an \"untranslatable\" word would be impossible, and the lists themselves could not exist.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "prevent",
+   "protect",
+   "release",
+   "derive"
+  ],
+  "e": "言語は区別を気づきやすくするかもしれないが、「話者が、自分の言語に語のない概念を理解するのを妨げはしない」という文脈です。〈prevent O from -ing〉（Oが～するのを妨げる）の prevent が正解です。次の文の「もし妨げるなら、訳せない語の説明は不可能になる」とも合います。protect O from（Oを～から守る）や release O from（Oを～から解放する）では「理解から守る・解放する」となり意味が通りません。derive O from ～（Oを～から引き出す）も「理解から話者を引き出す」となり文意に合いません。",
+  "m": "prevent O from -ing＝Oが～するのを妨げる"
+ },
+ {
+  "id": 88,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：the predicted decline",
+  "p": "Before the pandemic, many commentators predicted that the internet would eventually make cities unnecessary. If people could work, shop and socialize online, why would they pay high rents to live in crowded urban centers? For decades, the opposite happened: the largest cities attracted ever more people and investment. The sudden shift to remote work in 2020 seemed to offer a chance to test the old prediction.\nThe early results were mixed. Many office workers left expensive city centers for suburbs or smaller towns, and in some cities office buildings stood half empty. Yet the predicted ( A ) of the city did not occur. As restrictions eased, many companies adopted hybrid arrangements in which employees spent part of the week in the office and part at home.\nEconomists who study cities offer an explanation for this resilience. Cities, they argue, are valuable not only because they bring workers close to their offices but because they bring people close to one another. Casual encounters, overheard conversations and chance meetings allow ideas to spread and new collaborations to form. Such interactions are hard to [replicate] online, where communication tends to happen only between people who have already decided to talk.\nThis does not mean that cities will return unchanged. Shops and restaurants that depended on daily office workers have struggled, and some cities are considering turning empty offices into housing. Young workers in particular may still value the city, ( B ) the training and contacts that come from working near experienced colleagues are hard to obtain from home. The future city may be organized less around the daily commute and more around the occasions that make meeting in person worthwhile.",
+  "q": "次の英文を読み、空所（ A ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "decline",
+   "expansion",
+   "revival",
+   "planning"
+  ],
+  "e": "第1段落の「インターネットが都市を不要にする」という古い予測が、2020年の在宅勤務への移行で試される流れです。空所を含む文は Yet で始まり、人が郊外に移った事実に続けて「予測された都市の（ A ）は起こらなかった」と述べています。予測されていたのは都市の衰退なので decline が正解です。expansion（拡大）や revival（復活）は予測の内容と逆です。planning（計画）は「予測された」と結びつきません。",
+  "m": "Yet＝予想に反して（直前と逆の展開）"
+ },
+ {
+  "id": 89,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "言い換え：replicate",
+  "p": "Before the pandemic, many commentators predicted that the internet would eventually make cities unnecessary. If people could work, shop and socialize online, why would they pay high rents to live in crowded urban centers? For decades, the opposite happened: the largest cities attracted ever more people and investment. The sudden shift to remote work in 2020 seemed to offer a chance to test the old prediction.\nThe early results were mixed. Many office workers left expensive city centers for suburbs or smaller towns, and in some cities office buildings stood half empty. Yet the predicted ( A ) of the city did not occur. As restrictions eased, many companies adopted hybrid arrangements in which employees spent part of the week in the office and part at home.\nEconomists who study cities offer an explanation for this resilience. Cities, they argue, are valuable not only because they bring workers close to their offices but because they bring people close to one another. Casual encounters, overheard conversations and chance meetings allow ideas to spread and new collaborations to form. Such interactions are hard to [replicate] online, where communication tends to happen only between people who have already decided to talk.\nThis does not mean that cities will return unchanged. Shops and restaurants that depended on daily office workers have struggled, and some cities are considering turning empty offices into housing. Young workers in particular may still value the city, ( B ) the training and contacts that come from working near experienced colleagues are hard to obtain from home. The future city may be organized less around the daily commute and more around the occasions that make meeting in person worthwhile.",
+  "q": "次の英文を読み、下線部［replicate］に最も意味が近いものを選びなさい。",
+  "c": [
+   "reproduce",
+   "avoid",
+   "record",
+   "prohibit"
+  ],
+  "e": "偶然の出会いや漏れ聞こえる会話などの交流は、オンラインでは「再現する」のが難しい、という文脈です。オンラインでは話すと決めた人どうしの間でしか会話が起こらない、という説明が理由になっています。replicate は reproduce（再現する）に近い意味です。avoid（避ける）、record（記録する）、prohibit（禁止する）では「オンラインでは難しい」理由と結びつきません。",
+  "m": "replicate＝再現する・複製する"
+ },
+ {
+  "id": 90,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（語句・空所・言い換え）",
+  "t": "空所補充：理由の since",
+  "p": "Before the pandemic, many commentators predicted that the internet would eventually make cities unnecessary. If people could work, shop and socialize online, why would they pay high rents to live in crowded urban centers? For decades, the opposite happened: the largest cities attracted ever more people and investment. The sudden shift to remote work in 2020 seemed to offer a chance to test the old prediction.\nThe early results were mixed. Many office workers left expensive city centers for suburbs or smaller towns, and in some cities office buildings stood half empty. Yet the predicted ( A ) of the city did not occur. As restrictions eased, many companies adopted hybrid arrangements in which employees spent part of the week in the office and part at home.\nEconomists who study cities offer an explanation for this resilience. Cities, they argue, are valuable not only because they bring workers close to their offices but because they bring people close to one another. Casual encounters, overheard conversations and chance meetings allow ideas to spread and new collaborations to form. Such interactions are hard to [replicate] online, where communication tends to happen only between people who have already decided to talk.\nThis does not mean that cities will return unchanged. Shops and restaurants that depended on daily office workers have struggled, and some cities are considering turning empty offices into housing. Young workers in particular may still value the city, ( B ) the training and contacts that come from working near experienced colleagues are hard to obtain from home. The future city may be organized less around the daily commute and more around the occasions that make meeting in person worthwhile.",
+  "q": "次の英文を読み、空所（ B ）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "since",
+   "although",
+   "unless",
+   "whereas"
+  ],
+  "e": "若い労働者がなお都市を重視するかもしれない理由として、「経験のある同僚の近くで働くことで得られる訓練や人脈は、家にいては得にくい」が続いています。理由を導く since が正解です。although（～だけれども）では、理由が譲歩になって意味が逆になります。unless（～でない限り）は条件の意味になり不自然です。whereas（～である一方）は対比を表し、前後が対立していないので合いません。",
+  "m": "since＝～なので（理由）"
+ },
+ {
+  "id": 91,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：不可算名詞 information",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nThe guide provided us [with] a great deal of useful [informations] [about] the exhibits [before] the tour began.",
+  "c": [
+   "informations",
+   "with",
+   "about",
+   "before"
+  ],
+  "e": "information は数えられない名詞なので複数形の -s を付けません。informations を information に直す必要があります。a great deal of は不可算名詞と使う表現で、information と正しく組み合わさります。provide A with B（AにBを与える）の with、「～について」の about、「～する前に」の接続詞 before はいずれも正しい用法です。",
+  "m": "information・advice・furniture は複数形にしない"
+ },
+ {
+  "id": 92,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：one of the ＋複数名詞の一致",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nOne of the main [reasons] the plan failed [were] that [few] residents had [been consulted] in advance.",
+  "c": [
+   "were",
+   "reasons",
+   "few",
+   "been consulted"
+  ],
+  "e": "主語の中心は One（一つ）なので、動詞は単数の was にしなければなりません。of the main reasons は One を修飾しているだけです。One of the＋複数名詞 の形なので reasons は正しく、few residents（ほとんどいない住民）も可算名詞に few で正しい形です。住民は「相談される」側なので受け身の had been consulted も正しい用法です。",
+  "m": "One of the 複数名詞 ＋ 単数動詞"
+ },
+ {
+  "id": 93,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：be accustomed to -ing",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nSince moving to the countryside, she has [become accustomed to] [walk] several kilometers [a day], a distance she [once] found exhausting.",
+  "c": [
+   "walk",
+   "become accustomed to",
+   "a day",
+   "once"
+  ],
+  "e": "be [become] accustomed to の to は前置詞なので、後ろには名詞か動名詞が来ます。walk を walking に直す必要があります（be used to -ing と同じ）。現在完了 has become accustomed to は Since ～ と合っていて正しく、a day は「1日につき」の意味で正しい用法です。once は「かつて」の意味で過去形 found と正しく組み合わさっています。",
+  "m": "be accustomed to -ing（to は前置詞）"
+ },
+ {
+  "id": 94,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：他動詞 mention",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nThe report [did not] [mention about] the risks [that] the new policy [might pose] to small businesses.",
+  "c": [
+   "mention about",
+   "did not",
+   "that",
+   "might pose"
+  ],
+  "e": "mention は「～に言及する」という意味の他動詞で、目的語を直接とります。about は不要で、mention the risks とします（discuss, reach, enter なども同様）。did not＋原形は正しく、that は the risks を先行詞とする目的格の関係代名詞です。pose a risk to ～（～に危険をもたらす）の pose を might と組み合わせた might pose も正しい形です。",
+  "m": "mention / discuss / reach は前置詞なしで目的語"
+ },
+ {
+  "id": 95,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "誤り指摘：lie と lay の区別",
+  "q": "次の英文の［ ］で示した部分のうち、誤りを含むものを一つ選びなさい。\nThe letters had [laid] untouched [in] the archive for [nearly] a century [before] a graduate student discovered them.",
+  "c": [
+   "laid",
+   "in",
+   "nearly",
+   "before"
+  ],
+  "e": "「（物が）置かれている・横たわる」は自動詞 lie で、活用は lie－lay－lain です。過去完了なので had lain としなければなりません。laid は他動詞 lay（～を置く）の過去分詞で、目的語がないこの文には合いません。in the archive（保管庫の中に）、nearly a century（ほぼ1世紀）、接続詞の before はいずれも正しい用法です。",
+  "m": "lie-lay-lain（自）／lay-laid-laid（他）"
+ },
+ {
+  "id": 96,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "仮定法：Were it not for ～",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n( ) it not for her scholarship, she would not be able to study abroad this year.",
+  "c": [
+   "Were",
+   "Had",
+   "If",
+   "Should"
+  ],
+  "e": "主節が would not be able と仮定法過去なので、「もし～がなければ」を表す If it were not for ～ を倒置した Were it not for ～ が正解です。Had it not been for ～ は仮定法過去完了の形で、been が必要になり、主節の時制とも合いません。If を使うなら If it were not for と were が必要です。Should it ～ は可能性の低い未来の仮定で、not for と結びつきません。",
+  "m": "Were it not for＝If it were not for"
+ },
+ {
+  "id": 97,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "語順：as ＋形容詞＋ a ＋名詞＋ as",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThis software is ( ) as any researcher could wish for.",
+  "c": [
+   "as useful a tool",
+   "as a useful tool",
+   "so a useful tool",
+   "such useful a tool"
+  ],
+  "e": "as, so, too, how の後に〈形容詞＋a＋名詞〉を続けるときは、as useful a tool のように〈as＋形容詞＋a＋名詞〉の語順になります。as a useful tool では原級比較の形になりません。so を使う場合も so useful a tool の語順で、so a useful tool は誤りです。such を使うなら such a useful tool の語順になり、such useful a tool は誤りです。",
+  "m": "as / so / too ＋形容詞＋a＋名詞"
+ },
+ {
+  "id": 98,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "not so much A as B",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe success of the campaign was due not so much to its budget ( ) to the enthusiasm of its volunteers.",
+  "c": [
+   "as",
+   "than",
+   "but",
+   "for"
+  ],
+  "e": "not so much A as B は「AというよりむしろB」という意味で、ここでは「予算というよりボランティアの熱意のおかげだった」となります。A と B には to its budget と to the enthusiasm のように同じ形が並びます。than は rather A than B の形で使い、not so much と組みません。not A but B と混同して but を選ばないよう注意が必要です。for では構文が成り立ちません。",
+  "m": "not so much A as B＝AというよりB"
+ },
+ {
+  "id": 99,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "the ＋比較級, the ＋比較級",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe longer the negotiations dragged on, ( ) likely it seemed that an agreement would be reached.",
+  "c": [
+   "the less",
+   "the least",
+   "less",
+   "so less"
+  ],
+  "e": "前半が The longer ～ なので、「～すればするほど、ますます…」を表す〈the＋比較級, the＋比較級〉の構文です。後半にも the＋比較級が必要で、the less likely（ますます可能性が低く）が正解です。最上級の the least は使えません。the を欠く less では構文が完成しません。so less という形は英語にありません。",
+  "m": "The 比較級 ～, the 比較級 …"
+ },
+ {
+  "id": 100,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "関係代名詞 what",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n( ) surprised the researchers most was not the size of the effect but how quickly it appeared.",
+  "c": [
+   "What",
+   "That",
+   "Which",
+   "It"
+  ],
+  "e": "空所から most までが文の主語になり、動詞 was に続いています。「研究者を最も驚かせたこと」という名詞節をつくるには、先行詞を含む関係代名詞 what（＝the thing which）が必要です。That や Which は先行詞がないので、この位置で主語の名詞節をつくれません。It を入れると It surprised ～ と was の二つの動詞が並び、文が成り立ちません。",
+  "m": "what＝the thing(s) which（先行詞を含む）"
+ },
+ {
+  "id": 101,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "meticulous（細心の）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe editor was so ( ) that she checked every date and name in the manuscript twice.",
+  "c": [
+   "meticulous",
+   "careless",
+   "reluctant",
+   "arrogant"
+  ],
+  "e": "so ～ that ... の構文で、結果が「原稿の日付と名前をすべて二度確認した」なので、空所には「細部まで注意深い」を表す meticulous が入ります。careless（不注意な）は結果と逆です。reluctant（気が進まない）や arrogant（傲慢な）は、二度確認したことの理由になりません。",
+  "m": "meticulous＝細部まで注意深い"
+ },
+ {
+  "id": 102,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "make up for（埋め合わせる）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nHe stayed late at the office every night that week to ( ) for the time he had lost while he was ill.",
+  "c": [
+   "make up",
+   "take up",
+   "give in",
+   "put off"
+  ],
+  "e": "病気で失った時間を、毎晩残業して「埋め合わせる」という文脈なので、make up for ～（～の埋め合わせをする）が正解です。take up は「（場所・時間を）とる、始める」、give in は「屈する」、put off は「延期する」で、いずれも for と組んでこの意味にはなりません。",
+  "m": "make up for＝compensate for"
+ },
+ {
+  "id": 103,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "rule out（除外する）",
+  "q": "次の英文の下線部［ ］に最も意味が近いものを選びなさい。\nInvestigators have not [ruled out] the possibility that the fire was started deliberately.",
+  "c": [
+   "eliminated from consideration",
+   "proved to be true",
+   "announced to the public",
+   "explained in detail"
+  ],
+  "e": "rule out は「（可能性などを）除外する、排除する」という意味で、eliminated from consideration（考慮の対象から外した）が最も近い意味です。文全体では「放火の可能性を排除していない」となります。proved to be true（真実だと証明した）は、可能性を残しているだけの文意とずれます。announced（公表した）や explained（説明した）も意味が異なります。",
+  "m": "rule out＝除外する（＝exclude）"
+ },
+ {
+  "id": 104,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "scrutiny（精査）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nEvery claim in the proposal will be subject to close ( ) by an independent panel before any funds are released.",
+  "c": [
+   "scrutiny",
+   "negligence",
+   "sympathy",
+   "ambition"
+  ],
+  "e": "資金を出す前に、独立した委員会が提案の主張を一つ一つ「綿密に調べる」という文脈なので、close scrutiny（厳しい精査）が正解です。be subject to ～ は「～を受ける」という意味です。negligence（怠慢）、sympathy（同情）、ambition（野心）は、委員会が提案に対して行う手続きを表しません。",
+  "m": "close scrutiny＝綿密な精査"
+ },
+ {
+  "id": 105,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "on the verge of（～の寸前で）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nSeveral of the region's traditional crafts are on the ( ) of disappearing, as few young people are willing to learn them.",
+  "c": [
+   "verge",
+   "side",
+   "top",
+   "line"
+  ],
+  "e": "on the verge of -ing は「今にも～しそうで、～の寸前で」という意味で、若者が学ぼうとしないため伝統工芸が「消えかけている」という文脈に合います。on the side of は「～の味方で」、on (the) top of は「～の上に、～に加えて」で意味が合いません。on the line は「危険にさらされて」ですが、of -ing を続ける形にはなりません。",
+  "m": "on the verge of -ing＝今にも～しそう"
+ },
+ {
+  "id": 106,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "alleviate（和らげる）",
+  "q": "次の英文の下線部［ ］に最も意味が近いものを選びなさい。\nThe new medicine did little to [alleviate] her symptoms.",
+  "c": [
+   "relieve",
+   "worsen",
+   "identify",
+   "conceal"
+  ],
+  "e": "alleviate は「（苦痛・問題を）和らげる、軽くする」という意味で、relieve が最も近い意味です。did little to ～ は「ほとんど～しなかった」なので、文全体は「新薬は症状をほとんど和らげなかった」となります。worsen（悪化させる）は逆の意味です。identify（特定する）や conceal（隠す）は意味が異なります。",
+  "m": "alleviate＝relieve（苦痛を和らげる）"
+ },
+ {
+  "id": 107,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "by no means（決して～ない）",
+  "q": "次の英文の下線部［ ］に最も意味が近いものを選びなさい。\nHis explanation of the missing funds was [by no means] satisfactory.",
+  "c": [
+   "not at all",
+   "in some ways",
+   "almost entirely",
+   "at least partly"
+  ],
+  "e": "by no means は「決して～ない、まったく～ない」という強い否定を表すので、not at all と同じ意味です。in some ways（いくつかの点で）、almost entirely（ほぼ完全に）、at least partly（少なくとも部分的に）は、いずれも説明がある程度は満足できるという肯定の意味になり、否定の by no means とは逆になります。",
+  "m": "by no means＝not at all（強い否定）"
+ },
+ {
+  "id": 108,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "in the wake of（～のあとで）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIn the ( ) of the scandal, the company replaced its entire board of directors.",
+  "c": [
+   "wake",
+   "trace",
+   "turn",
+   "way"
+  ],
+  "e": "in the wake of ～ は「～のあとで、～の結果として」という意味で、不祥事のあとに取締役を総入れ替えしたという文脈に合います。wake はもともと船が通ったあとの航跡のことです。in the trace of、in the turn of という表現はありません。in the way of は「～として（の）、～の点で」という意味の表現で（例：nothing in the way of help）、この文には合いません。",
+  "m": "in the wake of＝～の直後に・～を受けて"
+ },
+ {
+  "id": 109,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "plausible（もっともらしい）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nAlthough his story sounded ( ), the detectives soon found evidence that contradicted it.",
+  "c": [
+   "plausible",
+   "absurd",
+   "irrelevant",
+   "inaudible"
+  ],
+  "e": "Although（～だけれども）で始まるので、前半と後半は対立する内容になります。後半が「話と矛盾する証拠を見つけた」なので、前半は「話はもっともらしく聞こえた」となる plausible が正解です。absurd（ばかげた）では、矛盾する証拠が見つかることと対立せず、Although が不自然になります。irrelevant（無関係な）や inaudible（聞き取れない）も文意に合いません。",
+  "m": "plausible＝もっともらしい（Although に注目）"
+ },
+ {
+  "id": 110,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "inevitable（避けられない）",
+  "q": "次の英文の下線部［ ］に最も意味が近いものを選びなさい。\nThe decline of the town's main industry was [inevitable] once cheaper imports became widely available.",
+  "c": [
+   "impossible to avoid",
+   "difficult to explain",
+   "easy to reverse",
+   "slow to begin"
+  ],
+  "e": "inevitable は「避けられない、必然的な」という意味で、impossible to avoid が最も近い意味です。once ～ は「いったん～すると」で、「安い輸入品が広く出回ると、町の主要産業の衰退は避けられなかった」となります。difficult to explain（説明しにくい）、easy to reverse（元に戻しやすい）、slow to begin（始まるのが遅い）は、いずれも意味が異なります。",
+  "m": "inevitable＝unavoidable"
+ },
+ {
+  "id": 111,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "留学相談：迷っていることを伝える",
+  "p": "Haruto: I've been thinking about applying for the exchange program next year.\nMs. Lee: That's wonderful. Have you decided where you'd like to go?\nHaruto: Not yet. ( 1 ) Some of my friends say I should choose a big city, but I'm not so sure.\nMs. Lee: Well, a smaller town can be a good choice. You'd probably have more chances to talk with local people.\nHaruto: That makes sense. My only worry is my English. ( 2 )\nMs. Lee: Nobody is when they start. Most students find that they improve quickly once they're there.\nHaruto: I hope so. By the way, when is the application deadline?\nMs. Lee: The end of November, I think. ( 3 ) Let me check the website.\nHaruto: Thank you. I'll start working on my essay this weekend.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I'm still weighing the pros and cons of several universities.",
+   "I've already booked my flight to London.",
+   "I've decided not to apply after all.",
+   "My friends are going to choose for me."
+  ],
+  "e": "行き先を決めたかと聞かれて Not yet.（まだです）と答え、空所の後で「友人は大都市を勧めるが確信がない」と続けています。まだ迷っていることを表す「いくつかの大学の長所と短所をまだ比べているところです」が自然です。「ロンドン行きの航空券を予約した」は Not yet と矛盾します。「結局応募しないことにした」は冒頭の発言や最後の「作文に取りかかる」と合いません。「友人が決めてくれる」は I'm not so sure の流れに合いません。",
+  "m": "weigh the pros and cons＝長所と短所を比べる"
+ },
+ {
+  "id": 112,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "留学相談：不安を述べる",
+  "p": "Haruto: I've been thinking about applying for the exchange program next year.\nMs. Lee: That's wonderful. Have you decided where you'd like to go?\nHaruto: Not yet. ( 1 ) Some of my friends say I should choose a big city, but I'm not so sure.\nMs. Lee: Well, a smaller town can be a good choice. You'd probably have more chances to talk with local people.\nHaruto: That makes sense. My only worry is my English. ( 2 )\nMs. Lee: Nobody is when they start. Most students find that they improve quickly once they're there.\nHaruto: I hope so. By the way, when is the application deadline?\nMs. Lee: The end of November, I think. ( 3 ) Let me check the website.\nHaruto: Thank you. I'll start working on my essay this weekend.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I'm afraid I'm not fluent enough yet.",
+   "I've been speaking it since I was a child.",
+   "I think it's better than most teachers'.",
+   "I don't think I'll need it there."
+  ],
+  "e": "「唯一の心配は英語だ」に続く発言で、Ms. Lee が Nobody is when they start.（最初からそうである人はいない）と答えています。この is の後には fluent が省略されていると考えると、「まだ十分に流ちょうではないと思う」が入ります。「子どものころから話している」「たいていの先生より上手」は心配の内容と矛盾します。「向こうでは必要ない」では心配の理由にならず、Ms. Lee の返答ともかみ合いません。",
+  "m": "Nobody is (fluent) ～＝省略を補って読む"
+ },
+ {
+  "id": 113,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "留学相談：記憶があいまいなことを示す",
+  "p": "Haruto: I've been thinking about applying for the exchange program next year.\nMs. Lee: That's wonderful. Have you decided where you'd like to go?\nHaruto: Not yet. ( 1 ) Some of my friends say I should choose a big city, but I'm not so sure.\nMs. Lee: Well, a smaller town can be a good choice. You'd probably have more chances to talk with local people.\nHaruto: That makes sense. My only worry is my English. ( 2 )\nMs. Lee: Nobody is when they start. Most students find that they improve quickly once they're there.\nHaruto: I hope so. By the way, when is the application deadline?\nMs. Lee: The end of November, I think. ( 3 ) Let me check the website.\nHaruto: Thank you. I'll start working on my essay this weekend.",
+  "q": "次の会話文を読み、空所（3）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "But don't quote me on that.",
+   "I'm absolutely certain of it.",
+   "You've missed it already.",
+   "There's no deadline this year."
+  ],
+  "e": "Ms. Lee は締め切りを「11月末だと思う（I think）」と答え、空所の後で「ウェブサイトを確認させて」と言っています。確信がないことを表す But don't quote me on that.（でも当てにしないでね）が自然です。「絶対に確かだ」なら確認する必要がありません。「もう締め切りを過ぎた」「今年は締め切りがない」は、11月末と答えた直前の発言と矛盾します。",
+  "m": "don't quote me on that＝確かではないけど"
+ },
+ {
+  "id": 114,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ルームメイト：苦情を伝える",
+  "p": "Sam: Hey, do you have a minute? There's something I've been meaning to talk to you about.\nJun: Sure. What's up?\nSam: It's about the music late at night. ( 1 ) I have an early class three days a week.\nJun: Oh, I had no idea it was that loud. I'm really sorry.\nSam: It's not a big deal. I just thought I should mention it before it bothered me too much.\nJun: I appreciate that. ( 2 ) I could use headphones after eleven.\nSam: That would be great. And if anything I do bothers you, please tell me.\nJun: Well, now that you mention it, ( 3 )\nSam: Fair enough. I'll make sure to clean up right after I cook.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I can hear it through the wall, and it's keeping me awake.",
+   "I'd like you to turn it up a little.",
+   "I really enjoy listening to it while I fall asleep.",
+   "I've never noticed any music at all."
+  ],
+  "e": "Sam は「前から話そうと思っていたこと」として深夜の音楽を持ち出し、空所の後で「週3日は早い授業がある」と理由を述べています。Jun も「そんなにうるさいとは知らなかった」と謝っているので、「壁越しに聞こえて眠れない」が入ります。「少し音を大きくしてほしい」「眠りながら聞くのが好き」は苦情になりません。「音楽にはまったく気づかなかった」は話題を持ち出したことと矛盾します。",
+  "m": "keep O awake＝Oを眠らせない"
+ },
+ {
+  "id": 115,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ルームメイト：解決策を提案する",
+  "p": "Sam: Hey, do you have a minute? There's something I've been meaning to talk to you about.\nJun: Sure. What's up?\nSam: It's about the music late at night. ( 1 ) I have an early class three days a week.\nJun: Oh, I had no idea it was that loud. I'm really sorry.\nSam: It's not a big deal. I just thought I should mention it before it bothered me too much.\nJun: I appreciate that. ( 2 ) I could use headphones after eleven.\nSam: That would be great. And if anything I do bothers you, please tell me.\nJun: Well, now that you mention it, ( 3 )\nSam: Fair enough. I'll make sure to clean up right after I cook.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "How about this?",
+   "Why should I care?",
+   "That's not my problem.",
+   "I'm going to move out tomorrow."
+  ],
+  "e": "Jun は「言ってくれてありがたい」と述べ、空所の後で「11時以降はヘッドホンを使える」と具体的な解決策を示しています。提案を切り出す How about this?（こうするのはどう？）が自然です。「なぜ気にしなきゃいけないの」「それは自分の問題じゃない」は直前の感謝や謝罪と矛盾します。「明日引っ越す」は、続く提案や Sam の That would be great. とつながりません。",
+  "m": "How about this?＝提案の切り出し"
+ },
+ {
+  "id": 116,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "ルームメイト：こちらからの要望",
+  "p": "Sam: Hey, do you have a minute? There's something I've been meaning to talk to you about.\nJun: Sure. What's up?\nSam: It's about the music late at night. ( 1 ) I have an early class three days a week.\nJun: Oh, I had no idea it was that loud. I'm really sorry.\nSam: It's not a big deal. I just thought I should mention it before it bothered me too much.\nJun: I appreciate that. ( 2 ) I could use headphones after eleven.\nSam: That would be great. And if anything I do bothers you, please tell me.\nJun: Well, now that you mention it, ( 3 )\nSam: Fair enough. I'll make sure to clean up right after I cook.",
+  "q": "次の会話文を読み、空所（3）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "the dishes do tend to pile up in the sink.",
+   "everything you do is absolutely perfect.",
+   "I'd rather not talk about the music anymore.",
+   "you should play your music louder too."
+  ],
+  "e": "Sam が「自分のすることで気になることがあれば言って」と言い、Jun は now that you mention it（そう言われてみれば）と切り出しています。Sam の返答が「料理のあとすぐ片づける」なので、「流しに皿がたまりがちだ」が入ります。do tend は強調の do です。「あなたのすることはすべて完璧」では、Sam が片づけを約束する理由がありません。「音楽の話はもうしたくない」「あなたも音楽をもっと大きく」は Sam の返答とつながりません。",
+  "m": "now that you mention it＝そう言われてみれば"
+ },
+ {
+  "id": 117,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "面接：志望理由を述べる",
+  "p": "Interviewer: Thank you for coming in today. Could you tell me why you're interested in this position?\nApplicant: Certainly. I've followed your company's work on renewable energy for some time, and ( 1 )\nInterviewer: I see. Our team often works under tight deadlines. How do you handle pressure?\nApplicant: I try to break large tasks into smaller steps. In my last job, for example, we had to finish a major report in a week, and careful planning helped us meet the deadline.\nInterviewer: That's good to know. Do you have any questions for us?\nApplicant: Yes. ( 2 )\nInterviewer: New staff usually spend their first month working alongside an experienced colleague, and there are workshops every quarter.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I'd like to contribute to projects that I believe in.",
+   "I've never really been interested in energy.",
+   "I'm not sure what your company actually does.",
+   "I'm mainly hoping to find a job close to my home."
+  ],
+  "e": "志望理由を聞かれ、「御社の再生可能エネルギーの仕事をしばらく追ってきた」と述べたあとに and で続くので、その関心から自然につながる「自分が価値を信じる事業に貢献したい」が入ります。「エネルギーには興味がなかった」「御社が何をしているのかよくわからない」は前半の内容と矛盾します。「家の近くの仕事を探している」は、会社の仕事を追ってきたという前半とつながらず、志望理由として成り立ちません。",
+  "m": "前半との一貫性で選ぶ（and でつながる）"
+ },
+ {
+  "id": 118,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "面接：研修について質問する",
+  "p": "Interviewer: Thank you for coming in today. Could you tell me why you're interested in this position?\nApplicant: Certainly. I've followed your company's work on renewable energy for some time, and ( 1 )\nInterviewer: I see. Our team often works under tight deadlines. How do you handle pressure?\nApplicant: I try to break large tasks into smaller steps. In my last job, for example, we had to finish a major report in a week, and careful planning helped us meet the deadline.\nInterviewer: That's good to know. Do you have any questions for us?\nApplicant: Yes. ( 2 )\nInterviewer: New staff usually spend their first month working alongside an experienced colleague, and there are workshops every quarter.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "What kind of training do new employees receive?",
+   "How many days off can I take in my first week?",
+   "Who will be interviewing me next time?",
+   "When did your company start working on energy?"
+  ],
+  "e": "面接官の答えが「新しい社員は最初の1か月を経験ある同僚と一緒に働き、四半期ごとに研修会がある」なので、新入社員の研修について尋ねる質問が入ります。「最初の週に何日休めるか」「次は誰が面接するのか」「いつからエネルギー事業を始めたのか」は、どれも面接官の答えとかみ合いません。会話文では、空所の直後の返答から質問の内容を逆にたどるのが基本です。",
+  "m": "空所の直後の返答から質問を決める"
+ },
+ {
+  "id": 119,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "共同発表：反省を述べる",
+  "p": "Mika: The presentation is on Friday, and we still haven't finished the slides.\nTom: I know. ( 1 ) I've been busy with my part-time job all week.\nMika: Me too. Maybe we should divide the remaining work. Could you handle the data section?\nTom: Sure, I can do that tonight. What about the conclusion?\nMika: I'll write it. ( 2 ) Then we can practice together on Thursday.\nTom: Good idea. Let's meet in the library after lunch on Thursday.",
+  "q": "次の会話文を読み、空所（1）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I should have started earlier.",
+   "We finished everything last week.",
+   "Friday is still too far away to worry about.",
+   "Let's just cancel the presentation."
+  ],
+  "e": "Mika が「金曜が発表なのにスライドがまだ終わっていない」と言い、Tom は I know.（わかってる）と受けたあと、「今週はずっとアルバイトで忙しかった」と言い訳めいた理由を続けています。間に入るのは「もっと早く始めるべきだった」という反省です。〈should have p.p.〉は「～すべきだったのに（しなかった）」を表します。「先週すべて終えた」は直前の発言と矛盾し、「まだ心配するには早い」「発表を中止しよう」は、続いて作業を分担する流れと合いません。",
+  "m": "should have p.p.＝～すべきだったのに"
+ },
+ {
+  "id": 120,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "共同発表：期限を約束する",
+  "p": "Mika: The presentation is on Friday, and we still haven't finished the slides.\nTom: I know. ( 1 ) I've been busy with my part-time job all week.\nMika: Me too. Maybe we should divide the remaining work. Could you handle the data section?\nTom: Sure, I can do that tonight. What about the conclusion?\nMika: I'll write it. ( 2 ) Then we can practice together on Thursday.\nTom: Good idea. Let's meet in the library after lunch on Thursday.",
+  "q": "次の会話文を読み、空所（2）に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I'll send it to you by Wednesday night.",
+   "I don't think we need one at all.",
+   "You'd better write it instead.",
+   "I finished it a month ago."
+  ],
+  "e": "Mika は「結論は私が書く」と引き受け、空所の後で「そうすれば木曜に一緒に練習できる」と言っています。練習の前に原稿を共有する段取りとして「水曜の夜までに送る」が自然です。by は「～までに（期限）」を表します。「結論は必要ない」「代わりにあなたが書いて」は I'll write it. と矛盾します。「1か月前に終えた」は、まだ終わっていないという会話の前提と合いません。",
+  "m": "by＝～までに（期限）／until＝～までずっと"
  }
 ]

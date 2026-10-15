@@ -3,12 +3,12 @@
   "short": "看護師",
   "name": "看護師国家試験",
   "exam": "（厚生労働省）",
-  "link": "https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryou/topics/tp260424-03_04_05.html",
-  "linktext": "厚生労働省 看護師国家試験の問題および正答（公式）",
+  "link": "https://www.mhlw.go.jp/kouseiroudoushou/shikaku_shiken/kangoshi/",
+  "linktext": "看護師国家試験（厚生労働省）",
   "owner": "厚生労働省",
-  "who": "厚生労働省",
-  "what": "看護師国家試験の問題および正答",
-  "extra": "出典：厚生労働省ホームページ「第113回〜第115回看護師国家試験の問題および正答について」（https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryou/topics/tp240424-03_04_05.html 、https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryou/topics/tp250428-03_04_05.html 、https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryou/topics/tp260424-03_04_05.html）を加工して作成。厚生労働省が作成したものではありません。出題範囲は保健師助産師看護師国家試験出題基準（令和5年版）、法令は2026年10月1日現在のものに基づきます。写真・状況設定・計算の問題は含みません。試験対策用の問題であり、個別の診療・看護についての助言ではありません。",
+  "past_src": "「過去問ベース」は、厚生労働省ホームページで公開されている{years}年実施の看護師国家試験の問題および正答（公共データ利用規約 PDL1.0）を出典とし（各問の出典欄に回・問番号を表示）、問題文・選択肢を改変したもの、または選択肢の番号を外して表示順を並べ替える加工をしたものです。厚生労働省が作成したものではありません。",
+  "plan_only": "出題基準に合わせて独自に作成した想定問題です。",
+  "extra": "出典：厚生労働省ホームページ「第113回〜第115回看護師国家試験の問題および正答について」（https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryou/topics/tp240424-03_04_05.html 、https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryou/topics/tp250428-03_04_05.html 、https://www.mhlw.go.jp/seisakunitsuite/bunya/kenkou_iryou/iryou/topics/tp260424-03_04_05.html）ほかを加工して作成。出題範囲は保健師助産師看護師国家試験出題基準（令和5年版）、制度・法令は2026年4月1日〜10月1日現在のものに基づきます。写真・状況設定・計算の問題は含みません。このページは学習用で、個別の診療・看護についての助言ではなく、実際の看護・医療の判断に使うものではありません。",
   "eyebrow": "{name}｜出題基準 令和5年版・2026年10月1日現在の法令",
-  "subjects": { "all": ["必修・一般", "出題基準 令和5年版"] }
+  "subjects": { "all": ["必修・一般・領域別", "出題基準 令和5年版"] }
 }
