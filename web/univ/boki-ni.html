@@ -186,7 +186,7 @@ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&am
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
 function st(id){return S.stats[id]||null}
 function A(q){return q.a||0}
-function ord(q){var n=q.c.length,i,a=[];for(i=0;i<(q.last?n-1:n);i++)a.push(i);a=shuffle(a);if(q.last)a.push(n-1);return a}
+function ord(q){var n=q.c.length,i,a=[];for(i=0;i<(q.last?n-1:n);i++)a.push(i);if(!q.fix)a=shuffle(a);if(q.last)a.push(n-1);return a}
 function yearLabel(y){return y<0?"前"+(-y)+"年":y+"年"}
 
 /* ---- 記録 ---- */
@@ -308,13 +308,13 @@ function expHtml(q,it){
   return '<div class="exp"><p class="verdict '+(ok?"ok":"ng")+'">'+(ok?"正解":"不正解")+"　答えは「"+esc(q.c[A(q)])+"」"+(ok?"":'<br><span class="src">あなたの答え：'+esc(mine)+"</span>")+"</p>"+
     "<p>"+esc(q.e)+"</p>"+
     '<p class="memo"><span>覚え方</span>'+esc(q.m)+"</p>"+
-    '<p class="src">'+(q.k==="past"?"過去問ベース：日商簿記検定 "+esc(q.ref)+"（問われた知識をもとに作り直した問題です）":"想定問題（日商簿記検定の出題傾向に合わせて作成した問題で、実際の出題ではありません）")+"</p></div>";
+    '<p class="src">'+(q.fix?"出典：日商簿記検定 "+esc(q.ref)+"（試験問題を原文のまま掲載。解説・覚え方は独自に作成したもので、試験実施団体とは関係ありません）":q.k==="past"?"過去問ベース：日商簿記検定 "+esc(q.ref)+"（問われた知識をもとに作り直した問題です）":"想定問題（日商簿記検定の出題傾向に合わせて作成した問題で、実際の出題ではありません）")+"</p></div>";
 }
 function optsHtml(q,it,reveal){
   return '<div class="opts">'+it.order.map(function(ci,j){
     var cls="";
     if(reveal){cls=ci===A(q)?" right":(it.pick===ci?" wrong":"")}else if(it.pick===ci)cls=" sel";
-    return '<button class="opt'+cls+'" data-act="pick" data-c="'+ci+'"'+(reveal?" disabled":"")+'><span class="mark">'+"abcde".charAt(j)+'</span><span class="txt">'+esc(q.c[ci])+"</span></button>";
+    return '<button class="opt'+cls+'" data-act="pick" data-c="'+ci+'"'+(reveal?" disabled":"")+'><span class="mark">'+(q.fix?String(ci+1):"abcde".charAt(j))+'</span><span class="txt">'+esc(q.c[ci])+"</span></button>";
   }).join("")+"</div>";
 }
 function exam(){
@@ -324,7 +324,7 @@ function exam(){
       var c=drill?(x.pick===null?"":(x.ok?" ok":" ng")):(x.pick===null?"":" done");
       return '<button class="dot'+c+(i===X.k?" cur":"")+'" data-act="go" data-i="'+i+'" aria-label="問'+(i+1)+'へ"'+(drill&&x.pick===null&&i!==X.k?" disabled":"")+"></button>";
     }).join("")+"</div></div>";
-  h+='<article class="sheet"><p class="chip">'+esc(q.f)+"｜"+KIND[q.k]+'</p>'+passHtml(q)+'<h2 class="q">'+esc(q.q)+"</h2>"+optsHtml(q,it,drill&&answered)+(drill&&answered?expHtml(q,it):"")+"</article>";
+  h+='<article class="sheet"><p class="chip">'+esc(q.f)+"｜"+(q.fix?"過去問題（原文）":KIND[q.k])+'</p>'+passHtml(q)+'<h2 class="q">'+esc(q.q)+"</h2>"+optsHtml(q,it,drill&&answered)+(drill&&answered?expHtml(q,it):"")+"</article>";
   if(armed==="grade"){
     var un=X.items.filter(function(x){return x.pick===null}).length;
     h+='<div class="ask"><p>未回答が'+un+'問あります。未回答は不正解になります。</p><div class="row"><button class="btn sm" data-act="unans">未回答の問題へ</button><button class="btn sm" data-act="grade2">このまま採点する</button></div></div>';
@@ -356,7 +356,7 @@ function result(){
       return '<li><span class="yr">'+yearLabel(q.y)+'</span><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="ev">'+esc(q.t)+"<small>"+esc(q.f)+"</small></span></li>"}).join("")+"</ol></section>";
   }else{
     h+='<div class="rev">'+X.items.map(function(it,i){var q=byId[it.id];
-      return '<details class="it"'+(it.ok?"":" open")+'><summary><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="sm-t">問'+(i+1)+"　"+esc(q.t)+"<small>"+esc(q.f)+"｜"+KIND[q.k]+"</small></span></summary>"+
+      return '<details class="it"'+(it.ok?"":" open")+'><summary><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="sm-t">問'+(i+1)+"　"+esc(q.t)+"<small>"+esc(q.f)+"｜"+(q.fix?"過去問題（原文）":KIND[q.k])+"</small></span></summary>"+
         '<div class="it-body">'+passHtml(q)+'<p class="q">'+esc(q.q)+"</p>"+optsHtml(q,it,true)+expHtml(q,it)+"</div></details>"}).join("")+"</div>";
   }
   app.innerHTML=h;

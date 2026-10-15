@@ -38,6 +38,68 @@ import wsKokugo from './data/waseda-kokugo.json';
 import zrBoki from './data/zeirishi-boki.json';
 import zrHoujin from './data/zeirishi-houjin.json';
 import tdSekaishi from './data/todai-sekaishi.json';
+// 資格試験・高校受験・中学受験（web/univ/units の単位。2026-10 に3セッション分を統合）
+import jItpassAll from './data/itpass-all.json';
+import jFeKamokua from './data/fe-kamokua.json';
+import jSgAll from './data/sg-all.json';
+import jKikenbutsuOtsu4 from './data/kikenbutsu-otsu4.json';
+import jDenko2Gakka from './data/denko2-gakka.json';
+import jDenko1Gakka from './data/denko1-gakka.json';
+import jEiseiIchi from './data/eisei-ichi.json';
+import jEiseiNi from './data/eisei-ni.json';
+import jTohanAll from './data/tohan-all.json';
+import jKanriAll from './data/kanri-all.json';
+import jFpSan from './data/fp-san.json';
+import jFpNi from './data/fp-ni.json';
+import jBoiler2All from './data/boiler2-all.json';
+import jKangoAll from './data/kango-all.json';
+import jBokiSan from './data/boki-san.json';
+import jBokiNi from './data/boki-ni.json';
+import jMankanAll from './data/mankan-all.json';
+import jChintaiAll from './data/chintai-all.json';
+import jSharoushiAll from './data/sharoushi-all.json';
+import jGyoseiAll from './data/gyosei-all.json';
+import jDenken3Riron from './data/denken3-riron.json';
+import jDenken3Denryoku from './data/denken3-denryoku.json';
+import jDenken3Kikai from './data/denken3-kikai.json';
+import jDenken3Houki from './data/denken3-houki.json';
+import jKaigoAll from './data/kaigo-all.json';
+import jShakaiAll from './data/shakai-all.json';
+import jOuyouTech from './data/ouyou-tech.json';
+import jOuyouMgmt from './data/ouyou-mgmt.json';
+import jKashikinAll from './data/kashikin-all.json';
+import jKoukouNankanRekishi from './data/koukou-nankan-rekishi.json';
+import jKoukouNankanChiri from './data/koukou-nankan-chiri.json';
+import jKoukouNankanKoumin from './data/koukou-nankan-koumin.json';
+import jKoukouNankanRika from './data/koukou-nankan-rika.json';
+import jKoukouNankanEigo from './data/koukou-nankan-eigo.json';
+import jKoukouNankanKokugo from './data/koukou-nankan-kokugo.json';
+import jKoukouNankanSugaku from './data/koukou-nankan-sugaku.json';
+import jKoukouRekishi from './data/koukou-rekishi.json';
+import jKoukouChiri from './data/koukou-chiri.json';
+import jKoukouKoumin from './data/koukou-koumin.json';
+import jKoukouRika from './data/koukou-rika.json';
+import jKoukouEigo from './data/koukou-eigo.json';
+import jKoukouKokugo from './data/koukou-kokugo.json';
+import jKoukouSugaku from './data/koukou-sugaku.json';
+import jChugakuNankanRekishi from './data/chugaku-nankan-rekishi.json';
+import jChugakuNankanChiri from './data/chugaku-nankan-chiri.json';
+import jChugakuNankanKoumin from './data/chugaku-nankan-koumin.json';
+import jChugakuNankanRika from './data/chugaku-nankan-rika.json';
+import jChugakuNankanKokugo from './data/chugaku-nankan-kokugo.json';
+import jChugakuNankanSansu from './data/chugaku-nankan-sansu.json';
+import jChugakuFuzokuRekishi from './data/chugaku-fuzoku-rekishi.json';
+import jChugakuFuzokuChiri from './data/chugaku-fuzoku-chiri.json';
+import jChugakuFuzokuKoumin from './data/chugaku-fuzoku-koumin.json';
+import jChugakuFuzokuRika from './data/chugaku-fuzoku-rika.json';
+import jChugakuFuzokuKokugo from './data/chugaku-fuzoku-kokugo.json';
+import jChugakuFuzokuSansu from './data/chugaku-fuzoku-sansu.json';
+import jChugakuRekishi from './data/chugaku-rekishi.json';
+import jChugakuChiri from './data/chugaku-chiri.json';
+import jChugakuKoumin from './data/chugaku-koumin.json';
+import jChugakuRika from './data/chugaku-rika.json';
+import jChugakuKokugo from './data/chugaku-kokugo.json';
+import jChugakuSansu from './data/chugaku-sansu.json';
 
 export type ExamId =
   | 'takken' | 'rikkyo-sekaishi' | 'rikkyo-nihonshi'
@@ -45,7 +107,8 @@ export type ExamId =
   | 'kindai-nihonshi' | 'kindai-sekaishi' | 'kindai-eigo' | 'kindai-kokugo' | 'nichidai-nihonshi' | 'nichidai-sekaishi' | 'nichidai-eigo' | 'nichidai-kokugo'
   | 'meiji-nihonshi' | 'meiji-sekaishi' | 'meiji-eigo' | 'meiji-kokugo'
   | 'zeirishi-zaihyo' | 'zeirishi-souzoku' | 'zeirishi-shouhi' | 'zeirishi-shotoku' | 'todai-eigo' | 'todai-chiri' | 'todai-seibutsu' | 'waseda-eigo'
-  | 'todai-kokugo' | 'todai-sugaku-bun' | 'todai-sugaku-ri' | 'todai-butsuri' | 'todai-kagaku' | 'todai-nihonshi' | 'waseda-nihonshi' | 'waseda-sekaishi' | 'waseda-kokugo' | 'zeirishi-boki' | 'zeirishi-houjin' | 'todai-sekaishi';
+  | 'todai-kokugo' | 'todai-sugaku-bun' | 'todai-sugaku-ri' | 'todai-butsuri' | 'todai-kagaku' | 'todai-nihonshi' | 'waseda-nihonshi' | 'waseda-sekaishi' | 'waseda-kokugo' | 'zeirishi-boki' | 'zeirishi-houjin' | 'todai-sekaishi'
+  | 'itpass-all' | 'fe-kamokua' | 'sg-all' | 'kikenbutsu-otsu4' | 'denko2-gakka' | 'denko1-gakka' | 'eisei-ichi' | 'eisei-ni' | 'tohan-all' | 'kanri-all' | 'fp-san' | 'fp-ni' | 'boiler2-all' | 'kango-all' | 'boki-san' | 'boki-ni' | 'mankan-all' | 'chintai-all' | 'sharoushi-all' | 'gyosei-all' | 'denken3-riron' | 'denken3-denryoku' | 'denken3-kikai' | 'denken3-houki' | 'kaigo-all' | 'shakai-all' | 'ouyou-tech' | 'ouyou-mgmt' | 'kashikin-all' | 'koukou-nankan-rekishi' | 'koukou-nankan-chiri' | 'koukou-nankan-koumin' | 'koukou-nankan-rika' | 'koukou-nankan-eigo' | 'koukou-nankan-kokugo' | 'koukou-nankan-sugaku' | 'koukou-rekishi' | 'koukou-chiri' | 'koukou-koumin' | 'koukou-rika' | 'koukou-eigo' | 'koukou-kokugo' | 'koukou-sugaku' | 'chugaku-nankan-rekishi' | 'chugaku-nankan-chiri' | 'chugaku-nankan-koumin' | 'chugaku-nankan-rika' | 'chugaku-nankan-kokugo' | 'chugaku-nankan-sansu' | 'chugaku-fuzoku-rekishi' | 'chugaku-fuzoku-chiri' | 'chugaku-fuzoku-koumin' | 'chugaku-fuzoku-rika' | 'chugaku-fuzoku-kokugo' | 'chugaku-fuzoku-sansu' | 'chugaku-rekishi' | 'chugaku-chiri' | 'chugaku-koumin' | 'chugaku-rika' | 'chugaku-kokugo' | 'chugaku-sansu';
 export type Format = 'ox' | 'choice';
 
 // 共通の問題形式。ox は a: 1＝○／0＝×、choice は a＝正解の c の番号
@@ -64,13 +127,14 @@ export type Item = {
   m: string;      // 覚え方
   y?: number;     // 年（歴史。紀元前はマイナス）
   kind?: string;  // 出題区分（例 past／plan）
+  keep?: boolean; // 選択肢を原文の順のまま出す（過去問題を原文で載せる試験。並べ替え禁止の利用条件）
 };
 
 export type Exam = {
   id: ExamId;
   name: string;
   short: string;
-  group: string;                              // 入口の画面での見出し（資格試験／大学入試）
+  group: string;                              // 入口の画面での見出し（資格試験／大学入試／高校受験／中学受験）
   desc: string;                               // 入口とホームに出す一文
   format: Format;
   fields: [string, string][];                 // [分野キー, 表示名]
@@ -98,12 +162,12 @@ const takkenItems = (): Item[] => {
 // 立教：安定キーは id（Web版の学習記録と同じ）
 type RikkyoRaw = {
   id: number; ref: string; f: string; t: string; y?: number; p?: string; q: string; c: string[];
-  e: string; m: string; a?: number; last?: boolean; k?: string;
+  e: string; m: string; a?: number; last?: boolean; k?: string; fix?: boolean;
 };
 const rikkyoItems = (raw: RikkyoRaw[]): Item[] =>
   raw.map((q, i) => ({
     k: String(q.id), i, f: q.f, t: q.t, ref: q.ref, p: q.p, s: q.q, c: q.c, fix: !!q.last,
-    a: q.a ?? 0, e: q.e, m: q.m, y: q.y, kind: q.k,
+    a: q.a ?? 0, e: q.e, m: q.m, y: q.y, kind: q.k, ...(q.fix ? { keep: true } : {}),
   }));
 
 // 分野の並び：各分野の平均年代の古い順（Web版の web/keio/build.py と同じ）
@@ -152,6 +216,36 @@ const univ = (id: ExamId, name: string, short: string, raw: unknown): Exam => {
     reviewBy: 'field', kinds: [['past', '過去問ベース'], ['plan', '想定問題']], storageKey: `exam-progress-v1:${id}`, items,
   };
 };
+
+// 資格試験・高校受験・中学受験（web/univ/units/<単位>.json の試験）：立教と同じ形式
+const pack = (id: ExamId, name: string, short: string, group: string, desc: string, items: Item[], kinds?: [string, string][]): Exam => ({
+  id, name, short, group, desc, format: 'choice', fields: fieldsByYear(items), size: 10, limit: 600, reviewBy: 'field',
+  kinds: kinds ?? [['past', '過去問ベース'], ['plan', '想定問題']], storageKey: `exam-progress-v1:${id}`, items,
+});
+// 資格試験：説明文は問題データから組む（過去問ベース／原文／想定問題、4択／5択）。note は医療・福祉などの注意書き
+const shikaku = (id: ExamId, name: string, short: string, raw: unknown, note = ''): Exam => {
+  const items = rikkyoItems(raw as RikkyoRaw[]);
+  const n = [...new Set(items.map(q => q.c!.length))].sort();
+  const ch = n.length > 1 ? `${n[0]}〜${n[n.length - 1]}択` : `${n[0]}択`;
+  const past = items.some(q => q.kind === 'past'), plan = items.some(q => q.kind === 'plan'), orig = items.some(q => q.keep);
+  const what = past ? (orig ? '過去問題（原文）' : '過去問ベース') + (plan ? 'と想定問題' : '') : '想定問題';
+  return pack(id, name, short, '資格試験', `${what}の${ch}。10問10分。${note}`, items,
+    orig ? [['past', '過去問題（原文）'], ['plan', '想定問題']] : undefined);
+};
+// 高校受験・中学受験：すべて想定問題。科目は id の最後
+const SCHOOL_DESC: Record<string, string> = {
+  rekishi: '出題範囲に合わせた想定問題の4択。時代をまんべんなく10問。',
+  chiri: '出題範囲に合わせた想定問題の4択。地形・気候・産業などを10問。',
+  koumin: '出題範囲に合わせた想定問題の4択。憲法・政治・経済・国際を10問。',
+  rika: '出題範囲に合わせた想定問題の4択。生物・地学・化学・物理を10問。',
+  eigo: '出題範囲に合わせた想定問題の4択。英文はすべて自作。10問10分。',
+  kokugo: '出題範囲に合わせた想定問題の4択。漢字・語句・読解を10問10分。',
+  sugaku: '出題範囲に合わせた想定問題の4択。答えはすべて計算で確認済み。',
+  sansu: '出題範囲に合わせた想定問題の4択。答えはすべて計算で確認済み。',
+};
+const school = (id: ExamId, name: string, short: string, raw: unknown): Exam =>
+  pack(id, name, short, id.startsWith('koukou-') ? '高校受験' : '中学受験', SCHOOL_DESC[id.slice(id.lastIndexOf('-') + 1)],
+    rikkyoItems(raw as RikkyoRaw[]));
 
 export const EXAMS: Exam[] = [
   {
@@ -221,6 +315,67 @@ export const EXAMS: Exam[] = [
   univ('zeirishi-boki', '税理士 簿記論', '簿記論', zrBoki),
   univ('zeirishi-houjin', '税理士 法人税法', '法人税法', zrHoujin),
   univ('todai-sekaishi', '東京大学 世界史', '東大 世界史', tdSekaishi),
+  shikaku('itpass-all', 'ITパスポート試験', 'ITパスポート', jItpassAll),
+  shikaku('fe-kamokua', '基本情報技術者試験 科目A', '基本情報 科目A', jFeKamokua),
+  shikaku('sg-all', '情報セキュリティマネジメント試験 科目A', '情報セキュマネ', jSgAll),
+  shikaku('kikenbutsu-otsu4', '危険物取扱者 乙種第4類', '危険物乙4', jKikenbutsuOtsu4),
+  shikaku('denko2-gakka', '第二種電気工事士 学科', '電工2種 学科', jDenko2Gakka),
+  shikaku('denko1-gakka', '第一種電気工事士 学科', '電工1種 学科', jDenko1Gakka),
+  shikaku('eisei-ichi', '第一種衛生管理者', '衛生管理者1種', jEiseiIchi),
+  shikaku('eisei-ni', '第二種衛生管理者', '衛生管理者2種', jEiseiNi),
+  shikaku('tohan-all', '登録販売者試験', '登録販売者', jTohanAll, '学習用で、医薬品の使用の助言ではありません。'),
+  shikaku('kanri-all', '管理業務主任者試験', '管理業務主任者', jKanriAll),
+  shikaku('fp-san', 'FP技能検定 3級 学科', 'FP3級', jFpSan),
+  shikaku('fp-ni', 'FP技能検定 2級 学科', 'FP2級', jFpNi),
+  shikaku('boiler2-all', '二級ボイラー技士免許試験', '2級ボイラー', jBoiler2All),
+  shikaku('kango-all', '看護師国家試験', '看護師', jKangoAll, '学習用で、診療・看護の助言ではありません。'),
+  shikaku('boki-san', '日商簿記検定 3級', '簿記3級', jBokiSan),
+  shikaku('boki-ni', '日商簿記検定 2級', '簿記2級', jBokiNi),
+  shikaku('mankan-all', 'マンション管理士試験', 'マンション管理士', jMankanAll),
+  shikaku('chintai-all', '賃貸不動産経営管理士試験', '賃貸不動産経営管理士', jChintaiAll),
+  shikaku('sharoushi-all', '社会保険労務士試験 択一式', '社労士', jSharoushiAll),
+  shikaku('gyosei-all', '行政書士試験 5肢択一', '行政書士', jGyoseiAll),
+  shikaku('denken3-riron', '電験三種 理論', '電験三種 理論', jDenken3Riron),
+  shikaku('denken3-denryoku', '電験三種 電力', '電験三種 電力', jDenken3Denryoku),
+  shikaku('denken3-kikai', '電験三種 機械', '電験三種 機械', jDenken3Kikai),
+  shikaku('denken3-houki', '電験三種 法規', '電験三種 法規', jDenken3Houki),
+  shikaku('kaigo-all', '介護福祉士国家試験', '介護福祉士', jKaigoAll, '学習用で、介護・医療の判断には使えません。'),
+  shikaku('shakai-all', '社会福祉士国家試験', '社会福祉士', jShakaiAll, '学習用で、福祉・医療の判断には使えません。'),
+  shikaku('ouyou-tech', '応用情報技術者試験 テクノロジ系', '応用情報 テクノロジ', jOuyouTech),
+  shikaku('ouyou-mgmt', '応用情報技術者試験 マネジメント・ストラテジ系', '応用情報 マネジメント', jOuyouMgmt),
+  shikaku('kashikin-all', '貸金業務取扱主任者資格試験', '貸金業務取扱主任者', jKashikinAll),
+  school('koukou-nankan-rekishi', '高校受験 難関国私立高校 歴史', '高校難関 歴史', jKoukouNankanRekishi),
+  school('koukou-nankan-chiri', '高校受験 難関国私立高校 地理', '高校難関 地理', jKoukouNankanChiri),
+  school('koukou-nankan-koumin', '高校受験 難関国私立高校 公民', '高校難関 公民', jKoukouNankanKoumin),
+  school('koukou-nankan-rika', '高校受験 難関国私立高校 理科', '高校難関 理科', jKoukouNankanRika),
+  school('koukou-nankan-eigo', '高校受験 難関国私立高校 英語', '高校難関 英語', jKoukouNankanEigo),
+  school('koukou-nankan-kokugo', '高校受験 難関国私立高校 国語', '高校難関 国語', jKoukouNankanKokugo),
+  school('koukou-nankan-sugaku', '高校受験 難関国私立高校 数学', '高校難関 数学', jKoukouNankanSugaku),
+  school('koukou-rekishi', '高校受験 公立・中堅私立高校 歴史', '高校中堅 歴史', jKoukouRekishi),
+  school('koukou-chiri', '高校受験 公立・中堅私立高校 地理', '高校中堅 地理', jKoukouChiri),
+  school('koukou-koumin', '高校受験 公立・中堅私立高校 公民', '高校中堅 公民', jKoukouKoumin),
+  school('koukou-rika', '高校受験 公立・中堅私立高校 理科', '高校中堅 理科', jKoukouRika),
+  school('koukou-eigo', '高校受験 公立・中堅私立高校 英語', '高校中堅 英語', jKoukouEigo),
+  school('koukou-kokugo', '高校受験 公立・中堅私立高校 国語', '高校中堅 国語', jKoukouKokugo),
+  school('koukou-sugaku', '高校受験 公立・中堅私立高校 数学', '高校中堅 数学', jKoukouSugaku),
+  school('chugaku-nankan-rekishi', '中学受験 難関私立・国立中学 歴史', '中学難関 歴史', jChugakuNankanRekishi),
+  school('chugaku-nankan-chiri', '中学受験 難関私立・国立中学 地理', '中学難関 地理', jChugakuNankanChiri),
+  school('chugaku-nankan-koumin', '中学受験 難関私立・国立中学 公民・時事', '中学難関 公民・時事', jChugakuNankanKoumin),
+  school('chugaku-nankan-rika', '中学受験 難関私立・国立中学 理科', '中学難関 理科', jChugakuNankanRika),
+  school('chugaku-nankan-kokugo', '中学受験 難関私立・国立中学 国語', '中学難関 国語', jChugakuNankanKokugo),
+  school('chugaku-nankan-sansu', '中学受験 難関私立・国立中学 算数', '中学難関 算数', jChugakuNankanSansu),
+  school('chugaku-fuzoku-rekishi', '中学受験 大学附属中学 歴史', '中学附属 歴史', jChugakuFuzokuRekishi),
+  school('chugaku-fuzoku-chiri', '中学受験 大学附属中学 地理', '中学附属 地理', jChugakuFuzokuChiri),
+  school('chugaku-fuzoku-koumin', '中学受験 大学附属中学 公民・時事', '中学附属 公民・時事', jChugakuFuzokuKoumin),
+  school('chugaku-fuzoku-rika', '中学受験 大学附属中学 理科', '中学附属 理科', jChugakuFuzokuRika),
+  school('chugaku-fuzoku-kokugo', '中学受験 大学附属中学 国語', '中学附属 国語', jChugakuFuzokuKokugo),
+  school('chugaku-fuzoku-sansu', '中学受験 大学附属中学 算数', '中学附属 算数', jChugakuFuzokuSansu),
+  school('chugaku-rekishi', '中学受験 一般私立中学 歴史', '中学中堅 歴史', jChugakuRekishi),
+  school('chugaku-chiri', '中学受験 一般私立中学 地理', '中学中堅 地理', jChugakuChiri),
+  school('chugaku-koumin', '中学受験 一般私立中学 公民・時事', '中学中堅 公民・時事', jChugakuKoumin),
+  school('chugaku-rika', '中学受験 一般私立中学 理科', '中学中堅 理科', jChugakuRika),
+  school('chugaku-kokugo', '中学受験 一般私立中学 国語', '中学中堅 国語', jChugakuKokugo),
+  school('chugaku-sansu', '中学受験 一般私立中学 算数', '中学中堅 算数', jChugakuSansu),
 ];
 
 export const EXAM: Record<ExamId, Exam> = Object.fromEntries(EXAMS.map(x => [x.id, x])) as Record<ExamId, Exam>;

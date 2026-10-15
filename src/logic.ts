@@ -110,9 +110,10 @@ export function freeExam(x: Exam): Exam {
   return e;
 }
 
-// 4択の表示順（c の番号の並び）。fix のときは最後の選択肢を末尾に固定
+// 4択の表示順（c の番号の並び）。fix のときは最後の選択肢を末尾に固定、keep のときは並べ替えない
 export function choiceOrder(q: Item, rnd = Math.random): number[] {
   const idx = (q.c || []).map((_, i) => i);
+  if (q.keep) return idx; // 過去問題を原文で載せる試験（介護福祉士・社会福祉士）は原文の順のまま
   if (!q.fix) return shuffle(idx, rnd);
   return [...shuffle(idx.slice(0, -1), rnd), idx[idx.length - 1]];
 }
