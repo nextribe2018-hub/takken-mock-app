@@ -978,5 +978,2292 @@
   ],
   "e": "considerably は形容詞 considerable「かなりの、相当な」の副詞形で、「かなり、大いに」という意味です。the total amount of waste would fall considerably は「廃棄の総量はかなり減るだろう」となり、a great deal「大いに」が最も近い意味です。slightly は「わずかに」で逆の意味、suddenly は「突然に」、carefully は「注意深く」で、程度を表す意味になりません。",
   "m": "considerably＝a great deal（かなり）"
+ },
+ {
+  "id": 61,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅲ〕 問1",
+  "f": "文法・語法",
+  "t": "as if＋仮定法過去（were）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nKenta talks as if he （　） the owner of this building, but he is only a visitor.",
+  "c": [
+   "were",
+   "been",
+   "being",
+   "to be"
+  ],
+  "e": "as if の後ろで事実と反対のことを述べるときは、主節が現在でも仮定法過去を使い、be 動詞は人称にかかわらず were になります。後半に「実際は訪問者にすぎない」とあるので、事実に反する内容と分かり were が正解です。been は過去分詞で単独では述語動詞になれず、being と to be も述語動詞にならないため、いずれも文が成り立ちません。",
+  "m": "as if＋S were＝まるで…のように"
+ },
+ {
+  "id": 62,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅲ〕 問2",
+  "f": "文法・語法",
+  "t": "need＋-ing（受け身の意味）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe garden fence badly needs （　） before the next typhoon comes.",
+  "c": [
+   "painting",
+   "paint",
+   "painted",
+   "to paint"
+  ],
+  "e": "need の目的語に「修理される」側が来るとき、〈need＋-ing〉（＝need to be＋過去分詞）で受け身の意味を表します。fence は塗られる側なので painting が正解です。paint と painted は need の後ろに直接置けず、to paint は「（フェンスが）塗る」という能動の意味になってしまいます。",
+  "m": "need -ing＝〜される必要がある"
+ },
+ {
+  "id": 63,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅲ〕 問3",
+  "f": "文法・語法",
+  "t": "while と during の区別",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nAya dropped her keys （　） she was running to the station.",
+  "c": [
+   "while",
+   "during",
+   "if",
+   "that"
+  ],
+  "e": "空所の後ろは she was running という〈主語＋動詞〉の節なので、接続詞の while（〜している間に）が入ります。during は前置詞で名詞しか続けられません。if は「もし〜なら」で意味が合わず、that を使っても「鍵を落とした」と「走っていた」をつなげる意味になりません。",
+  "m": "while＝接続詞／during＝前置詞"
+ },
+ {
+  "id": 64,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅲ〕 問4",
+  "f": "文法・語法",
+  "t": "either of the two（2者のうちどちらか）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n（　） of the two routes will take you to the museum in about twenty minutes.",
+  "c": [
+   "Either",
+   "All",
+   "Every",
+   "Some"
+  ],
+  "e": "of the two「2つのうち」とあるので、2者について「どちらでも」を表す Either が正解です。All は3者以上に使う語で、Every は後ろに of the＋名詞を直接続けられません。Some of the two も2つの中の一部という数の感覚が合いません。",
+  "m": "2者→either／3者以上→any"
+ },
+ {
+  "id": 65,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅲ〕 問5",
+  "f": "文法・語法",
+  "t": "独立分詞構文 There being",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n（　） no seats left on the last train, we decided to stay in town for the night.",
+  "c": [
+   "There being",
+   "Then being",
+   "When being",
+   "Where being"
+  ],
+  "e": "〈There is no seats〉を分詞構文にした形が There being で、意味上の主語 there が主節の we と異なるため省略せずに残します。「席がなかったので」と理由を表します。Then / When / Where に being を続けた形は、there を使った存在文の分詞構文にならず不自然です。",
+  "m": "There being 〜＝〜があるので"
+ },
+ {
+  "id": 66,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅲ〕 問7",
+  "f": "文法・語法",
+  "t": "前置詞＋関係代名詞 with which to 不定詞",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nMia bought a small brush （　） to clean the keyboard.",
+  "c": [
+   "with which",
+   "of that",
+   "that",
+   "which"
+  ],
+  "e": "「それを使って掃除する」ブラシなので、〈前置詞＋関係代名詞＋to 不定詞〉の with which to clean が正解です。that は前置詞の直後に置けず、of that も文法的に不可です。which だけだと、後ろの to clean の動詞に対する前置詞 with が抜けてしまいます。",
+  "m": "with which to do＝それで〜するための"
+ },
+ {
+  "id": 67,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅲ〕 問8",
+  "f": "文法・語法",
+  "t": "get O to do（使役的な用法）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nAfter weeks of persuasion, Hana finally got her grandmother （　） a hearing test.",
+  "c": [
+   "to take",
+   "take",
+   "taken",
+   "to have taken"
+  ],
+  "e": "〈get＋O＋to 不定詞〉は「Oに〜させる（説得して〜してもらう）」の意味で、「祖母に検査を受けさせた」にあたる to take が正解です。take は get の後ろでは使えません（make / have なら可）。taken は get O p.p.（Oを〜される）の形で意味が合わず、to have taken は時制が不自然です。",
+  "m": "get O to do／make O do"
+ },
+ {
+  "id": 68,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅲ〕 問4",
+  "f": "文法・語法",
+  "t": "仮定法過去完了と過去（混合条件）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIf Ken （　） harder in his twenties, he would be a doctor now.",
+  "c": [
+   "had studied",
+   "studied",
+   "has studied",
+   "would study"
+  ],
+  "e": "主節が would be … now と現在の状況なので、if 節は過去の事実の反対を表す仮定法過去完了 had studied になります（混合条件文）。studied は仮定法過去で「今」の話になり、has studied は仮定法の形ではありません。would study は if 節には使えません。",
+  "m": "過去の仮定→現在の結果：had p.p.＋would do"
+ },
+ {
+  "id": 69,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅲ〕 問6",
+  "f": "文法・語法",
+  "t": "前置詞＋関係代名詞 most of whom",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nI have many colleagues, most of （　） I have known since college.",
+  "c": [
+   "whom",
+   "which",
+   "who",
+   "them"
+  ],
+  "e": "人を表す先行詞の colleagues を受け、前置詞 of の後ろに置ける関係代名詞は目的格の whom です。which は人には使わず、who は前置詞の直後に置けません。them を使うと関係詞がなくなり、2つの文が接続語なしでつながってしまいます。",
+  "m": "〈数量＋of whom〉で人を受ける"
+ },
+ {
+  "id": 70,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅲ〕 問7",
+  "f": "文法・語法",
+  "t": "時を表す副詞節では現在形",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nI will call you as soon as the train （　） at the station.",
+  "c": [
+   "arrives",
+   "will arrive",
+   "arrived",
+   "would arrive"
+  ],
+  "e": "as soon as など時を表す副詞節では、未来のことでも現在形を使います。主節が will call なので arrives が正解です。will arrive は副詞節では使えず、arrived は過去の話、would arrive は時制の一致を受けた形で、いずれも未来を表せません。",
+  "m": "時・条件の副詞節は現在形で未来を表す"
+ },
+ {
+  "id": 71,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅲ〕 問8",
+  "f": "文法・語法",
+  "t": "比較級＋than anything",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThis room is cleaner than （　） I have ever seen in a hostel.",
+  "c": [
+   "anything",
+   "nothing",
+   "something",
+   "thing"
+  ],
+  "e": "〈比較級＋than anything（that）I have ever seen〉で「今までに見たどんなものよりも」という意味の最上級相当の表現になります。nothing を入れると「何もないよりきれい」となり意味が通りません。something は肯定文で比較対象にならず、thing は冠詞も修飾語もなく不可です。",
+  "m": "than anything ever＝今までで一番"
+ },
+ {
+  "id": 72,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅲ〕 問2",
+  "f": "文法・語法",
+  "t": "Some of＋複数名詞（複数扱い）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n（　） of the books on this shelf were donated by former students.",
+  "c": [
+   "Some",
+   "Much",
+   "Little",
+   "Each"
+  ],
+  "e": "of the books は数えられる名詞の複数形で、動詞も were と複数になっています。数えられる名詞の複数形にも使え、複数扱いになる Some が正解です。Much と Little は数えられない名詞に使う語なので books には合いません。Each of ～ は「それぞれ」の意味で単数扱いになるため、動詞は was でなければならず、were とは合いません。",
+  "m": "Some of＋複数名詞＝複数扱い"
+ },
+ {
+  "id": 73,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅲ〕 問3",
+  "f": "文法・語法",
+  "t": "要求・提案の that 節（仮定法現在）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe doctor recommended that Mr. Ito （　） complete rest for a week.",
+  "c": [
+   "take",
+   "to take",
+   "taking",
+   "has taken"
+  ],
+  "e": "recommend のような提案・要求を表す動詞に続く that 節では、動詞は原形（またはshould＋原形）になります。主語が三人称単数でも -s を付けず、主節が過去形でも時制をずらしません。to take と taking は that 節の述語動詞になれず、has taken は提案の内容を表す形として不適切です。",
+  "m": "要求・提案・主張の that 節＝原形"
+ },
+ {
+  "id": 74,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅲ〕 問4",
+  "f": "文法・語法",
+  "t": "claim to have p.p.（完了不定詞）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe manager claims （　） the report before the deadline, but nobody saw it.",
+  "c": [
+   "to have sent",
+   "to send",
+   "sending",
+   "to be sent"
+  ],
+  "e": "claim は不定詞を目的語にとり、主節の時点より前のことは完了不定詞 to have p.p. で表します。「締め切り前に送ったと主張している」にあたる to have sent が正解です。to send は未来的な内容になり、sending は claim の後ろでは使えず、to be sent は受け身で主語と合いません。",
+  "m": "claim to have p.p.＝〜したと主張する"
+ },
+ {
+  "id": 75,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅲ〕 問5",
+  "f": "文法・語法",
+  "t": "関係代名詞 what（先行詞を含む）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nI can't understand （　） made her leave the company so suddenly.",
+  "c": [
+   "what",
+   "that",
+   "which",
+   "why"
+  ],
+  "e": "空所の後ろには主語がなく made の主語が欠けているので、主語になれる関係代名詞が必要です。先行詞を含んで「〜するもの」を表す what が正解で、「何が彼女を辞めさせたのか」の意味になります。that と which は先行詞が必要で、why は副詞のため主語になれません。",
+  "m": "what＝名詞節をつくる関係代名詞"
+ },
+ {
+  "id": 76,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅲ〕 問6",
+  "f": "文法・語法",
+  "t": "進行形の受動態 was being p.p.",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nWhile the room （　） for the party, the guests waited outside.",
+  "c": [
+   "was being prepared",
+   "was preparing",
+   "had prepared",
+   "is prepared"
+  ],
+  "e": "主語の room は準備される側で、「準備されている最中」を過去進行形の受動態 was being prepared で表します。was preparing は能動で意味が合わず、had prepared も能動です。is prepared は現在形で、過去の waited と時制が合いません。",
+  "m": "進行形の受動態＝be being p.p."
+ },
+ {
+  "id": 77,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅲ〕 問7",
+  "f": "文法・語法",
+  "t": "If S should（万一の仮定）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIf you （　） find my umbrella, please let me know.",
+  "c": [
+   "should",
+   "will",
+   "would",
+   "had"
+  ],
+  "e": "if 節で should を使うと「万一〜なら」という可能性の低い仮定を表し、主節は命令文でも使えます。will と would は if 節の中では未来の意味でも使えません（条件節の原則）。had を入れると、後ろに過去分詞がないため文が成立しません。",
+  "m": "if S should do＝万一〜なら"
+ },
+ {
+  "id": 78,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅲ〕 問8",
+  "f": "文法・語法",
+  "t": "現在分詞の形容詞用法（比較級との組合せ）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nWhat was more （　） to the teachers than the low scores was the students' lack of motivation.",
+  "c": [
+   "worrying",
+   "worried",
+   "worry",
+   "worries"
+  ],
+  "e": "「教師たちにとって、低い得点よりも心配なこと」という意味で、物事が人を心配させる側なので現在分詞由来の形容詞 worrying が入ります。worried は「心配している」人の状態を表し、主語（What）が物事なので不適切です。worry と worries は名詞・動詞で、more の後ろに置けません。",
+  "m": "人をそうさせる物→-ing／人の状態→-ed"
+ },
+ {
+  "id": 79,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅲ〕 問1",
+  "f": "文法・語法",
+  "t": "名詞を修飾する to 不定詞",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe city is setting up a panel （　） the safety of the new bridge.",
+  "c": [
+   "to check",
+   "be checking",
+   "to be checked",
+   "checks"
+  ],
+  "e": "panel（委員会）を後ろから修飾して「橋の安全を点検するための」という意味を表すには、to 不定詞（形容詞的用法）の to check が使えます。be checking は助動詞なしでは使えず、to be checked は委員会が点検される側になり不合理です。checks だと動詞が2つ並んでしまいます。",
+  "m": "名詞＋to do＝〜するための"
+ },
+ {
+  "id": 80,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅲ〕 問2",
+  "f": "文法・語法",
+  "t": "Each of＋複数名詞の動詞は単数",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nEach of the students who joined the trip （　） a certificate at the end.",
+  "c": [
+   "was given",
+   "to be given",
+   "giving",
+   "have given"
+  ],
+  "e": "Each of ... は〈each が主語〉なので動詞は単数扱いになり、「証明書を与えられた」と受け身にして was given が正解です。to be given と giving は述語動詞になれず、文が成り立ちません。have given は複数の主語に対する形で、しかも能動態なので「生徒が証明書を与えた」という意味になってしまい、文意にも合いません。",
+  "m": "each / every は単数扱い"
+ },
+ {
+  "id": 81,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅲ〕 問3",
+  "f": "文法・語法",
+  "t": "関係代名詞 whose",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nI met a novelist （　） books have been translated into twenty languages.",
+  "c": [
+   "whose",
+   "who",
+   "that",
+   "whom"
+  ],
+  "e": "空所の直後は books という名詞で、「その小説家の本」という所有の関係を表すので whose が正解です。who / that / whom は後ろに〈名詞＋動詞〉を直接続けられず、books の持ち主を示せません。whose＋名詞は、先行詞が人でも物でも使えます。",
+  "m": "whose＋名詞＝所有を表す関係詞"
+ },
+ {
+  "id": 82,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅲ〕 問4",
+  "f": "文法・語法",
+  "t": "過去分詞の後置修飾",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe bridge, （　） in 1925, still carries thousands of cars every day.",
+  "c": [
+   "built",
+   "building",
+   "which built",
+   "which was building"
+  ],
+  "e": "「1925年に建てられた橋」と、bridge を過去分詞が修飾する形で built が正解です（which was built の省略）。building は能動で「橋が建てている」ことになります。which built と which was building も能動の意味で、橋が建物を建てたことになり不合理です。",
+  "m": "過去分詞＝〜された（後ろから修飾）"
+ },
+ {
+  "id": 83,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅲ〕 問5",
+  "f": "文法・語法",
+  "t": "Only＋副詞節による倒置",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nOnly after the audience left （　） the staff start cleaning the hall.",
+  "c": [
+   "did",
+   "do",
+   "have",
+   "does"
+  ],
+  "e": "Only＋副詞節が文頭に出ると、主節は疑問文の語順（助動詞＋主語＋動詞）に倒置されます。left が過去形なので、過去の did が正解です。do / does は現在形で時制が合わず、have は完了形に続く過去分詞がないため文が成り立ちません。",
+  "m": "Only 〜 did S＋原形"
+ },
+ {
+  "id": 84,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅲ〕 問7",
+  "f": "文法・語法",
+  "t": "hear の目的語となる接続詞 that",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nWe were surprised to hear （　） the school would close next year.",
+  "c": [
+   "that",
+   "which",
+   "who",
+   "whom"
+  ],
+  "e": "hear の目的語になる名詞節を導くので、接続詞の that が正解です。「学校が来年閉鎖されるということ」という完全な文が続いています。which / who / whom は関係代名詞または疑問詞で、後ろに欠けた要素が必要ですが、この文には欠けた要素がありません。",
+  "m": "完全な文の前の that＝接続詞"
+ },
+ {
+  "id": 85,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅲ〕 問2",
+  "f": "文法・語法",
+  "t": "動名詞が主語のときは単数扱い",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nListening to slow music before bed （　） many people fall asleep.",
+  "c": [
+   "helps",
+   "help",
+   "helping",
+   "to help"
+  ],
+  "e": "文の主語は動名詞句 Listening to slow music で、単数扱いなので述語動詞は三人称単数現在の helps になります（help O do の形）。help は複数主語用で誤り、helping と to help は述語動詞になれず、文が成立しません。",
+  "m": "動名詞句の主語＝単数扱い"
+ },
+ {
+  "id": 86,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅲ〕 問3",
+  "f": "文法・語法",
+  "t": "前置詞＋関係代名詞（some of whom）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nShe has taught hundreds of pupils, （　） are now doctors.",
+  "c": [
+   "some of whom",
+   "some of which",
+   "whose",
+   "for whom"
+  ],
+  "e": "前の節に〈接続詞＋代名詞〉の働きを加えるには、some of whom（そのうちの何人かは）が適切です。pupils は人なので which は使えません。whose は後ろに名詞が必要で、for whom は文意が合わず、どちらも are の主語を作れません。",
+  "m": "some of whom＝そのうちの何人かは"
+ },
+ {
+  "id": 87,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅲ〕 問4",
+  "f": "文法・語法",
+  "t": "one … another … the others",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nWe ordered three desserts: one was cake, （　） was pudding, and the third was fruit.",
+  "c": [
+   "another",
+   "other",
+   "the one",
+   "the other"
+  ],
+  "e": "3つのうち1つ目を one、2つ目を another、残りを the third と数え上げる形です。another が正解です。other は単独で主語になれず、the one は特定のものを指して不適切です。the other は2つのうち残りの1つを指すので、3つの場合には使えません。",
+  "m": "one → another → the other(s)"
+ },
+ {
+  "id": 88,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅲ〕 問5",
+  "f": "文法・語法",
+  "t": "完了動名詞 having p.p.",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nDespite her brother （　） the national contest, Mari still feels she has to practice.",
+  "c": [
+   "having won",
+   "to have won",
+   "being won",
+   "having been won"
+  ],
+  "e": "Despite は前置詞なので後ろは名詞または動名詞になり、〈意味上の主語＋having p.p.〉で「兄が優勝したにもかかわらず」を表します。to have won は不定詞で前置詞の後ろに置けません。being won と having been won は受け身で、兄が賞品のように「勝ち取られる」ことになり誤りです。",
+  "m": "前置詞＋S’＋having p.p."
+ },
+ {
+  "id": 89,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅲ〕 問6",
+  "f": "文法・語法",
+  "t": "So＋形容詞＋V＋S の倒置",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\n（　） was the wind last night that several old trees in the park fell down.",
+  "c": [
+   "So strong",
+   "So strongly",
+   "Such a strong",
+   "Such a strongly"
+  ],
+  "e": "〈So＋形容詞＋be＋S＋that ～〉は、補語の形容詞を so とともに文頭に出した倒置で「Sは非常に…なので～」を表します。was の補語になるので形容詞の strong が必要で、So strong が正解です。So strongly は副詞なので補語になれません。Such a strong は後ろに名詞が必要で、Such a strongly は形として成り立ちません。",
+  "m": "So 形容詞 was S that …"
+ },
+ {
+  "id": 90,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅲ〕 問8",
+  "f": "文法・語法",
+  "t": "as 〜 as の比較対象（所有格）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nMai is only a first-year student, but her lecture notes are as detailed as （　）.",
+  "c": [
+   "a professor's",
+   "a professor",
+   "professors",
+   "professor's"
+  ],
+  "e": "比べているのは her lecture notes（彼女の講義ノート）なので、比べる相手も「教授のノート」でなければなりません。所有格だけで「教授のもの」を表す a professor's が正解です。a professor や professors では「ノート」と「人」を比べることになり不適切です。professor's は数えられる単数名詞に冠詞がなく、文法的に不完全です。",
+  "m": "比べる対象をそろえる（’s）"
+ },
+ {
+  "id": 91,
+  "k": "past",
+  "ref": "2026年度 後期 3/9 〔Ⅲ〕 問6",
+  "f": "文法・語法",
+  "t": "in that（〜という点で）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nWhales differ from fish （　） they breathe air with lungs.",
+  "c": [
+   "in that",
+   "in case",
+   "in order that",
+   "in spite of"
+  ],
+  "e": "in that は「〜という点で」という意味の接続詞で、differ from fish（魚と異なる）の具体的な点を示します。in case は「〜の場合に備えて」、in order that は「〜するために」で意味が合いません。in spite of は前置詞で、後ろに〈S＋V〉の節を置けません。",
+  "m": "in that＝〜という点で"
+ },
+ {
+  "id": 92,
+  "k": "past",
+  "ref": "2026年度 推薦 12/6 〔Ⅲ〕 問1",
+  "f": "文法・語法",
+  "t": "体の一部を示す前置詞 by",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe guide caught the child （　） the arm just before he stepped onto the road.",
+  "c": [
+   "by",
+   "for",
+   "in",
+   "of"
+  ],
+  "e": "〈catch＋人＋by the＋体の部位〉は「人の（体の部位）をつかむ」という決まった形で、体の接触部位を表すのに by を使います。for / in / of ではこの意味になりません。類例として take him by the hand、hold her by the sleeve があります。",
+  "m": "catch A by the arm（Aの腕をつかむ）"
+ },
+ {
+  "id": 93,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅳ〕 問1",
+  "f": "語彙・イディオム",
+  "t": "out of place（場違いな）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nThe neon sign looked out of place on the old wooden temple.",
+  "c": [
+   "The neon sign did not suit the old wooden temple at all.",
+   "The neon sign was moved to the back of the old wooden temple.",
+   "The neon sign made the old wooden temple look brand new.",
+   "The neon sign was the first thing visitors saw at the temple."
+  ],
+  "e": "out of place は「場違いで、周りと調和しない」という意味で、did not suit 〜 at all と同じ内容です。別の場所へ移された（was moved）、寺を新しく見せた（made 〜 look brand new）、最初に目に入った（the first thing visitors saw）は、いずれも「調和しない」という意味を含みません。",
+  "m": "out of place＝場違いな"
+ },
+ {
+  "id": 94,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅳ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "dark horse（大穴・意外な有力者）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nEveryone was surprised when the dark horse won the school speech contest.",
+  "c": [
+   "The little-known student unexpectedly won the school speech contest.",
+   "The favorite student easily won the school speech contest.",
+   "The most experienced student lost the school speech contest.",
+   "The student who was very shy decided not to join the contest at the last minute."
+  ],
+  "e": "dark horse は競馬の「穴馬」から、あまり知られていないのに予想外に力を発揮する人を指します。したがって「無名の生徒が思いがけず優勝した」が最も近い意味です。本命が楽勝した、経験豊富な生徒が負けた、内気な生徒が出場を辞退した、は「意外な勝者」という内容と合いません。",
+  "m": "dark horse＝穴馬・伏兵"
+ },
+ {
+  "id": 95,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅳ〕 問3",
+  "f": "語彙・イディオム",
+  "t": "look down on（見下す）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nThe old chef never looks down on young cooks in his kitchen.",
+  "c": [
+   "The old chef never treats young cooks as less important than himself.",
+   "The old chef never lets young cooks work in his kitchen without his permission.",
+   "The old chef never watches what young cooks are doing from above.",
+   "The old chef never forgets the names of the young cooks."
+  ],
+  "e": "look down on A は「Aを見下す、軽んじる」の意味です。never looks down on 〜 は「見下さない」ので、自分より重要でないと扱わない、が最も近いです。台所で働かせない、上から見守る、名前を忘れない、はいずれも look down on の意味ではありません。字面の「下を見る」に引きずられないようにしましょう。",
+  "m": "look down on＝見下す／look up to＝尊敬する"
+ },
+ {
+  "id": 96,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅳ〕 問4",
+  "f": "語彙・イディオム",
+  "t": "once and for all（きっぱりと）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nThe committee decided to settle the dispute once and for all.",
+  "c": [
+   "The committee decided to end the dispute permanently.",
+   "The committee decided to discuss the dispute every month.",
+   "The committee decided to leave the dispute to another group.",
+   "The committee decided to stop the dispute for a short time."
+  ],
+  "e": "once and for all は「これを最後にきっぱりと、決定的に」という意味で、permanently（永久に）と近い関係です。毎月話し合う、別の団体に任せる、一時的に止める、は「完全に決着をつける」という意味と合いません。once（一度）と all（すべて）の字面から「一度にすべて」と覚えると定着しやすい表現です。",
+  "m": "once and for all＝きっぱりと・これを最後に"
+ },
+ {
+  "id": 97,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅳ〕 問1",
+  "f": "語彙・イディオム",
+  "t": "hold one's horses（落ち着く・待つ）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nThe coach told the players to hold their horses and wait for the signal.",
+  "c": [
+   "The coach told the players to stay calm and not act too soon.",
+   "The coach told the players to take care of the team's horses.",
+   "The coach told the players to run as fast as they could.",
+   "The coach told the players to give up on the plan."
+  ],
+  "e": "hold one's horses は「慌てずに待つ、はやる気持ちを抑える」という意味の口語表現で、stay calm and not act too soon が最も近いです。馬の世話をする、全力で走る、計画を諦める、はいずれも「合図を待つ」という文脈に合いません。文字通りの意味（馬を押さえる）から逆に意味を覚えられます。",
+  "m": "hold one's horses＝慌てず待つ"
+ },
+ {
+  "id": 98,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅳ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "tied up（手が離せない）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nI can't talk right now because I'm tied up with a client.",
+  "c": [
+   "I can't talk right now because I'm busy with a client.",
+   "I can't talk right now because I'm angry with a client.",
+   "I can't talk right now because I'm waiting for a client at the door.",
+   "I can't talk right now because I've lost a client's number."
+  ],
+  "e": "be tied up with A は「Aで手が離せない、忙しい」という意味で、busy with が最も近いです。怒っている、玄関で待っている、番号をなくした、は「忙しい」という意味を含みません。tie（縛る）の字面から「縛られて動けない」→「手が離せない」と覚えましょう。",
+  "m": "tied up＝手が離せない・忙しい"
+ },
+ {
+  "id": 99,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅳ〕 問4",
+  "f": "語彙・イディオム",
+  "t": "none of one's business（余計なお世話）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nKai told me that my salary was none of his business.",
+  "c": [
+   "Kai told me that he had no reason to be concerned with my salary.",
+   "Kai told me that my salary was lower than his business partner's.",
+   "Kai told me that he wanted to start a business with my salary.",
+   "Kai told me that my salary was too small to talk about."
+  ],
+  "e": "none of A's business は「Aの知ったことではない」という意味で、「私の給料は彼が関わるべきことではない」を言い換えた最初の選択肢が正解です。給料が取引先より低い、給料で事業を始めたい、給料が少なすぎる、は business を「事業」の意味で取り違えた誤りです。",
+  "m": "none of my business＝私には関係ない"
+ },
+ {
+  "id": 100,
+  "k": "past",
+  "ref": "2026年度 推薦 12/6 〔Ⅳ〕 問1",
+  "f": "語彙・イディオム",
+  "t": "at a loss（途方に暮れて）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nWhen the machine suddenly stopped, the workers were at a loss.",
+  "c": [
+   "The workers had no idea what to do when the machine stopped.",
+   "The workers lost a large amount of money when the machine suddenly stopped.",
+   "The workers were pleased that the machine stopped.",
+   "The workers stopped working to take a long break."
+  ],
+  "e": "at a loss は「途方に暮れて、どうしていいか分からない」という意味です。no idea what to do が最も近いです。お金を失った（lost money）は loss の字面に引きずられた誤りで、喜んだ、長い休憩を取った、はいずれも「困惑」の意味とは異なります。",
+  "m": "at a loss＝途方に暮れて"
+ },
+ {
+  "id": 101,
+  "k": "past",
+  "ref": "2026年度 推薦 12/6 〔Ⅳ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "ask for the moon（無理な要求をする）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nAsking the manager for a month of holiday is like asking for the moon.",
+  "c": [
+   "Asking the manager for a month of holiday is asking for something almost impossible.",
+   "Asking the manager for a month of holiday is a very romantic idea.",
+   "Asking the manager for a month of holiday means traveling a very long way to the head office.",
+   "Asking the manager for a month of holiday will be easy this year."
+  ],
+  "e": "ask for the moon は「ないものねだりをする、無理な要求をする」という意味で、「ほぼ手に入らない」と言い換えられます。ロマンチックな考え、遠くへ旅行する、今年は簡単、はいずれも moon の字面から連想した誤りです。文脈上も「1か月の休暇を求める」ことが難しいと言っているだけです。",
+  "m": "ask for the moon＝無理なことを求める"
+ },
+ {
+  "id": 102,
+  "k": "past",
+  "ref": "2026年度 推薦 12/6 〔Ⅳ〕 問3",
+  "f": "語彙・イディオム",
+  "t": "let alone（まして〜ない）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nYui can hardly cook rice, let alone bake bread.",
+  "c": [
+   "Yui cannot cook rice well, and she is even less able to bake bread.",
+   "Yui can cook rice well, but she prefers to bake bread.",
+   "Yui cannot cook rice because she lets others bake bread.",
+   "Yui is good at baking bread, and so she can cook rice, too, without any difficulty."
+  ],
+  "e": "let alone 〜 は否定文の後ろで「まして〜はなおさらない」という意味を足す表現です。米を炊くのさえほとんどできないのだから、パンを焼くことはなおさらできない、が正解です。他の選択肢は、料理ができる、人に任せる、パンが得意といった内容で、否定の流れと合いません。",
+  "m": "否定文＋let alone＝まして〜はなおさら…ない"
+ },
+ {
+  "id": 103,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅳ〕 問3",
+  "f": "語彙・イディオム",
+  "t": "beside oneself（我を忘れて）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nThe fans were beside themselves with joy when the team won.",
+  "c": [
+   "The fans were extremely happy when the team won.",
+   "The fans were sitting next to each other when the team won.",
+   "The fans were nervous about themselves when the team won.",
+   "The fans were only slightly glad when the team won."
+  ],
+  "e": "be beside oneself with A は「Aで我を忘れる、取り乱す」という強い感情を表します。with joy があるので「大喜びした」が正解です。隣り合って座っていた（beside の字面の誤り）、自分のことを緊張した、少しだけ嬉しかった、はいずれも不適切です。",
+  "m": "beside oneself with 感情＝我を忘れるほどの"
+ },
+ {
+  "id": 104,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅳ〕 問4",
+  "f": "語彙・イディオム",
+  "t": "in vain（むだに）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nRina searched for the lost ring all afternoon, but in vain.",
+  "c": [
+   "Rina did not manage to find the lost ring.",
+   "Rina searched for the lost ring without any friends.",
+   "Rina found the lost ring after a long time.",
+   "Rina did not look for the lost ring seriously."
+  ],
+  "e": "in vain は「むだに、かいなく」という意味で、but in vain は「しかし結局だめだった」を表します。したがって指輪を見つけられなかった、が正解です。友達なしで探した、長い時間の後で見つけた、真剣には探さなかった、はいずれも「努力が実らなかった」という意味とは異なります。",
+  "m": "in vain＝むだに・かいなく"
+ },
+ {
+  "id": 105,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅳ〕 問3",
+  "f": "語彙・イディオム",
+  "t": "make the most of（最大限に活用する）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nThe students made the most of their short stay in the city.",
+  "c": [
+   "The students used their short stay in the city as fully as they could.",
+   "The students spent most of their short stay inside the hotel because of the weather.",
+   "The students made many friends during their short stay in the city.",
+   "The students wished their stay in the city were longer."
+  ],
+  "e": "make the most of A は「Aを最大限に活用する」という意味なので、できるだけ有効に過ごした、が正解です。ホテルで過ごしたというのは意味が逆で、友達を作った、もっと長ければと思った、は make the most of の意味を含みません。most を「大部分」とだけ取らないよう注意しましょう。",
+  "m": "make the most of＝最大限に生かす"
+ },
+ {
+  "id": 106,
+  "k": "past",
+  "ref": "2026年度 後期 3/9 〔Ⅳ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "put forward（提案する）",
+  "q": "次の英文の意味に最も近いものを選びなさい。\nHana put forward a new idea for the school festival at the meeting.",
+  "c": [
+   "Hana suggested a new idea for the school festival at the meeting.",
+   "Hana pushed a new idea for the school festival out of the room.",
+   "Hana refused a new idea for the school festival at the meeting.",
+   "Hana delayed a new idea for the school festival until the next meeting of the club."
+  ],
+  "e": "put forward A は「Aを提案する、持ち出す」という意味で、suggested が最も近いです。部屋から押し出した、拒否した、先延ばしにした、はいずれも字面の「前に置く」から連想した誤りか、意味が逆の表現です。類義表現に propose、come up with があります。",
+  "m": "put forward＝提案する"
+ },
+ {
+  "id": 107,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅴ〕 問1",
+  "f": "語彙・イディオム",
+  "t": "reinforce（強化する）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to make something stronger by adding support\n（ｂ）The engineers plan to （　） the old bridge before winter comes.",
+  "c": [
+   "reinforce",
+   "replace",
+   "reduce",
+   "record"
+  ],
+  "e": "（ａ）は「支えを加えて強くする」で、reinforce（強化する）にあたります。reinforce a bridge は「橋を補強する」の自然な組み合わせです。replace は「取り替える」、reduce は「減らす」、record は「記録する」で、いずれも（ａ）の意味ではありません。",
+  "m": "reinforce＝補強する"
+ },
+ {
+  "id": 108,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅴ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "deliberately（わざと）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）in a way that is planned and not accidental\n（ｂ）The boy （　） hid the letter so that his sister could not find it.",
+  "c": [
+   "deliberately",
+   "accidentally",
+   "casually",
+   "gradually"
+  ],
+  "e": "（ａ）は「計画的で偶然ではないやり方で」という意味で、deliberately（故意に）にあたります。「妹に見つからないように隠した」という文意にも合います。accidentally は「偶然に」で意味が逆、casually は「何気なく」、gradually は「徐々に」で、（ａ）の意味ではありません。",
+  "m": "deliberately＝故意に／accidentally＝偶然に"
+ },
+ {
+  "id": 109,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅴ〕 問1",
+  "f": "語彙・イディオム",
+  "t": "thrive（栄える・育つ）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to grow strongly and do very well\n（ｂ）Some plants （　） in dry places where others cannot survive.",
+  "c": [
+   "thrive",
+   "collapse",
+   "wander",
+   "hesitate"
+  ],
+  "e": "（ａ）は「力強く育ち、うまくいく」で、thrive（繁栄する、よく育つ）にあたります。乾燥した場所で他の植物が生き残れないのに対し、よく育つという対比にも合います。collapse は「崩れる」、wander は「歩き回る」、hesitate は「ためらう」で、いずれも意味が合いません。",
+  "m": "thrive＝よく育つ・繁栄する"
+ },
+ {
+  "id": 110,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅴ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "spectacle（壮観）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）something very impressive to look at\n（ｂ）Thousands of lanterns floating on the river made a beautiful （　）.",
+  "c": [
+   "spectacle",
+   "accident",
+   "argument",
+   "schedule"
+  ],
+  "e": "（ａ）は「見て印象に残る光景」で、spectacle（壮観、見もの）にあたります。川に浮かぶ数千の灯籠の美しい光景という文意に合います。accident は「事故」、argument は「議論」、schedule は「予定」で、どれも空所に入れても意味が通りません。",
+  "m": "spectacle＝壮観・見もの"
+ },
+ {
+  "id": 111,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅴ〕 問4",
+  "f": "語彙・イディオム",
+  "t": "flee（逃げる）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to run away from a dangerous place\n（ｂ）Many villagers had to （　） their homes when the flood began.",
+  "c": [
+   "flee",
+   "inspect",
+   "rebuild",
+   "admire"
+  ],
+  "e": "（ａ）は「危険な場所から逃げる」で、flee（逃げる）にあたります。flee their homes は他動詞として「家から逃げ出す」の意味になります。inspect は「検査する」、rebuild は「建て直す」、admire は「称賛する」で、洪水が始まった場面に合いません。",
+  "m": "flee＝逃げる（flee-fled-fled）"
+ },
+ {
+  "id": 112,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅴ〕 問3",
+  "f": "語彙・イディオム",
+  "t": "regulate（規制する）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to control an activity or system by rules\n（ｂ）The city plans to （　） the number of cars entering the old town.",
+  "c": [
+   "regulate",
+   "imitate",
+   "cancel",
+   "delight"
+  ],
+  "e": "（ａ）は「規則で活動や仕組みを管理する」で、regulate（規制する、調整する）にあたります。旧市街に入る車の台数を制限するという文意にも合います。imitate は「まねる」、cancel は「取り消す」、delight は「喜ばせる」で、いずれも（ａ）の意味ではありません。",
+  "m": "regulate＝規制・調整する"
+ },
+ {
+  "id": 113,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅴ〕 問4",
+  "f": "語彙・イディオム",
+  "t": "embrace（受け入れる）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to accept a new idea or change with enthusiasm\n（ｂ）Many farmers have begun to （　） new methods of growing rice.",
+  "c": [
+   "embrace",
+   "avoid",
+   "forget",
+   "punish"
+  ],
+  "e": "（ａ）は「新しい考えや変化を熱意を持って受け入れる」で、embrace（受け入れる）にあたります。embrace は「抱きしめる」の意味もあり、そこから「歓迎して受け入れる」になりました。avoid は「避ける」、forget は「忘れる」、punish は「罰する」で、文意に合いません。",
+  "m": "embrace＝歓迎して受け入れる"
+ },
+ {
+  "id": 114,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅴ〕 問1",
+  "f": "語彙・イディオム",
+  "t": "diminish（減少する）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to become smaller or less in size or importance\n（ｂ）The noise from the street began to （　） after midnight.",
+  "c": [
+   "diminish",
+   "expand",
+   "gather",
+   "approve"
+  ],
+  "e": "（ａ）は「大きさや重要性が小さくなる」で、diminish（減る、弱まる）にあたります。真夜中を過ぎると通りの騒音が弱まったという文意に合います。expand は「広がる」で意味が逆、gather は「集まる」、approve は「承認する」で、いずれも騒音には使いません。",
+  "m": "diminish＝小さくなる・減る"
+ },
+ {
+  "id": 115,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅴ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "constraint（制約）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）something that limits what a person can do\n（ｂ）Lack of time was the biggest （　） on our research.",
+  "c": [
+   "constraint",
+   "benefit",
+   "choice",
+   "reward"
+  ],
+  "e": "（ａ）は「人ができることを制限するもの」で、constraint（制約）にあたります。on our research と合わせて「研究への制約」となります。benefit は「利益」、choice は「選択」、reward は「報酬」で、「時間不足」を表す語としては意味が逆または不自然です。",
+  "m": "constraint＝制約・制限"
+ },
+ {
+  "id": 116,
+  "k": "past",
+  "ref": "2026年度 後期 3/9 〔Ⅴ〕 問1",
+  "f": "語彙・イディオム",
+  "t": "foster（育てる・促進する）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to help a feeling or skill grow over time\n（ｂ）Good teachers try to （　） a love of reading in children.",
+  "c": [
+   "foster",
+   "borrow",
+   "remove",
+   "spoil"
+  ],
+  "e": "（ａ）は「感情や技能が時間をかけて育つのを助ける」で、foster（育成する、促進する）にあたります。子どもの読書好きを育てるという文意にも合います。borrow は「借りる」、remove は「取り除く」、spoil は「台無しにする」で、良い教師の行動として不適切です。",
+  "m": "foster＝育成する"
+ },
+ {
+  "id": 117,
+  "k": "past",
+  "ref": "2026年度 後期 3/9 〔Ⅴ〕 問3",
+  "f": "語彙・イディオム",
+  "t": "perceive（知覚する・気づく）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to become aware of something through the senses or the mind\n（ｂ）Most people can （　） a small change in the color of a face.",
+  "c": [
+   "perceive",
+   "produce",
+   "promise",
+   "preserve"
+  ],
+  "e": "（ａ）は「感覚や頭で何かに気づく」で、perceive（知覚する、認識する）にあたります。顔色の小さな変化に気づくという文意に合います。produce は「生産する」、promise は「約束する」、preserve は「保存する」で、顔色の変化に対する動作として意味が通りません。",
+  "m": "perceive＝知覚する・気づく"
+ },
+ {
+  "id": 118,
+  "k": "past",
+  "ref": "2026年度 後期 3/9 〔Ⅴ〕 問4",
+  "f": "語彙・イディオム",
+  "t": "outcome（結果）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）the final result of an event or process\n（ｂ）Nobody could guess the （　） of the long debate.",
+  "c": [
+   "outcome",
+   "ingredient",
+   "distance",
+   "opinion"
+  ],
+  "e": "（ａ）は「出来事や過程の最終的な結果」で、outcome（結果）にあたります。長い討論の結果は誰にも予想できなかった、という文意に合います。ingredient は「材料」、distance は「距離」、opinion は「意見」で、guess の目的語として意味が通りません。",
+  "m": "outcome＝結果"
+ },
+ {
+  "id": 119,
+  "k": "past",
+  "ref": "2026年度 推薦 12/6 〔Ⅴ〕 問2",
+  "f": "語彙・イディオム",
+  "t": "sustain（維持する）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to keep something going for a long time\n（ｂ）It is hard to （　） a good habit without support from others.",
+  "c": [
+   "sustain",
+   "complete",
+   "imagine",
+   "reject"
+  ],
+  "e": "（ａ）は「何かを長く続けさせる」で、sustain（維持する）にあたります。周りの支えなしでは良い習慣を続けるのは難しい、という文意に合います。complete は「完成させる」、imagine は「想像する」、reject は「拒絶する」で、習慣を続けることを表しません。",
+  "m": "sustain＝維持する"
+ },
+ {
+  "id": 120,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅴ〕 問5",
+  "f": "語彙・イディオム",
+  "t": "facilitate（促進する・容易にする）",
+  "q": "次の（ａ）の意味を持ち、かつ（ｂ）の英文の空所に入れるのに最も適当な語を選びなさい。\n（ａ）to make a process easier\n（ｂ）A shared calendar can （　） cooperation between departments.",
+  "c": [
+   "facilitate",
+   "interrupt",
+   "postpone",
+   "exaggerate"
+  ],
+  "e": "（ａ）は「過程を楽にする」で、facilitate（容易にする、促進する）にあたります。共有カレンダーが部署間の協力を促す、という文意に合います。interrupt は「妨げる」、postpone は「延期する」、exaggerate は「誇張する」で、協力を助ける意味にはなりません。",
+  "m": "facilitate＝容易にする"
+ },
+ {
+  "id": 121,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅵ〕 問[A]",
+  "f": "整序英作文",
+  "t": "whichever＋名詞＋S V",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、3番目に来るものを選びなさい。\n「どのケーキを選んでも、きっとお気に入りが見つかります。」\nYou will find something you like, (　)(　)(　)(　) .\n［ choose / cake / whichever / you ］",
+  "c": [
+   "you",
+   "cake",
+   "whichever",
+   "choose"
+  ],
+  "e": "完成文は You will find something you like, whichever cake you choose. です。whichever は〈whichever＋名詞＋S＋V〉で「どの〜を…しても」という譲歩の副詞節を作ります。順序は whichever / cake / you / choose となり、3番目は you です。cake を whichever の前に出さないように注意します。",
+  "m": "whichever＋名詞＋S V＝どの〜を…しても"
+ },
+ {
+  "id": 122,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅵ〕 問[B]",
+  "f": "整序英作文",
+  "t": "It occurred to me that 〜",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「そのとき、鍵を車に置き忘れたことにふと気づいた。」\nAt that moment, (　)(　)(　)(　)(　) I had left my keys in the car.\n［ to / me / occurred / that / it ］",
+  "c": [
+   "me",
+   "that",
+   "to",
+   "it"
+  ],
+  "e": "完成文は At that moment, it occurred to me that I had left my keys in the car. です。〈It occurs to＋人＋that 節〉で「（考えが）人の心に浮かぶ」を表し、it は形式主語、that 以下が真主語です。順序は it / occurred / to / me / that で、4番目は me になります。",
+  "m": "It occurred to me that 〜＝ふと〜と思った"
+ },
+ {
+  "id": 123,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅵ〕 問[C]",
+  "f": "整序英作文",
+  "t": "nothing ... more than 比較",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「川沿いを長く歩くことほど私をくつろがせるものはない。」\n(　)(　)(　)(　)(　) a long walk by the river.\n［ relaxes / me / nothing / than / more ］",
+  "c": [
+   "more",
+   "than",
+   "relaxes",
+   "me"
+  ],
+  "e": "完成文は Nothing relaxes me more than a long walk by the river. です。〈Nothing＋動詞＋比較級＋than A〉は「Aほど〜するものはない」で、最上級の意味になります。順序は nothing / relaxes / me / more / than で、4番目は more です。than の前に more を置く点が要点です。",
+  "m": "Nothing 〜 more than A＝Aほど〜はない"
+ },
+ {
+  "id": 124,
+  "k": "past",
+  "ref": "2026年度 前期B 2/11 〔Ⅵ〕 問[D]",
+  "f": "整序英作文",
+  "t": "no mention was made of 〜",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、3番目に来るものを選びなさい。\n「その契約書には、支払い期限についての記載がなかった。」\nIn the contract, (　)(　)(　)(　)(　) the payment deadline.\n［ mention / was / made / of / no ］",
+  "c": [
+   "was",
+   "mention",
+   "made",
+   "no"
+  ],
+  "e": "完成文は In the contract, no mention was made of the payment deadline. です。make mention of A（Aに言及する）の受動態で、no mention が主語になる形です。順序は no / mention / was / made / of で、3番目は was です。was made of を「〜でできている」と取り違えないように、mention の位置で判断します。",
+  "m": "make mention of の受動態"
+ },
+ {
+  "id": 125,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅵ〕 問[A]",
+  "f": "整序英作文",
+  "t": "no more ... than（同様に〜ない）",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「私がラテン語を話せないのと同様に、彼にも話せない。」\nHe can (　)(　)(　)(　)(　)(　) .\n［ can / Latin / than / speak / I / no more ］",
+  "c": [
+   "than",
+   "I",
+   "can",
+   "Latin"
+  ],
+  "e": "完成文は He can no more speak Latin than I can. です。〈A is no more ... than B〉は「Bが…でないのと同様にAも…でない」という否定の比較表現です。順序は no more / speak / Latin / than / I / can で、4番目は than です。no more を can の直後に置く点を押さえます。",
+  "m": "A no more … than B＝Bと同様Aも…ない"
+ },
+ {
+  "id": 126,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅵ〕 問[B]",
+  "f": "整序英作文",
+  "t": "with＋O＋C の付帯状況",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、3番目に来るものを選びなさい。\n「新学期が順調に始まり、教室は活気にあふれている。」\n(　)(　)(　)(　) , the classrooms are full of energy.\n［ underway / well / with / the new term ］",
+  "c": [
+   "well",
+   "underway",
+   "with",
+   "the new term"
+  ],
+  "e": "完成文は With the new term well underway, the classrooms are full of energy. です。〈with＋名詞＋補語〉は「〜が…の状態で」という付帯状況を表します。underway は「進行中で」を意味する形容詞で、well を前に置いて「順調に」を表します。順序は with / the new term / well / underway で、3番目は well です。",
+  "m": "with O C＝Oが〜の状態で"
+ },
+ {
+  "id": 127,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅵ〕 問[C]",
+  "f": "整序英作文",
+  "t": "those who＋関係詞節",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「失敗を一度も経験したことがない人は、挑戦をためらいがちだ。」\n(　)(　)(　)(　)(　) often hesitate to take on challenges.\n［ who / never / have / those / failed ］",
+  "c": [
+   "never",
+   "those",
+   "have",
+   "failed"
+  ],
+  "e": "完成文は Those who have never failed often hesitate to take on challenges. です。those who 〜 は「〜する人々」で、who 以下の関係詞節が those を修飾します。have never failed の語順で、頻度を表す never は have の後ろ、過去分詞の前に置きます。順序は those / who / have / never / failed で、4番目は never です。",
+  "m": "those who 〜＝〜する人々"
+ },
+ {
+  "id": 128,
+  "k": "past",
+  "ref": "2026年度 前期B 2/12 〔Ⅵ〕 問[D]",
+  "f": "整序英作文",
+  "t": "Such was A that 〜（倒置）",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、2番目に来るものを選びなさい。\n「その知らせの衝撃があまりに大きかったので、会場は静まり返った。」\nSuch (　)(　)(　)(　) the hall fell silent.\n［ was / the shock / of the news / that ］",
+  "c": [
+   "the shock",
+   "was",
+   "of the news",
+   "that"
+  ],
+  "e": "完成文は Such was the shock of the news that the hall fell silent. です。通常の The shock of the news was such that ～「その知らせの衝撃は非常なもので～」の such を文頭に出すと、be 動詞と主語が倒置されて〈Such was S that ～〉になります。文頭が Such に決まっているので、順序は was / the shock / of the news / that となり、2番目は the shock です。",
+  "m": "Such was A that 〜＝Aは非常に〜で…"
+ },
+ {
+  "id": 129,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅵ〕 問[A]",
+  "f": "整序英作文",
+  "t": "keep -ing／remind oneself to do",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「疲れていたが、笑顔でいるよう自分に言い聞かせ続けた。」\nI was tired, (　)(　)(　)(　)(　)(　) smile.\n［ kept / reminding / but / myself / to / I ］",
+  "c": [
+   "myself",
+   "but",
+   "kept",
+   "I"
+  ],
+  "e": "完成文は I was tired, but I kept reminding myself to smile. です。〈keep -ing〉は「〜し続ける」、〈remind oneself to do〉は「自分に〜するよう言い聞かせる」です。順序は but / I / kept / reminding / myself / to で、5番目は myself です。remind の目的語は再帰代名詞 myself になる点が要点です。",
+  "m": "keep -ing／remind oneself to do"
+ },
+ {
+  "id": 130,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅵ〕 問[B]",
+  "f": "整序英作文",
+  "t": "far from＋形容詞（決して〜ではない）",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「40歳で泳ぎを覚えるのは、決して簡単ではないと分かった。」\nLearning to swim at forty (　)(　)(　)(　)(　) .\n［ easy / to be / from / turned out / far ］",
+  "c": [
+   "from",
+   "far",
+   "turned out",
+   "easy"
+  ],
+  "e": "完成文は Learning to swim at forty turned out to be far from easy. です。far from A は「Aどころではない、決して〜でない」という意味の表現で、turn out to be 〜 は「結局〜だと分かる」です。順序は turned out / to be / far / from / easy で、4番目は from です。far from easy で「決して簡単ではない」となります。",
+  "m": "far from 〜＝決して〜ではない"
+ },
+ {
+  "id": 131,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅵ〕 問[C]",
+  "f": "整序英作文",
+  "t": "強調構文 It was A that 〜",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「私たちを助けてくれたのは、隣に住む老夫婦だった。」\n(　)(　)(　)(　)(　)(　) .\n［ was / helped / the old couple next door / it / us / who ］",
+  "c": [
+   "who",
+   "it",
+   "helped",
+   "was"
+  ],
+  "e": "完成文は It was the old couple next door who helped us. です。〈It is A that / who 〜〉の強調構文で、強調される A が人のときは that の代わりに who も使えます。順序は it / was / the old couple next door / who / helped / us で、4番目は who です。helped の主語は who が担います。",
+  "m": "It was A who 〜＝〜したのはAだった"
+ },
+ {
+  "id": 132,
+  "k": "past",
+  "ref": "2026年度 前期B 2/13 〔Ⅵ〕 問[D]",
+  "f": "整序英作文",
+  "t": "just as ... as 〜 の比較",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「体を休めることは、働くことと同じくらい大切だ。」\nIt is (　)(　)(　)(　)(　)(　) .\n［ as / important / just / to work / to rest / as ］",
+  "c": [
+   "to rest",
+   "to work",
+   "just",
+   "as"
+  ],
+  "e": "完成文は It is just as important to rest as to work. です。〈as＋形容詞＋as〉の同等比較に just を添えて「まったく同じくらい」を強めた形です。順序は just / as / important / to rest / as / to work で、4番目は to rest です。比較する対象 to rest と to work の形をそろえます。",
+  "m": "just as 形容詞 as 〜＝まったく同じくらい"
+ },
+ {
+  "id": 133,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅵ〕 問[A]",
+  "f": "整序英作文",
+  "t": "not to let O＋原形",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「迷いのせいで挑戦をやめてしまわないようにしようと決めた。」\nI decided (　)(　)(　)(　)(　) from trying.\n［ me / let / stop / my doubts / not to ］",
+  "c": [
+   "stop",
+   "not to",
+   "let",
+   "me"
+  ],
+  "e": "完成文は I decided not to let my doubts stop me from trying. です。不定詞の否定は to の直前に not を置いて not to とします。〈stop A from -ing〉は「Aが〜するのを妨げる」で、let の後ろには原形の stop が続きます。順序は not to / let / my doubts / stop / me で、4番目は stop です。",
+  "m": "stop A from -ing／not to do"
+ },
+ {
+  "id": 134,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅵ〕 問[B]",
+  "f": "整序英作文",
+  "t": "regard A as B と関係詞 whose",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「自分と異なる習慣を持つ人々を、変わっていると見なす人もいる。」\nSome people regard (　)(　)(　)(　)(　)(　) strange.\n［ differ from / theirs / whose / those / habits / as ］",
+  "c": [
+   "theirs",
+   "habits",
+   "differ from",
+   "as"
+  ],
+  "e": "完成文は Some people regard those whose habits differ from theirs as strange. です。〈regard A as B〉の A が those whose habits differ from theirs（習慣が自分たちのものと異なる人々）で、as strange が B にあたります。順序は those / whose / habits / differ from / theirs / as で、5番目は theirs です。",
+  "m": "regard A as B／whose＋名詞"
+ },
+ {
+  "id": 135,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅵ〕 問[C]",
+  "f": "整序英作文",
+  "t": "it turned out that 〜",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、3番目に来るものを選びなさい。\n「調べてみると、その店は先月閉店していたことが分かった。」\nWhen I checked, (　)(　)(　)(　) the shop had closed last month.\n［ out / it / that / turned ］",
+  "c": [
+   "out",
+   "turned",
+   "it",
+   "that"
+  ],
+  "e": "完成文は When I checked, it turned out that the shop had closed last month. です。it turns out that 〜 は「結局〜だと判明する」という意味の構文です。順序は it / turned / out / that で、3番目は out です。turn out の2語を離さず並べ、that 節を後ろに続けます。",
+  "m": "it turns out that 〜＝〜だと分かる"
+ },
+ {
+  "id": 136,
+  "k": "past",
+  "ref": "2026年度 前期B 2/14 〔Ⅵ〕 問[D]",
+  "f": "整序英作文",
+  "t": "過去分詞の後置修飾（exposed to）",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「子どもの頃に目にする映像は、その後の価値観を形づくる。」\n(　)(　)(　)(　)(　) in their early years shape their values later.\n［ are / the images / children / to / exposed ］",
+  "c": [
+   "exposed",
+   "the images",
+   "are",
+   "to"
+  ],
+  "e": "完成文は The images children are exposed to in their early years shape their values later. です。the images の後ろに、目的格の関係代名詞が省略された節 children are exposed to（子どもたちがさらされる）が続き、全体が主語になります。順序は the images / children / are / exposed / to で、4番目は exposed です。",
+  "m": "be exposed to〜／関係代名詞の省略"
+ },
+ {
+  "id": 137,
+  "k": "past",
+  "ref": "2026年度 後期 3/8 〔Ⅵ〕 問[A]",
+  "f": "整序英作文",
+  "t": "It takes A for B to do",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「学習者が新しい言語に慣れるには、長い時間がかかる。」\n(　)(　)(　)(　)(　) a new language.\n［ for learners / takes / it / a long time / to get used to ］",
+  "c": [
+   "for learners",
+   "it",
+   "takes",
+   "to get used to"
+  ],
+  "e": "完成文は It takes a long time for learners to get used to a new language. です。〈It takes＋時間＋for＋人＋to 不定詞〉で「人が〜するのに時間がかかる」を表します。順序は it / takes / a long time / for learners / to get used to で、4番目は for learners です。意味上の主語は for で導きます。",
+  "m": "It takes 時間 for 人 to do"
+ },
+ {
+  "id": 138,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "It is high time＋仮定法過去",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIt is high time you （　） to bed. You have an exam tomorrow.",
+  "c": [
+   "went",
+   "go",
+   "will go",
+   "have gone"
+  ],
+  "e": "It is high time の後ろの節は、「もう〜してもよい頃だ」と現実にはまだしていないことを表すので、仮定法過去（過去形）を使います。went が正解です。go は現在形、will go は未来、have gone は完了形で、いずれもこの構文では使いません。",
+  "m": "It's (high) time S＋過去形"
+ },
+ {
+  "id": 139,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "a number of と the number of",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nA number of students （　） absent from school because of the flu last week.",
+  "c": [
+   "were",
+   "was",
+   "has been",
+   "is"
+  ],
+  "e": "a number of ＋複数名詞は「たくさんの〜」の意味で、複数扱いなので were が正解です（the number of 〜 は「〜の数」で単数扱い）。was と is は単数扱い、has been も単数の現在完了で、last week という過去の語句とも合いません。",
+  "m": "a number of＝複数／the number of＝単数"
+ },
+ {
+  "id": 140,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "Hardly had S p.p. when／否定語の倒置",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nHardly （　） sat down at the desk when the phone began to ring.",
+  "c": [
+   "had I",
+   "I had",
+   "did I",
+   "have I"
+  ],
+  "e": "Hardly で文が始まると〈Hardly had S p.p. when …〉の倒置形になり、「〜するやいなや…」を表します。had I が正解です。I had は倒置されておらず、did I は後ろに原形が必要で sat と合いません。have I は現在完了の形になり、後ろの sat が過去分詞としてつながらず、when 以下の過去の話とも時制が合いません。",
+  "m": "Hardly had S p.p. when 〜"
+ },
+ {
+  "id": 141,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "put off（延期する）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nBecause of the heavy snow, the school decided to （　） the sports day until next week.",
+  "c": [
+   "put off",
+   "put on",
+   "put out",
+   "put up"
+  ],
+  "e": "put off は「延期する」という意味で、大雪のため運動会を来週まで延ばした、という文意に合います。put on は「着る、上演する」、put out は「消す」、put up は「建てる、掲げる」で、いずれも日程を延ばす意味にはなりません。",
+  "m": "put off＝延期する"
+ },
+ {
+  "id": 142,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "come up with（思いつく）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nAfter thinking for an hour, Tom finally （　） a good solution to the problem.",
+  "c": [
+   "came up with",
+   "came across",
+   "came down with",
+   "came out of"
+  ],
+  "e": "come up with は「（考えなどを）思いつく」という意味で、1時間考えた末によい解決策を思いついた、となります。come across は「偶然見つける」、come down with は「（病気に）かかる」、come out of は「〜から出てくる」で、解決策を考え出す意味ではありません。",
+  "m": "come up with＝思いつく"
+ },
+ {
+  "id": 143,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "take after（似ている）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nEveryone says that Mika （　） her mother, especially in the way she laughs.",
+  "c": [
+   "takes after",
+   "takes over",
+   "takes off",
+   "takes in"
+  ],
+  "e": "take after A は「（親など）に似ている」という意味で、笑い方が母親に似ているという文意に合います。take over は「引き継ぐ」、take off は「脱ぐ、離陸する」、take in は「取り入れる、だます」で、血縁的に似ている意味ではありません。",
+  "m": "take after＝（親に）似ている"
+ },
+ {
+  "id": 144,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "get over（立ち直る）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nIt took Daniel nearly a month to （　） the shock of losing his job.",
+  "c": [
+   "get over",
+   "get along",
+   "get off",
+   "get through to"
+  ],
+  "e": "get over A は「Aから立ち直る、乗り越える」という意味です。仕事を失ったショックから立ち直るのに1か月近くかかった、という文意に合います。get along は「うまくやっていく」、get off は「降りる」、get through to は「〜に連絡がつく」で、文意が通りません。",
+  "m": "get over＝立ち直る"
+ },
+ {
+  "id": 145,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "bring up（育てる）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nShe was （　） by her grandparents in a small village near the sea.",
+  "c": [
+   "brought up",
+   "brought out",
+   "brought in",
+   "brought down"
+  ],
+  "e": "bring up は「育てる」の意味で、受け身の be brought up は「育てられる」です。祖父母に育てられたという文意に合います。brought out は「（本・商品を）出す」、brought in は「持ち込む」、brought down は「倒す、下げる」で、人を育てる意味ではありません。",
+  "m": "bring up＝育てる（受け身で育てられる）"
+ },
+ {
+  "id": 146,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "carry out（実行する）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nThe research team （　） a survey of two thousand households last year.",
+  "c": [
+   "carried out",
+   "carried over",
+   "carried away",
+   "carried off"
+  ],
+  "e": "carry out は「（調査・計画を）実行する」という意味で、調査を実施した、という文意に合います。carry over は「持ち越す・繰り越す」、carry away は「運び去る・夢中にさせる」、carry off は「うまくやってのける・運び去る」で、調査を行うという意味にはなりません。",
+  "m": "carry out＝実施する"
+ },
+ {
+  "id": 147,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・イディオム",
+  "t": "run out of（使い果たす）",
+  "q": "次の英文の空所に入れるのに最も適当なものを選びなさい。\nWe should stop for gas soon because we are about to （　） fuel.",
+  "c": [
+   "run out of",
+   "run into",
+   "run over",
+   "run away from"
+  ],
+  "e": "run out of A は「Aを使い果たす、切らす」という意味で、燃料が切れそうなのでガソリンを入れよう、という文意になります。run into は「偶然会う」、run over は「（車が）ひく」、run away from は「〜から逃げる」で、燃料に対しては使えません。",
+  "m": "run out of＝〜を切らす"
+ },
+ {
+  "id": 148,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "整序英作文",
+  "t": "the more ..., the more ...",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「練習すればするほど、自信がつく。」\n(　)(　)(　)(　)(　)(　)(　) .\n［ confident / become / the more / you / the more / you / practice ］",
+  "c": [
+   "confident",
+   "become",
+   "practice",
+   "the more"
+  ],
+  "e": "完成文は The more you practice, the more confident you become. です。〈the＋比較級 S V, the＋比較級 S V〉は「〜すればするほど…」を表します。後半は the more confident you become と、比較級の more confident を the の直後にまとめます。順序は the more / you / practice / the more / confident / you / become で、5番目は confident です。",
+  "m": "the 比較級 S V, the 比較級 S V"
+ },
+ {
+  "id": 149,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "整序英作文",
+  "t": "Not only 〜 の倒置",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、3番目に来るものを選びなさい。\n「彼女は優勝しただけでなく、新記録も打ち立てた。」\n(　)(　)(　)(　)(　)(　)(　) a new record.\n［ set / but / she / win / not only / did / also ］",
+  "c": [
+   "she",
+   "also",
+   "did",
+   "but"
+  ],
+  "e": "完成文は Not only did she win, but she also set a new record. です。Not only が文頭に出ると、直後が疑問文の語順（助動詞＋主語＋動詞）に倒置されます。順序は not only / did / she / win / but / also / set で、3番目は she です。but 以降は通常の語順に戻る点にも注意します。",
+  "m": "Not only did S 原形, but S also 〜"
+ },
+ {
+  "id": 150,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "整序英作文",
+  "t": "There is no point in -ing",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「彼と議論しても意味がない。」\n(　)(　)(　)(　)(　)(　) with him.\n［ is / point / there / arguing / no / in ］",
+  "c": [
+   "in",
+   "there",
+   "no",
+   "is"
+  ],
+  "e": "完成文は There is no point in arguing with him. です。〈There is no point in -ing〉は「〜しても無駄だ・意味がない」を表し、in の後ろは動名詞になります。順序は there / is / no / point / in / arguing で、5番目は in です。It is no use -ing とほぼ同じ意味の表現です。",
+  "m": "There is no point in -ing＝〜しても無駄"
+ },
+ {
+  "id": 151,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "整序英作文",
+  "t": "cannot help -ing（〜せずにいられない）",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、4番目に来るものを選びなさい。\n「その映画のあまりのばかばかしさに、私は笑わずにはいられなかった。」\n(　)(　)(　)(　)(　) at the silly movie.\n［ help / laughing / could / not / I ］",
+  "c": [
+   "help",
+   "not",
+   "laughing",
+   "could"
+  ],
+  "e": "完成文は I could not help laughing at the silly movie. です。〈cannot help -ing〉は「～せずにはいられない」という意味で、help の後ろは動名詞になります。過去の文なので could not help とし、順序は I / could / not / help / laughing で、4番目は help です。not を help の後ろに置いたり、laughing を help の前に置いたりすると文が成り立ちません。",
+  "m": "cannot help -ing＝〜せずにいられない"
+ },
+ {
+  "id": 152,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "整序英作文",
+  "t": "What matters is whether 〜",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、5番目に来るものを選びなさい。\n「いちばん大切なのは、挑戦するかどうかだ。」\n(　)(　)(　)(　)(　)(　)(　) .\n［ most / you / whether / what / try / is / matters ］",
+  "c": [
+   "whether",
+   "is",
+   "you",
+   "most"
+  ],
+  "e": "完成文は What matters most is whether you try. です。what matters most（最も大切なこと）が主語になる名詞節、whether you try（挑戦するかどうか）が補語になる名詞節です。順序は what / matters / most / is / whether / you / try で、5番目は whether です。if ではなく whether を使うのは be 動詞の補語になる節だからです。",
+  "m": "what 節が主語／whether 節が補語"
+ },
+ {
+  "id": 153,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "整序英作文",
+  "t": "would rather A than B",
+  "q": "日本文に合うように［　］内の語句を並べ替えて英文を完成させるとき、6番目に来るものを選びなさい。\n「私は外出するより家にいたい。」\n(　)(　)(　)(　)(　)(　)(　) .\n［ go out / would / stay / than / I / home / rather ］",
+  "c": [
+   "than",
+   "I",
+   "go out",
+   "stay"
+  ],
+  "e": "完成文は I would rather stay home than go out. です。〈would rather A than B〉は「BよりむしろAしたい」で、A と B にはどちらも原形が入ります。順序は I / would / rather / stay / home / than / go out で、6番目は than です。than の後ろにも to を付けずに原形 go out を置きます。",
+  "m": "would rather 原形 than 原形"
+ },
+ {
+  "id": 154,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：貸出期間の延長",
+  "p": "A: Excuse me. This book is due today, but I haven't finished reading it.\nB: （　）\nA: Oh, that's great. How long can I keep it?\nB: Two more weeks. Just show me your library card.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I can extend the loan for you if no one has reserved it.",
+   "You have to pay a fine before you are allowed to borrow any more books from us.",
+   "Please bring it back and borrow a different one today.",
+   "We don't lend books written by foreign authors."
+  ],
+  "e": "Aは延長を頼み、Bの返答を聞いて「それは良い」と喜び、期間を尋ねています。したがって延長に応じる文が入ります。罰金を先に払う、別の本を借りる、外国人作家の本は貸さない、はいずれも Aが喜ぶ展開とも「あと2週間」というBの返答ともつながりません。",
+  "m": "直後の反応（That's great）から逆算"
+ },
+ {
+  "id": 155,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：レストランの予約",
+  "p": "A: Hello, I'd like to book a table for four tomorrow evening.\nB: Certainly. （　）\nA: Around seven, please.\nB: Seven o'clock for four people. May I have your name?",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "What time would you like to come?",
+   "Would you prefer to sit near the entrance?",
+   "How many nights will you be staying?",
+   "What did you order the last time you came?"
+  ],
+  "e": "Aは「7時ごろ」と時刻を答えているので、直前のBは来店時刻を尋ねたはずです。席の希望、宿泊日数、前回の注文は、いずれも「7時ごろ」という答えにつながりません。特に宿泊日数（nights）は、レストランの予約場面にそぐわない質問です。",
+  "m": "答えが時刻→質問は What time"
+ },
+ {
+  "id": 156,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：道案内",
+  "p": "A: Excuse me, how can I get to the city museum?\nB: （　）\nA: Thanks. Is it far from here?\nB: Not really. It's about a five-minute walk.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Go straight along this street and turn left at the bank.",
+   "The museum opens at nine and closes at five.",
+   "I visited the museum with my family last year.",
+   "Tickets are cheaper on weekdays than on weekends, especially for students and children."
+  ],
+  "e": "Aは行き方（how can I get to ...）を尋ねているので、道順を説明する文が自然です。開館時間、過去の訪問経験、料金の話はいずれも質問に答えておらず、その後の Is it far from here? というやり取りにもつながりません。道案内では go straight、turn left などの表現を使います。",
+  "m": "how can I get to〜？→道順で答える"
+ },
+ {
+  "id": 157,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：チェックイン",
+  "p": "A: Hello. I have a reservation under the name Sato.\nB: Let me check... Yes, a single room for two nights. （　）\nA: Here it is.\nB: Thank you. Your room is on the fifth floor.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "May I see your passport or some form of ID, please?",
+   "Would you like to change to a larger room?",
+   "Could you tell me the way to the station?",
+   "Have you ever stayed in a hotel like this one in another city before?"
+  ],
+  "e": "Aが「これです（Here it is）」と何かを差し出している場面なので、直前のBは何かの提示を求めたはずです。チェックイン時に求められる身分証明書の提示が自然です。部屋の変更、駅への道順、宿泊経験の質問では、Here it is という返答になりません。",
+  "m": "Here it is＝何かを手渡す場面"
+ },
+ {
+  "id": 158,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：電話の取り次ぎ",
+  "p": "A: Hello, may I speak to Mr. Brown?\nB: I'm afraid he's in a meeting right now. （　）\nA: Yes, please ask him to call me back this afternoon.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Would you like to leave a message?",
+   "Can I have your address for the delivery?",
+   "Do you know when the meeting began?",
+   "Shall I take you to his office?"
+  ],
+  "e": "Aは「午後に折り返し電話をくれるよう伝えて」と答えているので、直前のBは伝言の有無を尋ねたはずです。Would you like to leave a message? は電話応対の定番表現です。配達先の住所、会議の開始時刻、オフィスへの案内は、電話での会話と Aの返事のどちらにも合いません。",
+  "m": "電話の定番：Would you like to leave a message?"
+ },
+ {
+  "id": 159,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：忘れ物の問い合わせ",
+  "p": "A: Excuse me, I think I left my umbrella on the bus this morning.\nB: （　）\nA: It's a blue one with a wooden handle.\nB: Let me check the lost-and-found box.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Can you describe it for me?",
+   "Did you buy it at the department store?",
+   "Do you remember how much it cost?",
+   "Why did you take the bus instead of the train?"
+  ],
+  "e": "Aが「青くて木の柄がついたものです」と特徴を述べているので、Bは傘の特徴を尋ねたはずです。Can you describe it? が自然です。購入した店、値段、バスを選んだ理由を尋ねても、Aの返答は成り立ちません。忘れ物の確認では、色・形・大きさなどを尋ねるのが一般的です。",
+  "m": "特徴を答えている→describe を尋ねる"
+ },
+ {
+  "id": 160,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：病院の予約",
+  "p": "A: I'd like to make an appointment to see Dr. Tanaka.\nB: Of course. （　）\nA: Wednesday morning would be best for me.\nB: We have an opening at ten thirty.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Which day would be convenient for you?",
+   "How long have you had this cough?",
+   "What is your date of birth?",
+   "Who recommended our clinic to you?"
+  ],
+  "e": "Aが「水曜日の午前が良い」と答えているので、Bは都合の良い日を尋ねたはずです。せきの期間、生年月日、紹介者の質問では、曜日を答える返事になりません。予約の場面では、日時の希望を尋ねる Which day / What time が典型的です。",
+  "m": "予約→都合の良い日時を尋ねる"
+ },
+ {
+  "id": 161,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：集まる日の調整",
+  "p": "A: We need to finish the presentation by Friday. When can everyone meet?\nB: I have club practice until six on Tuesday and Thursday. （　）\nA: Wednesday works for me. Let's meet in the library.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "How about Wednesday after school instead?",
+   "Let's change the topic of the presentation.",
+   "I'll do the whole thing by myself on Friday.",
+   "Tuesday is the best day for everyone."
+  ],
+  "e": "Bは火曜と木曜に部活があると述べたうえで代案を出し、Aは「水曜なら大丈夫」と答えています。したがって水曜を提案する文が入ります。テーマの変更や一人で作る提案は日程の調整に関係せず、火曜が最適というのはBの発言と矛盾します。",
+  "m": "直前の制約を踏まえた代案を選ぶ"
+ },
+ {
+  "id": 162,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：ペンを借りる",
+  "p": "A: Do you mind if I borrow your pen for a moment?\nB: （　） Here you are.\nA: Thanks. I'll give it back right after I fill out this form.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Not at all.",
+   "I'd rather not.",
+   "Yes, I do.",
+   "No, thank you."
+  ],
+  "e": "Do you mind ...? は「〜してもよろしいですか（気にしますか）」で、承諾するときは Not at all.（全然かまいません）と答えます。直後に Here you are（どうぞ）と続くことからも、承諾の返事が必要です。I'd rather not と Yes, I do は断る意味になり、No, thank you も Here you are と矛盾します。",
+  "m": "Do you mind? → 承諾は Not at all"
+ },
+ {
+  "id": 163,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：返金・交換",
+  "p": "A: I bought this toaster last week, but it stopped working yesterday.\nB: I'm sorry to hear that. （　）\nA: Yes, I have it here.\nB: Then we can replace it with a new one or give you a refund.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Do you still have the receipt?",
+   "Did you read the manual before buying it?",
+   "Which brand of bread do you usually buy?",
+   "Have you ever worked at a store like this?"
+  ],
+  "e": "Aが Yes, I have it here. と答え、Bは「新品と交換か返金ができます」と言っているので、直前のBは購入証明となるレシートの有無を尋ねたはずです。説明書を読んだか、パンの銘柄、店での勤務経験の質問は、返金の手続きとは関係がありません。",
+  "m": "返金には receipt の確認が必要"
+ },
+ {
+  "id": 164,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：バスの行き先",
+  "p": "A: Does this bus go to the stadium?\nB: No, （　）\nA: Where is the stop for Bus 12?\nB: Just across the street, next to the post office.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "you need to take Bus 12 instead.",
+   "it stops at the stadium every ten minutes.",
+   "you should buy a ticket from the driver.",
+   "the stadium is closed on holidays."
+  ],
+  "e": "Bは No と答えており、続いてAが Bus 12 の乗り場を尋ねているので、Bは12番のバスに乗るよう案内したはずです。スタジアムに停まる、と言うのは No と矛盾します。運転手から切符を買う、休日は閉まっている、はAの次の質問につながりません。",
+  "m": "直後の質問（Bus 12）から前の発言を推測"
+ },
+ {
+  "id": 165,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：カフェの注文",
+  "p": "A: Can I have a large latte, please?\nB: Sure. （　）\nA: Here, please.\nB: That'll be four dollars and fifty cents.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "For here or to go?",
+   "How was your trip to Italy?",
+   "Can you tell me where the station is?",
+   "What time does the store open?"
+  ],
+  "e": "Aが Here, please. と答えているので、Bは店内で飲むか持ち帰るかを尋ねたはずです。For here or to go? はカフェの定番の質問です。旅行の感想、駅の場所、開店時刻の質問では、Here, please. という答えにならず、会計の流れにもつながりません。",
+  "m": "For here or to go?＝店内か持ち帰りか"
+ },
+ {
+  "id": 166,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：語学の経験",
+  "p": "A: Your English is very natural. Have you lived abroad?\nB: （　） I just practice with a tutor online twice a week.\nA: That's impressive.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "No, I've never been outside Japan.",
+   "Yes, I spent three years in London.",
+   "Yes, my family moved to Australia when I was five.",
+   "I can't remember my tutor's name."
+  ],
+  "e": "Bは「家庭教師とオンラインで週2回練習しているだけ」と続けているので、海外に住んだことはないと答えたはずです。ロンドンに3年住んだ、5歳でオーストラリアに引っ越した、という Yes の答えは just practice と矛盾します。家庭教師の名前は、質問（Have you lived abroad?）に答えていません。",
+  "m": "質問への Yes/No と後ろの文の整合を確認"
+ },
+ {
+  "id": 167,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：料金プランの説明",
+  "p": "A: I'm thinking about joining this gym. What are the membership fees?\nB: （　） The monthly plan is 6,000 yen, and the yearly plan is 60,000 yen.\nA: The yearly plan seems cheaper.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "It depends on which plan you choose.",
+   "We are open until midnight every day.",
+   "You must bring your own towel and shoes.",
+   "The gym is on the second floor of this building."
+  ],
+  "e": "Aは料金を尋ね、Bはその後に月額と年額のプランを説明しているので、冒頭に「選ぶプランによります」と述べるのが自然です。営業時間、持ち物、場所の説明は、料金の質問に答えておらず、続く具体的な金額の説明ともつながりません。",
+  "m": "What are the fees? → It depends on 〜"
+ },
+ {
+  "id": 168,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：遅刻の連絡",
+  "p": "A: Are you OK? You look worried.\nB: My train's been delayed, so I might be late for the interview.\nA: （　）\nB: Good idea. I'll call them right now.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Why don't you let them know before the interview starts?",
+   "You should have taken the earlier flight so that you would not be late again.",
+   "Interviews are usually held in the morning.",
+   "I took the same train last week."
+  ],
+  "e": "Bが「良い考えだ。今すぐ電話する」と答えているので、Aは先方に連絡することを提案したはずです。Why don't you ...? は提案の表現です。早い飛行機に乗るべきだった、面接は朝が多い、先週同じ電車に乗った、はいずれも電話をかけるという反応にはつながりません。",
+  "m": "Good idea.の前は提案：Why don't you 〜?"
+ },
+ {
+  "id": 169,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：誕生日の贈り物",
+  "p": "A: I want to get something for Mom's birthday, but I have no idea what.\nB: （　）\nA: Good idea. She did say her old one is falling apart.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "How about a new handbag? Hers is getting old.",
+   "She was born in the spring, wasn't she?",
+   "I bought her a cake last year, remember?",
+   "Birthdays are more fun with friends."
+  ],
+  "e": "Aが「古いものが壊れかけていると言っていた」と答えているので、Bは古くなった物の代わりになる品を提案したはずです。新しいハンドバッグの提案がそれに合います。誕生日の季節、昨年のケーキ、友達との誕生日は、贈り物の提案になっておらず、Aの反応と合いません。",
+  "m": "Good idea.＝提案への反応"
+ },
+ {
+  "id": 170,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：休講の連絡",
+  "p": "A: Did you hear that Professor Lee's class is canceled today?\nB: （　） I just came all the way here.\nA: Sorry. The notice was posted on the website this morning.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Really? I didn't check the website.",
+   "Yes, I'll hand in my report to him.",
+   "No wonder he looked so happy.",
+   "Great, I'll be in time for it."
+  ],
+  "e": "Bは「わざわざここまで来たのに」と言い、Aは「お知らせは今朝ウェブサイトに載っていた」と答えています。したがって Bは休講を知らなかったはずです。Really? I didn't check the website. が自然です。レポートの提出、彼が嬉しそうだった、間に合う、はいずれも休講への驚きや落胆に合いません。",
+  "m": "I just came all the way here＝知らなかった"
+ },
+ {
+  "id": 171,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：騒音の苦情",
+  "p": "A: I'm sorry, but your music was quite loud last night.\nB: （　） I'll keep it down from now on.\nA: Thank you. I really appreciate it.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Oh, I didn't realize that. I apologize.",
+   "It was my favorite band's new album.",
+   "Then you should buy better headphones.",
+   "I don't think you should complain."
+  ],
+  "e": "Bは直後に「今後は音量を下げます」と言っているので、苦情を受け入れて謝罪したはずです。Oh, I didn't realize that. I apologize. が自然です。お気に入りのバンド、ヘッドホンを買うべき、苦情を言うべきではない、は反論や弁解の内容で、keep it down という約束とつながりません。",
+  "m": "後ろの約束（keep it down）→謝罪の流れ"
+ },
+ {
+  "id": 172,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：荷物の問い合わせ",
+  "p": "A: I'm calling about a package that was supposed to arrive yesterday.\nB: I see. （　）\nA: It's 4821-7.\nB: Thank you. Let me look it up.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Could you tell me your tracking number?",
+   "Would you like some more coffee?",
+   "Did you pay by credit card or cash?",
+   "Are you planning to move next month?"
+  ],
+  "e": "Aが「4821-7です」と番号を答え、Bが「調べます（look it up）」と言っているので、Bは追跡番号を尋ねたはずです。コーヒーのおかわり、支払い方法、引っ越し予定は、番号を答える流れになりません。荷物の問い合わせでは tracking number の確認が基本です。",
+  "m": "番号を答えている→何の番号かを推測"
+ },
+ {
+  "id": 173,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：映画の相談",
+  "p": "A: What movie should we see tonight?\nB: I'm open to anything. （　）\nA: I'd rather not. I get nightmares easily.\nB: Then let's go with the comedy.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Shall we try the new horror film?",
+   "Did you enjoy the comedy yesterday?",
+   "The theater is across from the bank.",
+   "I saw the horror film last month."
+  ],
+  "e": "Aが I'd rather not.（やめておく）と断り、理由として悪夢を挙げ、Bは「ではコメディにしよう」と言っています。したがってBは恐怖映画を提案したはずです。Shall we ...? は提案の表現で、I'd rather not はそれに対する断りです。他の選択肢は提案ではなく、断りの返事と合いません。",
+  "m": "I'd rather not＝提案への断り"
+ },
+ {
+  "id": 174,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：聞き返し",
+  "p": "A: The meeting has been moved to room 305 at 2:30.\nB: （　） I didn't catch the room number.\nA: Room 305. It's on the third floor.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Sorry, could you say that again?",
+   "Yes, I met him at 2:30.",
+   "I've never been to the third floor.",
+   "It sounds like a great idea."
+  ],
+  "e": "Bは部屋番号を聞き取れなかったと言い、Aが部屋番号をもう一度言っているので、Bは聞き返したはずです。Sorry, could you say that again? が自然です。2:30に会った、3階に行ったことがない、良い考えだ、は聞き取れなかったという状況に合いません。",
+  "m": "聞き返し：could you say that again?"
+ },
+ {
+  "id": 175,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：車で送る申し出",
+  "p": "A: It's raining hard, and the last bus has left.\nB: （　）\nA: Really? That would be a great help. Thank you.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "I can give you a ride if you don't mind waiting a few minutes.",
+   "You should have left the office earlier today.",
+   "I'll lend you my umbrella if you pay for it on the way home tomorrow.",
+   "The last bus always leaves at ten o'clock."
+  ],
+  "e": "Aが「それは助かる、ありがとう」と感謝しているので、Bは何か助けを申し出たはずです。I can give you a ride は車で送る申し出です。もっと早く出るべきだった、傘を有料で貸す、最終バスの時刻、は助けの申し出にならず、Aの感謝の返事と合いません。",
+  "m": "That would be a great help.＝申し出への返事"
+ },
+ {
+  "id": 176,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文",
+  "t": "会話文：褒め言葉への返事",
+  "p": "A: That was a wonderful presentation. Everyone was impressed.\nB: （　） I was really nervous, though.\nA: It didn't show at all.",
+  "q": "対話文の空所に入れるのに最も適当なものを選びなさい。",
+  "c": [
+   "Thank you. That's kind of you to say.",
+   "I'm afraid I disagree with you.",
+   "No, you should apologize to everyone.",
+   "It wasn't very wonderful, so please be quiet."
+  ],
+  "e": "褒められたときは、まず感謝を述べるのが自然です。後ろの I was really nervous, though.（でも本当は緊張していました）という謙遜の流れにも合います。同意しないと述べる、皆に謝るべきだと言う、静かにしてほしいと言う、はいずれも褒め言葉に対する礼儀ある返事ではありません。",
+  "m": "褒められたら Thank you 〜"
+ },
+ {
+  "id": 177,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（サンゴ礁）：内容一致",
+  "p": "Coral reefs cover less than one percent of the ocean floor, yet about a quarter of all marine species depend on them at some point in their lives. The reefs provide food and shelter for fish, and they also protect coastlines by weakening the force of waves. However, many reefs are in danger. When the sea becomes too warm, corals push out the tiny algae that live inside them and give them color. The corals then turn white, a process called bleaching. A bleached coral is not dead, but it is weak, and it may die if the warm water lasts for a long time.\nScientists are trying to help reefs recover. Some of them grow young corals in tanks and plant them on damaged reefs. Others look for kinds of corals that can survive in warmer water. Still, experts agree that these efforts will not be enough unless the amount of greenhouse gases in the air is reduced.",
+  "q": "本文の内容に合うものとして最も適当なものを選びなさい。",
+  "c": [
+   "A bleached coral is weak, but it is not necessarily dead.",
+   "Corals become white because they take in far too much algae from the surrounding water.",
+   "Coral reefs cover about a quarter of the ocean floor.",
+   "Planting young corals alone is enough to save the reefs."
+  ],
+  "e": "第1段落の A bleached coral is not dead, but it is weak に一致するのは最初の選択肢です。白くなるのは藻を取り込みすぎたからではなく、藻を追い出す（push out）からです。サンゴ礁が覆うのは海底の1％未満で、4分の1は海洋生物の割合です。若いサンゴを植えるだけでは不十分と第2段落にあります。",
+  "m": "bleached＝弱るが死んだとは限らない"
+ },
+ {
+  "id": 178,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（サンゴ礁）：語の意味",
+  "p": "Coral reefs cover less than one percent of the ocean floor, yet about a quarter of all marine species depend on them at some point in their lives. The reefs provide food and shelter for fish, and they also protect coastlines by weakening the force of waves. However, many reefs are in danger. When the sea becomes too warm, corals push out the tiny algae that live inside them and give them color. The corals then turn white, a process called bleaching. A bleached coral is not dead, but it is weak, and it may die if the warm water lasts for a long time.\nScientists are trying to help reefs recover. Some of them grow young corals in tanks and plant them on damaged reefs. Others look for kinds of corals that can survive in warmer water. Still, experts agree that these efforts will not be enough unless the amount of greenhouse gases in the air is reduced.",
+  "q": "本文中の push out に最も近い意味の語を選びなさい。",
+  "c": [
+   "expel",
+   "absorb",
+   "produce",
+   "shelter"
+  ],
+  "e": "push out は「押し出す、追い出す」で、expel（追い出す）が最も近い意味です。本文では、海水温が高いと、サンゴが体内の藻を追い出して白くなると述べています。absorb は「吸収する」、produce は「生み出す」、shelter は「かくまう」で、意味が逆または異なります。",
+  "m": "push out＝追い出す（expel）"
+ },
+ {
+  "id": 179,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（サンゴ礁）：内容不一致",
+  "p": "Coral reefs cover less than one percent of the ocean floor, yet about a quarter of all marine species depend on them at some point in their lives. The reefs provide food and shelter for fish, and they also protect coastlines by weakening the force of waves. However, many reefs are in danger. When the sea becomes too warm, corals push out the tiny algae that live inside them and give them color. The corals then turn white, a process called bleaching. A bleached coral is not dead, but it is weak, and it may die if the warm water lasts for a long time.\nScientists are trying to help reefs recover. Some of them grow young corals in tanks and plant them on damaged reefs. Others look for kinds of corals that can survive in warmer water. Still, experts agree that these efforts will not be enough unless the amount of greenhouse gases in the air is reduced.",
+  "q": "本文の内容に合わないものを選びなさい。",
+  "c": [
+   "Experts think that growing young corals will solve the problem completely.",
+   "Many marine species depend on coral reefs for food or shelter at some stage of their lives.",
+   "Warm seawater can cause corals to lose their color.",
+   "Some scientists search for corals that tolerate warmer water."
+  ],
+  "e": "最終文で、専門家は温室効果ガスを減らさない限り、こうした取り組みでは足りないと考えています。したがって「若いサンゴを育てれば完全に解決する」は本文に合いません。他の選択肢は、順に第1段落前半、第1段落の bleaching の説明、第2段落の内容に一致しています。",
+  "m": "「合わないもの」を選ぶ問題に注意"
+ },
+ {
+  "id": 180,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（バイリンガル教育）：内容一致",
+  "p": "In many countries, schools are increasingly offering lessons in two languages. In a bilingual program, students might study math in English and science in their native language, for example. Supporters say that this approach helps children use a second language in real situations instead of simply memorizing grammar rules. Some studies also suggest that bilingual children are better at switching their attention from one task to another.\nCritics, however, point out several difficulties. First, it is hard to find teachers who are skilled in both the subject and the foreign language. Second, some parents worry that their children may not fully master either language if they divide their time between two. Researchers answer that such problems appear mostly when schools have too few resources, not because of bilingual education itself. In other words, the success of a program depends greatly on how well it is supported.",
+  "q": "支持者（supporters）の考えとして本文に合うものを選びなさい。",
+  "c": [
+   "Students can use a second language to learn actual school subjects.",
+   "Students should memorize grammar rules before using a language.",
+   "Students need to give up their native language for a time.",
+   "Students learn math faster than students in other programs because of the second language."
+  ],
+  "e": "第1段落に Supporters say that this approach helps children use a second language in real situations とあり、数学や理科などの科目を通して実際に使えると述べています。文法の暗記を先にすべきという考えは本文と逆で、母語を捨てることや数学が速く身につくことは述べられていません。",
+  "m": "支持者＝実際の場面で使える"
+ },
+ {
+  "id": 181,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（バイリンガル教育）：内容一致",
+  "p": "In many countries, schools are increasingly offering lessons in two languages. In a bilingual program, students might study math in English and science in their native language, for example. Supporters say that this approach helps children use a second language in real situations instead of simply memorizing grammar rules. Some studies also suggest that bilingual children are better at switching their attention from one task to another.\nCritics, however, point out several difficulties. First, it is hard to find teachers who are skilled in both the subject and the foreign language. Second, some parents worry that their children may not fully master either language if they divide their time between two. Researchers answer that such problems appear mostly when schools have too few resources, not because of bilingual education itself. In other words, the success of a program depends greatly on how well it is supported.",
+  "q": "研究者（researchers）の主張として本文に合うものを選びなさい。",
+  "c": [
+   "The difficulties mostly appear when programs lack enough support.",
+   "The difficulties are caused by bilingual education itself and cannot be avoided.",
+   "The difficulties disappear when there are fewer parents.",
+   "The difficulties can be solved only by hiring more students."
+  ],
+  "e": "第2段落に、問題は学校の資源が足りないときに主に起こり、バイリンガル教育そのものが原因ではない、とあります。これに合うのは最初の選択肢です。教育そのものが原因という考えは批判派のもので、保護者の数や生徒の採用は本文に出てきません。",
+  "m": "researchers answer の内容を読み取る"
+ },
+ {
+  "id": 182,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（バイリンガル教育）：語句の意味",
+  "p": "In many countries, schools are increasingly offering lessons in two languages. In a bilingual program, students might study math in English and science in their native language, for example. Supporters say that this approach helps children use a second language in real situations instead of simply memorizing grammar rules. Some studies also suggest that bilingual children are better at switching their attention from one task to another.\nCritics, however, point out several difficulties. First, it is hard to find teachers who are skilled in both the subject and the foreign language. Second, some parents worry that their children may not fully master either language if they divide their time between two. Researchers answer that such problems appear mostly when schools have too few resources, not because of bilingual education itself. In other words, the success of a program depends greatly on how well it is supported.",
+  "q": "本文最終文の depends greatly on に最も近い意味のものを選びなさい。",
+  "c": [
+   "is strongly affected by",
+   "is completely separate from",
+   "is rarely influenced by",
+   "is decided only by"
+  ],
+  "e": "depend on は「〜次第である、〜に左右される」で、greatly を伴うと「大きく左右される」です。is strongly affected by が最も近い意味です。completely separate from は「無関係」、rarely influenced by は「ほとんど影響されない」で意味が逆です。decided only by は「〜だけで決まる」で限定しすぎです。",
+  "m": "depend on＝〜次第である"
+ },
+ {
+  "id": 183,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（都市の庭）：主旨",
+  "p": "In big cities, where open land is limited, more and more people are turning rooftops and empty lots into small gardens. A group of neighbors may share a plot and grow tomatoes, herbs, and beans together. These gardens produce fresh vegetables, but their value goes beyond food. Gardeners often say that working outside reduces their stress, and neighbors who rarely spoke before become friends.\nThere are also benefits for the environment. Plants take in carbon dioxide and make the surrounding air a little cooler during summer. In addition, rainwater soaks into garden soil instead of rushing into sewers, which lowers the risk of flooding after heavy storms. Of course, urban gardens cannot feed an entire city. Nevertheless, they remind city dwellers that food comes from living plants and that taking care of them takes time and patience.",
+  "q": "本文の主旨として最も適当なものを選びなさい。",
+  "c": [
+   "Urban gardens offer social and environmental benefits as well as vegetables.",
+   "Urban gardens will soon replace the farms outside the city that supply most vegetables.",
+   "Urban gardens are too expensive for most neighbors to share.",
+   "Urban gardens are mainly built to make cities look cooler."
+  ],
+  "e": "第1段落で野菜以外の価値（ストレス軽減、近所づきあい）、第2段落で環境面の利点が述べられています。したがって最初の選択肢が主旨です。郊外の農場に取って代わるとは書かれておらず、費用が高いという記述もありません。涼しくすることは利点の一つにすぎず、主な目的とは述べられていません。",
+  "m": "段落ごとの要点を合わせて主旨を作る"
+ },
+ {
+  "id": 184,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（都市の庭）：内容一致",
+  "p": "In big cities, where open land is limited, more and more people are turning rooftops and empty lots into small gardens. A group of neighbors may share a plot and grow tomatoes, herbs, and beans together. These gardens produce fresh vegetables, but their value goes beyond food. Gardeners often say that working outside reduces their stress, and neighbors who rarely spoke before become friends.\nThere are also benefits for the environment. Plants take in carbon dioxide and make the surrounding air a little cooler during summer. In addition, rainwater soaks into garden soil instead of rushing into sewers, which lowers the risk of flooding after heavy storms. Of course, urban gardens cannot feed an entire city. Nevertheless, they remind city dwellers that food comes from living plants and that taking care of them takes time and patience.",
+  "q": "雨水（rainwater）について、本文の内容に合うものを選びなさい。",
+  "c": [
+   "It soaks into the soil of gardens, which lowers the risk of flooding.",
+   "It makes the plants in the gardens grow too fast.",
+   "It is collected in large tanks and used to cool the air around the garden in summer.",
+   "It rushes into the garden soil and causes floods."
+  ],
+  "e": "第2段落に、雨水は下水道へ流れ込むのではなく庭の土にしみこみ、大雨後の洪水の危険を減らすとあります。植物が育ちすぎる、タンクにためて空気を冷やす、庭が洪水の原因になる、という記述はなく、最後の選択肢は本文と因果が逆です。",
+  "m": "soak into＝しみこむ"
+ },
+ {
+  "id": 185,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（都市の庭）：内容不一致",
+  "p": "In big cities, where open land is limited, more and more people are turning rooftops and empty lots into small gardens. A group of neighbors may share a plot and grow tomatoes, herbs, and beans together. These gardens produce fresh vegetables, but their value goes beyond food. Gardeners often say that working outside reduces their stress, and neighbors who rarely spoke before become friends.\nThere are also benefits for the environment. Plants take in carbon dioxide and make the surrounding air a little cooler during summer. In addition, rainwater soaks into garden soil instead of rushing into sewers, which lowers the risk of flooding after heavy storms. Of course, urban gardens cannot feed an entire city. Nevertheless, they remind city dwellers that food comes from living plants and that taking care of them takes time and patience.",
+  "q": "本文の内容に合わないものを選びなさい。",
+  "c": [
+   "Urban gardens can supply enough food for an entire city.",
+   "Gardening outside can help people feel less stress.",
+   "Neighbors who rarely spoke may become friends in a garden.",
+   "Plants make the air a little cooler in summer."
+  ],
+  "e": "第2段落に urban gardens cannot feed an entire city とあり、「都市全体を養える」は本文に合いません。他の選択肢は、順にストレスの軽減、近所づきあい、夏の空気を涼しくする効果として、本文にそれぞれ書かれています。本文に合わないものを選ぶ点に注意します。",
+  "m": "cannot feed an entire city と矛盾"
+ },
+ {
+  "id": 186,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（電気バス）：内容一致",
+  "p": "Several cities have started replacing diesel buses with electric ones. Electric buses produce no exhaust gas while driving, so the air along busy streets becomes cleaner. They are also much quieter, which is welcomed by people who live near bus routes. Moreover, although an electric bus costs more to buy, its energy and repair costs are lower, so a city may save money over ten years or more.\nThere are some problems, however. Batteries are heavy and expensive, and charging takes a long time compared with filling a tank with fuel. Because of this, bus companies need to build charging stations at the depot and plan routes carefully so that no bus runs out of power. A city official explained, \"The buses themselves are only half of the project. The other half is the electricity system behind them.\"",
+  "q": "電気バスについて、本文の内容に合うものを選びなさい。",
+  "c": [
+   "Over a long period, they may cost a city less than diesel buses.",
+   "They are cheaper to buy than diesel buses.",
+   "They make more noise than diesel buses on busy streets, which neighbors dislike.",
+   "They can be charged as quickly as filling a tank with fuel."
+  ],
+  "e": "第1段落に、購入費は高いがエネルギー費と修理費が低く、10年以上で費用を節約できるかもしれないとあります。購入費が安い、騒音が大きい、燃料補給と同じ速さで充電できる、はいずれも本文の内容と逆です。",
+  "m": "購入費は高いが長期では安い"
+ },
+ {
+  "id": 187,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（電気バス）：指示語",
+  "p": "Several cities have started replacing diesel buses with electric ones. Electric buses produce no exhaust gas while driving, so the air along busy streets becomes cleaner. They are also much quieter, which is welcomed by people who live near bus routes. Moreover, although an electric bus costs more to buy, its energy and repair costs are lower, so a city may save money over ten years or more.\nThere are some problems, however. Batteries are heavy and expensive, and charging takes a long time compared with filling a tank with fuel. Because of this, bus companies need to build charging stations at the depot and plan routes carefully so that no bus runs out of power. A city official explained, \"The buses themselves are only half of the project. The other half is the electricity system behind them.\"",
+  "q": "本文第2段落の Because of this の this が指す内容として最も適当なものを選びなさい。",
+  "c": [
+   "Charging takes a long time compared with refueling.",
+   "Electric buses produce no exhaust gas.",
+   "Electric buses cost much more to buy than diesel buses do.",
+   "Batteries are made in other countries."
+  ],
+  "e": "Because of this の後ろに「車庫に充電設備を作り、ルートを慎重に計画する必要がある」とあります。その理由は直前の「充電には燃料補給より長い時間がかかる」ことです。排気ガスが出ない点や費用の節約、電池の製造国は、充電設備や計画の理由になりません。",
+  "m": "this は直前の内容を受ける"
+ },
+ {
+  "id": 188,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（電気バス）：発言の意図",
+  "p": "Several cities have started replacing diesel buses with electric ones. Electric buses produce no exhaust gas while driving, so the air along busy streets becomes cleaner. They are also much quieter, which is welcomed by people who live near bus routes. Moreover, although an electric bus costs more to buy, its energy and repair costs are lower, so a city may save money over ten years or more.\nThere are some problems, however. Batteries are heavy and expensive, and charging takes a long time compared with filling a tank with fuel. Because of this, bus companies need to build charging stations at the depot and plan routes carefully so that no bus runs out of power. A city official explained, \"The buses themselves are only half of the project. The other half is the electricity system behind them.\"",
+  "q": "市の職員の発言（The buses themselves are only half of the project.）の趣旨として最も適当なものを選びなさい。",
+  "c": [
+   "Preparing the electricity supply is as important as buying the buses.",
+   "Buying the buses is the only difficult part of the whole project for the city.",
+   "The project should be stopped when it is half finished.",
+   "The electricity system will be replaced by the buses."
+  ],
+  "e": "職員は、バスは事業の半分にすぎず、残り半分はその背後の電力設備だと述べています。つまり電力の準備もバスの購入と同じくらい重要だという趣旨です。バス購入だけが難しい、半分で中止すべき、バスが電力設備に代わる、はいずれも発言の内容と合いません。",
+  "m": "half… the other half＝同じくらい重要"
+ },
+ {
+  "id": 189,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（美術館のデジタルツアー）：内容一致",
+  "p": "Many museums now offer digital tours that allow people to look at paintings and objects from their own homes. Visitors can zoom in on small details that would be impossible to see in a crowded gallery, and they can often read explanations in several languages. For people who live far from a museum or have difficulty walking, this technology opens a door that was once closed.\nStill, curators do not think that screens will replace real visits. They say that standing in front of an actual work gives a sense of size, texture, and presence that images cannot fully convey. One curator compared a digital tour to reading a recipe: it can tell you a lot, but it cannot give you the taste. For this reason, many museums use digital tours not to replace visits but to encourage people to come.",
+  "q": "デジタルツアーの利点として本文に述べられているものを選びなさい。",
+  "c": [
+   "Visitors can look closely at details that are hard to see in a crowded gallery.",
+   "Visitors can touch the objects to feel their texture.",
+   "Visitors can save money on every meal and every ticket they buy in the museum shop.",
+   "Visitors can take the objects home to study them."
+  ],
+  "e": "第1段落に、混雑した展示室では見えない細部を拡大して見られるとあります。触って質感を確かめることは、第2段落で実物だけにできることとして述べられています。食事代の節約や展示物の持ち帰りは本文に出てきません。",
+  "m": "zoom in on＝拡大して見る"
+ },
+ {
+  "id": 190,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（美術館のデジタルツアー）：たとえの意味",
+  "p": "Many museums now offer digital tours that allow people to look at paintings and objects from their own homes. Visitors can zoom in on small details that would be impossible to see in a crowded gallery, and they can often read explanations in several languages. For people who live far from a museum or have difficulty walking, this technology opens a door that was once closed.\nStill, curators do not think that screens will replace real visits. They say that standing in front of an actual work gives a sense of size, texture, and presence that images cannot fully convey. One curator compared a digital tour to reading a recipe: it can tell you a lot, but it cannot give you the taste. For this reason, many museums use digital tours not to replace visits but to encourage people to come.",
+  "q": "学芸員が「デジタルツアーはレシピを読むようなものだ」と述べた意図として最も適当なものを選びなさい。",
+  "c": [
+   "It gives much information, but it cannot replace the real experience.",
+   "It is useful because it tells visitors how to cook.",
+   "It is boring because it contains far too many explanations for most visitors.",
+   "It is as satisfying as visiting the actual museum."
+  ],
+  "e": "レシピは多くを教えてくれるが、味は伝えられないというたとえで、デジタルツアーも実物を見る体験の代わりにはならないという意味です。料理の方法を教えるという字義通りの意味ではなく、退屈だという意見や実物と同じ満足が得られるという意見も本文に反します。",
+  "m": "たとえ話は言いたいことに置き換える"
+ },
+ {
+  "id": 191,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（美術館のデジタルツアー）：主旨",
+  "p": "Many museums now offer digital tours that allow people to look at paintings and objects from their own homes. Visitors can zoom in on small details that would be impossible to see in a crowded gallery, and they can often read explanations in several languages. For people who live far from a museum or have difficulty walking, this technology opens a door that was once closed.\nStill, curators do not think that screens will replace real visits. They say that standing in front of an actual work gives a sense of size, texture, and presence that images cannot fully convey. One curator compared a digital tour to reading a recipe: it can tell you a lot, but it cannot give you the taste. For this reason, many museums use digital tours not to replace visits but to encourage people to come.",
+  "q": "多くの美術館がデジタルツアーを提供する目的として最も適当なものを選びなさい。",
+  "c": [
+   "To encourage people to visit the museum in person.",
+   "To make the actual museum smaller and cheaper to run for the city.",
+   "To replace all real exhibitions with screens.",
+   "To stop people from coming during busy seasons."
+  ],
+  "e": "最終文に、多くの美術館はデジタルツアーを来館の代わりではなく、人々が来館するよう促すために使うとあります。美術館を小さく安くする、すべての展示を画面に置き換える、混雑期の来館を止める、は本文に書かれていません。",
+  "m": "not to replace but to encourage"
+ },
+ {
+  "id": 192,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（マイクロプラスチック）：内容一致",
+  "p": "Plastic that is thrown away does not simply disappear. Over time, sunlight and waves break large pieces into smaller and smaller ones. Pieces smaller than five millimeters are called microplastics. They are also made on purpose; some face washes and toothpastes once contained tiny plastic beads, though many countries have now banned them.\nMicroplastics are found almost everywhere, from deep oceans to mountain snow. Small sea animals can swallow them by mistake, and the plastics may then move up the food chain to larger animals, including humans. Scientists are still studying how harmful they are to health, so no one can say for certain. Nevertheless, many experts recommend reducing the use of single-use plastic, since stopping the problem at its source is far easier than removing particles that have already spread.",
+  "q": "マイクロプラスチックの発生について、本文の内容に合うものを選びなさい。",
+  "c": [
+   "Some come from broken-down plastic, and some are made intentionally.",
+   "All of them are produced by sunlight in the deep ocean.",
+   "They are made only when people burn plastic waste.",
+   "They are larger than five millimeters when they first form in the deep ocean."
+  ],
+  "e": "第1段落に、太陽光や波で大きな破片が細かくなってできるものと、洗顔料などに意図的に使われたものがあると述べられています。すべて太陽光で生じるわけではなく、燃やすことだけが原因でもなく、定義上5ミリ未満のものを指します。",
+  "m": "自然に分解＋意図的に製造の2種類"
+ },
+ {
+  "id": 193,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（マイクロプラスチック）：接続語",
+  "p": "Plastic that is thrown away does not simply disappear. Over time, sunlight and waves break large pieces into smaller and smaller ones. Pieces smaller than five millimeters are called microplastics. They are also made on purpose; some face washes and toothpastes once contained tiny plastic beads, though many countries have now banned them.\nMicroplastics are found almost everywhere, from deep oceans to mountain snow. Small sea animals can swallow them by mistake, and the plastics may then move up the food chain to larger animals, including humans. Scientists are still studying how harmful they are to health, so no one can say for certain. Nevertheless, many experts recommend reducing the use of single-use plastic, since stopping the problem at its source is far easier than removing particles that have already spread.",
+  "q": "本文中の Nevertheless が示す関係として最も適当なものを選びなさい。",
+  "c": [
+   "Although the health effects are unclear, experts still advise reducing plastic.",
+   "Because the health effects are clear, experts advise reducing the amount of plastic we use.",
+   "Since plastic is useful, experts advise using more of it.",
+   "After plastic is removed, experts study its health effects."
+  ],
+  "e": "Nevertheless は「それにもかかわらず」で、健康への害がまだはっきりしないにもかかわらず、専門家は使い捨てプラスチックを減らすよう勧めている、という逆接の関係を示します。害が明らかだから、という順接や、プラスチックを増やすべきという意味は本文と合いません。",
+  "m": "Nevertheless＝それでもなお"
+ },
+ {
+  "id": 194,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（マイクロプラスチック）：内容不一致",
+  "p": "Plastic that is thrown away does not simply disappear. Over time, sunlight and waves break large pieces into smaller and smaller ones. Pieces smaller than five millimeters are called microplastics. They are also made on purpose; some face washes and toothpastes once contained tiny plastic beads, though many countries have now banned them.\nMicroplastics are found almost everywhere, from deep oceans to mountain snow. Small sea animals can swallow them by mistake, and the plastics may then move up the food chain to larger animals, including humans. Scientists are still studying how harmful they are to health, so no one can say for certain. Nevertheless, many experts recommend reducing the use of single-use plastic, since stopping the problem at its source is far easier than removing particles that have already spread.",
+  "q": "本文の内容に合わないものを選びなさい。",
+  "c": [
+   "It has been proven that microplastics seriously harm human health.",
+   "Microplastics have been found even in mountain snow.",
+   "Some countries have banned tiny plastic beads in cosmetics.",
+   "Reducing single-use plastic is easier than removing spread particles."
+  ],
+  "e": "本文には、健康への害については研究中で、はっきりしたことは言えないとあります。したがって「深刻な害が証明された」は本文に合いません。他の選択肢は、順に山の雪での発見、一部の国での禁止、使い捨てプラスチックの削減の方が簡単という内容で、本文に一致します。",
+  "m": "no one can say for certain と矛盾"
+ },
+ {
+  "id": 195,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（リモートワーク）：内容一致",
+  "p": "Since the spread of remote work, many employees have enjoyed skipping long commutes and spending more time with their families. Some companies have reported that their workers are just as productive at home as in the office. Others, however, have found that new employees learn more slowly when they cannot watch experienced colleagues at work. Casual conversations by the coffee machine, which often lead to new ideas, also become rare.\nBecause of these mixed results, a growing number of firms are choosing a hybrid style: employees come to the office two or three days a week and work from home on the other days. This arrangement is not perfect, but it allows companies to keep the benefits of both ways of working.",
+  "q": "ハイブリッド型（hybrid style）の説明として本文に合うものを選びなさい。",
+  "c": [
+   "Employees work in the office a few days a week and at home on other days.",
+   "Employees work at home every day and meet only once a year.",
+   "Employees work in the office every day but are allowed to go home early on Fridays.",
+   "Employees choose a different company every few months."
+  ],
+  "e": "第2段落に、週2〜3日出社し、残りの日は在宅で働く方式と説明されています。毎日在宅で年に一度だけ会う、毎日出社して早く帰る、数か月ごとに会社を変える、はいずれも本文の説明と合いません。",
+  "m": "hybrid＝出社と在宅の組合せ"
+ },
+ {
+  "id": 196,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（リモートワーク）：語句の意味",
+  "p": "Since the spread of remote work, many employees have enjoyed skipping long commutes and spending more time with their families. Some companies have reported that their workers are just as productive at home as in the office. Others, however, have found that new employees learn more slowly when they cannot watch experienced colleagues at work. Casual conversations by the coffee machine, which often lead to new ideas, also become rare.\nBecause of these mixed results, a growing number of firms are choosing a hybrid style: employees come to the office two or three days a week and work from home on the other days. This arrangement is not perfect, but it allows companies to keep the benefits of both ways of working.",
+  "q": "本文中の mixed results の説明として最も適当なものを選びなさい。",
+  "c": [
+   "Results that include both advantages and disadvantages.",
+   "Results that were all successful in every company that tried remote work.",
+   "Results that nobody has ever measured.",
+   "Results that are the same in every company."
+  ],
+  "e": "mixed results は「良い面と悪い面が入り混じった結果」です。第1段落には、生産性が変わらない会社と、新入社員の学びが遅いと見る会社が並んでいます。すべて成功した、誰も測定していない、どの会社でも同じ、は本文の内容と合いません。",
+  "m": "mixed＝良し悪しが混在"
+ },
+ {
+  "id": 197,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（リモートワーク）：内容不一致",
+  "p": "Since the spread of remote work, many employees have enjoyed skipping long commutes and spending more time with their families. Some companies have reported that their workers are just as productive at home as in the office. Others, however, have found that new employees learn more slowly when they cannot watch experienced colleagues at work. Casual conversations by the coffee machine, which often lead to new ideas, also become rare.\nBecause of these mixed results, a growing number of firms are choosing a hybrid style: employees come to the office two or three days a week and work from home on the other days. This arrangement is not perfect, but it allows companies to keep the benefits of both ways of working.",
+  "q": "本文の内容に合わないものを選びなさい。",
+  "c": [
+   "Every company has found that remote work lowers productivity.",
+   "Some companies say workers are as productive at home as in the office.",
+   "New employees may learn more slowly without experienced colleagues nearby.",
+   "Casual conversations at the office can lead to new ideas."
+  ],
+  "e": "第1段落に、在宅でも出社時と同じくらい生産的だと報告した会社があるとあり、「すべての会社が生産性の低下を確認した」は本文に合いません。他の選択肢は、順に生産性の報告、新入社員の学習の遅れ、雑談から生まれる着想という本文の内容に一致します。",
+  "m": "Every company は言い過ぎに注意"
+ },
+ {
+  "id": 198,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（言語の変化）：内容一致",
+  "p": "Languages never stay still. Words that sounded strange to our grandparents may seem natural to us today, and slang used by teenagers often finds its way into dictionaries after a few decades. Some people complain that such changes damage the language, but linguists generally disagree. They point out that the English we call \"correct\" today was itself once regarded as a careless version of an older form.\nNew technologies speed up change. Messages sent on phones created many short forms, and some of them have spread into spoken conversation. Yet most of these forms disappear as quickly as they appear. Only those that are useful to many speakers remain. In this sense, a language is like a river: it keeps flowing, and speakers, not rules written in books, decide its course.",
+  "q": "言語学者（linguists）の考えとして本文に合うものを選びなさい。",
+  "c": [
+   "Changes in a language do not necessarily damage it.",
+   "Slang should never be put in a dictionary.",
+   "Old forms of English were more correct than today's.",
+   "Only teenagers can decide how a language changes."
+  ],
+  "e": "第1段落に、変化が言語を傷つけるという意見に言語学者は概ね同意しないとあり、今日の正しい英語も昔は不注意な形と見られた例が挙げられています。スラングを辞書に載せるべきでない、昔の形の方が正しい、若者だけが決める、は本文と合いません。",
+  "m": "linguists generally disagree"
+ },
+ {
+  "id": 199,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（言語の変化）：たとえの意味",
+  "p": "Languages never stay still. Words that sounded strange to our grandparents may seem natural to us today, and slang used by teenagers often finds its way into dictionaries after a few decades. Some people complain that such changes damage the language, but linguists generally disagree. They point out that the English we call \"correct\" today was itself once regarded as a careless version of an older form.\nNew technologies speed up change. Messages sent on phones created many short forms, and some of them have spread into spoken conversation. Yet most of these forms disappear as quickly as they appear. Only those that are useful to many speakers remain. In this sense, a language is like a river: it keeps flowing, and speakers, not rules written in books, decide its course.",
+  "q": "本文最後の「言語は川のようなものだ」が表している内容として最も適当なものを選びなさい。",
+  "c": [
+   "A language keeps changing, and its speakers shape its direction.",
+   "A language is always cold and quiet, and it never moves from the place where it began.",
+   "A language flows only in one country.",
+   "A language is controlled by the rules in books."
+  ],
+  "e": "川は絶えず流れ、その進路を決めるのは話し手であるという比喩です。言語は変わり続け、話し手が方向を決めるという意味になります。冷たく静か、一つの国にだけ流れる、本のルールが支配する、はいずれも本文の主張（rules written in books ではなく speakers が決める）と合いません。",
+  "m": "river＝変わり続ける流れ"
+ },
+ {
+  "id": 200,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "長文（言語の変化）：内容不一致",
+  "p": "Languages never stay still. Words that sounded strange to our grandparents may seem natural to us today, and slang used by teenagers often finds its way into dictionaries after a few decades. Some people complain that such changes damage the language, but linguists generally disagree. They point out that the English we call \"correct\" today was itself once regarded as a careless version of an older form.\nNew technologies speed up change. Messages sent on phones created many short forms, and some of them have spread into spoken conversation. Yet most of these forms disappear as quickly as they appear. Only those that are useful to many speakers remain. In this sense, a language is like a river: it keeps flowing, and speakers, not rules written in books, decide its course.",
+  "q": "本文の内容に合わないものを選びなさい。",
+  "c": [
+   "Most short forms created through phones stay in the language forever.",
+   "Some short forms from phones have spread into speech.",
+   "Slang used by young people sometimes enters dictionaries after several decades.",
+   "Only useful forms tend to remain in the language."
+  ],
+  "e": "第2段落に、これらの短縮形のほとんどは現れるのと同じくらい速く消えるとあり、「ほとんどが永久に残る」は本文に合いません。他の選択肢は、順に話し言葉への広がり、辞書への収録、多くの話し手に役立つ形だけが残る、という本文の内容に一致します。",
+  "m": "most of these forms disappear"
  }
 ]
