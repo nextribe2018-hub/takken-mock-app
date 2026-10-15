@@ -990,5 +990,995 @@
   ],
   "e": "第2段落の However 以降に，土と水は重いので古い建物は支えられないかもしれない，という問題点が書かれています。屋上緑化は建物を直射日光から守り，冷房のエネルギーを減らすと述べられているので，建物を暑くする，冷房費を増やす，は逆です。植物は定期的な手入れが必要とあるので，手入れが不要も誤りです。",
   "m": "However の後に問題点・反対の内容が来る"
+ },
+ {
+  "id": 61,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "仮定法過去完了（would have＋過去分詞）",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nIf I had known you were in the hospital, I (    ) you.",
+  "c": [
+   "would have visited",
+   "would visit",
+   "will visit",
+   "had visited"
+  ],
+  "e": "if 節が had known（過去完了）なので，過去の事実に反する仮定を表す仮定法過去完了です。主節は〈would have＋過去分詞〉になり，「知っていたら見舞いに行ったのに（実際は知らなかった）」という意味になります。『would visit』は仮定法過去の主節の形で，現在の事実に反する仮定に使います。『will visit』は直説法の未来で，仮定法の文には使えません。『had visited』は if 節側の形で，主節には置けません。",
+  "m": "If S had p.p., S would have p.p.（過去の反対）"
+ },
+ {
+  "id": 62,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "完了形の分詞構文 Having＋過去分詞",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\n(    ) her homework, Mika went out to play tennis with her friends.",
+  "c": [
+   "Having finished",
+   "Finished",
+   "To finish",
+   "Being finished"
+  ],
+  "e": "主節の went out より前に宿題を終えていたので，完了形の分詞構文〈Having＋過去分詞〉を使い「宿題を終えてから」を表します。主語の Mika は宿題を「終える」側なので能動です。『Finished』や『Being finished』は受け身の意味になり，「ミカが終えられる」となって意味が通りません。『To finish』は「終えるために」という目的になり，テニスに出かけた理由として不自然です。",
+  "m": "主節より前の出来事→Having p.p."
+ },
+ {
+  "id": 63,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "the＋比較級, the＋比較級",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nThe more you practice, (    ) you will become at playing the piano.",
+  "c": [
+   "the better",
+   "the best",
+   "better",
+   "more better"
+  ],
+  "e": "〈The＋比較級 ～, the＋比較級 …〉で「～すればするほど，ますます…」という構文です。前半が The more なので，後半も the＋比較級の the better になります。『the best』は最上級なのでこの構文には使えません。『better』は the が欠けています。『more better』は good の比較級 better にさらに more を重ねた誤った形です。",
+  "m": "The 比較級 ～, the 比較級 …＝～するほど…"
+ },
+ {
+  "id": 64,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "関係代名詞 whose（所有格）",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nI have a friend (    ) father works as a pilot for an airline.",
+  "c": [
+   "whose",
+   "who",
+   "which",
+   "that"
+  ],
+  "e": "空所の直後に father という名詞があり，「その友人の父親」という所有の関係を表しているので，所有格の関係代名詞 whose が入ります。whose＋名詞が関係詞節の主語になり，works が動詞です。『who』『that』は主格・目的格の関係代名詞で，後ろの節に主語か目的語の欠けが必要ですが，father works … には欠けがありません。『which』は先行詞が人の場合には使いません。",
+  "m": "直後に名詞＋欠けのない文→whose"
+ },
+ {
+  "id": 65,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "形容詞＋enough to do",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nMy brother is now old (    ) drive a car by himself.",
+  "c": [
+   "enough to",
+   "so as to",
+   "too much to",
+   "such as to"
+  ],
+  "e": "〈形容詞＋enough to do〉で「～するのに十分…だ」という意味です。enough は形容詞の後ろに置く点が重要で，old enough to drive は「運転できる年齢になっている」となります。『so as to』は「～するために」という目的を表し，形容詞の後ろには続きません。『too much to』は too＋形容詞＋to の形にならず，意味も逆になります。『such as to』は名詞を受ける形で，形容詞 old の後には置けません。",
+  "m": "形容詞＋enough to do（enough は後ろ）"
+ },
+ {
+  "id": 66,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "使役動詞 let＋O＋原形",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nMy parents won't (    ) me stay out after ten at night.",
+  "c": [
+   "let",
+   "allow",
+   "permit",
+   "get"
+  ],
+  "e": "空所の後が me stay と〈目的語＋動詞の原形〉になっているので，原形不定詞をとる使役動詞 let「～させてやる（許可）」が入ります。『allow』と『permit』は意味は近いものの，allow O to do / permit O to do のように to 不定詞が必要です。『get』も get O to do の形をとるので，原形 stay を直接続けられません。",
+  "m": "let O 原形，allow/permit/get O to do"
+ },
+ {
+  "id": 67,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "差を表す前置詞 by",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nOur team lost the final game (    ) only two points.",
+  "c": [
+   "by",
+   "for",
+   "at",
+   "from"
+  ],
+  "e": "前置詞 by は「～の差で」という程度・差を表します。lose by two points で「2点差で負ける」となります。win by ～，be older than ～ by two years なども同じ使い方です。『for』は目的や交換・期間，『at』は時点や地点を表し，差を示せません。『from』は起点・出どころを表し，「2点から負けた」となって意味が通りません。",
+  "m": "差を表す by（lose by two points）"
+ },
+ {
+  "id": 68,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "remember＋動名詞（過去の記憶）",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nI clearly remember (    ) him at a party in Tokyo last year.",
+  "c": [
+   "meeting",
+   "to meet",
+   "meet",
+   "met"
+  ],
+  "e": "last year とあるので，過去にしたことを覚えている場面です。remember ～ing は「（過去に）～したことを覚えている」，remember to do は「（これから）忘れずに～する」です。したがって『meeting』が正解で，『to meet』は未来の行為になり last year と合いません。『meet』『met』は remember の目的語として動詞の原形や過去形を直接置くことはできません。",
+  "m": "remember ～ing＝したことを覚えている"
+ },
+ {
+  "id": 69,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "I wish＋仮定法過去完了",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nI wish I (    ) harder when I was in high school.",
+  "c": [
+   "had studied",
+   "studied",
+   "have studied",
+   "would study"
+  ],
+  "e": "when I was in high school と過去のことなので，過去の事実と反対の願望を表す〈I wish＋仮定法過去完了（had＋過去分詞）〉を使い，「もっと勉強しておけばよかった」となります。『studied』は仮定法過去で，現在の事実に反する願望に使います。『have studied』は直説法の現在完了で，I wish の後に置けません。『would study』は「（これから）～してくれればいいのに」という未来への願望で，過去の場面に合いません。",
+  "m": "I wish＋had p.p.＝あのとき～していれば"
+ },
+ {
+  "id": 70,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・語法",
+  "t": "Not until ～ 倒置",
+  "q": "次の英文の空所に入る最も適切なものを選びなさい。\nNot until he got home (    ) that he had lost his key.",
+  "c": [
+   "did he notice",
+   "he noticed",
+   "he did notice",
+   "noticed he"
+  ],
+  "e": "否定語を含む Not until ～ が文頭に出ると，主節は疑問文と同じ語順の倒置になります。過去の一般動詞なので〈did＋主語＋原形〉の did he notice が正解で，「家に帰って初めて鍵をなくしたことに気づいた」という意味です。『he noticed』『he did notice』は倒置していないので誤りです。『noticed he』は一般動詞をそのまま主語の前に出しており，英語では作れない形です。",
+  "m": "Not until ～ did S V＝～して初めて…した"
+ },
+ {
+  "id": 71,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "put up with＝tolerate",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nWe had to 【put up with】 the noise from the construction site for several months.",
+  "c": [
+   "tolerate",
+   "avoid",
+   "report",
+   "reduce"
+  ],
+  "e": "put up with ～ は「～を我慢する・耐える」という意味で，tolerate や endure, stand とほぼ同じです。工事現場の騒音を何か月も耐えなければならなかった，という文脈に合います。avoid「避ける」は騒音から離れる意味になり，report「報告する」，reduce「減らす」も我慢するという意味を持ちません。",
+  "m": "put up with＝tolerate＝endure（我慢する）"
+ },
+ {
+  "id": 72,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "call off＝cancel",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nThe outdoor concert was 【called off】 because of the approaching typhoon.",
+  "c": [
+   "canceled",
+   "postponed",
+   "started",
+   "recorded"
+  ],
+  "e": "call off ～ は「～を中止する・取りやめる」という意味で，cancel と同じです。台風の接近のために屋外コンサートが中止された，という文です。postpone「延期する」は put off と同じ意味で，取りやめる call off とは区別します。started「始められた」，recorded「録音された」は意味が合いません。",
+  "m": "call off＝cancel（中止），put off＝postpone（延期）"
+ },
+ {
+  "id": 73,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "come up with＝think of",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nShe 【came up with】 a clever idea to save energy at our school.",
+  "c": [
+   "thought of",
+   "gave up",
+   "got rid of",
+   "made fun of"
+  ],
+  "e": "come up with ～ は「（考え・案）を思いつく」という意味で，think of と言いかえられます。目的語が a clever idea であることからも判断できます。gave up は「あきらめた」，got rid of は「取り除いた」，made fun of は「からかった」で，アイデアを生み出すという意味になりません。",
+  "m": "come up with＋idea＝思いつく（think of）"
+ },
+ {
+  "id": 74,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "turn down＝reject",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nThe manager 【turned down】 my request for a day off next Friday.",
+  "c": [
+   "rejected",
+   "accepted",
+   "considered",
+   "received"
+  ],
+  "e": "turn down ～ は「（申し出・依頼）を断る・却下する」という意味で，reject や refuse と同じです。音量を下げるという意味もありますが，目的語が request（依頼）なので「断る」の意味になります。accepted「受け入れた」は反対の意味です。considered「検討した」，received「受け取った」は可否を決めたことを表しません。",
+  "m": "turn down＝reject／refuse（断る）"
+ },
+ {
+  "id": 75,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "reluctant＝unwilling",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nHe seemed 【reluctant】 to talk about his past, so we changed the subject.",
+  "c": [
+   "unwilling",
+   "eager",
+   "able",
+   "likely"
+  ],
+  "e": "be reluctant to do は「～するのに気が進まない」という意味で，be unwilling to do と同じです。だから話題を変えた，という後半の内容とも合います。eager「しきりに～したがる」は反対の意味です。able「～できる」，likely「～しそうだ」は気持ちを表さず，話題を変えた理由になりません。",
+  "m": "reluctant＝unwilling（気が進まない）↔ eager"
+ },
+ {
+  "id": 76,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "abundant＝plentiful",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nThe region has 【abundant】 natural resources such as clean water and forests.",
+  "c": [
+   "plentiful",
+   "limited",
+   "expensive",
+   "hidden"
+  ],
+  "e": "abundant は「豊富な・たくさんある」という意味で，plentiful が最も近い意味です。名詞形は abundance「豊富さ」です。limited「限られた」は反対の意味です。expensive「高価な」，hidden「隠れた」は量の多さを表しません。such as 以下で水や森林を例に挙げ，資源の豊かさを述べている文脈です。",
+  "m": "abundant＝plentiful（豊富な）↔ scarce"
+ },
+ {
+  "id": 77,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "make up for＝compensate for",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nShe stayed at the office late to 【make up for】 the time she had lost in the morning.",
+  "c": [
+   "compensate for",
+   "waste",
+   "look for",
+   "account for"
+  ],
+  "e": "make up for ～ は「～の埋め合わせをする・～を取り戻す」という意味で，compensate for と同じです。午前中に失った時間を取り戻すために遅くまで残った，という文脈に合います。waste「むだにする」は反対の方向です。look for は「探す」，account for は「説明する・（割合を）占める」で，埋め合わせの意味はありません。",
+  "m": "make up for＝compensate for（埋め合わせる）"
+ },
+ {
+  "id": 78,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "vital＝essential",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nClean drinking water is 【vital】 to the health of people in every country.",
+  "c": [
+   "essential",
+   "harmful",
+   "unrelated",
+   "similar"
+  ],
+  "e": "vital は「きわめて重要な・不可欠な」という意味で，essential と同じです。もとは「生命の」という意味で，命に関わるほど大切だというニュアンスがあります。harmful「有害な」は逆の意味です。unrelated「関係のない」，similar「似ている」も，健康にとって大切だという文の内容と合いません。",
+  "m": "vital＝essential（不可欠な）"
+ },
+ {
+  "id": 79,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "figure out＝understand",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nI couldn't 【figure out】 how to use the new software, so I asked my coworker.",
+  "c": [
+   "understand",
+   "install",
+   "forget",
+   "buy"
+  ],
+  "e": "figure out ～ は「（考えて）～を理解する・解き明かす」という意味で，understand や work out と言いかえられます。使い方が分からなかったので同僚に尋ねた，という流れに合います。install「インストールする」，buy「買う」は how to use ～ を目的語にとれず，forget「忘れる」では同僚に尋ねた理由として不自然です。",
+  "m": "figure out＝understand／work out"
+ },
+ {
+  "id": 80,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語彙・熟語",
+  "t": "temporarily＝for a short time",
+  "q": "次の英文の【 】内の語句に最も近い意味のものを選びなさい。\nThe museum is 【temporarily】 closed for repairs and will reopen next month.",
+  "c": [
+   "for a short time",
+   "permanently",
+   "completely",
+   "suddenly"
+  ],
+  "e": "temporarily は「一時的に」という意味で，for a short time が最も近い意味です。来月再開するという後半の内容からも，ずっと閉まるわけではないことが分かります。permanently「永久に」は反対の意味です。completely「完全に」，suddenly「突然」は期間の短さを表しません。形容詞 temporary（一時的な）と合わせて覚えましょう。",
+  "m": "temporarily＝一時的に ↔ permanently"
+ },
+ {
+  "id": 81,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "instead of＋動名詞",
+  "p": "In recent years, more and more companies in Japan have allowed their employees to work from home. ( 1 ) commuting to the office every day, workers can use that time for their families or hobbies, and some say they feel less stressed. ( 2 ), working from home has some problems. For example, it can be difficult to separate work from private life, and some people feel lonely because they rarely see their coworkers. To ( 3 ) a balance between the two styles, many companies now ask employees to come to the office two or three days a week.",
+  "q": "次の英文を読み，空所（ 1 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "Instead of",
+   "In spite of",
+   "According to",
+   "Because"
+  ],
+  "e": "空所の後ろは commuting という動名詞なので，前置詞（句）が入ります。「毎日通勤する代わりに，その時間を家族や趣味に使える」という意味になる Instead of が正解です。In spite of は「～にもかかわらず」で，通勤しないで済む利点を述べる文脈に合いません。According to は「～によれば」で情報源を示す語句です。Because は接続詞なので，後ろに主語と動詞のそろった節が必要です。",
+  "m": "instead of ～ing＝～する代わりに"
+ },
+ {
+  "id": 82,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "逆接の副詞 However",
+  "p": "In recent years, more and more companies in Japan have allowed their employees to work from home. ( 1 ) commuting to the office every day, workers can use that time for their families or hobbies, and some say they feel less stressed. ( 2 ), working from home has some problems. For example, it can be difficult to separate work from private life, and some people feel lonely because they rarely see their coworkers. To ( 3 ) a balance between the two styles, many companies now ask employees to come to the office two or three days a week.",
+  "q": "次の英文を読み，空所（ 2 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "However",
+   "Therefore",
+   "As a result",
+   "Similarly"
+  ],
+  "e": "空所の前では在宅勤務の利点（時間を使える・ストレスが減る）を述べ，後ろでは「問題もある」と反対の内容を述べています。したがって逆接の However「しかし」が正解です。Therefore と As a result は「したがって・その結果」で因果関係を表し，利点から問題点は導かれません。Similarly は「同様に」で，同じ方向の内容を加えるときに使います。",
+  "m": "利点→問題点の切り替えは However"
+ },
+ {
+  "id": 83,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "strike a balance（バランスをとる）",
+  "p": "In recent years, more and more companies in Japan have allowed their employees to work from home. ( 1 ) commuting to the office every day, workers can use that time for their families or hobbies, and some say they feel less stressed. ( 2 ), working from home has some problems. For example, it can be difficult to separate work from private life, and some people feel lonely because they rarely see their coworkers. To ( 3 ) a balance between the two styles, many companies now ask employees to come to the office two or three days a week.",
+  "q": "次の英文を読み，空所（ 3 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "strike",
+   "hit",
+   "beat",
+   "attack"
+  ],
+  "e": "strike a balance between A and B で「A と B のバランスをとる」という決まった言い方です。在宅と出社の両方のよさを生かすため，週2〜3日出社させるという文脈に合います。hit, beat, attack はどれも「打つ・たたく」系の動詞ですが，a balance と結びついて「バランスをとる」の意味にはなりません。名詞と動詞の結びつき（コロケーション）として覚えましょう。",
+  "m": "strike a balance between A and B"
+ },
+ {
+  "id": 84,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "文修飾副詞 Unfortunately",
+  "p": "Honeybees play an important role in agriculture because they carry pollen from flower to flower. Without them, many kinds of fruits and vegetables could not grow. ( 1 ), the number of honeybees has been decreasing in many parts of the world. Scientists point to several causes, ( 2 ) the use of certain chemicals on farms and the loss of wild flowers. Some farmers are now planting flowers around their fields in order to ( 3 ) bees from disappearing.",
+  "q": "次の英文を読み，空所（ 1 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "Unfortunately",
+   "Luckily",
+   "Similarly",
+   "Instead"
+  ],
+  "e": "空所の前でミツバチが農業に欠かせないと述べ，後ろで「その数が世界の多くの地域で減っている」と続きます。大切なものが減っているという好ましくない事実を伝えるので，Unfortunately「残念なことに」が正解です。Luckily「幸運にも」は内容と逆の評価です。Similarly「同様に」は前と同じ内容を重ねるとき，Instead「その代わりに」は前の内容を置きかえるときに使い，どちらも流れに合いません。",
+  "m": "悪い知らせの前置き＝Unfortunately"
+ },
+ {
+  "id": 85,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "前置詞 including（～を含めて）",
+  "p": "Honeybees play an important role in agriculture because they carry pollen from flower to flower. Without them, many kinds of fruits and vegetables could not grow. ( 1 ), the number of honeybees has been decreasing in many parts of the world. Scientists point to several causes, ( 2 ) the use of certain chemicals on farms and the loss of wild flowers. Some farmers are now planting flowers around their fields in order to ( 3 ) bees from disappearing.",
+  "q": "次の英文を読み，空所（ 2 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "including",
+   "despite",
+   "unless",
+   "whereas"
+  ],
+  "e": "空所の前に several causes「いくつかの原因」があり，後ろでその具体例として農薬の使用と野生の花の減少を挙げています。例を示す前置詞 including「～を含めて」が正解です。despite は「～にもかかわらず」で，原因の例示になりません。unless「～しない限り」と whereas「～である一方」は接続詞なので，後ろに主語と動詞のある節が必要です。",
+  "m": "名詞＋including A and B＝A や B を含む"
+ },
+ {
+  "id": 86,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "prevent O from ～ing",
+  "p": "Honeybees play an important role in agriculture because they carry pollen from flower to flower. Without them, many kinds of fruits and vegetables could not grow. ( 1 ), the number of honeybees has been decreasing in many parts of the world. Scientists point to several causes, ( 2 ) the use of certain chemicals on farms and the loss of wild flowers. Some farmers are now planting flowers around their fields in order to ( 3 ) bees from disappearing.",
+  "q": "次の英文を読み，空所（ 3 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "prevent",
+   "allow",
+   "cause",
+   "encourage"
+  ],
+  "e": "prevent O from ～ing で「O が～するのを防ぐ」という意味になります。ミツバチが減っている問題への対策として花を植えているので，「ミツバチがいなくなるのを防ぐため」が文脈に合います。allow, cause, encourage は allow O to do のように to 不定詞をとる動詞で，from ～ing の形をとりません。また，いなくなるのを許す・引き起こすでは対策の意味と逆になります。",
+  "m": "prevent/stop/keep O from ～ing＝O が～するのを防ぐ"
+ },
+ {
+  "id": 87,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "address a problem（問題に取り組む）",
+  "p": "Many people find it hard to read the small print on food packages. A food company in Osaka decided to ( 1 ) this problem by using larger letters and simple pictures on its labels. Since the change, the company has received many thank-you letters, especially from elderly customers. ( 2 ) the positive response, several other companies are planning to make similar changes to their products.",
+  "q": "次の英文を読み，空所（ 1 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "address",
+   "cause",
+   "ignore",
+   "increase"
+  ],
+  "e": "動詞の address には「（問題）に取り組む・対処する」という意味があります。文字を大きくし絵を使うという解決策を述べているので，address this problem が正解です。cause「引き起こす」と increase「増やす」は問題を悪化させる意味になります。ignore「無視する」は，具体的な改善策をとったという by 以下の内容と矛盾します。",
+  "m": "address a problem＝deal with a problem"
+ },
+ {
+  "id": 88,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "受動の分詞構文 Encouraged by",
+  "p": "Many people find it hard to read the small print on food packages. A food company in Osaka decided to ( 1 ) this problem by using larger letters and simple pictures on its labels. Since the change, the company has received many thank-you letters, especially from elderly customers. ( 2 ) the positive response, several other companies are planning to make similar changes to their products.",
+  "q": "次の英文を読み，空所（ 2 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "Encouraged by",
+   "Encouraging",
+   "To encourage",
+   "Encourage"
+  ],
+  "e": "主語の several other companies は，好評という反応に「励まされた」側なので，受動の分詞構文〈過去分詞＋by ～〉を使い Encouraged by the positive response「好意的な反応に励まされて」となります。『Encouraging』は能動の分詞で「（ほかの会社が）反応を励ます」となり意味が通りません。『To encourage』は「励ますために」，『Encourage』は命令文の形になり，後ろの文とつながりません。",
+  "m": "主語が「～される」側→過去分詞の分詞構文"
+ },
+ {
+  "id": 89,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "理由の接続詞 because",
+  "p": "Learning a musical instrument takes time and patience. Many beginners give up within a few months ( 1 ) they cannot see quick progress. Music teachers often advise their students to practice for a short time every day ( 2 ) than for several hours once a week. Regular practice helps the hands and the brain remember what they have learned.",
+  "q": "次の英文を読み，空所（ 1 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "because",
+   "although",
+   "unless",
+   "until"
+  ],
+  "e": "空所の後ろは they cannot see quick progress という節なので接続詞が入ります。初心者が数か月であきらめてしまう「理由」は，すぐに上達を実感できないことなので because が正解です。although「～だけれども」は逆接で，あきらめる理由と結びつきません。unless「～しない限り」，until「～するまで」も，上達が見えないことと挫折の因果関係を表せません。",
+  "m": "結果＋because＋理由"
+ },
+ {
+  "id": 90,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "中文読解（空所補充）",
+  "t": "A rather than B",
+  "p": "Learning a musical instrument takes time and patience. Many beginners give up within a few months ( 1 ) they cannot see quick progress. Music teachers often advise their students to practice for a short time every day ( 2 ) than for several hours once a week. Regular practice helps the hands and the brain remember what they have learned.",
+  "q": "次の英文を読み，空所（ 2 ）に入る最も適切なものを選びなさい。",
+  "c": [
+   "rather",
+   "other",
+   "prior",
+   "instead"
+  ],
+  "e": "空所の後ろに than があり，「週1回数時間練習するよりも，毎日短時間練習する方がよい」と二つを比べています。A rather than B「B よりむしろ A」が正解で，A と B に同じ形の for ～ が並んでいます。『other』は other than で「～以外の・～を除いて」となり，二つを比べてどちらがよいかを述べる文脈に合いません。『prior』は prior to ～「～より前に」の形で使い，than とは結びつきません。『instead』も instead of ～「～の代わりに」の形で使い，than を続けることはできません。",
+  "m": "A rather than B＝B よりむしろ A"
+ },
+ {
+  "id": 91,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "誘いを断られたときの返答",
+  "p": "A: I'm sorry, but I can't come to your birthday party on Saturday. I have to work.\nB: (    ) Maybe we can have lunch together next week instead.\nA: That sounds great.",
+  "q": "次の会話の空所に入る最も適切なものを選びなさい。",
+  "c": [
+   "That's too bad.",
+   "Congratulations!",
+   "You're welcome.",
+   "Here you are."
+  ],
+  "e": "A は誕生日パーティーに行けないと謝っています。それに対する返答として，残念な気持ちを表す That's too bad.「それは残念」が自然で，続く「代わりに来週ランチしよう」という提案ともつながります。Congratulations! は祝福，You're welcome. はお礼への返答，Here you are. は物を手渡すときの表現で，どれも断りへの返答になりません。",
+  "m": "残念な知らせ→That's too bad.／What a shame."
+ },
+ {
+  "id": 92,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "買い物：試着を頼む",
+  "p": "Clerk: May I help you?\nCustomer: Yes, I like this jacket. (    )\nClerk: Sure. The fitting room is over there.",
+  "q": "次の会話の空所に入る最も適切なものを選びなさい。",
+  "c": [
+   "Can I try it on?",
+   "How much is it?",
+   "Do you have a bag?",
+   "Where did you buy it?"
+  ],
+  "e": "店員の返事が「どうぞ。試着室はあちらです」なので，客は試着してよいか尋ねたと分かります。try ～ on で「～を試着する」となり，代名詞 it は try と on の間に置きます。How much is it? には値段，Do you have a bag? には袋の有無で答えるはずです。Where did you buy it? は客が店員に尋ねる質問として場面に合いません。",
+  "m": "試着＝try it on（代名詞は間に）"
+ },
+ {
+  "id": 93,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "Do you mind if ～? への答え方",
+  "p": "A: Do you mind if I open the window? It's a little hot in here.\nB: (    ) I was feeling hot, too.",
+  "q": "次の会話の空所に入る最も適切なものを選びなさい。",
+  "c": [
+   "Not at all. Go ahead.",
+   "Yes, I do.",
+   "I'm afraid you can't.",
+   "No, thank you."
+  ],
+  "e": "Do you mind if I ～? は「～したら気になりますか（～してもいいですか）」と許可を求める表現です。許可するときは「気にならない」という意味で Not at all. や No, go ahead. と否定で答えます。B は「私も暑かった」と言っているので許可したと分かります。Yes, I do. は「気になる＝やめてほしい」，I'm afraid you can't. も断る返事で，後の発言と矛盾します。No, thank you. は申し出を断る表現です。",
+  "m": "Do you mind if ～? → OK なら Not at all."
+ },
+ {
+  "id": 94,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "電話：伝言を申し出る",
+  "p": "A: Hello, may I speak to Mr. Sato, please?\nB: I'm sorry, he's out right now. (    )\nA: Yes, please tell him that Kumi called.",
+  "q": "次の会話の空所に入る最も適切なものを選びなさい。",
+  "c": [
+   "Would you like to leave a message?",
+   "Who's speaking, please?",
+   "Can I call you back later?",
+   "Do you have the wrong number?"
+  ],
+  "e": "B が「佐藤さんは外出中です」と伝えた後，A が「はい，クミから電話があったと伝えてください」と答えています。したがって B は伝言を残すかどうかを尋ねたと分かり，Would you like to leave a message? が正解です。Who's speaking? には名前で答えるはずで，Yes では始まりません。折り返しの提案や，番号違いの確認に対して「伝えてください」と答えるのはかみ合いません。",
+  "m": "leave a message＝伝言を残す（take a message＝伝言を受ける）"
+ },
+ {
+  "id": 95,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "チャット：変更後の時刻を読み取る",
+  "p": "Coach Ito (16:05): Tomorrow's soccer practice will start at 4:30 instead of 4:00, because the baseball team is using the field until 4:15.\nRyo (16:07): Got it. Will we still finish at 6?\nCoach Ito (16:08): No, we'll finish at 6:30 so that we can have the full two hours.\nHana (16:10): I have a dentist appointment at 6. Can I leave early?\nCoach Ito (16:11): Sure. Just tell your team captain before practice starts.\nHana (16:12): Thanks! I'll talk to Kenji.",
+  "q": "次のチャットを読み，明日の練習が終わる時刻として最も適切なものを選びなさい。",
+  "c": [
+   "6:30",
+   "6:00",
+   "4:30",
+   "4:15"
+  ],
+  "e": "Ryo が「6時に終わるのは変わらないか」と尋ね，コーチは No と答えたうえで「2時間まるごと練習できるよう6時半に終わる」と述べています。開始が4時半に遅れたので，終わりも6時半になります。6:00 は変更前の終了時刻です。4:30 は新しい開始時刻，4:15 は野球部がグラウンドを使い終える時刻です。チャットでは No の後の訂正内容に注意しましょう。",
+  "m": "No の後に来る訂正が最終的な答え"
+ },
+ {
+  "id": 96,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "チャット：次にとる行動を推測する",
+  "p": "Coach Ito (16:05): Tomorrow's soccer practice will start at 4:30 instead of 4:00, because the baseball team is using the field until 4:15.\nRyo (16:07): Got it. Will we still finish at 6?\nCoach Ito (16:08): No, we'll finish at 6:30 so that we can have the full two hours.\nHana (16:10): I have a dentist appointment at 6. Can I leave early?\nCoach Ito (16:11): Sure. Just tell your team captain before practice starts.\nHana (16:12): Thanks! I'll talk to Kenji.",
+  "q": "次のチャットを読み，Hana が練習前にすると考えられることとして最も適切なものを選びなさい。",
+  "c": [
+   "Tell Kenji that she will leave early.",
+   "Change the time of her dentist appointment.",
+   "Ask the baseball team to leave the field.",
+   "Call Coach Ito again."
+  ],
+  "e": "コーチは「練習が始まる前にキャプテンに伝えなさい」と言い，Hana は「ケンジに話す」と答えています。したがってケンジがキャプテンで，Hana は早退することを彼に伝えると考えられます。歯医者の予約は6時のままで，変える話は出ていません。野球部に頼む話はなく，コーチにはすでに許可をもらっているので改めて電話する必要もありません。",
+  "m": "指示（tell your captain）→返事（I'll talk to Kenji）を結ぶ"
+ },
+ {
+  "id": 97,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "掲示：追加料金を含めて計算する",
+  "p": "Riverside Science Museum - Special Weekend Event\nDates: Saturday, May 10 and Sunday, May 11\nHours: 10:00 - 17:00 (last entry 16:30)\nAdmission: Adults 800 yen / Students (with student ID) 500 yen / Children under 6 free\n- Planetarium shows: 11:00, 13:00, 15:00 (30 minutes each; 200 yen extra per person)\n- Groups of 10 or more get a 10% discount on admission.\n- Photos are allowed, but please do not use a flash.",
+  "q": "次の掲示を読み，学生証を持った高校生とその母親の2人が入館し，2人ともプラネタリウムを見るときの合計金額を選びなさい。",
+  "c": [
+   "1,700 yen",
+   "1,500 yen",
+   "1,300 yen",
+   "2,000 yen"
+  ],
+  "e": "入館料は母親（大人）800円と，学生証を持つ高校生500円で計1,300円です。プラネタリウムは1人200円の追加料金なので，2人で400円かかります。合計は1,300＋400＝1,700円です。1,500円はプラネタリウム代を1人分しか数えていない場合，1,300円はプラネタリウム代を忘れた場合，2,000円は高校生も大人料金800円で計算した場合の誤りです。",
+  "m": "per person（1人あたり）は人数分かける"
+ },
+ {
+  "id": 98,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "掲示：注意事項の内容一致",
+  "p": "Riverside Science Museum - Special Weekend Event\nDates: Saturday, May 10 and Sunday, May 11\nHours: 10:00 - 17:00 (last entry 16:30)\nAdmission: Adults 800 yen / Students (with student ID) 500 yen / Children under 6 free\n- Planetarium shows: 11:00, 13:00, 15:00 (30 minutes each; 200 yen extra per person)\n- Groups of 10 or more get a 10% discount on admission.\n- Photos are allowed, but please do not use a flash.",
+  "q": "次の掲示の内容に合うものを選びなさい。",
+  "c": [
+   "Visitors may take photos if they do not use a flash.",
+   "Planetarium shows are included in the admission fee.",
+   "Visitors cannot enter the museum after 16:00.",
+   "A group of five people can get a discount."
+  ],
+  "e": "掲示の最後に「写真撮影は可能だが，フラッシュは使わないでください」とあるので，フラッシュなしなら撮影できるという内容が正解です。プラネタリウムは1人200円の追加料金が必要です。最終入館は16:30なので，16時を過ぎても入館できます。割引は10人以上の団体が対象で，5人では受けられません。",
+  "m": "but please do not ～＝条件付きの許可"
+ },
+ {
+  "id": 99,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "お知らせ：依頼内容を読み取る",
+  "p": "Notice to All Residents of Sakura Apartments\nThe water supply will be shut off on Tuesday, June 3, from 9:00 a.m. to 3:00 p.m. for pipe repairs. Please store enough water for drinking and cooking before 9:00 a.m. If the work finishes earlier than planned, the water will be turned back on without further notice. We apologize for any inconvenience.\nIf you have any questions, please call the management office (open on weekdays, 8:30 a.m. - 5:00 p.m.).",
+  "q": "次のお知らせを読み，住民が頼まれていることとして最も適切なものを選びなさい。",
+  "c": [
+   "To keep enough water before the work begins",
+   "To repair the pipes in their own rooms",
+   "To call the office before using any water",
+   "To stay at home from 9:00 a.m. to 3:00 p.m."
+  ],
+  "e": "お知らせには「午前9時までに飲み水と料理用の水を十分にためておいてください（store enough water）」とあり，工事が始まる前に水を確保しておくことが依頼されています。配管を修理するのは管理側で，住民が自分で直すわけではありません。水を使う前に電話する必要はなく，電話は質問がある場合です。工事中に在宅するよう求める記述もありません。",
+  "m": "Please ～ の文が依頼内容"
+ },
+ {
+  "id": 100,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "会話文・掲示",
+  "t": "お知らせ：条件つきの内容一致",
+  "p": "Notice to All Residents of Sakura Apartments\nThe water supply will be shut off on Tuesday, June 3, from 9:00 a.m. to 3:00 p.m. for pipe repairs. Please store enough water for drinking and cooking before 9:00 a.m. If the work finishes earlier than planned, the water will be turned back on without further notice. We apologize for any inconvenience.\nIf you have any questions, please call the management office (open on weekdays, 8:30 a.m. - 5:00 p.m.).",
+  "q": "次のお知らせの内容に合うものを選びなさい。",
+  "c": [
+   "The water may come back before 3:00 p.m.",
+   "The repairs will take two days.",
+   "The management office is open on weekends.",
+   "Residents will be told when the water comes back."
+  ],
+  "e": "「工事が予定より早く終われば，改めて知らせることなく水道を再開する」とあるので，午後3時より前に水が出る可能性があります。工事は6月3日の1日だけです。管理事務所は平日のみ開いています。without further notice は「改めての通知なしに」という意味なので，再開時に知らせがあるというのは誤りです。",
+  "m": "without notice＝予告・通知なしに"
+ },
+ {
+  "id": 101,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "too ～ for O to do",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，4番目に来るものを選びなさい。\n日本語：この箱は重すぎて，私には運べない。\n英文：This box is ( to / heavy / me / too / for / carry ).",
+  "c": [
+   "me",
+   "for",
+   "to",
+   "heavy"
+  ],
+  "e": "完成文は This box is too heavy for me to carry. です。〈too＋形容詞＋for＋人＋to do〉で「あまりに～なので（人は）…できない」を表し，for me は不定詞 to carry の意味上の主語です。文の主語 This box が carry の目的語にあたるので，文末に it は置きません。語順は too → heavy → for → me → to → carry で，4番目は me です。",
+  "m": "too 形 for 人 to do＝人には～すぎて…できない"
+ },
+ {
+  "id": 102,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "It takes＋人＋時間＋to do",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，3番目に来るものを選びなさい。\n日本語：その報告書を書き上げるのに，私は3時間かかった。\n英文：It ( to / me / three hours / took / finish ) the report.",
+  "c": [
+   "three hours",
+   "me",
+   "to",
+   "took"
+  ],
+  "e": "完成文は It took me three hours to finish the report. です。〈It takes＋人＋時間＋to do〉で「（人が）～するのに…の時間がかかる」を表します。It は形式主語で，to finish the report を指します。take の後には「人」「時間」の順に目的語を二つ置きます。語順は took → me → three hours → to → finish で，3番目は three hours です。",
+  "m": "It takes 人 時間 to do＝人が～するのに時間がかかる"
+ },
+ {
+  "id": 103,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "so ～ that … can't",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，5番目に来るものを選びなさい。\n日本語：彼女はとても速く話したので，私はついていけなかった。\n英文：She spoke ( I / so / follow / that / fast / couldn't ) her.",
+  "c": [
+   "couldn't",
+   "that",
+   "I",
+   "follow"
+  ],
+  "e": "完成文は She spoke so fast that I couldn't follow her. です。〈so＋形容詞・副詞＋that S V〉で「とても～なので…」という結果を表します。ここでは副詞 fast を so の直後に置き，that の後に「ついていけなかった」という結果を続けます。語順は so → fast → that → I → couldn't → follow で，5番目は couldn't です。",
+  "m": "so＋形/副＋that S V＝とても～なので…"
+ },
+ {
+  "id": 104,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "as ～ as possible",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，4番目に来るものを選びなさい。\n日本語：できるだけ早く私に返事をください。\n英文：Please ( as / me / soon / answer / possible / as ).",
+  "c": [
+   "soon",
+   "as",
+   "me",
+   "possible"
+  ],
+  "e": "完成文は Please answer me as soon as possible. です。as ～ as possible で「できるだけ～」を表し，as soon as possible は「できるだけ早く」です。命令文なので Please の後に動詞の原形 answer を置き，目的語 me を続けます。語順は answer → me → as → soon → as → possible で，4番目は soon です。as は3番目と5番目に来ます。",
+  "m": "as ～ as possible＝as ～ as S can"
+ },
+ {
+  "id": 105,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "not only A but also B",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，3番目に来るものを選びなさい。\n日本語：その歌手は日本だけでなく，アジア中で人気がある。\n英文：The singer is popular ( but / not / all over Asia / in Japan / also / only ).",
+  "c": [
+   "in Japan",
+   "only",
+   "but",
+   "also"
+  ],
+  "e": "完成文は The singer is popular not only in Japan but also all over Asia. です。not only A but also B で「A だけでなく B も」を表し，A と B には同じ働きの語句（ここではどちらも場所を表す副詞句）を置きます。語順は not → only → in Japan → but → also → all over Asia で，3番目は in Japan です。",
+  "m": "not only A but also B（A・B は同じ形）"
+ },
+ {
+  "id": 106,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "現在分詞の後置修飾",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，5番目に来るものを選びなさい。\n日本語：ベンチに座っている女の子は，私の妹です。\n英文：The ( sitting / is / on / girl / the bench / my ) sister.",
+  "c": [
+   "is",
+   "the bench",
+   "on",
+   "my"
+  ],
+  "e": "完成文は The girl sitting on the bench is my sister. です。現在分詞 sitting が on the bench という語句を伴うので，名詞 girl の後ろに置いて「ベンチに座っている女の子」とします（後置修飾）。文全体の主語は The girl sitting on the bench で，動詞 is と補語 my sister がその後に来ます。語順は girl → sitting → on → the bench → is → my で，5番目は is です。",
+  "m": "分詞＋語句は名詞の後ろから修飾"
+ },
+ {
+  "id": 107,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "Without ～, S could not have＋過去分詞",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，5番目に来るものを選びなさい。\n日本語：あなたの助けがなかったら，私はその仕事を終えられなかっただろう。\n英文：( could not / without / finished / your help / I / have ) the work.（文頭に来る語も小文字で示してあり，your help の後にコンマを補う）",
+  "c": [
+   "have",
+   "could not",
+   "finished",
+   "I"
+  ],
+  "e": "完成文は Without your help, I could not have finished the work. です。without ～ は「～がなかったら」という仮定を表し，過去の事実に反する内容なので主節は〈could not have＋過去分詞〉（仮定法過去完了）になります。語順は Without → your help → I → could not → have → finished で，5番目は have です。",
+  "m": "Without ～＝If it had not been for ～"
+ },
+ {
+  "id": 108,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "remind O of ～",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，5番目に来るものを選びなさい。\n日本語：この写真を見ると，私はいつも祖父と過ごした夏を思い出す。\n英文：This photo always ( the summer / I / me / spent / reminds / of ) with my grandfather.",
+  "c": [
+   "I",
+   "the summer",
+   "spent",
+   "of"
+  ],
+  "e": "完成文は This photo always reminds me of the summer I spent with my grandfather. です。〈remind＋人＋of ～〉で「人に～を思い出させる」という意味で，物を主語にした表現です。the summer の後には目的格の関係代名詞が省略され，I spent with my grandfather が summer を修飾します。語順は reminds → me → of → the summer → I → spent で，5番目は I です。",
+  "m": "S remind 人 of ～＝S で人は～を思い出す"
+ },
+ {
+  "id": 109,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "倍数表現 twice as ～ as",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，3番目に来るものを選びなさい。\n日本語：この公園は，あの公園の2倍の広さがある。\n英文：This park is ( large / as / that one / twice / as ).",
+  "c": [
+   "large",
+   "as",
+   "twice",
+   "that one"
+  ],
+  "e": "完成文は This park is twice as large as that one. です。倍数表現は〈倍数＋as＋原級＋as ～〉の語順で，twice「2倍」を最初の as の前に置きます。that one は that park を言いかえたものです。語順は twice → as → large → as → that one で，3番目は large です。as は2番目と4番目に来ます。",
+  "m": "倍数は as ～ as の前（twice as large as）"
+ },
+ {
+  "id": 110,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句整序",
+  "t": "had better not do",
+  "q": "日本語の意味になるように（ ）内の語句を並べかえたとき，3番目に来るものを選びなさい。\n日本語：あなたは夜遅くに一人で外出しないほうがよい。\n英文：You ( not / alone / better / go out / had ) late at night.",
+  "c": [
+   "not",
+   "better",
+   "go out",
+   "alone"
+  ],
+  "e": "完成文は You had better not go out alone late at night. です。had better do「～したほうがよい」の否定は，not を had better の直後に置いて had better not do とします。had not better とはしない点に注意しましょう。語順は had → better → not → go out → alone で，3番目は not です。",
+  "m": "had better not do（not は better の後）"
+ },
+ {
+  "id": 111,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "名称の由来を読み取る",
+  "p": "Every winter, thousands of ordinary people in one country spend a weekend counting the birds in their gardens and local parks. They write down which kinds of birds they see and how many, and then send the information to a research group online. This kind of activity is called \"citizen science,\" because members of the public help scientists collect data.\nProfessional researchers could never visit so many places at the same time. Thanks to the volunteers, the scientists receive information from more than 50,000 locations in just two days. By comparing the results from year to year, they can see which birds are becoming more common and which are becoming rare. For example, the data showed that one small songbird had decreased by almost half over twenty years, and this led to new efforts to protect the places where it lives.\nOf course, volunteers sometimes make mistakes. Some confuse similar-looking birds, and others count the same bird twice. To reduce such errors, the research group provides a simple guide with pictures, and experts check any reports that look unusual. Even so, the researchers say that the benefits of collecting such a large amount of data are far greater than the problems.",
+  "q": "次の英文を読み，問いに答えなさい。\nWhy is the activity called \"citizen science\"?",
+  "c": [
+   "Because ordinary people help scientists gather data.",
+   "Because only scientists are allowed to join it.",
+   "Because it is paid for by the city government.",
+   "Because it takes place only in large cities."
+  ],
+  "e": "第1段落の最後に「一般の人々（members of the public）が科学者のデータ収集を手伝うので，citizen science と呼ばれる」とあります。members of the public を ordinary people と言いかえた選択肢が正解です。参加者は一般の人々なので，科学者だけが参加できるわけではありません。市の資金で行うという記述はなく，鳥を数える場所は庭や地域の公園で，大都市に限られていません。",
+  "m": "because ～ の部分が名前の理由"
+ },
+ {
+  "id": 112,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "調査結果の具体例を読み取る",
+  "p": "Every winter, thousands of ordinary people in one country spend a weekend counting the birds in their gardens and local parks. They write down which kinds of birds they see and how many, and then send the information to a research group online. This kind of activity is called \"citizen science,\" because members of the public help scientists collect data.\nProfessional researchers could never visit so many places at the same time. Thanks to the volunteers, the scientists receive information from more than 50,000 locations in just two days. By comparing the results from year to year, they can see which birds are becoming more common and which are becoming rare. For example, the data showed that one small songbird had decreased by almost half over twenty years, and this led to new efforts to protect the places where it lives.\nOf course, volunteers sometimes make mistakes. Some confuse similar-looking birds, and others count the same bird twice. To reduce such errors, the research group provides a simple guide with pictures, and experts check any reports that look unusual. Even so, the researchers say that the benefits of collecting such a large amount of data are far greater than the problems.",
+  "q": "次の英文を読み，問いに答えなさい。\nAccording to the passage, what did the data show?",
+  "c": [
+   "One small songbird had become about half as common over twenty years.",
+   "All kinds of birds were becoming more common.",
+   "Volunteers counted more than 50,000 kinds of birds.",
+   "Researchers visited every location in two days."
+  ],
+  "e": "第2段落に「ある小さな鳴鳥が20年間でほぼ半分に減った」とあり，これを「約半分の数になった」と言いかえた選択肢が正解です。データは増えている鳥と減っている鳥の両方を示すので，すべての鳥が増えたは誤りです。50,000 は鳥の種類ではなく情報が集まる場所の数です。多くの場所を同時に訪れることは研究者にはできない，と書かれています。",
+  "m": "数字が何の数か（場所か種類か）を確認"
+ },
+ {
+  "id": 113,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "誤りを減らす工夫",
+  "p": "Every winter, thousands of ordinary people in one country spend a weekend counting the birds in their gardens and local parks. They write down which kinds of birds they see and how many, and then send the information to a research group online. This kind of activity is called \"citizen science,\" because members of the public help scientists collect data.\nProfessional researchers could never visit so many places at the same time. Thanks to the volunteers, the scientists receive information from more than 50,000 locations in just two days. By comparing the results from year to year, they can see which birds are becoming more common and which are becoming rare. For example, the data showed that one small songbird had decreased by almost half over twenty years, and this led to new efforts to protect the places where it lives.\nOf course, volunteers sometimes make mistakes. Some confuse similar-looking birds, and others count the same bird twice. To reduce such errors, the research group provides a simple guide with pictures, and experts check any reports that look unusual. Even so, the researchers say that the benefits of collecting such a large amount of data are far greater than the problems.",
+  "q": "次の英文を読み，問いに答えなさい。\nHow does the research group try to reduce mistakes made by volunteers?",
+  "c": [
+   "By giving a picture guide and having experts check unusual reports",
+   "By asking each volunteer to count only one kind of bird",
+   "By allowing only experienced volunteers to take part",
+   "By counting birds for two weeks instead of two days"
+  ],
+  "e": "第3段落に「誤りを減らすため，研究グループは絵入りの簡単なガイドを用意し，専門家が不自然に見える報告を確認する」とあります。この二つを含む選択肢が正解です。1人1種類だけ数えさせる，経験者だけに参加を認める，期間を2週間に延ばす，といった方法はどこにも書かれていません。To reduce such errors の後に対策が書かれています。",
+  "m": "To ＋目的 の後に具体的な対策が続く"
+ },
+ {
+  "id": 114,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "仕組みを読み取る",
+  "p": "Vertical farming is a way of growing vegetables indoors on shelves stacked one above another. Instead of sunlight, the plants receive light from LED lamps, and instead of soil, their roots sit in water that contains nutrients. Because the temperature and humidity are controlled by computers, crops can be harvested all year round, regardless of the weather outside.\nSupporters say vertical farms have several advantages. They use much less water than ordinary farms, because the water is recycled. They need no chemicals to kill insects, since insects cannot easily get inside. They can also be built in the middle of cities, so vegetables can reach shops within hours of being picked.\nHowever, vertical farming has one major weakness: it needs a large amount of electricity for lighting and air conditioning. As a result, its vegetables are often more expensive than those grown in fields. At present, most vertical farms grow leafy vegetables such as lettuce, which grow quickly and are light. Crops like rice and wheat, which need much more space and time, are still grown more cheaply outdoors.",
+  "q": "次の英文を読み，問いに答えなさい。\nIn vertical farming, what is used instead of soil?",
+  "c": [
+   "Water that contains nutrients",
+   "LED lamps",
+   "Recycled air",
+   "Chemicals that kill insects"
+  ],
+  "e": "第1段落に「土の代わりに，根は栄養分を含んだ水につかっている」とあるので，栄養分を含んだ水が正解です。LED ランプは日光の代わりで，土の代わりではありません。空気を再利用するという記述はなく，再利用されるのは水です。また，垂直農法では虫が入りにくいので殺虫剤は不要と書かれています。instead of の後ろと前を正しく対応させましょう。",
+  "m": "instead of A, B＝A の代わりに B"
+ },
+ {
+  "id": 115,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "利点の理由を読み取る",
+  "p": "Vertical farming is a way of growing vegetables indoors on shelves stacked one above another. Instead of sunlight, the plants receive light from LED lamps, and instead of soil, their roots sit in water that contains nutrients. Because the temperature and humidity are controlled by computers, crops can be harvested all year round, regardless of the weather outside.\nSupporters say vertical farms have several advantages. They use much less water than ordinary farms, because the water is recycled. They need no chemicals to kill insects, since insects cannot easily get inside. They can also be built in the middle of cities, so vegetables can reach shops within hours of being picked.\nHowever, vertical farming has one major weakness: it needs a large amount of electricity for lighting and air conditioning. As a result, its vegetables are often more expensive than those grown in fields. At present, most vertical farms grow leafy vegetables such as lettuce, which grow quickly and are light. Crops like rice and wheat, which need much more space and time, are still grown more cheaply outdoors.",
+  "q": "次の英文を読み，問いに答えなさい。\nAccording to the passage, why can vegetables from vertical farms reach shops quickly?",
+  "c": [
+   "The farms can be built in the middle of cities.",
+   "The vegetables are picked by computers.",
+   "Insects cannot get inside the farms.",
+   "The vegetables grow without any light."
+  ],
+  "e": "第2段落に「都市の真ん中に建てられるので，野菜は収穫から数時間で店に届く」とあります。so の前が理由，後ろが結果です。コンピューターが管理するのは温度と湿度で，収穫ではありません。虫が入りにくいことは殺虫剤が不要な理由です。植物は LED の光を受けて育つので，光なしで育つわけではありません。",
+  "m": "A, so B＝A だから B（理由は so の前）"
+ },
+ {
+  "id": 116,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "弱点とその結果",
+  "p": "Vertical farming is a way of growing vegetables indoors on shelves stacked one above another. Instead of sunlight, the plants receive light from LED lamps, and instead of soil, their roots sit in water that contains nutrients. Because the temperature and humidity are controlled by computers, crops can be harvested all year round, regardless of the weather outside.\nSupporters say vertical farms have several advantages. They use much less water than ordinary farms, because the water is recycled. They need no chemicals to kill insects, since insects cannot easily get inside. They can also be built in the middle of cities, so vegetables can reach shops within hours of being picked.\nHowever, vertical farming has one major weakness: it needs a large amount of electricity for lighting and air conditioning. As a result, its vegetables are often more expensive than those grown in fields. At present, most vertical farms grow leafy vegetables such as lettuce, which grow quickly and are light. Crops like rice and wheat, which need much more space and time, are still grown more cheaply outdoors.",
+  "q": "次の英文を読み，問いに答えなさい。\nWhat is the main weakness of vertical farming mentioned in the passage?",
+  "c": [
+   "It uses a lot of electricity, which makes its vegetables expensive.",
+   "It needs more water than ordinary farms.",
+   "Its vegetables cannot be grown in winter.",
+   "It is best suited for growing rice and wheat."
+  ],
+  "e": "第3段落に「大きな弱点は，照明と空調に大量の電気が必要なことで，その結果，野菜は畑で育てたものより高価になることが多い」とあります。水は再利用されるので普通の農場より少なくて済みます。気象に関係なく一年中収穫できるので冬に育てられないは誤りです。米や小麦は屋外で育てる方が安いと書かれており，向いているのはレタスなどの葉物です。",
+  "m": "weakness: の後に弱点，As a result で結果"
+ },
+ {
+  "id": 117,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "失われるものを読み取る",
+  "p": "Many of the world's languages are spoken by only small groups of people. When children stop learning such a language at home, it can disappear within a few generations. Losing a language means losing more than just words. Each language contains its own songs and stories, as well as knowledge about local plants, animals, and weather.\nOn one small island, only about 200 elderly people can still speak the island's traditional language well. A few years ago, a group of young islanders decided to do something. Using their smartphones, they recorded the elders telling old stories and explaining the names of local fish and plants. They then created a free app that teaches basic words and phrases with sound recordings. Today, the app is used at the island's elementary school, and some children have begun to use the language when they talk with their grandparents.",
+  "q": "次の英文を読み，問いに答えなさい。\nAccording to the passage, what can be lost when a language disappears?",
+  "c": [
+   "Songs, stories, and knowledge about local nature",
+   "Only the words of the language",
+   "The smartphones used by young people",
+   "The elementary school on the island"
+  ],
+  "e": "第1段落に「言語を失うことは単語以上のものを失うことだ」とあり，各言語には歌や物語，地元の植物・動物・天気についての知識が含まれていると述べています。more than just words とあるので，単語だけが失われるというのは本文と逆です。スマートフォンや小学校は，島の若者たちの取り組みに出てくる語で，言語とともに失われるものではありません。",
+  "m": "more than just ～＝～だけではない"
+ },
+ {
+  "id": 118,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "若者の取り組みを読み取る",
+  "p": "Many of the world's languages are spoken by only small groups of people. When children stop learning such a language at home, it can disappear within a few generations. Losing a language means losing more than just words. Each language contains its own songs and stories, as well as knowledge about local plants, animals, and weather.\nOn one small island, only about 200 elderly people can still speak the island's traditional language well. A few years ago, a group of young islanders decided to do something. Using their smartphones, they recorded the elders telling old stories and explaining the names of local fish and plants. They then created a free app that teaches basic words and phrases with sound recordings. Today, the app is used at the island's elementary school, and some children have begun to use the language when they talk with their grandparents.",
+  "q": "次の英文を読み，問いに答えなさい。\nWhat did the young islanders do?",
+  "c": [
+   "They recorded the elders and made a free app.",
+   "They opened a new elementary school.",
+   "They moved to the mainland to study languages.",
+   "They asked the elders to stop speaking the language."
+  ],
+  "e": "第2段落に，若者たちがスマートフォンで高齢者の昔話や魚・植物の名前の説明を録音し，その後，音声付きで基本的な単語や表現を学べる無料アプリを作ったとあります。アプリは島の小学校で使われていますが，学校を新しく開いたわけではありません。本土に移った話はなく，高齢者に言語を話すのをやめさせるのは，言語を守る取り組みと正反対です。",
+  "m": "Using ～, they …／They then … で行動の順序をつかむ"
+ },
+ {
+  "id": 119,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "仕組みの利点を読み取る",
+  "p": "Most people know that they can borrow books from a library. In some cities, however, people can now borrow things such as drills, tents, sewing machines, and even musical instruments from a \"library of things.\" The idea is simple. Many household items are used only a few times a year, yet each family buys its own. By sharing them, people can save money and storage space, and fewer products need to be made.\nA library of things in one city started with about 100 items donated by local residents. Members pay a small yearly fee and can borrow up to three items at a time for one week. Volunteers check each item when it is returned and repair it if necessary. The organizers say that the most popular items are not expensive machines but camping equipment, which many families want to use only during the summer holidays.",
+  "q": "次の英文を読み，問いに答えなさい。\nAccording to the passage, why is a \"library of things\" useful?",
+  "c": [
+   "Many household items are used only a few times a year.",
+   "Families can buy items at a lower price.",
+   "Books are no longer popular in libraries.",
+   "Members can keep the items for as long as they like."
+  ],
+  "e": "第1段落に「多くの家庭用品は年に数回しか使われないのに，各家庭がそれぞれ買っている」とあり，共有すればお金や収納場所を節約できると述べています。これがこの仕組みが役立つ理由です。物は借りるもので，安く買えるわけではありません。本の人気が落ちたという記述はありません。貸出期間は1週間と決まっているので，好きなだけ持っていられるは誤りです。",
+  "m": "yet＝それなのに（問題点を示す）"
+ },
+ {
+  "id": 120,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解",
+  "t": "規則の内容一致",
+  "p": "Most people know that they can borrow books from a library. In some cities, however, people can now borrow things such as drills, tents, sewing machines, and even musical instruments from a \"library of things.\" The idea is simple. Many household items are used only a few times a year, yet each family buys its own. By sharing them, people can save money and storage space, and fewer products need to be made.\nA library of things in one city started with about 100 items donated by local residents. Members pay a small yearly fee and can borrow up to three items at a time for one week. Volunteers check each item when it is returned and repair it if necessary. The organizers say that the most popular items are not expensive machines but camping equipment, which many families want to use only during the summer holidays.",
+  "q": "次の英文を読み，問いに答えなさい。\nWhich of the following is TRUE about the library of things in the passage?",
+  "c": [
+   "Members can borrow up to three items at a time.",
+   "Members can borrow items without paying anything.",
+   "Expensive machines are the most popular items.",
+   "Items are checked by volunteers only once a year."
+  ],
+  "e": "第2段落に「会員は少額の年会費を払い，一度に3点まで1週間借りられる」とあるので，一度に3点まで借りられるが正解です。年会費が必要なので完全に無料ではありません。いちばん人気なのは高価な機械ではなくキャンプ用品だと書かれています（not A but B）。ボランティアは返却のたびに点検するので，年1回だけではありません。",
+  "m": "not A but B＝A ではなく B"
  }
 ]

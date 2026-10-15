@@ -1,0 +1,407 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>高校受験 中堅 数学 10問テスト</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* layout: 一枚の答案用紙。中央1カラム（最大640px）。問題文は試験冊子と同じ明朝、操作と数字はゴシック。 */
+:root{
+  --bg:#f2f1f6; --surface:#ffffff; --ink:#1d1a26; --muted:#676276; --line:#dbd8e4;
+  --accent:#4b2e83; --accent-ink:#ffffff; --accent-soft:#ebe5f6;
+  --ok:#1b7447; --ok-soft:#e1f2e8; --ng:#b3261e; --ng-soft:#fbe8e6; --warn:#7d5200; --warn-soft:#faefd8;
+  --f-exam:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --f-ui:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#15121c; --surface:#1f1b2a; --ink:#ece9f4; --muted:#a49eb5; --line:#352f46;
+    --accent:#bba6ee; --accent-ink:#1a1328; --accent-soft:#2c2442;
+    --ok:#74d6a4; --ok-soft:#163326; --ng:#ff8f85; --ng-soft:#3c1b19; --warn:#f0c46c; --warn-soft:#382c10;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#15121c; --surface:#1f1b2a; --ink:#ece9f4; --muted:#a49eb5; --line:#352f46;
+  --accent:#bba6ee; --accent-ink:#1a1328; --accent-soft:#2c2442;
+  --ok:#74d6a4; --ok-soft:#163326; --ng:#ff8f85; --ng-soft:#3c1b19; --warn:#f0c46c; --warn-soft:#382c10;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.75;-webkit-text-size-adjust:100%}
+.wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:20px 48px;display:flex;flex-direction:column;gap:20px}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,p{margin:0}
+a{color:var(--accent)}
+
+.head{display:flex;flex-direction:column;gap:2px}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--muted)}
+.head h1{font-family:var(--f-exam);font-weight:700;font-size:26px;line-height:1.3;text-wrap:balance}
+#app{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel h2{font-size:15px;font-weight:700}
+.lead{color:var(--muted);font-size:13px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:10px 16px;font-weight:500;min-height:44px}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.btn.ghost{border-color:transparent;background:transparent;color:var(--muted)}
+.btn.sm{min-height:36px;padding:5px 12px;font-size:13px}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.row.end{justify-content:flex-end}
+.row.split{justify-content:space-between}
+
+.start{border-color:var(--accent)}
+.start h2{font-family:var(--f-exam);font-size:20px}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.segb{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;min-height:36px;font-size:13px}
+.segb small{color:var(--muted)}
+.segb[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:700}
+.segb[aria-pressed="true"] small{color:var(--accent)}
+.spec{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);padding:0;margin:0;list-style:none}
+.spec b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.num{display:flex;flex-direction:column;gap:0;min-width:0}
+.num b{font-size:22px;font-variant-numeric:tabular-nums;line-height:1.3}
+.num small{font-size:12px;color:var(--muted)}
+.num span{font-size:12px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.sc{font-size:12px;font-variant-numeric:tabular-nums;border-radius:999px;padding:1px 9px;background:var(--warn-soft);color:var(--warn)}
+.sc.good{background:var(--ok-soft);color:var(--ok)}
+.sc.bad{background:var(--ng-soft);color:var(--ng)}
+
+.fl{display:flex;flex-direction:column;gap:12px}
+.fi{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
+.fi .nm{font-weight:500;min-width:0}
+.fi .meta{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.meter{grid-column:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden;display:flex}
+.meter i{display:block;height:100%;background:var(--ok)}
+.meter i.w{background:var(--ng)}
+.fi .btn{grid-column:2;grid-row:1 / span 3}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:6px;border-radius:3px;margin-right:5px;vertical-align:middle;background:var(--line)}
+.legend i.g{background:var(--ok)} .legend i.w{background:var(--ng)}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line)}
+.bar-row{display:flex;align-items:baseline;gap:12px}
+.bar-title{font-size:12px;color:var(--muted);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.count{font-weight:700;font-variant-numeric:tabular-nums}
+.count small{color:var(--muted);font-weight:400}
+.clock{font-variant-numeric:tabular-nums;font-weight:700;padding:1px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.clock.low{background:var(--ng-soft);color:var(--ng)}
+.dots{display:flex;gap:4px}
+.dot{flex:1;height:8px;border-radius:4px;border:0;padding:0;background:var(--line);min-width:0}
+.dot.done{background:var(--accent)}
+.dot.cur{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--accent)}
+.dot.ok{background:var(--ok)} .dot.ng{background:var(--ng)}
+
+.sheet{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.chip{align-self:flex-start;font-size:12px;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:1px 10px}
+.passage{font-family:var(--f-exam);font-size:16px;line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;max-height:50vh;overflow-y:auto}
+.passage[lang=en]{font-family:Georgia,"Times New Roman",var(--f-exam);line-height:1.7}
+.q{font-family:var(--f-exam);font-weight:500;font-size:18px;line-height:1.85;overflow-wrap:anywhere}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:11px 12px;min-height:48px}
+.opt .mark{flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--muted);line-height:1}
+.opt .txt{min-width:0;overflow-wrap:anywhere;font-family:var(--f-exam);font-size:16px;line-height:1.6;padding-top:1px}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.sel .mark{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right .mark{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.opt.wrong{border-color:var(--ng);background:var(--ng-soft)}
+.opt.wrong .mark{background:var(--ng);border-color:var(--ng);color:var(--surface)}
+.opt:disabled{cursor:default;color:inherit;opacity:1}
+.ask{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.ask .btn{color:var(--ink)}
+
+.exp{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--line);padding-top:14px}
+.verdict{font-weight:700}
+.verdict.ok{color:var(--ok)} .verdict.ng{color:var(--ng)}
+.exp p{overflow-wrap:anywhere}
+.memo{background:var(--accent-soft);border-radius:8px;padding:8px 12px}
+.memo span{display:block;font-size:11px;letter-spacing:.08em;color:var(--accent);font-weight:700}
+.src{font-size:12px;color:var(--muted)}
+
+.score{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.score b{font-family:var(--f-exam);font-size:52px;line-height:1;font-variant-numeric:tabular-nums}
+.score span{color:var(--muted)}
+.judge{font-weight:700}
+.judge.good{color:var(--ok)} .judge.mid{color:var(--warn)} .judge.bad{color:var(--ng)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line)}
+.tab{border:0;background:transparent;padding:8px 12px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;min-height:40px}
+.tab[aria-selected="true"]{color:var(--ink);font-weight:700;border-bottom-color:var(--accent)}
+.rev{display:flex;flex-direction:column;gap:8px}
+details.it{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+details.it summary{list-style:none;cursor:pointer;display:flex;gap:10px;align-items:baseline;padding:12px 14px}
+details.it summary::-webkit-details-marker{display:none}
+.ox{flex:none;font-weight:700;width:1.2em;text-align:center}
+.ox.ok{color:var(--ok)} .ox.ng{color:var(--ng)}
+.sm-t{flex:1;min-width:0;overflow-wrap:anywhere}
+.sm-t small{display:block;color:var(--muted);font-size:12px}
+.it-body{padding:0 14px 16px;display:flex;flex-direction:column;gap:12px}
+.it-body .q{font-size:16px}
+.it-body .exp{border-top:0;padding-top:0}
+.tl{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px;padding:4px 0}
+.tl li{list-style:none;display:grid;grid-template-columns:5.2em 1.4em minmax(0,1fr);gap:8px;align-items:baseline;padding:7px 0 7px 14px;position:relative}
+.tl li::before{content:"";position:absolute;left:-6px;top:1.05em;width:10px;height:10px;border-radius:50%;background:var(--surface);border:2px solid var(--accent)}
+.tl{margin-block:0;padding-inline-start:0}
+.tl .yr{font-variant-numeric:tabular-nums;font-weight:700;text-align:right;white-space:nowrap}
+.tl .ev{min-width:0;overflow-wrap:anywhere}
+.tl .ev small{display:block;color:var(--muted);font-size:12px}
+.foot{font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:420px){ .q{font-size:17px} .score b{font-size:44px} .fi{grid-template-columns:minmax(0,1fr)} .fi .btn{grid-column:1;grid-row:auto;justify-self:start} }
+@media (prefers-reduced-motion:no-preference){ .opt,.btn,.dot{transition:background-color .12s,border-color .12s} }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <p class="eyebrow">中学数学｜高校受験（公立・中堅私立） 頻出知識の想定問題</p>
+    <h1>高校受験 中堅 数学 10問テスト</h1>
+  </header>
+  <main id="app"></main>
+  <footer class="foot">
+    <p>このページは文部科学省・都道府県教育委員会・各高等学校の公式教材ではありません。高校入試の問題の権利は各都道府県・各高等学校にあるため、入試の文面は使わず、中学校の学習指導要領と教科書の標準的な範囲から全国の公立・中堅私立高校の入試で頻出の知識を選び、すべて独自に作成した想定問題です。「想定問題」は、公表されている出題範囲・出題形式に合わせて独自に作成した問題で、実際に出題されたものではありません。解説と覚え方も独自に作成したものです。公民の制度・時事は2026年10月1日現在の内容です。</p>
+    <p><a href="https://www.mext.go.jp/a_menu/shotou/new-cs/1384661.htm" target="_blank" rel="noopener">学習指導要領（文部科学省）</a></p>
+    <p id="sync"></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+var QS=[{"id":1,"k":"plan","ref":"想定問題","f":"数と式","t":"正負の数の四則","q":"−3^2 + (−2)^3 ÷ 4 を計算した値はどれですか。","c":["−11","7","−7","−17/4"],"e":"−3^2 は 3^2 に − をつけたものなので −9、(−2)^3 は −8 です。乗除を先に計算して −8 ÷ 4 = −2、よって −9 + (−2) = −11 です。7 は −3^2 を (−3)^2 = 9 と考えた誤り、−7 は (−2)^3 を +8 とした誤り、−17/4 は加法を先にして (−9 − 8) ÷ 4 とした誤りです。","m":"−3^2＝−9、(−3)^2＝9。累乗→乗除→加減の順"},{"id":2,"k":"plan","ref":"想定問題","f":"数と式","t":"1次式の加減","q":"2(3x − 4) − 3(x − 5) を計算した結果はどれですか。","c":["3x + 7","3x − 23","3x − 3","3x + 11"],"e":"分配法則で 2(3x − 4) = 6x − 8、−3(x − 5) = −3x + 15 です。合わせて 6x − 3x − 8 + 15 = 3x + 7 となります。3x − 23 は −3 × (−5) を −15 とした符号の誤り、3x − 3 は −3 × (−5) を +5 とした（−3 を −5 の 1 だけに掛けた）誤り、3x + 11 は 2 を −4 に掛け忘れた誤りです。","m":"かっこの前の − は中の各項の符号をすべて変える"},{"id":3,"k":"plan","ref":"想定問題","f":"数と式","t":"単項式の乗除","q":"8x^3y^2 ÷ (−2xy)^2 × 3y を計算した結果はどれですか。","c":["6xy","−6xy","12xy","−12xy"],"e":"(−2xy)^2 = 4x^2y^2 です（−2 も2乗されるので正）。8x^3y^2 ÷ 4x^2y^2 × 3y = (8 × 3 ÷ 4) × x^(3−2) × y^(2−2+1) = 6xy です。−6xy は (−2xy)^2 を −4x^2y^2 とした誤り、12xy は (−2xy)^2 を 2x^2y^2 と係数を2乗し忘れた誤り、−12xy はその両方の誤りです。","m":"(−2xy)^2＝4x^2y^2。係数も符号も2乗する"},{"id":4,"k":"plan","ref":"想定問題","f":"数と式","t":"式の値","q":"x = −2、y = 3 のとき、2x^2 − xy の値はどれですか。","c":["14","2","−14","22"],"e":"2x^2 = 2 × (−2)^2 = 2 × 4 = 8、xy = (−2) × 3 = −6 なので、2x^2 − xy = 8 − (−6) = 14 です。2 は −xy の符号を処理し忘れて 8 − 6 とした誤り、22 は 2x^2 を (2x)^2 = 16 と計算した誤り、−14 は (−2)^2 を −4 として 2x^2 = −8 とし、さらに −xy の符号も誤って −8 − 6 とした値です。負の数を代入するときはかっこをつけて代入します。","m":"負の数はかっこをつけて代入する"},{"id":5,"k":"plan","ref":"想定問題","f":"数と式","t":"乗法公式","q":"(x + 3)(x − 5) − (x − 2)^2 を計算した結果はどれですか。","c":["2x − 19","2x − 11","−6x − 19","−6x − 11"],"e":"(x + 3)(x − 5) = x^2 − 2x − 15、(x − 2)^2 = x^2 − 4x + 4 です。引くときはかっこをつけて x^2 − 2x − 15 − (x^2 − 4x + 4) = −2x + 4x − 15 − 4 = 2x − 19 となります。2x − 11 は +4 の符号を変え忘れた誤り、−6x − 19 は −4x の符号を変え忘れた誤り、−6x − 11 は両方とも変え忘れた誤りです。","m":"展開した式を引くときは必ずかっこごと引く"},{"id":6,"k":"plan","ref":"想定問題","f":"数と式","t":"因数分解","q":"3x^2 − 12x − 36 を因数分解した結果はどれですか。","c":["3(x − 6)(x + 2)","3(x + 6)(x − 2)","3(x − 4)(x + 3)","(x − 6)(3x + 2)"],"e":"まず共通因数 3 をくくり出して 3(x^2 − 4x − 12) とします。積が −12、和が −4 になる2数は −6 と 2 なので、3(x − 6)(x + 2) です。3(x + 6)(x − 2) は和が +4 になってしまい、3(x − 4)(x + 3) は積が −12 になる2数 −4 と 3 を選び、和が −4 になるか確かめなかった誤り（和は −1）です。(x − 6)(3x + 2) は展開すると 3x^2 − 16x − 12 で一致しません。","m":"まず共通因数をくくり出し、積と和で2数を探す"},{"id":7,"k":"plan","ref":"想定問題","f":"数と式","t":"因数分解（おきかえ）","q":"(x + 1)^2 − 5(x + 1) + 6 を因数分解した結果はどれですか。","c":["(x − 1)(x − 2)","(x − 2)(x − 3)","(x + 3)(x + 4)","(x − 1)(x + 2)"],"e":"x + 1 = M とおくと M^2 − 5M + 6 = (M − 2)(M − 3) です。M をもとにもどすと (x + 1 − 2)(x + 1 − 3) = (x − 1)(x − 2) となります。(x − 2)(x − 3) は M をもとにもどし忘れた誤り、(x + 3)(x + 4) は M − 2 を x + 1 + 2 のように符号を誤った値です。(x − 1)(x + 2) は展開すると x^2 + x − 2 で一致しません。","m":"共通部分を M とおき、最後に必ずもどす"},{"id":8,"k":"plan","ref":"想定問題","f":"数と式","t":"根号を含む式の加減","q":"√48 − √27 + √12 を計算した結果はどれですか。","c":["3√3","9√3","5√3","√33"],"e":"√48 = √(16 × 3) = 4√3、√27 = √(9 × 3) = 3√3、√12 = √(4 × 3) = 2√3 です。よって 4√3 − 3√3 + 2√3 = 3√3 となります。9√3 は − を + として全部たした誤り、5√3 は 4√3 + 3√3 − 2√3 と符号を取り違えた値、√33 は根号の中どうしを 48 − 27 + 12 と計算した誤りです。","m":"a√b の形にそろえてから同じ√どうしを加減する"},{"id":9,"k":"plan","ref":"想定問題","f":"数と式","t":"分母の有理化","q":"6/√3 + √12 を計算した結果はどれですか。","c":["4√3","8√3","2 + 2√3","3√3"],"e":"6/√3 は分母と分子に √3 を掛けて 6√3/3 = 2√3 です。√12 = 2√3 なので、合計は 4√3 です。8√3 は分子だけに √3 を掛けて 6√3 とした誤り、2 + 2√3 は 6/√3 を 6 ÷ 3 = 2 と √ を無視した誤り、3√3 は 6√3/6 = √3 と分母を誤った値です。","m":"有理化は分母・分子の両方に同じ√を掛ける"},{"id":10,"k":"plan","ref":"想定問題","f":"数と式","t":"根号と乗法公式","q":"(√5 + √2)(√5 − √2) − (√3 − 1)^2 を計算した結果はどれですか。","c":["2√3 − 1","−1 − 2√3","−1","3 + 2√3"],"e":"(√5 + √2)(√5 − √2) = 5 − 2 = 3、(√3 − 1)^2 = 3 − 2√3 + 1 = 4 − 2√3 です。よって 3 − (4 − 2√3) = −1 + 2√3 = 2√3 − 1 となります。−1 − 2√3 はかっこを外すときに −2√3 の符号を変え忘れた誤り、−1 は (√3 − 1)^2 を 3 + 1 = 4 とした誤り、3 + 2√3 は和と差の積を 5 + 2 = 7 とした誤りです。","m":"(a+b)(a−b)＝a^2−b^2、(a−b)^2 は 2ab を忘れない"},{"id":11,"k":"plan","ref":"想定問題","f":"数と式","t":"整数部分と小数部分","q":"√24 の小数部分を b とするとき、b(b + 8) の値はどれですか。","c":["8","16","24","40"],"e":"16 < 24 < 25 より 4 < √24 < 5 なので、√24 の整数部分は 4、小数部分は b = √24 − 4 です。b + 8 = √24 + 4 だから、b(b + 8) = (√24 − 4)(√24 + 4) = 24 − 16 = 8 となります。16 は 4^2、24 は (√24)^2 だけを答えた値、40 は 24 + 16 と和にした誤りです。","m":"小数部分＝√a −（整数部分）。和と差の積で計算"},{"id":12,"k":"plan","ref":"想定問題","f":"数と式","t":"根号が自然数になる条件","q":"√(180n) が自然数となるような自然数 n のうち、最も小さいものはどれですか。","c":["5","3","20","45"],"e":"180 を素因数分解すると 2^2 × 3^2 × 5 です。√ の中がある自然数の2乗になるには、指数が奇数の 5 をもう1つ掛ければよいので、最小の n は 5 です（√900 = 30）。20 や 45 でも 180n は 3600、8100 と平方数になりますが最小ではありません。3 を掛けると 540 = 2^2 × 3^3 × 5 となり、平方数になりません。","m":"素因数分解して指数を偶数にそろえる"},{"id":13,"k":"plan","ref":"想定問題","f":"数と式","t":"平方根の大小","q":"2.5 < √a < 4 を満たす自然数 a は何個ありますか。","c":["9個","10個","8個","6個"],"e":"各辺は正なので2乗しても大小は変わらず、6.25 < a < 16 となります。これを満たす自然数は 7、8、…、15 の 15 − 7 + 1 = 9 個です。10個は a = 16 も含めたり、a = 6 も含めたりした数え方、8個は 15 − 7 = 8 と両端の一方を数え忘れた誤り、6個は 2.5 を 3 とみなして 9 < a < 16 とした誤りです。","m":"2乗して不等式を作り、両端を含むかに注意"},{"id":14,"k":"plan","ref":"想定問題","f":"数と式","t":"文字式による説明","q":"連続する3つの整数があります。最も大きい数の2乗から最も小さい数の2乗をひいた差は、いつもどのような数になりますか。","c":["真ん中の数の4倍","真ん中の数の2倍","3つの数の和","最も小さい数の4倍"],"e":"真ん中の数を n とすると、3つの整数は n − 1、n、n + 1 です。(n + 1)^2 − (n − 1)^2 = (n^2 + 2n + 1) − (n^2 − 2n + 1) = 4n となり、真ん中の数の4倍です。たとえば 1、2、3 では 9 − 1 = 8 = 2 × 4 となり、真ん中の数の2倍（4）、3つの和（6）、最も小さい数の4倍（4）はどれも合いません。","m":"真ん中を n とおくと式がきれいになる"},{"id":15,"k":"plan","ref":"想定問題","f":"数と式","t":"等式の変形","q":"台形の面積の公式 S = (a + b)h/2 を b について解いた式はどれですか。","c":["b = 2S/h − a","b = 2S/h + a","b = S/(2h) − a","b = (2S − a)/h"],"e":"両辺に 2 を掛けて 2S = (a + b)h、両辺を h でわって 2S/h = a + b、a を移項して b = 2S/h − a です。b = 2S/h + a は移項で符号を変え忘れた誤り、b = S/(2h) − a は 2 を掛けるべきところでわった誤り、b = (2S − a)/h は h でわる前に a を移項した誤り（a まで h でわっている）です。","m":"解く文字以外を順に移項・わり算で外す"},{"id":16,"k":"plan","ref":"想定問題","f":"数と式","t":"文字式の利用（平均の速さ）","q":"ある道のりを、行きは時速 4 km、帰りは時速 6 km で往復しました。往復全体の平均の速さは時速何 km ですか。","c":["時速 4.8 km","時速 5 km","時速 10 km","時速 2.4 km"],"e":"片道を x km とすると、かかった時間は x/4 + x/6 = 5x/12（時間）、往復の道のりは 2x km です。平均の速さは 2x ÷ 5x/12 = 24/5 = 4.8（km/h）です。時速 5 km は速さの平均 (4 + 6) ÷ 2 をとった誤り、時速 10 km は速さをたしただけ、時速 2.4 km は道のりを x として 2 倍し忘れた誤りです。","m":"平均の速さ＝全体の道のり÷全体の時間"},{"id":17,"k":"plan","ref":"想定問題","f":"数と式","t":"最大公約数・最小公倍数","q":"84 と 126 の最大公約数と最小公倍数の組み合わせとして正しいものはどれですか。","c":["最大公約数 42、最小公倍数 252","最大公約数 21、最小公倍数 252","最大公約数 42、最小公倍数 504","最大公約数 14、最小公倍数 756"],"e":"84 = 2^2 × 3 × 7、126 = 2 × 3^2 × 7 です。最大公約数は共通な素因数を少ないほうの指数でとって 2 × 3 × 7 = 42、最小公倍数はすべての素因数を多いほうの指数でとって 2^2 × 3^2 × 7 = 252 です。21 や 14 も公約数ですが最大ではなく、504 や 756 も公倍数ですが最小ではありません。","m":"公約数は少ない指数、公倍数は多い指数でとる"},{"id":18,"k":"plan","ref":"想定問題","f":"数と式","t":"平方根の性質","q":"平方根について述べた次の文のうち、正しくないものはどれですか。","c":["√16 = ±4 である","16 の平方根は ±4 である","(−√5)^2 = 5 である","√((−3)^2) = 3 である"],"e":"√16 は「16 の平方根のうち正のほう」を表すので √16 = 4 であり、±4 ではありません。16 の平方根は 2乗して 16 になる数なので +4 と −4 の2つあり、「±4」は正しい文です。(−√5)^2 = 5 も正しく、√((−3)^2) = √9 = 3 も正しい文です（−3 にはなりません）。","m":"「aの平方根」は±、「√a」は正のほうだけ"},{"id":19,"k":"plan","ref":"想定問題","f":"数と式","t":"有理数と無理数","q":"次の数のうち、無理数はどれですか。","c":["√8/2","√0.04","√27/√3","0.121212…（12がくり返す循環小数）"],"e":"√8/2 = 2√2/2 = √2 なので無理数です。√0.04 = 0.2、√27/√3 = √9 = 3 はどちらも分数で表せる有理数です。循環小数 0.121212… は 12/99 = 4/33 と分数で表せるので有理数です。根号がついていても簡単にすると整数や分数になるものは有理数であることに注意します。","m":"√を外せるか、分数で表せるかで判断する"},{"id":20,"k":"plan","ref":"想定問題","f":"数と式","t":"不等式で表す","q":"1個 a 円のりんご5個と、1個 b 円のみかん3個を買ったところ、代金の合計は 1000 円以下でした。この数量の関係を表した式はどれですか。","c":["5a + 3b ≦ 1000","5a + 3b < 1000","5a + 3b ≧ 1000","3a + 5b ≦ 1000"],"e":"代金の合計は 5a + 3b 円です。「以下」はその数をふくむので ≦ を使い、5a + 3b ≦ 1000 となります。< は「未満（1000円より安い）」、≧ は「以上」を表すので誤りです。3a + 5b は個数と単価の組み合わせを逆にした誤りです。","m":"以上・以下は等号つき、未満・より小さいは等号なし"},{"id":21,"k":"plan","ref":"想定問題","f":"方程式","t":"1次方程式（小数）","q":"1次方程式 0.3x − 1.2 = 0.5x + 0.4 の解はどれですか。","c":["x = −8","x = 8","x = −4","x = 4"],"e":"両辺を 10 倍して 3x − 12 = 5x + 4、移項して 3x − 5x = 4 + 12、−2x = 16、x = −8 です。x = 8 は −2x = 16 の両辺を −2 でわるときに符号を誤った値、x = −4 は 4 を左辺へ移項するときに符号を変え忘れて −2x = −4 + 12 = 8 とした値です。x = 4 はその移項の誤りに加え、−2 でわるときの符号も誤った値です。","m":"小数は10倍、移項で符号を変える"},{"id":22,"k":"plan","ref":"想定問題","f":"方程式","t":"1次方程式（分数）","q":"1次方程式 (x − 1)/3 − (2x + 1)/4 = 1 の解はどれですか。","c":["x = −19/2","x = −13/2","x = −4","x = 19/2"],"e":"両辺に 12 を掛けると 4(x − 1) − 3(2x + 1) = 12、4x − 4 − 6x − 3 = 12、−2x = 19、x = −19/2 です。x = −13/2 は −3 × (+1) を +3 とした符号の誤り、x = −4 は右辺の 1 に 12 を掛け忘れた誤り（−2x − 7 = 1）、x = 19/2 は最後に符号を誤った値です。","m":"分母を払うときは右辺にも掛ける"},{"id":23,"k":"plan","ref":"想定問題","f":"方程式","t":"比例式","q":"比例式 (x + 2) : 6 = 5 : 3 を満たす x の値はどれですか。","c":["x = 8","x = 10","x = 28/3","x = 8/5"],"e":"比例式 a : b = c : d では ad = bc なので、3(x + 2) = 6 × 5 = 30、x + 2 = 10、x = 8 です。x = 10 は x + 2 = 10 で止めた誤り、x = 28/3 はかっこを外すときに 3x + 2 = 30 とした誤り、x = 8/5 は外側どうし・内側どうしの組を取り違えて 5(x + 2) = 6 × 3 = 18 とした誤りです。","m":"外側の積＝内側の積"},{"id":24,"k":"plan","ref":"想定問題","f":"方程式","t":"連立方程式（加減法）","q":"連立方程式 3x + 2y = 4、5x − 3y = 13 の解はどれですか。","c":["x = 2、y = −1","x = 2、y = 1","x = −1、y = 2","x = 1、y = 1/2"],"e":"上の式を3倍、下の式を2倍すると 9x + 6y = 12、10x − 6y = 26 です。たして 19x = 38、x = 2。これを 3x + 2y = 4 に代入して 6 + 2y = 4、y = −1 です。x = 2、y = 1 は代入後の移項で符号を誤った値、x = −1、y = 2 は x と y を取り違えた値です。x = 1、y = 1/2 は上の式は満たしますが下の式を満たしません。","m":"係数をそろえて一方の文字を消す。解は両方の式で確認"},{"id":25,"k":"plan","ref":"想定問題","f":"方程式","t":"連立方程式（係数が小数・分数）","q":"連立方程式 0.3x + 0.4y = 1.8、x/2 − y/3 = 0 の解はどれですか。","c":["x = 2、y = 3","x = 3、y = 2","x = −2、y = −3","x = 6、y = 9"],"e":"上の式を10倍して 3x + 4y = 18、下の式を6倍して 3x − 2y = 0 です。ひくと 6y = 18、y = 3、3x = 2y = 6 より x = 2 です。x = 3、y = 2 は x と y を取り違えた値、x = −2、y = −3 は符号を誤った値です。x = 6、y = 9 は下の式は満たしますが、上の式は 1.8 + 3.6 = 5.4 となり満たしません。","m":"小数は10倍、分数は分母の最小公倍数倍して整数に"},{"id":26,"k":"plan","ref":"想定問題","f":"方程式","t":"連立方程式の解と係数","q":"x、y についての連立方程式 ax + by = 7、bx + ay = 8 の解が x = 2、y = 1 であるとき、a、b の値の組み合わせはどれですか。","c":["a = 2、b = 3","a = 3、b = 2","a = 1、b = 5","a = 3、b = 1"],"e":"解を代入すると 2a + b = 7、2b + a = 8 という a、b の連立方程式になります。1つ目から b = 7 − 2a、これを2つ目に代入して 14 − 4a + a = 8、a = 2、b = 3 です。a = 3、b = 2 は a と b を取り違えた値、a = 1、b = 5 と a = 3、b = 1 は 1つ目の式だけ満たし、2つ目の式を満たしません。","m":"解を代入して a、b の連立方程式を作る"},{"id":27,"k":"plan","ref":"想定問題","f":"方程式","t":"連立方程式の文章題（代金）","q":"1個 120 円のパンと1個 80 円のおにぎりを合わせて 15 個買ったところ、代金の合計は 1480 円でした。買ったパンとおにぎりの個数の組み合わせはどれですか。","c":["パン 7 個、おにぎり 8 個","パン 8 個、おにぎり 7 個","パン 6 個、おにぎり 9 個","パン 9 個、おにぎり 6 個"],"e":"パンを x 個、おにぎりを y 個とすると x + y = 15、120x + 80y = 1480 です。2つ目を40でわって 3x + 2y = 37、1つ目の2倍をひくと x = 7、y = 8 です。確かめると 840 + 640 = 1480 円です。パン 8 個・おにぎり 7 個では 960 + 560 = 1520 円、パン 6 個では 1440 円、パン 9 個では 1560 円となり合いません。","m":"個数の式と代金の式の2本を立てる"},{"id":28,"k":"plan","ref":"想定問題","f":"方程式","t":"連立方程式の文章題（割合）","q":"ある中学校の昨年の生徒数は、男子と女子を合わせて 500 人でした。今年は昨年に比べて男子が 5% 増え、女子が 4% 減ったので、全体では 7 人増えました。今年の男子の人数は何人ですか。","c":["315人","300人","210人","192人"],"e":"昨年の男子を x 人、女子を y 人とすると x + y = 500、0.05x − 0.04y = 7 です。2つ目を100倍して 5x − 4y = 700、1つ目の4倍をたすと 9x = 2700、x = 300、y = 200 です。今年の男子は 300 × 1.05 = 315（人）。300人は昨年の男子の人数で答えた誤り、210人は男女を取り違えて 200 × 1.05 とした値、192人は今年の女子の人数です。","m":"昨年を文字でおき、増減分の式を作る。何を答えるか確認"},{"id":29,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式（因数分解）","q":"2次方程式 x^2 − 3x − 28 = 0 の解はどれですか。","c":["x = 7、−4","x = −7、4","x = 7、4","x = 14、−2"],"e":"積が −28、和が −3 になる2数は −7 と 4 なので、(x − 7)(x + 4) = 0 と因数分解できます。よって x − 7 = 0 または x + 4 = 0 で、x = 7、−4 です。x = −7、4 は因数の中の数をそのまま解とした符号の誤り、x = 7、4 は −4 の符号を誤った値、x = 14、−2 は積が −28 にはなりますが和が 12 となり合いません。","m":"(x−a)(x−b)＝0 なら x＝a、b（符号が逆になる）"},{"id":30,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式（解の公式）","q":"2次方程式 2x^2 − 5x + 1 = 0 の解はどれですか。","c":["x = (5 ± √17)/4","x = (−5 ± √17)/4","x = (5 ± √17)/2","x = (5 ± √33)/4"],"e":"解の公式 x = {−b ± √(b^2 − 4ac)}/2a に a = 2、b = −5、c = 1 を代入します。b^2 − 4ac = 25 − 8 = 17 なので x = (5 ± √17)/4 です。(−5 ± √17)/4 は −b の符号の誤り、(5 ± √17)/2 は分母の 2a を 2 とした誤り、(5 ± √33)/4 は b^2 + 4ac と符号を誤った値です。","m":"解の公式：x＝{−b±√(b^2−4ac)}/2a"},{"id":31,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式（平方根の考え）","q":"2次方程式 (x − 3)^2 = 5 の解はどれですか。","c":["x = 3 ± √5","x = −3 ± √5","x = 8、−2","x = 3 + √5 のみ"],"e":"x − 3 は 2乗して 5 になる数なので x − 3 = ±√5、x = 3 ± √5 です。x = −3 ± √5 は −3 を移項するときに符号を変え忘れた誤り、x = 8、−2 は x − 3 = ±5 と √ をつけ忘れた誤りです。2乗して 5 になる数は正と負の2つあるので、x = 3 + √5 のみとするのも誤りです。","m":"(x+p)^2＝q なら x＋p＝±√q"},{"id":32,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式（式の整理）","q":"2次方程式 (x + 2)(x − 3) = 2x の解はどれですか。","c":["x = (3 ± √33)/2","x = (−3 ± √33)/2","x = 3、−2","x = 2、−3"],"e":"左辺を展開して x^2 − x − 6 = 2x、移項して x^2 − 3x − 6 = 0 です。解の公式より x = {3 ± √(9 + 24)}/2 = (3 ± √33)/2 です。(−3 ± √33)/2 は −b の符号の誤り、x = 3、−2 は右辺が 0 でないのに (x + 2)(x − 3) = 0 として解いた誤りです。x = 2、−3 は 2x を左辺へ移すときに符号を誤り、x^2 + x − 6 = 0 とした値です。","m":"右辺が0でなければ、展開して ax^2＋bx＋c＝0 に整理"},{"id":33,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式の解と係数","q":"x についての2次方程式 x^2 + ax − 12 = 0 の解の1つが 2 であるとき、a の値ともう1つの解の組み合わせはどれですか。","c":["a = 4、もう1つの解 −6","a = −4、もう1つの解 6","a = 4、もう1つの解 6","a = −4、もう1つの解 −6"],"e":"x = 2 を代入すると 4 + 2a − 12 = 0、a = 4 です。もとの方程式は x^2 + 4x − 12 = 0、(x − 2)(x + 6) = 0 となり、もう1つの解は −6 です。a = −4 は移項で符号を誤った値で、x = 2 を代入すると 4 − 8 − 12 ≠ 0 となります。a = 4 でもう1つの解を 6 とするのは、因数 (x + 6) から符号を逆にし忘れた誤りです。","m":"わかっている解を代入→係数→因数分解で残りの解"},{"id":34,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式の文章題（整数）","q":"連続する2つの正の整数があり、それぞれの2乗の和は 113 です。この2つの整数のうち、小さいほうはどれですか。","c":["7","8","6","−8"],"e":"小さいほうを n とすると n^2 + (n + 1)^2 = 113、2n^2 + 2n − 112 = 0、n^2 + n − 56 = 0、(n + 8)(n − 7) = 0 より n = 7、−8 です。n は正の整数なので n = 7 で、2つの整数は 7 と 8（49 + 64 = 113）です。8 は大きいほう、−8 は「正の整数」という条件で除くべき解、6 は 36 + 49 = 85 で合いません。","m":"2次方程式の文章題は解が条件に合うか必ず確かめる"},{"id":35,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式の文章題（図形）","q":"縦 20 m、横 30 m の長方形の土地に、縦と横に同じ幅の道を1本ずつ、それぞれ土地の辺に平行に端から端まで通します。道を除いた残りの土地の面積が 504 m^2 になるとき、道の幅は何 m ですか。","c":["2 m","48 m","4 m","3 m"],"e":"道を土地の端に寄せて考えると、残りの土地は縦 (20 − x) m、横 (30 − x) m の長方形になります。(20 − x)(30 − x) = 504 を整理すると x^2 − 50x + 96 = 0、(x − 2)(x − 48) = 0 で x = 2、48 です。0 < x < 20 なので 48 m は不適で、道の幅は 2 m です。4 m では 16 × 26 = 416 m^2、3 m では 17 × 27 = 459 m^2 となり合いません。","m":"道を端に寄せて考え、解の範囲を確かめる"},{"id":36,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式の文章題（数）","q":"ある正の数を2乗するところを、まちがえて2倍したため、正しい答えより 48 小さくなりました。もとの正の数はどれですか。","c":["8","6","−6","12"],"e":"もとの数を x とすると x^2 − 2x = 48、x^2 − 2x − 48 = 0、(x − 8)(x + 6) = 0 より x = 8、−6 です。x は正の数なので 8 が答えです（64 − 16 = 48）。6 は (x − 8)(x + 6) の符号を取り違えた値で、36 − 12 = 24 となり合いません。−6 は正の数という条件に合いません。12 は 144 − 24 = 120 で合いません。","m":"正しい答え−誤った答え＝48 の式を立てる"},{"id":37,"k":"plan","ref":"想定問題","f":"方程式","t":"1次方程式の文章題（過不足）","q":"何人かの生徒に鉛筆を配ります。1人に4本ずつ配ると 9 本余り、5本ずつ配ると 6 本たりません。鉛筆は全部で何本ありますか。","c":["69本","15本","81本","51本"],"e":"生徒を x 人とすると、鉛筆の本数は 4x + 9 とも 5x − 6 とも表せるので、4x + 9 = 5x − 6、x = 15 です。鉛筆は 4 × 15 + 9 = 69（本）で、5 × 15 − 6 = 69 とも一致します。15本は生徒の人数を答えた誤り、81本は 5 × 15 + 6 と「たりない」を足した誤り、51本は 4 × 15 − 9 と「余る」を引いた誤りです。","m":"同じ数量を2通りに表して＝で結ぶ"},{"id":38,"k":"plan","ref":"想定問題","f":"方程式","t":"連立方程式の文章題（速さ）","q":"A地点から 12 km はなれた B地点まで行くのに、途中の P地点までは時速 4 km で歩き、P地点から B地点までは時速 8 km で走ったところ、全体で 2 時間かかりました。A地点から P地点までの道のりは何 km ですか。","c":["4 km","8 km","6 km","3 km"],"e":"AP を x km、PB を y km とすると x + y = 12、x/4 + y/8 = 2 です。2つ目を8倍して 2x + y = 16、1つ目をひくと x = 4、y = 8 です。8 km は走った道のり（PB）を答えた誤りです。6 km では 1.5 + 0.75 = 2.25 時間、3 km では 0.75 + 1.125 = 1.875 時間となり、2 時間になりません。","m":"道のりの式と時間の式の2本を立てる"},{"id":39,"k":"plan","ref":"想定問題","f":"方程式","t":"2次方程式の解（正誤）","q":"2次方程式について述べた次の文のうち、正しくないものはどれですか。","c":["x^2 = 5x の解は x = 5 だけである","x^2 − 6x + 9 = 0 の解は x = 3 だけである","x^2 = 7 の解は x = ±√7 である","(x + 1)(x − 4) = 0 の解は x = −1、4 である"],"e":"x^2 = 5x を両辺 x でわると x = 0 の解を失います。正しくは x^2 − 5x = 0、x(x − 5) = 0 より x = 0、5 の2つです。x^2 − 6x + 9 = (x − 3)^2 = 0 の解は 3 だけ、x^2 = 7 の解は ±√7、(x + 1)(x − 4) = 0 の解は −1、4 で、いずれも正しい文です。","m":"文字を含む式で両辺をわると解を失う。移項して因数分解"},{"id":40,"k":"plan","ref":"想定問題","f":"方程式","t":"A＝B＝C の形の連立方程式","q":"方程式 2x + y = x − 3y = 7 の解はどれですか。","c":["x = 4、y = −1","x = −1、y = 4","x = 4、y = 1","x = 2、y = 3"],"e":"A = B = C の形の方程式は、2x + y = 7 と x − 3y = 7 の連立方程式として解きます。2つ目より x = 3y + 7、これを1つ目に代入して 6y + 14 + y = 7、y = −1、x = 4 です。x = −1、y = 4 は x と y を取り違えた値、x = 4、y = 1 は y の符号の誤りです。x = 2、y = 3 は 2x + y = 7 は満たしますが x − 3y = −7 となり合いません。","m":"A＝B＝C は A＝C、B＝C の2式に分ける"},{"id":41,"k":"plan","ref":"想定問題","f":"関数","t":"比例","q":"y は x に比例し、x = −3 のとき y = 12 です。x = 5 のときの y の値はどれですか。","c":["−20","20","−5/4","−36/5"],"e":"y = ax とおいて x = −3、y = 12 を代入すると 12 = −3a、a = −4 なので y = −4x です。x = 5 のとき y = −20 です。20 は比例定数の符号を誤った値、−5/4 は a = x ÷ y = −1/4 と逆にわった誤り、−36/5 は反比例と取り違えて a = xy = −36、y = −36/5 とした誤りです。","m":"比例 y＝ax、a＝y÷x"},{"id":42,"k":"plan","ref":"想定問題","f":"関数","t":"反比例","q":"y は x に反比例し、x = 4 のとき y = −6 です。x = −3 のときの y の値はどれですか。","c":["8","−8","9/2","−9/2"],"e":"y = a/x とおくと a = xy = 4 × (−6) = −24 なので y = −24/x です。x = −3 のとき y = −24/(−3) = 8 です。−8 は負の数どうしのわり算で符号を誤った値です。9/2 は比例と取り違えて y = −3x/2 とし x = −3 を代入した値、−9/2 はそれにさらに符号を誤った値です。","m":"反比例 y＝a/x、a＝xy（積が一定）"},{"id":43,"k":"plan","ref":"想定問題","f":"関数","t":"反比例のグラフと格子点","q":"反比例 y = 12/x のグラフ上の点のうち、x 座標、y 座標がともに整数である点は全部で何個ありますか。","c":["12個","6個","8個","4個"],"e":"x が 12 の約数のとき y も整数になります。12 の正の約数は 1、2、3、4、6、12 の6個で、x が負の約数 −1、−2、−3、−4、−6、−12 のときも y は整数です（例：(−3, −4)）。よって 6 × 2 = 12 個です。6個は反比例のグラフが x < 0 の側にもあることを忘れ、x > 0 の部分だけを数えた誤りです。8個は約数 1 と 12（点 (1, 12)、(12, 1) など）を数え落とした誤り、4個は x > 0 だけを数えたうえに 1 と 12 も落とした誤りです。","m":"反比例のグラフは x＜0 の側にもある"},{"id":44,"k":"plan","ref":"想定問題","f":"関数","t":"1次関数の式（2点）","q":"2点 (−1, 5)、(3, −3) を通る直線の式はどれですか。","c":["y = −2x + 3","y = 2x + 7","y = −2x + 7","y = −x/2 + 9/2"],"e":"傾きは (−3 − 5)/(3 − (−1)) = −8/4 = −2 です。y = −2x + b に (−1, 5) を代入して 5 = 2 + b、b = 3 となり y = −2x + 3 です。y = 2x + 7 は傾きの符号を誤った式、y = −2x + 7 は b を求めるとき 5 = −2 + b と代入の符号を誤った式、y = −x/2 + 9/2 は傾きを x の増加量 ÷ y の増加量と逆にした式です。","m":"傾き＝yの増加量÷xの増加量"},{"id":45,"k":"plan","ref":"想定問題","f":"関数","t":"1次関数の増加量","q":"1次関数 y = −3x + 5 で、x の値が 2 から 6 まで増加するとき、y の増加量はどれですか。","c":["−12","−3","12","−13"],"e":"y の増加量 = 変化の割合 × x の増加量 = −3 × (6 − 2) = −12 です。実際に x = 2 で y = −1、x = 6 で y = −13 なので −13 − (−1) = −12 と確かめられます。−3 は変化の割合（傾き）そのもの、12 は符号の誤り、−13 は x = 6 のときの y の値そのものを答えた誤りです。","m":"yの増加量＝傾き×xの増加量"},{"id":46,"k":"plan","ref":"想定問題","f":"関数","t":"平行な直線","q":"直線 y = 2x − 1 に平行で、点 (3, 4) を通る直線の式はどれですか。","c":["y = 2x − 2","y = 2x + 10","y = −x/2 + 11/2","y = 2x − 1"],"e":"平行な直線は傾きが等しいので y = 2x + b とおき、(3, 4) を代入すると 4 = 6 + b、b = −2 です。よって y = 2x − 2 です。y = 2x + 10 は b = 4 + 6 と移項の符号を誤った式、y = −x/2 + 11/2 は傾きを −1/2 にしたもので平行になりません（垂直に交わる直線）。y = 2x − 1 はもとの直線そのもので、点 (3, 4) を通りません。","m":"平行⇔傾きが等しい。通る点を代入して切片を求める"},{"id":47,"k":"plan","ref":"想定問題","f":"関数","t":"2直線の交点","q":"2直線 y = −x + 7 と y = 2x − 5 の交点の座標はどれですか。","c":["(4, 3)","(3, 4)","(2, 5)","(4, −3)"],"e":"交点の座標は2つの式を連立方程式として解いて求めます。−x + 7 = 2x − 5 より 3x = 12、x = 4、y = −4 + 7 = 3 なので交点は (4, 3) です。(3, 4) は x 座標と y 座標を逆にした誤りです。(2, 5) は y = −x + 7 上にはありますが y = 2x − 5 上にはありません。(4, −3) は y の符号を誤った値です。","m":"交点の座標＝連立方程式の解"},{"id":48,"k":"plan","ref":"想定問題","f":"関数","t":"1次関数の変域","q":"1次関数 y = −2x + 3 で、x の変域が −1 ≦ x ≦ 4 のとき、y の変域はどれですか。","c":["−5 ≦ y ≦ 5","−5 < y < 5","1 ≦ y ≦ 11","−5 ≦ y ≦ 1"],"e":"傾きが負なので、x が大きいほど y は小さくなります。x = −1 のとき y = −2 × (−1) + 3 = 5、x = 4 のとき y = −2 × 4 + 3 = −5 なので −5 ≦ y ≦ 5 です。−5 < y < 5 は x の変域が両端をふくむ（≦）のに y の変域で等号を落とした誤り、1 ≦ y ≦ 11 は傾きを +2 として計算した誤り、−5 ≦ y ≦ 1 は x = −1 を代入するときに −2 × (−1) を −2 と符号を誤った値です。","m":"端の x の値を代入し、小さいほうから書く"},{"id":49,"k":"plan","ref":"想定問題","f":"関数","t":"2乗に比例する関数","q":"y は x の2乗に比例し、x = −2 のとき y = 12 です。x = 3 のときの y の値はどれですか。","c":["27","18","−27","9"],"e":"y = ax^2 とおくと 12 = a × (−2)^2 = 4a、a = 3 なので y = 3x^2 です。x = 3 のとき y = 3 × 9 = 27 です。18 は x^2 を 2x と計算して 3 × (2 × 3) とした誤り、−27 は (−2)^2 を −4 として a = −3 とした誤り、9 は a を求めずに x^2 だけを計算した誤りです。","m":"y＝ax^2、a＝y÷x^2"},{"id":50,"k":"plan","ref":"想定問題","f":"関数","t":"y＝ax^2 の変域","q":"関数 y = 2x^2 で、x の変域が −2 ≦ x ≦ 3 のとき、y の変域はどれですか。","c":["0 ≦ y ≦ 18","8 ≦ y ≦ 18","−8 ≦ y ≦ 18","0 ≦ y ≦ 8"],"e":"x の変域に 0 がふくまれるので、y の最小値は x = 0 のときの 0 です。最大値は x の絶対値が大きい x = 3 のときの 2 × 9 = 18 です。よって 0 ≦ y ≦ 18 です。8 ≦ y ≦ 18 は両端の値だけで判断した誤り、−8 ≦ y ≦ 18 は (−2)^2 を −4 とした誤り、0 ≦ y ≦ 8 は x = −2 のときを最大とした誤りです。","m":"xの変域が0をまたぐとき、最小（最大）は0"},{"id":51,"k":"plan","ref":"想定問題","f":"関数","t":"変域から比例定数","q":"関数 y = ax^2 で、x の変域が −3 ≦ x ≦ 2 のとき、y の変域は 0 ≦ y ≦ 18 です。a の値はどれですか。","c":["2","9/2","6","−2"],"e":"y の変域が 0 以上なので a > 0 です。y が最大になるのは x の絶対値が最も大きい x = −3 のときなので、18 = a × 9、a = 2 です。9/2 は x = 2 のときに最大になると考えて 18 = 4a とした誤り、6 は 18 = 3a と2乗し忘れた誤り、−2 は y が 0 以上であることに反します。","m":"最大値はxの絶対値が最大のところでとる"},{"id":52,"k":"plan","ref":"想定問題","f":"関数","t":"y＝ax^2 の変化の割合","q":"関数 y = 2x^2 で、x の値が 1 から 4 まで増加するときの変化の割合はどれですか。","c":["10","30","6","32"],"e":"変化の割合 = y の増加量 ÷ x の増加量 = (32 − 2) ÷ (4 − 1) = 30 ÷ 3 = 10 です（a(p + q) = 2 × 5 = 10 とも求められます）。30 は y の増加量そのもの、6 は 2 × (4 − 1) と1次関数のように考えた誤り、32 は x = 4 のときの y の値をそのまま答えた誤りです。y = ax^2 の変化の割合は一定ではありません。","m":"変化の割合＝yの増加量÷xの増加量（＝a(p＋q)）"},{"id":53,"k":"plan","ref":"想定問題","f":"関数","t":"変化の割合の比較","q":"関数 y = ax^2 で、x の値が 2 から 6 まで増加するときの変化の割合が、1次関数 y = 4x + 1 の変化の割合と等しくなりました。a の値はどれですか。","c":["1/2","2","1/8","1"],"e":"1次関数 y = 4x + 1 の変化の割合はつねに 4 です。y = ax^2 で x が 2 から 6 まで増加するときの変化の割合は (36a − 4a)/(6 − 2) = 8a なので、8a = 4、a = 1/2 です。2 は 8a = 4 を a = 8 ÷ 4 と逆にわった誤り、1/8 は x の増加量でわり忘れて 32a = 4 とした誤り、1 は変化の割合を a × (6 − 2) = 4a とした誤りです。","m":"1次関数の変化の割合＝傾き（一定）"},{"id":54,"k":"plan","ref":"想定問題","f":"関数","t":"放物線と直線・三角形の面積","q":"放物線 y = x^2 と直線 y = x + 6 の2つの交点を A、B とし、原点を O とします。△OAB の面積はどれですか。","c":["15","30","9","6"],"e":"x^2 = x + 6 より x^2 − x − 6 = 0、(x − 3)(x + 2) = 0 で、交点は A(−2, 4)、B(3, 9) です。直線と y 軸の交点 C(0, 6) で △OAB を △OAC と △OBC に分けると、OC = 6 を底辺として 6 × 2 ÷ 2 + 6 × 3 ÷ 2 = 6 + 9 = 15 です。30 は ÷ 2 を忘れた値、9 は △OBC だけ、6 は △OAC だけの面積です。","m":"y軸上の点で2つの三角形に分ける"},{"id":55,"k":"plan","ref":"想定問題","f":"関数","t":"放物線上の2点を通る直線","q":"放物線 y = x^2/2 上に、x 座標がそれぞれ −2、4 である点 A、B があります。2点 A、B を通る直線の式はどれですか。","c":["y = x + 4","y = 3x − 4","y = −x + 4","y = x − 4"],"e":"A(−2, 2)、B(4, 8) です。傾きは (8 − 2)/(4 − (−2)) = 1 なので y = x + b とおき、B を代入して 8 = 4 + b、b = 4、y = x + 4 です。y = 3x − 4 は傾きの分母を 4 − 2 = 2 とした誤り、y = −x + 4 は傾きの符号を誤った式、y = x − 4 は 8 = 4 + b の移項で符号を誤った式です。いずれも A、B の両方は通りません。","m":"放物線上の点の座標を出し、2点を通る直線を求める"},{"id":56,"k":"plan","ref":"想定問題","f":"関数","t":"1次関数の利用（水そう）","q":"水が 20 L 入っている水そうに、毎分 3 L の割合で水を入れます。この水そうは 80 L で満水になります。水を入れ始めてから満水になるまでに何分かかりますか。","c":["20分","26分40秒","33分20秒","60分"],"e":"x 分後の水の量を y L とすると y = 3x + 20 です。y = 80 とすると 3x = 60、x = 20（分）です。26分40秒（80 ÷ 3 分）は、はじめに入っていた 20 L を考えなかった誤り、33分20秒（100 ÷ 3 分）は 20 L を逆に足した誤り、60分は増やす水の量 60 L をそのまま時間とした誤りです。","m":"y＝（割合）x＋（はじめの量）"},{"id":57,"k":"plan","ref":"想定問題","f":"関数","t":"1次関数の利用（料金）","q":"電話料金のプランAは基本料金 1000 円に通話1分につき 20 円、プランBは基本料金 2500 円に通話1分につき 5 円がかかります。通話時間が何分をこえると、プランBのほうが安くなりますか。","c":["100分","75分","300分","60分"],"e":"通話時間を x 分とすると、Aの料金は 1000 + 20x 円、Bの料金は 2500 + 5x 円です。等しくなるのは 1000 + 20x = 2500 + 5x、15x = 1500、x = 100 のときで、これをこえるとBのほうが安くなります。75分は 1500 ÷ 20、300分は 1500 ÷ 5、60分は 1500 ÷ 25 と、1分あたりの差 15 円を使わなかった誤りです。","m":"2つの式が等しくなる点（グラフの交点）が境目"},{"id":58,"k":"plan","ref":"想定問題","f":"関数","t":"1次関数の利用（動点）","q":"長方形 ABCD で AB = 6 cm、BC = 8 cm です。点 P は B を出発し、辺 BC 上を毎秒 2 cm の速さで C まで動きます。P が B を出発してから x 秒後の △ABP の面積を y cm^2 とするとき、y を x の式で表したものと x の変域の組み合わせはどれですか。","c":["y = 6x（0 ≦ x ≦ 4）","y = 6x（0 ≦ x ≦ 8）","y = 12x（0 ≦ x ≦ 4）","y = 3x（0 ≦ x ≦ 8）"],"e":"x 秒後の BP = 2x cm です。△ABP は AB と BP を直角をはさむ2辺とする直角三角形なので y = 6 × 2x ÷ 2 = 6x です。P が C に着くのは 8 ÷ 2 = 4 秒後なので変域は 0 ≦ x ≦ 4 です。0 ≦ x ≦ 8 は BC の長さをそのまま秒数とした誤り、y = 12x は ÷ 2 を忘れた誤り、y = 3x は BP を x cm とした誤りです。","m":"動点は「x秒後の長さ」を式にし、変域も確認"},{"id":59,"k":"plan","ref":"想定問題","f":"関数","t":"y＝ax^2 のグラフの性質","q":"関数 y = ax^2 のグラフについて述べた次の文のうち、正しくないものはどれですか。","c":["a > 0 のとき、x の値が増加すると y の値はつねに増加する","グラフは y 軸について対称である","a < 0 のとき、グラフは原点を除いて x 軸の下側にある","a の絶対値が大きいほど、グラフの開き方は小さくなる"],"e":"a > 0 のとき、x < 0 の範囲では x が増加すると y は減少し、x > 0 の範囲で増加します（例：y = x^2 で x が −2 から −1 になると y は 4 から 1 に減る）。よって「つねに増加する」は誤りです。グラフが y 軸について対称であること、a < 0 で下に開き x 軸の下側にあること、|a| が大きいほど開き方が小さいことは、どれも正しい性質です。","m":"放物線は x＝0 を境に増減が入れかわる"},{"id":60,"k":"plan","ref":"想定問題","f":"関数","t":"1次関数のグラフ（正誤）","q":"1次関数 y = −2x + 4 のグラフについて述べた次の文のうち、正しくないものはどれですか。","c":["x 軸と点 (−2, 0) で交わる","傾きは −2 である","y 軸と点 (0, 4) で交わる","x の値が 1 増加すると、y の値は 2 減少する"],"e":"x 軸との交点は y = 0 として 0 = −2x + 4、x = 2 なので (2, 0) です。(−2, 0) は −2x = −4 を解くときに符号を誤った値で、x = −2 を代入すると y = 8 になります。傾きが −2 であること、切片が 4 で y 軸と (0, 4) で交わること、x が 1 増えると y が 2 減ることは、どれも正しい文です。","m":"x軸との交点は y＝0、y軸との交点は x＝0 を代入"},{"id":61,"k":"plan","ref":"想定問題","f":"平面図形","t":"多角形の角","q":"正八角形の1つの内角の大きさは何度ですか。","c":["135°","120°","144°","1080°"],"e":"n角形の内角の和は180°×(n−2)なので、八角形では180°×6＝1080°です。正八角形は8つの内角が等しいので、1つの内角は1080°÷8＝135°です。外角から考えると360°÷8＝45°、180°−45°＝135°でも求められます。120°は正六角形、144°は正十角形の内角です。1080°は内角の和で、8でわり忘れた値です。","m":"正n角形の1つの外角は360°÷n、内角は180°−外角"},{"id":62,"k":"plan","ref":"想定問題","f":"平面図形","t":"多角形の角","q":"1つの外角が24°である正多角形があります。この正多角形の内角の和は何度ですか。","c":["2340°","2700°","2520°","360°"],"e":"多角形の外角の和はいつも360°なので、360°÷24°＝15より正十五角形です。内角の和は180°×(15−2)＝2340°です。2700°は180°×15と、2をひき忘れた値です。2520°は180°×14と、ひく数をまちがえた値です。360°は外角の和で、内角の和ではありません。","m":"外角の和は360°→n＝360÷外角、内角の和は180(n−2)"},{"id":63,"k":"plan","ref":"想定問題","f":"平面図形","t":"二等辺三角形の角","q":"AB＝ACの二等辺三角形ABCで、∠BAC＝40°です。辺AC上に、BD＝BCとなる点D（Cとは異なる点）をとります。このとき、∠ABDの大きさは何度ですか。","c":["30°","40°","35°","20°"],"e":"AB＝ACより∠ABC＝∠ACB＝(180°−40°)÷2＝70°です。BD＝BCより△BCDも二等辺三角形で、∠BDC＝∠BCD＝70°なので、∠DBC＝180°−70°×2＝40°です。よって∠ABD＝70°−40°＝30°です。40°は∠DBCの大きさで、答えを取りちがえた値です。35°や20°は、二等辺三角形の底角を正しく求めていないときに出る値です。","m":"二等辺三角形は底角が等しい。等しい辺を見つけるたびに底角を書きこむ"},{"id":64,"k":"plan","ref":"想定問題","f":"平面図形","t":"円周角と中心角","q":"円Oの周上に2点A、Bがあり、∠AOB＝110°です。点Dは、2点A、Bで分けられる2つの弧のうち短いほうの弧の上（A、Bとは異なる点）にあります。このとき、∠ADBの大きさは何度ですか。","c":["125°","55°","110°","135°"],"e":"長いほうの弧の上に点Cをとると、∠ACB＝110°÷2＝55°です。四角形ACBDは円に内接するので、向かい合う角の和は180°となり、∠ADB＝180°−55°＝125°です。別の考え方として、点Dに対する弧（長いほうの弧）の中心角は360°−110°＝250°なので、その半分で125°です。55°は長い弧の上の点の円周角、110°は中心角そのもの、135°は計算ミスの値です。","m":"円周角は同じ弧に対する中心角の半分。弧のとり方に注意"},{"id":65,"k":"plan","ref":"想定問題","f":"平面図形","t":"円周角と弧","q":"円周を9等分する点を、順にA1、A2、A3、…、A9とします。このとき、∠A1A4A6の大きさは何度ですか。","c":["80°","160°","40°","100°"],"e":"円周を9等分しているので、1つの弧に対する中心角は360°÷9＝40°、円周角は20°です。∠A1A4A6は、点A4をふくまない弧A6A1（A6→A7→A8→A9→A1）に対する円周角で、この弧は等分した弧4つ分です。よって20°×4＝80°です。160°は中心角の大きさで、半分にし忘れた値です。40°や100°は、弧の数え方をまちがえた値です。","m":"円周角の大きさは弧の長さに比例する"},{"id":66,"k":"plan","ref":"想定問題","f":"平面図形","t":"接線と円周角","q":"円Oの外部の点Pから円Oに2本の接線をひき、接点をA、Bとすると、∠APB＝50°でした。点Cを、2点A、Bで分けられる2つの弧のうち長いほうの弧の上にとります。このとき、∠ACBの大きさは何度ですか。","c":["65°","50°","130°","25°"],"e":"円の接線は接点を通る半径に垂直なので、∠OAP＝∠OBP＝90°です。四角形OAPBの内角の和は360°なので、∠AOB＝360°−90°×2−50°＝130°です。∠ACBは短いほうの弧ABに対する円周角なので、130°÷2＝65°です。50°は∠APBと同じと考えた誤り、130°は中心角そのもの、25°は∠APBを半分にした誤りです。","m":"接線⊥半径。四角形OAPBで∠AOB＋∠APB＝180°"},{"id":67,"k":"plan","ref":"想定問題","f":"平面図形","t":"平行線と線分の比","q":"△ABCで、AB＝9 cm、BC＝12 cmです。辺AB上にAD＝6 cmとなる点Dをとり、Dを通り辺BCに平行な直線と辺ACとの交点をEとします。線分DEの長さは何cmですか。","c":["8 cm","6 cm","4 cm","9 cm"],"e":"DE∥BCなので△ADE∽△ABCで、相似比はAD：AB＝6：9＝2：3です。よってDE＝12×2/3＝8 cmです。4 cmはDB：AB＝3：9＝1：3を使ってしまった値です。6 cmはAD：DB＝2：1を使ってBC×1/2とした値です。9 cmはABの長さと取りちがえた値です。","m":"DE∥BCならAD：AB＝DE：BC（AD：DBではない）"},{"id":68,"k":"plan","ref":"想定問題","f":"平面図形","t":"中点連結定理","q":"AD∥BCの台形ABCDで、AD＝6 cm、BC＝14 cmです。辺ABの中点をM、辺CDの中点をNとします。線分MNの長さは何cmですか。","c":["10 cm","8 cm","7 cm","20 cm"],"e":"対角線ACとMNの交点をPとすると、△ABCで中点連結定理よりMP＝BC÷2＝7 cm、△CDAでPN＝AD÷2＝3 cmです。よってMN＝7＋3＝10 cmで、これは(AD＋BC)÷2と同じです。7 cmはBCの半分だけ、8 cmは差の14−6を使った値、20 cmは和を2でわり忘れた値です。","m":"台形の両脚の中点を結ぶ線分＝(上底＋下底)÷2"},{"id":69,"k":"plan","ref":"想定問題","f":"平面図形","t":"角の二等分線と比","q":"△ABCで、AB＝8 cm、AC＝6 cm、BC＝7 cmです。∠BACの二等分線と辺BCとの交点をDとします。線分BDの長さは何cmですか。","c":["4 cm","3 cm","7/2 cm","24/7 cm"],"e":"三角形の角の二等分線は、向かい合う辺を、角をはさむ2辺の比に分けます。BD：DC＝AB：AC＝8：6＝4：3なので、BD＝7×4/7＝4 cmです。3 cmはDCの長さです。7/2 cmは二等分線が辺の中点を通ると考えた誤りです。24/7 cmはAB×AC÷(AB＋AC)＝48/14と、比ではなく積を使ってしまった値です。","m":"角の二等分線：BD：DC＝AB：AC"},{"id":70,"k":"plan","ref":"想定問題","f":"平面図形","t":"相似と面積比","q":"△ABCの辺AB上に点Dを、辺AC上に点Eを、DE∥BCとなるようにとると、AD：DB＝2：1でした。△ADEの面積が12 cm²のとき、四角形DBCEの面積は何cm²ですか。","c":["15 cm²","27 cm²","6 cm²","18 cm²"],"e":"△ADE∽△ABCで、相似比はAD：AB＝2：3なので、面積比は2²：3²＝4：9です。△ABC＝12×9/4＝27 cm²なので、四角形DBCE＝27−12＝15 cm²です。27 cm²は△ABC全体の面積で、△ADEをひき忘れた値です。18 cm²は面積比を相似比と同じ2：3と考えて求めた△ABCの面積（12×3/2）、6 cm²はそこから12をひいた値です。","m":"相似比a：bなら面積比はa²：b²"},{"id":71,"k":"plan","ref":"想定問題","f":"平面図形","t":"高さが等しい三角形の面積比","q":"面積が60 cm²の△ABCがあります。辺BC上にBD：DC＝2：3となる点Dをとり、線分AD上にAE：ED＝3：1となる点Eをとります。△EBDの面積は何cm²ですか。","c":["6 cm²","9 cm²","18 cm²","8 cm²"],"e":"高さが等しい三角形の面積は底辺の比になります。△ABD＝60×2/5＝24 cm²です。△EBDと△ABDは頂点Bを共有し、底辺EDとADが同じ直線上にあるので、△EBD＝24×1/4＝6 cm²です。9 cm²は△ECDの面積（60×3/5×1/4）です。18 cm²はAE：ADの3/4を使った△ABEの面積、8 cm²は1/3をかけた誤りです。","m":"高さが同じ三角形は底辺の比＝面積比"},{"id":72,"k":"plan","ref":"想定問題","f":"平面図形","t":"平行四辺形と相似","q":"平行四辺形ABCDで、辺AD上にAE：ED＝2：1となる点Eをとります。線分BEと対角線ACの交点をFとするとき、AF：FCを最も簡単な整数の比で表したものはどれですか。","c":["2：3","2：1","1：2","3：5"],"e":"AD∥BCなので、△AFEと△CFBは2組の角がそれぞれ等しく相似です。よってAF：FC＝AE：CBです。AE＝AD×2/3、CB＝ADなので、AE：CB＝2：3となり、AF：FC＝2：3です。2：1はAE：EDをそのまま使った誤りです。1：2や3：5は、相似な三角形の対応する辺を取りちがえたときに出る比です。","m":"平行線で「ちょうちょ形」の相似を見つける"},{"id":73,"k":"plan","ref":"想定問題","f":"平面図形","t":"平行四辺形になる条件","q":"四角形ABCDについて、次の条件のうち、四角形ABCDが平行四辺形になるとはかぎらないものはどれですか。","c":["AB∥DC、AD＝BC","AB∥DC、AB＝DC","対角線ACとBDが、それぞれの中点で交わる","∠A＝∠C、∠B＝∠D"],"e":"「1組の対辺が平行で、もう1組の対辺が等しい」だけでは、等脚台形（AB∥DCで、AD＝BCの台形）の場合があるので、平行四辺形とはかぎりません。「1組の対辺が平行でその長さが等しい」「対角線がそれぞれの中点で交わる」「2組の対角がそれぞれ等しい」は、どれも平行四辺形になるための条件です。","m":"平行と長さは「同じ1組の対辺」でそろえる"},{"id":74,"k":"plan","ref":"想定問題","f":"平面図形","t":"三角形の合同条件","q":"2つの三角形が合同であるといえる条件として、正しくないものはどれですか。","c":["3組の角がそれぞれ等しい","3組の辺がそれぞれ等しい","2組の辺とその間の角がそれぞれ等しい","1組の辺とその両端の角がそれぞれ等しい"],"e":"三角形の合同条件は「3組の辺がそれぞれ等しい」「2組の辺とその間の角がそれぞれ等しい」「1組の辺とその両端の角がそれぞれ等しい」の3つです。「3組の角がそれぞれ等しい」場合は、形は同じでも大きさがちがうことがあるので、合同とはいえません（2組の角が等しければ相似になります）。","m":"角だけそろっても相似どまり。合同には辺が必要"},{"id":75,"k":"plan","ref":"想定問題","f":"平面図形","t":"おうぎ形の弧と面積","q":"半径6 cm、中心角120°のおうぎ形の弧の長さは何cmですか。ただし、円周率はπとします。","c":["4π cm","12π cm","2π cm","8π cm"],"e":"おうぎ形の弧の長さは2π×半径×(中心角/360°)なので、2π×6×120/360＝4π cmです。12π cmは面積の式π×6²×120/360で計算した値（面積は12π cm²）です。2π cmは2をかけ忘れた値、8π cmは中心角の割合を2/3と考えた誤りです。","m":"弧＝2πr×a/360、面積＝πr²×a/360"},{"id":76,"k":"plan","ref":"想定問題","f":"平面図形","t":"おうぎ形の中心角","q":"半径8 cmで、面積が24π cm²のおうぎ形の中心角は何度ですか。ただし、円周率はπとします。","c":["135°","120°","150°","108°"],"e":"おうぎ形の面積は、同じ半径の円の面積π×8²＝64π cm²に、中心角/360°をかけたものです。24π/64π＝3/8なので、中心角は360°×3/8＝135°です。別の求め方として、面積＝1/2×弧の長さ×半径から弧の長さは6π cmで、6π/16π×360°＝135°と求めることもできます。ほかの値は割合の計算をまちがえたものです。","m":"中心角＝360°×(おうぎ形の面積/円の面積)"},{"id":77,"k":"plan","ref":"想定問題","f":"平面図形","t":"円と相似","q":"円の2つの弦ABとCDが、円の内部の点Pで交わっています。PA＝4 cm、PB＝6 cm、PC＝3 cmのとき、線分PDの長さは何cmですか。","c":["8 cm","9/2 cm","2 cm","7 cm"],"e":"△PACと△PDBで、対頂角より∠APC＝∠DPB、弧BCに対する円周角より∠PAC＝∠PDBなので、△PAC∽△PDBです。よってPA：PD＝PC：PBとなり、4：PD＝3：6、PD＝8 cmです（PA×PB＝PC×PDとも表せます）。9/2 cmはPA：PC＝PB：PDと対応をまちがえた値、2 cmはPA×PC÷PB（4×3÷6）と組み合わせをまちがえた値、7 cmは4＋6−3と長さの和で考えた誤りです。","m":"交わる弦はPA×PB＝PC×PD（相似から導く）"},{"id":78,"k":"plan","ref":"想定問題","f":"平面図形","t":"作図","q":"3点A、B、Cを通る円の中心Oを作図する方法として、正しいものはどれですか。ただし、3点A、B、Cは一直線上にはないものとします。","c":["線分ABの垂直二等分線と、線分BCの垂直二等分線の交点をOとする","∠ABCの二等分線と、∠BCAの二等分線の交点をOとする","線分ABの中点と点C、線分BCの中点と点Aをそれぞれ結んだ線の交点をOとする","点Aから辺BCへの垂線と、点Cから辺ABへの垂線の交点をOとする"],"e":"円の中心Oは、A、B、Cのどれからも等しい距離にあります。2点A、Bから等しい距離にある点の集まりは線分ABの垂直二等分線なので、ABとBCの垂直二等分線の交点が中心です（外心）。角の二等分線の交点は3辺から等しい距離にある点（内心）、中線の交点は重心、垂線の交点は垂心で、いずれも一般には円の中心になりません。","m":"2点から等しい距離→垂直二等分線、2辺から等しい距離→角の二等分線"},{"id":79,"k":"plan","ref":"想定問題","f":"平面図形","t":"図形の移動","q":"座標平面上の点P(3, 1)を、原点Oを中心として反時計回りに90°回転移動させた点の座標はどれですか。","c":["(−1, 3)","(1, −3)","(−3, −1)","(−3, 1)"],"e":"点(a, b)を原点のまわりに反時計回りに90°回すと(−b, a)に移ります。よってP(3, 1)は(−1, 3)に移ります。OP＝√10、移った点までの距離も√10で、2つのベクトルが垂直になっていることで確かめられます。(1, −3)は時計回りに90°回した点、(−3, −1)は180°回した点（原点について対称な点）、(−3, 1)はy軸について対称移動した点です。","m":"反時計回り90°：(a, b)→(−b, a)"},{"id":80,"k":"plan","ref":"想定問題","f":"平面図形","t":"正五角形と星形","q":"正五角形ABCDEで、対角線ACとADをひきます。このとき、∠CADの大きさは何度ですか。","c":["36°","72°","108°","54°"],"e":"正五角形の1つの内角は180°×3÷5＝108°です。△ABCはBA＝BCの二等辺三角形なので∠BAC＝(180°−108°)÷2＝36°、同じように∠EAD＝36°です。よって∠CAD＝108°−36°×2＝36°です。正五角形は円に内接し、弧CDは円周の1/5なので、円周角は360°÷5÷2＝36°と求めることもできます。108°は内角、72°は外角、54°は計算ミスの値です。","m":"正五角形の頂点からの対角線は内角108°を36°ずつ3等分"},{"id":81,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"三平方の定理","q":"直角三角形で、斜辺の長さが8 cm、ほかの1辺の長さが4 cmのとき、残りの1辺の長さは何cmですか。","c":["4√3 cm","4√5 cm","4√2 cm","12 cm"],"e":"三平方の定理より、残りの辺をx cmとすると、x²＋4²＝8²、x²＝64−16＝48、x＝4√3です。4√5 cmは8を斜辺でなく直角をはさむ辺と考えて√(64＋16)を計算した値です。4√2 cmは直角二等辺三角形と思いこんだ値、12 cmは2辺の長さをたした誤りです。","m":"斜辺がどれかを確かめてから a²＋b²＝c²"},{"id":82,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"特別な直角三角形","q":"∠B＝90°、∠A＝30°の直角三角形ABCで、斜辺ACの長さが10 cmです。辺ABの長さは何cmですか。","c":["5√3 cm","5 cm","10√3 cm","5√2 cm"],"e":"30°、60°、90°の直角三角形の3辺の比は1：2：√3です。∠A＝30°なので、その向かいの辺BCが最も短く、BC＝10÷2＝5 cmです。ABは∠C＝60°の向かいの辺なので、AB＝5√3 cmです。5 cmはBCの長さ、10√3 cmは斜辺に√3をかけた誤り、5√2 cmは直角二等辺三角形の比を使った誤りです。","m":"30°の向かい：斜辺：60°の向かい＝1：2：√3"},{"id":83,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"正三角形の高さと面積","q":"1辺の長さが6 cmの正三角形の面積は何cm²ですか。","c":["9√3 cm²","18√3 cm²","18 cm²","9√2 cm²"],"e":"正三角形の頂点から底辺に垂線をひくと、底辺は3 cmずつに分かれ、高さは√(6²−3²)＝√27＝3√3 cmです。面積は6×3√3÷2＝9√3 cm²です。18√3 cm²は2でわり忘れた値、18 cm²は高さを6 cmと考えた値、9√2 cm²は高さを3√2 cmと計算をまちがえた値です。","m":"1辺aの正三角形：高さ√3a/2、面積√3a²/4"},{"id":84,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"2点間の距離","q":"座標平面上の2点A(−2, 1)、B(4, 9)の間の距離はいくつですか。ただし、座標の1目もりを1とします。","c":["10","14","2√26","8"],"e":"x座標の差は4−(−2)＝6、y座標の差は9−1＝8です。この2つを直角をはさむ辺とする直角三角形を考えると、AB＝√(6²＋8²)＝√100＝10です。14は差をそのままたした値、2√26は差ではなく和（4＋(−2)＝2と9＋1＝10）を使って√(2²＋10²)とした誤り、8はyの差だけを答えた値です。","m":"2点間の距離＝√{(xの差)²＋(yの差)²}"},{"id":85,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"円の弦の長さ","q":"半径10 cmの円Oで、中心Oからの距離が6 cmである弦ABの長さは何cmですか。","c":["16 cm","8 cm","12 cm","4√34 cm"],"e":"中心Oから弦ABに垂線OHをひくと、Hは弦ABの中点になります。直角三角形OAHで、AH＝√(10²−6²)＝√64＝8 cmなので、AB＝8×2＝16 cmです。8 cmはAHの長さで、2倍し忘れた値です。4√34 cmは三平方の定理でひかずにたして、AH＝√(10²＋6²)＝2√34 cmとしてから2倍した誤り、12 cmは中心からの距離6 cmを2倍しただけの誤りです。","m":"中心から弦への垂線は弦を2等分する"},{"id":86,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"接線の長さ","q":"半径5 cmの円Oと、中心Oからの距離が13 cmの点Pがあります。点Pから円Oに接線をひき、その接点をAとするとき、線分PAの長さは何cmですか。","c":["12 cm","8 cm","√194 cm","10 cm"],"e":"接線は接点を通る半径に垂直なので、△OAPは∠OAP＝90°の直角三角形で、斜辺はOP＝13 cmです。PA＝√(13²−5²)＝√144＝12 cmです。8 cmは13−5とひき算しただけの値、√194 cmはOPを斜辺でなく直角をはさむ辺と考えて√(13²＋5²)とした値、10 cmは半径の2倍と取りちがえた値です。","m":"接線⊥半径→直角三角形で三平方"},{"id":87,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"直方体の対角線","q":"縦3 cm、横4 cm、高さ12 cmの直方体の対角線の長さは何cmですか。","c":["13 cm","19 cm","4√10 cm","5 cm"],"e":"まず底面の長方形の対角線は√(3²＋4²)＝5 cmです。これと高さ12 cmを直角をはさむ2辺とする直角三角形を考えると、対角線は√(5²＋12²)＝13 cmです。まとめて√(3²＋4²＋12²)＝√169＝13と計算できます。19 cmは3辺をたした値、4√10 cmは縦の3 cmを使い忘れた値、5 cmは底面の対角線の長さです。","m":"直方体の対角線＝√(a²＋b²＋c²)"},{"id":88,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"正四角錐の体積","q":"底面が1辺6 cmの正方形で、4本の側面の辺（頂点と底面の頂点を結ぶ辺）がすべて9 cmである正四角錐があります。この正四角錐の体積は何cm³ですか。","c":["36√7 cm³","108√7 cm³","72√2 cm³","36 cm³"],"e":"底面の対角線は6√2 cmなので、底面の中心から頂点までは3√2 cmです。高さは√(9²−(3√2)²)＝√63＝3√7 cmです。体積は1/3×36×3√7＝36√7 cm³です。108√7 cm³は1/3をかけ忘れた値です。72√2 cm³は側面の三角形の高さ√(9²−3²)＝6√2 cmを錐の高さと考えた誤り、36 cm³は半分の長さ3√2 cmではなく対角線6√2 cm全体を使って高さを√(81−72)＝3 cmとした誤りです。","m":"錐の高さは「底面の中心〜頂点」で三平方"},{"id":89,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"円錐の体積","q":"母線の長さが10 cm、底面の半径が6 cmの円錐の体積は何cm³ですか。ただし、円周率はπとします。","c":["96π cm³","120π cm³","288π cm³","60π cm³"],"e":"円錐の高さは、母線・高さ・半径でできる直角三角形から√(10²−6²)＝8 cmです。体積は1/3×π×6²×8＝96π cm³です。120π cm³は母線10 cmを高さとして使った値です。288π cm³は1/3をかけ忘れた値です。60π cm³は側面積（π×6×10）で、体積ではありません。","m":"円錐の高さ＝√(母線²−半径²)"},{"id":90,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"円錐の表面積","q":"母線の長さが12 cm、底面の半径が4 cmの円錐の表面積は何cm²ですか。ただし、円周率はπとします。","c":["64π cm²","48π cm²","112π cm²","160π cm²"],"e":"円錐の側面積は、π×母線×半径で求められ、π×12×4＝48π cm²です。底面積はπ×4²＝16π cm²なので、表面積は48π＋16π＝64π cm²です。48π cm²は底面積をたし忘れた値、112π cm²は側面積を2π×12×4とした誤り、160π cm²は側面を半径12 cmの円全体と考えた誤り（144π＋16π）です。","m":"円錐の側面積＝π×母線×底面の半径"},{"id":91,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"円錐の展開図","q":"底面の半径が3 cm、母線の長さが9 cmの円錐の展開図で、側面になるおうぎ形の中心角は何度ですか。","c":["120°","60°","240°","90°"],"e":"側面のおうぎ形の弧の長さは底面の円周と等しく、2π×3＝6π cmです。半径9 cmの円周は18π cmなので、中心角は360°×6π/18π＝360°×3/9＝120°です（中心角＝360°×底面の半径/母線）。60°は半分にしてしまった値、240°は360°から120°をひいた値、90°は比を3/12のように取りちがえた値です。","m":"中心角＝360°×(底面の半径÷母線)"},{"id":92,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"球の体積","q":"半径6 cmの球の体積は何cm³ですか。ただし、円周率はπとします。","c":["288π cm³","144π cm³","864π cm³","48π cm³"],"e":"球の体積は4/3πr³なので、4/3×π×6³＝4/3×π×216＝288π cm³です。144π cm³は表面積4πr²＝4π×36の値です。864π cm³は4/3の3でわり忘れて4πr³とした値、48π cm³は4/3πr²とr²で計算してしまった値です。","m":"球：体積4/3πr³（身の上に心配あるさん）、表面積4πr²"},{"id":93,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"球と円柱","q":"球が、底面の直径と高さが球の直径に等しい円柱の中にぴったり入っています。球の体積と円柱の体積の比を、最も簡単な整数の比で表したものはどれですか。","c":["2：3","1：2","3：4","1：3"],"e":"球の半径をrとすると、球の体積は4/3πr³、円柱は底面の半径r、高さ2rなので体積はπr²×2r＝2πr³です。比は4/3πr³：2πr³＝4/3：2＝2：3です。1：3は円錐と円柱（底面と高さが同じ）の体積比と混同した値です。1：2や3：4は、円柱の高さをrとしたり計算をまちがえたりしたときの比です。","m":"球：円柱＝2：3（アルキメデスの発見）"},{"id":94,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"ねじれの位置","q":"立方体ABCD−EFGHがあり、面ABCDと面EFGHが向かい合い、AE、BF、CG、DHが辺になっています。辺ABとねじれの位置にある辺は何本ですか。","c":["4本","3本","5本","8本"],"e":"辺ABと平行な辺はDC、EF、HGの3本、交わる辺はAD、AE、BC、BFの4本です。残りの辺CG、DH、EH、FGの4本は、ABと平行でもなく交わりもしないので、ねじれの位置にあります。3本は平行な辺の数と取りちがえた値です。8本は平行な辺もふくめて数えてしまった値です。","m":"ねじれ＝平行でもなく交わりもしない（同じ平面上にない）"},{"id":95,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"空間の直線と平面","q":"空間内の直線と平面について述べた文として、つねに正しいものはどれですか。","c":["1つの平面に垂直な2直線は平行である","1つの直線に垂直な2直線は平行である","平行でない2直線は必ず交わる","1つの平面に平行な2直線は平行である"],"e":"同じ平面に垂直な2直線は平行になります。1つの直線に垂直な2直線は、交わったりねじれの位置にあったりすることがあります（立方体の1つの頂点に集まる3辺など）。空間では、平行でも交わりもしない「ねじれの位置」があるので、平行でない2直線が必ず交わるとはいえません。1つの平面に平行な2直線も、交わる場合やねじれの位置の場合があります。","m":"空間では立方体の辺を思いうかべて反例を探す"},{"id":96,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"回転体の体積","q":"∠C＝90°、BC＝3 cm、AC＝4 cmの直角三角形ABCを、辺ACを軸として1回転させてできる立体の体積は何cm³ですか。ただし、円周率はπとします。","c":["12π cm³","16π cm³","36π cm³","15π cm³"],"e":"辺ACを軸に回すと、底面の半径がBC＝3 cm、高さがAC＝4 cmの円錐ができます。体積は1/3×π×3²×4＝12π cm³です。16π cm³は半径と高さを逆にした（半径4 cm、高さ3 cm）値です。36π cm³は1/3をかけ忘れた円柱の体積です。15π cm³は側面積（π×3×5）で、体積ではありません。","m":"軸からの距離が半径、軸方向の長さが高さ"},{"id":97,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"立方体の切断と体積","q":"1辺6 cmの立方体ABCD−EFGH（面ABCDと面EFGHが向かい合い、AE、BF、CG、DHが辺）を、3点B、D、Eを通る平面で切ります。このとき、頂点Aをふくむほうの立体（三角錐ABDE）の体積は何cm³ですか。","c":["36 cm³","72 cm³","108 cm³","216 cm³"],"e":"三角錐ABDEは、底面を直角二等辺三角形ABD（面積6×6÷2＝18 cm²）、高さをAE＝6 cmとみることができます。体積は1/3×18×6＝36 cm³で、立方体の1/6です。108 cm³は1/3をかけ忘れた三角柱の体積、72 cm³は底面積を正方形全体の36 cm²として1/3×36×6とした値、216 cm³は立方体全体の体積です。","m":"三角錐の体積は「見やすい底面」を選んで1/3×底面積×高さ"},{"id":98,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"立方体の切断と高さ","q":"1辺6 cmの立方体ABCD−EFGH（面ABCDと面EFGHが向かい合い、AE、BF、CG、DHが辺）で、3点B、D、Eを通る平面をつくります。頂点Aからこの平面までの距離は何cmですか。","c":["2√3 cm","3√2 cm","6√3 cm","3 cm"],"e":"三角錐ABDEの体積は1/3×(6×6÷2)×6＝36 cm³です。一方、△BDEは1辺6√2 cmの正三角形で、面積は√3/4×(6√2)²＝18√3 cm²です。求める距離をh cmとすると1/3×18√3×h＝36より、h＝6/√3＝2√3 cmです。3√2 cmは正方形の対角線の半分、6√3 cmは立方体の対角線、3 cmは1辺の半分で、いずれも距離ではありません。","m":"体積を2通りに表して、高さ（距離）を求める"},{"id":99,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"投影図","q":"ある立体の投影図で、立面図（正面から見た図）が二等辺三角形、平面図（真上から見た図）が円でした。この立体として最も適切なものはどれですか。","c":["円錐","円柱","三角錐","球"],"e":"真上から見ると円で、正面から見ると三角形になる立体は円錐です。円柱は立面図が長方形、球は立面図も平面図も円になります。三角錐は真上から見ると三角形（などの多角形）になり、円にはなりません。投影図では立面図と平面図を組み合わせて立体を決めます。","m":"平面図が円→円柱・円錐・球。立面図で見分ける"},{"id":100,"k":"plan","ref":"想定問題","f":"空間図形と三平方","t":"最短距離と展開図","q":"直方体ABCD−EFGH（面ABCDと面EFGHが向かい合い、AE、BF、CG、DHが辺）で、AB＝5 cm、AD＝3 cm、AE＝4 cmです。頂点Aから辺BF上の点を通って頂点Gまで、直方体の表面にひもをかけます。ひもの長さが最も短くなるとき、その長さは何cmですか。","c":["4√5 cm","5√2 cm","10 cm","√74 cm"],"e":"面ABFEと面BFGCを辺BFで開いて1つの平面にすると、AからGまでは横がAB＋BC＝5＋3＝8 cm、縦がAE（＝CG）＝4 cmの長方形の対角線になります。よって最短の長さは√(8²＋4²)＝√80＝4√5 cmです。5√2 cmは立体の内部を通る対角線√(5²＋3²＋4²)で、表面の長さではありません。10 cmはA→B→Gとまっすぐ進まず折れ曲がった道すじ（5＋5）、√74 cmは辺の組み合わせをまちがえた値です。","m":"表面の最短距離は展開図に直線をひく"},{"id":101,"k":"plan","ref":"想定問題","f":"確率・データ","t":"さいころ2個の確率","q":"大小2つのさいころを同時に投げるとき、出る目の数の和が5になる確率はどれですか。ただし、どの目が出ることも同様に確からしいものとします。","c":["1/9","5/36","1/12","1/6"],"e":"目の出方は全部で6×6＝36通りです。和が5になるのは、(大, 小)＝(1, 4)、(2, 3)、(3, 2)、(4, 1)の4通りなので、確率は4/36＝1/9です。1/12は(1, 4)、(2, 3)、(3, 2)の3通りしか数えず、(4, 1)を落としたときの値です。5/36は和が6のときの確率、1/6は和が7のときの確率です。","m":"2つのさいころは大小を区別して36通りで数える"},{"id":102,"k":"plan","ref":"想定問題","f":"確率・データ","t":"さいころ2個の確率","q":"大小2つのさいころを同時に投げるとき、出る目の数の積が奇数になる確率はどれですか。ただし、どの目が出ることも同様に確からしいものとします。","c":["1/4","1/2","3/4","1/3"],"e":"積が奇数になるのは、2つとも奇数の目が出るときだけです。奇数の目は1、3、5の3通りなので、3×3＝9通りで、確率は9/36＝1/4です。3/4は積が偶数になる確率（1−1/4）です。1/2は1つのさいころで奇数が出る確率と混同した値です。","m":"積が奇数⇔どちらも奇数。偶数は「1−奇数」で"},{"id":103,"k":"plan","ref":"想定問題","f":"確率・データ","t":"少なくとも1回の確率","q":"3枚の硬貨を同時に投げるとき、少なくとも1枚は表が出る確率はどれですか。ただし、表と裏の出方は同様に確からしいものとします。","c":["7/8","3/4","1/2","3/8"],"e":"3枚の表裏の出方は2×2×2＝8通りです。少なくとも1枚表が出ることの反対は「3枚とも裏」で、これは1通りです。よって求める確率は1−1/8＝7/8です。3/8はちょうど1枚だけ表になる確率、1/2は1枚の硬貨の確率と混同した値、3/4は全体を4通りと数えまちがえた値です。","m":"「少なくとも」は1−(1つも起こらない確率)"},{"id":104,"k":"plan","ref":"想定問題","f":"確率・データ","t":"くじの確率","q":"5本のうち2本が当たりのくじがあります。このくじを同時に2本ひくとき、少なくとも1本が当たりである確率はどれですか。ただし、どのくじをひくことも同様に確からしいものとします。","c":["7/10","3/10","2/5","4/5"],"e":"5本から2本をひく組み合わせは、5×4÷2＝10通りです。2本ともはずれ（はずれ3本から2本）は3通りなので、少なくとも1本当たりの確率は1−3/10＝7/10です。3/10は2本ともはずれる確率です。2/5は1本ひいて当たる確率と混同した値です。4/5は、1本ひいて当たる確率2/5を2本分たしてしまった値です。","m":"同時にひく→組み合わせ（順番を区別しない）"},{"id":105,"k":"plan","ref":"想定問題","f":"確率・データ","t":"玉を取り出す確率","q":"袋の中に赤玉3個と白玉2個が入っています。この袋から玉を1個取り出し、それをもどさずに、続けてもう1個取り出します。2個とも赤玉である確率はどれですか。ただし、どの玉を取り出すことも同様に確からしいものとします。","c":["3/10","9/25","3/5","6/25"],"e":"1個目が赤である確率は3/5、そのあと袋には赤2個・白2個が残るので、2個目も赤である確率は2/4です。よって3/5×2/4＝3/10です。順番を区別して数えると、全体5×4＝20通り、2個とも赤は3×2＝6通りで、6/20＝3/10です。9/25は取り出した玉をもどす場合（3/5×3/5）の確率です。3/5は1個目だけの確率、6/25は分母をもどす場合の25にしてしまった値です。","m":"もどさない→2回目は全体も赤も1つ減る"},{"id":106,"k":"plan","ref":"想定問題","f":"確率・データ","t":"カードと整数の確率","q":"1、2、3、4、5の数字が1つずつ書かれた5枚のカードがあります。この中から1枚ずつ続けて2枚取り出し、1枚目を十の位、2枚目を一の位として2けたの整数をつくります。この整数が3の倍数になる確率はどれですか。ただし、どのカードを取り出すことも同様に確からしいものとします。","c":["2/5","1/3","8/25","3/10"],"e":"できる整数は5×4＝20通りです。3の倍数は12、15、21、24、42、45、51、54の8通りで、確率は8/20＝2/5です（各位の数の和が3の倍数なら3の倍数）。8/25は同じカードを2回使えると考えて全体を25通りにした値です。1/3は「3の倍数は3つに1つ」と考えた誤りです。3/10は12、15、21、24、42、45の6通りしか数えず、51、54を落とした値です。","m":"3の倍数は各位の数の和で判定。全体は5×4"},{"id":107,"k":"plan","ref":"想定問題","f":"確率・データ","t":"並べ方の数","q":"A、B、C、Dの4人が横一列に並ぶとき、AとBがとなり合う並び方は何通りありますか。","c":["12通り","6通り","24通り","8通り"],"e":"AとBを1組とみると、(AB)、C、Dの3つを並べる方法は3×2×1＝6通りです。組の中でAとBの順番がABとBAの2通りあるので、6×2＝12通りです。6通りは組の中の並び方（2通り）をかけ忘れた値です。24通りは4人全員の並び方で、条件を考えていない値です。","m":"となり合う→ひとまとめにして並べ、中の並びをかける"},{"id":108,"k":"plan","ref":"想定問題","f":"確率・データ","t":"選び方の数","q":"6人の中から、委員長と副委員長を1人ずつ選びます。選び方は全部で何通りありますか。ただし、1人が両方を兼ねることはできないものとします。","c":["30通り","15通り","36通り","12通り"],"e":"委員長の選び方は6通り、そのそれぞれについて副委員長は残りの5人から選ぶので5通りです。よって6×5＝30通りです。15通りは、委員長と副委員長の区別をせず「2人を選ぶ」組み合わせ（30÷2）を数えた値です。36通りは同じ人が両方を兼ねられるとした6×6の値です。","m":"役割がちがう→順番を区別（6×5）"},{"id":109,"k":"plan","ref":"想定問題","f":"確率・データ","t":"代表値","q":"次のデータは、10人の生徒が1か月に読んだ本の冊数です。\n3、7、8、5、9、4、6、10、7、2（単位：冊）\nこのデータの中央値（メジアン）はどれですか。","c":["6.5冊","6冊","7冊","6.1冊"],"e":"データを小さい順に並べると、2、3、4、5、6、7、7、8、9、10です。データが10個（偶数個）なので、中央値は5番目と6番目の平均で(6＋7)÷2＝6.5冊です。6.1冊は平均値（合計61÷10）、7冊は最頻値（いちばん多く出てくる値）です。6冊は5番目の値だけを答えた誤りです。","m":"偶数個のデータの中央値は、まん中2つの平均"},{"id":110,"k":"plan","ref":"想定問題","f":"確率・データ","t":"四分位範囲","q":"次のデータは、9人の生徒の通学時間です。\n4、6、7、9、10、12、15、16、20（単位：分）\nこのデータの四分位範囲は何分ですか。ただし、データが奇数個のときは、中央値をのぞいて前半と後半に分け、前半の中央値を第1四分位数、後半の中央値を第3四分位数とします。","c":["9分","16分","8分","10分"],"e":"中央値は5番目の10分です。中央値をのぞいた前半の4個（4、6、7、9）の中央値が第1四分位数で(6＋7)÷2＝6.5分、後半の4個（12、15、16、20）の中央値が第3四分位数で(15＋16)÷2＝15.5分です。四分位範囲は15.5−6.5＝9分です。16分は範囲（最大値20−最小値4）です。8分は中央値の10もふくめて前半・後半を5個ずつに分け、15−7とした誤りです。10分は中央値（第2四分位数）で、四分位範囲ではありません。","m":"データが奇数個なら、中央値をのぞいて前半・後半に分ける"},{"id":111,"k":"plan","ref":"想定問題","f":"確率・データ","t":"相対度数","p":"ある中学校の3年生40人が受けた50点満点の小テストの結果を、次の度数分布表にまとめました。\n0点以上10点未満：3人\n10点以上20点未満：7人\n20点以上30点未満：12人\n30点以上40点未満：10人\n40点以上50点未満：8人\n合計：40人","q":"次の度数分布表について答えなさい。20点以上30点未満の階級の相対度数はいくつですか。","c":["0.30","0.12","0.55","0.25"],"e":"相対度数は、その階級の度数÷度数の合計です。20点以上30点未満の階級の度数は12人なので、12÷40＝0.30です。0.55はこの階級までの累積相対度数（(3＋7＋12)÷40）です。0.12は度数12をそのまま小数にした誤り、0.25は40人の1/4と考えた誤りです。","m":"相対度数＝その階級の度数÷総度数"},{"id":112,"k":"plan","ref":"想定問題","f":"確率・データ","t":"累積相対度数","p":"ある中学校の3年生40人が受けた50点満点の小テストの結果を、次の度数分布表にまとめました。\n0点以上10点未満：3人\n10点以上20点未満：7人\n20点以上30点未満：12人\n30点以上40点未満：10人\n40点以上50点未満：8人\n合計：40人","q":"次の度数分布表について答えなさい。20点以上30点未満の階級の累積相対度数はいくつですか。","c":["0.55","0.30","0.25","0.80"],"e":"累積度数は、最初の階級からその階級までの度数の合計です。20点以上30点未満の階級までの累積度数は3＋7＋12＝22人なので、累積相対度数は22÷40＝0.55です。0.30はこの階級だけの相対度数です。0.25は10点以上20点未満までの累積度数10人を使った値です。0.80は30点以上40点未満までの累積度数32人を使った値です。","m":"累積相対度数＝累積度数÷総度数（最後の階級で1）"},{"id":113,"k":"plan","ref":"想定問題","f":"確率・データ","t":"度数分布表の平均値","p":"ある中学校の3年生40人が受けた50点満点の小テストの結果を、次の度数分布表にまとめました。\n0点以上10点未満：3人\n10点以上20点未満：7人\n20点以上30点未満：12人\n30点以上40点未満：10人\n40点以上50点未満：8人\n合計：40人","q":"次の度数分布表から平均値を求めると、何点になりますか。ただし、各階級に入っている値はすべてその階級の階級値に等しいものとします。","c":["28.25点","28点","25点","22.6点"],"e":"階級値は5、15、25、35、45点です。（階級値×度数）の合計は5×3＋15×7＋25×12＋35×10＋45×8＝15＋105＋300＋350＋360＝1130なので、平均値は1130÷40＝28.25点です。25点は度数が最も多い階級の階級値（最頻値）です。22.6点は1130を階級の数5×10＝50でわってしまった値です。28点は小数を切り捨てた値で、正確ではありません。","m":"度数分布表の平均＝Σ(階級値×度数)÷総度数"},{"id":114,"k":"plan","ref":"想定問題","f":"確率・データ","t":"中央値のある階級","p":"ある中学校の3年生40人が受けた50点満点の小テストの結果を、次の度数分布表にまとめました。\n0点以上10点未満：3人\n10点以上20点未満：7人\n20点以上30点未満：12人\n30点以上40点未満：10人\n40点以上50点未満：8人\n合計：40人","q":"次の度数分布表で、中央値（メジアン）がふくまれる階級はどれですか。","c":["20点以上30点未満","30点以上40点未満","10点以上20点未満","40点以上50点未満"],"e":"40人なので、中央値は小さいほうから20番目と21番目の値の平均です。累積度数は、10点未満まで3人、20点未満まで10人、30点未満まで22人です。20番目と21番目はどちらも11番目〜22番目にあたる20点以上30点未満の階級に入ります。10点以上20点未満は累積度数10人をまん中と取りちがえた誤り、30点以上40点未満や40点以上50点未満は、大きいほうから数えたり累積度数を数えまちがえたりしたときに選びやすい誤りです。","m":"中央値の階級は累積度数で「何番目」を探す"},{"id":115,"k":"plan","ref":"想定問題","f":"確率・データ","t":"箱ひげ図と四分位範囲","q":"四分位範囲や箱ひげ図について述べた文として、正しいものはどれですか。","c":["四分位範囲は第3四分位数から第1四分位数をひいた値で、極端に離れた値の影響を受けにくい","四分位範囲は、データの最大値から最小値をひいた値である","箱ひげ図の箱の部分には、データのおよそ25％がふくまれる","箱ひげ図の箱の中にひかれた線は、データの平均値を表す"],"e":"四分位範囲＝第3四分位数−第1四分位数で、データのまん中のおよそ半分の散らばりを表すため、極端に大きい値・小さい値の影響を受けにくいという特徴があります。最大値−最小値は「範囲」です。箱の部分（第1四分位数〜第3四分位数）にはデータのおよそ50％がふくまれます。箱の中の線は中央値（第2四分位数）で、平均値ではありません。","m":"箱＝まん中の約50％、箱の中の線＝中央値"},{"id":116,"k":"plan","ref":"想定問題","f":"確率・データ","t":"標本調査による推定","q":"袋の中に白い碁石がたくさん入っています。その数を調べるために、同じ大きさの黒い碁石300個を袋に入れてよくかき混ぜ、そこから60個を無作為に取り出したところ、黒い碁石が12個ふくまれていました。袋の中の白い碁石は、およそ何個と推定できますか。","c":["およそ1200個","およそ1500個","およそ240個","およそ75個"],"e":"取り出した60個のうち、黒は12個、白は48個なので、白と黒の比はおよそ48：12＝4：1です。袋の中の黒は300個なので、白はおよそ300×4＝1200個と推定できます。1500個は黒と白を合わせた全体の個数（300×60/12）で、黒い碁石の分をひき忘れた値です。240個は黒の個数300に、標本の中の白の割合48/60をかけてしまった値です。75個は白と黒の比を1：4と逆にした値です。","m":"標本の割合＝母集団の割合として比例式をつくる"},{"id":117,"k":"plan","ref":"想定問題","f":"確率・データ","t":"全数調査と標本調査","q":"次の調査のうち、標本調査で行うのが適切なものはどれですか。","c":["工場で生産した電球の寿命を調べる検査","国の人口や世帯のようすを調べる国勢調査","学校で行う生徒の健康診断","飛行機に乗る前の乗客の手荷物検査"],"e":"電球の寿命を調べるには実際に切れるまで使う必要があり、全部を調べると売る製品がなくなってしまうので、一部を取り出して調べる標本調査が適しています。国勢調査はすべての人と世帯を対象とする全数調査です。健康診断や手荷物検査は、一人ひとりについて調べる必要があるので全数調査で行います。","m":"全部調べると困る・全部は無理→標本調査"},{"id":118,"k":"plan","ref":"想定問題","f":"確率・データ","t":"さいころと約数の確率","q":"1つのさいころを2回投げ、1回目に出た目の数をa、2回目に出た目の数をbとします。bがaの約数になる確率はどれですか。ただし、どの目が出ることも同様に確からしいものとします。","c":["7/18","2/9","1/3","4/9"],"e":"全部で36通りです。aごとに、bがaの約数になるbの個数を数えると、a＝1のとき1通り（1）、a＝2のとき2通り（1、2）、a＝3のとき2通り（1、3）、a＝4のとき3通り（1、2、4）、a＝5のとき2通り（1、5）、a＝6のとき4通り（1、2、3、6）です。合計14通りなので、確率は14/36＝7/18です。2/9はb＝aの場合（6通り）を約数から外してしまった値（8/36）です。1/3や4/9は数えもれや重複で出る値です。","m":"aを固めて1つずつ数え上げる（表にすると確実）"},{"id":119,"k":"plan","ref":"想定問題","f":"確率・データ","t":"確率と座標","q":"1つのさいころを2回投げ、1回目に出た目の数をa、2回目に出た目の数をbとして、座標平面上に点P(a, b)をとります。点Pが直線y＝2x上にある確率はどれですか。ただし、どの目が出ることも同様に確からしいものとします。","c":["1/12","1/18","1/9","1/6"],"e":"点Pが直線y＝2x上にあるのは、b＝2aとなるときです。aとbはどちらも1〜6なので、(a, b)＝(1, 2)、(2, 4)、(3, 6)の3通りです。全部で36通りなので、確率は3/36＝1/12です。1/6は、b＝aの直線y＝x上にある6通りと混同した値です。1/18は2通り、1/9は4通りと数えまちがえた値です。","m":"条件を式にして、目の範囲1〜6で数える"},{"id":120,"k":"plan","ref":"想定問題","f":"確率・データ","t":"じゃんけんの確率","q":"A、B、Cの3人が1回じゃんけんをするとき、あいこになる確率はどれですか。ただし、それぞれがグー、チョキ、パーを出すことは同様に確からしいものとします。","c":["1/3","1/9","2/9","2/3"],"e":"3人の手の出し方は3×3×3＝27通りです。あいこになるのは、3人とも同じ手のとき（3通り）と、3人がすべてちがう手のとき（3×2×1＝6通り）の合計9通りなので、確率は9/27＝1/3です。1/9は3人とも同じ手の場合だけを数えた値、2/9はすべてちがう手の場合だけを数えた値、2/3は勝負がつく確率です。","m":"3人のあいこ＝全員同じ＋全員ちがう"}];
+var FIELDS=["数と式","方程式","関数","平面図形","空間図形と三平方","確率・データ"];
+var KIND={past:"過去問ベース",plan:"想定問題"};
+var LS="koukou-sugaku-v1";
+var scope="all";
+try{var sc0=localStorage.getItem(LS+"-scope");if(sc0==="past"||sc0==="plan")scope=sc0}catch(e){}
+function P(){return scope==="all"?QS:QS.filter(function(q){return q.k===scope})}
+var app=document.getElementById("app");
+var byId={};QS.forEach(function(q){byId[q.id]=q});
+var S={v:1,rev:0,at:0,stats:{},hist:[]};
+var view="home",X=null,tick=null,tab="exp",armed="";
+var ref=null,busy=false,dirty=false,deb=null,fails=0,syncState="local";
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function st(id){return S.stats[id]||null}
+function A(q){return q.a||0}
+function ord(q){var n=q.c.length,i,a=[];for(i=0;i<(q.last?n-1:n);i++)a.push(i);a=shuffle(a);if(q.last)a.push(n-1);return a}
+function yearLabel(y){return y<0?"前"+(-y)+"年":y+"年"}
+
+/* ---- 記録 ---- */
+function norm(d){d=d||{};return {v:1,rev:+d.rev||0,at:+d.at||0,stats:(d.stats&&typeof d.stats==="object")?JSON.parse(JSON.stringify(d.stats)):{},hist:Array.isArray(d.hist)?JSON.parse(JSON.stringify(d.hist)):[]}}
+function loadLocal(){try{var r=localStorage.getItem(LS);if(r){var d=JSON.parse(r);if(d&&d.v===1)S=norm(d)}}catch(e){}}
+function saveLocal(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
+function setSync(s){syncState=s;var el=document.getElementById("sync");if(el)el.textContent=s==="account"?"記録の保存先：アカウント（ほかの端末でも続きから使えます）":"記録の保存先：この端末のブラウザ"}
+function save(){S.rev++;S.at=Date.now();saveLocal();if(ref){dirty=true;clearTimeout(deb);deb=setTimeout(push,1200)}}
+function push(){
+  if(!ref||busy||!dirty)return;
+  busy=true;dirty=false;
+  ref.set(JSON.parse(JSON.stringify(S))).then(function(){fails=0;setSync("account")},function(e){
+    dirty=true;fails++;
+    if(!e||e.code!=="unavailable"||fails>=2){if(e&&e.code!=="unavailable"){ref=null}setSync("local")}
+  }).then(function(){busy=false;if(dirty&&ref&&fails<2){clearTimeout(deb);deb=setTimeout(push,3000)}});
+}
+function connect(){
+  try{
+    if(!window.claude||!window.claude.use)return;
+    Promise.all([window.claude.use("db"),window.claude.use("user")]).then(function(r){
+      var db=r[0],user=r[1];if(!db||!user)return null;
+      return user.id().then(function(uid){
+        if(!uid)return null;
+        var d=db.doc("data/users/"+uid+"/progress");
+        return d.get().then(function(snap){
+          ref=d;
+          var remote=snap.exists?norm(snap.data()):null;
+          if(remote&&remote.rev>S.rev){S=remote;saveLocal();if(view==="home")home()}
+          else if(S.rev>(remote?remote.rev:0)){dirty=true;push()}
+          setSync("account");
+        });
+      });
+    }).catch(function(){ref=null;setSync("local")});
+  }catch(e){}
+}
+
+/* ---- 出題 ---- */
+function rank(q){var s=st(q.id);if(!s||!s.n)return 0;return s.last===0?1:2}
+function pick(pool,n,ex){
+  var c=shuffle(pool.filter(function(q){return !ex||!ex[q.id]}));
+  c.sort(function(a,b){return rank(a)-rank(b)||((st(a.id)||{}).t||0)-((st(b.id)||{}).t||0)});
+  return c.slice(0,n);
+}
+function quotas(n){
+  var raw=FIELDS.map(function(f){return P().filter(function(q){return q.f===f}).length*n/P().length});
+  var base=raw.map(Math.floor),rest=n-base.reduce(function(a,b){return a+b},0);
+  var ord=raw.map(function(r,i){return [r-Math.floor(r),i]}).sort(function(a,b){return b[0]-a[0]});
+  for(var k=0;k<rest;k++)base[ord[k%ord.length][1]]++;
+  return base;
+}
+function buildFull(){
+  var n=Math.min(10,P().length),qt=quotas(n),out=[],used={};
+  FIELDS.forEach(function(f,i){pick(P().filter(function(q){return q.f===f}),qt[i]).forEach(function(q){out.push(q);used[q.id]=1})});
+  if(out.length<n)pick(P(),n-out.length,used).forEach(function(q){out.push(q)});
+  return shuffle(out);
+}
+function begin(kind,f,ex){
+  var list,mode="exam",title="";
+  if(kind==="full"){list=buildFull();title="10問テスト"}
+  else if(kind==="field"){list=pick(P().filter(function(q){return q.f===f}),10);title=f+"のテスト"}
+  else if(kind==="similar"){list=pick(P().filter(function(q){return q.f===f}),5,ex);mode="drill";title=f+"をもう5問"}
+  else{list=shuffle(QS.filter(function(q){var s=st(q.id);return s&&s.n&&s.last===0})).slice(0,10);mode="drill";title="まちがえた問題の復習"}
+  if(!list.length){home();return}
+  var now=Date.now(),limit=list.length*60;
+  X={mode:mode,kind:kind,f:f||"",title:title,k:0,start:now,limit:limit,deadline:now+limit*1000,done:false,
+     items:list.map(function(q){return {id:q.id,order:ord(q),pick:null,ok:null}})};
+  view="exam";tab="exp";armed="";run();
+}
+function run(){exam();startTick();window.scrollTo(0,0)}
+function startTick(){stopTick();if(!X||X.mode!=="exam"||X.done)return;paintClock();tick=setInterval(function(){if(!X||X.done){stopTick();return}if(Date.now()>=X.deadline){grade(true)}else paintClock()},500)}
+function stopTick(){if(tick){clearInterval(tick);tick=null}}
+function paintClock(){var el=document.getElementById("clock");if(!el||!X)return;var s=Math.max(0,Math.ceil((X.deadline-Date.now())/1000));el.textContent="残り "+Math.floor(s/60)+":"+("0"+s%60).slice(-2);el.className="clock"+(s<=60?" low":"")}
+function rec(id,ok,now){var s=S.stats[id]||(S.stats[id]={n:0,ok:0,last:0,t:0});s.n++;if(ok)s.ok++;s.last=ok?1:0;s.t=now}
+function grade(auto){
+  stopTick();var now=Date.now(),score=0;
+  X.items.forEach(function(it){it.ok=it.pick===A(byId[it.id]);if(it.ok)score++;rec(it.id,it.ok,now)});
+  X.score=score;X.sec=Math.min(Math.round((now-X.start)/1000),X.limit);X.auto=!!auto;X.done=true;
+  S.hist.push({ts:now,kind:X.kind,f:X.f,score:score,total:X.items.length,sec:X.sec});
+  if(S.hist.length>60)S.hist=S.hist.slice(-60);
+  save();view="result";result();window.scrollTo(0,0);
+}
+function finishDrill(){X.done=true;X.score=X.items.filter(function(it){return it.ok}).length;view="result";result();window.scrollTo(0,0)}
+
+/* ---- 画面：ホーム ---- */
+function home(){
+  view="home";stopTick();armed="";
+  var seen=P().filter(function(q){var s=st(q.id);return s&&s.n}).length;
+  var wrong=QS.filter(function(q){var s=st(q.id);return s&&s.n&&s.last===0}).length;
+  var ex=S.hist.filter(function(h){return h.kind==="full"});
+  var avg=ex.length?(ex.reduce(function(a,h){return a+h.score/h.total*10},0)/ex.length).toFixed(1):"–";
+  var qt=quotas(Math.min(10,P().length));
+  var h='<section class="panel start"><h2>第'+(ex.length+1)+'回　10問テスト</h2>'+
+    '<div class="seg" role="group" aria-label="出題範囲">'+[["all","すべて"],["past","過去問ベース"],["plan","想定問題"]].map(function(x){var n=x[0]==="all"?QS["length"]:QS.filter(function(q){return q.k===x[0]}).length;return '<button class="segb" data-act="scope" data-s="'+x[0]+'" aria-pressed="'+(scope===x[0])+'">'+x[1]+' <small>'+n+'問</small></button>'}).join("")+'</div>'+
+    '<ul class="spec"><li>問題数 <b>10問</b></li><li>制限時間 <b>10分</b></li><li>形式 <b>選択式</b></li><li>目標 <b>8問正解</b></li></ul>'+
+    '<p class="lead">'+FIELDS.map(function(f,i){return esc(f)+" "+qt[i]+"問"}).join("、")+"。まだ解いていない問題と、前回まちがえた問題から先に出します。</p>"+
+    '<div class="row"><button class="btn pri" data-act="full">10問テストを始める</button>'+
+    (wrong?'<button class="btn" data-act="wrong">まちがえた問題を復習（'+wrong+'問）</button>':'')+'</div></section>';
+  h+='<section class="panel"><h2>これまでの成績</h2><div class="nums">'+
+    '<div class="num"><span>テスト回数</span><b>'+ex.length+'<small> 回</small></b></div>'+
+    '<div class="num"><span>平均点</span><b>'+avg+'<small> /10</small></b></div>'+
+    '<div class="num"><span>解いた問題</span><b>'+seen+'<small> /'+P().length+'問</small></b></div></div>'+
+    (ex.length?'<div class="chips" aria-label="最近のテストの得点">'+ex.slice(-8).map(function(x){var r=x.score/x.total;return '<span class="sc '+(r>=.8?"good":r<.6?"bad":"")+'">'+x.score+"/"+x.total+"</span>"}).join("")+"</div>":'<p class="lead">1回目のテストを終えると、得点と分野別の定着度がここに出ます。</p>')+
+    "</section>";
+  h+='<section class="panel"><h2>分野別の定着度</h2><div class="fl">'+FIELDS.map(function(f,i){
+    var pool=P().filter(function(q){return q.f===f}),ok=0,ng=0;
+    pool.forEach(function(q){var s=st(q.id);if(s&&s.n){if(s.last)ok++;else ng++}});
+    return '<div class="fi"><span class="nm">'+esc(f)+'</span><div class="meter" role="img" aria-label="正解 '+ok+'問、要復習 '+ng+'問、全'+pool.length+'問"><i style="width:'+(ok/pool.length*100)+'%"></i><i class="w" style="width:'+(ng/pool.length*100)+'%"></i></div>'+
+      '<span class="meta">正解 '+ok+'　要復習 '+ng+'　未出題 '+(pool.length-ok-ng)+'（全'+pool.length+'問）</span>'+
+      '<button class="btn sm" data-act="field" data-f="'+i+'">この分野を解く</button></div>';
+  }).join("")+'</div><p class="legend"><span><i class="g"></i>直近で正解</span><span><i class="w"></i>直近で不正解</span><span><i></i>未出題</span></p></section>';
+  if(seen)h+='<div class="row end"><button class="btn ghost sm" data-act="reset">'+(armed==="reset"?"本当に消す（もう一度押す）":"記録をすべて消す")+"</button></div>";
+  app.innerHTML=h;
+}
+
+/* ---- 画面：解答 ---- */
+function passHtml(q){return q.p?'<div class="passage"'+(/^[\x00-\x7F\s]+$/.test(q.p.slice(0,200))?' lang="en"':"")+'>'+esc(q.p)+"</div>":""}
+function expHtml(q,it){
+  var ok=it.pick===A(q),mine=it.pick===null?"未回答":q.c[it.pick];
+  return '<div class="exp"><p class="verdict '+(ok?"ok":"ng")+'">'+(ok?"正解":"不正解")+"　答えは「"+esc(q.c[A(q)])+"」"+(ok?"":'<br><span class="src">あなたの答え：'+esc(mine)+"</span>")+"</p>"+
+    "<p>"+esc(q.e)+"</p>"+
+    '<p class="memo"><span>覚え方</span>'+esc(q.m)+"</p>"+
+    '<p class="src">'+(q.k==="past"?"過去問ベース：公立・中堅私立高校入試 "+esc(q.ref)+"（問われた知識をもとに作り直した問題です）":"想定問題（公立・中堅私立高校入試の出題傾向に合わせて作成した問題で、実際の出題ではありません）")+"</p></div>";
+}
+function optsHtml(q,it,reveal){
+  return '<div class="opts">'+it.order.map(function(ci,j){
+    var cls="";
+    if(reveal){cls=ci===A(q)?" right":(it.pick===ci?" wrong":"")}else if(it.pick===ci)cls=" sel";
+    return '<button class="opt'+cls+'" data-act="pick" data-c="'+ci+'"'+(reveal?" disabled":"")+'><span class="mark">'+"abcde".charAt(j)+'</span><span class="txt">'+esc(q.c[ci])+"</span></button>";
+  }).join("")+"</div>";
+}
+function exam(){
+  var N=X.items.length,it=X.items[X.k],q=byId[it.id],drill=X.mode==="drill",answered=it.pick!==null,last=X.k===N-1;
+  var h='<div class="bar"><div class="bar-row"><span class="bar-title">'+esc(X.title)+'</span><span class="count">問 '+(X.k+1)+"<small> /"+N+"</small></span>"+(drill?"":'<span class="clock" id="clock"></span>')+"</div>"+
+    '<div class="dots">'+X.items.map(function(x,i){
+      var c=drill?(x.pick===null?"":(x.ok?" ok":" ng")):(x.pick===null?"":" done");
+      return '<button class="dot'+c+(i===X.k?" cur":"")+'" data-act="go" data-i="'+i+'" aria-label="問'+(i+1)+'へ"'+(drill&&x.pick===null&&i!==X.k?" disabled":"")+"></button>";
+    }).join("")+"</div></div>";
+  h+='<article class="sheet"><p class="chip">'+esc(q.f)+"｜"+KIND[q.k]+'</p>'+passHtml(q)+'<h2 class="q">'+esc(q.q)+"</h2>"+optsHtml(q,it,drill&&answered)+(drill&&answered?expHtml(q,it):"")+"</article>";
+  if(armed==="grade"){
+    var un=X.items.filter(function(x){return x.pick===null}).length;
+    h+='<div class="ask"><p>未回答が'+un+'問あります。未回答は不正解になります。</p><div class="row"><button class="btn sm" data-act="unans">未回答の問題へ</button><button class="btn sm" data-act="grade2">このまま採点する</button></div></div>';
+  }
+  h+='<div class="row split"><button class="btn ghost sm" data-act="quit">'+(armed==="quit"?(drill?"ホームへ戻る（もう一度押す）":"記録せずにやめる（もう一度押す）"):"やめる")+"</button><div class=\"row\">"+
+    '<button class="btn" data-act="prev"'+(X.k===0?" disabled":"")+">前へ</button>"+
+    (drill
+      ? (last?'<button class="btn pri" data-act="fin"'+(answered?"":" disabled")+">結果を見る</button>":'<button class="btn pri" data-act="next"'+(answered?"":" disabled")+">次へ</button>")
+      : (last?'<button class="btn pri" data-act="grade">採点する</button>':'<button class="btn pri" data-act="next">次へ</button>'))+
+    "</div></div>";
+  app.innerHTML=h;paintClock();
+}
+
+/* ---- 画面：結果 ---- */
+function result(){
+  var N=X.items.length,r=X.score/N,drill=X.mode==="drill";
+  var j=r>=.8?["good","目標クリアです。この調子で次の回へ進みましょう。"]:r>=.7?["mid","あと1問で目標の8割です。まちがえた問題の解説を読んでから次へ。"]:["bad","解説と覚え方を確認して、同じ分野をもう5問解いてみましょう。"];
+  var h='<section class="panel"><h2>'+esc(X.title)+"の結果</h2>"+
+    '<div class="score"><b>'+X.score+"</b><span>/ "+N+"問"+(drill?"":"　解答時間 "+Math.floor(X.sec/60)+"分"+("0"+X.sec%60).slice(-2)+"秒"+(X.auto?"（時間切れ）":""))+"</span></div>"+
+    '<p class="judge '+j[0]+'">'+j[1]+"</p>";
+  var wf=[];X.items.forEach(function(it){var f=byId[it.id].f;if(!it.ok&&wf.indexOf(f)<0)wf.push(f)});
+  h+='<div class="row">'+wf.map(function(f){return '<button class="btn sm" data-act="similar" data-f="'+FIELDS.indexOf(f)+'">'+esc(f)+"をもう5問</button>"}).join("")+
+    '<button class="btn sm pri" data-act="full">次の10問テスト</button><button class="btn sm" data-act="home">ホームへ</button></div></section>';
+  var hasY=X.items.every(function(it){return typeof byId[it.id].y==="number"});
+  if(hasY)h+='<div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="'+(tab==="exp")+'" data-act="tab" data-t="exp">解説</button><button class="tab" role="tab" aria-selected="'+(tab==="tl")+'" data-act="tab" data-t="tl">年表で流れを見る</button></div>';
+  if(tab==="tl"&&hasY){
+    var s=X.items.slice().sort(function(a,b){return byId[a.id].y-byId[b.id].y});
+    h+='<section class="panel"><p class="lead">今回の'+N+'問を古い順に並べました。出来事の時期と順序をあわせて確かめましょう。</p><ol class="tl">'+s.map(function(it){var q=byId[it.id];
+      return '<li><span class="yr">'+yearLabel(q.y)+'</span><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="ev">'+esc(q.t)+"<small>"+esc(q.f)+"</small></span></li>"}).join("")+"</ol></section>";
+  }else{
+    h+='<div class="rev">'+X.items.map(function(it,i){var q=byId[it.id];
+      return '<details class="it"'+(it.ok?"":" open")+'><summary><span class="ox '+(it.ok?"ok":"ng")+'">'+(it.ok?"○":"×")+'</span><span class="sm-t">問'+(i+1)+"　"+esc(q.t)+"<small>"+esc(q.f)+"｜"+KIND[q.k]+"</small></span></summary>"+
+        '<div class="it-body">'+passHtml(q)+'<p class="q">'+esc(q.q)+"</p>"+optsHtml(q,it,true)+expHtml(q,it)+"</div></details>"}).join("")+"</div>";
+  }
+  app.innerHTML=h;
+}
+
+/* ---- 操作 ---- */
+app.addEventListener("click",function(e){
+  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
+  var a=b.getAttribute("data-act");
+  if(a!=="quit"&&a!=="reset"&&a!=="grade"&&armed){var was=armed;armed="";if(was==="grade"&&a!=="grade2"&&a!=="unans"){/* 確認を閉じる */}}
+  if(a==="full")begin("full");
+  else if(a==="field")begin("field",FIELDS[+b.getAttribute("data-f")]);
+  else if(a==="wrong")begin("wrong");
+  else if(a==="similar"){var ex={};if(X)X.items.forEach(function(it){ex[it.id]=1});begin("similar",FIELDS[+b.getAttribute("data-f")],ex)}
+  else if(a==="scope"){scope=b.getAttribute("data-s");try{localStorage.setItem(LS+"-scope",scope)}catch(e){}home()}
+  else if(a==="home")home();
+  else if(a==="reset"){if(armed==="reset"){S.stats={};S.hist=[];armed="";save();home()}else{armed="reset";home()}}
+  else if(a==="tab"){tab=b.getAttribute("data-t");result()}
+  else if(!X)return;
+  else if(a==="pick"){
+    var it=X.items[X.k],ci=+b.getAttribute("data-c");
+    if(X.mode==="drill"){if(it.pick!==null)return;it.pick=ci;it.ok=ci===A(byId[it.id]);rec(it.id,it.ok,Date.now());save()}else{it.pick=ci}
+    exam();
+  }
+  else if(a==="go"){X.k=+b.getAttribute("data-i");exam()}
+  else if(a==="prev"){if(X.k>0)X.k--;exam();window.scrollTo(0,0)}
+  else if(a==="next"){if(X.k<X.items.length-1)X.k++;exam();window.scrollTo(0,0)}
+  else if(a==="grade"){if(X.items.some(function(x){return x.pick===null})){armed="grade";exam()}else grade(false)}
+  else if(a==="grade2")grade(false);
+  else if(a==="unans"){for(var i=0;i<X.items.length;i++){if(X.items[i].pick===null){X.k=i;break}}exam();window.scrollTo(0,0)}
+  else if(a==="fin")finishDrill();
+  else if(a==="quit"){if(armed==="quit"){X=null;home();window.scrollTo(0,0)}else{armed="quit";exam()}}
+});
+
+/* ---- 起動 ---- */
+function start(data){
+  loadLocal();setSync("local");
+  if(data&&data.X&&data.X.items&&data.X.items.every(function(it){return byId[it.id]})){X=data.X;view=data.view||"exam";tab=data.tab||"exp";if(view==="result"){result()}else{view="exam";exam();startTick()}}
+  else home();
+  connect();
+}
+try{if(window.claude&&window.claude.hot&&window.claude.hot.snapshot)window.claude.hot.snapshot(function(){return (view==="home"||!X)?{}:{view:view,tab:tab,X:X}})}catch(e){}
+if(window.claude&&window.claude.hot&&window.claude.hot.ready)window.claude.hot.ready(start);
+else start((window.claude&&window.claude.hot&&window.claude.hot.data)||{});
+})();
+</script>
+
+</body></html>

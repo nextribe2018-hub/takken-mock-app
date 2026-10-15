@@ -59,6 +59,25 @@ EXTRA = {
 }
 
 
+# 追加の試験は web/univ/units/<単位>.json を置くだけで組み立てられる（セッションを分けて作るときに同じファイルを触らないため）
+# 形式は web/univ/units/README.md を参照
+UNIT_SUB = {}
+OWNER, WHAT, WHO, EYEBROW, PAST_SRC = {}, {}, {}, {}, {}
+for f in sorted((here / "units").glob("*.json")):
+    c = json.loads(f.read_text(encoding="utf-8"))
+    u = c["unit"]
+    assert u not in UNITS, f"{f.name}: 単位 {u} は既にある"
+    UNITS[u] = (c["short"], c["name"], c["exam"], c["link"], c["linktext"])
+    UNIT_SUB[u] = {k: tuple(v) for k, v in c["subjects"].items()}
+    if c.get("plan_only"): PLAN_ONLY[u] = c["plan_only"]
+    if c.get("extra"): EXTRA[u] = c["extra"]
+    if c.get("owner"): OWNER[u] = c["owner"]
+    if c.get("what"): WHAT[u] = c["what"]
+    if c.get("who"): WHO[u] = c["who"]
+    if c.get("eyebrow"): EYEBROW[u] = c["eyebrow"]
+    if c.get("past_src"): PAST_SRC[u] = c["past_src"]
+
+
 def fields_of(qs):
     if all("y" not in q for q in qs):  # 英語・国語などは出てきた順
         return list(dict.fromkeys(q["f"] for q in qs))
@@ -75,25 +94,28 @@ def build(unit, sub):
     if errs:
         return errs
     short, univ, exam, link, linktext = UNITS[unit]
-    sname, scope = SUB[sub]
+    sname, scope = UNIT_SUB.get(unit, SUB)[sub]
     past = [q for q in qs if q["k"] == "past"]
     years = sorted({q["ref"][:4] for q in past})
-    if past:
-        what = "試験問題（解答は非公表）と出題のポイント" if unit == "zeirishi" else "入試問題・解答・出題意図"
-        who = "国税庁" if unit == "zeirishi" else univ
+    if past and unit in PAST_SRC:  # 過去問の文面をそのまま使う試験（出典表示の文は単位の設定に書く）
+        src = PAST_SRC[unit].format(years="・".join(years))
+    elif past:
+        what = WHAT.get(unit, "試験問題（解答は非公表）と出題のポイント" if unit == "zeirishi" else "入試問題・解答・出題意図")
+        who = WHO.get(unit, "国税庁" if unit == "zeirishi" else univ)
         src = (f"「過去問ベース」は、{who}が公式に公開している{'・'.join(years)}年度の{what}をもとに、"
                "問われた知識を選択式に作り直した問題です。設問文・選択肢・本文は独自に作成したもので、実際の試験の文面とは異なります。")
     else:
         src = PLAN_ONLY[unit]
     foot = (
-        f"このページは{'国税庁・国税審議会' if unit == 'zeirishi' else univ}の公式教材ではありません。{src}"
+        f"このページは{OWNER.get(unit, '国税庁・国税審議会' if unit == 'zeirishi' else univ)}の公式教材ではありません。{src}"
         "「想定問題」は、公表されている出題範囲・出題形式に合わせて独自に作成した問題で、実際に出題されたものではありません。"
         + ("英語・現代文の本文は独自に作成した文章です。古文・漢文は著作権の切れた古典の原文を使っています。" if sub in ("eigo", "kokugo") else "")
         + "解説と覚え方も独自に作成したものです。" + EXTRA.get(unit, "")
     )
     rep = {
         "__TITLE__": f"{short} {sname} 10問テスト",
-        "__EYEBROW__": f"{scope}｜{univ} {exam}" if unit != "zeirishi" else f"税理士試験（{exam}）｜{scope}・令和8年4月3日現在の法令",
+        "__EYEBROW__": EYEBROW[unit].format(scope=scope, name=univ, exam=exam) if unit in EYEBROW
+        else f"{scope}｜{univ} {exam}" if unit != "zeirishi" else f"税理士試験（{exam}）｜{scope}・令和8年4月3日現在の法令",
         "__FOOT__": foot,
         "__FIELDS__": dump(fields_of(qs)),
         "__LS__": f"{xid}-v1",
@@ -118,7 +140,7 @@ def build(unit, sub):
 def main():
     errs = []
     for unit in UNITS:
-        for sub in SUB:
+        for sub in UNIT_SUB.get(unit, SUB):
             if (root / f"src/data/{unit}-{sub}.json").exists():
                 errs += build(unit, sub)
     if errs:
