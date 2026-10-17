@@ -216,7 +216,7 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   for (const p of [0.6, 0.8, 0.9]) for (let j = 0; j < 4; j++) assert.ok(Math.abs(fourFromLimbs([p, p, p, p], j) - toExam(p)) < 1e-9);
   assert.ok(fourFromLimbs([0.95, 0.6, 0.6, 0.6], 0) > fourFromLimbs([0.6, 0.6, 0.6, 0.6], 0));
   assert.equal(refLabelJa('R03s-29'), '令和3年12月 問29'); assert.equal(refLabelJa('R01-43'), '令和元年 問43'); assert.equal(refLabelJa('H28-35'), '平成28年 問35');
-  assert.ok(Object.keys(FOUR_GROUPS).length > 500 && Object.values(FOUR_GROUPS).every(g => g.length <= 4));
+  assert.ok(Object.keys(FOUR_GROUPS).length > 500 && Object.values(FOUR_GROUPS).every(g => g.length <= 5)); // H25-35 はア〜オの5肢;
   assert.equal(fourChoice({}).n, 0);
   const id = Object.keys(FOUR_GROUPS).find(k => FOUR_GROUPS[k].length === 3 && !/[アイウエ]/.test(FOUR_GROUPS[k][0].ref))!;
   const g = FOUR_GROUPS[id];
@@ -299,7 +299,7 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
 }
 
 // 20) 10問×5回で論点が一巡：各回10問はすべて別の論点、1セットで業16・法7・税7は全論点、権利は14論点。
-//     出し切れなかった権利の2論点は次のセットで必ず出る。分野の出題数（業20・権14・法8・税8）は変わらない
+//     出し切れなかった権利の論点（論点数−14）は次のセットで必ず出る。分野の出題数（業20・権14・法8・税8）は変わらない
 {
   const X = TAKKEN;
   const allT = new Set(BANK.map(q => q.f + '|' + q.t));
@@ -316,12 +316,13 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
         pr = finishRound(X, pr, qs, qs.map(q => (Math.random() < 0.7 ? q.a : 1 - q.a)), 300).next;
       }
       assert.deepEqual(per, { 業法: 20, 権利: 14, 法令: 8, 税他: 8 });
-      assert.ok(seen.size >= 44, `1セットで${seen.size}論点`);
+      assert.ok(seen.size >= allT.size - (new Set(BANK.filter(q => q.f === '権利').map(q => q.t)).size - 14), `1セットで${seen.size}論点`);
       prevCarry.forEach(k => assert.ok(seen.has(k), `持ち越し ${k} が出ていない`));
       assert.deepEqual(new Set([...seen, ...(pr.set.carry || [])]), allT);
       assert.equal(pr.set.round, 0); assert.deepEqual(pr.set.topics, []);
       prevCarry = pr.set.carry || [];
-      assert.ok(prevCarry.length <= 2 && prevCarry.every(k => k.startsWith('権利')));
+      const kenT = new Set(BANK.filter(q => q.f === '権利').map(q => q.t)).size; // 権利の論点数（1セット14問）
+      assert.ok(prevCarry.length <= kenT - 14 && prevCarry.every(k => k.startsWith('権利')));
     }
   }
 }
