@@ -22,12 +22,17 @@ python3 web/build.py          # 宅建Web版（Claudeアーティファクト用
 python3 web/rikkyo/build.py   # 立教 世界史・日本史のWeb版を検査＋再生成
 python3 web/keio/build.py     # 慶應 経済・商の世界史・日本史のWeb版を検査＋再生成
 python3 web/univ/build.py     # 近大・日大・明治・早稲田・東大・税理士のWeb版を検査＋再生成（一覧は docs/WEB_PAGES.md）
+npm run variants              # 試験ごとの別アプリ設定（variants.json・eas.json）を src/exams.ts から作り直す
+uv run --with pillow python design/make_assets.py                  # アイコン案・スクショ案を design/spec.json から作る
+uv run --with pillow --with openpyxl python design/build_xlsx.py   # design/デザイン案.xlsx と docs/store-listing.md・privacy-policy.md を作る
+uv run --with openpyxl python design/read_feedback.py              # Excel の「修正コメント」列を読む
 ```
 
 ## 構成
 - `App.tsx` 画面 ／ `src/exams.ts` 試験パック ／ `src/logic.ts` ロジック ／ `src/storage.ts` 保存 ／ `src/theme.ts` 色
 - `src/data/bank.json` 宅建1,498問 ／ `src/data/lessons.json` 解説46論点 ／ `src/data/rikkyo-*.json` 立教 世界史105問・日本史215問 ／ `src/data/keio-*.json` 慶應 経済・商の世界史・日本史 各100問
 - 試験を増やすときは `src/exams.ts` の `EXAMS` に1件足す（`npm test` が全試験のデータ形式と出題を検査する）
+- `design/` アイコン・スクショ・掲載文・プライバシーポリシーの案（spec.json／text.json が元。Excel のコメントを読んで直し、作り直す）
 - `web/` 宅建Web版、`web/rikkyo/` 立教Web版、`web/keio/` 慶應Web版のテンプレートとビルド
 
 ## 注意

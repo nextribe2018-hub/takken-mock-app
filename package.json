@@ -28,7 +28,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "tsx scripts/test-logic.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "variants": "tsx scripts/variants.ts"
   },
   "private": true
 }

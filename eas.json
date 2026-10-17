@@ -9,12 +9,246 @@
     },
     "production": {
       "autoIncrement": true
+    },
+    "takken": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "takken"
+      }
+    },
+    "rikkyo-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "rikkyo-sekaishi"
+      }
+    },
+    "rikkyo-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "rikkyo-nihonshi"
+      }
+    },
+    "keio-econ-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "keio-econ-sekaishi"
+      }
+    },
+    "keio-econ-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "keio-econ-nihonshi"
+      }
+    },
+    "keio-comm-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "keio-comm-sekaishi"
+      }
+    },
+    "keio-comm-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "keio-comm-nihonshi"
+      }
+    },
+    "kindai-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kindai-nihonshi"
+      }
+    },
+    "kindai-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kindai-sekaishi"
+      }
+    },
+    "kindai-eigo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kindai-eigo"
+      }
+    },
+    "kindai-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kindai-kokugo"
+      }
+    },
+    "nichidai-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "nichidai-nihonshi"
+      }
+    },
+    "nichidai-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "nichidai-sekaishi"
+      }
+    },
+    "nichidai-eigo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "nichidai-eigo"
+      }
+    },
+    "nichidai-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "nichidai-kokugo"
+      }
+    },
+    "meiji-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "meiji-nihonshi"
+      }
+    },
+    "meiji-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "meiji-sekaishi"
+      }
+    },
+    "meiji-eigo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "meiji-eigo"
+      }
+    },
+    "meiji-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "meiji-kokugo"
+      }
+    },
+    "zeirishi-zaihyo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "zeirishi-zaihyo"
+      }
+    },
+    "zeirishi-souzoku": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "zeirishi-souzoku"
+      }
+    },
+    "zeirishi-shouhi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "zeirishi-shouhi"
+      }
+    },
+    "zeirishi-shotoku": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "zeirishi-shotoku"
+      }
+    },
+    "todai-eigo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-eigo"
+      }
+    },
+    "todai-chiri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-chiri"
+      }
+    },
+    "todai-seibutsu": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-seibutsu"
+      }
+    },
+    "waseda-eigo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "waseda-eigo"
+      }
+    },
+    "todai-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-kokugo"
+      }
+    },
+    "todai-sugaku-bun": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-sugaku-bun"
+      }
+    },
+    "todai-sugaku-ri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-sugaku-ri"
+      }
+    },
+    "todai-butsuri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-butsuri"
+      }
+    },
+    "todai-kagaku": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-kagaku"
+      }
+    },
+    "todai-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-nihonshi"
+      }
+    },
+    "waseda-nihonshi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "waseda-nihonshi"
+      }
+    },
+    "waseda-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "waseda-sekaishi"
+      }
+    },
+    "waseda-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "waseda-kokugo"
+      }
+    },
+    "zeirishi-boki": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "zeirishi-boki"
+      }
+    },
+    "zeirishi-houjin": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "zeirishi-houjin"
+      }
+    },
+    "todai-sekaishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "todai-sekaishi"
+      }
     }
   },
   "submit": {
-    "production": {
+    "takken": {
       "ios": {
-        "ascAppId": "ここにApp Store ConnectのアプリIDを入れる"
+        "ascAppId": "6823208571"
       }
     }
   }

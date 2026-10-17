@@ -5,6 +5,8 @@ import {
   buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
 import { EXAMS, byKey } from '../src/exams';
+import { buildVariants, type Variant } from './variants';
+import variantsJson from '../variants.json';
 
 // 1) 5回合計が本試験の比率（業法20・権利14・法令8・税他8）
 const sum: Record<string, number> = {};
@@ -225,6 +227,18 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   assert.ok(good.items[0].prob > bad.items[0].prob);
   console.log(`4択に戻す ${id}: 全肢正解→${Math.round(good.items[0].prob * 100)}% 全肢不正解→${Math.round(bad.items[0].prob * 100)}%（元の4択 ${Object.keys(FOUR_GROUPS).length}問）`);
 }
+
+// 13) 試験ごとの別アプリ：variants.json が EXAMS と一致（npm run variants で更新）・名前30字以内・IDの形式
+const V = variantsJson as Record<string, Variant>;
+assert.deepEqual(Object.keys(V).sort(), EXAMS.map(x => x.id).sort(), 'variants.json が古い（npm run variants を実行）');
+const want = buildVariants(V);
+for (const [id, v] of Object.entries(V)) {
+  assert.deepEqual(v, want[id], `${id}: variants.json が古い（npm run variants を実行）`);
+  assert.ok(v.name.length <= 30, `${id}: アプリ名が30字を超える`);
+  assert.match(v.bundleId, /^[A-Za-z0-9.-]+$/, `${id}: バンドルIDの形式`);
+  assert.match(v.sku, /^[A-Za-z0-9._]+$/, `${id}: 課金アイテムIDの形式`);
+}
+assert.equal(new Set(Object.values(V).map(v => v.bundleId)).size, EXAMS.length, 'バンドルIDが重複');
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
 console.log(`OK: 試験パック ${summary.join('・')}`);

@@ -54,3 +54,12 @@ export async function loadLastExam(): Promise<ExamId | null> {
 export async function saveLastExam(id: ExamId): Promise<void> {
   try { await AsyncStorage.setItem(LAST_EXAM, id); } catch {}
 }
+
+// 全問解放（買い切り）の状態。ストアの購入記録が正で、これは起動直後の表示用の控え
+const UNLOCK = 'unlock-v1:';
+export async function loadUnlocked(id: ExamId): Promise<boolean> {
+  try { return (await AsyncStorage.getItem(UNLOCK + id)) === '1'; } catch { return false; }
+}
+export async function saveUnlocked(id: ExamId, on: boolean): Promise<void> {
+  try { on ? await AsyncStorage.setItem(UNLOCK + id, '1') : await AsyncStorage.removeItem(UNLOCK + id); } catch {}
+}

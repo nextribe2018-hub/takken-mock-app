@@ -1,0 +1,236 @@
+{
+  "takken": {
+    "name": "宅建10分模試",
+    "bundleId": "jp.icurate.takkenmock",
+    "sku": "jp.icurate.takkenmock.full",
+    "ascAppId": "6823208571"
+  },
+  "rikkyo-sekaishi": {
+    "name": "立教世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.rikkyo-sekaishi",
+    "sku": "jp.icurate.tenmin.rikkyo_sekaishi.full",
+    "ascAppId": ""
+  },
+  "rikkyo-nihonshi": {
+    "name": "立教日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.rikkyo-nihonshi",
+    "sku": "jp.icurate.tenmin.rikkyo_nihonshi.full",
+    "ascAppId": ""
+  },
+  "keio-econ-sekaishi": {
+    "name": "慶應経済学部世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.keio-econ-sekaishi",
+    "sku": "jp.icurate.tenmin.keio_econ_sekaishi.full",
+    "ascAppId": ""
+  },
+  "keio-econ-nihonshi": {
+    "name": "慶應経済学部日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.keio-econ-nihonshi",
+    "sku": "jp.icurate.tenmin.keio_econ_nihonshi.full",
+    "ascAppId": ""
+  },
+  "keio-comm-sekaishi": {
+    "name": "慶應商学部世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.keio-comm-sekaishi",
+    "sku": "jp.icurate.tenmin.keio_comm_sekaishi.full",
+    "ascAppId": ""
+  },
+  "keio-comm-nihonshi": {
+    "name": "慶應商学部日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.keio-comm-nihonshi",
+    "sku": "jp.icurate.tenmin.keio_comm_nihonshi.full",
+    "ascAppId": ""
+  },
+  "kindai-nihonshi": {
+    "name": "近畿大学日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.kindai-nihonshi",
+    "sku": "jp.icurate.tenmin.kindai_nihonshi.full",
+    "ascAppId": ""
+  },
+  "kindai-sekaishi": {
+    "name": "近畿大学世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.kindai-sekaishi",
+    "sku": "jp.icurate.tenmin.kindai_sekaishi.full",
+    "ascAppId": ""
+  },
+  "kindai-eigo": {
+    "name": "近畿大学英語10分模試",
+    "bundleId": "jp.icurate.tenmin.kindai-eigo",
+    "sku": "jp.icurate.tenmin.kindai_eigo.full",
+    "ascAppId": ""
+  },
+  "kindai-kokugo": {
+    "name": "近畿大学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.kindai-kokugo",
+    "sku": "jp.icurate.tenmin.kindai_kokugo.full",
+    "ascAppId": ""
+  },
+  "nichidai-nihonshi": {
+    "name": "日本大学日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.nichidai-nihonshi",
+    "sku": "jp.icurate.tenmin.nichidai_nihonshi.full",
+    "ascAppId": ""
+  },
+  "nichidai-sekaishi": {
+    "name": "日本大学世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.nichidai-sekaishi",
+    "sku": "jp.icurate.tenmin.nichidai_sekaishi.full",
+    "ascAppId": ""
+  },
+  "nichidai-eigo": {
+    "name": "日本大学英語10分模試",
+    "bundleId": "jp.icurate.tenmin.nichidai-eigo",
+    "sku": "jp.icurate.tenmin.nichidai_eigo.full",
+    "ascAppId": ""
+  },
+  "nichidai-kokugo": {
+    "name": "日本大学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.nichidai-kokugo",
+    "sku": "jp.icurate.tenmin.nichidai_kokugo.full",
+    "ascAppId": ""
+  },
+  "meiji-nihonshi": {
+    "name": "明治大学日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.meiji-nihonshi",
+    "sku": "jp.icurate.tenmin.meiji_nihonshi.full",
+    "ascAppId": ""
+  },
+  "meiji-sekaishi": {
+    "name": "明治大学世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.meiji-sekaishi",
+    "sku": "jp.icurate.tenmin.meiji_sekaishi.full",
+    "ascAppId": ""
+  },
+  "meiji-eigo": {
+    "name": "明治大学英語10分模試",
+    "bundleId": "jp.icurate.tenmin.meiji-eigo",
+    "sku": "jp.icurate.tenmin.meiji_eigo.full",
+    "ascAppId": ""
+  },
+  "meiji-kokugo": {
+    "name": "明治大学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.meiji-kokugo",
+    "sku": "jp.icurate.tenmin.meiji_kokugo.full",
+    "ascAppId": ""
+  },
+  "zeirishi-zaihyo": {
+    "name": "税理士財務諸表論10分模試",
+    "bundleId": "jp.icurate.tenmin.zeirishi-zaihyo",
+    "sku": "jp.icurate.tenmin.zeirishi_zaihyo.full",
+    "ascAppId": ""
+  },
+  "zeirishi-souzoku": {
+    "name": "税理士相続税法10分模試",
+    "bundleId": "jp.icurate.tenmin.zeirishi-souzoku",
+    "sku": "jp.icurate.tenmin.zeirishi_souzoku.full",
+    "ascAppId": ""
+  },
+  "zeirishi-shouhi": {
+    "name": "税理士消費税法10分模試",
+    "bundleId": "jp.icurate.tenmin.zeirishi-shouhi",
+    "sku": "jp.icurate.tenmin.zeirishi_shouhi.full",
+    "ascAppId": ""
+  },
+  "zeirishi-shotoku": {
+    "name": "税理士所得税法10分模試",
+    "bundleId": "jp.icurate.tenmin.zeirishi-shotoku",
+    "sku": "jp.icurate.tenmin.zeirishi_shotoku.full",
+    "ascAppId": ""
+  },
+  "todai-eigo": {
+    "name": "東京大学英語10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-eigo",
+    "sku": "jp.icurate.tenmin.todai_eigo.full",
+    "ascAppId": ""
+  },
+  "todai-chiri": {
+    "name": "東京大学地理10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-chiri",
+    "sku": "jp.icurate.tenmin.todai_chiri.full",
+    "ascAppId": ""
+  },
+  "todai-seibutsu": {
+    "name": "東京大学生物10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-seibutsu",
+    "sku": "jp.icurate.tenmin.todai_seibutsu.full",
+    "ascAppId": ""
+  },
+  "waseda-eigo": {
+    "name": "早稲田大学英語10分模試",
+    "bundleId": "jp.icurate.tenmin.waseda-eigo",
+    "sku": "jp.icurate.tenmin.waseda_eigo.full",
+    "ascAppId": ""
+  },
+  "todai-kokugo": {
+    "name": "東京大学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-kokugo",
+    "sku": "jp.icurate.tenmin.todai_kokugo.full",
+    "ascAppId": ""
+  },
+  "todai-sugaku-bun": {
+    "name": "東京大学数学（文科）10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-sugaku-bun",
+    "sku": "jp.icurate.tenmin.todai_sugaku_bun.full",
+    "ascAppId": ""
+  },
+  "todai-sugaku-ri": {
+    "name": "東京大学数学（理科）10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-sugaku-ri",
+    "sku": "jp.icurate.tenmin.todai_sugaku_ri.full",
+    "ascAppId": ""
+  },
+  "todai-butsuri": {
+    "name": "東京大学物理10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-butsuri",
+    "sku": "jp.icurate.tenmin.todai_butsuri.full",
+    "ascAppId": ""
+  },
+  "todai-kagaku": {
+    "name": "東京大学化学10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-kagaku",
+    "sku": "jp.icurate.tenmin.todai_kagaku.full",
+    "ascAppId": ""
+  },
+  "todai-nihonshi": {
+    "name": "東京大学日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-nihonshi",
+    "sku": "jp.icurate.tenmin.todai_nihonshi.full",
+    "ascAppId": ""
+  },
+  "waseda-nihonshi": {
+    "name": "早稲田大学日本史10分模試",
+    "bundleId": "jp.icurate.tenmin.waseda-nihonshi",
+    "sku": "jp.icurate.tenmin.waseda_nihonshi.full",
+    "ascAppId": ""
+  },
+  "waseda-sekaishi": {
+    "name": "早稲田大学世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.waseda-sekaishi",
+    "sku": "jp.icurate.tenmin.waseda_sekaishi.full",
+    "ascAppId": ""
+  },
+  "waseda-kokugo": {
+    "name": "早稲田大学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.waseda-kokugo",
+    "sku": "jp.icurate.tenmin.waseda_kokugo.full",
+    "ascAppId": ""
+  },
+  "zeirishi-boki": {
+    "name": "税理士簿記論10分模試",
+    "bundleId": "jp.icurate.tenmin.zeirishi-boki",
+    "sku": "jp.icurate.tenmin.zeirishi_boki.full",
+    "ascAppId": ""
+  },
+  "zeirishi-houjin": {
+    "name": "税理士法人税法10分模試",
+    "bundleId": "jp.icurate.tenmin.zeirishi-houjin",
+    "sku": "jp.icurate.tenmin.zeirishi_houjin.full",
+    "ascAppId": ""
+  },
+  "todai-sekaishi": {
+    "name": "東京大学世界史10分模試",
+    "bundleId": "jp.icurate.tenmin.todai-sekaishi",
+    "sku": "jp.icurate.tenmin.todai_sekaishi.full",
+    "ascAppId": ""
+  }
+}

@@ -1,0 +1,44 @@
+import puppeteer from 'puppeteer-core';
+import { readFileSync, mkdirSync } from 'node:fs';
+const OUT = process.argv[2]; mkdirSync(OUT, { recursive: true });
+const bank = JSON.parse(readFileSync('bank.json', 'utf8'));
+const ans = Object.fromEntries(bank.map(q => [q.s.trim(), q.a]));
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const b = await puppeteer.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: 'new' });
+const p = await b.newPage();
+await p.setViewport({ width: 430, height: 932, deviceScaleFactor: 3 });
+const wait = ms => new Promise(r => setTimeout(r, ms));
+const click = async t => { const ok = await p.$$eval('[role=button]', (es, t) => { const e = es.find(e => e.textContent.trim().startsWith(t)); if (!e) return false; e.click(); return true; }, t); if (!ok) throw new Error('no button ' + t); await wait(350); };
+const shot = async n => { await wait(400); await p.screenshot({ path: `${OUT}/${n}.png` }); console.log('shot', n); };
+const top = () => p.evaluate(() => { document.querySelectorAll('div').forEach(d => { if (d.scrollTop) d.scrollTop = 0; }); });
+const scrollTo = t => p.evaluate(t => { const el = [...document.querySelectorAll('div')].reverse().find(d => d.childElementCount === 0 && d.textContent.trim() === t) || [...document.querySelectorAll('div')].reverse().find(d => d.textContent.trim().startsWith(t)); el && el.scrollIntoView({ block: 'start' }); }, t);
+const stmt = () => p.evaluate(() => { const m = document.body.innerText.match(/問\d+　[^\n]*\n([^\n]+)/); return m ? m[1].trim() : ''; });
+await p.goto('http://localhost:8093/', { waitUntil: 'networkidle0' });
+await p.evaluate(() => { localStorage.clear(); localStorage.setItem('unlock-v1:takken', '1'); });
+await p.reload({ waitUntil: 'networkidle0' }); await wait(1200);
+const play = async (rate, shots) => {
+  await click('第');
+  for (let k = 0; k < 10; k++) {
+    if (shots && k === 2) await shot('exam');
+    const s = await stmt(); const a = ans[s];
+    const right = rnd() < rate; const pickO = a === undefined ? rnd() < 0.5 : (right ? a === 1 : a === 0);
+    await click(pickO ? '○' : '×');
+    if (shots && k === 2) await shot('instant');
+    if (k < 9) await click('次へ');
+  }
+  await click('採点する'); await wait(300);
+  const t = await p.evaluate(() => document.body.innerText);
+  if (/未回答が/.test(t)) await click('採点する');
+};
+await play(0.85); await click('ホームへ');
+await play(0.9); await click('ホームへ');
+await play(0.9, true);
+await top(); await shot('result');
+await click('ホームへ'); await top(); await shot('home');
+await scrollTo('合格の見込み'); await shot('pass');
+await scrollTo('論点マップ'); await shot('map');
+await top(); await click('要復習の論点'); await top(); await shot('lesson');
+await p.evaluate(() => localStorage.removeItem('unlock-v1:takken'));
+await p.reload({ waitUntil: 'networkidle0' }); await wait(1200); await scrollTo('無料版'); await shot('free');
+console.log((await p.evaluate(() => document.body.innerText)).slice(0, 300));
+await b.close();

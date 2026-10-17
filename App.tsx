@@ -6,13 +6,15 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
-import { EXAM, EXAMS, Exam, ExamId, Item } from './src/exams';
+import { EXAM, Exam, ExamId, Item } from './src/exams';
 import {
   buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, Progress, Q,
-  buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, judge, judgeSet, LessonSys, record,
+  buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, freeExam, judge, pick, judgeSet, LessonSys, record,
   relatedBranch, relatedRows, relatedTraps, reviewQuestions, speechText, statsBy, topicState, topicTier, Tier, fourChoice, wrongGroups,
 } from './src/logic';
-import { loadLastExam, loadProgress, saveLastExam, saveProgress } from './src/storage';
+import { loadLastExam, loadProgress, loadUnlocked, saveLastExam, saveProgress, saveUnlocked } from './src/storage';
+import { StoreState, buy, restore, startStore } from './src/purchase';
+import { APP_EXAMS, PRICE_LABEL, SINGLE, skuFor } from './src/variant';
 import { Colors, fonts, useColors, mix } from './src/theme';
 
 // 回答：○×は 1／0、4択は c の番号
@@ -46,10 +48,13 @@ export default function App() {
 function Root() {
   const c = useColors();
   const st = useMemo(() => makeStyles(c), [c]);
-  const [all, setAll] = useState<Record<ExamId, Progress> | null>(null);
-  const [examId, setExamId] = useState<ExamId>('takken');
+  const [all, setAll] = useState<Partial<Record<ExamId, Progress>> | null>(null);
+  const [examId, setExamId] = useState<ExamId>(SINGLE?.id ?? 'takken');
   const [last, setLast] = useState<ExamId | null>(null);
-  const [screen, setScreen] = useState<Screen>({ name: 'select' });
+  const [screen, setScreen] = useState<Screen>(SINGLE ? { name: 'home' } : { name: 'select' });
+  const [unlocked, setUnlocked] = useState<Partial<Record<ExamId, boolean>>>({});
+  const [store, setStore] = useState<Record<string, StoreState>>({});
+  const [shopMsg, setShopMsg] = useState<string | null>(null);
   const scrollRef = useRef<ScrollView>(null);
   const contentRef = useRef<View>(null);
   // 体系ページで、押した項目の位置までスクロールする
@@ -58,14 +63,32 @@ function Root() {
     node.measureLayout(contentRef.current, (_x, y) => scrollRef.current?.scrollTo({ y: Math.max(0, y - 80), animated: true }), () => {});
   }, []);
 
-  useEffect(() => {
-    Promise.all([Promise.all(EXAMS.map(x => loadProgress(x))), loadLastExam()]).then(([ps, l]) => {
-      setAll(Object.fromEntries(EXAMS.map((x, i) => [x.id, ps[i]])) as Record<ExamId, Progress>);
-      setLast(l);
-    });
+  const unlock = useCallback((id: ExamId, on = true) => {
+    setUnlocked(u => ({ ...u, [id]: on }));
+    saveUnlocked(id, on);
   }, []);
 
-  const x = EXAM[examId];
+  useEffect(() => {
+    Promise.all([
+      Promise.all(APP_EXAMS.map(x => loadProgress(x))),
+      Promise.all(APP_EXAMS.map(x => loadUnlocked(x.id))),
+      loadLastExam(),
+    ]).then(([ps, us, l]) => {
+      setAll(Object.fromEntries(APP_EXAMS.map((x, i) => [x.id, ps[i]])));
+      setUnlocked(Object.fromEntries(APP_EXAMS.map((x, i) => [x.id, us[i]])));
+      setLast(l && APP_EXAMS.some(x => x.id === l) ? l : null);
+    });
+    // ストアに接続：価格の取得と購入済みの確認（購入・復元の結果もここに届く）
+    const bySku: Record<string, ExamId> = Object.fromEntries(APP_EXAMS.map(x => [skuFor(x.id), x.id]));
+    startStore(Object.keys(bySku).filter(Boolean), {
+      onUnlocked: sku => { if (bySku[sku]) { unlock(bySku[sku]); setShopMsg('全問を解放しました。'); } },
+      onError: m => setShopMsg(m),
+    }).then(setStore);
+  }, [unlock]);
+
+  // 無料版は x を無料の問題だけの Exam にする（出題・復習・集計がすべて無料の範囲になる）
+  const full = !!unlocked[examId];
+  const x = full ? EXAM[examId] : freeExam(EXAM[examId]);
   const update = useCallback((next: Progress) => {
     setAll(a => (a ? { ...a, [examId]: next } : a));
     saveProgress(next, EXAM[examId]);
@@ -90,13 +113,25 @@ function Root() {
     return <View style={[st.fill, st.center]}><ActivityIndicator color={c.ai} /></View>;
   }
 
-  const ctx: Ctx = { c, st, x, p: all[examId], update, go, speak, scrollToNode, screen };
+  const shop: Shop = {
+    full, total: EXAM[examId].items.length, msg: shopMsg,
+    price: store[skuFor(examId)]?.price ?? PRICE_LABEL,
+    buy: () => { setShopMsg(null); buy(skuFor(examId)).catch(e => setShopMsg(String(e?.message ?? e))); },
+    restore: () => {
+      setShopMsg(null);
+      restore([skuFor(examId)], () => unlock(examId))
+        .then(n => { if (!n) setShopMsg('この Apple ID での購入記録は見つかりませんでした。'); })
+        .catch(e => setShopMsg(String(e?.message ?? e)));
+    },
+    devToggle: __DEV__ ? () => unlock(examId, !full) : undefined,
+  };
+  const ctx: Ctx = { c, st, x, p: all[examId] ?? emptyProgress(), update, go, speak, scrollToNode, screen, shop };
   return (
     <SafeAreaView style={st.fill} edges={['top', 'left', 'right']}>
       <StatusBar style="auto" />
       <ScrollView ref={scrollRef}>
         <View ref={contentRef} collapsable={false} style={st.wrap}>
-        {screen.name === 'select' && <Select ctx={ctx} all={all} last={last} onChoose={choose} />}
+        {screen.name === 'select' && <Select ctx={ctx} all={all} unlocked={unlocked} last={last} onChoose={choose} />}
         {screen.name === 'home' && <Home ctx={ctx} />}
         {screen.name === 'exam' && <ExamView ctx={ctx} s={screen} />}
         {screen.name === 'result' && <Result ctx={ctx} s={screen} />}
@@ -112,7 +147,12 @@ function Root() {
 type Ctx = {
   c: Colors; st: ReturnType<typeof makeStyles>; x: Exam; p: Progress;
   update: (p: Progress) => void; go: (s: Screen) => void; speak: (t: string) => void;
-  scrollToNode: (node: View | null) => void; screen: Screen;
+  scrollToNode: (node: View | null) => void; screen: Screen; shop: Shop;
+};
+// 全問解放（買い切り）の状態と操作
+type Shop = {
+  full: boolean; total: number; price: string; msg: string | null;
+  buy: () => void; restore: () => void; devToggle?: () => void;
 };
 
 /* ---------- 試験ごとの表示の小道具 ---------- */
@@ -137,7 +177,8 @@ const startExam = (ctx: Ctx) => {
 // 宅建の分野別10問テストを始める
 const startFieldExam = (ctx: Ctx, f: Q['f']) => {
   const { x, p, go } = ctx;
-  const qs = buildFieldExam(p.hist, f);
+  // 無料版は無料の問題（x.items）の中から出す
+  const qs = ctx.shop.full ? buildFieldExam(p.hist, f) : (pick(p.hist, x.items.filter(q => q.f === f), 10, new Set()) as Q[]);
   go({ name: 'exam', qs, orders: ordersFor(x, qs), round: 0, field: f });
 };
 // 復習を始める：解説（宅建）か間違えた問題があれば解説画面、なければ確認例題へ直接
@@ -239,11 +280,11 @@ function Footer({ ctx }: { ctx: Ctx }) {
 }
 
 /* ---------- 入口：試験を選ぶ ---------- */
-function Select({ ctx, all, last, onChoose }: {
-  ctx: Ctx; all: Record<ExamId, Progress>; last: ExamId | null; onChoose: (id: ExamId) => void;
+function Select({ ctx, all, unlocked, last, onChoose }: {
+  ctx: Ctx; all: Partial<Record<ExamId, Progress>>; unlocked: Partial<Record<ExamId, boolean>>; last: ExamId | null; onChoose: (id: ExamId) => void;
 }) {
   const { st } = ctx;
-  const groups = [...new Set(EXAMS.map(x => x.group))];
+  const groups = [...new Set(APP_EXAMS.map(x => x.group))];
   return (
     <>
       <View style={{ gap: 4 }}>
@@ -253,8 +294,8 @@ function Select({ ctx, all, last, onChoose }: {
       {groups.map(g => (
         <View key={g} style={{ gap: 10 }}>
           <Text style={st.h3}>{g}</Text>
-          {EXAMS.filter(x => x.group === g).map(x => {
-            const hist = all[x.id].hist;
+          {APP_EXAMS.filter(x => x.group === g).map(x => {
+            const hist = all[x.id]?.hist ?? {};
             const done = Object.keys(hist).length;
             let n = 0, cc = 0;
             Object.values(hist).forEach(h => { n += h.n; cc += h.c; });
@@ -263,7 +304,10 @@ function Select({ ctx, all, last, onChoose }: {
                 style={({ pressed }) => [st.card, x.id === last && st.cardNow, pressed && st.pressed]}>
                 <View style={st.rowBetween}>
                   <Text style={st.h2}>{x.name}</Text>
-                  {x.id === last && <Text style={st.tag}>前回</Text>}
+                  <View style={st.row}>
+                    {x.id === last && <Text style={st.tag}>前回</Text>}
+                    {!unlocked[x.id] && <Text style={st.tag}>無料版</Text>}
+                  </View>
                 </View>
                 <Text style={st.note}>{x.desc}</Text>
                 <Text style={st.note}>
@@ -285,7 +329,7 @@ function Home({ ctx }: { ctx: Ctx }) {
   const { c, st, x, p, update, go } = ctx;
   const [confirm, setConfirm] = useState(false);
   const hist = p.hist;
-  const done = Object.keys(hist).length;
+  const done = x.items.filter(q => hist[q.k]).length; // 無料版は無料の範囲で数える
   let tn = 0, tc = 0;
   Object.values(hist).forEach(h => { tn += h.n; tc += h.c; });
   const rate = tn ? Math.round((tc / tn) * 100) : null;
@@ -337,7 +381,7 @@ function Home({ ctx }: { ctx: Ctx }) {
 
   return (
     <>
-      <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ 試験を選ぶ" onPress={() => go({ name: 'select' })} /></View>
+      {!SINGLE && <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ 試験を選ぶ" onPress={() => go({ name: 'select' })} /></View>}
       <View style={{ gap: 4 }}>
         <Text style={st.h1}>{x.name}</Text>
         <Text style={st.sub}>
@@ -378,6 +422,8 @@ function Home({ ctx }: { ctx: Ctx }) {
           目安：10問中 8問以上で合格圏、7問は合格ライン上。{x.rounds ? '5回合計で35点が7割、37点以上なら安全圏です。' : ''}
         </Text>
       </Card>
+
+      {!ctx.shop.full && <Unlock ctx={ctx} done={done} />}
 
       {tk && <PassCard ctx={ctx} />}
       {tk && <FourCard ctx={ctx} />}
@@ -463,9 +509,31 @@ function Home({ ctx }: { ctx: Ctx }) {
           {x.format === 'ox' ? '問題は各論点を○×形式で確認するもので、出典は「年度-問-肢」で表示します。' : '選択肢の順番は毎回入れ替わります。'}
           {x.kinds ? `問題は「${x.kinds.map(k => k[1]).join('」と「')}」の2種類です。` : ''}
         </Text>
+        <View style={st.wrapRow}>
+          {ctx.shop.full ? <Text style={st.note}>全{ctx.shop.total}問を解放済みです。</Text> : <Btn ctx={ctx} label="購入を復元" onPress={ctx.shop.restore} />}
+          {ctx.shop.devToggle && <Btn ctx={ctx} label={`開発用：${ctx.shop.full ? '無料版に戻す' : '解放する'}`} onPress={ctx.shop.devToggle} />}
+        </View>
         <Footer ctx={ctx} />
       </Card>
     </>
+  );
+}
+
+// 無料版の案内と購入
+function Unlock({ ctx, done }: { ctx: Ctx; done: number }) {
+  const { c, st, x, shop } = ctx;
+  const allDone = x.items.every(q => ctx.p.hist[q.k]);
+  return (
+    <View style={[st.card, { borderColor: c.ai }]}>
+      <Text style={st.h2}>無料版：全{shop.total}問のうち{x.items.length}問</Text>
+      <Text style={st.body}>
+        {allDone ? '無料の問題はすべて解きました。' : `各分野から10問に1問を無料で解けます（解いた問題 ${done}問）。`}
+        {shop.price}（買い切り）で全{shop.total}問を解放できます。学習記録はそのまま引き継がれます。
+      </Text>
+      <Btn ctx={ctx} primary label={`全${shop.total}問を解放する（${shop.price}）`} onPress={shop.buy} />
+      <Btn ctx={ctx} label="購入を復元" onPress={shop.restore} />
+      {!!shop.msg && <Text style={st.note}>{shop.msg}</Text>}
+    </View>
   );
 }
 function Kpi({ ctx, label, value }: { ctx: Ctx; label: string; value: string }) {
