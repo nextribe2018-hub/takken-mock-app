@@ -506,6 +506,16 @@ function Unlock({ ctx, done }: { ctx: Ctx; done: number }) {
 function TileMap({ ctx }: { ctx: Ctx }) {
   const { c, st, x, p, go } = ctx;
   const all = useMemo(() => statsBy(EXAM[x.id], p.hist, p.r10), [x.id, p.hist, p.r10]);
+  // 論点ごとの「収録数・解いた問題数・正解している問題数（最後に解いたときに正解）」
+  const cnt = useMemo(() => {
+    const m: Record<string, { done: number; ok: number }> = {};
+    EXAM[x.id].items.forEach(q => {
+      const h = p.hist[q.k]; if (!h) return;
+      const o = (m[q.f + '|' + q.t] = m[q.f + '|' + q.t] || { done: 0, ok: 0 });
+      o.done++; if (h.last === 1) o.ok++;
+    });
+    return m;
+  }, [x.id, p.hist]);
   const look = (s: (typeof all)[number]) => {
     const { tier, few } = topicTier(s);
     const L: Record<Tier, { bg: string; fg: string; bd: string }> = {
@@ -548,12 +558,16 @@ function TileMap({ ctx }: { ctx: Ctx }) {
               {ts.map(s => {
                 const v = look(s);
                 const pct = s.rn ? Math.round((s.rc / s.rn) * 100) : null;
+                const k = cnt[`${s.f}|${s.t}`] || { done: 0, ok: 0 };
                 return (
-                  <Pressable key={s.t} accessibilityRole="button" accessibilityLabel={`${s.t} ${pct == null ? '未着手' : `直近正答率${pct}%`}`}
+                  <Pressable key={s.t} accessibilityRole="button" accessibilityLabel={`${s.t} 全${s.total}問中${k.done}問解答・${k.ok}問正解${pct == null ? '' : `・直近正答率${pct}%`}`}
                     onPress={() => go({ name: 'lesson', queue: [{ key: `${s.f}|${s.t}` }] })}
                     style={({ pressed }) => [st.tile, { backgroundColor: v.bg, borderColor: v.bd, borderStyle: v.tier === 'none' || v.few ? 'dashed' : 'solid' }, pressed && st.pressed]}>
-                    <Text style={[st.tileName, { color: v.tier === 'none' ? c.ink : v.fg }]} numberOfLines={3} adjustsFontSizeToFit minimumFontScale={0.75}>{s.t}</Text>
-                    <Text style={[st.tilePct, { color: v.fg }]}>{pct == null ? '—' : `${v.tier === 'perfect' && !v.few ? '★' : ''}${pct}%`}</Text>
+                    <Text style={[st.tileName, { color: v.tier === 'none' ? c.ink : v.fg }]} numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.75}>{v.tier === 'perfect' && !v.few ? '★' : ''}{s.t}</Text>
+                    <View>
+                      <Text style={[st.tileNum, { color: v.tier === 'none' ? c.muted : v.fg }]} numberOfLines={1} adjustsFontSizeToFit>{k.done}<Text style={st.tileNumS}>/{s.total}問</Text></Text>
+                      <Text style={[st.tileNum, { color: v.tier === 'none' ? c.muted : v.fg }]} numberOfLines={1} adjustsFontSizeToFit><Text style={st.tileNumS}>正解 </Text>{k.ok}<Text style={st.tileNumS}>問</Text></Text>
+                    </View>
                   </Pressable>
                 );
               })}
@@ -562,7 +576,7 @@ function TileMap({ ctx }: { ctx: Ctx }) {
           </View>
         );
       })}
-      <Text style={st.note}>色の目安（直近10問の正答率）：灰＝未着手／赤＝40%未満／橙＝40〜59%／薄い緑＝60〜79%／緑＝80%以上／濃い緑★＝100%。点線は解いた数が5問未満（参考値）。80%以上（5問以上）で「緑」に数えます。</Text>
+      <Text style={st.note}>タイルの数字：上＝解いた問題数／その論点の収録数、下＝正解している問題数（最後に解いたときに正解したもの）。色の目安（直近10問の正答率）：灰＝未着手／赤＝40%未満／橙＝40〜59%／薄い緑＝60〜79%／緑＝80%以上／濃い緑★＝100%。点線は解いた数が5問未満（参考値）。80%以上（5問以上）で「緑」に数えます。</Text>
     </View>
   );
 }
@@ -1252,6 +1266,8 @@ function makeStyles(c: Colors) {
     tiles: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 7 },
     tile: { width: '23.6%', aspectRatio: 1, borderRadius: 10, borderWidth: 1.5, padding: 6, justifyContent: 'space-between' },
     tileName: { fontFamily: fonts.body, fontSize: 12, lineHeight: 15, fontWeight: '700' },
+    tileNum: { fontFamily: fonts.body, fontSize: 12.5, lineHeight: 16, fontWeight: '800', fontVariant: ['tabular-nums'] },
+    tileNumS: { fontSize: 9.5, fontWeight: '600' },
     tilePct: { fontFamily: fonts.body, fontSize: 13, fontWeight: '800', fontVariant: ['tabular-nums'], alignSelf: 'flex-end' },
     tileBar: { height: 8, borderRadius: 4, backgroundColor: c.line, overflow: 'hidden' },
     tileBarFill: { height: 8, borderRadius: 4, backgroundColor: c.ok },

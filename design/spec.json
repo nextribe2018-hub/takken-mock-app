@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "palette": {
     "navy": "#1F3A5F",
     "gold": "#F2B33D",
@@ -140,6 +140,6 @@
     "T7": "v3：URL を apps.icurate.jp/takken/support/ に変更（事業別サイト）",
     "T8": "v3：URL を apps.icurate.jp/takken/privacy/ に変更（事業別サイト）",
     "P8": "v3：所在地を記入",
-    "B-5": "v4：論点マップを新しいタイル表示の画面に差し替え"
+    "B-5": "v5：タイルに「解いた数／収録数・正解数」を表示した画面に差し替え"
   }
 }
