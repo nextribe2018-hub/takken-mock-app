@@ -326,6 +326,14 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   }
 }
 
+// 21) 判例：民法・借地借家の15論点に判例があり、形がそろっている
+{
+  const withCases = Object.entries(LESSON).filter(([, L]) => L.cases?.length);
+  assert.ok(withCases.length >= 15, `判例のある論点: ${withCases.length}`);
+  withCases.forEach(([k, L]) => L.cases!.forEach(c => assert.ok(c.n && c.f && c.h && c.pt && c.kw.length >= 2, `判例の形: ${k} ${c.n}`)));
+  console.log(`判例: ${withCases.length}論点・${withCases.reduce((a, [, L]) => a + L.cases!.length, 0)}件`);
+}
+
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);
 console.log(`OK: 試験パック ${summary.join('・')}`);
 if (freeShort.length) console.log(`注意: 無料版が1回分（10問）に満たない試験 ${freeShort.join('・')}`);
