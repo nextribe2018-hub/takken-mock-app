@@ -17,7 +17,17 @@ export type LessonSys = {
 // 具体例（t 見出し・s 場面・p 結論と理由・kw 問題文との照合用キーワード）と周辺知識
 export type LessonEx = { t: string; s: string; p: string; kw: string[] };
 export type LessonAround = { h: string; b: string };
-export type Lesson = { pts: string[]; traps: string[]; rel: string[]; bridge?: string; sys?: LessonSys; ex?: LessonEx[]; around?: LessonAround[] };
+// 判例（n 裁判所・年月日、f 事案、h 判旨・結論、pt 試験でのポイント、kw 照合用キーワード）。民法・借地借家の論点
+export type LessonCase = { n: string; f: string; h: string; pt: string; kw: string[] };
+export type Lesson = { pts: string[]; traps: string[]; rel: string[]; bridge?: string; sys?: LessonSys; ex?: LessonEx[]; around?: LessonAround[]; cases?: LessonCase[] };
+// キーワードが問題文・解説に多く含まれる順に並べる（同点は元の順＝重要度順）。near＝問題に関係する（1語以上一致）
+export function orderByKw<T extends { kw: string[] }>(list: T[], q?: { s: string; e: string }): { item: T; near: boolean }[] {
+  if (!q) return list.map(x => ({ item: x, near: false }));
+  const text = q.s + q.e;
+  const sc = list.map((x, i) => ({ x, i, n: x.kw.filter(k => text.includes(k)).length }));
+  sc.sort((a, b) => b.n - a.n || a.i - b.i);
+  return sc.map(o => ({ item: o.x, near: o.n > 0 }));
+}
 // 間違えた問題に近い具体例を先頭に（キーワードが問題文・解説に多く含まれる順）。near は先頭が問題に関係するとき true
 export function orderExamples(L: Lesson, q?: { s: string; e: string }): { ex: LessonEx; near: boolean }[] {
   const ex = L.ex || [];

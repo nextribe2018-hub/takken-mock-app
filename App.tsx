@@ -10,7 +10,7 @@ import { EXAM, EXAMS, Exam, ExamId, Item } from './src/exams';
 import {
   buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, Progress, Q,
   buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, judge, judgeSet, LessonSys, record,
-  relatedBranch, relatedRows, relatedTraps, reviewQuestions, reviewCount, reviewJudge, speechText, statsBy, topicState, topicTier, Tier, fourChoice, orderExamples, Lesson, wrongGroups,
+  relatedBranch, relatedRows, relatedTraps, reviewQuestions, reviewCount, reviewJudge, speechText, statsBy, topicState, topicTier, Tier, fourChoice, orderExamples, orderByKw, Lesson, wrongGroups,
 } from './src/logic';
 import { loadLastExam, loadProgress, saveLastExam, saveProgress } from './src/storage';
 import { Colors, fonts, useColors, mix } from './src/theme';
@@ -897,6 +897,7 @@ function FocusView({ ctx, k, missed }: { ctx: Ctx; k: string; missed?: Q }) {
         )}
       </Card>
       <ExamplesCard ctx={ctx} L={L} q={missed} />
+      <CasesCard ctx={ctx} L={L} q={missed} />
       <AroundCard ctx={ctx} L={L} />
       {S && (
         <Card ctx={ctx}>
@@ -940,6 +941,29 @@ function ExamplesCard({ ctx, L, q }: { ctx: Ctx; L: Lesson; q?: { s: string; e: 
           <Text style={[st.body, st.bold]}>→ {ex.p}</Text>
         </View>
       ))}
+    </Card>
+  );
+}
+// 判例：問題に関係する判例を先頭に3件、残りは「すべて見る」で開く
+function CasesCard({ ctx, L, q }: { ctx: Ctx; L: Lesson; q?: { s: string; e: string } }) {
+  const { c, st } = ctx;
+  const [all, setAll] = useState(false);
+  const o = orderByKw(L.cases || [], q);
+  if (!o.length) return null;
+  const show = all ? o : o.slice(0, 3);
+  return (
+    <Card ctx={ctx}>
+      <Text style={st.meta}>判例で理解する（{o.length}件）</Text>
+      {show.map(({ item: cs, near }, i) => (
+        <View key={i} style={{ borderWidth: 1, borderRadius: 8, padding: 10, gap: 4, borderColor: near ? c.ai : c.line, backgroundColor: near ? c.aiSoft : 'transparent' }}>
+          {near && <Text style={{ alignSelf: 'flex-start', fontSize: 11, fontWeight: '700', color: c.ai, borderWidth: 1, borderColor: c.ai, borderRadius: 999, paddingHorizontal: 8 }}>この問題に関係する判例</Text>}
+          <Text style={st.bold}>{cs.n}</Text>
+          <Text style={st.body}><Text style={st.bold}>事案　</Text>{cs.f}</Text>
+          <Text style={st.body}><Text style={st.bold}>判断　</Text>{cs.h}</Text>
+          <Text style={[st.body, { color: c.warn }]}><Text style={st.bold}>試験では　</Text>{cs.pt}</Text>
+        </View>
+      ))}
+      {o.length > 3 && <Btn ctx={ctx} label={all ? '3件だけ表示' : `ほかの判例も見る（あと${o.length - 3}件）`} onPress={() => setAll(!all)} />}
     </Card>
   );
 }
@@ -1023,6 +1047,7 @@ function DeepView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'deep' }> }
         )}
       </Card>
       <ExamplesCard ctx={ctx} L={L} q={s.missed} />
+      <CasesCard ctx={ctx} L={L} q={s.missed} />
       <AroundCard ctx={ctx} L={L} />
       {rel.length > 0 && (
         <Card ctx={ctx}>

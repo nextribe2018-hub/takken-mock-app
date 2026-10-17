@@ -124,6 +124,8 @@ h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
 .exb.near{border-color:var(--ai);background:var(--ai-soft)}
 .exb p{margin:0}.exb .exp{font-weight:700}
 .exb .tag{align-self:flex-start;font-size:.72rem;font-weight:700;color:var(--ai);border:1px solid var(--ai);border-radius:999px;padding:0 8px}
+.cpt{color:var(--warn)}
+.more{display:flex;flex-direction:column;gap:8px}.more summary{cursor:pointer;color:var(--ai);font-weight:700;padding:4px 0}.more[open]>.exb{margin-top:8px}
 .ard{margin:0;display:grid;gap:8px}.ard dt{font-weight:700}.ard dd{margin:0;color:var(--ink)}
 .fourcard{font:inherit;color:inherit;background:none;border:0;padding:0;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;cursor:pointer}
 .fourcard .fc-l{display:flex;flex-direction:column;gap:2px}.fourcard .fc-t{font-family:var(--f-disp);font-weight:700;font-size:1.15rem}
@@ -564,6 +566,12 @@ function orderExamples(L,q){const ex=L.ex||[];if(!q)return ex.map(x=>({ex:x,near
   const sc=ex.map((x,i)=>({x,i,n:x.kw.filter(k=>text.includes(k)).length}));sc.sort((a,b)=>b.n-a.n||a.i-b.i);return sc.map((o,j)=>({ex:o.x,near:j===0&&o.n>0}))}
 function exHtml(L,missed){const o=orderExamples(L,missed&&missed.q);if(!o.length)return "";
   return `<article class="card"><div class="meta">具体例で理解する</div>${o.map(({ex,near})=>`<div class="exb${near?" near":""}">${near?`<span class="tag">この問題に近い例</span>`:""}<b>${esc(ex.t)}</b><p>${esc(ex.s)}</p><p class="exp">→ ${esc(ex.p)}</p></div>`).join("")}</article>`}
+// 判例：問題に関係する判例を先頭に3件、残りは折りたたみ（src/logic.ts の orderByKw と同じ並べ方）
+function orderByKw(list,q){if(!q)return list.map(x=>({item:x,near:false}));const text=q.s+q.e;
+  const sc=list.map((x,i)=>({x,i,n:x.kw.filter(k=>text.includes(k)).length}));sc.sort((a,b)=>b.n-a.n||a.i-b.i);return sc.map(o=>({item:o.x,near:o.n>0}))}
+function casesHtml(L,missed){const o=orderByKw(L.cases||[],missed&&missed.q);if(!o.length)return "";
+  const one=({item:c,near})=>`<div class="exb${near?" near":""}">${near?`<span class="tag">この問題に関係する判例</span>`:""}<b>${esc(c.n)}</b><p><b>事案</b>　${esc(c.f)}</p><p><b>判断</b>　${esc(c.h)}</p><p class="cpt"><b>試験では</b>　${esc(c.pt)}</p></div>`;
+  return `<article class="card"><div class="meta">判例で理解する（${o.length}件）</div>${o.slice(0,3).map(one).join("")}${o.length>3?`<details class="more"><summary>ほかの判例も見る（あと${o.length-3}件）</summary>${o.slice(3).map(one).join("")}</details>`:""}</article>`}
 function aroundHtml(L){const a=L.around||[];if(!a.length)return "";
   return `<article class="card"><div class="meta">あわせて覚える周辺知識</div><dl class="ard">${a.map(x=>`<dt>${esc(x.h)}</dt><dd>${esc(x.b)}</dd>`).join("")}</dl></article>`}
 function focusHtml(key,missed){
@@ -587,7 +595,7 @@ function focusHtml(key,missed){
   const map=S?`<div class="mini">${S.tree.map((x,i)=>`<button class="mchip ${i===hit.b?"on":""}" data-deep="${i}"><span class="no">${i+1}</span>${esc(x.h)}</button>`).join("")}</div>`:"";
   const rel=(L.rel||[]).filter(k=>LESSON[k]);
   return `<article class="card"><div class="meta">間違えた範囲の解説</div><h2>${head}</h2>${body}</article>
-  ${exHtml(L,missed)}${aroundHtml(L)}
+  ${exHtml(L,missed)}${casesHtml(L,missed)}${aroundHtml(L)}
   ${S?`<article class="card"><div class="meta">体系的に広げる</div><p class="note" style="margin:0">「${esc(t)}」は全${S.tree.length}項目。項目を押すと、その場所から詳しい解説を開きます。</p>${map}
     <button class="btn deeplink" data-deep="all">${esc(t)}を体系的に学ぶ<span class="sub2">全体像・流れ図・比較表・要点</span></button>
     ${rel.length?`<div><div class="note" style="margin-bottom:6px">${esc(L.bridge||"関連する論点")}</div><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></div>`:""}</article>`:""}`;
@@ -604,7 +612,7 @@ function deepHtml(key,missed){
     if(S.tables&&S.tables.length)h+=`<article class="card"><div class="meta">比較表・数字</div><div class="tbls">${S.tables.map(tb=>tblHtml(tb,tb.rows,"")).join("")}</div></article>`;
   }
   h+=`<article class="card"><div class="meta">要点のまとめ</div><h2>${esc(t)}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</article>`;
-  h+=exHtml(L,missed)+aroundHtml(L);
+  h+=exHtml(L,missed)+casesHtml(L,missed)+aroundHtml(L);
   const rel=(L.rel||[]).filter(k=>LESSON[k]);
   if(rel.length)h+=`<article class="card"><div class="meta">つながる論点</div><p style="margin:0">${esc(L.bridge||"")}</p><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></article>`;
   return h;
