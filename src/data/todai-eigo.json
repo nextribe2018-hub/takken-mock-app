@@ -1030,5 +1030,2407 @@
   ],
   "e": "最終文に「こうした規則の目的は過去を消すことではなく、かつて自然に起きていた緩やかな風化に近いものを取り戻すこと、すなわち理由のある人には過去を利用可能にしたまま、それを他の全員に押しつけないことだ」とあります。筆者は批判を the concern is not frivolous（軽く扱える懸念ではない）と認めたうえで Yet と反論しているので、2番目の全面否定も4番目の「根拠がない」も誤りです。3番目は not to make the past disappear に反します。",
   "m": "譲歩（not frivolous）＋ Yet＝筆者の本音"
+ },
+ {
+  "id": 61,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：睡眠と記憶の定着",
+  "p": "Most students know the experience of struggling with a problem late at night, giving up, and finding the solution obvious the next morning. Folk wisdom calls this 'sleeping on it', and laboratory studies suggest that the phrase is more than a figure of speech. During sleep the brain does not simply switch off; it replays the day's experiences and strengthens some connections while letting others fade. Importantly, this process seems to favour what is likely to be useful later over what was merely vivid at the time. It would be a mistake, however, to conclude that sleep can replace study. Material that was never learned cannot be consolidated, and a night's rest merely sorts what is already there. Sleep is therefore best understood not as a shortcut but as the second half of learning, the part that takes place when we are no longer trying.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "睡眠中に脳は日中の経験を再生して後で役立ちそうなものを定着させるが、それは学習の代わりにはならず、努力して学んだ後に続く学習の後半部分である。",
+   "睡眠中に脳は鮮明だった記憶を優先して強め、役に立たない記憶を消すので、徹夜で勉強するより十分に眠るほうが確実に成績が上がる。",
+   "脳は睡眠中も活動しているので、眠る前に十分に勉強していなくても、睡眠さえとれば解けなかった問題が翌朝にはひとりでに解けるようになる。",
+   "「寝て考える」という言い伝えは実験では裏づけられておらず、睡眠と学習の関係は単なる比喩として語られているだけで、実際の効果はごく小さいと考えるべきである。"
+  ],
+  "e": "本文は、①睡眠中に脳が経験を再生し、後で役立つものを強める、②だが学んでいないことは定着しない、③だから睡眠は学習の近道ではなく「後半部分」だ、という流れです。2番目は「鮮明なもの優先」が本文と逆、3番目は睡眠が学習の代わりになるという誤り、4番目は実験が比喩以上だと示しているという本文に反します。",
+  "m": "要約は「現象→仕組み→注意→結論」の順にたどる"
+ },
+ {
+  "id": 62,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：学習の後半部分",
+  "p": "Most students know the experience of struggling with a problem late at night, giving up, and finding the solution obvious the next morning. Folk wisdom calls this 'sleeping on it', and laboratory studies suggest that the phrase is more than a figure of speech. During sleep the brain does not simply switch off; it replays the day's experiences and strengthens some connections while letting others fade. Importantly, this process seems to favour what is likely to be useful later over what was merely vivid at the time. It would be a mistake, however, to conclude that sleep can replace study. Material that was never learned cannot be consolidated, and a night's rest merely sorts what is already there. Sleep is therefore best understood not as a shortcut but as the second half of learning, the part that takes place when we are no longer trying.",
+  "q": "筆者が睡眠を the second half of learning と呼ぶ理由として最も適切なものを選びなさい。",
+  "c": [
+   "Because it works on what has already been learned, sorting and strengthening it after the studying is over.",
+   "Because it allows students to take in new material without any effort at all while they are unconscious.",
+   "Because it erases everything learned during the day so that the brain can start again each new morning.",
+   "Because it makes the vivid events of the day easier to recall than the ones that will be useful later."
+  ],
+  "e": "筆者は、睡眠は「すでに学んだものを整理し強める」段階であり、努力して学ぶ段階の後に来るから「後半」だと述べています。2番目は「新しい内容を無努力で取り込む」で、Material that was never learned cannot be consolidated に反します。3番目は「すべて消す」、4番目は「鮮明なものが思い出しやすい」で、本文の favour what is likely to be useful と逆です。",
+  "m": "睡眠＝学んだものの仕分け。新規学習の代用ではない"
+ },
+ {
+  "id": 63,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：段落末の補足の役割",
+  "p": "Most students know the experience of struggling with a problem late at night, giving up, and finding the solution obvious the next morning. Folk wisdom calls this 'sleeping on it', and laboratory studies suggest that the phrase is more than a figure of speech. During sleep the brain does not simply switch off; it replays the day's experiences and strengthens some connections while letting others fade. Importantly, this process seems to favour what is likely to be useful later over what was merely vivid at the time. It would be a mistake, however, to conclude that sleep can replace study. Material that was never learned cannot be consolidated, and a night's rest merely sorts what is already there. Sleep is therefore best understood not as a shortcut but as the second half of learning, the part that takes place when we are no longer trying.",
+  "q": "本文中の Material that was never learned cannot be consolidated という文の役割として最も適切なものを選びなさい。",
+  "c": [
+   "It gives the reason why sleep cannot be a substitute for study.",
+   "It offers a counterexample to the claim that the brain replays the day.",
+   "It introduces a new experiment that contradicts the earlier findings.",
+   "It restates the folk wisdom mentioned at the beginning of the passage."
+  ],
+  "e": "直前の It would be a mistake … to conclude that sleep can replace study（睡眠が勉強の代わりになるとは言えない）の理由を述べる文です。学んでいないものは定着させようがない、という根拠になっています。2番目の「反例」は、脳が経験を再生するという主張を否定しておらず誤り。3番目は実験の紹介ではなく、4番目は冒頭の言い伝えの言い換えでもありません。",
+  "m": "直前の主張の「理由」になる文かを確かめる"
+ },
+ {
+  "id": 64,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：図書館と社会的基盤",
+  "p": "Public libraries are usually defended as places to borrow books, and by that measure they seem to be in decline, since in many cities the number of loans has fallen for years. Yet visitors have not stopped coming. They come to use computers, to attend language classes, to sit warmly through a winter afternoon, or simply to be among others without being expected to buy anything. Sociologists who study such places call them 'social infrastructure': not buildings that serve a single function, but settings that make casual contact between different kinds of people possible. The distinction matters for policy. If a library is judged only by its circulation figures, a council may close it as unnecessary; if it is understood as infrastructure, its value lies in what it quietly prevents: isolation, and the hardening of boundaries between groups who would otherwise never meet.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "図書館は貸出数では衰退して見えるが、本以外の目的でも人が集まり、多様な人が自然に接する「社会的基盤」として働いており、貸出数だけで測ると価値を見誤る。",
+   "図書館の貸出数が減り続けているのは利用者が電子書籍へ移ったためなので、自治体は図書館の閉鎖を進め、その分の予算を電子図書の整備に回すことが望ましい。",
+   "図書館は語学教室やコンピュータの提供など貸出以外の事業を広げたので、貸出数が減っても利用者数は以前よりずっと増えているとされる。",
+   "社会学者は図書館を単一の機能を持つ建物として定義しており、その機能が弱まった以上、政策として存続を支える根拠は乏しいと結論づけている。"
+  ],
+  "e": "本文は、貸出数は減ったが人は来続けている→図書館は多様な人の接触を生む「社会的基盤」→貸出数だけで評価すると閉鎖の根拠になりかねない、という展開です。2番目は電子書籍が本文にありません。3番目は「利用者が増えた」と言っていません（stopped coming ではない）。4番目は社会学者の定義と逆（単一機能ではない）です。",
+  "m": "数字で測れない価値は「何を防ぐか」で考える"
+ },
+ {
+  "id": 65,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：測り方が政策を左右する",
+  "p": "Public libraries are usually defended as places to borrow books, and by that measure they seem to be in decline, since in many cities the number of loans has fallen for years. Yet visitors have not stopped coming. They come to use computers, to attend language classes, to sit warmly through a winter afternoon, or simply to be among others without being expected to buy anything. Sociologists who study such places call them 'social infrastructure': not buildings that serve a single function, but settings that make casual contact between different kinds of people possible. The distinction matters for policy. If a library is judged only by its circulation figures, a council may close it as unnecessary; if it is understood as infrastructure, its value lies in what it quietly prevents: isolation, and the hardening of boundaries between groups who would otherwise never meet.",
+  "q": "本文の The distinction matters for policy. の理由として最も適切なものを選びなさい。",
+  "c": [
+   "Whether a library is kept open may depend on whether it is measured by loans or by the contact it makes possible.",
+   "Policy makers have so far ignored the sociologists' definition of social infrastructure when deciding which libraries to close.",
+   "Circulation figures cannot be collected in places where people do not borrow books, so councils have no figures to judge them by.",
+   "Councils should spend more on computers and language classes than on books, because books are no longer borrowed by anyone."
+  ],
+  "e": "The distinction は「貸出の場」と「社会的基盤」という見方の違いです。続く文が、貸出数だけで判断すれば閉鎖されうるが、基盤と見れば価値が別にある、と説明しています。2番目の「政策担当者が無視してきた」は本文にありません。3番目は数字が集められないとは述べておらず、4番目の予算配分の提案も本文にありません。",
+  "m": "The distinction の指す内容を直前の文で確認する"
+ },
+ {
+  "id": 66,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：図書館が防ぐもの",
+  "p": "Public libraries are usually defended as places to borrow books, and by that measure they seem to be in decline, since in many cities the number of loans has fallen for years. Yet visitors have not stopped coming. They come to use computers, to attend language classes, to sit warmly through a winter afternoon, or simply to be among others without being expected to buy anything. Sociologists who study such places call them 'social infrastructure': not buildings that serve a single function, but settings that make casual contact between different kinds of people possible. The distinction matters for policy. If a library is judged only by its circulation figures, a council may close it as unnecessary; if it is understood as infrastructure, its value lies in what it quietly prevents: isolation, and the hardening of boundaries between groups who would otherwise never meet.",
+  "q": "筆者が、図書館の価値は what it quietly prevents にあると述べるときの「防ぐもの」として最も適切なものを選びなさい。",
+  "c": [
+   "Isolation and the hardening of boundaries between groups",
+   "A fall in the number of books that are borrowed each year",
+   "The closure of old buildings that serve only one function",
+   "Competition among local councils for limited public money"
+  ],
+  "e": "コロン以下に isolation, and the hardening of boundaries between groups who would otherwise never meet とあります。2番目の貸出数の減少は、むしろ図書館が衰退して見える理由で、防がれるものではありません。3番目・4番目は本文に根拠がありません。",
+  "m": "コロン（:）の後ろは直前の語句の具体的な言い換え"
+ },
+ {
+  "id": 67,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：鉄道と標準時",
+  "p": "Until the nineteenth century, every town kept its own time, set by the sun at noon. This caused little trouble so long as travel was slow; a traveller who went from one town to another simply adjusted his watch. The railways changed this. A timetable that listed dozens of stations was useless if each station's clock disagreed with the next, and accidents on single tracks made the disagreement dangerous. Railway companies therefore introduced a common time, and governments later made it law. It is tempting to describe this as the triumph of reason over local habit, but the story is more complicated. Many people resisted, arguing that 'railway time' was an insult to nature. Their objection was not foolish: they understood that when time is no longer read from the sky, it becomes something that can be imposed from a distance, and so a matter of authority rather than observation.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "鉄道の普及で町ごとの時刻が統一されたが、それは単なる合理化ではなく、時間が観測ではなく遠くから課される権威の問題になる変化でもあり、抵抗にも理由があった。",
+   "鉄道会社が共通の時刻を導入したのは事故を防ぐためだけであって、時刻の統一に反対した人々の主張には、初めから何の根拠もなく、すぐに忘れ去られた。",
+   "時刻の統一は、町ごとの太陽時を守ろうとした人々の努力が実り、最終的には政府ではなく鉄道会社の主導で法制化まで進んだと考えられている。",
+   "旅行が遅かった時代の人々は時計を調整する習慣そのものがなく、鉄道によって初めて、時計を正確に合わせる必要があることを知った。"
+  ],
+  "e": "本文は、町ごとの太陽時→鉄道の時刻表と事故防止のため共通時刻→これを「理性の勝利」と単純には言えない→反対者は、時間が空から読むものでなくなると権威が課すものになると理解していた、という流れです。2番目は反対に根拠がないとして本文の not foolish に反し、3番目は経緯が逆で、4番目は本文にない内容です。",
+  "m": "「単純な勝利物語ではない」という筆者の留保をつかむ"
+ },
+ {
+  "id": 68,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：反対者は愚かではない",
+  "p": "Until the nineteenth century, every town kept its own time, set by the sun at noon. This caused little trouble so long as travel was slow; a traveller who went from one town to another simply adjusted his watch. The railways changed this. A timetable that listed dozens of stations was useless if each station's clock disagreed with the next, and accidents on single tracks made the disagreement dangerous. Railway companies therefore introduced a common time, and governments later made it law. It is tempting to describe this as the triumph of reason over local habit, but the story is more complicated. Many people resisted, arguing that 'railway time' was an insult to nature. Their objection was not foolish: they understood that when time is no longer read from the sky, it becomes something that can be imposed from a distance, and so a matter of authority rather than observation.",
+  "q": "本文の Their objection was not foolish の理由として最も適切なものを選びなさい。",
+  "c": [
+   "They saw that standardised time shifts the source of time from natural observation to a distant authority.",
+   "They correctly predicted that railway accidents would increase on single tracks in the end.",
+   "They had worked out that local sun time was more accurate than the clock time of the railways.",
+   "They knew that governments had no power to make a common time into law at any time."
+  ],
+  "e": "理由はコロン以下の they understood that … に書かれています。時間が空（太陽）から読み取られなくなると、遠くから課される権威の問題になる、という洞察です。2番目の事故の予測、3番目の太陽時のほうが正確という主張、4番目の政府に権限がないという認識は、いずれも本文に述べられていません。",
+  "m": "not foolish の直後のコロンに理由が書かれる"
+ },
+ {
+  "id": 69,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：理性対習慣という図式",
+  "p": "Until the nineteenth century, every town kept its own time, set by the sun at noon. This caused little trouble so long as travel was slow; a traveller who went from one town to another simply adjusted his watch. The railways changed this. A timetable that listed dozens of stations was useless if each station's clock disagreed with the next, and accidents on single tracks made the disagreement dangerous. Railway companies therefore introduced a common time, and governments later made it law. It is tempting to describe this as the triumph of reason over local habit, but the story is more complicated. Many people resisted, arguing that 'railway time' was an insult to nature. Their objection was not foolish: they understood that when time is no longer read from the sky, it becomes something that can be imposed from a distance, and so a matter of authority rather than observation.",
+  "q": "It is tempting to describe this as the triumph of reason over local habit, but the story is more complicated. に表れる筆者の態度として最も適切なものを選びなさい。",
+  "c": [
+   "The author accepts the benefits of a common time but thinks the simple story of reason against habit hides something important.",
+   "The author regards the introduction of railway time as a mistake that ought to have been reversed.",
+   "The author agrees that the resistance was merely a sentimental attachment to old habits.",
+   "The author argues that accidents were the only real cause of the change."
+  ],
+  "e": "but 以下で「話はもっと複雑だ」と述べ、後半で反対者の洞察を認めています。つまり利点を否定せず、単純な図式を退けています。2番目は「誤りだった」とまで言っておらず、3番目は反対を感傷と片づけており本文に反し、4番目は事故が「唯一の原因」と限定している点が誤りです。",
+  "m": "It is tempting to … but ～は「単純化への留保」の型"
+ },
+ {
+  "id": 70,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：市民による野鳥観察",
+  "p": "Every spring, thousands of amateur birdwatchers record what they see in their gardens and parks and upload their lists to a shared database. Professional ornithologists, who once regarded such enthusiasts with some suspicion, now rely on them. The reason is scale. No team of scientists could afford to be in ten thousand places at once, but ten thousand volunteers, each in a different place, can reveal changes in the range of a species that would otherwise go unnoticed for decades. The method has weaknesses, of course. Volunteers watch where it is pleasant to watch, so that gardens are overrepresented and remote moorland is almost absent, and an unusual bird is far more likely to be reported than a common one. Careful analysts therefore do not treat the raw lists as a picture of nature; they treat them as a picture of nature seen through human habits, and they correct for those habits. In this way the limits of the data become part of the science rather than a reason to reject it.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "市民の野鳥観察記録は、多数の場所を同時に観察できる規模の点で専門家に欠かせないが、人の行動による偏りがあるので、補正して分析に組み込む必要がある。",
+   "アマチュアの観察記録には誤りが多いため、専門家は自ら現地へ出向いて同じ調査をやり直し、市民の記録は検証のための参考資料としてしか用いていない。",
+   "市民の観察者は庭や公園を好むのでデータは都市の鳥の分布しか示さず、遠隔地の鳥の変化を知る手段は今のところまったく存在しない。",
+   "珍しい鳥ほど報告されやすいという偏りがあるので、観察記録を共有するデータベースは専門家の間で次第に使われなくなっている。"
+  ],
+  "e": "本文は、専門家が市民の記録に頼る理由（規模）→偏りという弱点→偏りを補正して分析することで限界がかえって科学の一部になる、という構成です。2番目は専門家が今は頼っているという本文に反し、3番目は「手段が皆無」と言い過ぎで、4番目は使われなくなっているという記述がありません。",
+  "m": "長所→弱点→それを逆手に取る、の三段をたどる"
+ },
+ {
+  "id": 71,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：専門家が頼る理由",
+  "p": "Every spring, thousands of amateur birdwatchers record what they see in their gardens and parks and upload their lists to a shared database. Professional ornithologists, who once regarded such enthusiasts with some suspicion, now rely on them. The reason is scale. No team of scientists could afford to be in ten thousand places at once, but ten thousand volunteers, each in a different place, can reveal changes in the range of a species that would otherwise go unnoticed for decades. The method has weaknesses, of course. Volunteers watch where it is pleasant to watch, so that gardens are overrepresented and remote moorland is almost absent, and an unusual bird is far more likely to be reported than a common one. Careful analysts therefore do not treat the raw lists as a picture of nature; they treat them as a picture of nature seen through human habits, and they correct for those habits. In this way the limits of the data become part of the science rather than a reason to reject it.",
+  "q": "本文の The reason is scale. の説明として最も適切なものを選びなさい。",
+  "c": [
+   "Many volunteers in different places can show changes that a small team of scientists could not detect.",
+   "Volunteers are better trained than professional ornithologists at identifying rare species of birds, especially in spring.",
+   "Volunteers work without payment, which greatly lowers the cost of every research project.",
+   "Amateurs prefer remote moorland, where professionals only seldom go to carry out their work, so they cover the most unusual places."
+  ],
+  "e": "続く文が、科学者のチームは一万か所に同時にいられないが、一万人の志願者なら種の分布の変化に気づける、と説明しています。つまり「人数と場所の多さ」です。2番目の訓練の質、3番目の費用の安さ、4番目の遠隔地を好む点は本文にありません（4番目は本文の記述と逆です）。",
+  "m": "scale＝規模。直後の説明文が答えになる"
+ },
+ {
+  "id": 72,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：データの限界が科学の一部に",
+  "p": "Every spring, thousands of amateur birdwatchers record what they see in their gardens and parks and upload their lists to a shared database. Professional ornithologists, who once regarded such enthusiasts with some suspicion, now rely on them. The reason is scale. No team of scientists could afford to be in ten thousand places at once, but ten thousand volunteers, each in a different place, can reveal changes in the range of a species that would otherwise go unnoticed for decades. The method has weaknesses, of course. Volunteers watch where it is pleasant to watch, so that gardens are overrepresented and remote moorland is almost absent, and an unusual bird is far more likely to be reported than a common one. Careful analysts therefore do not treat the raw lists as a picture of nature; they treat them as a picture of nature seen through human habits, and they correct for those habits. In this way the limits of the data become part of the science rather than a reason to reject it.",
+  "q": "本文最後の the limits of the data become part of the science の意味として最も適切なものを選びなさい。",
+  "c": [
+   "Knowing the biases of the data is itself used in the analysis, instead of being a reason to throw it away.",
+   "Scientists have decided that incomplete data should never be published in journals.",
+   "The weaknesses have been removed by asking volunteers to watch more remote places.",
+   "Because the data are imperfect, analysts treat them as a picture of nature that has no human influence at all."
+  ],
+  "e": "直前に、分析者は生の記録を「人間の習慣を通して見た自然」と捉え、その習慣を補正すると書かれています。偏りを知ること自体が分析の一部になる、という意味です。2番目は発表しないという話ではなく、3番目は観察地を変えて弱点を除いたとは述べておらず、4番目は人間の影響を「ない」としており本文と逆です。",
+  "m": "偏りは捨てずに「補正する」材料にする"
+ },
+ {
+  "id": 73,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：降水確率の読み方",
+  "p": "When a forecaster says there is a thirty per cent chance of rain, many listeners assume the forecaster is hedging, as though a confident forecaster would simply say yes or no. In fact the figure carries information that a yes or no cannot. It says that, on days with conditions like tomorrow's, it has rained on roughly three days out of ten. A forecaster whose thirty per cent days are followed by rain about thirty per cent of the time is, in a precise sense, correct, even though on any particular day it either rains or it does not. This is hard to accept, because we are used to judging predictions by single outcomes. We remember the picnic ruined by a 'ten per cent' shower and forget the many dry afternoons that the same figure correctly foretold. To read a probability well is to give up the wish to be told what will happen, and to settle for being told how much to expect it.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "降水確率の数字は曖昧さの表れではなく、似た条件の日に実際に雨が降る割合を示す情報であり、単発の結果で当たり外れを判断してはならない。",
+   "天気予報の確率は、予報士が責任を避けるために断定を避けた表現であり、降る降らないをはっきり言う予報士のほうが本来は信頼できる。",
+   "雨の確率が三割の日に実際に雨の降る割合が三割に近ければ予報は正しいが、それでも当日に雨が降らなければ、その日の予報は誤りだったと考えるべきである。",
+   "ピクニックが雨で台無しになった経験は、降水確率が低い日に予報が外れやすいことを示しており、聞き手は低い確率の数字を無視してよい。"
+  ],
+  "e": "本文は、確率の数字は「はぐらかし」ではなく頻度の情報→単発の結果で予報の正誤を決めない→確率は「何が起こるか」でなく「どれくらい予期すべきか」を教える、という論旨です。2番目は誤解そのもの、3番目は単発の結果で判断するという本文が退ける考え、4番目は本文にない主張です。",
+  "m": "確率は「頻度の情報」。1回の結果で正誤を決めない"
+ },
+ {
+  "id": 74,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：確率が「正しい」と言える理由",
+  "p": "When a forecaster says there is a thirty per cent chance of rain, many listeners assume the forecaster is hedging, as though a confident forecaster would simply say yes or no. In fact the figure carries information that a yes or no cannot. It says that, on days with conditions like tomorrow's, it has rained on roughly three days out of ten. A forecaster whose thirty per cent days are followed by rain about thirty per cent of the time is, in a precise sense, correct, even though on any particular day it either rains or it does not. This is hard to accept, because we are used to judging predictions by single outcomes. We remember the picnic ruined by a 'ten per cent' shower and forget the many dry afternoons that the same figure correctly foretold. To read a probability well is to give up the wish to be told what will happen, and to settle for being told how much to expect it.",
+  "q": "本文の A forecaster … is, in a precise sense, correct の理由として最も適切なものを選びなさい。",
+  "c": [
+   "The frequency of rain on such days matches the stated figure, whatever happens on one particular day.",
+   "It rains on thirty days of every hundred in the forecaster's country, taking all the seasons together.",
+   "The forecaster always warns listeners to carry an umbrella whenever the figure is above zero.",
+   "Listeners remember the dry afternoons more clearly than they remember the ruined picnics."
+  ],
+  "e": "「三割と言った日のうち、実際に雨が降るのが約三割」であれば、数字は頻度として正確だ、というのが本文の考えです。ある一日に降るか降らないかとは別の水準の話です。2番目は国全体の雨の日数の話で、3番目と4番目は本文にない内容です（4番目は本文の We remember the picnic ruined と逆）。",
+  "m": "確率の正しさは「同じ条件の日の長期的な割合」で測る"
+ },
+ {
+  "id": 75,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：確率を読むということ",
+  "p": "When a forecaster says there is a thirty per cent chance of rain, many listeners assume the forecaster is hedging, as though a confident forecaster would simply say yes or no. In fact the figure carries information that a yes or no cannot. It says that, on days with conditions like tomorrow's, it has rained on roughly three days out of ten. A forecaster whose thirty per cent days are followed by rain about thirty per cent of the time is, in a precise sense, correct, even though on any particular day it either rains or it does not. This is hard to accept, because we are used to judging predictions by single outcomes. We remember the picnic ruined by a 'ten per cent' shower and forget the many dry afternoons that the same figure correctly foretold. To read a probability well is to give up the wish to be told what will happen, and to settle for being told how much to expect it.",
+  "q": "本文最後の settle for being told how much to expect it の意味として最も適切なものを選びなさい。",
+  "c": [
+   "to accept information about how likely something is rather than a certain prediction",
+   "to be satisfied with a forecast that turns out to be wrong thirty times in every hundred days",
+   "to stop listening to the forecasts because they can never be certain about the weather",
+   "to expect rain whenever any figure above zero is given"
+  ],
+  "e": "give up the wish to be told what will happen（何が起こるかを教えてほしいという願いを捨てる）と対にして、「どの程度の見込みで起こるか」を教わることで満足する、という意味です。2番目は「三割外れる予報で満足する」と的外れ、3番目は予報を聞かなくなる、4番目はゼロより大きければ雨を予期する、で、どれも趣旨と違います。",
+  "m": "give up A and settle for B の対比で読む"
+ },
+ {
+  "id": 76,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：言葉の乱れという不満",
+  "p": "Every generation of adults seems to believe that the young are ruining their language. Complaints about slang, about new words and about shifting grammar can be found in writings from many centuries ago, and the pattern is so regular that it deserves an explanation. One is simply that we notice what is unfamiliar. The words we learned in childhood feel like the language itself, while those that appear later feel like additions, however useful they may become. Another is that language is tied to social standing, so that disapproval of a new usage is often disapproval of the people who use it. Linguists do not conclude from this that anything goes. Clarity matters, and a form that confuses listeners tends, in the long run, to be abandoned. But they point out that the forms later generations accept as correct are often the very forms an earlier generation condemned, and this should make us hesitate before treating our own preferences as laws.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "言葉が乱れているという不満は世代を越えて繰り返され、見慣れない形への違和感や評価が背景にあり、後世に正しいとされる形が過去に非難された例も多いので、自分の好みを絶対視すべきではない。",
+   "新しい言い回しは聞き手を混乱させない限りいつの間にか定着していくので、言語学者は文法や語法に守るべき決まりは必要ないと主張している。",
+   "若者の言葉づかいへの不満は昔にはなく、インターネットが普及した近年になって初めて目立つようになった新しい現象であり、過去の文献にはそのような不満はほとんど見当たらない。",
+   "言語の変化に対する批判は社会的地位の高い人々の言葉を守る役割を果たしてきたので、言語学者はそのような批判を正当なものとして広く認めている。"
+  ],
+  "e": "本文の骨格は、①言葉の乱れへの不満は昔から繰り返される、②理由は見慣れなさと社会的評価、③明瞭さは大事だが、後世に正用とされる形が過去に非難された例が多い、④だから自分の好みを法則と見なすのは慎重に、です。2番目は anything goes を否定する本文に反し、3番目は昔からあるという本文と逆、4番目は批判を正当化する話ではありません。",
+  "m": "「不満は昔から」→「理由」→「だから慎重に」の順にまとめる"
+ },
+ {
+  "id": 77,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：何でもありではない",
+  "p": "Every generation of adults seems to believe that the young are ruining their language. Complaints about slang, about new words and about shifting grammar can be found in writings from many centuries ago, and the pattern is so regular that it deserves an explanation. One is simply that we notice what is unfamiliar. The words we learned in childhood feel like the language itself, while those that appear later feel like additions, however useful they may become. Another is that language is tied to social standing, so that disapproval of a new usage is often disapproval of the people who use it. Linguists do not conclude from this that anything goes. Clarity matters, and a form that confuses listeners tends, in the long run, to be abandoned. But they point out that the forms later generations accept as correct are often the very forms an earlier generation condemned, and this should make us hesitate before treating our own preferences as laws.",
+  "q": "本文の Linguists do not conclude from this that anything goes. の理由として最も適切なものを選びなさい。",
+  "c": [
+   "Forms that confuse listeners are generally dropped in the end, so clarity still checks change.",
+   "Linguists believe that the rules of grammar should be written by the oldest speakers of the language.",
+   "They have found that new words are always less clear than the old words that they replace.",
+   "Language users never disagree about which forms are correct, so no check on change is needed."
+  ],
+  "e": "次の文に Clarity matters, and a form that confuses listeners tends, in the long run, to be abandoned とあり、明瞭さが歯止めになるから「何でもあり」ではない、と読めます。2番目の「年長者が規則を決める」、3番目の「新語は常に不明瞭」、4番目の「意見の相違がない」は本文に述べられていません。",
+  "m": "anything goes を否定する根拠は直後の文にある"
+ },
+ {
+  "id": 78,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：最初に覚えた言葉",
+  "p": "Every generation of adults seems to believe that the young are ruining their language. Complaints about slang, about new words and about shifting grammar can be found in writings from many centuries ago, and the pattern is so regular that it deserves an explanation. One is simply that we notice what is unfamiliar. The words we learned in childhood feel like the language itself, while those that appear later feel like additions, however useful they may become. Another is that language is tied to social standing, so that disapproval of a new usage is often disapproval of the people who use it. Linguists do not conclude from this that anything goes. Clarity matters, and a form that confuses listeners tends, in the long run, to be abandoned. But they point out that the forms later generations accept as correct are often the very forms an earlier generation condemned, and this should make us hesitate before treating our own preferences as laws.",
+  "q": "本文の The words we learned in childhood feel like the language itself で筆者が言いたいこととして最も適切なものを選びなさい。",
+  "c": [
+   "We tend to treat what we learned first as the standard and regard later arrivals as additions.",
+   "Children learn words more accurately than adults do later in life.",
+   "New words are in fact added to a language less often than people imagine.",
+   "Childhood vocabulary is replaced by more useful words as we grow older."
+  ],
+  "e": "子どものころに身につけた語は「言語そのもの」に感じられ、後から出てきた語は「付け足し」に感じられる、という心理の指摘です。つまり最初に覚えたものを標準とみなしやすいということです。2番目は習得の正確さの比較、3番目は新語の頻度、4番目は語彙の入れ替わりで、いずれも述べられていません。",
+  "m": "「慣れ＝正しさ」という錯覚を指摘している"
+ },
+ {
+  "id": 79,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：美術館での鑑賞時間",
+  "p": "Studies of museum visitors have found that people spend, on average, less than half a minute in front of a famous painting, and a good part of that time is spent reading the label or taking a photograph. The finding is usually reported as a sign of shallow engagement, a symptom of an age of distraction. It may, however, say as much about museums as about visitors. A gallery crowded with hundreds of works invites us to treat each as an item on a list, and a visitor who has travelled far to see a collection feels obliged to see all of it. Some museums have therefore begun to experiment with showing fewer works, or with asking visitors to look at a single picture for ten minutes before reading anything about it. Participants often report that the picture changes: details emerge, the first impression is revised, and the work seems to become less famous and more particular. Looking, it turns out, is a skill that depends on being given time, and the conditions for it can be designed.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "来館者が名画の前で過ごす時間の短さは気の散りやすさだけでなく展示の作りにも原因があり、作品数を絞ったり長く見る機会を設けたりすれば、鑑賞は時間を与えられて育つ技能として変わりうる。",
+   "美術館の来館者は名画の前でラベルを読んだり写真を撮ったりすることに時間をかけすぎるので、解説文を減らして撮影を禁じれば、鑑賞時間は自然に長くなると考えられる。",
+   "美術館が展示作品を減らした結果、来館者は遠くから訪れる意味を感じなくなり、全体の来館者数が急速に減ってしまった。",
+   "十分間ひとつの絵を見続ける試みは、絵の第一印象をいっそう強めて作品を有名にするので、鑑賞の質を高める最良の方法である。"
+  ],
+  "e": "本文は、鑑賞時間の短さは来館者の問題だけでなく展示の作り方の問題でもある→作品数を減らす、長く見てもらうなどの試み→見ることは時間を与えられて成り立つ技能で、条件は設計できる、という論旨です。2番目はラベルが原因という単純化、3番目は来館者減の記述がなく、4番目は less famous と逆です。",
+  "m": "原因を「人」だけでなく「環境」にも見る視点"
+ },
+ {
+  "id": 80,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：美術館にも原因がある",
+  "p": "Studies of museum visitors have found that people spend, on average, less than half a minute in front of a famous painting, and a good part of that time is spent reading the label or taking a photograph. The finding is usually reported as a sign of shallow engagement, a symptom of an age of distraction. It may, however, say as much about museums as about visitors. A gallery crowded with hundreds of works invites us to treat each as an item on a list, and a visitor who has travelled far to see a collection feels obliged to see all of it. Some museums have therefore begun to experiment with showing fewer works, or with asking visitors to look at a single picture for ten minutes before reading anything about it. Participants often report that the picture changes: details emerge, the first impression is revised, and the work seems to become less famous and more particular. Looking, it turns out, is a skill that depends on being given time, and the conditions for it can be designed.",
+  "q": "本文の It may, however, say as much about museums as about visitors. が示唆する内容として最も適切なものを選びなさい。",
+  "c": [
+   "The short viewing time may be partly caused by the way museums arrange their works.",
+   "Visitors to museums have become unwilling to travel far to see a famous collection of works.",
+   "Museums have not yet found any way to make famous paintings interesting to visitors.",
+   "Photographs of paintings are more informative than the paintings themselves, for most viewers."
+  ],
+  "e": "as much about museums as about visitors は「来館者と同じくらい美術館についても語っている」の意味で、続く文が、作品数が多すぎる展示の問題を述べています。したがって鑑賞時間の短さの一因は展示の仕方にあるということです。他の選択肢は本文にありません。",
+  "m": "as much A as B＝BだけでなくAについても同程度に"
+ },
+ {
+  "id": 81,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：作品が「個別的」になる",
+  "p": "Studies of museum visitors have found that people spend, on average, less than half a minute in front of a famous painting, and a good part of that time is spent reading the label or taking a photograph. The finding is usually reported as a sign of shallow engagement, a symptom of an age of distraction. It may, however, say as much about museums as about visitors. A gallery crowded with hundreds of works invites us to treat each as an item on a list, and a visitor who has travelled far to see a collection feels obliged to see all of it. Some museums have therefore begun to experiment with showing fewer works, or with asking visitors to look at a single picture for ten minutes before reading anything about it. Participants often report that the picture changes: details emerge, the first impression is revised, and the work seems to become less famous and more particular. Looking, it turns out, is a skill that depends on being given time, and the conditions for it can be designed.",
+  "q": "本文の the work seems to become less famous and more particular の意味として最も適切なものを選びなさい。",
+  "c": [
+   "The viewer begins to see the individual features of the picture rather than its reputation.",
+   "The picture loses its value because a growing number of people have seen it.",
+   "The viewer forgets the name of the artist after looking for ten minutes.",
+   "The museum removes the label so that the picture can no longer be identified."
+  ],
+  "e": "直前に details emerge, the first impression is revised（細部が見え、最初の印象が改まる）とあり、評判ではなく、その作品固有の特徴が見えてくる、という意味です。2番目は価値の喪失、3番目は画家の名の忘却、4番目はラベルの撤去で、本文にありません（ラベルは「読む前に見る」だけの話です）。",
+  "m": "particular＝その作品ならではの、個別の"
+ },
+ {
+  "id": 82,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：贈与と売買",
+  "p": "A gift is supposed to be free, yet anyone who has received one knows that it is rarely free of consequences. Anthropologists observed long ago that in many societies gifts create obligations: the receiver must give something back, not at once, since an immediate return would look like payment, but eventually and in a form that shows respect. The system looks inefficient, since the same value could be exchanged more simply through a sale. Its point, however, is precisely what a sale avoids. A purchase ends the relationship between buyer and seller; each leaves with what they wanted and owes the other nothing. A gift keeps the parties in debt to each other, and it is this continuing debt that binds them together. When we complain that modern life has made our dealings impersonal, we may be describing nothing more mysterious than the replacement of gifts by sales.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "贈り物は返礼の義務を生み、続く貸し借りが人々を結びつけるが、売買は取引が終われば貸し借りが残らないので、現代の人間関係の希薄さは贈与が売買に置き換わった結果とも考えられる。",
+   "贈り物にはその場ですぐ返礼する習慣があり、釣り合う価値を返すことで、双方の負担を軽くして関係を円滑に保っている。",
+   "売買は贈り物よりも効率的で公平な交換の方法であり、人類学者は、贈与の制度は非効率なので社会から消えていくと考えている。",
+   "贈り物を受け取った人は返礼の義務を負うが、その義務が人間関係を重苦しくするので、現代社会では贈与を避けて、貸し借りの残らない売買を選ぶ人が増えたと人類学者は結論づけている。"
+  ],
+  "e": "本文は、贈り物は返礼の義務を生む→売買は関係を終わらせるが、贈与は続く負債で人を結びつける→現代の非人格的な関係は贈与が売買に置き換わった結果かもしれない、という論旨です。2番目は即時の返礼を否定する本文に反し、3番目は消えるという記述がなく、4番目は因果が本文と異なります。",
+  "m": "贈与＝続く負債が絆になる。売買＝貸し借りなし"
+ },
+ {
+  "id": 83,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：すぐに返礼しない理由",
+  "p": "A gift is supposed to be free, yet anyone who has received one knows that it is rarely free of consequences. Anthropologists observed long ago that in many societies gifts create obligations: the receiver must give something back, not at once, since an immediate return would look like payment, but eventually and in a form that shows respect. The system looks inefficient, since the same value could be exchanged more simply through a sale. Its point, however, is precisely what a sale avoids. A purchase ends the relationship between buyer and seller; each leaves with what they wanted and owes the other nothing. A gift keeps the parties in debt to each other, and it is this continuing debt that binds them together. When we complain that modern life has made our dealings impersonal, we may be describing nothing more mysterious than the replacement of gifts by sales.",
+  "q": "本文の an immediate return would look like payment の意味として最も適切なものを選びなさい。",
+  "c": [
+   "Giving something back at once would turn the gift into an ordinary exchange of goods.",
+   "Gifts should always be returned in the form of money.",
+   "A gift cannot be returned unless the receiver has first shown respect.",
+   "People who return gifts quickly are thought to be too poor to wait."
+  ],
+  "e": "すぐに返すと代金の支払い（payment）のように見えてしまい、贈与が普通の交換になってしまう、ということです。だから返礼は時間をおき、敬意を示す形で行います。2番目の「金銭で返す」、3番目の「敬意が先」、4番目の「貧しいので待てない」は本文にありません。",
+  "m": "即座の返礼＝代金の支払いに見える"
+ },
+ {
+  "id": 84,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：売買が避けるもの",
+  "p": "A gift is supposed to be free, yet anyone who has received one knows that it is rarely free of consequences. Anthropologists observed long ago that in many societies gifts create obligations: the receiver must give something back, not at once, since an immediate return would look like payment, but eventually and in a form that shows respect. The system looks inefficient, since the same value could be exchanged more simply through a sale. Its point, however, is precisely what a sale avoids. A purchase ends the relationship between buyer and seller; each leaves with what they wanted and owes the other nothing. A gift keeps the parties in debt to each other, and it is this continuing debt that binds them together. When we complain that modern life has made our dealings impersonal, we may be describing nothing more mysterious than the replacement of gifts by sales.",
+  "q": "本文の Its point, however, is precisely what a sale avoids. の what a sale avoids の内容として最も適切なものを選びなさい。",
+  "c": [
+   "a continuing debt between the two parties",
+   "an exchange of goods of equal value",
+   "a demand for respect from the receiver",
+   "a situation in which both parties are satisfied"
+  ],
+  "e": "続く文で、売買は買い手と売り手の関係を終わらせ、互いに何も負わない、贈与は互いを負債の関係に置き続けると対比されています。つまり売買が避けるのは「続く負債」です。2番目の等価交換や4番目の双方の満足は、むしろ売買の特徴で、避けるものではありません。3番目の敬意の要求は贈与側の話です。",
+  "m": "its point（贈与の要点）＝売買が避けているもの"
+ },
+ {
+  "id": 85,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：海底の地図と月面",
+  "p": "We often hear that more is known about the surface of the Moon than about the floor of the ocean. The comparison is slightly unfair, since the Moon can be photographed from above, whereas seawater absorbs light and radio waves so quickly that the sea floor cannot be seen from space. Scientists have to rely on sound, sending pulses from ships and timing their echoes, a method which is accurate but slow, since a ship can survey only a narrow strip at a time. As a result, large areas of the deep ocean have been mapped at a resolution coarser than that of maps of other planets. The point of the comparison, then, is not that scientists have been lazy but that the obstacles differ in kind: what is hard about the ocean is not distance but the medium that lies in the way.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "海底の地図が月面より粗いのは研究者の怠慢ではなく、海水が光や電波を通さず音による調査に頼るしかないという媒体の性質のためである。",
+   "月は上空から撮影できるが海は撮影できないため、科学者は月の探査を優先するようになり、海底の調査にはほとんど予算を回さなくなり、地図の改良は止まった。",
+   "音を使った海底調査は精度が低いので、ほかの惑星の地図よりも粗い地図しか作れず、改善の見込みもまったく立っていないと説明されている。",
+   "月面より海底のほうが遠くにあり、距離が調査を妨げているので、船を増やせば短期間のうちに詳細な地図を作ることができる。"
+  ],
+  "e": "本文は、海水は光や電波を吸収するので宇宙から見えない→音で調べるが一度に狭い帯しか調べられない→困難は距離ではなく間にある媒体にある、という流れです。2番目は予算配分の話が本文にありません。3番目は音の方法を accurate（正確）としており、4番目は not distance と述べる本文に反します。",
+  "m": "困難の「種類」が違う、という結論を押さえる"
+ },
+ {
+  "id": 86,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：比較は少し不公平",
+  "p": "We often hear that more is known about the surface of the Moon than about the floor of the ocean. The comparison is slightly unfair, since the Moon can be photographed from above, whereas seawater absorbs light and radio waves so quickly that the sea floor cannot be seen from space. Scientists have to rely on sound, sending pulses from ships and timing their echoes, a method which is accurate but slow, since a ship can survey only a narrow strip at a time. As a result, large areas of the deep ocean have been mapped at a resolution coarser than that of maps of other planets. The point of the comparison, then, is not that scientists have been lazy but that the obstacles differ in kind: what is hard about the ocean is not distance but the medium that lies in the way.",
+  "q": "本文の The comparison is slightly unfair の理由として最も適切なものを選びなさい。",
+  "c": [
+   "The Moon can be observed from space, but the sea floor cannot be seen in the same way.",
+   "The Moon has been mapped by sound pulses sent from ships.",
+   "Seawater is easier to survey than the surface of the Moon.",
+   "Scientists have far more instruments for the ocean than for the Moon."
+  ],
+  "e": "since 以下に理由があり、月は上空から撮影できるが、海水は光や電波を吸収するので海底は宇宙から見えない、という条件の違いが比較を不公平にしています。2番目は月に音のパルスを使うという誤り、3番目は海のほうが調べやすいという逆の内容、4番目は機器の数で、本文にありません。",
+  "m": "unfair の理由は since の節に書かれている"
+ },
+ {
+  "id": 87,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "要約：受け入れられる謝罪",
+  "p": "A public apology is easy to criticise. If it comes too early, it seems to be a way of ending the discussion before anyone has understood what happened; if it comes late, it looks forced. Yet the apologies that people accept have a pattern. They name the specific wrong instead of speaking vaguely of 'any offence that may have been caused'. They do not shift attention to the apologiser's own suffering. And they are followed by some action that costs something, since words that cost nothing are easily doubted. These features suggest that an apology is not mainly an expression of feeling. It is a kind of promise, whose sincerity is judged by what the speaker is prepared to give up.",
+  "q": "次の英文の内容を日本語で要約したものとして最も適切なものを選びなさい。",
+  "c": [
+   "謝罪が受け入れられるのは、誤りを具体的に述べ、自分の苦痛に話をすり替えず、代償を伴う行動が続く場合であり、謝罪は感情の表現というより、何かを手放す覚悟を示す約束である。",
+   "謝罪は早すぎれば議論を終わらせるためと疑われ、遅すぎれば強制されたと見られるので、最も適切な時期は事件の直後から数日後である。",
+   "公の謝罪では気持ちを正直に表すことが何より大切で、具体的な誤りを挙げることよりも、自分がどれほど苦しんだかを率直に語る謝罪のほうが、人々に受け入れられやすい。",
+   "謝罪の言葉は代償を伴わなくても信用されるが、曖昧な表現を避けて被害を具体的に述べることが唯一の条件である。"
+  ],
+  "e": "本文は、受け入れられる謝罪の特徴（具体性、苦痛へのすり替えがない、代償を伴う行動）を挙げ、謝罪とは感情表現より約束であり、誠意は何を手放すかで測られる、とまとめています。2番目は最適な時期を述べておらず、3番目は自分の苦痛に話を移すことを避けるという本文に反し、4番目は代償を要件とする本文に反します。",
+  "m": "謝罪＝感情の表現ではなく、代償を伴う約束"
+ },
+ {
+  "id": 88,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "要約・論旨",
+  "t": "論旨：代償のない言葉",
+  "p": "A public apology is easy to criticise. If it comes too early, it seems to be a way of ending the discussion before anyone has understood what happened; if it comes late, it looks forced. Yet the apologies that people accept have a pattern. They name the specific wrong instead of speaking vaguely of 'any offence that may have been caused'. They do not shift attention to the apologiser's own suffering. And they are followed by some action that costs something, since words that cost nothing are easily doubted. These features suggest that an apology is not mainly an expression of feeling. It is a kind of promise, whose sincerity is judged by what the speaker is prepared to give up.",
+  "q": "本文の words that cost nothing are easily doubted の含意として最も適切なものを選びなさい。",
+  "c": [
+   "People believe an apology more when it is backed by something the speaker gives up.",
+   "People doubt every apology that is followed by some action.",
+   "Apologies should avoid words and consist of silence.",
+   "A cheap apology is welcomed because it ends the discussion quickly."
+  ],
+  "e": "代償のない言葉は疑われやすい、つまり話し手が何かを手放す行動を伴う謝罪のほうが信じられる、という含意です。2番目は逆（行動が続くと疑われる）、3番目の「沈黙」、4番目の「安い謝罪が歓迎される」は本文にありません。",
+  "m": "信じられる謝罪＝コストを払う謝罪"
+ },
+ {
+  "id": 89,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：週末の誕生",
+  "p": "For most of history, the idea of a regular day off was unfamiliar. Farmers rested when the weather forced them to, and artisans took holidays tied to religious festivals. [ 1 ] The change came with factory work, which, unlike farming, required people to be at the same place at the same hours every day. Workers who were bound to the clock began to demand a fixed period that belonged to them. [ 2 ] Employers resisted at first, but many discovered that rested workers made fewer mistakes, and the half-holiday gradually became a full two days. [ 3 ] What had begun as a concession to exhausted employees became a market of its own: sport, travel, and entertainment all grew up to fill the time that the working week left over.",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Rest, in other words, followed the rhythm of nature and belief rather than a calendar of work.",
+   "Employers soon realised that workers who never rested were more productive.",
+   "Factories therefore closed on the days when the weather was best.",
+   "The weekend was invented to keep farmers at work through the winter."
+  ],
+  "e": "空所の直後に The change came with factory work（変化は工場労働とともに来た）とあるので、その前には「変化する前の状態」が述べられるはずです。「休みは自然や信仰のリズムに従っていた」がそれに当たり、第1・2文の内容のまとめにもなっています。他の選択肢は、工場労働が始まる前の話として成り立ちません。",
+  "m": "The change の直前には「変化前の状態」が来る"
+ },
+ {
+  "id": 90,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：休みの交渉",
+  "p": "For most of history, the idea of a regular day off was unfamiliar. Farmers rested when the weather forced them to, and artisans took holidays tied to religious festivals. [ 1 ] The change came with factory work, which, unlike farming, required people to be at the same place at the same hours every day. Workers who were bound to the clock began to demand a fixed period that belonged to them. [ 2 ] Employers resisted at first, but many discovered that rested workers made fewer mistakes, and the half-holiday gradually became a full two days. [ 3 ] What had begun as a concession to exhausted employees became a market of its own: sport, travel, and entertainment all grew up to fill the time that the working week left over.",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Time off, which had once been a matter of custom, thus became a matter of bargaining.",
+   "Farmers also began to ask for time off in order to attend the religious festivals of the year.",
+   "Workers' demands were therefore granted immediately, and without any argument from employers.",
+   "Religious holidays soon disappeared from the calendar altogether in the industrial towns."
+  ],
+  "e": "前の文で、時計に縛られた労働者が自分たちのための一定の休みを要求し始めた、直後で、雇用者は最初は抵抗した、とあります。したがって「習慣だった休みが交渉の対象になった」が自然です。3番目は直後の resisted と矛盾し、2番目の農民、4番目の宗教的休日の消滅は文脈にありません。",
+  "m": "前後の流れ（要求→抵抗）をつなぐ文を選ぶ"
+ },
+ {
+  "id": 91,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：新しい種類の時間",
+  "p": "For most of history, the idea of a regular day off was unfamiliar. Farmers rested when the weather forced them to, and artisans took holidays tied to religious festivals. [ 1 ] The change came with factory work, which, unlike farming, required people to be at the same place at the same hours every day. Workers who were bound to the clock began to demand a fixed period that belonged to them. [ 2 ] Employers resisted at first, but many discovered that rested workers made fewer mistakes, and the half-holiday gradually became a full two days. [ 3 ] What had begun as a concession to exhausted employees became a market of its own: sport, travel, and entertainment all grew up to fill the time that the working week left over.",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "The weekend, in other words, created a new category of time and, with it, a new set of needs.",
+   "Nevertheless, leisure activities remained limited to the wealthy.",
+   "Factory owners therefore paid higher wages to those who worked on Sundays.",
+   "Yet most workers continued to spend their free time at the factory."
+  ],
+  "e": "直後の文は What had begun as a concession … became a market of its own（譲歩として始まったものが独自の市場になった）で、休みがスポーツ・旅行・娯楽という新たな需要を生んだと述べます。その導入として「新しい種類の時間と新しい需要を生んだ」が合います。他は直後の文に反するか、つながりが見えません。",
+  "m": "直後の内容を先取りして導く文を選ぶ"
+ },
+ {
+  "id": 92,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：辞書は規則集か",
+  "p": "Many people consult a dictionary as if it were a rulebook, expecting it to say which words are allowed. [ 1 ] The first great dictionaries of English were indeed compiled by men who saw themselves as guardians of the language. Modern lexicographers take a different view. [ 2 ] They collect large bodies of real writing and speech, and a word is included when it is used consistently and widely, whatever the compilers think of it. [ 3 ] This is why a dictionary is revised every few years, and why a word once marked 'slang' may later lose its label without anyone having granted permission.",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "This expectation is understandable, and it has a long history.",
+   "Few people, in fact, ever open a dictionary of any kind these days.",
+   "Dictionaries have never contained any slang words of any kind, whatever their date.",
+   "Lexicographers therefore avoid writing definitions."
+  ],
+  "e": "直後の文は「最初の大辞典は、言語の番人を自任する人々によって編まれた」で、indeed が前の文を補強しています。辞書を規則集のように使う期待には歴史がある、という内容が合います。2番目は冒頭の Many people と矛盾、3番目は slang を扱う後文と矛盾し、4番目は文脈に根拠がありません。",
+  "m": "indeed は直前の文を裏づける合図"
+ },
+ {
+  "id": 93,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：記録者としての辞書編集者",
+  "p": "Many people consult a dictionary as if it were a rulebook, expecting it to say which words are allowed. [ 1 ] The first great dictionaries of English were indeed compiled by men who saw themselves as guardians of the language. Modern lexicographers take a different view. [ 2 ] They collect large bodies of real writing and speech, and a word is included when it is used consistently and widely, whatever the compilers think of it. [ 3 ] This is why a dictionary is revised every few years, and why a word once marked 'slang' may later lose its label without anyone having granted permission.",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Their task, as they understand it, is to record how the language is used, not to decide how it should be used.",
+   "Their dictionaries are therefore much shorter than those of earlier times.",
+   "They refuse to include any word that is less than a century old.",
+   "They are chosen for their skill in persuading people to avoid slang."
+  ],
+  "e": "空所の前で「現代の編集者は違う見方をする」と述べ、後で「実際の文章や発話を集め、広く一貫して使われる語を載せる」と具体化しています。間に入るのは「使い方を記録するのが仕事で、決めるのが仕事ではない」という説明です。他の選択肢は、後続の具体的な方法につながりません。",
+  "m": "抽象的な主張→具体的な方法の間には要約文が入る"
+ },
+ {
+  "id": 94,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：辞書は言語に従う",
+  "p": "Many people consult a dictionary as if it were a rulebook, expecting it to say which words are allowed. [ 1 ] The first great dictionaries of English were indeed compiled by men who saw themselves as guardians of the language. Modern lexicographers take a different view. [ 2 ] They collect large bodies of real writing and speech, and a word is included when it is used consistently and widely, whatever the compilers think of it. [ 3 ] This is why a dictionary is revised every few years, and why a word once marked 'slang' may later lose its label without anyone having granted permission.",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "In this sense the dictionary follows the language instead of leading it.",
+   "In this sense the dictionary has the power to ban words that it dislikes.",
+   "In this sense it is pointless to look up a word that is not common.",
+   "In this sense a dictionary is finished once it has been printed."
+  ],
+  "e": "直後が This is why a dictionary is revised …（だから辞書は改訂される）なので、改訂が必要な理由、つまり辞書は言語の後を追うものだという内容が入ります。2番目は言語を「導く」立場で、本文の見方に反します。3番目、4番目も、改訂される理由と矛盾します。",
+  "m": "This is why の前には「理由」が置かれる"
+ },
+ {
+  "id": 95,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：道路拡張の論理",
+  "p": "Faced with congestion, the obvious remedy seems to be a wider road. [ 1 ] Yet experience in many cities has shown that new lanes often fill up within a few years, leaving traffic as slow as before. Economists call the effect 'induced demand'. [ 2 ] A faster road makes driving more attractive, so that people who once took the train, or avoided a journey altogether, begin to use the car. [ 3 ] The lesson is not that roads are worthless but that congestion acts as a price that rises until drivers decide the trip is no longer worth making, and building more space merely moves the point at which they decide.",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "The logic is simple: more space should mean less crowding.",
+   "This remedy has never been tried in any city.",
+   "Most drivers, in fact, prefer narrow roads to wide ones.",
+   "Planners therefore agree that wider roads always cause congestion."
+  ],
+  "e": "直後が Yet experience … has shown that new lanes often fill up（しかし経験では新しい車線はすぐ埋まる）なので、前には「道を広げれば混雑が減るはず」という常識的な理屈が来ます。2番目は「一度も試されていない」で後文の experience と矛盾し、3番目・4番目は逆接 Yet の前提として合いません。",
+  "m": "Yet の前には「常識的な見方」が来る"
+ },
+ {
+  "id": 96,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：誘発需要の説明",
+  "p": "Faced with congestion, the obvious remedy seems to be a wider road. [ 1 ] Yet experience in many cities has shown that new lanes often fill up within a few years, leaving traffic as slow as before. Economists call the effect 'induced demand'. [ 2 ] A faster road makes driving more attractive, so that people who once took the train, or avoided a journey altogether, begin to use the car. [ 3 ] The lesson is not that roads are worthless but that congestion acts as a price that rises until drivers decide the trip is no longer worth making, and building more space merely moves the point at which they decide.",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "The explanation is that the number of drivers is not fixed in advance.",
+   "The explanation is that new lanes are always built too slowly to keep pace with traffic.",
+   "The explanation is that drivers travel at the same hour every day.",
+   "The explanation is that traffic lights are placed too close together along main roads."
+  ],
+  "e": "直後の文が「速くなった道は運転を魅力的にし、電車を使っていた人や外出を控えていた人も車を使い始める」と述べているので、運転者の数は固定されていないという説明が入ります。他の選択肢の理由（工事の遅さ、同じ時間帯の移動、信号の間隔）は直後の内容につながりません。",
+  "m": "直後の具体例が何の説明になっているかを考える"
+ },
+ {
+  "id": 97,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：増えた容量の行方",
+  "p": "Faced with congestion, the obvious remedy seems to be a wider road. [ 1 ] Yet experience in many cities has shown that new lanes often fill up within a few years, leaving traffic as slow as before. Economists call the effect 'induced demand'. [ 2 ] A faster road makes driving more attractive, so that people who once took the train, or avoided a journey altogether, begin to use the car. [ 3 ] The lesson is not that roads are worthless but that congestion acts as a price that rises until drivers decide the trip is no longer worth making, and building more space merely moves the point at which they decide.",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "In this way, the extra capacity is gradually used up by extra traffic.",
+   "In this way, the journey becomes cheaper for those who still use the train.",
+   "In this way, public transport is certain to improve.",
+   "In this way, congestion disappears for ever after a road is widened."
+  ],
+  "e": "直前の「電車に乗っていた人などが車を使い始める」を受け、増えた道路容量が増えた交通量に使い尽くされるという結果になります。最後の文の「混雑は、運転者が割に合わないと判断するまで上がる価格のようなもの」にも合います。4番目は本文の主旨と正反対です。",
+  "m": "In this way は直前の内容の結果をまとめる"
+ },
+ {
+  "id": 98,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：大人の楽器学習",
+  "p": "Adults often assume that musical talent must be discovered in childhood, and that anyone who has not begun young has missed the chance. [ 1 ] Adult learners do have disadvantages: less free time, and a greater fear of sounding foolish. [ 2 ] They can understand why a technique works, and they can practise deliberately rather than merely repeat. [ 3 ] The real obstacle, then, is seldom age itself, but the belief that it is too late.",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "The evidence, however, does not support so gloomy a view.",
+   "Children, in fact, learn more slowly than adults in every respect.",
+   "Teachers therefore advise adults not to start at all.",
+   "Studies show that talent is fixed at birth and cannot be developed."
+  ],
+  "e": "冒頭は「子どものうちに始めなければ手遅れ」という悲観的な見方で、直後の文は「大人にも不利はある」と認めています。その間に「しかし証拠はそれほど悲観的な見方を支えない」と入れると、逆接の流れが自然です。2番目は「あらゆる点で」と言い過ぎで、3番目・4番目は最後の結論と矛盾します。",
+  "m": "悲観的な通説→反論→留保、という流れを追う"
+ },
+ {
+  "id": 99,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：大人の強み",
+  "p": "Adults often assume that musical talent must be discovered in childhood, and that anyone who has not begun young has missed the chance. [ 1 ] Adult learners do have disadvantages: less free time, and a greater fear of sounding foolish. [ 2 ] They can understand why a technique works, and they can practise deliberately rather than merely repeat. [ 3 ] The real obstacle, then, is seldom age itself, but the belief that it is too late.",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Adults also bring strengths that children generally lack.",
+   "Even so, most adults give up their instruments within a month.",
+   "For this reason, adults should avoid lessons altogether.",
+   "Children, by contrast, have far less time for practice."
+  ],
+  "e": "直後が They can understand why a technique works …（彼らは技術の理由を理解でき…）で、They は adults です。大人の強みを具体的に述べる文の導入として、「大人は子どもにない強みも持つ」が入ります。2番目は直後の肯定的な内容とつながらず、3番目は結論に反し、4番目は They の指す対象が曖昧になります。",
+  "m": "代名詞 They が指す対象から逆算する"
+ },
+ {
+  "id": 100,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：続けた人の上達",
+  "p": "Adults often assume that musical talent must be discovered in childhood, and that anyone who has not begun young has missed the chance. [ 1 ] Adult learners do have disadvantages: less free time, and a greater fear of sounding foolish. [ 2 ] They can understand why a technique works, and they can practise deliberately rather than merely repeat. [ 3 ] The real obstacle, then, is seldom age itself, but the belief that it is too late.",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Those who persist often find that progress is faster than they expected.",
+   "Those who start young are therefore certain to become professional musicians.",
+   "Those who persist usually become famous within a few years of starting.",
+   "Those who practise the least generally improve the fastest of all."
+  ],
+  "e": "直後が「本当の障害は年齢そのものではなく、遅すぎるという思い込みだ」という結論なので、その前に「続ける人は予想より早く上達する」という内容が入ると、思い込みが障害だという結論につながります。他の選択肢は誇張か、本文の趣旨に反します。",
+  "m": "結論につながる「根拠」の文を選ぶ"
+ },
+ {
+  "id": 101,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：「夕焼けは晴れ」",
+  "p": "Proverbs about the weather are often dismissed as superstition. 'Red sky at night, shepherd's delight' sounds more like a charm than a forecast. [ 1 ] In the middle latitudes, weather systems generally move from west to east. A red sunset means that the sun is shining through dry, dusty air in the west. [ 2 ] A red sky in the morning suggests that the same clear air has already passed, and that moisture may be arriving. [ 3 ]",
+  "q": "次の英文の空所［ 1 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Yet there is a reasonable physical explanation behind it.",
+   "Meteorologists therefore ignore all traditional sayings.",
+   "No one has ever compared such sayings with actual weather.",
+   "It is, of course, much older than any form of agriculture."
+  ],
+  "e": "前は「呪文のように聞こえる」という否定的な評価、直後は「中緯度では天気は西から東へ移動する」という科学的説明です。その間に逆接の Yet で「それでも合理的な物理的説明がある」と入れると、流れが通ります。他の選択肢は、直後の科学的説明を導きません。",
+  "m": "否定的評価→Yet→科学的な説明の流れ"
+ },
+ {
+  "id": 102,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：夕焼けの次の日",
+  "p": "Proverbs about the weather are often dismissed as superstition. 'Red sky at night, shepherd's delight' sounds more like a charm than a forecast. [ 1 ] In the middle latitudes, weather systems generally move from west to east. A red sunset means that the sun is shining through dry, dusty air in the west. [ 2 ] A red sky in the morning suggests that the same clear air has already passed, and that moisture may be arriving. [ 3 ]",
+  "q": "次の英文の空所［ 2 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Since the weather moves that way, the dry air is likely to reach the shepherd's field the next day.",
+   "Since the weather moves that way, the shepherd should move his flock to the west.",
+   "Since the air is dusty, the sheep will suffer from dry weather.",
+   "Since sunsets are red every evening, the forecast is always good."
+  ],
+  "e": "西の空に乾いた空気があり、天気は西から東へ動くのだから、その空気は翌日に羊飼いのいる場所に来る＝晴れる、という推論です。2番目は西へ移動するという誤り、3番目は羊への被害という本文にない話、4番目は夕焼けが毎晩赤いという誤りです。",
+  "m": "西→東の移動と、夕焼けの空気の位置を結びつける"
+ },
+ {
+  "id": 103,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "文の挿入：諺の評価",
+  "p": "Proverbs about the weather are often dismissed as superstition. 'Red sky at night, shepherd's delight' sounds more like a charm than a forecast. [ 1 ] In the middle latitudes, weather systems generally move from west to east. A red sunset means that the sun is shining through dry, dusty air in the west. [ 2 ] A red sky in the morning suggests that the same clear air has already passed, and that moisture may be arriving. [ 3 ]",
+  "q": "次の英文の空所［ 3 ］に入れるのに最も適切な文を選びなさい。",
+  "c": [
+   "Not every such saying survives examination, but many of them record patient observation.",
+   "All such sayings have been proved wrong by modern instruments.",
+   "Every region of the world has exactly the same saying about red skies.",
+   "Shepherds are therefore the only people who can forecast the weather reliably."
+  ],
+  "e": "段落全体で、諺を迷信と決めつけず、科学的に説明できる例を示しました。結びとして「すべてが検証に耐えるわけではないが、多くは辛抱強い観察の記録だ」と述べるのが自然です。2番目は全否定、3番目は世界中で同じという誤り、4番目は羊飼いだけが予報できるという飛躍です。",
+  "m": "結びの文は全体の主張と調和させる"
+ },
+ {
+  "id": 104,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：小説と共感",
+  "p": "Reading fiction is sometimes said to make people more ( 1 ), since it invites them to follow the thoughts of characters unlike themselves. The evidence for this claim is, however, ( 2 ). Some experiments find a small effect, while others find none, and it is hard to separate the effect of reading from the fact that people who already care about others may simply choose to read more. What can be said with more confidence is that fiction offers practice in ( 3 ) another point of view, even if it does not ( 4 ) anyone's character.",
+  "q": "次の英文の空所（ 1 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "sympathetic to others",
+   "dependent on other people",
+   "suspicious of strangers",
+   "superior to others"
+  ],
+  "e": "小説は自分と異なる登場人物の考えをたどらせるので、「他者に共感的になる」と言われる、という文脈です。dependent（頼る）、suspicious（疑い深い）、superior（優越した）は、他人の考えをたどることから生まれる性質として不自然です。",
+  "m": "follow the thoughts of others → 共感"
+ },
+ {
+  "id": 105,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：証拠は一定しない",
+  "p": "Reading fiction is sometimes said to make people more ( 1 ), since it invites them to follow the thoughts of characters unlike themselves. The evidence for this claim is, however, ( 2 ). Some experiments find a small effect, while others find none, and it is hard to separate the effect of reading from the fact that people who already care about others may simply choose to read more. What can be said with more confidence is that fiction offers practice in ( 3 ) another point of view, even if it does not ( 4 ) anyone's character.",
+  "q": "次の英文の空所（ 2 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "mixed",
+   "overwhelming",
+   "irrelevant",
+   "universal"
+  ],
+  "e": "直後に「小さな効果を見いだす実験もあれば、何も見いださない実験もある」とあるので、証拠は「まちまち」です。overwhelming（圧倒的）、universal（普遍的）は結果が割れることと矛盾し、irrelevant（無関係）は証拠の性質の説明になりません。",
+  "m": "Some … while others … → 結果はまちまち（mixed）"
+ },
+ {
+  "id": 106,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：別の視点を想像する",
+  "p": "Reading fiction is sometimes said to make people more ( 1 ), since it invites them to follow the thoughts of characters unlike themselves. The evidence for this claim is, however, ( 2 ). Some experiments find a small effect, while others find none, and it is hard to separate the effect of reading from the fact that people who already care about others may simply choose to read more. What can be said with more confidence is that fiction offers practice in ( 3 ) another point of view, even if it does not ( 4 ) anyone's character.",
+  "q": "次の英文の空所（ 3 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "imagining",
+   "abandoning",
+   "avoiding",
+   "ignoring"
+  ],
+  "e": "筆者が確信を持って言えるのは、小説が別の視点を「想像する」練習になることです。「捨てる」「避ける」「無視する」は、他者の考えをたどるという冒頭の説明と合いません。practice in ＋動名詞の形にも注意します。",
+  "m": "practice in doing＝〜する練習"
+ },
+ {
+  "id": 107,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：性格を変える",
+  "p": "Reading fiction is sometimes said to make people more ( 1 ), since it invites them to follow the thoughts of characters unlike themselves. The evidence for this claim is, however, ( 2 ). Some experiments find a small effect, while others find none, and it is hard to separate the effect of reading from the fact that people who already care about others may simply choose to read more. What can be said with more confidence is that fiction offers practice in ( 3 ) another point of view, even if it does not ( 4 ) anyone's character.",
+  "q": "次の英文の空所（ 4 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "transform",
+   "transfer",
+   "translate",
+   "transmit"
+  ],
+  "e": "even if it does not ( 4 ) anyone's character は「誰かの性格を変える」の意味で、transform（根本的に変える）が合います。transfer、translate、transmit は character を目的語にとって意味をなしません。",
+  "m": "transform＝すっかり変える"
+ },
+ {
+  "id": 108,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：子どもの夏の長さ",
+  "p": "Many adults remember the summers of childhood as ( 1 ), and the years of later life as passing too quickly. One explanation is that novelty slows our sense of time: a child meets new things every day, and each new experience leaves a distinct memory, whereas a routine adult year leaves very few. Looking back, we judge a period by the number of memories it contains, so that a year of ( 2 ) seems shorter than a week of discovery. If this is right, the remedy for the speed of life is to ( 3 ) our days with experiences worth remembering.",
+  "q": "次の英文の空所（ 1 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "seemingly endless",
+   "carelessly forgotten",
+   "strangely silent",
+   "surprisingly brief"
+  ],
+  "e": "後半の「後年は速く過ぎる」と対比されるので、子どもの夏は「果てしなく長く感じられる」ものです。forgotten（忘れられた）や silent（静かな）は対比になりません。surprisingly brief（意外に短い）は、後年が速く過ぎるという対比と逆向きになります。",
+  "m": "too quickly と対になる語＝endless"
+ },
+ {
+  "id": 109,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：変化のない一年",
+  "p": "Many adults remember the summers of childhood as ( 1 ), and the years of later life as passing too quickly. One explanation is that novelty slows our sense of time: a child meets new things every day, and each new experience leaves a distinct memory, whereas a routine adult year leaves very few. Looking back, we judge a period by the number of memories it contains, so that a year of ( 2 ) seems shorter than a week of discovery. If this is right, the remedy for the speed of life is to ( 3 ) our days with experiences worth remembering.",
+  "q": "次の英文の空所（ 2 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "routine",
+   "discovery",
+   "surprise",
+   "adventure"
+  ],
+  "e": "前の文で「決まりきった大人の一年は記憶がごくわずか」と述べているので、a week of discovery と対比される a year of routine が入ります。discovery、adventure、surprise は、いずれも記憶を増やす側にあたり、「短く感じられる一年」に合いません。",
+  "m": "a week of discovery と対比される語を探す"
+ },
+ {
+  "id": 110,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：日々を満たす",
+  "p": "Many adults remember the summers of childhood as ( 1 ), and the years of later life as passing too quickly. One explanation is that novelty slows our sense of time: a child meets new things every day, and each new experience leaves a distinct memory, whereas a routine adult year leaves very few. Looking back, we judge a period by the number of memories it contains, so that a year of ( 2 ) seems shorter than a week of discovery. If this is right, the remedy for the speed of life is to ( 3 ) our days with experiences worth remembering.",
+  "q": "次の英文の空所（ 3 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "fill",
+   "empty",
+   "shorten",
+   "forget"
+  ],
+  "e": "記憶の数で時間を判断するという説明から、解決策は日々を記憶に残る経験で「満たす」ことです。empty（空にする）、shorten（短くする）、forget（忘れる）では、with experiences worth remembering とつながりません。fill A with B の形です。",
+  "m": "fill A with B＝AをBで満たす"
+ },
+ {
+  "id": 111,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：森林火災の見方",
+  "p": "Forest fires are usually seen as ( 1 ), but ecologists note that many forests depend on fire. Some pine cones open only in intense heat, and the cleared ground gives their seedlings the light they need. A policy of putting out every fire at once therefore has an unexpected cost. It allows dead wood to ( 2 ) year after year, so that when a fire does come, it burns with a force ( 3 ) anything a natural fire would have produced.",
+  "q": "次の英文の空所（ 1 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "pure disasters",
+   "valuable gifts",
+   "harmless events",
+   "regular festivals"
+  ],
+  "e": "but 以下で「多くの森林は火に依存する」と対比されるので、通常は「純粋な災害」と見られているという流れです。valuable gifts（貴重な贈り物）や harmless events（害のない出来事）は、but 以下の意外な指摘と対比になりません。",
+  "m": "but の前後は対比。通常の見方を探す"
+ },
+ {
+  "id": 112,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：枯れ木が増える",
+  "p": "Forest fires are usually seen as ( 1 ), but ecologists note that many forests depend on fire. Some pine cones open only in intense heat, and the cleared ground gives their seedlings the light they need. A policy of putting out every fire at once therefore has an unexpected cost. It allows dead wood to ( 2 ) year after year, so that when a fire does come, it burns with a force ( 3 ) anything a natural fire would have produced.",
+  "q": "次の英文の空所（ 2 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "accumulate",
+   "evaporate slowly",
+   "dissolve",
+   "disappear completely"
+  ],
+  "e": "火災をすべて消すと、枯れ木が年々「たまる」ので、後で起きる火災が激しくなります。evaporate（蒸発する）、dissolve（溶ける）、disappear（消える）では、後の「より強い力で燃える」につながりません。",
+  "m": "year after year と結びつく動詞は accumulate"
+ },
+ {
+  "id": 113,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：自然の火災との比較",
+  "p": "Forest fires are usually seen as ( 1 ), but ecologists note that many forests depend on fire. Some pine cones open only in intense heat, and the cleared ground gives their seedlings the light they need. A policy of putting out every fire at once therefore has an unexpected cost. It allows dead wood to ( 2 ) year after year, so that when a fire does come, it burns with a force ( 3 ) anything a natural fire would have produced.",
+  "q": "次の英文の空所（ 3 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "far greater than",
+   "no different from",
+   "much weaker than",
+   "scarcely greater than"
+  ],
+  "e": "枯れ木がたまった状態で起きる火災は、自然の火災より「はるかに激しい」はずです。「違いがない」「ずっと弱い」「ほとんど大きくない」では、消火政策の予想外の代償という文脈に合いません。",
+  "m": "unexpected cost → より激しい火災"
+ },
+ {
+  "id": 114,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：診断の素早さ",
+  "p": "Doctors are trained to reach a diagnosis quickly, since in an emergency hesitation can ( 1 ) lives. But the habit has a cost. Once a doctor has settled on an explanation, later information tends to be read in its light, and facts that do not fit are explained away instead of being ( 2 ). Hospitals that encourage a second opinion, or that ask staff to name one alternative before deciding, report fewer errors. The aim is not to make doctors ( 3 ) but to keep the first idea from closing the question too soon.",
+  "q": "次の英文の空所（ 1 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "cost",
+   "save",
+   "improve",
+   "prolong"
+  ],
+  "e": "救急では迷っていると命を落とす、というのが素早い診断を訓練する理由です。hesitation can cost lives（ためらいは命を失わせることがある）が文脈に合います。save（救う）は、ためらいが命を救うことになり、理由として成り立ちません。improve、prolong も同様です。",
+  "m": "hesitation can cost lives＝ためらいが命取りに"
+ },
+ {
+  "id": 115,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：合わない事実の扱い",
+  "p": "Doctors are trained to reach a diagnosis quickly, since in an emergency hesitation can ( 1 ) lives. But the habit has a cost. Once a doctor has settled on an explanation, later information tends to be read in its light, and facts that do not fit are explained away instead of being ( 2 ). Hospitals that encourage a second opinion, or that ask staff to name one alternative before deciding, report fewer errors. The aim is not to make doctors ( 3 ) but to keep the first idea from closing the question too soon.",
+  "q": "次の英文の空所（ 2 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "taken seriously",
+   "kept secret from others",
+   "repeated aloud again",
+   "paid for"
+  ],
+  "e": "最初の説明に合わない事実を「説明して片づけて」しまい、本来なら「真剣に受け止める」べきだ、という文脈です。explained away instead of being taken seriously が自然です。kept secret、repeated aloud、paid for は、診断の過程で事実を扱う表現として不適切です。",
+  "m": "explain away（言いくるめて片づける）の反対を考える"
+ },
+ {
+  "id": 116,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文の挿入・空所補充",
+  "t": "空所補充：医師を迷わせたいのではない",
+  "p": "Doctors are trained to reach a diagnosis quickly, since in an emergency hesitation can ( 1 ) lives. But the habit has a cost. Once a doctor has settled on an explanation, later information tends to be read in its light, and facts that do not fit are explained away instead of being ( 2 ). Hospitals that encourage a second opinion, or that ask staff to name one alternative before deciding, report fewer errors. The aim is not to make doctors ( 3 ) but to keep the first idea from closing the question too soon.",
+  "q": "次の英文の空所（ 3 ）に入れるのに最も適切な語句を選びなさい。",
+  "c": [
+   "indecisive",
+   "experienced",
+   "honest",
+   "tired"
+  ],
+  "e": "素早い診断の訓練を前提に、狙いは医師を「優柔不断にする」ことではなく、最初の考えに結論を閉ざさせないことだ、という流れです。experienced、honest、tired は、not … but … の対比として、直前の文脈と結びつきません。",
+  "m": "not A but B の A には「誤解されがちな点」が入る"
+ },
+ {
+  "id": 117,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：beside the point",
+  "p": "Speed-reading courses promise to double the pace at which we read, but for many kinds of text speed is (1)【beside the point】. A poem, a legal argument or a difficult proof is not a package of information to be (2)【got through】 as quickly as possible; it is a structure that must be rebuilt in the reader's mind, and the rebuilding takes the time it takes. Skimming has its uses, of course, but it is an error to (3)【mistake it for】 reading itself.",
+  "q": "【 】で示した下線部（1）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "not relevant to what really matters",
+   "the main attraction of such courses",
+   "hard to measure precisely",
+   "less important than it used to be"
+  ],
+  "e": "beside the point は「的外れで、要点と関係がない」という成句です。ここでは、詩や論証のような文章では読む速さは本質と関係がない、という意味になります。「主な魅力」は promise to double the pace と文脈が逆、「測りにくい」「以前ほど重要でない」は成句の意味と異なります。",
+  "m": "beside the point＝的外れ、無関係"
+ },
+ {
+  "id": 118,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：get through",
+  "p": "Speed-reading courses promise to double the pace at which we read, but for many kinds of text speed is (1)【beside the point】. A poem, a legal argument or a difficult proof is not a package of information to be (2)【got through】 as quickly as possible; it is a structure that must be rebuilt in the reader's mind, and the rebuilding takes the time it takes. Skimming has its uses, of course, but it is an error to (3)【mistake it for】 reading itself.",
+  "q": "【 】で示した下線部（2）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "completed in a hurry",
+   "understood in great depth",
+   "examined with care",
+   "taken apart and studied"
+  ],
+  "e": "get through は「（仕事・文章などを）なんとか済ませる、やり終える」という意味です。ここでは情報の包みとして急いで読み終えるもの、ということです。直後の as quickly as possible とも合います。understood in depth や examined with care は、続く「頭の中で作り直す構造」の側の説明になっています。",
+  "m": "get through＝やり終える。as quickly as possible に注目"
+ },
+ {
+  "id": 119,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：mistake A for B",
+  "p": "Speed-reading courses promise to double the pace at which we read, but for many kinds of text speed is (1)【beside the point】. A poem, a legal argument or a difficult proof is not a package of information to be (2)【got through】 as quickly as possible; it is a structure that must be rebuilt in the reader's mind, and the rebuilding takes the time it takes. Skimming has its uses, of course, but it is an error to (3)【mistake it for】 reading itself.",
+  "q": "【 】で示した下線部（3）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "confuse it with",
+   "prefer it to",
+   "compare it with",
+   "protect it from"
+  ],
+  "e": "mistake A for B は「AをBと取り違える」です。ここでは skimming（飛ばし読み）を reading そのものと取り違えるのは誤りだ、という意味になります。prefer A to B（AをBより好む）、compare A with B、protect A from B では、mistake の用法と合いません。",
+  "m": "mistake A for B＝AをBと取り違える"
+ },
+ {
+  "id": 120,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：seen better days",
+  "p": "The bakery on the corner of our street had (1)【seen better days】 by the time my family arrived, but nobody in the neighbourhood could imagine (2)【doing without it】. The owner, a retired sailor with a loud laugh, (3)【made a point of】 learning the name of every child who came in for bread, and he never let a stranger leave without a remark about the weather.",
+  "q": "【 】で示した下線部（1）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "was no longer in good condition",
+   "had recently been repaired by its owner",
+   "was busier than it had ever been before",
+   "was admired by the many tourists who visited"
+  ],
+  "e": "see better days は「落ちぶれた、昔のほうが良かった」という成句です。直後の but nobody could imagine doing without it（それでも誰もそれなしの生活は想像できなかった）という逆接とも合います。「修理された」「かつてなく忙しい」「観光客に称賛された」は成句の意味ではありません。",
+  "m": "have seen better days＝すっかり古びた"
+ },
+ {
+  "id": 121,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：do without",
+  "p": "The bakery on the corner of our street had (1)【seen better days】 by the time my family arrived, but nobody in the neighbourhood could imagine (2)【doing without it】. The owner, a retired sailor with a loud laugh, (3)【made a point of】 learning the name of every child who came in for bread, and he never let a stranger leave without a remark about the weather.",
+  "q": "【 】で示した下線部（2）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "managing in its absence",
+   "making good use of it",
+   "being angry with it all day",
+   "paying a high price for it"
+  ],
+  "e": "do without は「〜なしで済ます」です。doing without it は「それなしでやっていくこと」で、近所の人はパン屋がなくなった生活を想像できなかった、という意味です。make use of、be angry about、pay for は、この成句の意味ではありません。",
+  "m": "do without A＝Aなしで済ます"
+ },
+ {
+  "id": 122,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：make a point of",
+  "p": "The bakery on the corner of our street had (1)【seen better days】 by the time my family arrived, but nobody in the neighbourhood could imagine (2)【doing without it】. The owner, a retired sailor with a loud laugh, (3)【made a point of】 learning the name of every child who came in for bread, and he never let a stranger leave without a remark about the weather.",
+  "q": "【 】で示した下線部（3）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "made an effort to do it",
+   "often forgot all about doing it",
+   "refused on principle to bother",
+   "was too busy to bother with it"
+  ],
+  "e": "make a point of doing は「わざわざ〜するようにしている」という成句です。made a point of learning the name of every child は、子ども全員の名前を意識して覚えるようにしていた、という意味になります。forgot、refused、was too busy は、すべて「覚えていた」という文脈に反します。",
+  "m": "make a point of doing＝努めて〜する"
+ },
+ {
+  "id": 123,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：hold sway",
+  "p": "Public opinion is often said to (1)【hold sway】 over politicians, yet leaders, (2)【by and large】, pay attention only to the opinions of those likely to vote. A policy that (3)【runs counter to】 the wishes of the majority may therefore survive for years if the majority is not paying attention.",
+  "q": "【 】で示した下線部（1）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "have great influence",
+   "remain unchanged",
+   "be easily ignored",
+   "be carefully measured"
+  ],
+  "e": "hold sway over は「〜を支配する、大きな影響力をもつ」です。「世論は政治家に影響力をもつと言われるが、実際は…」という逆接の流れに合います。「変わらない」「簡単に無視される」「慎重に測られる」はいずれも成句の意味ではありません。",
+  "m": "hold sway over A＝Aを支配する"
+ },
+ {
+  "id": 124,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：by and large",
+  "p": "Public opinion is often said to (1)【hold sway】 over politicians, yet leaders, (2)【by and large】, pay attention only to the opinions of those likely to vote. A policy that (3)【runs counter to】 the wishes of the majority may therefore survive for years if the majority is not paying attention.",
+  "q": "【 】で示した下線部（2）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "on the whole",
+   "without exception",
+   "from time to time",
+   "in a rather hurried way"
+  ],
+  "e": "by and large は「概して、全般的に」です。on the whole が最も近い言い換えです。without exception（例外なく）は「概して」と強さが違い、from time to time は頻度、in a hurried way は様子の話で、いずれも異なります。",
+  "m": "by and large＝on the whole＝概して"
+ },
+ {
+  "id": 125,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：run counter to",
+  "p": "Public opinion is often said to (1)【hold sway】 over politicians, yet leaders, (2)【by and large】, pay attention only to the opinions of those likely to vote. A policy that (3)【runs counter to】 the wishes of the majority may therefore survive for years if the majority is not paying attention.",
+  "q": "【 】で示した下線部（3）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "goes against",
+   "is combined with",
+   "runs faster than",
+   "is supported by"
+  ],
+  "e": "run counter to は「〜に反する」です。a policy that runs counter to the wishes of the majority は「多数派の意向に反する政策」で、それでも多数派が注目していなければ長く続く、という内容です。support や combine は逆の方向、run faster than は文字通りの誤読です。",
+  "m": "counter＝逆。run counter to＝逆行する"
+ },
+ {
+  "id": 126,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：do wonders for",
+  "p": "People who swim in cold water all year often say it (1)【does wonders for】 their mood, and some doctors believe them. Yet the evidence is thin, and enthusiasts tend to (2)【play down】 the risks, which are real for anyone with a weak heart. It would be unwise to (3)【write off】 the claims entirely, but equally unwise to (4)【take them at face value】.",
+  "q": "【 】で示した下線部（1）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "has a very good effect on",
+   "makes little difference to",
+   "is the cause of damage to",
+   "is paid for by"
+  ],
+  "e": "do wonders for は「〜に絶大な効果がある」という成句です。ここでは気分を大いに良くする、という意味です。makes little difference は逆の意味、damage の原因や is paid for by は文脈に合いません。some doctors believe them とも整合します。",
+  "m": "do wonders for A＝Aにすばらしい効果がある"
+ },
+ {
+  "id": 127,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：play down",
+  "p": "People who swim in cold water all year often say it (1)【does wonders for】 their mood, and some doctors believe them. Yet the evidence is thin, and enthusiasts tend to (2)【play down】 the risks, which are real for anyone with a weak heart. It would be unwise to (3)【write off】 the claims entirely, but equally unwise to (4)【take them at face value】.",
+  "q": "【 】で示した下線部（2）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "treat them as less important",
+   "exaggerate them to others",
+   "list them in public",
+   "measure them with great care"
+  ],
+  "e": "play down は「〜を軽く扱う、重要でないように見せる」です。熱心な愛好者がリスクを軽く見せる、という意味です。exaggerate はまさに逆で、list や measure は成句の意味ではありません。直前の Yet the evidence is thin から、慎重な筆者の視点がわかります。",
+  "m": "play down↔play up（強調する）"
+ },
+ {
+  "id": 128,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：write off",
+  "p": "People who swim in cold water all year often say it (1)【does wonders for】 their mood, and some doctors believe them. Yet the evidence is thin, and enthusiasts tend to (2)【play down】 the risks, which are real for anyone with a weak heart. It would be unwise to (3)【write off】 the claims entirely, but equally unwise to (4)【take them at face value】.",
+  "q": "【 】で示した下線部（3）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "dismiss them as worthless",
+   "record them in writing",
+   "pay them back in full",
+   "rewrite them for greater clarity"
+  ],
+  "e": "write off は「〜を無価値なものとして切り捨てる、見限る」です。直後の equally unwise to … take them at face value と合わせて、「主張を全面的に退けるのも、鵜呑みにするのも賢明でない」という筆者の中立的な立場になります。他の選択肢は write の字面にひかれた誤りです。",
+  "m": "write off＝見切りをつける、帳消しにする"
+ },
+ {
+  "id": 129,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "語句の意味：take at face value",
+  "p": "People who swim in cold water all year often say it (1)【does wonders for】 their mood, and some doctors believe them. Yet the evidence is thin, and enthusiasts tend to (2)【play down】 the risks, which are real for anyone with a weak heart. It would be unwise to (3)【write off】 the claims entirely, but equally unwise to (4)【take them at face value】.",
+  "q": "【 】で示した下線部（4）の意味・内容として最も適切なものを選びなさい。",
+  "c": [
+   "accept them as they appear",
+   "judge them mainly by who said them",
+   "reject them as soon as they are heard",
+   "repeat them again to other people"
+  ],
+  "e": "take A at face value は「Aを額面どおりに受け取る」で、疑わずにそのまま信じるという意味です。前半の dismiss と対になって、どちらの極端も避けるべきだと述べています。judge by who said them や reject は意味が異なり、repeat は成句と無関係です。",
+  "m": "face value＝額面。そのまま受け取る"
+ },
+ {
+  "id": 130,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：初期の測量士",
+  "p": "(1)【Had the early surveyors not been willing to walk every ridge and valley, our maps would still be little more than guesses.】 The work was slow, and it was dangerous: (2)【it was not until the instruments were carried up the mountain by many men that the height could be measured with any confidence.】 Yet (3)【the surveyors cared no more about fame than the mountains cared about the surveyors.】",
+  "q": "【 】で示した下線部（1）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "初期の測量士たちがすべての尾根や谷を労をいとわず歩いていなかったら、私たちの地図は今でも推測の域をほとんど出ていないだろう。",
+   "初期の測量士たちはすべての尾根や谷を歩こうとはしなかったが、それでも私たちの地図は今では推測以上のものになっているのである。",
+   "初期の測量士たちはすべての尾根や谷を歩く意志があったので、私たちの地図はやがて推測以上のものになっていくだろうと言われている。",
+   "初期の測量士たちがすべての尾根や谷を歩く労をいとわなかったので、私たちの地図は今でも推測にすぎないものにとどまってしまっている。"
+  ],
+  "e": "Had S not been … は if S had not been … の倒置で、過去の事実に反する仮定です。主節の would still be … は「今でもまだ…だろう」という帰結で、「歩いてくれたから地図が推測を超えた」ことを逆から述べています。2番目は仮定を打ち消し、3番目は未来の話にし、4番目は仮定法を事実の因果に取り違えています。",
+  "m": "Had S p.p.＝If S had p.p. の倒置。事実と反対"
+ },
+ {
+  "id": 131,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：山の高さの測定",
+  "p": "(1)【Had the early surveyors not been willing to walk every ridge and valley, our maps would still be little more than guesses.】 The work was slow, and it was dangerous: (2)【it was not until the instruments were carried up the mountain by many men that the height could be measured with any confidence.】 Yet (3)【the surveyors cared no more about fame than the mountains cared about the surveyors.】",
+  "q": "【 】で示した下線部（2）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "器具が大勢の人の手で山の上へ運び上げられて初めて、高さをある程度の確信をもって測ることができた。",
+   "器具が山の上へ運び上げられるまでに、大勢の人がある程度の確信をもって高さを測ることができた。",
+   "器具が大勢の人の手で山の上へ運び上げられても、高さをある程度の確信をもって測ることはできなかった。",
+   "大勢の人が器具を山の上へ運ぶまでもなく、高さをある程度の確信をもって測れるようになった。"
+  ],
+  "e": "It was not until A that B は「Aして初めてBした」です。器具が山に運び上げられて初めて、高さが確信をもって測れるようになった、という意味です。2番目は until を「までに」と取り違え、3番目は否定の位置を誤り、4番目は not until を「〜するまでもなく」と誤訳しています。",
+  "m": "It was not until A that B＝Aして初めてB"
+ },
+ {
+  "id": 132,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：名声を気にしない",
+  "p": "(1)【Had the early surveyors not been willing to walk every ridge and valley, our maps would still be little more than guesses.】 The work was slow, and it was dangerous: (2)【it was not until the instruments were carried up the mountain by many men that the height could be measured with any confidence.】 Yet (3)【the surveyors cared no more about fame than the mountains cared about the surveyors.】",
+  "q": "【 】で示した下線部（3）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "山々が測量士たちを気にかけないのと同じように、測量士たちも名声を気にかけなかった。",
+   "測量士たちは名声を気にかけていたが、山々が測量士たちを気にかけた以上のものではなかったのである。",
+   "山々が測量士たちを気にかけた以上に、測量士たちは名声を気にかけていた。",
+   "測量士たちは名声を気にかけなかったが、山々のほうは測量士たちのことをいつも気にかけていた。"
+  ],
+  "e": "A no more … than B は「Bが…でないのと同様にAも…でない」という、両方を否定する構文（クジラの公式）です。測量士が名声を気にしないのは、山が測量士を気にしないのと同じ、という意味です。他の選択肢は、どちらかを肯定していたり、比較の向きを逆にしていたりします。",
+  "m": "A no more … than B＝BでないようにAでもない"
+ },
+ {
+  "id": 133,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：電話と正直さ",
+  "p": "A letter forces its writer to decide what to say before saying it. (1)【A telephone call, on the other hand, allows one to think aloud, and it is hardly surprising that many people find it easier to be honest on the phone.】 Yet (2)【the very ease that makes conversation pleasant is what makes it unreliable as a record: no one can be held to words that have vanished into the air.】 For this reason, (3)【important agreements are, even today, the last things people are willing to settle by voice alone.】",
+  "q": "【 】で示した下線部（1）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "一方、電話では考えながら声に出して話せるので、電話のほうが正直になりやすいと感じる人が多いのも、ほとんど驚くに当たらない。",
+   "一方、電話では考えを声に出して話すことが許されないので、電話では正直になりにくいと感じる人が多いのは、まったく驚くべきことである。",
+   "一方、電話のほうが手紙より正直であると考える人は、まず考えを声に出して整理する必要があるため、驚くほど少ない。",
+   "一方、電話では声に出して考えることができるが、電話のほうが正直になりやすいと感じる人が多いのは、大いに驚くべきことである。"
+  ],
+  "e": "hardly surprising は「ほとんど驚くに当たらない」で、think aloud は「考えを声に出して話す」です。電話は考えながら話せるので正直になりやすい、という自然な理由づけです。2番目は allows を逆にし、3番目は主語と内容が変わり、4番目は hardly を誤って「大いに」と訳しています。",
+  "m": "hardly surprising＝驚くに当たらない"
+ },
+ {
+  "id": 134,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：会話の気軽さ",
+  "p": "A letter forces its writer to decide what to say before saying it. (1)【A telephone call, on the other hand, allows one to think aloud, and it is hardly surprising that many people find it easier to be honest on the phone.】 Yet (2)【the very ease that makes conversation pleasant is what makes it unreliable as a record: no one can be held to words that have vanished into the air.】 For this reason, (3)【important agreements are, even today, the last things people are willing to settle by voice alone.】",
+  "q": "【 】で示した下線部（2）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "会話を心地よくするまさにその気軽さが、会話を記録として頼りないものにする。空中に消えた言葉の責任は誰にも問えない。",
+   "会話が記録として頼りないものであることが、会話を心地よくする気軽さを生んでおり、空中に消えた言葉を責められる人はいない。",
+   "会話を心地よくする気軽さがあれば、会話は記録として頼れるものになり、空中に消えた言葉には責任を問える人がいる。",
+   "会話の記録は気軽さを心地よくするためにあり、空中に消えた言葉は結局のところ誰にも責任を問うことができない。"
+  ],
+  "e": "the very ease that makes conversation pleasant（会話を心地よくするまさにその気軽さ）が、what makes it unreliable as a record（会話を記録として頼りなくするもの）だ、という構造です。2番目は因果を逆にし、3番目は否定を落とし、4番目は文構造を取り違えています。コロン以下は理由の説明です。",
+  "m": "the very A＝まさにそのA。S is what ～＝Sが～の原因"
+ },
+ {
+  "id": 135,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：重要な合意",
+  "p": "A letter forces its writer to decide what to say before saying it. (1)【A telephone call, on the other hand, allows one to think aloud, and it is hardly surprising that many people find it easier to be honest on the phone.】 Yet (2)【the very ease that makes conversation pleasant is what makes it unreliable as a record: no one can be held to words that have vanished into the air.】 For this reason, (3)【important agreements are, even today, the last things people are willing to settle by voice alone.】",
+  "q": "【 】で示した下線部（3）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "重要な合意こそ、今日でさえ、人々が口頭だけで決めることを最もしたがらない事柄である。",
+   "重要な合意は、今日でも、人々がほかの事柄をすべて口頭で決め終えた後に、最後に口頭だけで決める事柄である。",
+   "重要な合意は、今日では、人々が口頭だけで決めたがる最初の事柄である。",
+   "重要な合意を口頭だけで決めようとする人は、今日では最後の世代になりつつあり、その数は年々減っている。"
+  ],
+  "e": "the last things people are willing to settle by voice alone は、「人々が口頭だけで決めようとする最後の（＝もっとも決めようとしない）事柄」で、重要な合意は口頭だけでは決めたがらない、という意味です。2番目は last を「順番の最後」の意味にしてしまい、3番目は逆で、4番目は last を「最後の世代」に取り違えています。",
+  "m": "the last A to do＝もっとも〜しそうにないA"
+ },
+ {
+  "id": 136,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：農家の帳面",
+  "p": "Farmers in dry regions keep records that outsiders rarely see. (1)【Had it not been for the notebooks passed from parent to child, the pattern of the last three droughts would long ago have been forgotten.】 These books hold (2)【not rainfall figures so much as small observations of when the swallows arrived and which wells failed first.】 Their authors would be surprised to learn that (3)【climate scientists now treat such scraps as evidence no less valuable than the readings of an official station.】",
+  "q": "【 】で示した下線部（1）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "親から子へ受け継がれてきた帳面がなかったなら、直近三度の干ばつの経過は、とうの昔に忘れ去られていただろう。",
+   "親から子へ受け継がれてきた帳面がなかったので、直近三度の干ばつの経過は、とうの昔に完全に忘れ去られてしまった。",
+   "親から子へ受け継がれてきた帳面があるおかげで、直近三度の干ばつの経過は、決して忘れ去られないだろう。",
+   "親から子へ受け継がれてきた帳面がなかったとしても、直近三度の干ばつの経過は、決して忘れ去られなかっただろう。"
+  ],
+  "e": "Had it not been for A, S would have p.p. は「もしAがなかったなら、Sはとっくに…されていただろう」という、倒置による仮定法過去完了です（if it had not been for の倒置）。2番目は事実の過去形に、3番目は肯定の事実に、4番目は仮定部分の意味を逆にしています。",
+  "m": "Had it not been for A＝もしAがなかったなら"
+ },
+ {
+  "id": 137,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：雨量よりも観察",
+  "p": "Farmers in dry regions keep records that outsiders rarely see. (1)【Had it not been for the notebooks passed from parent to child, the pattern of the last three droughts would long ago have been forgotten.】 These books hold (2)【not rainfall figures so much as small observations of when the swallows arrived and which wells failed first.】 Their authors would be surprised to learn that (3)【climate scientists now treat such scraps as evidence no less valuable than the readings of an official station.】",
+  "q": "【 】で示した下線部（2）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "雨量の数字というよりも、むしろツバメがいつ来たか、どの井戸が最初に枯れたかといった小さな観察",
+   "雨量の数字だけでなく、ツバメがいつ来たか、どの井戸が最初に枯れたかといった小さな観察を、あわせて書き留めたもの",
+   "ツバメがいつ来たかよりも、雨量の数字や最初に枯れた井戸を詳しく記録している、几帳面な観察",
+   "雨量の数字ほどには、ツバメの来た時期や最初に枯れた井戸に関心を持たない、気ままな小さな観察"
+  ],
+  "e": "not A so much as B は「AというよりむしろB」です。この帳面に書かれているのは雨量の数字ではなく、ツバメの到来や井戸の枯れた順などの小さな観察です。2番目は not only A but also B と取り違え、3番目は A と B を入れ替え、4番目は so much as を比較の「ほどには」と誤っています。",
+  "m": "not A so much as B＝AというよりむしろB"
+ },
+ {
+  "id": 138,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：断片の価値",
+  "p": "Farmers in dry regions keep records that outsiders rarely see. (1)【Had it not been for the notebooks passed from parent to child, the pattern of the last three droughts would long ago have been forgotten.】 These books hold (2)【not rainfall figures so much as small observations of when the swallows arrived and which wells failed first.】 Their authors would be surprised to learn that (3)【climate scientists now treat such scraps as evidence no less valuable than the readings of an official station.】",
+  "q": "【 】で示した下線部（3）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "気候学者たちは今では、そうした断片を、公式観測所の測定値に劣らず価値のある証拠として扱っている。",
+   "気候学者たちは今では、そうした断片を、公式観測所の測定値よりもはるかに価値のある証拠として扱っている。",
+   "気候学者たちは今では、そうした断片を、公式観測所の測定値ほどには価値のない証拠として扱っている。",
+   "気候学者たちは今では、そうした断片を、公式観測所の測定値の代わりになる証拠として扱っている。"
+  ],
+  "e": "no less valuable than A は「Aに劣らず価値がある」で、同等かそれ以上という意味です。「はるかに価値がある」（much more）とは違います。3番目は逆の意味、4番目は代替品になるという別の意味づけです。no less A than B は同等の強調表現です。",
+  "m": "no less … than A＝Aに劣らず…"
+ },
+ {
+  "id": 139,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：背景音に慣れた私たち",
+  "p": "Attitudes to silence differ. (1)【So accustomed are we to background sound that a room without any seems to many people not peaceful but faintly threatening.】 Architects who design concert halls know the problem well: (2)【with the audience seated and the doors closed, the quiet must be complete enough that a whisper reaches the back row, yet not so complete that listeners become aware of their own breathing.】 (3)【Whether silence is welcomed or feared depends less on the quiet itself than on what the listener expects to hear in it.】",
+  "q": "【 】で示した下線部（1）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "私たちは背景の音にあまりに慣れているので、音がまったくない部屋は、多くの人には穏やかではなく、かすかに不気味に感じられる。",
+   "私たちは背景の音にあまりに慣れているが、音がまったくない部屋は、多くの人にとって穏やかであり、同時にかすかに不気味でもあるのだ。",
+   "背景の音に慣れていない人は、音がまったくない部屋を穏やかだと感じるのではなく、むしろかすかに不気味だと感じるものである。",
+   "背景の音に慣れるほど、音がまったくない部屋は多くの人にとって穏やかになり、不気味に感じられることもまったくなくなる。"
+  ],
+  "e": "So accustomed are we to A that … は So … that の倒置で、「私たちはAにとても慣れているので…」の意味です。not peaceful but faintly threatening は「穏やかではなく、かすかに脅威を感じさせる」（not A but B）です。2番目は so … that の因果を逆接にし、3番目は主語を変え、4番目は結果を逆にしています。",
+  "m": "So ～ that の倒置。結果は that 節"
+ },
+ {
+  "id": 140,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：コンサートホールの静けさ",
+  "p": "Attitudes to silence differ. (1)【So accustomed are we to background sound that a room without any seems to many people not peaceful but faintly threatening.】 Architects who design concert halls know the problem well: (2)【with the audience seated and the doors closed, the quiet must be complete enough that a whisper reaches the back row, yet not so complete that listeners become aware of their own breathing.】 (3)【Whether silence is welcomed or feared depends less on the quiet itself than on what the listener expects to hear in it.】",
+  "q": "【 】で示した下線部（2）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "聴衆が着席し扉が閉まった状態で、静けさは、ささやきが後列に届くほど完全でなければならないが、聴き手が自分の呼吸に気づくほど完全であってもならない。",
+   "聴衆が着席して扉を閉めたとき、静けさは、後列にささやきが届かない程度で、聴き手が自分の呼吸に気づくほど完全でなければならない。",
+   "聴衆が着席し扉が閉まっていれば、静けさは、ささやきが後列に届くほど完全でなくてもよいが、聴き手が自分の呼吸に気づかないほど完全でなければならない。",
+   "聴衆が着席し扉が閉まった状態で、ささやきが後列に届くほど静けさが完全であれば、聴き手は自分の呼吸に気づくほど静けさを意識する。"
+  ],
+  "e": "with the audience seated and the doors closed は付帯状況（「聴衆が着席し扉が閉まった状態で」）です。enough that … は「…するほど十分に」、not so … that は「…するほど〜ではない」で、静けさに下限と上限があることを示します。他の選択肢は、下限と上限の関係を取り違えています。",
+  "m": "with O C（付帯状況）、enough that／not so that の対比"
+ },
+ {
+  "id": 141,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：静けさを歓迎するか",
+  "p": "Attitudes to silence differ. (1)【So accustomed are we to background sound that a room without any seems to many people not peaceful but faintly threatening.】 Architects who design concert halls know the problem well: (2)【with the audience seated and the doors closed, the quiet must be complete enough that a whisper reaches the back row, yet not so complete that listeners become aware of their own breathing.】 (3)【Whether silence is welcomed or feared depends less on the quiet itself than on what the listener expects to hear in it.】",
+  "q": "【 】で示した下線部（3）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "静けさが歓迎されるか恐れられるかは、静けさそのものよりも、聞き手がその中で何を聞くと予期しているかに左右される。",
+   "静けさが歓迎されるか恐れられるかは、聞き手が予期することよりも、静けさそのものによりいっそう多く左右されるものである。",
+   "静けさが歓迎されるか恐れられるかに、聞き手が何を予期するかは、静けさそのもの以上に影響を与えない。",
+   "静けさが歓迎されることも恐れられることもないなら、聞き手が静けさの中で何を聞くと予期するかには、一切左右されない。"
+  ],
+  "e": "depends less on A than on B は「Aにというより、Bにより左右される」です。Whether A or B は「AかBか」という名詞節で主語になっています。2番目は A と B を入れ替え、3番目は比較の向きを誤り、4番目は whether 節を条件文として取り違えています。",
+  "m": "depend less on A than on B＝AよりBに左右される"
+ },
+ {
+  "id": 142,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：数字は決定の産物",
+  "p": "Statistics have a reputation for honesty that they do not entirely deserve. (1)【It is a rare figure that is not the product of a decision about what to count and what to leave out.】 (2)【A government that reports the number of the unemployed can hardly avoid defining who is looking for work, and every definition excludes someone.】 This does not mean that numbers are lies; (3)【it means that they should never be quoted without some account of how they were made.】",
+  "q": "【 】で示した下線部（1）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "何を数え何を除くかという決定の産物ではない数字は、まれである。",
+   "何を数え何を除くかを決めて作られた数字は、まれにしか存在しない。",
+   "何を数え何を除くかという決定が行われる数字は、ほとんどない。",
+   "まれな数字だけが、何を数えるかという決定の産物であり、除外は行わない。"
+  ],
+  "e": "It is a rare figure that is not … は「…でないような数字はまれだ」という否定を重ねた言い方で、実質的には「ほとんどの数字は決定の産物だ」という意味です。2番目は否定を落とし、3番目は決定が行われることを少数派にしており、4番目は rare の対象をすり替えています。",
+  "m": "rare ～ that is not …＝…でない～はまれ（＝大半は…）"
+ },
+ {
+  "id": 143,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：失業者の定義",
+  "p": "Statistics have a reputation for honesty that they do not entirely deserve. (1)【It is a rare figure that is not the product of a decision about what to count and what to leave out.】 (2)【A government that reports the number of the unemployed can hardly avoid defining who is looking for work, and every definition excludes someone.】 This does not mean that numbers are lies; (3)【it means that they should never be quoted without some account of how they were made.】",
+  "q": "【 】で示した下線部（2）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "失業者の数を報告する政府は、誰が職を探しているのかを定義することをほとんど避けられず、どの定義も誰かを除外する。",
+   "失業者の数を報告する政府は、誰が職を探しているのかを定義することを避けるのがほとんど不可能なほど、除外を好んでいる。",
+   "失業者の数を報告する政府は、誰が職を探しているのかをほとんど定義することなく、どの定義でも誰も除外しない。",
+   "失業者の数を報告する政府が定義することを避けるなら、職を探している人はほとんど除外されない。"
+  ],
+  "e": "can hardly avoid doing は「〜することをほとんど避けられない」で、hardly が can を否定しています。every definition excludes someone は「どんな定義も誰かを除外する」です。2番目は文の意味を変え、3番目は hardly を define にかけ、4番目は仮定法的に誤読しています。",
+  "m": "can hardly do＝ほとんど〜できない"
+ },
+ {
+  "id": 144,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "語句・下線部の意味",
+  "t": "下線部和訳：数字の引用",
+  "p": "Statistics have a reputation for honesty that they do not entirely deserve. (1)【It is a rare figure that is not the product of a decision about what to count and what to leave out.】 (2)【A government that reports the number of the unemployed can hardly avoid defining who is looking for work, and every definition excludes someone.】 This does not mean that numbers are lies; (3)【it means that they should never be quoted without some account of how they were made.】",
+  "q": "【 】で示した下線部（3）の和訳として最も適切なものを選びなさい。",
+  "c": [
+   "それは、数字は、どのように作られたかの説明を添えずには決して引用されるべきではないということを意味する。",
+   "それは、数字は、どのように作られたかの説明を添えた場合にのみ、決して引用されるべきではないということを意味する。",
+   "それは、数字は、どのように作られたかの説明がなくても、引用されるべきだということを意味する。",
+   "それは、数字を決して引用してはならず、作り方の説明だけを引用すべきだということを意味する。"
+  ],
+  "e": "never … without ～ は二重否定の形で、「～なしには決して…ない」つまり「…するときは必ず～を添える」という意味です。2番目は否定のかかる範囲を誤り、3番目は without を無視して逆の意味にし、4番目は never を引用そのものの禁止にしています。",
+  "m": "never A without B＝AするときはいつもBを伴う"
+ },
+ {
+  "id": 145,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：suggest that 節の動詞",
+  "p": "(a)［The consultant suggested］ (b)［that the firm reduce］ (c)［its spending on advertising and that］ (d)［the managers revises］ (e)［the budget every quarter.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(d) the managers revises",
+   "(a) The consultant suggested",
+   "(b) that the firm reduce",
+   "(c) its spending on advertising and that",
+   "(e) the budget every quarter."
+  ],
+  "e": "suggest, recommend, insist などの後の that 節では、動詞は原形（仮定法現在。イギリス英語では should＋原形）を使います。the managers revises は三人称単数の -s が付いているうえ、複数主語にも合わないので、revise が正しい形です。(b)の reduce は同じ規則に従って正しい形で、(a)(c)(e)に誤りはありません。",
+  "m": "suggest that S＋動詞の原形"
+ },
+ {
+  "id": 146,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：be used to＋動名詞",
+  "p": "Since moving to the city, Ken (a)［has become used］ (b)［to getting up］ (c)［early, but he still］ (d)［isn't used］ (e)［to eat alone in the evenings.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(e) to eat alone in the evenings.",
+   "(a) has become used",
+   "(b) to getting up",
+   "(c) early, but he still",
+   "(d) isn't used"
+  ],
+  "e": "be used to は「〜に慣れている」で、to は前置詞なので後ろは名詞か動名詞です。したがって(e)は to eating alone in the evenings が正しい形です。(a)の become used to と(b)の getting up は正しい形です。used to do（かつて〜したものだ）の不定詞の to と混同しないことが大切です。",
+  "m": "be used to doing（慣れている）"
+ },
+ {
+  "id": 147,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：despite と in spite of",
+  "p": "(a)［Despite of］ (b)［the heavy rain,］ (c)［the match was held as planned,］ (d)［to the delight of］ (e)［the spectators.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) Despite of",
+   "(b) the heavy rain,",
+   "(c) the match was held as planned,",
+   "(d) to the delight of",
+   "(e) the spectators."
+  ],
+  "e": "despite は前置詞そのもので「〜にもかかわらず」の意味です。of を付けて despite of とするのは誤りで、Despite the heavy rain か In spite of the heavy rain と言います（in spite of の形と混同した誤り）。(d)の to the delight of は「〜が喜んだことに」という正しい成句です。",
+  "m": "despite（of なし）＝in spite of"
+ },
+ {
+  "id": 148,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：such a と so の使い分け",
+  "p": "(a)［It was］ (b)［so a pleasant evening］ (c)［that we decided］ (d)［to walk home］ (e)［instead of taking a taxi.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) so a pleasant evening",
+   "(a) It was",
+   "(c) that we decided",
+   "(d) to walk home",
+   "(e) instead of taking a taxi."
+  ],
+  "e": "「とても〜な…」の名詞句では、such a＋形容詞＋名詞の語順を使います。so を使うなら so pleasant an evening の語順で、so a pleasant evening という並びは誤りです。(c)の that 節（結果）、(d)の不定詞、(e)の instead of＋動名詞はいずれも正しい形です。",
+  "m": "such a ＋形＋名／so ＋形＋a ＋名"
+ },
+ {
+  "id": 149,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：resemble は他動詞",
+  "p": "(a)［Her younger brother］ (b)［resembles with］ (c)［their father not only］ (d)［in appearance but］ (e)［also in temperament.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) resembles with",
+   "(a) Her younger brother",
+   "(c) their father not only",
+   "(d) in appearance but",
+   "(e) also in temperament."
+  ],
+  "e": "resemble は他動詞で「〜に似ている」の意味なので、前置詞 with は不要です。resembles their father が正しい形です。(c)〜(e)の not only … but also … は、in appearance と in temperament の前置詞句が対応していて、正しい形です。",
+  "m": "resemble＋目的語（with なし）"
+ },
+ {
+  "id": 150,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：approach は他動詞",
+  "p": "(a)［As the train］ (b)［approached to the station,］ (c)［the passengers began］ (d)［to collect］ (e)［their luggage.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) approached to the station,",
+   "(a) As the train",
+   "(c) the passengers began",
+   "(d) to collect",
+   "(e) their luggage."
+  ],
+  "e": "approach は他動詞で「〜に近づく」の意味なので、前置詞 to は不要です。approached the station が正しい形です。(a)の接続詞 as（〜するにつれて）、(c)(d)の begin to do は正しい形です。名詞の approach（接近）は to を伴うため、混同に注意します。",
+  "m": "approach, reach, enter は前置詞なしで目的語をとる"
+ },
+ {
+  "id": 151,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：条件節では未来を現在形で",
+  "p": "(a)［We will cancel］ (b)［the outdoor concert］ (c)［if it will rain］ (d)［on Saturday,］ (e)［as the organisers have announced.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) if it will rain",
+   "(a) We will cancel",
+   "(b) the outdoor concert",
+   "(d) on Saturday,",
+   "(e) as the organisers have announced."
+  ],
+  "e": "時・条件を表す副詞節の中では、未来のことでも現在形を使います。if it will rain は誤りで、if it rains が正しい形です。主節の We will cancel は未来を表すのでそのままで正しいです。(e)の as 節は「〜が発表したとおり」の意味で、現在完了も正しいです。",
+  "m": "条件・時の副詞節では未来も現在形"
+ },
+ {
+  "id": 152,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：wish の仮定法過去完了",
+  "p": "He sometimes wishes (a)［that he studied］ (b)［harder when］ (c)［he was a student,］ (d)［but his habits］ (e)［have not changed.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) that he studied",
+   "(b) harder when",
+   "(c) he was a student,",
+   "(d) but his habits",
+   "(e) have not changed."
+  ],
+  "e": "過去の事実に反する願望は、wish の後で過去完了（仮定法過去完了）を使います。when he was a student（学生のとき）と過去を指しているので、that he had studied harder とすべきです。(c)の was は when 節の事実を述べる直説法の過去で正しく、(e)の現在完了も正しい形です。",
+  "m": "過去への願望：wish ＋ had p.p."
+ },
+ {
+  "id": 153,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：all の後の関係代名詞",
+  "p": "(a)［Sam taught me］ (b)［all what］ (c)［he had learned］ (d)［during his years］ (e)［as a pilot.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) all what",
+   "(a) Sam taught me",
+   "(c) he had learned",
+   "(d) during his years",
+   "(e) as a pilot."
+  ],
+  "e": "all, everything, anything などの不定代名詞を先行詞とする関係代名詞には that を使い、what は使えません。what はそれ自体が先行詞を含む（the thing which）ためです。all that he had learned が正しい形で、all what は誤りです。(c)の過去完了や(e)の as a pilot（〜として）は正しい形です。",
+  "m": "all／everything の後は that（what は不可）"
+ },
+ {
+  "id": 154,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：superior の比較対象",
+  "p": "(a)［This new model］ (b)［is far superior］ (c)［than the older one］ (d)［in both speed］ (e)［and reliability.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) than the older one",
+   "(a) This new model",
+   "(b) is far superior",
+   "(d) in both speed",
+   "(e) and reliability."
+  ],
+  "e": "superior, inferior, prefer などはラテン語系の比較表現で、than ではなく to を使います。したがって(c)は to the older one が正しい形で、than the older one が誤りです。far は比較を強める副詞で、(b)は正しい形です。(d)(e)の in both A and B も正しい形です。",
+  "m": "superior／inferior to A（than は不可）"
+ },
+ {
+  "id": 155,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：Only after の倒置",
+  "p": "(a)［Only after］ (b)［the results were published］ (c)［the committee noticed］ (d)［that the data］ (e)［had been misread.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) the committee noticed",
+   "(a) Only after",
+   "(b) the results were published",
+   "(d) that the data",
+   "(e) had been misread."
+  ],
+  "e": "Only＋副詞（句・節）が文頭に出ると、主節は疑問文の語順に倒置されます。the committee noticed は did the committee notice が正しい形です。(b)の従属節は倒置されず、(d)(e)の that 節の過去完了も、noticed より前の誤読を表すので正しい形です。",
+  "m": "Only ＋副詞（句・節）が文頭なら主節を倒置"
+ },
+ {
+  "id": 156,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：excited と exciting",
+  "p": "(a)［The audience］ (b)［was so exciting］ (c)［by the final match］ (d)［that many people］ (e)［stood up and cheered.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) was so exciting",
+   "(a) The audience",
+   "(c) by the final match",
+   "(d) that many people",
+   "(e) stood up and cheered."
+  ],
+  "e": "excite は「（人を）興奮させる」という他動詞なので、人が興奮している状態は過去分詞の excited で表し、exciting は「（物事が）人を興奮させるような」の意味になります。聴衆が試合に興奮したので was so excited が正しい形です。(c)の by は excited と結びつき、(d)(e)の so … that 構文の結果を表す節も正しい形です。",
+  "m": "人が感じる＝-ed、物事が感じさせる＝-ing"
+ },
+ {
+  "id": 157,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：had better の否定",
+  "p": "(a)［You had better］ (b)［not to］ (c)［leave valuables］ (d)［in the car］ (e)［overnight.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) not to",
+   "(a) You had better",
+   "(c) leave valuables",
+   "(d) in the car",
+   "(e) overnight."
+  ],
+  "e": "had better の後には原形不定詞が続き、否定は had better not＋原形です。not to leave と to を付けるのは誤りで、not leave が正しい形です。(c)〜(e)の leave valuables in the car overnight は正しい語順です。",
+  "m": "had better not ＋原形（to は不要）"
+ },
+ {
+  "id": 158,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：It is kind of you to do",
+  "p": "It was (a)［very kind］ (b)［for you］ (c)［to lend me］ (d)［your umbrella］ (e)［on such a rainy day.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) for you",
+   "(a) very kind",
+   "(c) to lend me",
+   "(d) your umbrella",
+   "(e) on such a rainy day."
+  ],
+  "e": "kind, nice, polite, stupid など、人の性質を表す形容詞では、不定詞の意味上の主語は of＋人で表します。It was very kind of you to lend me … が正しい形で、for you は誤りです。(e)の such a rainy day は such a＋形容詞＋名詞で正しい形です。",
+  "m": "人の性質を表す形容詞は of ＋人"
+ },
+ {
+  "id": 159,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：as … as の比較",
+  "p": "Their new office (a)［is nearly］ (b)［twice as］ (c)［large than］ (d)［the old one,］ (e)［though the rent is similar.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) large than",
+   "(a) is nearly",
+   "(b) twice as",
+   "(d) the old one,",
+   "(e) though the rent is similar."
+  ],
+  "e": "倍数表現は twice as large as … で、as … as の形を保ちます。large than は誤りで、large as が正しい形です。than は比較級の後でしか使いません。(a)(b)の nearly twice as も正しい形で、(e)の though 節も問題ありません。",
+  "m": "倍数＋as 原級 as A"
+ },
+ {
+  "id": 160,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：avoid は動名詞をとる",
+  "p": "(a)［The mayor］ (b)［has avoided］ (c)［to answer］ (d)［questions about］ (e)［the new tax.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) to answer",
+   "(a) The mayor",
+   "(b) has avoided",
+   "(d) questions about",
+   "(e) the new tax."
+  ],
+  "e": "avoid は動名詞だけを目的語にとる動詞で、to answer は誤りです。avoided answering が正しい形です。enjoy, finish, mind, consider, avoid, give up などは動名詞をとる動詞として覚えます。(b)の現在完了は正しい形です。",
+  "m": "avoid／finish／mind＋動名詞"
+ },
+ {
+  "id": 161,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：間接疑問の語順",
+  "p": "Could you tell me (a)［where is］ (b)［the nearest post office］ (c)［and how long］ (d)［it takes］ (e)［to walk there?］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(a) where is",
+   "(b) the nearest post office",
+   "(c) and how long",
+   "(d) it takes",
+   "(e) to walk there?"
+  ],
+  "e": "tell の目的語になる疑問詞節（間接疑問）は、平叙文の語順（疑問詞＋S＋V）になります。where is the nearest post office は where the nearest post office is が正しい形です。(c)(d)の how long it takes は正しい語順で、(e)の to walk there も正しい形です。",
+  "m": "間接疑問は疑問詞＋S＋V"
+ },
+ {
+  "id": 162,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：neither の倒置",
+  "p": "(a)［I haven't read］ (b)［the report yet,］ (c)［and so］ (d)［has my colleague,］ (e)［as far as I know.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) and so",
+   "(a) I haven't read",
+   "(b) the report yet,",
+   "(d) has my colleague,",
+   "(e) as far as I know."
+  ],
+  "e": "否定文に続けて「〜もまた…ない」と言うときは neither（または nor）＋助動詞＋主語です。and so has my colleague は肯定の内容に使う言い方なので誤りで、and neither has my colleague が正しい形です。(e)の as far as I know は「私の知る限り」で正しい成句です。",
+  "m": "否定文を受けて「〜もない」＝neither＋助動詞＋S"
+ },
+ {
+  "id": 163,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：現在完了と過去を表す語句",
+  "p": "(a)［My cousin］ (b)［has lived］ (c)［in Osaka］ (d)［until last year,］ (e)［but now he lives in Kobe.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(b) has lived",
+   "(a) My cousin",
+   "(c) in Osaka",
+   "(d) until last year,",
+   "(e) but now he lives in Kobe."
+  ],
+  "e": "until last year のように過去の一時点に終わったことを表す語句があるときは、現在完了ではなく過去形を使います。has lived は lived が正しい形です。現在完了は現在と結びつく経験・継続・完了を表します。(e)の now he lives は現在と対比していて正しいです。",
+  "m": "明確な過去の語句がある文は過去形"
+ },
+ {
+  "id": 164,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：使役の受動態",
+  "p": "(a)［The students］ (b)［were made］ (c)［clean］ (d)［the classroom］ (e)［after the festival.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) clean",
+   "(a) The students",
+   "(b) were made",
+   "(d) the classroom",
+   "(e) after the festival."
+  ],
+  "e": "make が使役の意味で使われる能動態の make O do は、受動態では be made to do と to が復活します。were made clean は誤りで、were made to clean が正しい形です。能動態で They made the students clean the classroom. なら原形のままです。(e)の after the festival も正しいです。",
+  "m": "make O do→be made to do（受動で to が復活）"
+ },
+ {
+  "id": 165,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：until と by",
+  "p": "Please make sure that you (a)［return］ (b)［the books to the library］ (c)［until Friday］ (d)［at the latest,］ (e)［or you will be charged a fine.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) until Friday",
+   "(a) return",
+   "(b) the books to the library",
+   "(d) at the latest,",
+   "(e) or you will be charged a fine."
+  ],
+  "e": "until は「（ずっと）〜まで」と継続の期限を表し、by は「〜までに」と動作の期限を表します。「金曜日までに返却する」のは動作なので by Friday が正しく、until Friday は誤りです。at the latest（遅くとも）も by と相性のよい表現で、(e)の命令文の後の or（さもないと）も正しい形です。",
+  "m": "until（まで継続）／by（までに完了）"
+ },
+ {
+  "id": 166,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "誤り指摘：devote oneself to＋動名詞",
+  "p": "(a)［She devoted］ (b)［herself to］ (c)［improve］ (d)［the lives of］ (e)［homeless children.］",
+  "q": "次の英文の下線部（［ ］で示した(a)〜(e)）のうち、文法・語法上の誤りを含むものを1つ選びなさい。",
+  "c": [
+   "(c) improve",
+   "(a) She devoted",
+   "(b) herself to",
+   "(d) the lives of",
+   "(e) homeless children."
+  ],
+  "e": "devote oneself to ～は「〜に身をささげる」で、この to は前置詞なので後ろは名詞か動名詞です。improve は improving が正しい形です。同じ型には be committed to doing, look forward to doing などがあります。(a)の過去形と(d)(e)の名詞句は正しいです。",
+  "m": "to＋動名詞：devote／be committed／object to"
+ },
+ {
+  "id": 167,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "整序：約束の内容",
+  "p": "She promised me ( that / would / she / tell / what / no one / happened / had ).",
+  "q": "次の英文の（ ）内の語句を並べ替えて正しい英文を作るとき、5番目に来る語句を選びなさい。",
+  "c": [
+   "no one",
+   "what",
+   "tell",
+   "would"
+  ],
+  "e": "正しい文は She promised me that she would tell no one what had happened. です。that 節の中の語順は that(1) she(2) would(3) tell(4) no one(5) what(6) had(7) happened(8) で、5番目は no one です。what had happened は「何が起きたか」という名詞節で、tell の直接目的語になっています。",
+  "m": "promise＋人＋that 節。tell no one＝だれにも話さない"
+ },
+ {
+  "id": 168,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "整序：There is no telling",
+  "p": "With the weather changing so quickly in the mountains, ( no / is / telling / there / what / the afternoon / will / bring ).",
+  "q": "次の英文の（ ）内の語句を並べ替えて正しい英文を作るとき、4番目に来る語句を選びなさい。",
+  "c": [
+   "telling",
+   "no",
+   "what",
+   "is"
+  ],
+  "e": "正しい文は … there is no telling what the afternoon will bring. です。There is no doing は「〜することはできない」という慣用表現で、there(1) is(2) no(3) telling(4) what(5) the afternoon(6) will(7) bring(8) の語順になり、4番目は telling です。what 以下は「午後が何をもたらすか」という間接疑問で、平叙文の語順になります。",
+  "m": "There is no doing＝〜することはできない"
+ },
+ {
+  "id": 169,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "整序：It never occurred to me",
+  "p": "It ( never / me / occurred / that / to / the meeting / might / be cancelled ).",
+  "q": "次の英文の（ ）内の語句を並べ替えて正しい英文を作るとき、5番目に来る語句を選びなさい。",
+  "c": [
+   "that",
+   "me",
+   "to",
+   "might"
+  ],
+  "e": "正しい文は It never occurred to me that the meeting might be cancelled. です。it は that 節を指す形式主語で、never(1) occurred(2) to(3) me(4) that(5) the meeting(6) might(7) be cancelled(8) の語順になります。5番目は that です。occur to＋人は「人の心に浮かぶ」です。",
+  "m": "It occurs to A that ～＝Aに～という考えが浮かぶ"
+ },
+ {
+  "id": 170,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "空所補充：非制限用法の which",
+  "p": "The proposal was rejected, ( ) surprised no one in the office.",
+  "q": "次の英文の空所に入れるのに最も適切なものを選びなさい。",
+  "c": [
+   "which",
+   "what",
+   "that",
+   "it"
+  ],
+  "e": "空所の前の文全体（提案が却下されたこと）を先行詞とする継続用法の関係代名詞は which です。コンマの後ろに続けるので that は使えません。what は先行詞を含む関係代名詞で、前に文があるこの場合には不適切です。it は接続詞がないままで二つの文をつなげる誤りになります。",
+  "m": "文全体を受ける関係詞は , which"
+ },
+ {
+  "id": 171,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "空所補充：未来完了",
+  "p": "By the time the guests arrive tomorrow, we ( ) the preparations.",
+  "q": "次の英文の空所に入れるのに最も適切なものを選びなさい。",
+  "c": [
+   "will have finished",
+   "had finished",
+   "have finished",
+   "finished"
+  ],
+  "e": "By the time ～ は「〜までには」で、未来のある時点までに完了している動作を述べるので、未来完了 will have finished が適切です。had finished は過去のある時点までの完了（過去完了）、have finished は現在、finished は過去を表しており、どれも tomorrow と合いません。",
+  "m": "By the time ～, ＋未来完了"
+ },
+ {
+  "id": 172,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "文法・誤り指摘",
+  "t": "空所補充：関係代名詞 whose",
+  "p": "This is the house ( ) roof was damaged in the storm last winter, and the owners are still waiting for the repairs to begin.",
+  "q": "次の英文の空所に入れるのに最も適切なものを選びなさい。",
+  "c": [
+   "whose",
+   "which",
+   "that",
+   "where"
+  ],
+  "e": "空所の後に roof という名詞が続くので、所有を表す関係代名詞 whose が入ります（whose roof＝その家の屋根）。which と that は名詞の前に置けず、where は場所を表す関係副詞で、roof の前に置いて所有の意味にはなりません。",
+  "m": "関係詞＋名詞なら whose"
+ },
+ {
+  "id": 173,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：夜の渡し船",
+  "p": "My father worked the night ferry for thirty years, and in all that time I never once saw him look at the water. He looked at the clock, the fuel gauge, the faces of the passengers as they came aboard, but never at the river itself, as if it were a colleague whose moods he knew too well to need to check. When I was twelve I asked him why. He said that a man who watches the water is a man who is hoping for it to be kind. 'You prepare for the worst and take the rest as a gift,' he said, and went back to counting the tickets.\nI thought this a cold way to live. It was not until the winter he retired that I understood. We were crossing together on the last evening, and halfway over, the engine coughed and went silent. Before I had registered the silence, he was already moving: a torch in one hand, the spare line in the other, a calm instruction to the two passengers to sit. Within ten minutes we were drifting safely towards the landing. He never spoke of it afterwards. But that night, on the dark deck, I saw him look at the water for the first time, briefly, the way one nods to an old friend.",
+  "q": "本文の内容と一致するものを選びなさい。",
+  "c": [
+   "The narrator's father avoided watching the water because he did not want to depend on its being kind to him.",
+   "The narrator's father never looked at the water because he had been frightened by an accident on the river long ago.",
+   "The narrator's father studied the passengers' faces in order to find those who had not bought tickets.",
+   "The narrator's father retired after the engine failure because the incident had made him lose his nerve completely."
+  ],
+  "e": "父は「水を見る人は、水が穏やかであることを期待している人だ」と話しています。つまり水に頼らず、最悪に備えるために見なかったのです。事故の恐怖、無賃乗車の探索、エンジン故障後の引退はいずれも本文にありません（引退は冬で、この夜が最後の運航の日です）。",
+  "m": "理由は発言の引用部分に書かれている"
+ },
+ {
+  "id": 174,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：冷たい生き方",
+  "p": "My father worked the night ferry for thirty years, and in all that time I never once saw him look at the water. He looked at the clock, the fuel gauge, the faces of the passengers as they came aboard, but never at the river itself, as if it were a colleague whose moods he knew too well to need to check. When I was twelve I asked him why. He said that a man who watches the water is a man who is hoping for it to be kind. 'You prepare for the worst and take the rest as a gift,' he said, and went back to counting the tickets.\nI thought this a cold way to live. It was not until the winter he retired that I understood. We were crossing together on the last evening, and halfway over, the engine coughed and went silent. Before I had registered the silence, he was already moving: a torch in one hand, the spare line in the other, a calm instruction to the two passengers to sit. Within ten minutes we were drifting safely towards the landing. He never spoke of it afterwards. But that night, on the dark deck, I saw him look at the water for the first time, briefly, the way one nods to an old friend.",
+  "q": "語り手は父の生き方を I thought this a cold way to live と考えていましたが、のちに理解しました。その理由として最も適切なものを選びなさい。",
+  "c": [
+   "The father's calm and quick action during the engine failure showed that his habit was a form of preparation, not coldness.",
+   "The father later confessed that he had been secretly afraid of the river for many years.",
+   "The narrator saw that the passengers admired the father more than any other member of the crew.",
+   "The narrator learned that the ferry had been unsafe throughout the thirty years of his father's service."
+  ],
+  "e": "エンジンが止まったとき、父は語り手が沈黙に気づく前にすでに動き、落ち着いて乗客を座らせ、安全に岸へ向かいました。この行動から、「最悪に備える」習慣が冷たさではなく備えだと分かった、という流れです。2番目の「川への恐れ」の告白、3番目の乗客の称賛、4番目の船の危険は本文にありません。",
+  "m": "後半の出来事が前半の考えをどう変えたかを追う"
+ },
+ {
+  "id": 175,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：古い友人への会釈",
+  "p": "My father worked the night ferry for thirty years, and in all that time I never once saw him look at the water. He looked at the clock, the fuel gauge, the faces of the passengers as they came aboard, but never at the river itself, as if it were a colleague whose moods he knew too well to need to check. When I was twelve I asked him why. He said that a man who watches the water is a man who is hoping for it to be kind. 'You prepare for the worst and take the rest as a gift,' he said, and went back to counting the tickets.\nI thought this a cold way to live. It was not until the winter he retired that I understood. We were crossing together on the last evening, and halfway over, the engine coughed and went silent. Before I had registered the silence, he was already moving: a torch in one hand, the spare line in the other, a calm instruction to the two passengers to sit. Within ten minutes we were drifting safely towards the landing. He never spoke of it afterwards. But that night, on the dark deck, I saw him look at the water for the first time, briefly, the way one nods to an old friend.",
+  "q": "本文の最後の the way one nods to an old friend が表す内容として最も適切なものを選びなさい。",
+  "c": [
+   "The father showed respect for the river, with which he had a long relationship.",
+   "The father was relieved that the ferry would at last be taken out of service.",
+   "The father blamed the river for the trouble with the engine on that last night.",
+   "The father hoped that the narrator would one day take over the ferry from him."
+  ],
+  "e": "a nod to an old friend は旧友への軽い会釈で、親しみと敬意を表します。長年付き合ってきた川に対して、父が初めて短く目を向けたことを表しています。川が engine の故障の原因だと責めたわけでもなく、引退の安堵や語り手に仕事を継がせる希望も本文にありません。",
+  "m": "比喩（nod to an old friend）は親しみと敬意を表す"
+ },
+ {
+  "id": 176,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：共有される休日",
+  "p": "A holiday taken alone and a holiday taken with everyone else are quite different goods. This is the claim of those who defend fixed public holidays against the argument that workers would be happier if allowed to choose their own days off. The argument has some force: a person who rests when she is tired, and travels when the fares are low, gains something that a calendar cannot give. But rest, it turns out, has a social side. A free afternoon is worth more when friends and relatives are also free, and a town in which everything closes at once has a quality of stillness that cannot be had when half the shops stay open. In this respect shared time resembles a language: its value to each person depends on how many others use it. If we let every individual choose, we may well find that everyone has more freedom and yet that no one has the other people to spend it with.",
+  "q": "この文章の主旨として最も適切なものを選びなさい。",
+  "c": [
+   "Rest is more valuable when shared, so fixed public holidays have a justification that individual choice cannot replace.",
+   "Workers who choose their own days off are less productive than those who follow a fixed calendar.",
+   "Public holidays should be abolished because many shops are unable to stay open on those days.",
+   "Travelling when the fares are low is a better use of free time than staying at home with friends."
+  ],
+  "e": "筆者は、休みには社会的な側面があり、友人や親族が同時に休めてこそ価値が高まるので、各人の自由な選択では置き換えられない、と述べています。生産性の比較、祝日廃止、旅行の優劣はいずれも本文の論点ではありません。個人選択の利点も認めた上での主張です。",
+  "m": "主旨は But 以降の部分に注目する"
+ },
+ {
+  "id": 177,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：言語のような時間",
+  "p": "A holiday taken alone and a holiday taken with everyone else are quite different goods. This is the claim of those who defend fixed public holidays against the argument that workers would be happier if allowed to choose their own days off. The argument has some force: a person who rests when she is tired, and travels when the fares are low, gains something that a calendar cannot give. But rest, it turns out, has a social side. A free afternoon is worth more when friends and relatives are also free, and a town in which everything closes at once has a quality of stillness that cannot be had when half the shops stay open. In this respect shared time resembles a language: its value to each person depends on how many others use it. If we let every individual choose, we may well find that everyone has more freedom and yet that no one has the other people to spend it with.",
+  "q": "本文の shared time resembles a language の説明として最も適切なものを選びなさい。",
+  "c": [
+   "Its value to each person depends on how many other people take part in it.",
+   "It has to be learned in childhood, just as a person learns a first language.",
+   "It differs from one country to another according to the calendar that each follows.",
+   "It becomes richer and more valuable as it is used by a smaller number of people."
+  ],
+  "e": "コロン以下に its value to each person depends on how many others use it とあります。言語は話す人が多いほど価値が高いのと同様に、共有される休みも同時に休む人が多いほど価値が高い、という類比です。幼少期の習得、国による違い、少数での使用はいずれも本文にありません（4番目は逆です）。",
+  "m": "A resembles B の後のコロンが類似点の説明"
+ },
+ {
+  "id": 178,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：自由と相手の不在",
+  "p": "A holiday taken alone and a holiday taken with everyone else are quite different goods. This is the claim of those who defend fixed public holidays against the argument that workers would be happier if allowed to choose their own days off. The argument has some force: a person who rests when she is tired, and travels when the fares are low, gains something that a calendar cannot give. But rest, it turns out, has a social side. A free afternoon is worth more when friends and relatives are also free, and a town in which everything closes at once has a quality of stillness that cannot be had when half the shops stay open. In this respect shared time resembles a language: its value to each person depends on how many others use it. If we let every individual choose, we may well find that everyone has more freedom and yet that no one has the other people to spend it with.",
+  "q": "本文最後の文 everyone has more freedom and yet no one has the other people to spend it with が示す内容として最も適切なものを選びなさい。",
+  "c": [
+   "Individual freedom to choose days off can reduce the value of time off by removing its shared side.",
+   "People who are free to choose their days off will prefer to spend them alone at home.",
+   "The author expects all workers to choose the same days off if they are given the choice.",
+   "Freedom to choose days off is impossible to put into practice in any modern town or city."
+  ],
+  "e": "各人が休みを自由に選べば、自由は増えるが、一緒に過ごす相手がいなくなる、つまり休みの共有という価値が失われるというパラドクスです。2番目は選好の話、3番目は全員が同じ日を選ぶという予想で本文と逆、4番目は実施不可能とまでは言っていません。",
+  "m": "and yet（それなのに）の前後の対比を読む"
+ },
+ {
+  "id": 179,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：沈黙という合理的な選択",
+  "p": "When a company announces that it welcomes new ideas, employees are often unconvinced, and their doubt is not unreasonable. An idea is a small risk taken by one person on behalf of the whole organization. If it succeeds, the credit is shared; if it fails, the blame tends to land on the one who proposed it. Under such conditions the sensible response is silence. Managers who complain that their staff lack imagination may therefore be mistaken about the cause. What is missing is not imagination but safety. Some firms have begun to hold meetings devoted to 'failures of the month', at which the leaders speak first about their own mistakes. The practice can seem theatrical, but its purpose is practical: it shows, more convincingly than any announcement, that an idea that does not work will not be held against the person who offered it.",
+  "q": "本文の Managers … may therefore be mistaken about the cause. について、筆者が考える社員の沈黙の本当の原因として最も適切なものを選びなさい。",
+  "c": [
+   "Employees stay silent because proposing an idea exposes them to blame if it fails.",
+   "Employees cannot think of new ideas unless they have received special training from the company.",
+   "Managers do not listen to the ideas that are offered to them in meetings.",
+   "Companies announce new ideas so often that their staff no longer believe any such announcement."
+  ],
+  "e": "成功すれば功績は共有されるが、失敗すれば提案者が責められるので、沈黙が合理的な反応になる、というのが筆者の説明です。したがって問題は想像力の欠如ではなく安全の欠如です。研修の不足、管理職が聞かないこと、発表の頻度は本文にありません。",
+  "m": "What is missing is not A but B の B が原因"
+ },
+ {
+  "id": 180,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：失敗の月例報告",
+  "p": "When a company announces that it welcomes new ideas, employees are often unconvinced, and their doubt is not unreasonable. An idea is a small risk taken by one person on behalf of the whole organization. If it succeeds, the credit is shared; if it fails, the blame tends to land on the one who proposed it. Under such conditions the sensible response is silence. Managers who complain that their staff lack imagination may therefore be mistaken about the cause. What is missing is not imagination but safety. Some firms have begun to hold meetings devoted to 'failures of the month', at which the leaders speak first about their own mistakes. The practice can seem theatrical, but its purpose is practical: it shows, more convincingly than any announcement, that an idea that does not work will not be held against the person who offered it.",
+  "q": "本文の 'failures of the month' の会合の目的として筆者が述べているものを選びなさい。",
+  "c": [
+   "To show employees that an idea that fails will not be held against the person who offered it.",
+   "To embarrass the leaders into taking greater risks with the company's money.",
+   "To collect data on the number of ideas that fail in each month.",
+   "To replace the usual announcements with something more entertaining."
+  ],
+  "e": "最後の文に、実践の目的は「うまくいかなかったアイデアが、提案者の責任にされないことを、どんな発表よりも説得的に示すこと」とあります。リーダーを恥じ入らせる、失敗の統計を取る、発表を娯楽に置き換えるといった目的は述べられていません。",
+  "m": "but 以降（its purpose is practical）に目的が書かれる"
+ },
+ {
+  "id": 181,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：祖母の門",
+  "p": "When Grandmother moved into the flat, the first thing she asked was where she could hang her gate. We laughed, because the gate was an old iron thing from the house she had left, rusted at the hinges, and the flat had no garden. She was not joking. She had brought it in the back of the van, wrapped in blankets like a patient, and for three weeks it leaned against the hall wall while she walked around it as if waiting for it to speak. Then, one Sunday, she asked my uncle to fix it to the balcony railing. It opened, if anyone dared to try it, onto a drop of four floors and a view of car roofs. But each evening she stood there with her tea, and once I heard her say 'Good evening' to the empty air, in the voice she used for neighbours. It took me a long time to understand that the gate had never been about the garden. It was something to open and close, a sign that a house had somebody coming and going.",
+  "q": "We laughed の理由として最も適切なものを選びなさい。",
+  "c": [
+   "The old gate seemed useless in a flat that had no garden.",
+   "The gate was far too heavy to be carried into the flat by one person.",
+   "Grandmother had never owned a gate before she moved into the flat.",
+   "Grandmother had said that she would sell the gate to a neighbour soon."
+  ],
+  "e": "直前に because 節があり、門は錆びた古い鉄製で、しかも新しい住まいには庭がなかったから笑った、とあります。重さ、初めて持つこと、売却の発言は本文に書かれておらず、「本気だった（She was not joking）」とも矛盾します。",
+  "m": "We laughed, because … の because 節を確認する"
+ },
+ {
+  "id": 182,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：患者のような門",
+  "p": "When Grandmother moved into the flat, the first thing she asked was where she could hang her gate. We laughed, because the gate was an old iron thing from the house she had left, rusted at the hinges, and the flat had no garden. She was not joking. She had brought it in the back of the van, wrapped in blankets like a patient, and for three weeks it leaned against the hall wall while she walked around it as if waiting for it to speak. Then, one Sunday, she asked my uncle to fix it to the balcony railing. It opened, if anyone dared to try it, onto a drop of four floors and a view of car roofs. But each evening she stood there with her tea, and once I heard her say 'Good evening' to the empty air, in the voice she used for neighbours. It took me a long time to understand that the gate had never been about the garden. It was something to open and close, a sign that a house had somebody coming and going.",
+  "q": "本文の wrapped in blankets like a patient が示す内容として最も適切なものを選びなさい。",
+  "c": [
+   "She treated the gate with great care, as something precious to her.",
+   "The gate had been damaged in the move and needed repair by a skilled worker.",
+   "She was worried that the gate might be stolen from the van while it was parked.",
+   "She thought the gate was ill and wanted to cure it with care."
+  ],
+  "e": "like a patient（患者のように）毛布にくるんで運んだ、という比喩は、祖母が門を大切に扱ったことを表します。実際に傷んだわけでも、盗難を心配したわけでも、門が病気だと考えたわけでもありません。比喩は字義どおりに取らず、態度を読み取ります。",
+  "m": "like ～ の比喩は「どんな態度か」を読む"
+ },
+ {
+  "id": 183,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：門が表すもの",
+  "p": "When Grandmother moved into the flat, the first thing she asked was where she could hang her gate. We laughed, because the gate was an old iron thing from the house she had left, rusted at the hinges, and the flat had no garden. She was not joking. She had brought it in the back of the van, wrapped in blankets like a patient, and for three weeks it leaned against the hall wall while she walked around it as if waiting for it to speak. Then, one Sunday, she asked my uncle to fix it to the balcony railing. It opened, if anyone dared to try it, onto a drop of four floors and a view of car roofs. But each evening she stood there with her tea, and once I heard her say 'Good evening' to the empty air, in the voice she used for neighbours. It took me a long time to understand that the gate had never been about the garden. It was something to open and close, a sign that a house had somebody coming and going.",
+  "q": "本文の最後の文 a sign that a house had somebody coming and going が表す内容として最も適切なものを選びなさい。",
+  "c": [
+   "For Grandmother, the gate stood for the daily life of a home and its people.",
+   "The gate would keep strangers out of the flat and make her feel safe and secure.",
+   "The gate reminded her of the garden that she had planned to build there later.",
+   "The gate showed that the family would soon move to a much larger house."
+  ],
+  "e": "門は庭のためではなく、開け閉めするもの、つまり人が出入りする家の暮らしのしるしだった、という結論です。「好ましくない人を締め出す」「将来作る庭」「引っ越し」は本文にありません。語り手が気づいたのは、門の象徴的な意味です。",
+  "m": "the gate had never been about the garden に注目"
+ },
+ {
+  "id": 184,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：豆の数の推測",
+  "p": "In classroom demonstrations, a jar of beans is passed around and each student writes down a guess at the number inside. The average of the guesses is usually closer to the truth than almost any individual guess. This is often taken as proof of the wisdom of crowds, but the demonstration works only under certain conditions. The guesses must be made independently, so that errors are scattered in all directions and cancel each other out. If the students see one another's answers, the errors start to point the same way, and the average is no better than that of the most confident person. Crowds, in other words, are wise only so long as their members are allowed to be separately mistaken. What the demonstration really shows is not that many heads are better than one, but that many independent heads are, and the difference is easily lost in the meetings where we most hope to use it.",
+  "q": "本文の内容と一致するものを選びなさい。",
+  "c": [
+   "Averaging guesses works well only when the guesses are made independently of one another.",
+   "The average of the guesses is always more accurate than the best individual guess in the group.",
+   "Students who see one another's answers learn to give more accurate guesses.",
+   "The most confident person in a group usually gives the best estimate of the number in the jar."
+  ],
+  "e": "本文は、平均が正確になるのは推測が互いに独立している場合に限られる、と述べます。「常に最良の個人より正確」とは言っておらず、答えを見せ合うと誤りが同じ方向にそろって平均の精度が落ちます。最も自信のある人の推定が最良とも書かれていません。",
+  "m": "only under certain conditions の条件を押さえる"
+ },
+ {
+  "id": 185,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：誤差が同じ方向を向く",
+  "p": "In classroom demonstrations, a jar of beans is passed around and each student writes down a guess at the number inside. The average of the guesses is usually closer to the truth than almost any individual guess. This is often taken as proof of the wisdom of crowds, but the demonstration works only under certain conditions. The guesses must be made independently, so that errors are scattered in all directions and cancel each other out. If the students see one another's answers, the errors start to point the same way, and the average is no better than that of the most confident person. Crowds, in other words, are wise only so long as their members are allowed to be separately mistaken. What the demonstration really shows is not that many heads are better than one, but that many independent heads are, and the difference is easily lost in the meetings where we most hope to use it.",
+  "q": "本文の the errors start to point the same way の意味として最も適切なものを選びなさい。",
+  "c": [
+   "Mistakes made by different people begin to be mistakes of the same kind.",
+   "People begin to correct one another's mistakes more and more quickly than before.",
+   "The errors become smaller as the guessers grow more and more confident.",
+   "All of the guesses begin to point towards the one correct number."
+  ],
+  "e": "独立した推測では誤りが四方に散って打ち消し合いますが、互いの答えを見ると、誤りが同じ向きにそろってしまい、打ち消し合わなくなります。2番目は訂正し合うこと、3番目は誤差の縮小、4番目は全員が正解に向かうことで、いずれも逆の意味です。",
+  "m": "point the same way＝同じ方向の誤りにそろう"
+ },
+ {
+  "id": 186,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：会議で失われるもの",
+  "p": "In classroom demonstrations, a jar of beans is passed around and each student writes down a guess at the number inside. The average of the guesses is usually closer to the truth than almost any individual guess. This is often taken as proof of the wisdom of crowds, but the demonstration works only under certain conditions. The guesses must be made independently, so that errors are scattered in all directions and cancel each other out. If the students see one another's answers, the errors start to point the same way, and the average is no better than that of the most confident person. Crowds, in other words, are wise only so long as their members are allowed to be separately mistaken. What the demonstration really shows is not that many heads are better than one, but that many independent heads are, and the difference is easily lost in the meetings where we most hope to use it.",
+  "q": "本文最後の the difference is easily lost in the meetings where we most hope to use it の含意として最も適切なものを選びなさい。",
+  "c": [
+   "Group discussion often destroys the independence that makes the average of a crowd accurate.",
+   "Meetings are unnecessary because the average of many guesses is always correct.",
+   "People in meetings are too lazy to give opinions that differ from the average.",
+   "The beans in the jar cannot be counted accurately during a meeting."
+  ],
+  "e": "the difference は「多数の頭」と「多数の独立した頭」の違いです。会議では他人の意見を聞きながら話すため、独立性が失われやすい、という含意です。会議が不要という話、怠惰という話、豆を数えられないという話は本文にありません。",
+  "m": "the difference が何と何の違いかを確認する"
+ },
+ {
+  "id": 187,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：天気予報屋の露店",
+  "p": "The umbrella stall at the station exit was run by a man everyone called the Weatherman, though he had never been right about the weather. He sold more umbrellas on dry days than on wet ones, which puzzled the neighbourhood until a student asked him about it. 'On wet days,' he said, 'people are in a hurry and buy the first umbrella they see. They remember nothing about me. On dry days, they walk slowly and listen, and they buy because I have convinced them that the sky is lying.' He winked. 'And then it rains, and they come back to say I was right. I let them. It costs nothing, and it keeps the stall busy.' The student, who had expected a confession of fraud, found herself admiring him a little. He did not claim knowledge he lacked; he simply sold the possibility of rain, and people, who dislike being unprepared more than they dislike spending money, were happy to pay for it.",
+  "q": "その男が乾いた日により多くの傘を売る理由として、本文から読み取れるものを選びなさい。",
+  "c": [
+   "On dry days customers have time to listen, and he persuades them to prepare for rain.",
+   "He lowers his prices on dry days to attract customers who have no intention of using an umbrella.",
+   "His forecasts are more accurate on dry days than they are on wet days.",
+   "Dry days are the days when most people forget to bring their own umbrellas."
+  ],
+  "e": "男自身が、雨の日は急いでいて最初の傘を買うだけだが、晴れの日は人々がゆっくり歩いて話を聞き、空が嘘をついていると説得されて買う、と説明しています。値下げ、予報の精度、傘を忘れる日という説明は本文にありません。",
+  "m": "発言中の On dry days, … の部分が理由"
+ },
+ {
+  "id": 188,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：詐欺の告白ではなかった",
+  "p": "The umbrella stall at the station exit was run by a man everyone called the Weatherman, though he had never been right about the weather. He sold more umbrellas on dry days than on wet ones, which puzzled the neighbourhood until a student asked him about it. 'On wet days,' he said, 'people are in a hurry and buy the first umbrella they see. They remember nothing about me. On dry days, they walk slowly and listen, and they buy because I have convinced them that the sky is lying.' He winked. 'And then it rains, and they come back to say I was right. I let them. It costs nothing, and it keeps the stall busy.' The student, who had expected a confession of fraud, found herself admiring him a little. He did not claim knowledge he lacked; he simply sold the possibility of rain, and people, who dislike being unprepared more than they dislike spending money, were happy to pay for it.",
+  "q": "学生が男を少し称賛するようになった理由として最も適切なものを選びなさい。",
+  "c": [
+   "He did not pretend to know the weather; he sold people protection against uncertainty.",
+   "He confessed that he earned his living by deceiving the students at the station.",
+   "He proved that his weather forecasts were right on almost every day of the whole year.",
+   "He gave umbrellas away for nothing to all of the people who were caught in the rain."
+  ],
+  "e": "学生は詐欺の告白を予期していましたが、男は知らないことを知っているふりをせず、雨の可能性を売っていました。したがって「不確かさへの備えを売る」というのが称賛の理由です。学生を欺く告白、予報の的中、傘の無料配布は本文にありません。",
+  "m": "He did not claim knowledge he lacked に注目"
+ },
+ {
+  "id": 189,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：人は何にお金を払うか",
+  "p": "The umbrella stall at the station exit was run by a man everyone called the Weatherman, though he had never been right about the weather. He sold more umbrellas on dry days than on wet ones, which puzzled the neighbourhood until a student asked him about it. 'On wet days,' he said, 'people are in a hurry and buy the first umbrella they see. They remember nothing about me. On dry days, they walk slowly and listen, and they buy because I have convinced them that the sky is lying.' He winked. 'And then it rains, and they come back to say I was right. I let them. It costs nothing, and it keeps the stall busy.' The student, who had expected a confession of fraud, found herself admiring him a little. He did not claim knowledge he lacked; he simply sold the possibility of rain, and people, who dislike being unprepared more than they dislike spending money, were happy to pay for it.",
+  "q": "本文最後の people … dislike being unprepared more than they dislike spending money の意味として最も適切なものを選びなさい。",
+  "c": [
+   "People will spend money to avoid the discomfort of being caught without an umbrella.",
+   "People dislike spending money more than they dislike getting wet in the rain on their way home.",
+   "People who are unprepared for the rain usually refuse to buy anything at all from a stall.",
+   "People who spend a lot of money on umbrellas are always well prepared for every kind of weather."
+  ],
+  "e": "dislike A more than B は「BよりもAを嫌う」で、準備不足のほうが出費よりも嫌いだ、ということです。したがって人は傘を持たずに困る不快さを避けるためにお金を払います。2番目は比較の向きが逆、3番目・4番目は本文にない一般化です。",
+  "m": "dislike A more than B＝Bより A が嫌い"
+ },
+ {
+  "id": 190,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：種子貯蔵庫と保険",
+  "p": "Deep in a mountain, in a vault kept at temperatures well below freezing, lie millions of seeds from every part of the world. The collection is often called an insurance policy, and it is easy to see why: if a disease or a war destroys a crop variety in one country, a sample can be brought back from the vault. Yet the metaphor, though useful, hides a difficulty. An insurance policy pays out in money, which can buy whatever is needed. Seeds, by contrast, are living things that must be grown, renewed and tested every few decades, or they lose the ability to germinate. A stored variety is therefore not a thing that is safe once and for all; it needs people who go on caring about it. The vault protects the seeds, but only a continuing human effort protects the vault.",
+  "q": "この文章の主旨として最も適切なものを選びなさい。",
+  "c": [
+   "A seed bank cannot guarantee safety by itself, because stored seeds need continuing human care.",
+   "Seed banks are unnecessary because crop varieties are very rarely destroyed by disease or war in any country.",
+   "Insurance companies should pay for the maintenance of the seed vaults in every country of the world.",
+   "Seeds can be stored safely for several centuries without ever being grown or tested again in a laboratory."
+  ],
+  "e": "筆者は、種子貯蔵庫を保険にたとえる比喩の難点として、種子は生きており、数十年ごとに栽培・更新・検査をしなければ発芽力を失う、だから保管された品種を守るには人の継続的な努力が必要だ、と述べています。不要論、保険会社の負担、数世紀の保存はいずれも本文にありません。",
+  "m": "Yet（しかし）以降に筆者の本題がある"
+ },
+ {
+  "id": 191,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：比喩が隠す難点",
+  "p": "Deep in a mountain, in a vault kept at temperatures well below freezing, lie millions of seeds from every part of the world. The collection is often called an insurance policy, and it is easy to see why: if a disease or a war destroys a crop variety in one country, a sample can be brought back from the vault. Yet the metaphor, though useful, hides a difficulty. An insurance policy pays out in money, which can buy whatever is needed. Seeds, by contrast, are living things that must be grown, renewed and tested every few decades, or they lose the ability to germinate. A stored variety is therefore not a thing that is safe once and for all; it needs people who go on caring about it. The vault protects the seeds, but only a continuing human effort protects the vault.",
+  "q": "本文の the metaphor … hides a difficulty の difficulty として最も適切なものを選びなさい。",
+  "c": [
+   "Unlike money, seeds are living things that lose their value unless they are renewed.",
+   "Insurance policies cannot be used when a war has destroyed a crop variety in one country.",
+   "Seeds are far more expensive to store than most other kinds of valuable goods in the world.",
+   "The temperature of the vault is too low for the seeds to survive for a long time."
+  ],
+  "e": "直後に、保険金は何でも買えるお金で払われるが、種子は生きていて更新しなければ発芽力を失う、とあります。これが比喩の隠す難点です。保険の適用不能、費用の高さ、温度の低さは本文にありません（氷点下の低温は、本文では種子を保管する条件として述べられています）。",
+  "m": "A, by contrast, B の対比が難点を示す"
+ },
+ {
+  "id": 192,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：街角の店の価値",
+  "p": "Economists measure the value of a shop by what it sells, but this misses much of what a small shop gives to its street. The owner of a corner shop usually knows which customers live alone, which elderly neighbours have not been seen for a few days, and which children are walking home from school unaccompanied. None of this knowledge appears in the accounts, yet it is of real use to the neighbourhood. When such a shop closes, the loss to the street is not only the convenience of buying milk close to home; it is also the quiet network of attention that the shop provided without any cost to the public purse. Supermarkets, with their lower prices and wider choice, may well be better at selling goods. The point is that selling goods was never the only thing the corner shop was doing, and a way of counting that sees only sales will always conclude that the shop is unnecessary.",
+  "q": "この文章の主旨として最も適切なものを選びなさい。",
+  "c": [
+   "The value of a small shop includes social benefits that do not appear in its sales figures.",
+   "Supermarkets bring no benefit to a neighbourhood apart from their lower prices and wider choice of goods.",
+   "Corner shop owners should be paid by the government for watching over the people in their neighbourhoods.",
+   "Elderly people ought to avoid shopping at supermarkets in order to protect the small shops near their homes."
+  ],
+  "e": "筆者は、小さな店は商品を売るだけでなく、一人暮らしの人や高齢者、子どもたちへの見守りという、会計に表れない価値を街に与えていると述べます。スーパーの利点も認めているので、2番目の「何の利益もない」は誤りで、政府の支払いや高齢者への忠告も述べていません。",
+  "m": "May well … The point is that … で譲歩→本題を読む"
+ },
+ {
+  "id": 193,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：売上だけを数える見方",
+  "p": "Economists measure the value of a shop by what it sells, but this misses much of what a small shop gives to its street. The owner of a corner shop usually knows which customers live alone, which elderly neighbours have not been seen for a few days, and which children are walking home from school unaccompanied. None of this knowledge appears in the accounts, yet it is of real use to the neighbourhood. When such a shop closes, the loss to the street is not only the convenience of buying milk close to home; it is also the quiet network of attention that the shop provided without any cost to the public purse. Supermarkets, with their lower prices and wider choice, may well be better at selling goods. The point is that selling goods was never the only thing the corner shop was doing, and a way of counting that sees only sales will always conclude that the shop is unnecessary.",
+  "q": "本文最後の a way of counting that sees only sales will always conclude that the shop is unnecessary の意味として最も適切なものを選びなさい。",
+  "c": [
+   "If only sales are counted, the other contributions of the shop are overlooked and it seems useless.",
+   "If sales are counted carefully, it can be shown that corner shops earn more money than supermarkets.",
+   "Because corner shops sell so few goods, even accurate accounts show that they are unnecessary to the street.",
+   "Because the shop provides attention without charge, its accounts always show a loss."
+  ],
+  "e": "売上だけを数える方法では、見守りなど売上に表れない貢献が見落とされ、店は不要に見える、という意味です。2番目の「売上で勝つ」、3番目の「正確な会計でも不要」、4番目の「常に赤字」は、本文の主張とは異なります。筆者は計算方法の限界を批判しています。",
+  "m": "a way of counting＝評価の物差しの限界を指摘"
+ },
+ {
+  "id": 194,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：舟小屋の兄弟",
+  "p": "After the funeral, my brother and I found ourselves at the old boat shed, because neither of us knew where else to go. Our father's skiff was still on its trestles, half-planked, as he had left it in the autumn. 'Somebody ought to finish it,' Daiki said, and then, as if he had said something dangerous, looked at the floor. We had not spoken of what we would do with the house or the boat or the fishing licence, and I had been grateful for the silence. I picked up a plane from the bench. It fitted my hand in a way that surprised me; the handle was worn smooth in exactly the place where my fingers wanted to rest. We worked for three hours that afternoon without saying more than 'hold this' and 'higher'. When we stopped, the light had gone and the boat looked no more finished than before. But I noticed that Daiki's shoulders, which he had held like a coat-hanger for a week, had come down, and I suspected that mine had as well.",
+  "q": "二人が舟小屋にいた理由として本文から読み取れるものを選びなさい。",
+  "c": [
+   "They did not know where else to go after the funeral.",
+   "They had promised their father that they would finish the skiff.",
+   "They wanted to sell the skiff before the family left the town.",
+   "Their father had asked them in his will to repair the boat shed."
+  ],
+  "e": "冒頭に because neither of us knew where else to go（二人とも他に行く場所が分からなかったから）とあります。父との約束、売却の意図、遺言は本文に書かれておらず、むしろ家・船・漁業権について話し合ってもいませんでした。",
+  "m": "冒頭の because 節に理由がある"
+ },
+ {
+  "id": 195,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：床を見た Daiki",
+  "p": "After the funeral, my brother and I found ourselves at the old boat shed, because neither of us knew where else to go. Our father's skiff was still on its trestles, half-planked, as he had left it in the autumn. 'Somebody ought to finish it,' Daiki said, and then, as if he had said something dangerous, looked at the floor. We had not spoken of what we would do with the house or the boat or the fishing licence, and I had been grateful for the silence. I picked up a plane from the bench. It fitted my hand in a way that surprised me; the handle was worn smooth in exactly the place where my fingers wanted to rest. We worked for three hours that afternoon without saying more than 'hold this' and 'higher'. When we stopped, the light had gone and the boat looked no more finished than before. But I noticed that Daiki's shoulders, which he had held like a coat-hanger for a week, had come down, and I suspected that mine had as well.",
+  "q": "Daiki が looked at the floor した理由として最も適切なものを選びなさい。",
+  "c": [
+   "He felt that speaking about finishing the boat might be too painful or too bold so soon after the funeral.",
+   "He was ashamed that he had forgotten to bring the tools that were needed for the work.",
+   "He realised that the skiff was too badly damaged to be repaired by the two of them.",
+   "He was angry that his brother had refused to help with the work in the shed."
+  ],
+  "e": "as if he had said something dangerous（まるで危険なことを言ったかのように）とあり、葬儀の直後に父の舟を仕上げようと口にしたことが、つらい話題に触れる、あるいは出過ぎたことに思えたのでしょう。道具の失念、修理の不可能、兄弟の拒否は本文にありません。",
+  "m": "as if ～ が示す気持ちを読み取る"
+ },
+ {
+  "id": 196,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：下りた肩",
+  "p": "After the funeral, my brother and I found ourselves at the old boat shed, because neither of us knew where else to go. Our father's skiff was still on its trestles, half-planked, as he had left it in the autumn. 'Somebody ought to finish it,' Daiki said, and then, as if he had said something dangerous, looked at the floor. We had not spoken of what we would do with the house or the boat or the fishing licence, and I had been grateful for the silence. I picked up a plane from the bench. It fitted my hand in a way that surprised me; the handle was worn smooth in exactly the place where my fingers wanted to rest. We worked for three hours that afternoon without saying more than 'hold this' and 'higher'. When we stopped, the light had gone and the boat looked no more finished than before. But I noticed that Daiki's shoulders, which he had held like a coat-hanger for a week, had come down, and I suspected that mine had as well.",
+  "q": "本文最後の Daiki's shoulders … had come down が示す内容として最も適切なものを選びなさい。",
+  "c": [
+   "Working together on the boat eased the tension that the brothers had been feeling.",
+   "The brothers had finally decided what to do with the house and the fishing licence.",
+   "The boat was nearly finished, which gave the brothers a feeling of relief.",
+   "The brothers had agreed that the boat should be sold as soon as possible."
+  ],
+  "e": "肩が下りたのは緊張がほぐれたことを表します。直前に、舟は前より完成していないとあるので、完成の安堵ではなく、黙って一緒に作業したことが緊張を和らげたと読めます。家や漁業権の決定、舟の売却合意は本文にありません。",
+  "m": "身体の描写は気持ちの変化を示す"
+ },
+ {
+  "id": 197,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：赤ペンの先生",
+  "p": "Mrs Okada had a reputation for the red pen. Essays came back from her covered in marks, and the pupils joked that she bled on their pages. I was fifteen, and I hated her for it, partly because the marks were always right. One afternoon she kept me behind after class. I expected a lecture. Instead she handed me an essay from the previous term, with her usual corrections, and asked me to read only the comments in the margin. 'What do you notice?' she said. I looked. Most of them were questions: Why this word? What do you mean here? Is this what you really think? 'I never correct what I don't expect to improve,' she said. 'If I stopped marking your work, that would be the day I had given up on you.' She said nothing more, and I left feeling oddly embarrassed, as if I had been caught complaining about a gift. The next week I started writing my essays as if she were reading over my shoulder. It was exhausting. It was also the first time anyone had made me feel that what I wrote was worth arguing with.",
+  "q": "Mrs Okada が語り手を放課後に残した目的として最も適切なものを選びなさい。",
+  "c": [
+   "She wanted the narrator to see that her comments were questions meant to provoke thought.",
+   "She wanted to scold the narrator for criticising her marking in front of the other pupils.",
+   "She wished to praise the narrator for the great progress made over the previous term.",
+   "She intended to tell the narrator that future essays would be marked less strictly."
+  ],
+  "e": "語り手は説教を予期しましたが、先生は前学期の答案を渡し、余白のコメントだけを読ませました。コメントの多くは問いかけで、先生は「直らないと思う人の答案は直さない」と話します。目的は、コメントが考えさせる問いだと気づかせることです。叱責、称賛、採点を緩めるという話は本文にありません。",
+  "m": "Instead 以降の行動に目的が表れる"
+ },
+ {
+  "id": 198,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：贈り物への不満",
+  "p": "Mrs Okada had a reputation for the red pen. Essays came back from her covered in marks, and the pupils joked that she bled on their pages. I was fifteen, and I hated her for it, partly because the marks were always right. One afternoon she kept me behind after class. I expected a lecture. Instead she handed me an essay from the previous term, with her usual corrections, and asked me to read only the comments in the margin. 'What do you notice?' she said. I looked. Most of them were questions: Why this word? What do you mean here? Is this what you really think? 'I never correct what I don't expect to improve,' she said. 'If I stopped marking your work, that would be the day I had given up on you.' She said nothing more, and I left feeling oddly embarrassed, as if I had been caught complaining about a gift. The next week I started writing my essays as if she were reading over my shoulder. It was exhausting. It was also the first time anyone had made me feel that what I wrote was worth arguing with.",
+  "q": "本文の as if I had been caught complaining about a gift が表す気持ちとして最も適切なものを選びなさい。",
+  "c": [
+   "The narrator realised that her strict marking had been a kind of care all along.",
+   "The narrator felt rewarded for a piece of work that did not really deserve any reward.",
+   "The narrator felt that the teacher had given a present as an apology for her strict marking.",
+   "The narrator was ashamed that the essay had been the worst in the whole class that term."
+  ],
+  "e": "赤ペンの添削を恨んでいたが、それが「期待している生徒にだけ行う手間」だと分かり、贈り物に文句を言っているところを見つかったような気恥ずかしさを感じた、という流れです。報酬、謝罪の贈り物、クラスで最低という話は本文にありません。",
+  "m": "gift＝先生の厳しい添削という好意"
+ },
+ {
+  "id": 199,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "物語：議論するに値する文章",
+  "p": "Mrs Okada had a reputation for the red pen. Essays came back from her covered in marks, and the pupils joked that she bled on their pages. I was fifteen, and I hated her for it, partly because the marks were always right. One afternoon she kept me behind after class. I expected a lecture. Instead she handed me an essay from the previous term, with her usual corrections, and asked me to read only the comments in the margin. 'What do you notice?' she said. I looked. Most of them were questions: Why this word? What do you mean here? Is this what you really think? 'I never correct what I don't expect to improve,' she said. 'If I stopped marking your work, that would be the day I had given up on you.' She said nothing more, and I left feeling oddly embarrassed, as if I had been caught complaining about a gift. The next week I started writing my essays as if she were reading over my shoulder. It was exhausting. It was also the first time anyone had made me feel that what I wrote was worth arguing with.",
+  "q": "本文最後の worth arguing with が表す内容として最も適切なものを選びなさい。",
+  "c": [
+   "The narrator's writing was taken seriously enough to be challenged and questioned.",
+   "The narrator's essays were so careless that they provoked arguments with the other pupils.",
+   "The narrator's teacher had begun to agree with everything that the narrator wrote.",
+   "The narrator's essays were regarded as mistakes that needed to be corrected one by one."
+  ],
+  "e": "worth arguing with は「議論の相手にする価値がある」という意味で、先生の問いかけを通して、自分の文章が真剣に受けとめられていると感じた、ということです。他の生徒との口論、先生の全面的な同意、単なる誤りの訂正という解釈は本文に合いません。",
+  "m": "worth ～ing＝～する価値がある"
+ },
+ {
+  "id": 200,
+  "k": "plan",
+  "ref": "想定問題",
+  "f": "長文読解（物語・評論）",
+  "t": "評論：芝居がかった習慣",
+  "p": "When a company announces that it welcomes new ideas, employees are often unconvinced, and their doubt is not unreasonable. An idea is a small risk taken by one person on behalf of the whole organization. If it succeeds, the credit is shared; if it fails, the blame tends to land on the one who proposed it. Under such conditions the sensible response is silence. Managers who complain that their staff lack imagination may therefore be mistaken about the cause. What is missing is not imagination but safety. Some firms have begun to hold meetings devoted to 'failures of the month', at which the leaders speak first about their own mistakes. The practice can seem theatrical, but its purpose is practical: it shows, more convincingly than any announcement, that an idea that does not work will not be held against the person who offered it.",
+  "q": "本文の The practice can seem theatrical の意味として最も適切なものを選びなさい。",
+  "c": [
+   "It can look like a performance staged for effect rather than a sincere act.",
+   "It requires the leaders to receive special training in acting before the meeting.",
+   "It is held in a theatre so that many employees can attend it at once.",
+   "It is taken so seriously that nobody dares to laugh during the meeting."
+  ],
+  "e": "theatrical は「芝居がかった、わざとらしい」の意味で、リーダーが先に自分の失敗を話す習慣が、効果を狙った演出のように見えうる、ということです。but 以下で、実は実際的な目的があると続きます。演技の訓練、劇場での開催、笑えないほどの真剣さは本文にありません。",
+  "m": "seem ～ but ... は見かけと実質の対比"
  }
 ]
