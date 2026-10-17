@@ -46,15 +46,15 @@
       "id": "T7",
       "field": "サポートURL",
       "limit": 0,
-      "text": "https://icurate.jp/takken-support/",
-      "note": "WordPress の固定ページ（スラッグ takken-support）。docs/web/support.html を貼る"
+      "text": "https://apps.icurate.jp/takken/support/",
+      "note": "学習アプリ事業のサイト（site/ を apps.icurate.jp に公開）"
     },
     {
       "id": "T8",
       "field": "プライバシーポリシーURL",
       "limit": 0,
-      "text": "https://icurate.jp/takken-privacy/",
-      "note": "WordPress の固定ページ（スラッグ takken-privacy）。docs/web/privacy.html を貼る"
+      "text": "https://apps.icurate.jp/takken/privacy/",
+      "note": "学習アプリ事業のサイト（site/ を apps.icurate.jp に公開）"
     }
   ],
   "privacy": {

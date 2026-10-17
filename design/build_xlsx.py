@@ -257,6 +257,63 @@ def write_wp_pages():
     open(os.path.join(ROOT, 'docs', 'web', 'support.html'), 'w', encoding='utf-8').write('\n'.join(S) + '\n')
 
 
+SITE_CSS = """
+:root{--bg:#f6f7f5;--paper:#fff;--ink:#1d2730;--muted:#5c6770;--line:#d9ddd7;--navy:#1f3a5f;--gold:#c98f1c}
+@media (prefers-color-scheme:dark){:root{--bg:#12171c;--paper:#1a2128;--ink:#e6eaed;--muted:#9aa6af;--line:#2c3640;--navy:#8fb2da;--gold:#e7b54e;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;line-height:1.85;font-size:16px}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 64px}
+header.site{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:28px}
+header.site a{color:var(--ink);text-decoration:none}.brand{font-weight:700;letter-spacing:.04em}.brand small{color:var(--muted);font-weight:400;margin-left:8px}
+h1{font-family:"Shippori Mincho B1","Hiragino Mincho ProN",serif;font-weight:800;font-size:1.7rem;line-height:1.35;margin:0 0 12px;color:var(--navy)}
+h2{font-size:1.1rem;margin:28px 0 6px}h3{font-size:1rem;margin:20px 0 4px}p{margin:0 0 10px}
+a{color:var(--navy)}.muted{color:var(--muted);font-size:.9rem}
+.app{display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px}
+.app img{width:96px;height:96px;border-radius:22px}.links{display:flex;gap:14px;flex-wrap:wrap;font-size:.92rem}
+footer{margin-top:48px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:.85rem}
+"""
+
+
+def write_site():
+    """apps.icurate.jp（学習アプリ事業）の静的サイト。site/ をそのままサーバーの公開フォルダに上げる。"""
+    import html as H
+    import shutil
+    from PIL import Image as PImage
+    root = os.path.join(ROOT, 'site')
+    os.makedirs(os.path.join(root, 'takken', 'privacy'), exist_ok=True)
+    os.makedirs(os.path.join(root, 'takken', 'support'), exist_ok=True)
+    PImage.open(os.path.join(HERE, 'out', 'icons', 'I4.png')).convert('RGB').resize((256, 256), PImage.LANCZOS).save(os.path.join(root, 'takken', 'icon.png'))
+    open(os.path.join(root, 'style.css'), 'w', encoding='utf-8').write(SITE_CSS.strip() + '\n')
+
+    def page(path, title, body, depth):
+        up = '../' * depth
+        doc = f"""<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{H.escape(title)}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@800&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap">
+<link rel="stylesheet" href="{up}style.css"></head>
+<body><div class="wrap">
+<header class="site"><a class="brand" href="{up}">iCurate Apps<small>学習アプリ</small></a><a class="muted" href="https://icurate.jp/">株式会社iCurate</a></header>
+{body}
+<footer>© 2026 株式会社iCurate　〒108-0075 東京都港区港南3-5-10-2902　<a href="mailto:info@icurate.jp">info@icurate.jp</a></footer>
+</div></body></html>
+"""
+        open(os.path.join(root, path), 'w', encoding='utf-8').write(doc)
+
+    esc = lambda x: H.escape(x).replace('\n', '<br>')
+    t = {x['id']: x['text'] for x in TEXT['listing']}
+    page('index.html', 'iCurate Apps｜学習アプリ', f"""<h1>学習アプリ</h1>
+<p>株式会社iCurate が提供する、スキマ時間で学べる iPhone アプリです。</p>
+<div class="app"><img src="takken/icon.png" alt="宅建10分模試のアイコン"><div>
+<h2 style="margin:0">宅建10分模試</h2><p class="muted">{H.escape(t['T2'])}</p>
+<div class="links"><a href="takken/support/">サポート</a><a href="takken/privacy/">プライバシーポリシー</a></div></div></div>""", 0)
+    pv = TEXT['privacy']
+    body = f'<h1>{H.escape(pv["title"])}</h1><p>{esc(pv["intro"])}</p>' + ''.join(f'<h2>{H.escape(s["head"])}</h2><p>{esc(s["body"])}</p>' for s in pv['sections'])
+    page(os.path.join('takken', 'privacy', 'index.html'), pv['title'], body, 2)
+    sup = open(os.path.join(ROOT, 'docs', 'web', 'support.html'), encoding='utf-8').read().replace('<h3>', '<h2>').replace('</h3>', '</h2>').replace('<h2>宅建10分模試 サポート</h2>', '<h1>宅建10分模試 サポート</h1>', 1)
+    page(os.path.join('takken', 'support', 'index.html'), '宅建10分模試 サポート', sup, 2)
+
+
 def main():
     wb = Workbook()
     sheet_guide(wb)
@@ -270,6 +327,7 @@ def main():
     write_markdown()
     write_store_config()
     write_wp_pages()
+    write_site()
     print('OK:', XLSX)
 
 
