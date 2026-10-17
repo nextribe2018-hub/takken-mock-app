@@ -243,6 +243,372 @@
       "env": {
         "EXPO_PUBLIC_EXAM": "todai-sekaishi"
       }
+    },
+    "itpass-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "itpass-all"
+      }
+    },
+    "fe-kamokua": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "fe-kamokua"
+      }
+    },
+    "sg-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "sg-all"
+      }
+    },
+    "kikenbutsu-otsu4": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kikenbutsu-otsu4"
+      }
+    },
+    "denko2-gakka": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "denko2-gakka"
+      }
+    },
+    "denko1-gakka": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "denko1-gakka"
+      }
+    },
+    "eisei-ichi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "eisei-ichi"
+      }
+    },
+    "eisei-ni": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "eisei-ni"
+      }
+    },
+    "tohan-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "tohan-all"
+      }
+    },
+    "kanri-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kanri-all"
+      }
+    },
+    "fp-san": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "fp-san"
+      }
+    },
+    "fp-ni": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "fp-ni"
+      }
+    },
+    "boiler2-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "boiler2-all"
+      }
+    },
+    "kango-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kango-all"
+      }
+    },
+    "boki-san": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "boki-san"
+      }
+    },
+    "boki-ni": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "boki-ni"
+      }
+    },
+    "mankan-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "mankan-all"
+      }
+    },
+    "chintai-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chintai-all"
+      }
+    },
+    "sharoushi-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "sharoushi-all"
+      }
+    },
+    "gyosei-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "gyosei-all"
+      }
+    },
+    "denken3-riron": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "denken3-riron"
+      }
+    },
+    "denken3-denryoku": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "denken3-denryoku"
+      }
+    },
+    "denken3-kikai": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "denken3-kikai"
+      }
+    },
+    "denken3-houki": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "denken3-houki"
+      }
+    },
+    "kaigo-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kaigo-all"
+      }
+    },
+    "shakai-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "shakai-all"
+      }
+    },
+    "ouyou-tech": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "ouyou-tech"
+      }
+    },
+    "ouyou-mgmt": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "ouyou-mgmt"
+      }
+    },
+    "kashikin-all": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "kashikin-all"
+      }
+    },
+    "koukou-nankan-rekishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-nankan-rekishi"
+      }
+    },
+    "koukou-nankan-chiri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-nankan-chiri"
+      }
+    },
+    "koukou-nankan-koumin": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-nankan-koumin"
+      }
+    },
+    "koukou-nankan-rika": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-nankan-rika"
+      }
+    },
+    "koukou-nankan-eigo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-nankan-eigo"
+      }
+    },
+    "koukou-nankan-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-nankan-kokugo"
+      }
+    },
+    "koukou-nankan-sugaku": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-nankan-sugaku"
+      }
+    },
+    "koukou-rekishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-rekishi"
+      }
+    },
+    "koukou-chiri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-chiri"
+      }
+    },
+    "koukou-koumin": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-koumin"
+      }
+    },
+    "koukou-rika": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-rika"
+      }
+    },
+    "koukou-eigo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-eigo"
+      }
+    },
+    "koukou-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-kokugo"
+      }
+    },
+    "koukou-sugaku": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "koukou-sugaku"
+      }
+    },
+    "chugaku-nankan-rekishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-nankan-rekishi"
+      }
+    },
+    "chugaku-nankan-chiri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-nankan-chiri"
+      }
+    },
+    "chugaku-nankan-koumin": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-nankan-koumin"
+      }
+    },
+    "chugaku-nankan-rika": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-nankan-rika"
+      }
+    },
+    "chugaku-nankan-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-nankan-kokugo"
+      }
+    },
+    "chugaku-nankan-sansu": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-nankan-sansu"
+      }
+    },
+    "chugaku-fuzoku-rekishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-fuzoku-rekishi"
+      }
+    },
+    "chugaku-fuzoku-chiri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-fuzoku-chiri"
+      }
+    },
+    "chugaku-fuzoku-koumin": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-fuzoku-koumin"
+      }
+    },
+    "chugaku-fuzoku-rika": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-fuzoku-rika"
+      }
+    },
+    "chugaku-fuzoku-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-fuzoku-kokugo"
+      }
+    },
+    "chugaku-fuzoku-sansu": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-fuzoku-sansu"
+      }
+    },
+    "chugaku-rekishi": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-rekishi"
+      }
+    },
+    "chugaku-chiri": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-chiri"
+      }
+    },
+    "chugaku-koumin": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-koumin"
+      }
+    },
+    "chugaku-rika": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-rika"
+      }
+    },
+    "chugaku-kokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-kokugo"
+      }
+    },
+    "chugaku-sansu": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugaku-sansu"
+      }
     }
   },
   "submit": {

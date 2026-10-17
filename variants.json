@@ -232,5 +232,371 @@
     "bundleId": "jp.icurate.tenmin.todai-sekaishi",
     "sku": "jp.icurate.tenmin.todai_sekaishi.full",
     "ascAppId": ""
+  },
+  "itpass-all": {
+    "name": "ITパスポート試験10分模試",
+    "bundleId": "jp.icurate.tenmin.itpass-all",
+    "sku": "jp.icurate.tenmin.itpass_all.full",
+    "ascAppId": ""
+  },
+  "fe-kamokua": {
+    "name": "基本情報技術者試験科目A10分模試",
+    "bundleId": "jp.icurate.tenmin.fe-kamokua",
+    "sku": "jp.icurate.tenmin.fe_kamokua.full",
+    "ascAppId": ""
+  },
+  "sg-all": {
+    "name": "情報セキュリティマネジメント試験科目A10分模試",
+    "bundleId": "jp.icurate.tenmin.sg-all",
+    "sku": "jp.icurate.tenmin.sg_all.full",
+    "ascAppId": ""
+  },
+  "kikenbutsu-otsu4": {
+    "name": "危険物取扱者乙種第4類10分模試",
+    "bundleId": "jp.icurate.tenmin.kikenbutsu-otsu4",
+    "sku": "jp.icurate.tenmin.kikenbutsu_otsu4.full",
+    "ascAppId": ""
+  },
+  "denko2-gakka": {
+    "name": "第二種電気工事士学科10分模試",
+    "bundleId": "jp.icurate.tenmin.denko2-gakka",
+    "sku": "jp.icurate.tenmin.denko2_gakka.full",
+    "ascAppId": ""
+  },
+  "denko1-gakka": {
+    "name": "第一種電気工事士学科10分模試",
+    "bundleId": "jp.icurate.tenmin.denko1-gakka",
+    "sku": "jp.icurate.tenmin.denko1_gakka.full",
+    "ascAppId": ""
+  },
+  "eisei-ichi": {
+    "name": "第一種衛生管理者10分模試",
+    "bundleId": "jp.icurate.tenmin.eisei-ichi",
+    "sku": "jp.icurate.tenmin.eisei_ichi.full",
+    "ascAppId": ""
+  },
+  "eisei-ni": {
+    "name": "第二種衛生管理者10分模試",
+    "bundleId": "jp.icurate.tenmin.eisei-ni",
+    "sku": "jp.icurate.tenmin.eisei_ni.full",
+    "ascAppId": ""
+  },
+  "tohan-all": {
+    "name": "登録販売者試験10分模試",
+    "bundleId": "jp.icurate.tenmin.tohan-all",
+    "sku": "jp.icurate.tenmin.tohan_all.full",
+    "ascAppId": ""
+  },
+  "kanri-all": {
+    "name": "管理業務主任者試験10分模試",
+    "bundleId": "jp.icurate.tenmin.kanri-all",
+    "sku": "jp.icurate.tenmin.kanri_all.full",
+    "ascAppId": ""
+  },
+  "fp-san": {
+    "name": "FP技能検定3級学科10分模試",
+    "bundleId": "jp.icurate.tenmin.fp-san",
+    "sku": "jp.icurate.tenmin.fp_san.full",
+    "ascAppId": ""
+  },
+  "fp-ni": {
+    "name": "FP技能検定2級学科10分模試",
+    "bundleId": "jp.icurate.tenmin.fp-ni",
+    "sku": "jp.icurate.tenmin.fp_ni.full",
+    "ascAppId": ""
+  },
+  "boiler2-all": {
+    "name": "二級ボイラー技士免許試験10分模試",
+    "bundleId": "jp.icurate.tenmin.boiler2-all",
+    "sku": "jp.icurate.tenmin.boiler2_all.full",
+    "ascAppId": ""
+  },
+  "kango-all": {
+    "name": "看護師国家試験10分模試",
+    "bundleId": "jp.icurate.tenmin.kango-all",
+    "sku": "jp.icurate.tenmin.kango_all.full",
+    "ascAppId": ""
+  },
+  "boki-san": {
+    "name": "日商簿記検定3級10分模試",
+    "bundleId": "jp.icurate.tenmin.boki-san",
+    "sku": "jp.icurate.tenmin.boki_san.full",
+    "ascAppId": ""
+  },
+  "boki-ni": {
+    "name": "日商簿記検定2級10分模試",
+    "bundleId": "jp.icurate.tenmin.boki-ni",
+    "sku": "jp.icurate.tenmin.boki_ni.full",
+    "ascAppId": ""
+  },
+  "mankan-all": {
+    "name": "マンション管理士試験10分模試",
+    "bundleId": "jp.icurate.tenmin.mankan-all",
+    "sku": "jp.icurate.tenmin.mankan_all.full",
+    "ascAppId": ""
+  },
+  "chintai-all": {
+    "name": "賃貸不動産経営管理士試験10分模試",
+    "bundleId": "jp.icurate.tenmin.chintai-all",
+    "sku": "jp.icurate.tenmin.chintai_all.full",
+    "ascAppId": ""
+  },
+  "sharoushi-all": {
+    "name": "社会保険労務士試験択一式10分模試",
+    "bundleId": "jp.icurate.tenmin.sharoushi-all",
+    "sku": "jp.icurate.tenmin.sharoushi_all.full",
+    "ascAppId": ""
+  },
+  "gyosei-all": {
+    "name": "行政書士試験5肢択一10分模試",
+    "bundleId": "jp.icurate.tenmin.gyosei-all",
+    "sku": "jp.icurate.tenmin.gyosei_all.full",
+    "ascAppId": ""
+  },
+  "denken3-riron": {
+    "name": "電験三種理論10分模試",
+    "bundleId": "jp.icurate.tenmin.denken3-riron",
+    "sku": "jp.icurate.tenmin.denken3_riron.full",
+    "ascAppId": ""
+  },
+  "denken3-denryoku": {
+    "name": "電験三種電力10分模試",
+    "bundleId": "jp.icurate.tenmin.denken3-denryoku",
+    "sku": "jp.icurate.tenmin.denken3_denryoku.full",
+    "ascAppId": ""
+  },
+  "denken3-kikai": {
+    "name": "電験三種機械10分模試",
+    "bundleId": "jp.icurate.tenmin.denken3-kikai",
+    "sku": "jp.icurate.tenmin.denken3_kikai.full",
+    "ascAppId": ""
+  },
+  "denken3-houki": {
+    "name": "電験三種法規10分模試",
+    "bundleId": "jp.icurate.tenmin.denken3-houki",
+    "sku": "jp.icurate.tenmin.denken3_houki.full",
+    "ascAppId": ""
+  },
+  "kaigo-all": {
+    "name": "介護福祉士国家試験10分模試",
+    "bundleId": "jp.icurate.tenmin.kaigo-all",
+    "sku": "jp.icurate.tenmin.kaigo_all.full",
+    "ascAppId": ""
+  },
+  "shakai-all": {
+    "name": "社会福祉士国家試験10分模試",
+    "bundleId": "jp.icurate.tenmin.shakai-all",
+    "sku": "jp.icurate.tenmin.shakai_all.full",
+    "ascAppId": ""
+  },
+  "ouyou-tech": {
+    "name": "応用情報技術者試験テクノロジ系10分模試",
+    "bundleId": "jp.icurate.tenmin.ouyou-tech",
+    "sku": "jp.icurate.tenmin.ouyou_tech.full",
+    "ascAppId": ""
+  },
+  "ouyou-mgmt": {
+    "name": "応用情報技術者試験マネジメント・ストラテジ系10分模試",
+    "bundleId": "jp.icurate.tenmin.ouyou-mgmt",
+    "sku": "jp.icurate.tenmin.ouyou_mgmt.full",
+    "ascAppId": ""
+  },
+  "kashikin-all": {
+    "name": "貸金業務取扱主任者資格試験10分模試",
+    "bundleId": "jp.icurate.tenmin.kashikin-all",
+    "sku": "jp.icurate.tenmin.kashikin_all.full",
+    "ascAppId": ""
+  },
+  "koukou-nankan-rekishi": {
+    "name": "高校受験難関国私立高校歴史10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-nankan-rekishi",
+    "sku": "jp.icurate.tenmin.koukou_nankan_rekishi.full",
+    "ascAppId": ""
+  },
+  "koukou-nankan-chiri": {
+    "name": "高校受験難関国私立高校地理10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-nankan-chiri",
+    "sku": "jp.icurate.tenmin.koukou_nankan_chiri.full",
+    "ascAppId": ""
+  },
+  "koukou-nankan-koumin": {
+    "name": "高校受験難関国私立高校公民10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-nankan-koumin",
+    "sku": "jp.icurate.tenmin.koukou_nankan_koumin.full",
+    "ascAppId": ""
+  },
+  "koukou-nankan-rika": {
+    "name": "高校受験難関国私立高校理科10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-nankan-rika",
+    "sku": "jp.icurate.tenmin.koukou_nankan_rika.full",
+    "ascAppId": ""
+  },
+  "koukou-nankan-eigo": {
+    "name": "高校受験難関国私立高校英語10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-nankan-eigo",
+    "sku": "jp.icurate.tenmin.koukou_nankan_eigo.full",
+    "ascAppId": ""
+  },
+  "koukou-nankan-kokugo": {
+    "name": "高校受験難関国私立高校国語10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-nankan-kokugo",
+    "sku": "jp.icurate.tenmin.koukou_nankan_kokugo.full",
+    "ascAppId": ""
+  },
+  "koukou-nankan-sugaku": {
+    "name": "高校受験難関国私立高校数学10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-nankan-sugaku",
+    "sku": "jp.icurate.tenmin.koukou_nankan_sugaku.full",
+    "ascAppId": ""
+  },
+  "koukou-rekishi": {
+    "name": "高校受験公立・中堅私立高校歴史10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-rekishi",
+    "sku": "jp.icurate.tenmin.koukou_rekishi.full",
+    "ascAppId": ""
+  },
+  "koukou-chiri": {
+    "name": "高校受験公立・中堅私立高校地理10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-chiri",
+    "sku": "jp.icurate.tenmin.koukou_chiri.full",
+    "ascAppId": ""
+  },
+  "koukou-koumin": {
+    "name": "高校受験公立・中堅私立高校公民10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-koumin",
+    "sku": "jp.icurate.tenmin.koukou_koumin.full",
+    "ascAppId": ""
+  },
+  "koukou-rika": {
+    "name": "高校受験公立・中堅私立高校理科10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-rika",
+    "sku": "jp.icurate.tenmin.koukou_rika.full",
+    "ascAppId": ""
+  },
+  "koukou-eigo": {
+    "name": "高校受験公立・中堅私立高校英語10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-eigo",
+    "sku": "jp.icurate.tenmin.koukou_eigo.full",
+    "ascAppId": ""
+  },
+  "koukou-kokugo": {
+    "name": "高校受験公立・中堅私立高校国語10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-kokugo",
+    "sku": "jp.icurate.tenmin.koukou_kokugo.full",
+    "ascAppId": ""
+  },
+  "koukou-sugaku": {
+    "name": "高校受験公立・中堅私立高校数学10分模試",
+    "bundleId": "jp.icurate.tenmin.koukou-sugaku",
+    "sku": "jp.icurate.tenmin.koukou_sugaku.full",
+    "ascAppId": ""
+  },
+  "chugaku-nankan-rekishi": {
+    "name": "中学受験難関私立・国立中学歴史10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-nankan-rekishi",
+    "sku": "jp.icurate.tenmin.chugaku_nankan_rekishi.full",
+    "ascAppId": ""
+  },
+  "chugaku-nankan-chiri": {
+    "name": "中学受験難関私立・国立中学地理10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-nankan-chiri",
+    "sku": "jp.icurate.tenmin.chugaku_nankan_chiri.full",
+    "ascAppId": ""
+  },
+  "chugaku-nankan-koumin": {
+    "name": "中学受験難関私立・国立中学公民・時事10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-nankan-koumin",
+    "sku": "jp.icurate.tenmin.chugaku_nankan_koumin.full",
+    "ascAppId": ""
+  },
+  "chugaku-nankan-rika": {
+    "name": "中学受験難関私立・国立中学理科10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-nankan-rika",
+    "sku": "jp.icurate.tenmin.chugaku_nankan_rika.full",
+    "ascAppId": ""
+  },
+  "chugaku-nankan-kokugo": {
+    "name": "中学受験難関私立・国立中学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-nankan-kokugo",
+    "sku": "jp.icurate.tenmin.chugaku_nankan_kokugo.full",
+    "ascAppId": ""
+  },
+  "chugaku-nankan-sansu": {
+    "name": "中学受験難関私立・国立中学算数10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-nankan-sansu",
+    "sku": "jp.icurate.tenmin.chugaku_nankan_sansu.full",
+    "ascAppId": ""
+  },
+  "chugaku-fuzoku-rekishi": {
+    "name": "中学受験大学附属中学歴史10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-fuzoku-rekishi",
+    "sku": "jp.icurate.tenmin.chugaku_fuzoku_rekishi.full",
+    "ascAppId": ""
+  },
+  "chugaku-fuzoku-chiri": {
+    "name": "中学受験大学附属中学地理10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-fuzoku-chiri",
+    "sku": "jp.icurate.tenmin.chugaku_fuzoku_chiri.full",
+    "ascAppId": ""
+  },
+  "chugaku-fuzoku-koumin": {
+    "name": "中学受験大学附属中学公民・時事10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-fuzoku-koumin",
+    "sku": "jp.icurate.tenmin.chugaku_fuzoku_koumin.full",
+    "ascAppId": ""
+  },
+  "chugaku-fuzoku-rika": {
+    "name": "中学受験大学附属中学理科10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-fuzoku-rika",
+    "sku": "jp.icurate.tenmin.chugaku_fuzoku_rika.full",
+    "ascAppId": ""
+  },
+  "chugaku-fuzoku-kokugo": {
+    "name": "中学受験大学附属中学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-fuzoku-kokugo",
+    "sku": "jp.icurate.tenmin.chugaku_fuzoku_kokugo.full",
+    "ascAppId": ""
+  },
+  "chugaku-fuzoku-sansu": {
+    "name": "中学受験大学附属中学算数10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-fuzoku-sansu",
+    "sku": "jp.icurate.tenmin.chugaku_fuzoku_sansu.full",
+    "ascAppId": ""
+  },
+  "chugaku-rekishi": {
+    "name": "中学受験一般私立中学歴史10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-rekishi",
+    "sku": "jp.icurate.tenmin.chugaku_rekishi.full",
+    "ascAppId": ""
+  },
+  "chugaku-chiri": {
+    "name": "中学受験一般私立中学地理10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-chiri",
+    "sku": "jp.icurate.tenmin.chugaku_chiri.full",
+    "ascAppId": ""
+  },
+  "chugaku-koumin": {
+    "name": "中学受験一般私立中学公民・時事10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-koumin",
+    "sku": "jp.icurate.tenmin.chugaku_koumin.full",
+    "ascAppId": ""
+  },
+  "chugaku-rika": {
+    "name": "中学受験一般私立中学理科10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-rika",
+    "sku": "jp.icurate.tenmin.chugaku_rika.full",
+    "ascAppId": ""
+  },
+  "chugaku-kokugo": {
+    "name": "中学受験一般私立中学国語10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-kokugo",
+    "sku": "jp.icurate.tenmin.chugaku_kokugo.full",
+    "ascAppId": ""
+  },
+  "chugaku-sansu": {
+    "name": "中学受験一般私立中学算数10分模試",
+    "bundleId": "jp.icurate.tenmin.chugaku-sansu",
+    "sku": "jp.icurate.tenmin.chugaku_sansu.full",
+    "ascAppId": ""
   }
 }
