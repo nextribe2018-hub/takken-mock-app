@@ -62,6 +62,12 @@
     },
     "plugins": [
       "expo-iap"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4c03bd23-453d-4ff5-b94a-f16a068f795a"
+      }
+    },
+    "owner": "icurate2022"
   }
 }

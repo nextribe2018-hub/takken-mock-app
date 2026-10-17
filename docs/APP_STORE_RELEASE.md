@@ -24,12 +24,12 @@
 | # | 作業 | 場所 | 注意 |
 |---|---|---|---|
 | 1 | ~~名義を決める~~ → **株式会社iCurate に決定・D-U-N-S取得済み**（2026-10-11） | — | 済 |
-| 2 | Apple Developer Program に登録（**2026-10-11 申請済み・審査中**。Appleからの確認メール／電話に対応 → 支払いメールで年会費を払う） | Apple Developer アプリ（iPhone）または developer.apple.com | 年会費 99米ドル相当（円建て価格は登録画面で確認）。2ファクタ認証必須 |
+| 2 | ~~Apple Developer Program に登録~~ → **完了**（チームID 6Q2VM9T3Q4） | — | 済 |
 | 3 | **有料アプリ契約**に同意し、銀行口座・税務情報を登録 | App Store Connect →「ビジネス」 | これが済まないとアプリ内課金を販売できない。税務は日本の居住者として W-8BEN 等を入力 |
-| 4 | **App Store 小規模事業者プログラム**に申請 | developer.apple.com/app-store/small-business-program | 手数料 30%→15%。登録後すぐ申請 |
+| 4 | ~~App Store 小規模事業者プログラムに申請~~ → **2026-10-15 申請済み**（承認待ち） | developer.apple.com/app-store/small-business-program | 手数料 30%→15%。登録後すぐ申請 |
 | 5 | Expo アカウント作成・ログイン | Mac で `npx expo login` | 実機確認（Expo Go）にも使う |
-| 6 | App Store Connect で「新規App」を作成 | App Store Connect → アプリ → ＋ | バンドルID `jp.icurate.takkenmock`、SKU 例 `takkenmock-001`、主言語 日本語。作成後の「Apple ID」（数字）を `eas.json` の `ascAppId` に入れる |
-| 7 | 課金アイテム（非消耗型）を登録 | App Store Connect → アプリ → App内課金 | 製品ID案：`jp.icurate.takkenmock.unlock.takken` など試験ごとに1つ。価格・表示名・審査用スクショが必要 |
+| 6 | App Store Connect で「新規App」を作成（試験ごとに1つ。まず宅建） | App Store Connect → アプリ → ＋ | 名前・バンドルIDは `variants.json`（宅建：「宅建10分模試」`jp.icurate.takkenmock`（Apple ID 6823208571。2026-10-15 作成済み））。SKU 例 `takkenmock-001`、主言語 日本語。作成後の「Apple ID」（数字）を `variants.json` の `ascAppId` に入れて `npm run variants` |
+| 7 | 課金アイテム（**非消耗型**）を登録 | App Store Connect → アプリ → App内課金 | 製品IDは `variants.json` の `sku`（宅建：`jp.icurate.takkenmock.full`）。価格 **400円**、表示名例「全問解放」、審査用スクショ（無料版の案内カード）が必要。IDが1字でも違うと購入ボタンが動かない |
 | 8 | プライバシーポリシーとサポートページを公開 | icurate.jp | 下書きは `docs/privacy-policy.md`。URL 2つ（ポリシー・サポート）がストア登録に必須 |
 | 9 | 過去問の利用条件の確認（実施機関の回答）・専門家チェック | — | 有料販売の前提条件（HANDOFF 9章） |
 
@@ -40,7 +40,7 @@
 | # | 作業 | 状態 |
 |---|---|---|
 | 1 | 入口の試験選択画面・4択画面（複数試験化 ステップ2・3） | 着手可 |
-| 2 | 無料範囲の制限と買い切り解除（`expo-iap` または RevenueCat）、「購入を復元」ボタン | **無料範囲・価格の決定待ち** |
+| 2 | 無料範囲の制限と買い切り解除（`expo-iap`）、「購入を復元」ボタン | **実装済み**（2026-10-11）。Sandbox での購入テストは登録完了後 |
 | 3 | 開発ビルド（`eas build --profile preview`）で課金のテスト（Sandbox） | 課金実装後 |
 | 4 | ストア用スクリーンショット（6.9インチ iPhone 必須、iPad 対応なら 13インチも） | 画面が固まってから |
 | 5 | 本番ビルドと提出：`npx eas-cli@latest build -p ios --profile production` → `npx eas-cli@latest submit -p ios` | 1〜8 が済んでから |
@@ -101,6 +101,35 @@ App内課金（非消耗型）で各試験の全問題が解除されます。�
 
 ---
 
+## 3.5 試験ごとの別アプリのビルド
+
+| 作業 | コマンド |
+|---|---|
+| 試験を増やした・名前を変えたあと | `npm run variants`（`variants.json` と `eas.json` の試験ごとのプロファイルを更新） |
+| 宅建アプリの本番ビルド | `npx eas-cli@latest build -p ios --profile takken` |
+| 宅建アプリの提出 | `npx eas-cli@latest submit -p ios --profile takken`（`ascAppId` を入れてから） |
+| 課金の確認用ビルド（実機） | `expo-iap` は Expo Go では動かない。開発ビルドか TestFlight で Sandbox アカウントを使って確認する |
+
+- 無料版：各分野の10問に1問（分野内の並びで0, 10, 20…番目）。問題を途中に挿入すると無料の問題が入れ替わるので、問題は末尾に足す
+- 開発中（`__DEV__`）だけホームの下に「開発用：解放する」ボタンが出る。本番ビルドには出ない
+- 1アプリに全試験のデータが入っている（合計数MB）。試験ごとに必要なデータだけにするのは今後の改善
+
+### ビルドの記録
+- 2026-10-17 宅建 1.0.0（ビルド2）を EAS でビルドし App Store Connect に提出済み（TestFlight）。EAS プロジェクト `@icurate2022/takken-mock-app`
+- ビルド1は失敗：アプリ名（日本語）が Xcode のプロジェクト名に使われ、英数字が「10」しか残らなかったため。`app.config.ts` で name を英数字（`Tenmin<試験ID>`）にし、ホーム画面の名前は `CFBundleDisplayName` で付けて解決
+- この Mac には Xcode が入っていないので、ローカルでの iOS ビルド確認はできない（EAS のクラウドビルドを使う）
+
+## 3.6 アイコン・スクショ・掲載文の案（design/）
+
+| ファイル | 内容 |
+|---|---|
+| `design/デザイン案.xlsx` | アイコン5案・スクショ3方向×6枚・説明文・プライバシーポリシー・競合参考。黄色の「修正コメント」列に書いてもらう |
+| `design/spec.json` | アイコンとスクショの元（色・文字・見出し・使う画面）。`changes` に対応内容を書くと Excel の「対応状況」に出る |
+| `design/text.json` | 掲載文・プライバシーポリシー・競合参考の元。`docs/store-listing.md`・`docs/privacy-policy.md` はここから生成 |
+| `design/screens/` | 実際のアプリ画面（Web 版を iPhone 6.9インチ相当で撮影。`design/capture/capture.mjs`） |
+
+直す流れ：`read_feedback.py` でコメントを読む → spec.json／text.json を直す → `make_assets.py` → `build_xlsx.py`（前のコメントは「前回のコメント」列に移る）
+
 ## 4. 審査で落ちやすい点（このアプリでの対策）
 
 | ガイドライン | 内容 | 対策 |
@@ -108,6 +137,7 @@ App内課金（非消耗型）で各試験の全問題が解除されます。�
 | 3.1.1 | デジタルコンテンツの解除は App内課金のみ。外部決済への誘導は不可 | 課金は IAP（StoreKit）で実装 |
 | 3.1.1 | 非消耗型には「購入を復元」が必須 | ホームに復元ボタン |
 | 4.2 | Webを包んだだけのアプリは却下 | ネイティブ実装済み（Expo / RN） |
+| 4.3 | ほぼ同じアプリを多数出すと「スパム」として却下 | まず宅建1本を出す。増やすときは試験ごとにアイコン・説明・スクショを変え、少しずつ出す |
 | 2.1 | 審査時に未完成・クラッシュがあると却下 | TestFlight で全画面を確認してから提出 |
 | 5.1.1 | ログインを入れるならアプリ内でアカウント削除が必要 | 初版はログインなし |
 | 5.2 | 他者の権利物（過去問・参考書の文章）の無断利用 | 実施機関の回答と専門家確認を待ってから有料化 |

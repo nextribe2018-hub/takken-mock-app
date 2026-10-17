@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "palette": {
+    "navy": "#1F3A5F",
+    "gold": "#F2B33D",
+    "cream": "#F7F3EA",
+    "teal": "#127C7A",
+    "orange": "#F08A24",
+    "red": "#C8432F",
+    "green": "#2F7A4B",
+    "ink": "#1F2A2E",
+    "white": "#FFFFFF"
+  },
+  "icons": [
+    {
+      "id": "I1",
+      "name": "紺×金 タイマー",
+      "style": "timer_ring",
+      "bg": "navy", "accent": "gold", "fg": "white",
+      "main": "宅建", "sub": "10分模試",
+      "intent": "紺地に金色の「10分」の弧（時計の60分のうち10分）。「1回10分」を主役にする案。競合に多い緑・赤を避け、一覧で目立たせる"
+    },
+    {
+      "id": "I2",
+      "name": "○× ブロック",
+      "style": "ox_blocks",
+      "bg": "cream", "accent": "red", "fg": "navy",
+      "main": "宅建", "sub": "10分",
+      "intent": "○×形式がひと目で分かる案。クリーム地に「宅建」と○（緑）×（赤）の2マス。勉強アプリらしいやわらかさ"
+    },
+    {
+      "id": "I3",
+      "name": "ストップウォッチ 10",
+      "style": "stopwatch",
+      "bg": "teal", "accent": "orange", "fg": "white",
+      "main": "宅建", "sub": "10",
+      "intent": "ティール地に白いストップウォッチと大きな「10」。時間で区切る模試というコンセプトを図で見せる"
+    },
+    {
+      "id": "I4",
+      "name": "家の屋根＋10分",
+      "style": "roof",
+      "bg": "navy", "accent": "gold", "fg": "white",
+      "main": "10分", "sub": "宅建模試",
+      "intent": "不動産（家の屋根）のモチーフで宅建と分かる案。下の金帯に「宅建模試」"
+    },
+    {
+      "id": "I5",
+      "name": "参考書風 明朝",
+      "style": "book",
+      "bg": "cream", "accent": "red", "fg": "navy",
+      "main": "宅建", "sub": "10分",
+      "intent": "参考書の表紙のような落ち着いた明朝体と、赤い角印の「10分」。大人の資格学習向けの信頼感"
+    }
+  ],
+  "screenshot_sets": [
+    {
+      "id": "A",
+      "name": "紺×金（アイコンI1・I4と合わせる）",
+      "style": "dark", "bg": "navy", "head": "white", "subc": "gold"
+    },
+    {
+      "id": "B",
+      "name": "クリーム×明朝（アイコンI2・I5と合わせる）",
+      "style": "light", "bg": "cream", "head": "navy", "subc": "red"
+    },
+    {
+      "id": "C",
+      "name": "ティール×オレンジ（アイコンI3と合わせる）",
+      "style": "band", "bg": "teal", "head": "white", "subc": "orange"
+    }
+  ],
+  "slides": [
+    { "no": 1, "head": "1回10分、10問だけ。", "sub": "本試験と同じ分野比率の○×模試", "screen": "exam" },
+    { "no": 2, "head": "解いたその場で、解説。", "sub": "正誤・根拠・覚え方をすぐ確認", "screen": "instant" },
+    { "no": 3, "head": "間違えた論点は\n類題3問で定着", "sub": "解説 → 付随する論点 → 確認例題", "screen": "lesson" },
+    { "no": 4, "head": "5回で本試験1回分", "sub": "合計点で、いまの位置がわかる", "screen": "home" },
+    { "no": 5, "head": "苦手が色でわかる", "sub": "論点ごとの直近10問の正答率マップ", "screen": "map" },
+    { "no": 6, "head": "400円の買い切り", "sub": "広告なし・登録なし。まずは無料で", "screen": "free" }
+  ],
+  "changes": {}
+}
