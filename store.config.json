@@ -1,0 +1,69 @@
+{
+  "configVersion": 0,
+  "apple": {
+    "copyright": "2026 iCurate Co.,Ltd",
+    "categories": [
+      "EDUCATION",
+      "REFERENCE"
+    ],
+    "info": {
+      "ja": {
+        "title": "宅建10分模試",
+        "subtitle": "本試験と同じ比率の○×模試を毎日10分",
+        "promoText": "通勤電車の中でスマホで勉強。1回10問の○×に答えると、すぐに正解と簡単な解説。苦手なテーマは正答率でひと目でわかり、繰り返すほど弱点をカバーできます。まずは無料でお試しください。",
+        "keywords": [
+          "宅建士",
+          "宅地建物取引士",
+          "過去問",
+          "模試",
+          "一問一答",
+          "○×",
+          "不動産",
+          "資格",
+          "試験対策",
+          "問題集",
+          "勉強",
+          "宅建業法",
+          "権利関係",
+          "法令上の制限",
+          "スキマ時間"
+        ],
+        "description": "1回10問・10分。通勤や昼休みに、本試験と同じ分野比率の○×模試を。\n\n■ 通勤電車の中で、スマホで勉強\n・1回は10問の○×だけ。片手で答えられるので、通勤電車の中やちょっとした待ち時間に最適です\n・答えた直後に正解と簡単な解説が出るので、その場で確認でき、記憶に残りやすくなります\n・苦手なテーマは論点ごとの正答率でひと目でわかります\n・繰り返し解くことで、まだ解いていない問題と前回間違えた問題が優先して出題され、弱点を少しずつカバーできます\n\n■ こんな方に\n・まとまった勉強時間がとれない社会人の方\n・過去問を解きっぱなしにしてしまう方\n・いまの実力が合格ラインに届いているか知りたい方\n\n■ 10分で1回、5回で本試験1回分\n・宅建業法・権利関係・法令上の制限・税その他を、本試験と同じ比率で出題します\n・5回の合計点で、本試験50問に換算したいまの位置がわかります\n・まだ解いていない問題、前回間違えた問題から優先して出題します\n\n■ 解いたその場で解説\n・○か×を選ぶと、すぐに正誤・解説・覚え方を表示します\n・出典（年度・問・肢）も表示します\n\n■ 間違えた論点は「類題3問」で定着\n・解説 → ひっかけ → 付随する論点 → 確認例題3問の順で復習します\n・論点ごとの直近10問の正答率を色で表示。苦手がひと目でわかります\n\n■ 合格の見込み\n・直近の正答率から、4択に換算した予想得点の目安を表示します\n\n■ 料金\n・無料：各分野の10問に1問を解けます\n・全問解放：400円の買い切り（月額料金はかかりません）\n・広告はありません。アカウント登録も不要です\n\n■ プライバシー\n・学習記録はお使いの端末の中だけに保存します。個人情報は集めません\n\n■ ご注意\n・本アプリは個人学習用の非公式教材で、試験の実施機関とは関係ありません\n・法令は改正されることがあります。最新の情報は公式資料でご確認ください",
+        "releaseNotes": "初めてのリリースです。",
+        "supportUrl": "https://icurate.jp/takken-support/",
+        "privacyPolicyUrl": "https://icurate.jp/takken-privacy/"
+      }
+    },
+    "advisory": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "unrestrictedWebAccess": false,
+      "seventeenPlus": false,
+      "kidsAgeBand": null,
+      "ageRatingOverride": "NONE",
+      "koreaAgeRatingOverride": "NONE"
+    },
+    "release": {
+      "automaticRelease": false,
+      "phasedRelease": false
+    },
+    "review": {
+      "firstName": "Makoto",
+      "lastName": "Fujio",
+      "email": "info@icurate.jp",
+      "phone": "+81 80-4476-9377",
+      "notes": "No login is required. Tap the first button on the home screen to start a 10-question, 10-minute mock exam (true/false format).\n\nIn-app purchase: one non-consumable item \"全問解放\" (jp.icurate.takkenmock.full, JPY 400) unlocks all questions. Without it, about one in ten questions of each field is available for free. The purchase button and \"購入を復元\" (Restore Purchases) are on the home screen card titled \"無料版\".\n\nAll learning records are stored only on the device. The app has no server, no analytics and no ads.\n\nThis is an unofficial study aid for the Japanese real estate transaction agent exam (宅建). It is not affiliated with the exam organizer."
+    }
+  }
+}

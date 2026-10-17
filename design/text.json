@@ -46,15 +46,15 @@
       "id": "T7",
       "field": "サポートURL",
       "limit": 0,
-      "text": "https://icurate.jp/apps/takken/support（案）",
-      "note": "公開するページを決めてから入れる"
+      "text": "https://icurate.jp/takken-support/",
+      "note": "WordPress の固定ページ（スラッグ takken-support）。docs/web/support.html を貼る"
     },
     {
       "id": "T8",
       "field": "プライバシーポリシーURL",
       "limit": 0,
-      "text": "https://icurate.jp/apps/takken/privacy（案）",
-      "note": "下のプライバシーポリシーを掲載するページ"
+      "text": "https://icurate.jp/takken-privacy/",
+      "note": "WordPress の固定ページ（スラッグ takken-privacy）。docs/web/privacy.html を貼る"
     }
   ],
   "privacy": {
@@ -104,7 +104,7 @@
       {
         "id": "P9",
         "head": "制定日",
-        "body": "2026年（月）（日）制定"
+        "body": "2026年10月17日 制定"
       }
     ]
   },
@@ -175,5 +175,12 @@
     "スクショの定番の訴求：過去問◯年分、全問解説付き、法改正対応、スキマ時間、苦手の復習、実績（DL数）",
     "差別化の候補：『1回10分』という時間の約束、本試験と同じ分野比率、論点ごとの類題3問、400円買い切り（サブスクなし）、ログイン不要・データ収集なし",
     "注意：他社のアイコン・スクショの画像や文章はそのまま使わない（構成の参考だけにする）"
-  ]
+  ],
+  "review": {
+    "firstName": "Makoto",
+    "lastName": "Fujio",
+    "email": "info@icurate.jp",
+    "phone": "+81 80-4476-9377",
+    "notes": "No login is required. Tap the first button on the home screen to start a 10-question, 10-minute mock exam (true/false format).\n\nIn-app purchase: one non-consumable item \"全問解放\" (jp.icurate.takkenmock.full, JPY 400) unlocks all questions. Without it, about one in ten questions of each field is available for free. The purchase button and \"購入を復元\" (Restore Purchases) are on the home screen card titled \"無料版\".\n\nAll learning records are stored only on the device. The app has no server, no analytics and no ads.\n\nThis is an unofficial study aid for the Japanese real estate transaction agent exam (宅建). It is not affiliated with the exam organizer."
+  }
 }

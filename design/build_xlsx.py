@@ -203,6 +203,60 @@ def write_markdown():
     open(os.path.join(ROOT, 'docs', 'privacy-policy.md'), 'w', encoding='utf-8').write('\n'.join(P))
 
 
+def write_store_config():
+    """EAS Metadata 用（npx eas-cli metadata:push）。スクショと App のプライバシーは対象外なので手で入れる。"""
+    t = {x['id']: x['text'] for x in TEXT['listing']}
+    cfg = {
+        'configVersion': 0,
+        'apple': {
+            'copyright': '2026 iCurate Co.,Ltd',
+            'categories': ['EDUCATION', 'REFERENCE'],
+            'info': {'ja': {
+                'title': t['T1'], 'subtitle': t['T2'], 'promoText': t['T3'],
+                'keywords': t['T4'].split(','), 'description': t['T5'], 'releaseNotes': t['T6'],
+                'supportUrl': t['T7'], 'privacyPolicyUrl': t['T8'],
+            }},
+            'advisory': {k: 'NONE' for k in [
+                'alcoholTobaccoOrDrugUseOrReferences', 'contests', 'gamblingSimulated', 'horrorOrFearThemes',
+                'matureOrSuggestiveThemes', 'medicalOrTreatmentInformation', 'profanityOrCrudeHumor',
+                'sexualContentGraphicAndNudity', 'sexualContentOrNudity', 'violenceCartoonOrFantasy',
+                'violenceRealistic', 'violenceRealisticProlongedGraphicOrSadistic']} | {
+                'gambling': False, 'unrestrictedWebAccess': False, 'seventeenPlus': False,
+                'kidsAgeBand': None, 'ageRatingOverride': 'NONE', 'koreaAgeRatingOverride': 'NONE'},
+            'release': {'automaticRelease': False, 'phasedRelease': False},
+            'review': TEXT['review'],
+        },
+    }
+    open(os.path.join(ROOT, 'store.config.json'), 'w', encoding='utf-8').write(json.dumps(cfg, ensure_ascii=False, indent=2) + '\n')
+
+
+def write_wp_pages():
+    """WordPress の固定ページに「カスタムHTML」ブロックで貼る本文（docs/web/）。"""
+    import html
+    os.makedirs(os.path.join(ROOT, 'docs', 'web'), exist_ok=True)
+    esc = lambda x: html.escape(x).replace('\n', '<br>')
+    pv = TEXT['privacy']
+    P = [f'<h2>{esc(pv["title"])}</h2>', f'<p>{esc(pv["intro"])}</p>']
+    for s in pv['sections']:
+        P += [f'<h3>{esc(s["head"])}</h3>', f'<p>{esc(s["body"])}</p>']
+    open(os.path.join(ROOT, 'docs', 'web', 'privacy.html'), 'w', encoding='utf-8').write('\n'.join(P) + '\n')
+    S = ['<h2>宅建10分模試 サポート</h2>',
+         '<p>iPhone アプリ「宅建10分模試」のお問い合わせ・よくある質問のページです。</p>',
+         '<h3>お問い合わせ</h3>',
+         '<p>不具合のご報告、問題や解説の誤りのご指摘、ご意見は、次のメールアドレスまでお送りください。<br>'
+         '<a href="mailto:info@icurate.jp?subject=%E5%AE%85%E5%BB%BA10%E5%88%86%E6%A8%A1%E8%A9%A6">info@icurate.jp</a><br>'
+         '件名に「宅建10分模試」と入れ、可能であれば iPhone の機種・iOS のバージョン・問題の出典（例：R06-38-1）をお書きください。</p>',
+         '<h3>よくある質問</h3>',
+         '<p><strong>Q. 全問解放を購入したのに、無料版のままです。</strong><br>A. ホーム画面の「購入を復元」を押してください。購入したときと同じ Apple ID でサインインしている必要があります。</p>',
+         '<p><strong>Q. 機種変更をしたら学習記録は引き継げますか？</strong><br>A. 学習記録は端末の中だけに保存しているため、現在は引き継げません。全問解放は「購入を復元」で新しい端末でも使えます。</p>',
+         '<p><strong>Q. 月額料金はかかりますか？</strong><br>A. かかりません。全問解放は400円の買い切りです。</p>',
+         '<p><strong>Q. 学習記録を消したい。</strong><br>A. ホーム画面の下にある「学習記録をすべて消す」で消せます。アプリを削除しても消えます。</p>',
+         '<h3>ご注意</h3>',
+         '<p>本アプリは個人学習用の非公式教材で、試験の実施機関とは関係ありません。法令は改正されることがあります。最新の情報は公式資料でご確認ください。</p>',
+         '<p>運営：株式会社iCurate</p>']
+    open(os.path.join(ROOT, 'docs', 'web', 'support.html'), 'w', encoding='utf-8').write('\n'.join(S) + '\n')
+
+
 def main():
     wb = Workbook()
     sheet_guide(wb)
@@ -214,6 +268,8 @@ def main():
     wb.calculation.fullCalcOnLoad = True
     wb.save(XLSX)
     write_markdown()
+    write_store_config()
+    write_wp_pages()
     print('OK:', XLSX)
 
 

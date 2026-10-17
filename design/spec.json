@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "palette": {
     "navy": "#1F3A5F",
     "gold": "#F2B33D",
@@ -134,6 +134,10 @@
   ],
   "changes": {
     "T3": "v2：通勤電車・回答直後の解説・正答率・繰り返しで弱点カバーの要素を入れた",
-    "T5": "v2：冒頭に「通勤電車の中で、スマホで勉強」の項目を追加"
+    "T5": "v2：冒頭に「通勤電車の中で、スマホで勉強」の項目を追加",
+    "I4": "v3：採用（assets/icon.png に反映）",
+    "B-全体": "v3：採用。App Store Connect に B-1〜B-6 を登録",
+    "T7": "v3：URL を icurate.jp/takken-support/ に決定",
+    "T8": "v3：URL を icurate.jp/takken-privacy/ に決定"
   }
 }

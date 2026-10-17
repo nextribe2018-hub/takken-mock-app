@@ -67,8 +67,8 @@
 
 ## サポートURL
 
-https://icurate.jp/apps/takken/support（案）
+https://icurate.jp/takken-support/
 
 ## プライバシーポリシーURL
 
-https://icurate.jp/apps/takken/privacy（案）
+https://icurate.jp/takken-privacy/

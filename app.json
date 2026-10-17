@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "jp.icurate.takkenmock",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
@@ -61,7 +61,15 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-iap"
+      "expo-iap",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/icon.png",
+          "imageWidth": 180,
+          "backgroundColor": "#1F3A5F"
+        }
+      ]
     ],
     "extra": {
       "eas": {
