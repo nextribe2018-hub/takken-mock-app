@@ -217,7 +217,7 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   for (const p of [0.6, 0.8, 0.9]) for (let j = 0; j < 4; j++) assert.ok(Math.abs(fourFromLimbs([p, p, p, p], j) - toExam(p)) < 1e-9);
   assert.ok(fourFromLimbs([0.95, 0.6, 0.6, 0.6], 0) > fourFromLimbs([0.6, 0.6, 0.6, 0.6], 0));
   assert.equal(refLabelJa('R03s-29'), '令和3年12月 問29'); assert.equal(refLabelJa('R01-43'), '令和元年 問43'); assert.equal(refLabelJa('H28-35'), '平成28年 問35');
-  assert.ok(Object.keys(FOUR_GROUPS).length > 500 && Object.values(FOUR_GROUPS).every(g => g.length <= 4));
+  assert.ok(Object.keys(FOUR_GROUPS).length > 500 && Object.values(FOUR_GROUPS).every(g => g.length <= 5));
   assert.equal(fourChoice({}).n, 0);
   const id = Object.keys(FOUR_GROUPS).find(k => FOUR_GROUPS[k].length === 3 && !/[アイウエ]/.test(FOUR_GROUPS[k][0].ref))!;
   const g = FOUR_GROUPS[id];

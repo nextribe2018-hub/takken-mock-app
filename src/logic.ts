@@ -205,9 +205,6 @@ export function wrongGroups<T extends Item, A extends number | null>(x: Exam, qs
   return out;
 }
 
-export const speechText = (t: string) =>
-  t.replace(/○/g, 'まる').replace(/×/g, 'ばつ').replace(/㎡/g, '平方メートル').replace(/％|%/g, 'パーセント');
-
 // ---- 宅建用（App.tsx の従来の呼び方） ----
 export const TAKKEN = EXAM.takken;
 export const BANK = TAKKEN.items as Q[];

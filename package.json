@@ -8,7 +8,6 @@
     "expo": "~57.0.30",
     "expo-haptics": "~57.0.3",
     "expo-iap": "^6.0.0",
-    "expo-speech": "~57.0.3",
     "expo-splash-screen": "~57.0.9",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
