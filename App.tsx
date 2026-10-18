@@ -966,7 +966,7 @@ function Stats({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'stats' }> }) 
           <>
             <View style={st.kpis}>
               <Kpi ctx={ctx} label="自己ベスト" value={`${sm.best}点`} />
-              <Kpi ctx={ctx} label="偏差値（仮）" value={`${tScore(sm.best!, dir)}`} />
+              <Kpi ctx={ctx} label={live && live !== 'wait' && liveT(sm.best!, live) != null ? '偏差値' : '偏差値（仮）'} value={`${(live && live !== 'wait' ? liveT(sm.best!, live) : null) ?? tScore(sm.best!, dir)}`} />
               <Kpi ctx={ctx} label="直近5回の平均" value={`${sm.avg5}点`} />
             </View>
             <Bars ctx={ctx} data={recent.map(t => ({ label: t.at.slice(5, 10).replace('-', '/'), value: t.score, hi: t.score === sm.best }))} max={Math.max(30, sm.best!)} />
