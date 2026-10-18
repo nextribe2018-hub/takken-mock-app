@@ -613,7 +613,7 @@ function VocabHome({ ctx }: { ctx: Ctx }) {
         <View style={st.barBg}><View style={[st.barFg, { width: `${Math.round((known / Math.max(1, x.items.length)) * 100)}%` }]} /></View>
         <Text style={st.note}>「覚えた」は最後に解いたとき正解した語。解いた語 {done}語。</Text>
         <View style={st.rowBetween}>
-          <Text style={st.body}>出題時に英語で読み上げる</Text>
+          <Text style={st.body}>出題時に{x.lang?.name ?? "英語"}で読み上げる</Text>
           <Switch value={p.voice} onValueChange={v => update({ ...p, voice: v })} trackColor={{ true: c.ai }} />
         </View>
         <Text style={st.body}>出題の向き</Text>

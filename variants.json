@@ -610,5 +610,11 @@
     "bundleId": "jp.icurate.tenmin.jukugo",
     "sku": "jp.icurate.tenmin.jukugo.full",
     "ascAppId": ""
+  },
+  "chugokugo": {
+    "name": "中国語単語1200・HSK1〜4級",
+    "bundleId": "jp.icurate.tenmin.chugokugo",
+    "sku": "jp.icurate.tenmin.chugokugo.full",
+    "ascAppId": ""
   }
 }

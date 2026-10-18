@@ -621,6 +621,12 @@
       "env": {
         "EXPO_PUBLIC_EXAM": "jukugo"
       }
+    },
+    "chugokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugokugo"
+      }
     }
   },
   "submit": {
