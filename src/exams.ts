@@ -100,6 +100,12 @@ import jChugakuKoumin from './data/chugaku-koumin.json';
 import jChugakuRika from './data/chugaku-rika.json';
 import jChugakuKokugo from './data/chugaku-kokugo.json';
 import jChugakuSansu from './data/chugaku-sansu.json';
+// 英単語3500（NGSL＋NAWL を英検の級の目安で分類。和訳・例文・解説は自作）
+import eitangoRaw from './data/eitango.json';
+import jukugoRaw from './data/jukugo.json';
+// 中国語単語（HSK1〜4級）・フランス語単語（仏検5級〜2級の目安）。和訳・例文・解説は自作
+import chugokugoRaw from './data/chugokugo.json';
+import futsugoRaw from './data/futsugo.json';
 
 export type ExamId =
   | 'takken' | 'rikkyo-sekaishi' | 'rikkyo-nihonshi'
@@ -108,7 +114,8 @@ export type ExamId =
   | 'meiji-nihonshi' | 'meiji-sekaishi' | 'meiji-eigo' | 'meiji-kokugo'
   | 'zeirishi-zaihyo' | 'zeirishi-souzoku' | 'zeirishi-shouhi' | 'zeirishi-shotoku' | 'todai-eigo' | 'todai-chiri' | 'todai-seibutsu' | 'waseda-eigo'
   | 'todai-kokugo' | 'todai-sugaku-bun' | 'todai-sugaku-ri' | 'todai-butsuri' | 'todai-kagaku' | 'todai-nihonshi' | 'waseda-nihonshi' | 'waseda-sekaishi' | 'waseda-kokugo' | 'zeirishi-boki' | 'zeirishi-houjin' | 'todai-sekaishi'
-  | 'itpass-all' | 'fe-kamokua' | 'sg-all' | 'kikenbutsu-otsu4' | 'denko2-gakka' | 'denko1-gakka' | 'eisei-ichi' | 'eisei-ni' | 'tohan-all' | 'kanri-all' | 'fp-san' | 'fp-ni' | 'boiler2-all' | 'kango-all' | 'boki-san' | 'boki-ni' | 'mankan-all' | 'chintai-all' | 'sharoushi-all' | 'gyosei-all' | 'denken3-riron' | 'denken3-denryoku' | 'denken3-kikai' | 'denken3-houki' | 'kaigo-all' | 'shakai-all' | 'ouyou-tech' | 'ouyou-mgmt' | 'kashikin-all' | 'koukou-nankan-rekishi' | 'koukou-nankan-chiri' | 'koukou-nankan-koumin' | 'koukou-nankan-rika' | 'koukou-nankan-eigo' | 'koukou-nankan-kokugo' | 'koukou-nankan-sugaku' | 'koukou-rekishi' | 'koukou-chiri' | 'koukou-koumin' | 'koukou-rika' | 'koukou-eigo' | 'koukou-kokugo' | 'koukou-sugaku' | 'chugaku-nankan-rekishi' | 'chugaku-nankan-chiri' | 'chugaku-nankan-koumin' | 'chugaku-nankan-rika' | 'chugaku-nankan-kokugo' | 'chugaku-nankan-sansu' | 'chugaku-fuzoku-rekishi' | 'chugaku-fuzoku-chiri' | 'chugaku-fuzoku-koumin' | 'chugaku-fuzoku-rika' | 'chugaku-fuzoku-kokugo' | 'chugaku-fuzoku-sansu' | 'chugaku-rekishi' | 'chugaku-chiri' | 'chugaku-koumin' | 'chugaku-rika' | 'chugaku-kokugo' | 'chugaku-sansu';
+  | 'itpass-all' | 'fe-kamokua' | 'sg-all' | 'kikenbutsu-otsu4' | 'denko2-gakka' | 'denko1-gakka' | 'eisei-ichi' | 'eisei-ni' | 'tohan-all' | 'kanri-all' | 'fp-san' | 'fp-ni' | 'boiler2-all' | 'kango-all' | 'boki-san' | 'boki-ni' | 'mankan-all' | 'chintai-all' | 'sharoushi-all' | 'gyosei-all' | 'denken3-riron' | 'denken3-denryoku' | 'denken3-kikai' | 'denken3-houki' | 'kaigo-all' | 'shakai-all' | 'ouyou-tech' | 'ouyou-mgmt' | 'kashikin-all' | 'koukou-nankan-rekishi' | 'koukou-nankan-chiri' | 'koukou-nankan-koumin' | 'koukou-nankan-rika' | 'koukou-nankan-eigo' | 'koukou-nankan-kokugo' | 'koukou-nankan-sugaku' | 'koukou-rekishi' | 'koukou-chiri' | 'koukou-koumin' | 'koukou-rika' | 'koukou-eigo' | 'koukou-kokugo' | 'koukou-sugaku' | 'chugaku-nankan-rekishi' | 'chugaku-nankan-chiri' | 'chugaku-nankan-koumin' | 'chugaku-nankan-rika' | 'chugaku-nankan-kokugo' | 'chugaku-nankan-sansu' | 'chugaku-fuzoku-rekishi' | 'chugaku-fuzoku-chiri' | 'chugaku-fuzoku-koumin' | 'chugaku-fuzoku-rika' | 'chugaku-fuzoku-kokugo' | 'chugaku-fuzoku-sansu' | 'chugaku-rekishi' | 'chugaku-chiri' | 'chugaku-koumin' | 'chugaku-rika' | 'chugaku-kokugo' | 'chugaku-sansu'
+  | 'eitango' | 'jukugo' | 'chugokugo' | 'futsugo';
 export type Format = 'ox' | 'choice';
 
 // 共通の問題形式。ox は a: 1＝○／0＝×、choice は a＝正解の c の番号
@@ -128,7 +135,9 @@ export type Item = {
   y?: number;     // 年（歴史。紀元前はマイナス）
   kind?: string;  // 出題区分（例 past／plan）
   keep?: boolean; // 選択肢を原文の順のまま出す（過去問題を原文で載せる試験。並べ替え禁止の利用条件）
+  word?: WordInfo; // 英単語：発音・品詞・例文（t が見出し語、c[a] が和訳）
 };
+export type WordInfo = { ipa: string; pos: string; ex: string; exj: string; exr?: string }; // exr は例文の読み（中国語のピンイン）
 
 export type Exam = {
   id: ExamId;
@@ -145,6 +154,9 @@ export type Exam = {
   kinds?: [string, string][];                 // 出題区分 [キー, 表示名]
   storageKey: string;
   items: Item[];
+  vocab?: boolean;                            // 英単語：級ごとの10問テストと単語帳を出す
+  rev?: Item[];                               // 英単語：和→英の問題（items と同じ順。安定キーは「見出し#je」）
+  lang?: { tts: string; name: string; abbr: string; credit: string }; // 単語帳：読み上げの言語・言語名（英語）・略（英）・出典の表示
 };
 
 // 宅建：安定キーは 分野|論点|出典（重複は #n）。既存の学習記録と互換
@@ -247,7 +259,54 @@ const school = (id: ExamId, name: string, short: string, raw: unknown): Exam =>
   pack(id, name, short, id.startsWith('koukou-') ? '高校受験' : '中学受験', SCHOOL_DESC[id.slice(id.lastIndexOf('-') + 1)],
     rikkyoItems(raw as RikkyoRaw[]));
 
-export const EXAMS: Exam[] = [
+// 単語帳（英・中・仏）：安定キーは見出し語。分野＝級（目安）。問題は「単語 → 和訳」の4択（c[0] が正解）と、その逆の「和訳 → 単語」
+type WordRaw = { w: string; lv: string; pos: string; ja: string; ipa?: string; ex: string; exj: string; exr?: string; d: string[]; note: string; m: string; src?: string };
+export const WORD_LEVELS = ['5級', '4級', '3級', '準2級', '2級', '準1級'];
+const HSK_LEVELS = ['HSK1級', 'HSK2級', 'HSK3級', 'HSK4級'];
+const FUTSUKEN_LEVELS = ['5級', '4級', '3級', '準2級', '2級'];
+// 和→英の誤答：同じ級（足りなければ隣の級）・同じ品詞の別の語から、和訳に共通する2文字がない語を選ぶ（big と large のような重なりを避ける）
+const jaKey = (ja: string) => ja.replace(/[～（）()「」・…、。；]|を|に|が|の|する|させる|される|な|だ|い$/g, '');
+const bigrams = (t: string) => new Set([...t].map((ch, i) => t.slice(i, i + 2)).filter(b => b.length === 2));
+const hash = (t: string) => { let h = 0; for (const ch of t) h = (h * 31 + ch.charCodeAt(0)) | 0; return Math.abs(h); };
+export const isJe = (q: Item) => q.k.endsWith('#je');
+type WordOpt = { id: ExamId; name: string; short: string; raw: unknown; what: string; range: string; levels: string[]; levelName: (l: string) => string; lang: NonNullable<Exam['lang']> };
+const wordPack = ({ id, name, short, raw, what, range, levels, levelName, lang }: WordOpt): Exam => {
+  const rs = raw as WordRaw[];
+  const items: Item[] = rs.map((r, i) => ({
+    k: r.w, i, f: r.lv, t: r.w, ref: r.src ?? '', s: r.w, c: [r.ja, ...r.d], a: 0, e: r.note, m: r.m,
+    word: { ipa: r.ipa ?? '', pos: r.pos, ex: r.ex, exj: r.exj, exr: r.exr },
+  }));
+  const pos1 = (r: WordRaw) => r.pos.split('・')[0];
+  const bg = rs.map(r => bigrams(jaKey(r.ja)));
+  const rev: Item[] = rs.map((r, i) => {
+    const pool = rs.map((o, j) => j).filter(j => j !== i && rs[j].lv === r.lv && pos1(rs[j]) === pos1(r)
+      && rs[j].w.slice(0, 4).toLowerCase() !== r.w.slice(0, 4).toLowerCase() && ![...bg[j]].some(b => bg[i].has(b)));
+    // 同じ品詞が少ない級（接続詞など）は、隣の級の同じ品詞まで広げる
+    const near = (j: number) => Math.abs(levels.indexOf(rs[j].lv) - levels.indexOf(r.lv)) <= 1;
+    const alt = pool.length >= 3 ? pool : rs.map((o, j) => j).filter(j => j !== i && near(j) && pos1(rs[j]) === pos1(r)
+      && rs[j].w.slice(0, 4).toLowerCase() !== r.w.slice(0, 4).toLowerCase() && ![...bg[j]].some(b => bg[i].has(b)));
+    if (alt.length < 3) alt.push(...rs.map((o, j) => j).filter(j => j !== i && rs[j].lv === r.lv && !alt.includes(j) && ![...bg[j]].some(b => bg[i].has(b))));
+    const picked: number[] = [];
+    for (let n = 0; picked.length < 3 && n < alt.length * 3; n++) {
+      const j = alt[(hash(r.w + n) % alt.length)];
+      if (!picked.includes(j)) picked.push(j);
+    }
+    for (const j of alt) if (picked.length < 3 && !picked.includes(j)) picked.push(j);
+    return { ...items[i], k: `${r.w}#je`, i: rs.length + i, s: r.ja, c: [r.w, ...picked.map(j => rs[j].w)] };
+  });
+  return {
+    id, name, short, group: '語学（単語・熟語）',
+    desc: `${range}レベルの${what}${items.length.toLocaleString()}語を、級ごとに1分10問で繰り返し。${lang.abbr}→和・和→${lang.abbr}の4択。和訳・例文・発音つき。`,
+    format: 'choice', fields: levels.filter(l => rs.some(r => r.lv === l)).map(l => [l, levelName(l)]), size: 10, limit: 60, reviewBy: 'field', // 1分で10問。答えるとすぐ次へ進み、解説は結果画面で見る
+    storageKey: `exam-progress-v1:${id}`, items, rev, vocab: true, lang,
+  };
+};
+
+const EN_CREDIT = '級分けは CEFR-J Wordlist Version 1.6（東京外国語大学 投野由紀夫研究室）のレベルと、日本英語検定協会が公表している英検とCEFRの対応をもとにした目安で、英検の公式の語彙表ではありません。英検®は公益財団法人日本英語検定協会の登録商標です。このアプリは同協会の承認や推奨を受けたものではありません。';
+const en = (credit: string) => ({ tts: 'en-US', name: '英語', abbr: '英', credit });
+const eiken = { range: '英検5級〜準1級', levels: WORD_LEVELS, levelName: (l: string) => `英検${l}レベル` };
+
+export const EXAMS: Exam[] = ([
   {
     id: 'takken', name: '宅建 10分模試', short: '宅建', group: '資格試験',
     desc: '本試験と同じ分野比率の○×10問。5回で本試験1回分。', format: 'ox',
@@ -376,7 +435,15 @@ export const EXAMS: Exam[] = [
   school('chugaku-rika', '中学受験 一般私立中学 理科', '中学中堅 理科', jChugakuRika),
   school('chugaku-kokugo', '中学受験 一般私立中学 国語', '中学中堅 国語', jChugakuKokugo),
   school('chugaku-sansu', '中学受験 一般私立中学 算数', '中学中堅 算数', jChugakuSansu),
-];
+  wordPack({ id: 'eitango', name: '英単語3500', short: '英単語', raw: eitangoRaw, what: '英単語', ...eiken,
+    lang: en(`見出し語は New General Service List（NGSL）1.2 と New Academic Word List（NAWL）1.2（Browne, C., Culligan, B., & Phillips, J.／CC BY-SA 4.0）から選びました。${EN_CREDIT}和訳・例文・解説は独自に作成しました。発音記号は CMU Pronouncing Dictionary をもとにした米音、音声は端末の読み上げ機能です。`) }),
+  wordPack({ id: 'jukugo', name: '英熟語1500', short: '英熟語', raw: jukugoRaw, what: '英熟語', ...eiken,
+    lang: en(`熟語は独自に選びました。${EN_CREDIT.replace('目安で', '目安（熟語は、含まれる単語の級に使われ方の難しさを加えて判断）で')}和訳・例文・解説は独自に作成しました。音声は端末の読み上げ機能です。`) }),
+  wordPack({ id: 'chugokugo', name: '中国語単語1200', short: '中国語', raw: chugokugoRaw, what: '中国語の単語', range: 'HSK1〜4級', levels: HSK_LEVELS, levelName: l => `${l}`,
+    lang: { tts: 'zh-CN', name: '中国語', abbr: '中', credit: '見出し語と級は HSK（漢語水平考試）の旧1〜4級の語彙表によります（complete-hsk-vocabulary／MIT License を利用）。HSK の公式教材ではありません。和訳・例文・ピンインの例文読み・解説は独自に作成しました。音声は端末の読み上げ機能です。' } }),
+  wordPack({ id: 'futsugo', name: 'フランス語単語2000', short: 'フランス語', raw: futsugoRaw, what: 'フランス語の単語', range: '仏検5級〜2級', levels: FUTSUKEN_LEVELS, levelName: l => `仏検${l}レベル`,
+    lang: { tts: 'fr-FR', name: 'フランス語', abbr: '仏', credit: '見出し語は Lexique 3.83（New, B., Pallier, C. ほか／CC BY-SA 4.0）の頻度をもとに選びました。級は頻度にもとづく目安で、仏検（実用フランス語技能検定試験）の公式の語彙表ではありません。このアプリは仏検の実施団体の承認や推奨を受けたものではありません。和訳・例文・解説は独自に作成しました。音声は端末の読み上げ機能です。' } }),
+] as Exam[]).filter(x => !x.vocab || x.items.length > 0); // 単語帳はデータを入れてから出す
 
 export const EXAM: Record<ExamId, Exam> = Object.fromEntries(EXAMS.map(x => [x.id, x])) as Record<ExamId, Exam>;
 const byKeyCache = new Map<ExamId, Record<string, Item>>();

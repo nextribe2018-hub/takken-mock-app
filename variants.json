@@ -598,5 +598,17 @@
     "bundleId": "jp.icurate.tenmin.chugaku-sansu",
     "sku": "jp.icurate.tenmin.chugaku_sansu.full",
     "ascAppId": ""
+  },
+  "eitango": {
+    "name": "英単語3500・英検5級〜準1級",
+    "bundleId": "jp.icurate.tenmin.eitango",
+    "sku": "jp.icurate.tenmin.eitango.full",
+    "ascAppId": ""
+  },
+  "jukugo": {
+    "name": "英熟語1500・英検5級〜準1級",
+    "bundleId": "jp.icurate.tenmin.jukugo",
+    "sku": "jp.icurate.tenmin.jukugo.full",
+    "ascAppId": ""
   }
 }

@@ -228,6 +228,22 @@ for (const p of [0.6, 0.7, 0.8, 0.9]) assert.ok(toExam(p, 0) < toExam(p, 0.5) &&
   console.log(`4択に戻す ${id}: 全肢正解→${Math.round(good.items[0].prob * 100)}% 全肢不正解→${Math.round(bad.items[0].prob * 100)}%（元の4択 ${Object.keys(FOUR_GROUPS).length}問）`);
 }
 
+// 12b) 英単語・英熟語の和→英：語と同じ数・選択肢4つが互いに違う英語・正解は元の語・誤答は同じか隣の級
+for (const x of EXAMS.filter(e => e.vocab)) {
+  const rev = x.rev!;
+  assert.equal(rev.length, x.items.length, `${x.id}: 和→英の数`);
+  const L = x.fields.map(([f]) => f);
+  const lv = new Map(x.items.map(q => [q.t, L.indexOf(q.f)]));
+  rev.forEach((q, i) => {
+    assert.equal(q.k, `${x.items[i].k}#je`, `${x.id} ${q.k}: 和→英のキー`);
+    assert.equal(q.c![q.a], x.items[i].t);
+    assert.equal(q.c!.length, 4, `${x.id} ${q.k}: 和→英の選択肢の数`);
+    assert.equal(new Set(q.c).size, 4, `${x.id} ${q.k}: 和→英の選択肢が重複`);
+    assert.ok(q.c!.every(w => Math.abs(lv.get(w)! - L.indexOf(q.f)) <= 1), `${x.id} ${q.k}: 和→英の誤答が離れた級`);
+  });
+  assert.equal(new Set([...x.items, ...rev].map(q => q.k)).size, x.items.length * 2, `${x.id}: キーが重複`);
+}
+
 // 13) 試験ごとの別アプリ：variants.json が EXAMS と一致（npm run variants で更新）・名前30字以内・IDの形式
 const V = variantsJson as Record<string, Variant>;
 assert.deepEqual(Object.keys(V).sort(), EXAMS.map(x => x.id).sort(), 'variants.json が古い（npm run variants を実行）');

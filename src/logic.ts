@@ -21,7 +21,8 @@ export type SetState = { round: number; scores: number[] };
 export type LogItem = { at: string; round: number; score: number; sec: number; field?: Field };
 // 論点ごとの直近10問の正誤（古い→新しい、'1'=正解）。キーは「分野|論点」
 export type Recent = Record<string, string>;
-export type Progress = { v: 2; hist: Hist; r10: Recent; set: SetState; log: LogItem[]; voice: boolean };
+// dir は英単語の出題の向き（ej＝英→和、je＝和→英、mix＝両方）
+export type Progress = { v: 2; hist: Hist; r10: Recent; set: SetState; log: LogItem[]; voice: boolean; dir?: 'ej' | 'je' | 'mix' };
 
 export const LESSON = lessonsRaw as Record<string, Lesson>;
 
@@ -104,7 +105,9 @@ export function freeExam(x: Exam): Exam {
   if (!e) {
     const seen: Record<string, number> = {};
     const items = x.items.filter(q => (seen[q.f] = (seen[q.f] ?? -1) + 1) % 10 === 0);
-    e = { ...x, items };
+    // 英単語の和→英は、無料の語と同じ語だけ
+    const keys = new Set(items.map(q => q.k));
+    e = { ...x, items, ...(x.rev ? { rev: x.rev.filter(q => keys.has(q.t)) } : {}) };
     freeCache.set(x.id, e);
   }
   return e;

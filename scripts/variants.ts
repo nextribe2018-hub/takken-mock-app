@@ -13,7 +13,9 @@ export const bundleIdOf = (id: string) => (id === 'takken' ? 'jp.icurate.takkenm
 // 課金アイテムIDは英数字・ピリオド・下線のみ（ハイフン不可）
 export const skuOf = (id: string) => `${bundleIdOf(id).replace(/-/g, '_')}.full`;
 // ストアのアプリ名（30字以内）。「宅建10分模試」の形（App Store Connect の登録名とそろえる）
-export const appNameOf = (id: string, name: string, short: string) => `${(id === 'takken' ? short : name).replace(/\s+/g, '')}10分模試`;
+export const appNameOf = (id: string, name: string, short: string) =>
+  id === 'eitango' ? '英単語3500・英検5級〜準1級' : id === 'jukugo' ? '英熟語1500・英検5級〜準1級' : id === 'chugokugo' ? '中国語単語1200・HSK1〜4級' : id === 'futsugo' ? 'フランス語単語2000・仏検5級〜2級' // 模試ではなく単語帳なので「10分模試」を付けない
+    : `${(id === 'takken' ? short : name).replace(/\s+/g, '')}10分模試`;
 
 export function buildVariants(prev: Record<string, Variant> = {}): Record<string, Variant> {
   return Object.fromEntries(EXAMS.map(x => [x.id, {

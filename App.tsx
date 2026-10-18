@@ -6,7 +6,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import * as Speech from 'expo-speech';
 import * as Haptics from 'expo-haptics';
-import { EXAM, Exam, ExamId, Item } from './src/exams';
+import { EXAM, Exam, ExamId, Item, isJe } from './src/exams';
 import {
   buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, Progress, Q,
   buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, freeExam, judge, pick, judgeSet, LessonSys, record,
@@ -27,8 +27,10 @@ type Screen =
   | { name: 'select' }
   | { name: 'home' }
   // field は宅建の分野別10問テスト
-  | { name: 'exam'; qs: Item[]; orders: Order[]; round: number; field?: Q['f'] }
-  | { name: 'result'; qs: Item[]; orders: Order[]; ans: Ans[]; score: number; round: number; used: number; setScores: number[] | null; field?: Q['f'] }
+  | { name: 'exam'; qs: Item[]; orders: Order[]; round: number; field?: string }
+  | { name: 'result'; qs: Item[]; orders: Order[]; ans: Ans[]; score: number; round: number; used: number; setScores: number[] | null; field?: string }
+  // 英単語の単語帳（級ごと・50語ずつ）。only は前回間違えた語だけ
+  | { name: 'words'; f: string; page: number; only: boolean }
   | { name: 'lesson'; queue: ReviewItem[] }
   | { name: 'check'; item: ReviewItem; rest: ReviewItem[]; qs: Item[]; orders: Order[] }
   | { name: 'deep'; key: string; focus: number; missed?: Q; back: Screen; trail: string[] };
@@ -102,6 +104,12 @@ function Root() {
     Speech.stop();
     Speech.speak(speechText(t), { language: 'ja-JP' });
   }, []);
+  // 英単語・英文の発音（端末の英語音声）
+  const tts = EXAM[examId]?.lang?.tts ?? 'en-US';
+  const speakEn = useCallback((t: string) => {
+    Speech.stop();
+    Speech.speak(t, { language: tts, rate: 0.9 });
+  }, [tts]);
   const choose = useCallback((id: ExamId) => {
     setExamId(id);
     setLast(id);
@@ -125,14 +133,15 @@ function Root() {
     },
     devToggle: __DEV__ ? () => unlock(examId, !full) : undefined,
   };
-  const ctx: Ctx = { c, st, x, p: all[examId] ?? emptyProgress(), update, go, speak, scrollToNode, screen, shop };
+  const ctx: Ctx = { c, st, x, p: all[examId] ?? emptyProgress(), update, go, speak, speakEn, scrollToNode, screen, shop };
   return (
     <SafeAreaView style={st.fill} edges={['top', 'left', 'right']}>
       <StatusBar style="auto" />
       <ScrollView ref={scrollRef}>
         <View ref={contentRef} collapsable={false} style={st.wrap}>
         {screen.name === 'select' && <Select ctx={ctx} all={all} unlocked={unlocked} last={last} onChoose={choose} />}
-        {screen.name === 'home' && <Home ctx={ctx} />}
+        {screen.name === 'home' && (x.vocab ? <VocabHome ctx={ctx} /> : <Home ctx={ctx} />)}
+        {screen.name === 'words' && <Words ctx={ctx} s={screen} />}
         {screen.name === 'exam' && <ExamView ctx={ctx} s={screen} />}
         {screen.name === 'result' && <Result ctx={ctx} s={screen} />}
         {screen.name === 'lesson' && <LessonView ctx={ctx} queue={screen.queue} />}
@@ -146,7 +155,7 @@ function Root() {
 
 type Ctx = {
   c: Colors; st: ReturnType<typeof makeStyles>; x: Exam; p: Progress;
-  update: (p: Progress) => void; go: (s: Screen) => void; speak: (t: string) => void;
+  update: (p: Progress) => void; go: (s: Screen) => void; speak: (t: string) => void; speakEn: (t: string) => void;
   scrollToNode: (node: View | null) => void; screen: Screen; shop: Shop;
 };
 // 全問解放（買い切り）の状態と操作
@@ -174,11 +183,26 @@ const startExam = (ctx: Ctx) => {
   const qs = buildRound(x, p.hist, round);
   go({ name: 'exam', qs, orders: ordersFor(x, qs), round });
 };
-// 宅建の分野別10問テストを始める
-const startFieldExam = (ctx: Ctx, f: Q['f']) => {
+// 分野別10問テストを始める（宅建の分野別・英単語の級別）
+const startFieldExam = (ctx: Ctx, f: string) => {
   const { x, p, go } = ctx;
   // 無料版は無料の問題（x.items）の中から出す
-  const qs = ctx.shop.full ? buildFieldExam(p.hist, f) : (pick(p.hist, x.items.filter(q => q.f === f), 10, new Set()) as Q[]);
+  const qs: Item[] = ctx.shop.full && isTakken(x) ? buildFieldExam(p.hist, f as Q['f'])
+    : x.vocab ? pickWords(ctx, f) : pick(p.hist, x.items.filter(q => q.f === f), 10, new Set());
+  go({ name: 'exam', qs, orders: ordersFor(x, qs), round: 0, field: f });
+};
+// 英単語：級の10問を選ぶ。向き（英→和／和→英／両方）は設定に従う。両方のときも同じ語は1回だけ
+const pickWords = (ctx: Ctx, f: string): Item[] => {
+  const { x, p } = ctx;
+  const dir = p.dir ?? 'mix';
+  const ej = x.items.filter(q => q.f === f), je = (x.rev ?? []).filter(q => q.f === f);
+  const pool = dir === 'ej' || !je.length ? ej : dir === 'je' ? je : [...ej, ...je];
+  const seen = new Set<string>();
+  return pick(p.hist, pool, Math.min(pool.length, 30), new Set()).filter(q => !seen.has(q.t) && !!seen.add(q.t)).slice(0, 10);
+};
+// 英単語：決めた語だけでテスト（結果画面の「間違えた語をもう一度」）
+const startWordsExam = (ctx: Ctx, qs: Item[], f?: string) => {
+  const { x, go } = ctx;
   go({ name: 'exam', qs, orders: ordersFor(x, qs), round: 0, field: f });
 };
 // 復習を始める：解説（宅建）か間違えた問題があれば解説画面、なければ確認例題へ直接
@@ -218,6 +242,28 @@ function JudgeTag({ ctx, tone, label }: { ctx: Ctx; tone: 'ok' | 'mid' | 'ng'; l
 // 問題文（本文があれば先に出す）
 function Stem({ ctx, q }: { ctx: Ctx; q: Item }) {
   const { st } = ctx;
+  if (q.word && isJe(q)) {
+    // 和→英：発音は答えが分かるので、答えたあとの解説で聞く
+    return (
+      <View style={{ gap: 2 }}>
+        <Text style={st.word}>{q.s}</Text>
+        <Text style={st.note}>{q.word.pos}</Text>
+        <Text style={st.body}>この意味の{ctx.x.lang?.name ?? '英語'}として正しいものを選んでください。</Text>
+      </View>
+    );
+  }
+  if (q.word) {
+    return (
+      <View style={{ gap: 2 }}>
+        <View style={st.row}>
+          <Text style={st.word}>{q.t}</Text>
+          <Btn ctx={ctx} label="🔊 発音" onPress={() => ctx.speakEn(q.t)} />
+        </View>
+        <Text style={st.note}>{[q.word.ipa, q.word.pos].filter(Boolean).join('　')}</Text>
+        <Text style={st.body}>意味として正しいものを選んでください。</Text>
+      </View>
+    );
+  }
   return (
     <>
       {!!q.p && <View style={st.passage}><Text style={st.body}>{q.p}</Text></View>}
@@ -265,8 +311,32 @@ function Explain({ ctx, q, your, ok }: { ctx: Ctx; q: Item; your?: Ans; ok: bool
           {`　答え：${ansText(q, q.a)}`}
         </Text>
       )}
+      {q.word && <WordCard ctx={ctx} q={q} />}
       <Text style={st.body}>{q.e}</Text>
       {!!q.m && <Text style={st.memo}>覚え方：<Text style={st.bold}>{q.m}</Text></Text>}
+    </View>
+  );
+}
+
+// 英単語の解説：発音・品詞・和訳・例文（英文は読み上げ可）
+function WordCard({ ctx, q }: { ctx: Ctx; q: Item }) {
+  const { st, speakEn } = ctx;
+  const w = q.word!;
+  return (
+    <View style={{ gap: 6 }}>
+      <View style={st.row}>
+        <Text style={st.wordSm}>{q.t}</Text>
+        <Text style={st.note}>{[w.ipa, w.pos].filter(Boolean).join('　')}</Text>
+        <Btn ctx={ctx} label="🔊" onPress={() => speakEn(q.t)} />
+      </View>
+      <View style={st.exBox}>
+        <View style={st.rowBetween}>
+          <Text style={[st.body, { flex: 1 }]}>{w.ex}</Text>
+          <Btn ctx={ctx} label="🔊" onPress={() => speakEn(w.ex)} />
+        </View>
+        {!!w.exr && <Text style={st.note}>{w.exr}</Text>}
+        <Text style={st.note}>{w.exj}</Text>
+      </View>
     </View>
   );
 }
@@ -311,7 +381,7 @@ function Select({ ctx, all, unlocked, last, onChoose }: {
                 </View>
                 <Text style={st.note}>{x.desc}</Text>
                 <Text style={st.note}>
-                  {x.format === 'ox' ? '○×' : '4択'}・全{x.items.length}問
+                  {x.vocab ? `単語帳＋4択・全${x.items.length}語` : `${x.format === 'ox' ? '○×' : '4択'}・全${x.items.length}問`}
                   {done ? `　解いた ${done}問・正答率 ${Math.round((cc / n) * 100)}%` : '　まだ解いていません'}
                 </Text>
               </Pressable>
@@ -519,6 +589,170 @@ function Home({ ctx }: { ctx: Ctx }) {
   );
 }
 
+/* ---------- 英単語：ホーム（級ごとの10問テストと単語帳） ---------- */
+function VocabHome({ ctx }: { ctx: Ctx }) {
+  const { c, st, x, p, update, go } = ctx;
+  const ab = x.lang?.abbr ?? '英';
+  const [confirm, setConfirm] = useState(false);
+  const hist = p.hist;
+  const done = x.items.filter(q => hist[q.k]).length;
+  const known = x.items.filter(q => hist[q.k]?.last === 1).length;
+  return (
+    <>
+      {!SINGLE && <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ 試験を選ぶ" onPress={() => go({ name: 'select' })} /></View>}
+      <View style={{ gap: 4 }}>
+        <Text style={st.h1}>{x.name}</Text>
+        <Text style={st.sub}>{x.desc}まだ解いていない語と前回間違えた語が優先して出ます。答えるとすぐ次の問題へ進み、例文・発音つきの解説は結果画面で確かめます。</Text>
+      </View>
+
+      <Card ctx={ctx}>
+        <View style={st.rowBetween}>
+          <Text style={st.h2}>覚えた語</Text>
+          <Text style={st.bold}>{known} / {x.items.length}語</Text>
+        </View>
+        <View style={st.barBg}><View style={[st.barFg, { width: `${Math.round((known / Math.max(1, x.items.length)) * 100)}%` }]} /></View>
+        <Text style={st.note}>「覚えた」は最後に解いたとき正解した語。解いた語 {done}語。</Text>
+        <View style={st.rowBetween}>
+          <Text style={st.body}>出題時に英語で読み上げる</Text>
+          <Switch value={p.voice} onValueChange={v => update({ ...p, voice: v })} trackColor={{ true: c.ai }} />
+        </View>
+        <Text style={st.body}>出題の向き</Text>
+        <View style={st.wrapRow}>
+          {([['mix', '両方'], ['ej', `${ab}→和`], ['je', `和→${ab}`]] as const).map(([d, l]) => (
+            <Btn key={d} ctx={ctx} label={l} selected={(p.dir ?? 'mix') === d} onPress={() => update({ ...p, dir: d })} />
+          ))}
+        </View>
+        <Text style={st.note}>{ab}→和は{x.lang?.name}を見て意味を、和→{ab}は意味を見て{x.lang?.name}を4つから選びます。</Text>
+      </Card>
+
+      {!ctx.shop.full && <Unlock ctx={ctx} done={done} />}
+
+      {x.fields.map(([f, n]) => {
+        const ws = x.items.filter(q => q.f === f);
+        if (!ws.length) return null;
+        const k = ws.filter(q => hist[q.k]?.last === 1).length;
+        const ng = ws.filter(q => hist[q.k]?.last === 0).length;
+        const seen = ws.filter(q => hist[q.k]).length;
+        return (
+          <Card key={f} ctx={ctx}>
+            <View style={st.rowBetween}>
+              <Text style={st.h2}>{n}</Text>
+              <Text style={st.note}>{ws.length}語</Text>
+            </View>
+            <View style={st.barBg}><View style={[st.barFg, { width: `${Math.round((k / ws.length) * 100)}%` }]} /></View>
+            <Text style={st.note}>覚えた {k}語・前回間違えた {ng}語・未着手 {ws.length - seen}語</Text>
+            <View style={st.wrapRow}>
+              <View style={{ flexGrow: 1 }}><Btn ctx={ctx} primary label="10問テスト" onPress={() => startFieldExam(ctx, f)} /></View>
+              <View style={{ flexGrow: 1 }}><Btn ctx={ctx} label="単語帳" onPress={() => go({ name: 'words', f, page: 0, only: false })} /></View>
+            </View>
+          </Card>
+        );
+      })}
+
+      {p.log.length > 0 && (
+        <Card ctx={ctx}>
+          <Text style={st.h2}>テストの履歴</Text>
+          {p.log.slice(-10).reverse().map(l => (
+            <View key={l.at} style={st.histRow}>
+              <Text style={st.note}>{l.at.slice(5, 10).replace('-', '/')} {l.at.slice(11, 16)}</Text>
+              <Text style={st.note}>{l.field ? fieldName(x, l.field) : '全レベル'}</Text>
+              <Text style={st.bold}>{l.score} / 10</Text>
+            </View>
+          ))}
+        </Card>
+      )}
+
+      <Card ctx={ctx}>
+        <Btn ctx={ctx} label="学習記録をすべて消す" onPress={() => setConfirm(true)} />
+        {confirm && (
+          <View style={st.confirm}>
+            <Text style={st.body}>{x.name}の解いた記録がすべて消えます。</Text>
+            <View style={st.wrapRow}>
+              <Btn ctx={ctx} label="消す" onPress={() => { update({ ...emptyProgress(), voice: p.voice }); setConfirm(false); }} />
+              <Btn ctx={ctx} label="やめる" onPress={() => setConfirm(false)} />
+            </View>
+          </View>
+        )}
+        <Text style={st.note}>{x.lang?.credit}</Text>
+        <View style={st.wrapRow}>
+          {ctx.shop.full ? <Text style={st.note}>全{ctx.shop.total}語を解放済みです。</Text> : <Btn ctx={ctx} label="購入を復元" onPress={ctx.shop.restore} />}
+          {ctx.shop.devToggle && <Btn ctx={ctx} label={`開発用：${ctx.shop.full ? '無料版に戻す' : '解放する'}`} onPress={ctx.shop.devToggle} />}
+        </View>
+        <Footer ctx={ctx} />
+      </Card>
+    </>
+  );
+}
+
+/* ---------- 英単語：単語帳（50語ずつ。押すと例文・解説） ---------- */
+const WORDS_PER_PAGE = 50;
+function Words({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'words' }> }) {
+  const { c, st, x, p, go, speakEn } = ctx;
+  const [open, setOpen] = useState<string | null>(null);
+  const list = x.items.filter(q => q.f === s.f && (!s.only || p.hist[q.k]?.last === 0));
+  const pages = Math.max(1, Math.ceil(list.length / WORDS_PER_PAGE));
+  const page = Math.min(s.page, pages - 1);
+  const rows = list.slice(page * WORDS_PER_PAGE, (page + 1) * WORDS_PER_PAGE);
+  const to = (pg: number) => go({ ...s, page: pg });
+  return (
+    <>
+      <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ ホーム" onPress={() => go({ name: 'home' })} /></View>
+      <View style={{ gap: 4 }}>
+        <Text style={st.h1}>{fieldName(x, s.f)}</Text>
+        <Text style={st.sub}>単語帳 {list.length}語。語を押すと例文と解説、🔊で発音を聞けます。印：○＝前回正解／×＝前回不正解／・＝未着手</Text>
+      </View>
+      <View style={st.wrapRow}>
+        <Btn ctx={ctx} label="全部の語" selected={!s.only} onPress={() => go({ ...s, page: 0, only: false })} />
+        <Btn ctx={ctx} label="前回間違えた語だけ" selected={s.only} onPress={() => go({ ...s, page: 0, only: true })} />
+        <Btn ctx={ctx} primary label="この級の10問テスト" onPress={() => startFieldExam(ctx, s.f)} />
+      </View>
+      <Card ctx={ctx}>
+        {!rows.length && <Text style={st.body}>{s.only ? '前回間違えた語はありません。' : '語がありません。'}</Text>}
+        {rows.map(q => {
+          const h = p.hist[q.k];
+          const w = q.word!;
+          const isOpen = open === q.k;
+          return (
+            <View key={q.k} style={st.wordRow}>
+              <View style={st.rowBetween}>
+                <Pressable accessibilityRole="button" onPress={() => setOpen(isOpen ? null : q.k)} style={({ pressed }) => [{ flex: 1, flexDirection: 'row', gap: 8, alignItems: 'center' }, pressed && st.pressed]}>
+                  <Text style={[st.mark, { color: !h ? c.muted : h.last ? c.ok : c.ng }]}>{!h ? '・' : h.last ? '○' : '×'}</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={st.bold}>{q.t}{!!w.ipa && <Text style={st.note}>　{w.ipa}</Text>}</Text>
+                    <Text style={st.note}>{w.pos}　{q.c![q.a]}</Text>
+                  </View>
+                </Pressable>
+                <Btn ctx={ctx} label="🔊" onPress={() => speakEn(q.t)} />
+              </View>
+              {isOpen && (
+                <View style={{ gap: 6, paddingLeft: 30 }}>
+                  <View style={st.exBox}>
+                    <View style={st.rowBetween}>
+                      <Text style={[st.body, { flex: 1 }]}>{w.ex}</Text>
+                      <Btn ctx={ctx} label="🔊" onPress={() => speakEn(w.ex)} />
+                    </View>
+                    {!!w.exr && <Text style={st.note}>{w.exr}</Text>}
+                    <Text style={st.note}>{w.exj}</Text>
+                  </View>
+                  <Text style={st.body}>{q.e}</Text>
+                  {!!q.m && <Text style={st.memo}>覚え方：<Text style={st.bold}>{q.m}</Text></Text>}
+                </View>
+              )}
+            </View>
+          );
+        })}
+      </Card>
+      {pages > 1 && (
+        <View style={st.rowBetween}>
+          <Btn ctx={ctx} label="‹ 前の50語" disabled={page === 0} onPress={() => to(page - 1)} />
+          <Text style={st.note}>{page * WORDS_PER_PAGE + 1}〜{Math.min(list.length, (page + 1) * WORDS_PER_PAGE)} / {list.length}</Text>
+          <Btn ctx={ctx} label="次の50語 ›" disabled={page >= pages - 1} onPress={() => to(page + 1)} />
+        </View>
+      )}
+    </>
+  );
+}
+
 // 無料版の案内と購入
 function Unlock({ ctx, done }: { ctx: Ctx; done: number }) {
   const { c, st, x, shop } = ctx;
@@ -659,10 +893,10 @@ function FourCard({ ctx }: { ctx: Ctx }) {
 
 /* ---------- 試験 ---------- */
 function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }) {
-  const { c, st, x, p, update, go, speak } = ctx;
+  const { c, st, x, p, update, go, speak, speakEn } = ctx;
   const { qs, orders, round, field } = s;
   // 宅建は1問ごとにその場で正誤と解説を表示（10問テスト・分野別とも）。他の試験は採点まで正誤を出さない
-  const instant = isTakken(x);
+  const instant = isTakken(x) || !!x.vocab; // 英単語も1問ごとに正誤を出す（解説は結果画面）
   const [ans, setAns] = useState<Ans[]>(() => qs.map(() => null));
   const [cur, setCur] = useState(0);
   const [left, setLeft] = useState(x.limit);
@@ -677,7 +911,7 @@ function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }
     finished.current = true;
     const used = Math.min(x.limit, Math.round((Date.now() - start.current) / 1000));
     if (field) {
-      const r = finishFieldExam(p, field, qs as Q[], ansRef.current as (0 | 1 | null)[], used);
+      const r = finishFieldExam(p, field as Q['f'], qs as Q[], ansRef.current as (0 | 1 | null)[], used);
       update(r.next);
       go({ name: 'result', qs, orders, ans: ansRef.current, score: r.score, round: 0, used, setScores: null, field });
       return;
@@ -697,7 +931,7 @@ function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }
     return () => clearInterval(id);
   }, [x, finish]);
 
-  useEffect(() => { if (p.voice) speak(speakText(qs[cur], orders[cur])); }, [cur]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (p.voice) { if (x.vocab) { if (!isJe(qs[cur])) speakEn(qs[cur].t); } else speak(speakText(qs[cur], orders[cur])); } }, [cur]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const q = qs[cur];
   const choose = (v: number) => {
@@ -707,7 +941,20 @@ function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }
       const ok = v === qs[cur].a;
       Haptics.notificationAsync(ok ? Haptics.NotificationFeedbackType.Success : Haptics.NotificationFeedbackType.Error).catch(() => {});
       const next = [...ans]; next[cur] = v; setAns(next);
-      if (p.voice) speak(`${ok ? '正解。' : '不正解。'}答えは${qs[cur].a ? 'まる' : 'ばつ'}。${qs[cur].e}`);
+      if (x.vocab) {
+        // 1分10問：正誤だけ見せて自動で次へ。最後の問題に答えたら採点
+        const k = cur;
+        setTimeout(() => {
+          if (finished.current) return;
+          const rest = next.findIndex((a, i) => a == null && i > k);
+          const any = next.findIndex(a => a == null);
+          if (any < 0) finish(); else setCur(rest >= 0 ? rest : any);
+        }, ok ? 450 : 1100);
+        return;
+      }
+      if (p.voice) {
+        speak(`${ok ? '正解。' : '不正解。'}答えは${qs[cur].a ? 'まる' : 'ばつ'}。${qs[cur].e}`);
+      }
       return;
     }
     Haptics.selectionAsync().catch(() => {});
@@ -724,7 +971,7 @@ function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }
       <View style={st.rowBetween}>
         <View>
           <Text style={st.note}>{field ? `${fieldName(x, field)} 10問　` : x.rounds ? `第${round + 1}回　` : ''}{qs.length - un}/{qs.length}問 回答済み</Text>
-          <Text style={[st.timer, left <= 60 && { color: c.ng }]}>{Math.floor(left / 60)}:{String(left % 60).padStart(2, '0')}</Text>
+          <Text style={[st.timer, left <= (x.vocab ? 10 : 60) && { color: c.ng }]}>{Math.floor(left / 60)}:{String(left % 60).padStart(2, '0')}</Text>
         </View>
         <Btn ctx={ctx} label="採点する" onPress={tryFinish} />
       </View>
@@ -748,9 +995,11 @@ function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }
       <Card ctx={ctx}>
         <Text style={st.meta}>問{cur + 1}　{fieldName(x, q.f)}{kind ? `　${kind}` : ''}</Text>
         <Stem ctx={ctx} q={q} />
-        <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="読み上げ" onPress={() => speak(speakText(q, orders[cur]))} /></View>
+        {!x.vocab && <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="読み上げ" onPress={() => speak(speakText(q, orders[cur]))} /></View>}
         <AnswerPad ctx={ctx} q={q} order={orders[cur]} value={ans[cur]} locked={locked} onAnswer={choose} />
-        {locked && <Explain ctx={ctx} q={q} ok={ans[cur] === q.a} />}
+        {locked && (x.vocab
+          ? <Text style={[st.bold, { color: ans[cur] === q.a ? c.ok : c.ng }]}>{ans[cur] === q.a ? '○ 正解' : `× 正解は ${q.c![q.a]}`}</Text>
+          : <Explain ctx={ctx} q={q} ok={ans[cur] === q.a} />)}
         <View style={st.rowBetween}>
           <Btn ctx={ctx} label="前へ" disabled={cur === 0} onPress={() => setCur(cur - 1)} />
           <Btn ctx={ctx} primary={locked} label={cur < qs.length - 1 ? '次へ' : '採点する'} onPress={() => (cur < qs.length - 1 ? setCur(cur + 1) : tryFinish())} />
@@ -770,6 +1019,7 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
   const tot = s.setScores ? s.setScores.reduce((a, b) => a + b, 0) : 0;
   const sj = judgeSet(tot);
   const unit = x.reviewBy === 'topic' ? '論点' : '分野';
+  const missedW = s.qs.filter((q, k) => s.ans[k] !== q.a);
   return (
     <>
       <Card ctx={ctx}>
@@ -779,7 +1029,15 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
           <JudgeTag ctx={ctx} {...j} />
         </View>
         <Text style={st.note}>かかった時間 {Math.floor(s.used / 60)}分{s.used % 60}秒 / {x.limit / 60}分</Text>
-        {wrong.length ? (
+        {x.vocab ? (
+          <>
+            <Text style={st.note}>{missedW.length ? '間違えた語は下の解説で例文と発音を確かめてから、もう一度解きましょう。' : '全問正解です。'}1分10問を繰り返して覚えます。</Text>
+            <View style={st.wrapRow}>
+              <View style={{ flexGrow: 1 }}><Btn ctx={ctx} primary label="次の10問（1分）" onPress={() => startFieldExam(ctx, s.field!)} /></View>
+              {missedW.length > 0 && <View style={{ flexGrow: 1 }}><Btn ctx={ctx} label={`間違えた${missedW.length}語をもう一度`} onPress={() => startWordsExam(ctx, missedW, s.field)} /></View>}
+            </View>
+          </>
+        ) : wrong.length ? (
           <>
             <Text style={st.note}>
               {x.reviewBy === 'topic'
@@ -794,7 +1052,7 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
         ) : <Text style={st.body}>全問正解です。次の回に進みましょう。</Text>}
         <View style={st.wrapRow}>
           <Btn ctx={ctx} label="ホームへ" onPress={() => go({ name: 'home' })} />
-          {s.field
+          {x.vocab ? null : s.field
             ? <Btn ctx={ctx} label={`もう一度 ${fieldName(x, s.field)} 10問`} onPress={() => startFieldExam(ctx, s.field!)} />
             : <Btn ctx={ctx} label={nextLabel(x, p)} onPress={() => startExam(ctx)} />}
         </View>
@@ -811,7 +1069,7 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
       )}
       {s.qs.map((q, k) => (
         <Card key={q.k} ctx={ctx}>
-          <Text style={st.meta}>問{k + 1}　{q.t}　{refLabel(q)}</Text>
+          <Text style={st.meta}>問{k + 1}　{x.vocab ? fieldName(x, q.f) : `${q.t}　${refLabel(q)}`}</Text>
           <Stem ctx={ctx} q={q} />
           <Explain ctx={ctx} q={q} your={s.ans[k]} ok={s.ans[k] === q.a} />
         </Card>
@@ -1235,5 +1493,10 @@ function makeStyles(c: Colors) {
     passRow: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 6, paddingHorizontal: 6, borderRadius: 6 },
     sysFocus: { borderWidth: 3, borderColor: c.ai, borderRadius: 12, padding: 2 },
     deepLink: { borderWidth: 1, borderColor: c.ai, borderRadius: 8, padding: 12, gap: 2 },
+    word: { fontFamily: fonts.disp, fontWeight: '800', fontSize: 32, color: c.ink },
+    wordSm: { fontFamily: fonts.disp, fontWeight: '800', fontSize: 20, color: c.ink },
+    exBox: { borderLeftWidth: 3, borderLeftColor: c.ai, paddingLeft: 10, gap: 2 },
+    wordRow: { paddingVertical: 10, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: c.line, gap: 4 },
+    mark: { width: 22, textAlign: 'center', fontWeight: '800', fontSize: 15 },
   });
 }
