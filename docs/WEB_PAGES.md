@@ -37,3 +37,31 @@
 | `zeirishi-shotoku` | 100 | 70 | https://claude.ai/artifact/R4z6eEPpbHF84bLWrE5tCV |
 | `zeirishi-shouhi` | 100 | 46 | https://claude.ai/artifact/4uEUFimic5TUaVG6LvidJL |
 | `zeirishi-souzoku` | 100 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
+
+## 資格試験（2026-10-12 追加）
+
+| id | 問題数 | 過去問ベース | URL |
+|---|---|---|---|
+| `fe-kamokua` | 300 | 220 | https://claude.ai/artifact/AzyNyxngzffTGQXNQc2a4Q |
+| `itpass-all` | 300 | 262 | https://claude.ai/artifact/L2iKrttkXW9nUtf8gVwAoV |
+| `denko2-gakka` | 300 | 191 | https://claude.ai/artifact/3DYZwnEJCW1oYL8DjdgBPu |
+| `kikenbutsu-otsu4` | 300 | 0 | https://claude.ai/artifact/4fHc3PkoMbjdnkgUTqsyrj |
+| `eisei-ni` | 300 | 224 | https://claude.ai/artifact/QMjyh2k7bZ553Gm3HBX6vA |
+| `eisei-ichi` | 300 | 255 | https://claude.ai/artifact/DD1EVU92e5pQgBo5aJLgtt |
+| `tohan-all` | 300 | 279 | https://claude.ai/artifact/2VhkBkV1Gf41LGGmsk8W5Y |
+| `fp-2kyu` | 200 | 186 | https://claude.ai/artifact/KdzqzfEY2x2jc5JknajGvh |
+| `fp-3kyu` | 200 | 199 | https://claude.ai/artifact/72KUqkwyDbP95Z1eg43gUB |
+| `denko1-gakka` | 200 | 184 | https://claude.ai/artifact/NduUuJjF8hMGnCLWEEnfqC |
+| `boiler2-all` | 200 | 182 | https://claude.ai/artifact/75Fzbh3wS4N84Bv5QHoiF5 |
+| `kango-all` | 200 | 200 | https://claude.ai/artifact/AiSqs9V2BMBC9719QFKLsB |
+| `kanrigyo-all` | 200 | 189 | https://claude.ai/artifact/WQ3pUuqBPe1jUdifbpyyxR |
+| `sg-kamokua` | 200 | 187 | https://claude.ai/artifact/LJvkJyFakHE9f8Ww2dHzHD |
+
+## 教養・趣味（2026-10-18 追加）
+
+| id | 問題数 | 過去問ベース | URL |
+|---|---|---|---|
+| `hyakunin-all` | 100 | 0 | https://claude.ai/artifact/JaL2TUZQazhzbsTyGBcXGA |
+
+- 百人一首：歌本文は13世紀前半成立で著作権の対象外。問題文・解説・歌意はすべて独自作成。本文・作者・決まり字は Wikipedia「百人一首」歌一覧（2026-10-18取得）から機械抽出して照合（事実のみ利用、文章は不使用）。
+- ポケモン：保留。株式会社ポケモンの利用規約（pokemon.co.jp/rules）は「個人的に楽しむ場合に限って」利用許諾、名称は任天堂・クリーチャーズ・ゲームフリークの商標。有料アプリで使うには法人窓口（biz-japan.pokemon-support.com）での許諾が必要。
