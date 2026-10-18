@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, View,
+  ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View,
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -10,6 +10,7 @@ import { EXAM, Exam, ExamId, Item, isJe } from './src/exams';
 import {
   Dir, GAPS, MEM_LEVELS, MEM_MIN, TRIAL_SEC, TrialResult, finishTrial, mastery, memoryStats, memoryTrend, pickTrial, tScore, topPercent, trialSummary,
 } from './src/trial';
+import { RankStats, fetchRank, liveT, loadNick, rankEnabled, registerNick, submitScore } from './src/rank';
 import {
   buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, Progress, Q,
   buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, freeExam, judge, pick, judgeSet, LessonSys, record,
@@ -656,6 +657,7 @@ function VocabHome({ ctx }: { ctx: Ctx }) {
           ))}
         </View>
         <Text style={st.note}>{ab}→和は{x.lang?.name}を見て意味を、和→{ab}は意味を見て{x.lang?.name}を4つから選びます。得点の記録は向きごとに分けます。</Text>
+        {rankEnabled() && <NickForm ctx={ctx} />}
       </Card>
 
       {!ctx.shop.full && <Unlock ctx={ctx} done={done} />}
@@ -703,6 +705,34 @@ function VocabHome({ ctx }: { ctx: Ctx }) {
         <Footer ctx={ctx} />
       </Card>
     </>
+  );
+}
+
+// 全国ランキングに出すニックネーム（任意。端末の匿名IDに紐づける）
+function NickForm({ ctx }: { ctx: Ctx }) {
+  const { c, st } = ctx;
+  const [nick, setNick] = useState('');
+  const [saved, setSaved] = useState('');
+  const [msg, setMsg] = useState('');
+  useEffect(() => { loadNick().then(n => { setNick(n); setSaved(n); }); }, []);
+  const save = async () => {
+    const v = nick.trim();
+    if (!v) { setMsg('1〜12文字で入力してください。'); return; }
+    setMsg('登録しています…');
+    const ok = await registerNick(v);
+    setMsg(ok ? '登録しました。' : '登録できませんでした（文字数は1〜12、通信を確認してください）。');
+    if (ok) setSaved(v);
+  };
+  return (
+    <View style={{ gap: 6 }}>
+      <Text style={st.body}>全国ランキングの名前（任意）{saved ? `：${saved}` : ''}</Text>
+      <View style={st.row}>
+        <TextInput value={nick} onChangeText={setNick} maxLength={12} placeholder="ニックネーム（12文字まで）" placeholderTextColor={c.muted}
+          style={[st.input, { flex: 1 }]} autoCapitalize="none" autoCorrect={false} />
+        <Btn ctx={ctx} label="登録" onPress={save} disabled={nick.trim() === saved} />
+      </View>
+      <Text style={st.note}>{msg || '名前を登録しなくても得点は匿名で送られ、順位と偏差値が出ます。メールやログインは不要です。'}</Text>
+    </View>
   );
 }
 
@@ -790,10 +820,18 @@ function TrialView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'trial' }>
 function TrialResultView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'tresult' }> }) {
   const { c, st, x, p, go } = ctx;
   const { r } = s;
-  const t = tScore(r.score, r.dir);
   const missed = s.qs.filter((q, k) => s.ans[k] != null && s.ans[k] !== q.a); // 時間切れで出なかった語は含めない
   const mem = memoryStats(p.trials);
   const isBest = r.score >= r.best && r.total > 1;
+  // 全国ランキング：得点を送って順位・人数・分布を受け取る（1回だけ）。未設定・失敗なら仮の基準で出す
+  const [live, setLive] = useState<RankStats | null | 'wait'>(rankEnabled() ? 'wait' : null);
+  useEffect(() => {
+    if (!rankEnabled()) return;
+    submitScore(x.id, r.f, r.dir, { n: r.n, ok: r.ok, remain: r.remain, score: r.score, sec: r.sec }).then(setLive);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const lt = live && live !== 'wait' ? liveT(r.score, live) : null;
+  const t = lt ?? tScore(r.score, r.dir);
+  const real = live && live !== 'wait' && live.rank != null;
   return (
     <>
       <Card ctx={ctx}>
@@ -804,11 +842,17 @@ function TrialResultView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'tre
         </View>
         <Text style={st.body}>正解 {r.ok}語{r.ans < r.n ? `（${r.ans}語まで）` : ''} ＋ 余り {r.remain}秒 ＝ {r.score}点　　{r.sec}秒</Text>
         <View style={st.kpis}>
-          <Kpi ctx={ctx} label="偏差値（仮）" value={`${t}`} />
-          <Kpi ctx={ctx} label="上位（仮）" value={`${topPercent(t)}%`} />
+          {real && <Kpi ctx={ctx} label="全国の順位" value={`${live.rank}位 / ${live.total}人`} />}
+          <Kpi ctx={ctx} label={lt != null ? '偏差値' : '偏差値（仮）'} value={`${t}`} />
+          <Kpi ctx={ctx} label={lt != null ? '上位' : '上位（仮）'} value={`${topPercent(t)}%`} />
           <Kpi ctx={ctx} label="自分の記録" value={`${r.rank}位 / ${r.total}回`} />
         </View>
-        <Text style={st.note}>偏差値と上位%は、参加者のスコアを集める仕組みができるまでの仮の基準（平均{r.dir === 'je' ? 15 : 18}点）で出しています。</Text>
+        <Text style={st.note}>
+          {live === 'wait' ? '全国ランキングに送っています…'
+            : real ? `全国の順位は各参加者のベストで比べた順位（${fieldName(x, r.f)}・${dirLabel(x, r.dir)}）。${lt != null ? `偏差値は参加者の全記録${live.n}回の分布から出しています。` : `参加者の記録が30回たまるまで、偏差値は仮の基準（平均${r.dir === 'je' ? 15 : 18}点）です。`}`
+            : rankEnabled() ? '全国ランキングに送れませんでした（通信を確認してください）。偏差値は仮の基準です。'
+            : `偏差値と上位%は、参加者のスコアを集める仕組みができるまでの仮の基準（平均${r.dir === 'je' ? 15 : 18}点）で出しています。`}
+        </Text>
         {r.rep > 0 && (
           <Text style={st.body}>
             前に解いた語 {r.rep}語のうち {r.repOk}語に正解。
@@ -864,6 +908,8 @@ function Stats({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'stats' }> }) 
   const recent = sm.list.slice(-20);
   const top = [...sm.list].sort((a, b) => b.score - a.score || (a.at < b.at ? 1 : -1)).slice(0, 10);
   const m = mastery(x.items, p.hist);
+  const [live, setLive] = useState<RankStats | null | 'wait'>(rankEnabled() ? 'wait' : null);
+  useEffect(() => { if (rankEnabled()) { setLive('wait'); fetchRank(x.id, f, dir).then(setLive); } }, [x.id, f, dir]);
   return (
     <>
       <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ ホーム" onPress={() => go({ name: 'home' })} /></View>
@@ -925,6 +971,28 @@ function Stats({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'stats' }> }) 
             </View>
             <Bars ctx={ctx} data={recent.map(t => ({ label: t.at.slice(5, 10).replace('-', '/'), value: t.score, hi: t.score === sm.best }))} max={Math.max(30, sm.best!)} />
             <Text style={st.note}>直近{recent.length}回。緑が自己ベスト。</Text>
+            {rankEnabled() && (
+              <>
+                <Text style={st.bold}>全国ランキング（各参加者のベスト）</Text>
+                {live === 'wait' ? <Text style={st.note}>読み込んでいます…</Text>
+                  : !live ? <Text style={st.note}>取得できませんでした（通信を確認してください）。</Text>
+                  : (
+                    <>
+                      <Text style={st.note}>
+                        {live.rank != null ? `あなたは ${live.rank}位 / ${live.total}人（ベスト ${live.best}点）` : `参加者 ${live.total}人。得点を送るとあなたの順位が出ます`}
+                        {live.n >= 30 && live.mu != null ? `・参加者の平均 ${Math.round(live.mu)}点` : ''}
+                      </Text>
+                      {live.top.map((t, i) => (
+                        <View key={i} style={st.histRow}>
+                          <Text style={[st.bold, { width: 40 }]}>{i + 1}位</Text>
+                          <Text style={[st.note, { flex: 1 }, t.me && { color: c.ai, fontWeight: '700' }]}>{t.nick}{t.me ? '（あなた）' : ''}</Text>
+                          <Text style={st.bold}>{t.score}点</Text>
+                        </View>
+                      ))}
+                    </>
+                  )}
+              </>
+            )}
             <Text style={st.bold}>ランキング（この端末）</Text>
             {top.map((t, i) => (
               <View key={t.at} style={st.histRow}>
@@ -934,7 +1002,7 @@ function Stats({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'stats' }> }) 
                 <Text style={st.bold}>{t.score}点</Text>
               </View>
             ))}
-            <Text style={st.note}>参加者どうしの順位・偏差値は、スコアを集める仕組み（サーバー）を足したときに本物の分布に切り替えます。</Text>
+            {!rankEnabled() && <Text style={st.note}>参加者どうしの順位・偏差値は、スコアを集める仕組み（サーバー）を足したときに本物の分布に切り替えます。</Text>}
           </>
         )}
       </Card>
@@ -1767,6 +1835,7 @@ function makeStyles(c: Colors) {
     barBg: { height: 8, borderRadius: 4, backgroundColor: c.line, overflow: 'hidden' },
     barFg: { height: 8, borderRadius: 4, backgroundColor: c.ai },
     tiny: { fontSize: 10, color: c.muted },
+    input: { borderWidth: 1, borderColor: c.line, borderRadius: 8, paddingHorizontal: 10, paddingVertical: 8, color: c.ink, backgroundColor: c.paper, fontSize: 15 },
     passRow: { flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 6, paddingHorizontal: 6, borderRadius: 6 },
     sysFocus: { borderWidth: 3, borderColor: c.ai, borderRadius: 12, padding: 2 },
     deepLink: { borderWidth: 1, borderColor: c.ai, borderRadius: 8, padding: 12, gap: 2 },

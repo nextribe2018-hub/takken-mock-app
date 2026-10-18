@@ -1,0 +1,4 @@
+# 設定ファイルと SQL は外から読めないようにする
+<FilesMatch "^(config(\.sample)?\.php|lib\.php|schema\.sql)$">
+  Require all denied
+</FilesMatch>
