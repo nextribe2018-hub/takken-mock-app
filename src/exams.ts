@@ -296,8 +296,8 @@ const wordPack = ({ id, name, short, raw, what, range, levels, levelName, lang }
   });
   return {
     id, name, short, group: '語学（単語・熟語）',
-    desc: `${range}レベルの${what}${items.length.toLocaleString()}語を、級ごとに1分10問で繰り返し。${lang.abbr}→和・和→${lang.abbr}の4択。和訳・例文・発音つき。`,
-    format: 'choice', fields: levels.filter(l => rs.some(r => r.lv === l)).map(l => [l, levelName(l)]), size: 10, limit: 60, reviewBy: 'field', // 1分で10問。答えるとすぐ次へ進み、解説は結果画面で見る
+    desc: `${range}レベルの${what}${items.length.toLocaleString()}語。1分で30語の4択に挑み、正解数＋余った秒数が得点。${lang.abbr}→和・和→${lang.abbr}。和訳・例文・発音つき。`,
+    format: 'choice', fields: levels.filter(l => rs.some(r => r.lv === l)).map(l => [l, levelName(l)]), size: 30, limit: 60, reviewBy: 'field', // 1分トライアル（src/trial.ts）。復習の10問テストも limit を使う
     storageKey: `exam-progress-v1:${id}`, items, rev, vocab: true, lang,
   };
 };
@@ -435,13 +435,13 @@ export const EXAMS: Exam[] = ([
   school('chugaku-rika', '中学受験 一般私立中学 理科', '中学中堅 理科', jChugakuRika),
   school('chugaku-kokugo', '中学受験 一般私立中学 国語', '中学中堅 国語', jChugakuKokugo),
   school('chugaku-sansu', '中学受験 一般私立中学 算数', '中学中堅 算数', jChugakuSansu),
-  wordPack({ id: 'eitango', name: '英単語3500', short: '英単語', raw: eitangoRaw, what: '英単語', ...eiken,
+  wordPack({ id: 'eitango', name: '英単語１分トライアル', short: '英単語', raw: eitangoRaw, what: '英単語', ...eiken,
     lang: en(`見出し語は New General Service List（NGSL）1.2 と New Academic Word List（NAWL）1.2（Browne, C., Culligan, B., & Phillips, J.／CC BY-SA 4.0）から選びました。${EN_CREDIT}和訳・例文・解説は独自に作成しました。発音記号は CMU Pronouncing Dictionary をもとにした米音、音声は端末の読み上げ機能です。`) }),
-  wordPack({ id: 'jukugo', name: '英熟語1500', short: '英熟語', raw: jukugoRaw, what: '英熟語', ...eiken,
+  wordPack({ id: 'jukugo', name: '英熟語１分トライアル', short: '英熟語', raw: jukugoRaw, what: '英熟語', ...eiken,
     lang: en(`熟語は独自に選びました。${EN_CREDIT.replace('目安で', '目安（熟語は、含まれる単語の級に使われ方の難しさを加えて判断）で')}和訳・例文・解説は独自に作成しました。音声は端末の読み上げ機能です。`) }),
-  wordPack({ id: 'chugokugo', name: '中国語単語1200', short: '中国語', raw: chugokugoRaw, what: '中国語の単語', range: 'HSK1〜4級', levels: HSK_LEVELS, levelName: l => `${l}`,
+  wordPack({ id: 'chugokugo', name: '中国語１分トライアル', short: '中国語', raw: chugokugoRaw, what: '中国語の単語', range: 'HSK1〜4級', levels: HSK_LEVELS, levelName: l => `${l}`,
     lang: { tts: 'zh-CN', name: '中国語', abbr: '中', credit: '見出し語と級は HSK（漢語水平考試）の旧1〜4級の語彙表によります（complete-hsk-vocabulary／MIT License を利用）。HSK の公式教材ではありません。和訳・例文・ピンインの例文読み・解説は独自に作成しました。音声は端末の読み上げ機能です。' } }),
-  wordPack({ id: 'futsugo', name: 'フランス語単語2000', short: 'フランス語', raw: futsugoRaw, what: 'フランス語の単語', range: '仏検5級〜2級', levels: FUTSUKEN_LEVELS, levelName: l => `仏検${l}レベル`,
+  wordPack({ id: 'futsugo', name: 'フランス語１分トライアル', short: 'フランス語', raw: futsugoRaw, what: 'フランス語の単語', range: '仏検5級〜2級', levels: FUTSUKEN_LEVELS, levelName: l => `仏検${l}レベル`,
     lang: { tts: 'fr-FR', name: 'フランス語', abbr: '仏', credit: '見出し語は Lexique 3.83（New, B., Pallier, C. ほか／CC BY-SA 4.0）の頻度をもとに選びました。級は頻度にもとづく目安で、仏検（実用フランス語技能検定試験）の公式の語彙表ではありません。このアプリは仏検の実施団体の承認や推奨を受けたものではありません。和訳・例文・解説は独自に作成しました。音声は端末の読み上げ機能です。' } }),
 ] as Exam[]).filter(x => !x.vocab || x.items.length > 0); // 単語帳はデータを入れてから出す
 

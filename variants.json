@@ -600,25 +600,25 @@
     "ascAppId": ""
   },
   "eitango": {
-    "name": "英単語3500・英検5級〜準1級",
+    "name": "英単語１分トライアル",
     "bundleId": "jp.icurate.tenmin.eitango",
     "sku": "jp.icurate.tenmin.eitango.full",
     "ascAppId": ""
   },
   "jukugo": {
-    "name": "英熟語1500・英検5級〜準1級",
+    "name": "英熟語１分トライアル",
     "bundleId": "jp.icurate.tenmin.jukugo",
     "sku": "jp.icurate.tenmin.jukugo.full",
     "ascAppId": ""
   },
   "chugokugo": {
-    "name": "中国語単語1200・HSK1〜4級",
+    "name": "中国語１分トライアル",
     "bundleId": "jp.icurate.tenmin.chugokugo",
     "sku": "jp.icurate.tenmin.chugokugo.full",
     "ascAppId": ""
   },
   "futsugo": {
-    "name": "フランス語単語2000・仏検5級〜2級",
+    "name": "フランス語１分トライアル",
     "bundleId": "jp.icurate.tenmin.futsugo",
     "sku": "jp.icurate.tenmin.futsugo.full",
     "ascAppId": ""

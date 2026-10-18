@@ -4,7 +4,8 @@ import {
   BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, topicTier, toExam, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
   buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, quotas, reviewQuestions, statsBy, wrongGroups,
 } from '../src/logic';
-import { EXAMS, byKey } from '../src/exams';
+import { EXAMS, byKey, isJe } from '../src/exams';
+import { MEM_LEVELS, TRIAL_N, finishTrial, mastery, memLevel, memoryStats, pickTrial, tScore, topPercent } from '../src/trial';
 import { buildVariants, type Variant } from './variants';
 import variantsJson from '../variants.json';
 
@@ -242,6 +243,57 @@ for (const x of EXAMS.filter(e => e.vocab)) {
     assert.ok(q.c!.every(w => Math.abs(lv.get(w)! - L.indexOf(q.f)) <= 1), `${x.id} ${q.k}: 和→英の誤答が離れた級`);
   });
   assert.equal(new Set([...x.items, ...rev].map(q => q.k)).size, x.items.length * 2, `${x.id}: キーが重複`);
+}
+
+// 12c) 1分トライアル：30語・重複なし・解いた語があれば2〜3割を再出題・得点＝正解＋余り秒・記憶力と偏差値
+{
+  const x = EXAMS.find(e => e.id === 'eitango')!;
+  const f = x.fields[0][0];
+  // 再現できる乱数（結果が毎回同じになるように）
+  let seed = 7;
+  const rnd = () => { seed = (seed * 1664525 + 1013904223) % 4294967296; return seed / 4294967296; };
+  const first = pickTrial(x, {}, f, 'ej', TRIAL_N, rnd);
+  assert.equal(first.length, TRIAL_N, 'トライアルの語数');
+  assert.equal(new Set(first.map(q => q.k)).size, TRIAL_N, 'トライアルに同じ語');
+  assert.ok(first.every(q => q.f === f && !isJe(q)), '級か向きが違う');
+  // 1回目を全問正解で採点（40秒）→ 得点 30＋20
+  const r1 = finishTrial(emptyProgress(), f, 'ej', first, first.map(q => q.a), 40_000, 1_000_000);
+  assert.equal(r1.r.score, 30 + 20); assert.equal(r1.r.remain, 20); assert.equal(r1.r.rank, 1); assert.equal(r1.r.total, 1);
+  assert.equal(r1.next.trials!.length, 1); assert.equal(r1.r.newN, 30); assert.equal(r1.r.rep, 0);
+  assert.ok(first.every(q => r1.next.hist[q.k].at === 1_000_000 && r1.next.hist[q.k].st === 1));
+  // 時間切れ（20語だけ答えた）→ 余りは0、答えていない語は記録しない
+  const second = pickTrial(x, r1.next.hist, f, 'ej', TRIAL_N, rnd);
+  const rep = second.filter(q => r1.next.hist[q.k]).length;
+  assert.ok(rep >= 6 && rep <= 9, `再出題が2〜3割でない: ${rep}`);
+  const ans2 = second.map((q, k) => (k < 20 ? (k % 4 === 0 ? (q.a + 1) % 4 : q.a) : null));
+  const r2 = finishTrial(r1.next, f, 'ej', second, ans2, 60_000, 1_000_000 + 2 * 864e5);
+  assert.equal(r2.r.remain, 0); assert.equal(r2.r.ans, 20); assert.equal(r2.r.score, r2.r.ok);
+  assert.ok(second.slice(20).every(q => (r2.next.hist[q.k]?.n ?? 0) === (r1.next.hist[q.k]?.n ?? 0)), '時間切れの語が記録された');
+  assert.equal(r2.r.rank, 2); assert.equal(r2.r.total, 2); assert.equal(r2.r.best, 50);
+  // 2日後の再出題は「1〜3日」の区分に入る
+  const t2 = r2.next.trials![1];
+  assert.equal(t2.ret.reduce((s, b) => s + b[0], 0), second.slice(0, 20).filter(q => r1.next.hist[q.k]?.last === 1).length);
+  assert.ok(t2.ret[1][0] > 0 && t2.ret[0][0] === 0, '間隔の区分');
+  // 記憶力：再出題が20語に満たないうちは null。十分あれば 0〜100 でレベルがつく
+  assert.equal(memoryStats(r2.next.trials).score, null);
+  const many = Array.from({ length: 10 }, () => ({ ...t2, ret: [[0, 0], [4, 3], [2, 2], [0, 0], [0, 0]] as [number, number][] }));
+  const mm = memoryStats(many);
+  assert.ok(mm.score != null && mm.score >= 75 && mm.score <= 90 && mm.level >= 4, `記憶力スコア ${mm.score}`);
+  assert.equal(memLevel(100), MEM_LEVELS.length); assert.equal(memLevel(0), 1);
+  // 偏差値は単調に増え、上位%は単調に減る
+  assert.ok(tScore(18, 'ej') === 50 && tScore(28, 'ej') === 60 && topPercent(60) < topPercent(50) && topPercent(50) === 50);
+  // 習得：全問正解の直後は「覚えた」、1日以上あけて2回続けて正解で「定着」
+  const m1 = mastery(first, r1.next.hist); assert.equal(m1.known, 30); assert.equal(m1.solid, 0);
+  const m2 = mastery(second.slice(0, 20), r2.next.hist);
+  assert.equal(m2.solid, second.slice(0, 20).filter((q, k) => ans2[k] === q.a && r1.next.hist[q.k]?.last === 1).length);
+  // 和→英も同じ仕組み
+  const je = pickTrial(x, {}, f, 'je', TRIAL_N, rnd);
+  assert.ok(je.length === TRIAL_N && je.every(q => isJe(q)));
+  // 無料版（語が30に満たない級）は語数ぶんだけ
+  const fr = freeExam(x);
+  const small = fr.fields.map(([k]) => k).find(k => fr.items.filter(q => q.f === k).length < TRIAL_N);
+  if (small) assert.equal(pickTrial(fr, {}, small, 'ej', TRIAL_N, rnd).length, fr.items.filter(q => q.f === small).length);
+  console.log(`1分トライアル: 1回目 ${r1.r.score}点・2回目 ${r2.r.score}点（再出題 ${rep}語）・記憶力 ${mm.label}`);
 }
 
 // 13) 試験ごとの別アプリ：variants.json が EXAMS と一致（npm run variants で更新）・名前30字以内・IDの形式
