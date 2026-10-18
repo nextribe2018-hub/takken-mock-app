@@ -23,6 +23,8 @@ export async function loadProgress(x: Exam = EXAM.takken): Promise<Progress> {
       set: d.set && Array.isArray(d.set.scores) ? d.set : base.set,
       log: Array.isArray(d.log) ? d.log : [],
       voice: !!d.voice,
+      dir: d.dir === 'ej' || d.dir === 'je' || d.dir === 'mix' ? d.dir : undefined,
+      trials: Array.isArray(d.trials) ? d.trials : [],
     };
   } catch {
     return emptyProgress();

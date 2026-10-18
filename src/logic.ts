@@ -15,13 +15,15 @@ export type LessonSys = {
   tables: SysTable[];
 };
 export type Lesson = { pts: string[]; traps: string[]; rel: string[]; bridge?: string; sys?: LessonSys };
-export type HistItem = { n: number; c: number; last: 0 | 1 };
+// at＝最後に解いた時刻（ms）、pat＝その前に解いた時刻、st＝連続正解の数（英単語の忘却率・定着の判定に使う）
+export type HistItem = { n: number; c: number; last: 0 | 1; at?: number; pat?: number; st?: number };
 export type Hist = Record<string, HistItem>;
 export type SetState = { round: number; scores: number[] };
 export type LogItem = { at: string; round: number; score: number; sec: number; field?: Field };
 // 論点ごとの直近10問の正誤（古い→新しい、'1'=正解）。キーは「分野|論点」
 export type Recent = Record<string, string>;
-export type Progress = { v: 2; hist: Hist; r10: Recent; set: SetState; log: LogItem[]; voice: boolean };
+// dir は英単語の出題の向き（ej＝英→和、je＝和→英、mix＝両方）
+export type Progress = { v: 2; hist: Hist; r10: Recent; set: SetState; log: LogItem[]; voice: boolean; dir?: 'ej' | 'je' | 'mix'; trials?: import('./trial').Trial[] };
 
 export const LESSON = lessonsRaw as Record<string, Lesson>;
 
@@ -29,7 +31,8 @@ export const emptyProgress = (): Progress => ({ v: 2, hist: {}, r10: {}, set: { 
 
 export function rec(hist: Hist, q: Item, ok: boolean): Hist {
   const h = hist[q.k] || { n: 0, c: 0, last: 0 };
-  return { ...hist, [q.k]: { n: h.n + 1, c: h.c + (ok ? 1 : 0), last: ok ? 1 : 0 } };
+  const now = Date.now();
+  return { ...hist, [q.k]: { n: h.n + 1, c: h.c + (ok ? 1 : 0), last: ok ? 1 : 0, at: now, pat: h.at, st: ok ? (h.st ?? (h.last ? 1 : 0)) + 1 : 0 } };
 }
 export const topicKey = (q: { f: string; t: string }) => `${q.f}|${q.t}`;
 // 1問の回答を記録（全体の記録＋論点ごとの直近10問）
@@ -104,7 +107,9 @@ export function freeExam(x: Exam): Exam {
   if (!e) {
     const seen: Record<string, number> = {};
     const items = x.items.filter(q => (seen[q.f] = (seen[q.f] ?? -1) + 1) % 10 === 0);
-    e = { ...x, items };
+    // 英単語の和→英は、無料の語と同じ語だけ
+    const keys = new Set(items.map(q => q.k));
+    e = { ...x, items, ...(x.rev ? { rev: x.rev.filter(q => keys.has(q.t)) } : {}) };
     freeCache.set(x.id, e);
   }
   return e;

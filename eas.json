@@ -609,6 +609,30 @@
       "env": {
         "EXPO_PUBLIC_EXAM": "chugaku-sansu"
       }
+    },
+    "eitango": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "eitango"
+      }
+    },
+    "jukugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "jukugo"
+      }
+    },
+    "chugokugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "chugokugo"
+      }
+    },
+    "futsugo": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "futsugo"
+      }
     }
   },
   "submit": {

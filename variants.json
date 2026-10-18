@@ -598,5 +598,29 @@
     "bundleId": "jp.icurate.tenmin.chugaku-sansu",
     "sku": "jp.icurate.tenmin.chugaku_sansu.full",
     "ascAppId": ""
+  },
+  "eitango": {
+    "name": "英単語１分トライアル",
+    "bundleId": "jp.icurate.tenmin.eitango",
+    "sku": "jp.icurate.tenmin.eitango.full",
+    "ascAppId": ""
+  },
+  "jukugo": {
+    "name": "英熟語１分トライアル",
+    "bundleId": "jp.icurate.tenmin.jukugo",
+    "sku": "jp.icurate.tenmin.jukugo.full",
+    "ascAppId": ""
+  },
+  "chugokugo": {
+    "name": "中国語１分トライアル",
+    "bundleId": "jp.icurate.tenmin.chugokugo",
+    "sku": "jp.icurate.tenmin.chugokugo.full",
+    "ascAppId": ""
+  },
+  "futsugo": {
+    "name": "フランス語１分トライアル",
+    "bundleId": "jp.icurate.tenmin.futsugo",
+    "sku": "jp.icurate.tenmin.futsugo.full",
+    "ascAppId": ""
   }
 }

@@ -39,3 +39,6 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# ランキング API の接続情報（Xserver 側に置く）
+server/api/config.php
