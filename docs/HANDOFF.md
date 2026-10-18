@@ -21,6 +21,12 @@
 
 ---
 
+### 2026-10-18 App Store 審査に提出
+- 宅建10分模試 iOS 1.0（ビルド 1.0.0 (5)）と課金アイテム「全問解放」（jp.icurate.takkenmock.full・400円）を審査に提出。公開は「手動でリリース」（承認後にご本人がリリース）
+- 掲載：日本のみ・教育／辞書・4+・データ収集なし・スクリーンショットは中型ディスプレイ（1179×2556）6枚
+- プライバシーポリシー https://apps.icurate.jp/takken/privacy/ ・サポート https://apps.icurate.jp/takken/support/ （Xserver のサブドメイン apps.icurate.jp、ファイルは public_html/apps/ に site/ の中身を手でアップロード）
+- 注意：EAS metadata:push は「version and release info」で失敗する（著作権・リリース方法は手入力）。App Store Connect の 6.9インチ枠は 1290×2796 を受け付けず、中型ディスプレイ枠に 1179×2556 を使った
+
 ### 2026-10-18 の変更（宅建アプリ）
 - 問題データを Web 版（Claude アーティファクト）の最新に合わせた：宅建 2,976問・47論点（`権利|弁済・相殺・債権譲渡` を追加）。既存1,498問は同じ並び・同じ安定キーのまま（学習記録はそのまま使える）。lessons.json も Web 版に合わせた（`ex`・`around` は現状アプリでは未表示）
 - 音声機能（読み上げ・音声で出題）を削除。expo-speech も外した
