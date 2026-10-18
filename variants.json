@@ -616,5 +616,11 @@
     "bundleId": "jp.icurate.tenmin.chugokugo",
     "sku": "jp.icurate.tenmin.chugokugo.full",
     "ascAppId": ""
+  },
+  "futsugo": {
+    "name": "フランス語単語2000・仏検5級〜2級",
+    "bundleId": "jp.icurate.tenmin.futsugo",
+    "sku": "jp.icurate.tenmin.futsugo.full",
+    "ascAppId": ""
   }
 }

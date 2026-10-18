@@ -757,14 +757,15 @@ function Words({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'words' }> }) 
 function Unlock({ ctx, done }: { ctx: Ctx; done: number }) {
   const { c, st, x, shop } = ctx;
   const allDone = x.items.every(q => ctx.p.hist[q.k]);
+  const u = x.vocab ? '語' : '問'; // 単語帳は「語」で数える
   return (
     <View style={[st.card, { borderColor: c.ai }]}>
-      <Text style={st.h2}>無料版：全{shop.total}問のうち{x.items.length}問</Text>
+      <Text style={st.h2}>無料版：全{shop.total}{u}のうち{x.items.length}{u}</Text>
       <Text style={st.body}>
-        {allDone ? '無料の問題はすべて解きました。' : `各分野から10問に1問を無料で解けます（解いた問題 ${done}問）。`}
-        {shop.price}（買い切り）で全{shop.total}問を解放できます。学習記録はそのまま引き継がれます。
+        {allDone ? (x.vocab ? '無料の語はすべて解きました。' : '無料の問題はすべて解きました。') : x.vocab ? `各級から10語に1語を無料で使えます（解いた語 ${done}語）。` : `各分野から10問に1問を無料で解けます（解いた問題 ${done}問）。`}
+        {shop.price}（買い切り）で全{shop.total}{u}を解放できます。学習記録はそのまま引き継がれます。
       </Text>
-      <Btn ctx={ctx} primary label={`全${shop.total}問を解放する（${shop.price}）`} onPress={shop.buy} />
+      <Btn ctx={ctx} primary label={`全${shop.total}${u}を解放する（${shop.price}）`} onPress={shop.buy} />
       <Btn ctx={ctx} label="購入を復元" onPress={shop.restore} />
       {!!shop.msg && <Text style={st.note}>{shop.msg}</Text>}
     </View>
