@@ -56,3 +56,12 @@
 | `kango-all` | 200 | 200 | https://claude.ai/artifact/AiSqs9V2BMBC9719QFKLsB |
 | `kanrigyo-all` | 200 | 189 | https://claude.ai/artifact/WQ3pUuqBPe1jUdifbpyyxR |
 | `sg-kamokua` | 200 | 187 | https://claude.ai/artifact/LJvkJyFakHE9f8Ww2dHzHD |
+
+## 教養・趣味（2026-10-18 追加）
+
+| id | 問題数 | 過去問ベース | URL |
+|---|---|---|---|
+| `hyakunin-all` | 100 | 0 | https://claude.ai/artifact/JaL2TUZQazhzbsTyGBcXGA |
+
+- 百人一首：歌本文は13世紀前半成立で著作権の対象外。問題文・解説・歌意はすべて独自作成。本文・作者・決まり字は Wikipedia「百人一首」歌一覧（2026-10-18取得）から機械抽出して照合（事実のみ利用、文章は不使用）。
+- ポケモン：保留。株式会社ポケモンの利用規約（pokemon.co.jp/rules）は「個人的に楽しむ場合に限って」利用許諾、名称は任天堂・クリーチャーズ・ゲームフリークの商標。有料アプリで使うには法人窓口（biz-japan.pokemon-support.com）での許諾が必要。
