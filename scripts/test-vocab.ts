@@ -6,10 +6,12 @@ import {
 
 // 1) データ：5レベル・各300語・語の重複なし・意味と品詞がある
 assert.equal(LEVELS.length, 5);
+assert.deepEqual(LEVELS.map(l => l.id), ['toeic500', 'toeic600', 'toeic700', 'toeic800', 'toeic900']);
 for (const L of LEVELS) {
   assert.equal(L.words.length, 300, `${L.id}: ${L.words.length}語`);
   assert.equal(new Set(L.words.map(w => w.w)).size, 300, `${L.id}: 語が重複`);
   L.words.forEach(w => assert.ok(w.w && w.m && w.p, `${L.id}: ${w.w} の意味・品詞が空`));
+  assert.ok(/^toeic[5-9]00$/.test(L.id) && L.name.startsWith('TOEIC ') && L.ref, `${L.id}: id は toeic500〜900、ref（参考レベル）が必要`);
   assert.equal(300 % ROUND_SIZE, 0);
 }
 

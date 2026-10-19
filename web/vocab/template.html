@@ -86,13 +86,14 @@ h3{font-size:13px;font-weight:700;color:var(--muted)}
 <div class="wrap">
   <div class="head"><div class="eyebrow">VOCABULARY · 30 WORDS / 1 MIN</div><h1>英単語 30語1分</h1><div id="sync">記録の保存先：この端末のブラウザ</div></div>
   <div id="app"></div>
-  <p class="foot">30語を1分で覚えて、1分で意味を4択で答えます。正解するたびに0.5秒延び、得点＝残り秒（切り捨て）＋正解数。300語ごとに、これまでに間違えた語だけで定着テストをします。語のレベル分けは目安です。</p>
+  <p class="foot">30語を1分で覚えて、1分で意味を4択で答えます。正解するたびに0.5秒延び、得点＝残り秒（切り捨て）＋正解数。300語ごとに、これまでに間違えた語だけで定着テストをします。レベルは TOEIC のスコア目安で、英検・高校・大学は参考です。</p>
 </div>
 <script>
 var LEVELS=__DATA__;
 var LEVEL={};LEVELS.forEach(function(l){LEVEL[l.id]=l});
 var ROUND=30,MEMO_SEC=60,TEST_SEC=60,BONUS=0.5,FIX_EVERY=300,CHOICES=4;
 var LS="vocab-progress-v1";
+var ALIAS={jhs:"toeic500",eiken:"toeic600",toeic:"toeic700",march:"toeic800",sokei:"toeic900"}; // 旧レベルid → 新id
 var S={v:1,rev:0,at:0,levels:{}};
 var ref=null,dirty=false,busy=false,deb=null,fails=0;
 var view="levels",cur=null;  // 画面の状態
@@ -102,7 +103,7 @@ var app=document.getElementById("app");
 function emptyLevel(){return {cursor:0,learned:0,lastFix:0,hist:{},log:[]}}
 function lp(id){return S.levels[id]||(S.levels[id]=emptyLevel())}
 function norm(d){d=d||{};var out={v:1,rev:+d.rev||0,at:+d.at||0,levels:{}};
-  Object.keys(d.levels||{}).forEach(function(id){var v=d.levels[id]||{};out.levels[id]={cursor:+v.cursor||0,learned:+v.learned||0,lastFix:+v.lastFix||0,hist:(v.hist&&typeof v.hist==="object")?v.hist:{},log:Array.isArray(v.log)?v.log:[]}});return out}
+  Object.keys(d.levels||{}).forEach(function(rid){var id=ALIAS[rid]||rid;if(out.levels[id])return;var v=d.levels[rid]||{};out.levels[id]={cursor:+v.cursor||0,learned:+v.learned||0,lastFix:+v.lastFix||0,hist:(v.hist&&typeof v.hist==="object")?v.hist:{},log:Array.isArray(v.log)?v.log:[]}});return out}
 function loadLocal(){try{var r=localStorage.getItem(LS);if(r){var d=JSON.parse(r);if(d&&d.v===1)S=norm(d)}}catch(e){}}
 function saveLocal(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
 function setSync(s){var el=document.getElementById("sync");if(el)el.textContent=s==="account"?"記録の保存先：アカウント（ほかの端末でも続きから使えます）":"記録の保存先：この端末のブラウザ"}
@@ -184,9 +185,9 @@ function render(){
   if(view==="levels")levels();else if(view==="level")levelHome();else if(view==="memo")memo();else if(view==="test")test();else if(view==="result")result();
 }
 function levels(){
-  var h='<div class="card"><h2>レベルを選ぶ</h2><p class="note">中学1-2年 → 英検 → TOEIC → MARCH → 早慶 の順に難しくなります。各300語。</p></div>';
+  var h='<div class="card"><h2>レベルを選ぶ</h2><p class="note">TOEIC のスコア目安で 500 → 900 の100点刻み。英検・高校・大学は参考です。各300語。</p></div>';
   LEVELS.forEach(function(L){var p=lp(L.id),s=stats(L,p);
-    h+='<div class="card tap" data-a="level" data-id="'+L.id+'" role="button" tabindex="0"><div class="row"><h2>'+esc(L.name)+'</h2>'+(fixDue(p)?'<span class="tag">定着テスト</span>':'')+'</div><p class="note">'+esc(L.desc)+'</p>'+
+    h+='<div class="card tap" data-a="level" data-id="'+L.id+'" role="button" tabindex="0"><div class="row"><h2>'+esc(L.name)+'</h2>'+(fixDue(p)?'<span class="tag">定着テスト</span>':'')+'</div><p class="note">'+esc(L.desc)+'　<span style="color:var(--accent)">参考：'+esc(L.ref)+'</span></p>'+
       '<div class="bar"><i style="width:'+Math.min(100,Math.round(p.learned/L.words.length*100))+'%"></i></div>'+
       '<p class="note">覚えた '+p.learned+'語（'+Math.min(100,Math.round(p.learned/L.words.length*100))+'%）'+(s.rounds?'　最高 '+s.best+'点・平均 '+s.avg+'点・'+s.rounds+'回':'　まだ始めていません')+'</p></div>'});
   app.innerHTML=h;
@@ -194,7 +195,7 @@ function levels(){
 function levelHome(){
   var id=cur.id,L=LEVEL[id],p=lp(id),s=stats(L,p),due=fixDue(p),lap=Math.floor(p.learned/L.words.length)+1,pos=p.cursor;
   var rem=FIX_EVERY-(p.learned%FIX_EVERY);
-  var h='<div><button class="btn" data-a="levels">‹ レベル一覧</button></div><div class="head"><h2 style="font-size:22px">'+esc(L.name)+'</h2><p class="note">'+esc(L.desc)+'</p></div>';
+  var h='<div><button class="btn" data-a="levels">‹ レベル一覧</button></div><div class="head"><h2 style="font-size:22px">'+esc(L.name)+'</h2><p class="note">'+esc(L.desc)+'　参考：'+esc(L.ref)+'</p></div>';
   if(due)h+='<div class="card now"><h2>定着テストの時間です</h2><p>'+p.learned+'語を覚えました。これまでに間違えた語（'+s.wrongCount+'語）から最大30語を、暗記なしで1分テストします。</p><button class="btn pri big" data-a="fix">定着テストを始める</button></div>';
   h+='<div class="card"><h2>'+lap+'周目　'+(pos+1)+'〜'+Math.min(pos+ROUND,L.words.length)+'語目</h2><p class="note">1分で30語を覚える → 1分でテスト。'+(lap>1?'2周目からは間違いの多い語から出ます。':'')+'</p><button class="btn pri big" data-a="start"'+(due?' disabled':'')+'>30語を覚える（1分）</button>'+(due?'<p class="note">先に定着テストを済ませてください。</p>':'')+'</div>';
   h+='<div class="card"><h2>記録</h2><div class="kpis">'+

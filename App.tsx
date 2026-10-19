@@ -305,7 +305,7 @@ function Select({ ctx, all, last, onChoose, vocab, onVocab }: {
           </View>
           <Text style={st.note}>30語を1分で覚えて1分でテスト。正解で+0.5秒、得点＝残り秒＋正解数。300語ごとに間違えた語だけで定着テスト。</Text>
           <Text style={st.note}>
-            {VOCAB_LEVELS.map(L => L.name).join('／')}　各300語
+            {VOCAB_LEVELS.map(L => L.name.replace('TOEIC ', '')).join('・')}（TOEIC目安）　各300語
             {vRounds ? `　覚えた ${vLearned}語・${vRounds}回・最高 ${vBest}点` : '　まだ始めていません'}
           </Text>
         </Pressable>

@@ -29,7 +29,7 @@ python3 web/vocab/build.py    # 英単語 30語1分 のWeb版を検査＋再生�
 - `App.tsx` 画面 ／ `src/exams.ts` 試験パック ／ `src/logic.ts` ロジック ／ `src/storage.ts` 保存 ／ `src/theme.ts` 色
 - `src/data/bank.json` 宅建2,976問（H23〜R07の17回分） ／ `src/data/lessons.json` 解説47論点（民法・借地借家15論点は判例つき） ／ `src/data/rikkyo-*.json` 立教 世界史105問・日本史215問 ／ `src/data/keio-*.json` 慶應 経済・商の世界史・日本史 各100問
 - 試験を増やすときは `src/exams.ts` の `EXAMS` に1件足す（`npm test` が全試験のデータ形式と出題を検査する）
-- 英単語モード（30語1分）：`src/vocab.ts` ロジック ／ `src/VocabScreens.tsx` 画面 ／ `src/data/vocab.json` 5レベル×300語 ／ `web/vocab/` Web版。仕様は HANDOFF 6.6
+- 英単語モード（30語1分）：`src/vocab.ts` ロジック ／ `src/VocabScreens.tsx` 画面 ／ `src/data/vocab.json` TOEIC 500〜900 の5レベル×300語（元データ `scripts/vocab/`） ／ `web/vocab/` Web版。仕様は HANDOFF 6.6
 - `web/` 宅建Web版、`web/rikkyo/` 立教Web版、`web/keio/` 慶應Web版のテンプレートとビルド
 
 ## 注意

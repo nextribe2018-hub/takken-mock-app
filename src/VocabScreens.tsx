@@ -75,13 +75,14 @@ const dateLabel = (at: number) => { const d = new Date(at); return `${d.getMonth
 
 /* ---------- レベル一覧 ---------- */
 function Levels({ ctx, go }: { ctx: VCtx; go: (s: VScreen) => void }) {
-  const { st } = ctx;
+  const { c, st } = ctx;
   return (
     <>
       <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ 試験を選ぶ" onPress={ctx.exit} /></View>
       <View style={{ gap: 4 }}>
         <Text style={st.h1}>英単語 30語1分</Text>
         <Text style={st.sub}>30語を1分で覚えて、1分で意味を答えます。正解するたびに0.5秒延び、得点は「残り秒＋正解数」。300語ごとに、間違えた語だけの定着テストがあります。</Text>
+        <Text style={st.note}>レベルは TOEIC のスコア目安（100点刻み）。英検・高校・大学は参考です。</Text>
       </View>
       {LEVELS.map(L => {
         const lp = levelOf(ctx.p, L.id);
@@ -93,7 +94,7 @@ function Levels({ ctx, go }: { ctx: VCtx; go: (s: VScreen) => void }) {
               <Text style={st.h2}>{L.name}</Text>
               {fixDue(lp) && <Text style={st.tag}>定着テスト</Text>}
             </View>
-            <Text style={st.note}>{L.desc}</Text>
+            <Text style={st.note}>{L.desc}　<Text style={{ color: c.ai }}>参考：{L.ref}</Text></Text>
             <Text style={st.note}>
               {L.words.length}語　覚えた {lp.learned}語（{Math.min(100, Math.round(lp.learned / L.words.length * 100))}%）
               {s.rounds ? `　最高 ${s.best}点・平均 ${s.avg}点・${s.rounds}回` : '　まだ始めていません'}
@@ -121,7 +122,7 @@ function LevelHome({ ctx, level, lp, go, start, startFix, reset }: {
       <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ レベル一覧" onPress={() => go({ name: 'levels' })} /></View>
       <View style={{ gap: 4 }}>
         <Text style={st.h1}>{level.name}</Text>
-        <Text style={st.sub}>{level.desc}</Text>
+        <Text style={st.sub}>{level.desc}　参考：{level.ref}</Text>
       </View>
       {due && (
         <View style={[st.card, st.cardNow]}>

@@ -4,7 +4,9 @@
 import vocabRaw from './data/vocab.json';
 
 export type Word = { w: string; m: string; p: string };           // 語・意味・品詞
-export type Level = { id: string; name: string; desc: string; words: Word[] };
+export type Level = { id: string; name: string; desc: string; ref: string; words: Word[] };  // ref＝参考レベル（英検・高校・大学）
+// レベルは TOEIC 500〜900 の100点刻み。旧id（2026-10-19 以前の記録）→ 新id
+export const LEVEL_ALIAS: Record<string, string> = { jhs: 'toeic500', eiken: 'toeic600', toeic: 'toeic700', march: 'toeic800', sokei: 'toeic900' };
 export const LEVELS: Level[] = vocabRaw as Level[];
 export const LEVEL: Record<string, Level> = Object.fromEntries(LEVELS.map(l => [l.id, l]));
 

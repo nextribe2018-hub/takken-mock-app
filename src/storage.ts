@@ -4,7 +4,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { EXAM, Exam, ExamId, byKey } from './exams';
 import { backfillRecent, emptyProgress, Progress } from './logic';
-import { emptyLevel, emptyVocab, LevelProgress, VocabProgress } from './vocab';
+import { emptyLevel, emptyVocab, LEVEL_ALIAS, LevelProgress, VocabProgress } from './vocab';
 
 const LAST_EXAM = 'exam-last-v1';
 
@@ -64,8 +64,10 @@ export async function loadVocab(): Promise<VocabProgress> {
     if (!raw) return emptyVocab();
     const d = JSON.parse(raw);
     const levels: VocabProgress['levels'] = {};
-    Object.entries(d.levels || {}).forEach(([id, v]) => {
+    Object.entries(d.levels || {}).forEach(([rawId, v]) => {
+      const id = LEVEL_ALIAS[rawId] ?? rawId; // 旧レベルidの記録を引き継ぐ
       const L = v as Partial<LevelProgress>;
+      if (levels[id]) return;
       levels[id] = { ...emptyLevel(), ...L, hist: L.hist && typeof L.hist === 'object' ? L.hist : {}, log: Array.isArray(L.log) ? L.log : [] };
     });
     return { v: 1, levels };
