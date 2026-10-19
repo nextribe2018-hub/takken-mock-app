@@ -80,7 +80,8 @@ function Levels({ ctx, go }: { ctx: VCtx; go: (s: VScreen) => void }) {
     <>
       <View style={{ alignSelf: 'flex-start' }}><Btn ctx={ctx} label="‹ 試験を選ぶ" onPress={ctx.exit} /></View>
       <View style={{ gap: 4 }}>
-        <Text style={st.h1}>英単語 30語1分</Text>
+        <Text style={st.h1}>英単語フラッシュ</Text>
+        <Text style={st.note}>30語1分で覚えて、1分で答える</Text>
         <Text style={st.sub}>30語を1分で覚えて、1分で意味を答えます。正解するたびに0.5秒延び、得点は「残り秒＋正解数」。300語ごとに、間違えた語だけの定着テストがあります。</Text>
         <Text style={st.note}>レベルは TOEIC のスコア目安（100点刻み）。英検・高校・大学は参考です。</Text>
       </View>

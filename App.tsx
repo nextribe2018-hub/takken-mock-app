@@ -300,7 +300,7 @@ function Select({ ctx, all, last, onChoose, vocab, onVocab }: {
         <Text style={st.h3}>英単語</Text>
         <Pressable accessibilityRole="button" onPress={onVocab} style={({ pressed }) => [st.card, pressed && st.pressed]}>
           <View style={st.rowBetween}>
-            <Text style={st.h2}>英単語 30語1分</Text>
+            <Text style={st.h2}>英単語フラッシュ</Text>
             {vDue && <Text style={st.tag}>定着テスト</Text>}
           </View>
           <Text style={st.note}>30語を1分で覚えて1分でテスト。正解で+0.5秒、得点＝残り秒＋正解数。300語ごとに間違えた語だけで定着テスト。</Text>

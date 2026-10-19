@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""英単語 30語1分 のWeb版（Claudeアーティファクト）を組み立てる: python3 web/vocab/build.py
+"""英単語フラッシュ のWeb版（Claudeアーティファクト）を組み立てる: python3 web/vocab/build.py
 src/data/vocab.json を検査して web/vocab/template.html の __DATA__ に埋め込み、web/vocab/vocab.html を出力する。"""
 import json, pathlib, sys
 

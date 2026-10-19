@@ -22,7 +22,7 @@ python3 web/build.py          # 宅建Web版（Claudeアーティファクト用
 python3 web/rikkyo/build.py   # 立教 世界史・日本史のWeb版を検査＋再生成
 python3 web/keio/build.py     # 慶應 経済・商の世界史・日本史のWeb版を検査＋再生成
 python3 web/univ/build.py     # 近大・日大・明治・早稲田・東大・税理士のWeb版を検査＋再生成（一覧は docs/WEB_PAGES.md）
-python3 web/vocab/build.py    # 英単語 30語1分 のWeb版を検査＋再生成
+python3 web/vocab/build.py    # 英単語フラッシュ のWeb版を検査＋再生成
 ```
 
 ## 構成
