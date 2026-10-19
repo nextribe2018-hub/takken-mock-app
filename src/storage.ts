@@ -4,6 +4,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { EXAM, Exam, ExamId, byKey } from './exams';
 import { backfillRecent, emptyProgress, Progress } from './logic';
+import { emptyLevel, emptyVocab, LevelProgress, VocabProgress } from './vocab';
 
 const LAST_EXAM = 'exam-last-v1';
 
@@ -53,4 +54,25 @@ export async function loadLastExam(): Promise<ExamId | null> {
 
 export async function saveLastExam(id: ExamId): Promise<void> {
   try { await AsyncStorage.setItem(LAST_EXAM, id); } catch {}
+}
+
+// 英単語モードの記録（レベルごとの cursor・履歴・ログをまとめて1キーに保存）
+const VOCAB_KEY = 'vocab-progress-v1';
+export async function loadVocab(): Promise<VocabProgress> {
+  try {
+    const raw = await AsyncStorage.getItem(VOCAB_KEY);
+    if (!raw) return emptyVocab();
+    const d = JSON.parse(raw);
+    const levels: VocabProgress['levels'] = {};
+    Object.entries(d.levels || {}).forEach(([id, v]) => {
+      const L = v as Partial<LevelProgress>;
+      levels[id] = { ...emptyLevel(), ...L, hist: L.hist && typeof L.hist === 'object' ? L.hist : {}, log: Array.isArray(L.log) ? L.log : [] };
+    });
+    return { v: 1, levels };
+  } catch {
+    return emptyVocab();
+  }
+}
+export async function saveVocab(p: VocabProgress): Promise<void> {
+  try { await AsyncStorage.setItem(VOCAB_KEY, JSON.stringify(p)); } catch {}
 }

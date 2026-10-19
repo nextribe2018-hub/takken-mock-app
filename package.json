@@ -27,7 +27,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "tsx scripts/test-logic.ts",
+    "test": "tsx scripts/test-logic.ts && tsx scripts/test-vocab.ts",
     "typecheck": "tsc --noEmit"
   },
   "private": true
