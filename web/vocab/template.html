@@ -68,6 +68,18 @@ h3{font-size:13px;font-weight:700;color:var(--muted)}
 .li .m{color:var(--ink);flex:1.3;min-width:0}
 .li .p{font-size:12px;color:var(--muted);margin-left:6px}
 .li .x{color:var(--ng);font-size:12px;white-space:nowrap}
+.mk{font-size:13px;font-weight:700;letter-spacing:.06em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.mk .o{color:var(--ok)}.mk .n{color:var(--ng)}.mk .t{color:var(--warn)}.mk .e{color:var(--line)}
+.st{font-size:11px;font-weight:700;padding:1px 7px;border-radius:9px;white-space:nowrap;color:var(--muted);background:var(--bg)}
+.st.ok{color:var(--ok);background:var(--ok-soft)}.st.mid{color:var(--warn);background:var(--warn-soft)}.st.ng{color:var(--ng);background:var(--ng-soft)}
+.wr{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:7px 0;border-bottom:1px solid var(--line)}
+.wr:last-child{border-bottom:0}
+.wr .w{font-weight:700;font-size:17px;overflow-wrap:anywhere}
+.wr .m{font-size:13px;color:var(--muted);min-width:0}
+.wr .r{justify-self:end;align-self:center}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{padding:6px 10px;border-radius:16px;border:1px solid var(--line);background:var(--bg);font-size:13px;font-weight:700;min-height:36px}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .dots{display:flex;flex-wrap:wrap;gap:4px}
 .dot{width:16px;height:16px;border-radius:8px;border:1px solid var(--line);background:var(--surface)}
 .dot.ok{background:var(--ok-soft);border-color:var(--ok)}
@@ -86,12 +98,12 @@ h3{font-size:13px;font-weight:700;color:var(--muted)}
 <div class="wrap">
   <div class="head"><div class="eyebrow">VOCABULARY FLASH · 30 WORDS / 1 MIN</div><h1>英単語フラッシュ</h1><p class="note" style="margin-top:2px">30語1分で覚えて、1分で答える</p><div id="sync">記録の保存先：この端末のブラウザ</div></div>
   <div id="app"></div>
-  <p class="foot">30語を1分で覚えて、1分で意味を4択で答えます。正解するたびに0.5秒延び、得点＝残り秒（切り捨て）＋正解数。300語ごとに、これまでに間違えた語だけで定着テストをします。レベルは TOEIC のスコア目安で、英検・高校・大学は参考です。</p>
+  <p class="foot">30語を1分で覚えて、1分で意味を4択で答えます。正解するたびに0.5秒延び、得点＝残り秒（切り捨て）＋正解数。30語は毎回ランダムな順で選び、直近の成績で「要再習得」になった語を最大9語まで復習として混ぜます。単語ごとに直近5回の成績（◯正解・✖不正解・△時間切れ）を記録し、直近3回連続◯で定着、最新が✖なら要再習得です。300語ごとに、要再習得の語で定着テストをします。レベルは TOEIC のスコア目安で、英検・高校・大学は参考です。</p>
 </div>
 <script>
 var LEVELS=__DATA__;
 var LEVEL={};LEVELS.forEach(function(l){LEVEL[l.id]=l});
-var ROUND=30,MEMO_SEC=60,TEST_SEC=60,BONUS=0.5,FIX_EVERY=300,CHOICES=4;
+var ROUND=30,MEMO_SEC=60,TEST_SEC=60,BONUS=0.5,FIX_EVERY=300,CHOICES=4,HIST_N=5,REVIEW_MAX=9;
 var LS="vocab-progress-v1";
 var ALIAS={jhs:"toeic500",eiken:"toeic600",toeic:"toeic700",march:"toeic800",sokei:"toeic900"}; // 旧レベルid → 新id
 var S={v:1,rev:0,at:0,levels:{}};
@@ -100,10 +112,10 @@ var view="levels",cur=null;  // 画面の状態
 var app=document.getElementById("app");
 
 /* ---- 記録 ---- */
-function emptyLevel(){return {cursor:0,learned:0,lastFix:0,hist:{},log:[]}}
+function emptyLevel(){return {cursor:0,learned:0,lastFix:0,ord:null,hist:{},log:[]}}
 function lp(id){return S.levels[id]||(S.levels[id]=emptyLevel())}
 function norm(d){d=d||{};var out={v:1,rev:+d.rev||0,at:+d.at||0,levels:{}};
-  Object.keys(d.levels||{}).forEach(function(rid){var id=ALIAS[rid]||rid;if(out.levels[id])return;var v=d.levels[rid]||{};out.levels[id]={cursor:+v.cursor||0,learned:+v.learned||0,lastFix:+v.lastFix||0,hist:(v.hist&&typeof v.hist==="object")?v.hist:{},log:Array.isArray(v.log)?v.log:[]}});return out}
+  Object.keys(d.levels||{}).forEach(function(rid){var id=ALIAS[rid]||rid;if(out.levels[id])return;var v=d.levels[rid]||{};out.levels[id]={cursor:+v.cursor||0,learned:+v.learned||0,lastFix:+v.lastFix||0,ord:Array.isArray(v.ord)?v.ord:null,hist:(v.hist&&typeof v.hist==="object")?v.hist:{},log:Array.isArray(v.log)?v.log:[]}});return out}
 function loadLocal(){try{var r=localStorage.getItem(LS);if(r){var d=JSON.parse(r);if(d&&d.v===1)S=norm(d)}}catch(e){}}
 function saveLocal(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
 function setSync(s){var el=document.getElementById("sync");if(el)el.textContent=s==="account"?"記録の保存先：アカウント（ほかの端末でも続きから使えます）":"記録の保存先：この端末のブラウザ"}
@@ -138,11 +150,39 @@ function connect(){
 
 /* ---- ロジック（src/vocab.ts と同じ） ---- */
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
-function weakOrder(L,p){
-  function miss(w){var h=p.hist[w.w];return h?(h.n-h.c)/h.n+(h.last===0?1:0):0.5}
-  return L.words.map(function(w,i){return {w:w,i:i,s:miss(w)}}).sort(function(a,b){return b.s-a.s||a.i-b.i}).map(function(x){return x.w});
+/* 単語ごとの直近5回 r：'1'＝◯正解／'0'＝✖不正解／'2'＝△時間切れで未回答（古い→新しい）。r がない旧記録は最後の結果だけ */
+function recentOf(h){if(!h)return "";if(typeof h.r==="string")return h.r;return h.n?(h.last?"1":"0"):""}
+function statusOf(h){
+  var r=recentOf(h);if(!r)return "new";
+  var s=r.replace(/2/g,"");if(!s)return "na";
+  var x=(s.match(/0/g)||[]).length;
+  if(s.length>=3&&s.slice(-3)==="111")return "fixed";   // 直近3回連続◯（✖✖◯◯◯ も定着）
+  if(s.slice(-1)==="0"||x>s.length-x)return "redo";     // 最新が✖、または✖が◯より多い
+  return "mid";
 }
-function nextWords(L,p){var n=L.words.length,start=p.cursor%n,order=p.learned>=n?weakOrder(L,p):L.words,out=[];for(var i=0;i<ROUND&&i<n;i++)out.push(order[(start+i)%n]);return out}
+var ST={redo:["要再習得","ng"],na:["未回答のみ","mid"],mid:["習得中","mid"],fixed:["定着","ok"],"new":["未出題",""]};
+var ST_RANK={redo:0,na:1,mid:2,fixed:3,"new":4};
+function badness(h){var r=recentOf(h);return (r.match(/0/g)||[]).length*2+(r.match(/2/g)||[]).length+(r.slice(-1)==="0"?3:0)}
+function ensureOrd(L,p){  // レベルごとのランダムな出題順（一度決めたら保存して固定）
+  var n=L.words.length,o=Array.isArray(p.ord)?p.ord.filter(function(i){return i>=0&&i<n}):[],seen={};
+  o=o.filter(function(i){if(seen[i])return false;seen[i]=1;return true});
+  if(o.length!==n){var add=[];for(var i=0;i<n;i++)if(!seen[i])add.push(i);o=o.concat(shuffle(add))}
+  p.ord=o;return o;
+}
+function planRound(L,p){  // 次の30語：要再習得・未回答の語を最大9語＋まだ出ていない語（ランダム順）。全部出たら習得中→定着（古い順）
+  var ord=ensureOrd(L,p).map(function(i){return L.words[i]});
+  function st(w){return statusOf(p.hist[w.w])}
+  var review=ord.filter(function(w){var s=st(w);return s==="redo"||s==="na"})
+    .sort(function(a,b){return ST_RANK[st(a)]-ST_RANK[st(b)]||badness(p.hist[b.w])-badness(p.hist[a.w])}).slice(0,REVIEW_MAX);
+  var taken={};review.forEach(function(w){taken[w.w]=1});
+  var fresh=ord.filter(function(w){return !taken[w.w]&&st(w)==="new"});
+  var rest=ord.filter(function(w){return !taken[w.w]&&st(w)!=="new"})
+    .sort(function(a,b){return ST_RANK[st(a)]-ST_RANK[st(b)]||(p.hist[a.w].t||0)-(p.hist[b.w].t||0)});
+  var words=review.concat(fresh,rest).slice(0,ROUND),rv={};
+  words.forEach(function(w){if(st(w)!=="new")rv[w.w]=1});
+  return {words:words,review:rv,fresh:words.filter(function(w){return !rv[w.w]}).length};
+}
+function nextWords(L,p){return planRound(L,p).words}
 function buildTest(words,L){
   var pool=L.words;
   return shuffle(words).map(function(w){
@@ -152,13 +192,15 @@ function buildTest(words,L){
   });
 }
 function scoreOf(left,correct){return Math.max(0,Math.floor(left+1e-9))+correct}
-function apply(p,res){res.forEach(function(x){var h=p.hist[x.w.w]||{n:0,c:0,last:0};p.hist[x.w.w]={n:h.n+1,c:h.c+(x.ok?1:0),last:x.ok?1:0}})}
-function makeLog(kind,res,left){var c=res.filter(function(x){return x.ok}).length,asked=res.filter(function(x){return x.answered}).length,l=Math.max(0,Math.round(left*10)/10);
-  return {at:Date.now(),kind:kind,score:scoreOf(l,c),correct:c,asked:asked,size:res.length,left:l,wrong:res.filter(function(x){return !x.ok}).map(function(x){return x.w.w})}}
-function fixDue(p){return p.learned>0&&p.learned%FIX_EVERY===0&&p.lastFix<p.learned}
-function fixWords(L,p){
-  return L.words.map(function(w){return {w:w,h:p.hist[w.w]}}).filter(function(x){return x.h&&x.h.c<x.h.n})
-    .sort(function(a,b){return (b.h.n-b.h.c)/b.h.n-(a.h.n-a.h.c)/a.h.n||(b.h.last===0?1:0)-(a.h.last===0?1:0)}).slice(0,ROUND).map(function(x){return x.w});
+function apply(p,res){var now=Date.now();res.forEach(function(x){var h=p.hist[x.w.w]||{n:0,c:0,last:0},r=(recentOf(h)+(x.answered?(x.ok?"1":"0"):"2")).slice(-HIST_N);
+  p.hist[x.w.w]=x.answered?{n:h.n+1,c:h.c+(x.ok?1:0),last:x.ok?1:0,r:r,t:now}:{n:h.n,c:h.c,last:h.last,r:r,t:now}})}  // 未回答は△として残し、正誤の回数には入れない
+function makeLog(kind,res,left){var na=res.filter(function(x){return !x.answered}).map(function(x){return x.w.w});var c=res.filter(function(x){return x.ok}).length,asked=res.filter(function(x){return x.answered}).length,l=Math.max(0,Math.round(left*10)/10);
+  return {at:Date.now(),kind:kind,score:scoreOf(l,c),correct:c,asked:asked,size:res.length,left:l,wrong:res.filter(function(x){return x.answered&&!x.ok}).map(function(x){return x.w.w}),na:na}}
+function fixDue(p){return Math.floor(p.learned/FIX_EVERY)>Math.floor(p.lastFix/FIX_EVERY)}
+function fixWords(L,p){  // 要再習得 → 未回答のみ → ✖を含む習得中 の順に最大30語
+  return L.words.map(function(w){var h=p.hist[w.w];return {w:w,h:h,s:statusOf(h)}})
+    .filter(function(x){return x.s==="redo"||x.s==="na"||(x.s==="mid"&&recentOf(x.h).indexOf("0")>=0)})
+    .sort(function(a,b){return ST_RANK[a.s]-ST_RANK[b.s]||badness(b.h)-badness(a.h)}).slice(0,ROUND).map(function(x){return x.w});
 }
 function finishRound(id,res,left,repeat){var p=lp(id),L=LEVEL[id];apply(p,res);if(!repeat){p.cursor=(p.cursor+res.length)%L.words.length;p.learned+=res.length}var log=makeLog("round",res,left);p.log.push(log);save();return {log:log,fixDue:fixDue(p)}}
 function finishFix(id,res,left){var p=lp(id);apply(p,res);p.lastFix=p.learned;var log=makeLog("fix",res,left);p.log.push(log);save();return {log:log,fixDue:false}}
@@ -168,9 +210,12 @@ function stats(L,p){
   var hs=Object.keys(p.hist).map(function(k){return p.hist[k]});
   return {rounds:rs.length,best:Math.max.apply(null,[0].concat(rs.map(function(l){return l.score}))),avg:avg(rs),
     total:rs.reduce(function(s,l){return s+l.size},0),totalCorrect:rs.reduce(function(s,l){return s+l.correct},0),
-    wrongCount:L.words.filter(function(w){var h=p.hist[w.w];return h&&h.c<h.n}).length,
+    wrongCount:fixWords(L,p).length,cnt:counts(L,p),
     mastered:hs.filter(function(h){return h.n>=2&&h.c===h.n}).length,fixes:fx.length,fixAvg:avg(fx)};
 }
+function counts(L,p){var c={redo:0,na:0,mid:0,fixed:0,"new":0};L.words.forEach(function(w){c[statusOf(p.hist[w.w])]++});return c}
+function marks(h){var r=recentOf(h),s='';for(var i=r.length;i<HIST_N;i++)s+='<span class="e">・</span>';for(var k=0;k<r.length;k++){var ch=r[k];s+=ch==="1"?'<span class="o">◯</span>':ch==="0"?'<span class="n">✖</span>':'<span class="t">△</span>'}return '<span class="mk" aria-label="直近'+r.length+'回の成績">'+s+'</span>'}
+function stTag(s){return '<span class="st '+ST[s][1]+'">'+ST[s][0]+'</span>'}
 function judge(score,correct,size){var r=size?correct/size:0;if(r>=0.95&&score>=70)return ["完璧。次の30語へ","ok"];if(r>=0.8)return ["定着しています","ok"];if(r>=0.6)return ["もう一息。間違えた語をもう一度","mid"];return ["要復習。同じ30語をやり直すのがおすすめ","ng"]}
 
 /* ---- 画面 ---- */
@@ -188,16 +233,16 @@ function levels(){
   var h='<div class="card"><h2>レベルを選ぶ</h2><p class="note">TOEIC のスコア目安で 500 → 900 の100点刻み。英検・高校・大学は参考です。各300語。</p></div>';
   LEVELS.forEach(function(L){var p=lp(L.id),s=stats(L,p);
     h+='<div class="card tap" data-a="level" data-id="'+L.id+'" role="button" tabindex="0"><div class="row"><h2>'+esc(L.name)+'</h2>'+(fixDue(p)?'<span class="tag">定着テスト</span>':'')+'</div><p class="note">'+esc(L.desc)+'　<span style="color:var(--accent)">参考：'+esc(L.ref)+'</span></p>'+
-      '<div class="bar"><i style="width:'+Math.min(100,Math.round(p.learned/L.words.length*100))+'%"></i></div>'+
-      '<p class="note">覚えた '+p.learned+'語（'+Math.min(100,Math.round(p.learned/L.words.length*100))+'%）'+(s.rounds?'　最高 '+s.best+'点・平均 '+s.avg+'点・'+s.rounds+'回':'　まだ始めていません')+'</p></div>'});
+      '<div class="bar"><i style="width:'+Math.round(s.cnt.fixed/L.words.length*100)+'%"></i></div>'+
+      '<p class="note">定着 '+s.cnt.fixed+'語・出題済み '+(L.words.length-s.cnt["new"])+'/'+L.words.length+'語'+(s.cnt.redo?'・要再習得 '+s.cnt.redo+'語':'')+(s.rounds?'<br>最高 '+s.best+'点・平均 '+s.avg+'点・'+s.rounds+'回':'<br>まだ始めていません')+'</p></div>'});
   app.innerHTML=h;
 }
 function levelHome(){
-  var id=cur.id,L=LEVEL[id],p=lp(id),s=stats(L,p),due=fixDue(p),lap=Math.floor(p.learned/L.words.length)+1,pos=p.cursor;
+  var id=cur.id,L=LEVEL[id],p=lp(id),s=stats(L,p),due=fixDue(p),plan=planRound(L,p),nrev=plan.words.length-plan.fresh;
   var rem=FIX_EVERY-(p.learned%FIX_EVERY);
   var h='<div><button class="btn" data-a="levels">‹ レベル一覧</button></div><div class="head"><h2 style="font-size:22px">'+esc(L.name)+'</h2><p class="note">'+esc(L.desc)+'　参考：'+esc(L.ref)+'</p></div>';
   if(due)h+='<div class="card now"><h2>定着テストの時間です</h2><p>'+p.learned+'語を覚えました。これまでに間違えた語（'+s.wrongCount+'語）から最大30語を、暗記なしで1分テストします。</p><button class="btn pri big" data-a="fix">定着テストを始める</button></div>';
-  h+='<div class="card"><h2>'+lap+'周目　'+(pos+1)+'〜'+Math.min(pos+ROUND,L.words.length)+'語目</h2><p class="note">1分で30語を覚える → 1分でテスト。'+(lap>1?'2周目からは間違いの多い語から出ます。':'')+'</p><button class="btn pri big" data-a="start"'+(due?' disabled':'')+'>30語を覚える（1分）</button>'+(due?'<p class="note">先に定着テストを済ませてください。</p>':'')+'</div>';
+  h+='<div class="card"><h2>次の30語　'+(s.cnt["new"]?'新しい語 '+plan.fresh+'・':'')+'復習 '+nrev+'</h2><p class="note">1分で30語を覚える → 1分でテスト。語はランダムな順で選び、要再習得・未回答の語を最大'+REVIEW_MAX+'語まで復習として混ぜます。</p><button class="btn pri big" data-a="start"'+(due?' disabled':'')+'>30語を覚える（1分）</button>'+(due?'<p class="note">先に定着テストを済ませてください。</p>':'')+'</div>';
   h+='<div class="card"><h2>記録</h2><div class="kpis">'+
     '<div class="kpi"><span>最高点</span><b>'+s.best+'</b></div><div class="kpi"><span>平均点</span><b>'+s.avg+'</b></div><div class="kpi"><span>回数</span><b>'+s.rounds+'</b></div>'+
     '<div class="kpi"><span>正解の累計</span><b>'+s.totalCorrect+'<small class="unit">/'+s.total+'</small></b></div><div class="kpi"><span>間違えた語</span><b>'+s.wrongCount+'</b></div><div class="kpi"><span>定着テスト</span><b>'+s.fixes+(s.fixes?'<small class="unit"> 平均'+s.fixAvg+'</small>':'')+'</b></div></div>'+
@@ -205,15 +250,27 @@ function levelHome(){
   var recent=p.log.slice(-10).reverse();
   if(recent.length){h+='<div class="list">';recent.forEach(function(l){h+='<div class="li"><span class="note">'+dl(l.at)+'　'+(l.kind==="fix"?"定着":"通常")+'</span><span>'+l.score+'点　正解'+l.correct+'/'+l.size+'　残り'+fmt1(l.left)+'秒</span></div>'});h+='</div>'}
   h+='</div>';
-  if(s.wrongCount){h+='<div class="card"><h2>間違えた語</h2><p class="note">誤答率の高い順。定着テストはここから出ます。</p><div class="list">';
-    fixWords(L,p).forEach(function(w){var x=p.hist[w.w];h+='<div class="li"><span><span class="w">'+esc(w.w)+'</span>　'+esc(w.m)+'</span><span class="note">'+x.c+'/'+x.n+'</span></div>'});h+='</div></div>'}
+  h+=wordTable(L,p,s.cnt);
   h+='<div id="reset"><button class="btn" data-a="askreset">このレベルの記録を消す</button></div>';
   app.innerHTML=h;
+}
+function wordTable(L,p,c){
+  var keys=["redo","na","mid","fixed"],f=cur.f;
+  if(!f||(f!=="all"&&!c[f]))f=keys.filter(function(k){return c[k]})[0]||"all";
+  var seen=L.words.length-c["new"];
+  var h='<div class="card" id="words"><h2>単語ごとの成績（直近5回）</h2><p class="note">左が古く右が新しい。◯正解・✖不正解・△時間切れで未回答。直近3回連続◯で「定着」、最新が✖（または✖が◯より多い）と「要再習得」で、次の30語に復習として入ります。</p>';
+  if(!seen)return h+'<p class="note">まだ出題していません。</p></div>';
+  h+='<div class="seg">';keys.forEach(function(k){h+='<button data-a="filter" data-f="'+k+'" class="'+(f===k?"on":"")+'"'+(c[k]?'':' disabled')+'>'+ST[k][0]+' '+c[k]+'</button>'});
+  h+='<button data-a="filter" data-f="all" class="'+(f==="all"?"on":"")+'">すべて '+seen+'</button></div><div class="list">';
+  L.words.map(function(w){return {w:w,h:p.hist[w.w],s:statusOf(p.hist[w.w])}}).filter(function(x){return x.s!=="new"&&(f==="all"||x.s===f)})
+    .sort(function(a,b){return ST_RANK[a.s]-ST_RANK[b.s]||badness(b.h)-badness(a.h)})
+    .forEach(function(x){h+='<div class="wr"><span class="w">'+esc(x.w.w)+'</span><span class="r">'+stTag(x.s)+'</span><span class="m">'+esc(x.w.m)+'</span><span class="r">'+marks(x.h)+'</span></div>'});
+  return h+'</div></div>';
 }
 function memo(){
   var id=cur.id,L=LEVEL[id],p=lp(id),words=cur.words,start=Date.now(),done=false;
   var h='<div class="row"><div><p class="note">'+esc(L.name)+'　覚える 30語</p><div class="timer" id="t">1:00</div></div><button class="btn pri" data-a="totest">テストへ進む</button></div><div class="card"><div class="list">';
-  words.forEach(function(w){var x=p.hist[w.w];h+='<div class="li"><span class="w">'+esc(w.w)+'</span><span class="m">'+esc(w.m)+'<span class="p">'+esc(w.p)+'</span></span>'+(x&&x.c<x.n?'<span class="x">前回×</span>':'')+'</div>'});
+  words.forEach(function(w){var x=p.hist[w.w];h+='<div class="li"><span class="w">'+esc(w.w)+'</span><span class="m">'+esc(w.m)+'<span class="p">'+esc(w.p)+'</span></span>'+(recentOf(x)?marks(x):'')+'</div>'});
   h+='</div></div><p class="note">時間になると自動でテストが始まります。</p>';
   app.innerHTML=h;
   cur.finish=function(){if(done)return;done=true;go("test",{id:id,words:words,kind:"round",repeat:cur.repeat})};
@@ -244,7 +301,7 @@ function result(){
     '<p>残り '+fmt1(log.left)+'秒 ＋ 正解 '+log.correct+'問'+(log.asked<log.size?'（'+(log.size-log.asked)+'問は時間切れ）':'')+'</p><div><span class="judge '+j[1]+'">'+j[0]+'</span></div>'+
     '<p class="note">このレベルの最高 '+s.best+'点・平均 '+s.avg+'点（'+s.rounds+'回）。覚えた語 '+p.learned+'。</p></div>';
   if(cur.fixDue)h+='<div class="card now"><h2>'+p.learned+'語を覚えました</h2><p>これまでに間違えた語だけで、暗記なしの1分テストをして定着を測ります。</p><button class="btn pri big" data-a="fix">定着テストへ</button></div>';
-  if(wrong.length){h+='<div class="card"><h2>間違えた語 '+wrong.length+'</h2><div class="list">';wrong.forEach(function(r){h+='<div class="li"><span><span class="w">'+esc(r.w.w)+'</span>　'+esc(r.w.m)+'</span><span class="note">'+(r.answered?"×":"未回答")+'</span></div>'});h+='</div></div>'}
+  if(wrong.length){h+='<div class="card"><h2>間違えた・未回答の語 '+wrong.length+'</h2><div class="list">';wrong.forEach(function(r){var x=p.hist[r.w.w];h+='<div class="wr"><span class="w">'+esc(r.w.w)+'</span><span class="r">'+stTag(statusOf(x))+'</span><span class="m">'+esc(r.w.m)+'　'+(r.answered?"✖ 不正解":"△ 時間切れ")+'</span><span class="r">'+marks(x)+'</span></div>'});h+='</div><p class="note">△（時間切れ）は不正解に数えず、次の30語で復習として出します。</p></div>'}
   h+='<div class="btns">'+(!cur.fixDue&&log.kind==="round"?'<button class="btn pri" data-a="start">次の30語へ</button>':'')+(log.kind==="round"?'<button class="btn" data-a="again">同じ30語をもう一度</button>':'')+'<button class="btn" data-a="level">ホームへ</button></div>';
   app.innerHTML=h;
 }
@@ -254,6 +311,7 @@ app.addEventListener("click",function(e){
   var b=e.target.closest("[data-a]");if(!b)return;var a=b.getAttribute("data-a"),id=cur&&cur.id;
   if(a==="level")go("level",{id:b.getAttribute("data-id")||id});
   else if(a==="levels")go("levels");
+  else if(a==="filter"){cur.f=b.getAttribute("data-f");levelHome();var el=document.getElementById("words");if(el)el.scrollIntoView({block:"start"})}
   else if(a==="start")startRound(id);
   else if(a==="fix")startFix(id);
   else if(a==="totest")cur.finish();
