@@ -11,11 +11,9 @@ import {
   buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, freeExam, judge, pick, judgeSet, LessonSys, record,
   relatedBranch, relatedRows, relatedTraps, reviewQuestions, reviewCount, reviewJudge, statsBy, topicState, topicTier, Tier, fourChoice, orderExamples, orderByKw, Lesson, wrongGroups,
 } from './src/logic';
-import { loadLastExam, loadProgress, loadUnlocked, loadVocab, saveLastExam, saveProgress, saveUnlocked, saveVocab } from './src/storage';
+import { loadLastExam, loadProgress, loadUnlocked, saveLastExam, saveProgress, saveUnlocked } from './src/storage';
 import { StoreState, buy, restore, startStore } from './src/purchase';
 import { APP_EXAMS, PRICE_LABEL, SINGLE, skuFor } from './src/variant';
-import { VocabApp } from './src/VocabScreens';
-import { LEVELS as VOCAB_LEVELS, VocabProgress, levelOf as vocabLevelOf, stats as vocabStats, fixDue as vocabFixDue } from './src/vocab';
 import { Colors, fonts, useColors, mix } from './src/theme';
 import notesRaw from './src/data/notes.json';
 const NOTES = notesRaw as [string, string, string[]][];
@@ -38,9 +36,7 @@ type Screen =
   // 計算方法・注意事項（ホームには載せない説明）
   | { name: 'notes'; sec: string; back?: Screen }
   // 過去問の4択に戻した一覧
-  | { name: 'four' }
-  // 英単語モード（画面は src/VocabScreens.tsx）
-  | { name: 'vocab' };
+  | { name: 'four' };
 
 const ordersFor = (x: Exam, qs: Item[]): Order[] => qs.map(q => (x.format === 'choice' ? choiceOrder(q) : []));
 // 宅建だけの機能（合格の見込み・分野別10問・体系解説・1問ごとの即時採点など）を出すか
@@ -58,7 +54,6 @@ function Root() {
   const c = useColors();
   const st = useMemo(() => makeStyles(c), [c]);
   const [all, setAll] = useState<Partial<Record<ExamId, Progress>> | null>(null);
-  const [vocab, setVocab] = useState<VocabProgress | null>(null);
   const [examId, setExamId] = useState<ExamId>(SINGLE?.id ?? 'takken');
   const [last, setLast] = useState<ExamId | null>(null);
   const [screen, setScreen] = useState<Screen>(SINGLE ? { name: 'home' } : { name: 'select' });
@@ -83,9 +78,7 @@ function Root() {
       Promise.all(APP_EXAMS.map(x => loadProgress(x))),
       Promise.all(APP_EXAMS.map(x => loadUnlocked(x.id))),
       loadLastExam(),
-      loadVocab(),
-    ]).then(([ps, us, l, v]) => {
-      setVocab(v);
+    ]).then(([ps, us, l]) => {
       setAll(Object.fromEntries(APP_EXAMS.map((x, i) => [x.id, ps[i]])));
       setUnlocked(Object.fromEntries(APP_EXAMS.map((x, i) => [x.id, us[i]])));
       setLast(l && APP_EXAMS.some(x => x.id === l) ? l : null);
@@ -110,7 +103,6 @@ function Root() {
     scrollRef.current?.scrollTo({ y: 0, animated: false });
   }, []);
   const toTop = useCallback(() => scrollRef.current?.scrollTo({ y: 0, animated: false }), []);
-  const updateVocab = useCallback((next: VocabProgress) => { setVocab(next); saveVocab(next); }, []);
   const choose = useCallback((id: ExamId) => {
     setExamId(id);
     setLast(id);
@@ -118,7 +110,7 @@ function Root() {
     go({ name: 'home' });
   }, [go]);
 
-  if (!all || !vocab) {
+  if (!all) {
     return <View style={[st.fill, st.center]}><ActivityIndicator color={c.ai} /></View>;
   }
 
@@ -140,8 +132,7 @@ function Root() {
       <StatusBar style="auto" />
       <ScrollView ref={scrollRef}>
         <View ref={contentRef} collapsable={false} style={st.wrap}>
-        {screen.name === 'select' && <Select ctx={ctx} all={all} unlocked={unlocked} last={last} onChoose={choose} vocab={vocab} onVocab={() => go({ name: 'vocab' })} />}
-        {screen.name === 'vocab' && <VocabApp ctx={{ c, st, p: vocab, update: updateVocab, exit: () => go({ name: 'select' }), toTop }} />}
+        {screen.name === 'select' && <Select ctx={ctx} all={all} unlocked={unlocked} last={last} onChoose={choose} />}
         {screen.name === 'home' && <Home ctx={ctx} />}
         {screen.name === 'exam' && <ExamView ctx={ctx} s={screen} />}
         {screen.name === 'result' && <Result ctx={ctx} s={screen} />}
@@ -289,15 +280,11 @@ function Footer({ ctx }: { ctx: Ctx }) {
 }
 
 /* ---------- 入口：試験を選ぶ ---------- */
-function Select({ ctx, all, unlocked, last, onChoose, vocab, onVocab }: {
-  ctx: Ctx; all: Partial<Record<ExamId, Progress>>; unlocked: Partial<Record<ExamId, boolean>>; last: ExamId | null; onChoose: (id: ExamId) => void; vocab: VocabProgress; onVocab: () => void;
+function Select({ ctx, all, unlocked, last, onChoose }: {
+  ctx: Ctx; all: Partial<Record<ExamId, Progress>>; unlocked: Partial<Record<ExamId, boolean>>; last: ExamId | null; onChoose: (id: ExamId) => void;
 }) {
   const { st } = ctx;
   const groups = [...new Set(APP_EXAMS.map(x => x.group))];
-  const vLearned = VOCAB_LEVELS.reduce((a, L) => a + vocabLevelOf(vocab, L.id).learned, 0);
-  const vRounds = VOCAB_LEVELS.reduce((a, L) => a + vocabStats(L, vocabLevelOf(vocab, L.id)).rounds, 0);
-  const vBest = Math.max(0, ...VOCAB_LEVELS.map(L => vocabStats(L, vocabLevelOf(vocab, L.id)).best));
-  const vDue = VOCAB_LEVELS.some(L => vocabFixDue(vocabLevelOf(vocab, L.id)));
   return (
     <>
       <View style={{ gap: 4 }}>
@@ -332,20 +319,6 @@ function Select({ ctx, all, unlocked, last, onChoose, vocab, onVocab }: {
           })}
         </View>
       ))}
-      <View style={{ gap: 10 }}>
-        <Text style={st.h3}>英単語</Text>
-        <Pressable accessibilityRole="button" onPress={onVocab} style={({ pressed }) => [st.card, pressed && st.pressed]}>
-          <View style={st.rowBetween}>
-            <Text style={st.h2}>英単語フラッシュ</Text>
-            {vDue && <Text style={st.tag}>定着テスト</Text>}
-          </View>
-          <Text style={st.note}>30語を1分で覚えて1分でテスト。正解で+0.5秒、得点＝残り秒＋正解数。300語ごとに間違えた語だけで定着テスト。</Text>
-          <Text style={st.note}>
-            {VOCAB_LEVELS.map(L => L.name.replace('TOEIC ', '')).join('・')}（TOEIC目安）　各300語
-            {vRounds ? `　覚えた ${vLearned}語・${vRounds}回・最高 ${vBest}点` : '　まだ始めていません'}
-          </Text>
-        </Pressable>
-      </View>
       <Footer ctx={ctx} />
     </>
   );
