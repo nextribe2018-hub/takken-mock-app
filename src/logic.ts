@@ -2,7 +2,7 @@
 // 試験ごとの違いは src/exams.ts の Exam に持たせ、ここの関数は Exam を受け取る。
 // 末尾の「宅建用」は、画面（App.tsx）が使っている従来の関数名を残したもの。
 import lessonsRaw from './data/lessons.json';
-import { EXAM, Exam, Item } from './exams';
+import { EXAM, Exam, Item, LevelPassConfig } from './exams';
 
 export type Field = '業法' | '権利' | '法令' | '税他';
 // 宅建の問題（exams.ts の Item を分野と○×の正解に絞った形。安定キー k は 分野|論点|出典、重複は #n）
@@ -41,12 +41,15 @@ export type HistItem = { n: number; c: number; last: 0 | 1 };
 export type Hist = Record<string, HistItem>;
 // topics＝このセット（5回）で出した論点（「分野|論点」）、carry＝前のセットで出し切れなかった論点（次のセットで優先）
 export type SetState = { round: number; scores: number[]; topics?: string[]; carry?: string[] };
-export type LogItem = { at: string; round: number; score: number; sec: number; field?: Field };
+export type LogItem = { at: string; round: number; score: number; sec: number; field?: string };
 // 論点ごとの直近10問の正誤（古い→新しい、'1'=正解）。キーは「分野|論点」
 export type Recent = Record<string, string>;
-export type Progress = { v: 2; hist: Hist; r10: Recent; set: SetState; log: LogItem[]; voice: boolean };
+// rl＝水準ごとの直近10問（キー '1'〜'3'。水準 lv のある試験＝日本史○×だけ）
+export type Progress = { v: 2; hist: Hist; r10: Recent; rl?: Recent; set: SetState; log: LogItem[]; voice: boolean };
 
 export const LESSON = lessonsRaw as Record<string, Lesson>;
+// 試験ごとの論点解説（宅建型の試験だけ。ない試験は空）
+export const lessonsOf = (x: Exam): Record<string, Lesson> => x.lessons ?? {};
 
 export const emptyProgress = (): Progress => ({ v: 2, hist: {}, r10: {}, set: { round: 0, scores: [] }, log: [], voice: false });
 
@@ -58,12 +61,14 @@ export const topicKey = (q: { f: string; t: string }) => `${q.f}|${q.t}`;
 // 1問の回答を記録（全体の記録＋論点ごとの直近10問）
 export function record(p: Progress, q: Item, ok: boolean): Progress {
   const t = topicKey(q);
-  return { ...p, hist: rec(p.hist, q, ok), r10: { ...p.r10, [t]: ((p.r10[t] || '') + (ok ? '1' : '0')).slice(-10) } };
+  const next: Progress = { ...p, hist: rec(p.hist, q, ok), r10: { ...p.r10, [t]: ((p.r10[t] || '') + (ok ? '1' : '0')).slice(-10) } };
+  if (q.lv) { const rl = p.rl || {}, l = String(q.lv); next.rl = { ...rl, [l]: ((rl[l] || '') + (ok ? '1' : '0')).slice(-10) }; }
+  return next;
 }
 // 順番の記録がない既存データ用：各問の最後の結果で論点の直近10問を補う（既にある論点はそのまま）
-export function backfillRecent(hist: Hist, base: Recent = {}): Recent {
+export function backfillRecent(hist: Hist, base: Recent = {}, items: Item[] = BANK): Recent {
   const o: Recent = { ...base }; const tmp: Recent = {};
-  BANK.forEach(q => { const h = hist[q.k]; if (h && h.n) { const t = topicKey(q); tmp[t] = (tmp[t] || '') + (h.last ? '1' : '0'); } });
+  items.forEach(q => { const h = hist[q.k]; if (h && h.n) { const t = topicKey(q); tmp[t] = (tmp[t] || '') + (h.last ? '1' : '0'); } });
   Object.keys(tmp).forEach(t => { if (!o[t]) o[t] = tmp[t].slice(-10); });
   return o;
 }
@@ -119,14 +124,52 @@ export function pickCover<T extends Item>(hist: Hist, pool: T[], n: number, excl
   for (const q of c) { if (out.length >= n) break; if (!out.includes(q)) out.push(q); }
   return out;
 }
+const cmpKey = (a: number[], b: number[]) => { for (let j = 0; j < a.length; j++) if (a[j] !== b[j]) return a[j] - b[j]; return 0; };
+// 水準の目標つきの pickCover（日本史○×）。need[l]＝水準 l+1 をあと何問。
+// 1問ずつ「同じ論点を避ける → 論点の順位（持ち越し・未出題の論点）→ 未出題／前回不正解／正解済み → 水準（目標が残る水準、なければ近い水準）→ 回答の少ない順」で選ぶ
+export function pickCoverLv<T extends Item>(hist: Hist, pool: T[], n: number, exclude: Set<number>, set: SetState, need: number[], rnd = Math.random): T[] {
+  const used = new Set(set.topics || []), carry = new Set(set.carry || []);
+  const rank = (q: T) => { const k = q.f + '|' + q.t; return carry.has(k) && !used.has(k) ? 0 : used.has(k) ? 2 : 1; };
+  const c = shuffle(pool.filter(q => !exclude.has(q.i)), rnd);
+  c.sort((a, b) => rank(a) - rank(b) || prio(hist, a) - prio(hist, b));
+  const lvCost = (q: T) => {
+    const l = (q.lv || 2) - 1;
+    if (need[l] > 0 || need.every(v => v <= 0)) return 0;
+    let d = 9; need.forEach((v, i) => { if (v > 0) d = Math.min(d, Math.abs(i - l)); });
+    return d;
+  };
+  const out: T[] = [], seen = new Set<string>();
+  while (out.length < n) {
+    let best = -1, bk: number[] = [];
+    c.forEach((q, i) => {
+      if (out.includes(q)) return;
+      const key = [seen.has(q.t) ? 1 : 0, rank(q), Math.min(2, prio(hist, q)), lvCost(q), i];
+      if (best < 0 || cmpKey(key, bk) < 0) { best = i; bk = key; }
+    });
+    if (best < 0) break;
+    const q = c[best]; out.push(q); seen.add(q.t);
+    const l = (q.lv || 2) - 1; if (need[l] > 0) need[l]--;
+  }
+  return out;
+}
+// 1回分の水準の割り当て：lvMix（例 4・4・2）を並べて混ぜ、分野ごとの出題枠に順に配る → 分野ごとの need
+export function levelNeeds(x: Exam, mix: Record<string, number>, rnd = Math.random): Record<string, number[]> {
+  const lv = shuffle(x.lvMix!.flatMap((n, i) => Array(n).fill(i) as number[]), rnd);
+  const o: Record<string, number[]> = {}; let k = 0;
+  x.fields.forEach(([f]) => { o[f] = x.lvMix!.map(() => 0); for (let j = 0; j < (mix[f] || 0); j++, k++) if (k < lv.length) o[f][lv[k]]++; });
+  return o;
+}
 // 1回分を組む。rounds のある試験（宅建）は分野順で、5回のセットで論点が一巡するように選ぶ。ない試験は混ぜて出す
+// lvMix のある試験（日本史○×）は、さらに水準の目標（4・4・2）に近づくように選ぶ
 export function buildRound(x: Exam, hist: Hist, round: number, rnd = Math.random, set?: SetState): Item[] {
   const mix = quotas(x, round);
   const qs: Item[] = [];
   const ex = new Set<number>();
+  const needs = x.lvMix ? levelNeeds(x, mix, rnd) : null;
   x.fields.forEach(([f]) => {
     const pool = x.items.filter(q => q.f === f), n = mix[f] || 0;
-    (x.rounds && set ? pickCover(hist, pool, n, ex, set, rnd) : pick(hist, pool, n, ex, rnd)).forEach(q => { qs.push(q); ex.add(q.i); });
+    (needs ? pickCoverLv(hist, pool, n, ex, set || { round: 0, scores: [] }, needs[f], rnd)
+      : x.rounds && set ? pickCover(hist, pool, n, ex, set, rnd) : pick(hist, pool, n, ex, rnd)).forEach(q => { qs.push(q); ex.add(q.i); });
   });
   const n = Math.min(x.size, x.items.length);
   if (qs.length < n) pick(hist, x.items, n - qs.length, ex, rnd).forEach(q => qs.push(q));
@@ -155,7 +198,7 @@ export function choiceOrder(q: Item, rnd = Math.random): number[] {
 }
 
 // 確認例題の問題数：論点ごとに復習する試験（宅建）は5問、分野ごとの試験は3問
-export const reviewCount = (x: Exam) => (x.reviewBy === 'topic' ? 5 : 3);
+export const reviewCount = (x: Exam) => x.reviewN ?? (x.reviewBy === 'topic' ? 5 : 3);
 // 確認例題の判定：習得＝8割以上（5問なら4問）、もう一息＝6割以上
 export const reviewJudge = (right: number, n: number): Judge =>
   right >= Math.ceil(n * 0.8) ? { tone: 'ok', label: '習得' } : right >= Math.ceil(n * 0.6) ? { tone: 'mid', label: 'もう一息' } : { tone: 'ng', label: '要復習' };
@@ -273,7 +316,7 @@ export function buildFieldExam(hist: Hist, f: Field, rnd = Math.random): Q[] {
 }
 
 // 分野別テストの採点（5回セットには入れない）
-export function finishFieldExam(p: Progress, f: Field, qs: Q[], ans: (0 | 1 | null)[], used: number) {
+export function finishFieldExam(p: Progress, f: string, qs: Item[], ans: (number | null)[], used: number) {
   let cur = p;
   let score = 0;
   qs.forEach((q, k) => { const ok = ans[k] === q.a; if (ok) score++; cur = record(cur, q, ok); });
@@ -290,7 +333,7 @@ const bigrams = (x: string) => {
   return o;
 };
 const overlap = (a: Set<string>, b: Set<string>) => { let n = 0; b.forEach(x => { if (a.has(x)) n++; }); return n; };
-export function relatedBranch(sys: LessonSys, q?: Q): { branch: number; item: number } {
+export function relatedBranch(sys: LessonSys, q?: { s: string; e: string }): { branch: number; item: number } {
   if (!q) return { branch: -1, item: -1 };
   const qb = bigrams(q.s + q.e);
   let branch = -1, best = 1;
@@ -301,7 +344,7 @@ export function relatedBranch(sys: LessonSys, q?: Q): { branch: number; item: nu
 }
 
 // 間違えた問題に関係する表の行だけを抜き出す（最も関係の深い表から最大4行）
-export function relatedRows(sys: LessonSys, q?: Q): { table: SysTable; rows: string[][] } | null {
+export function relatedRows(sys: LessonSys, q?: { s: string; e: string }): { table: SysTable; rows: string[][] } | null {
   if (!q) return null;
   const qb = bigrams(q.s + q.e);
   let best: { table: SysTable; rows: string[][]; sc: number } | null = null;
@@ -315,7 +358,7 @@ export function relatedRows(sys: LessonSys, q?: Q): { table: SysTable; rows: str
 }
 
 // 間違えた問題に関係するひっかけ（最大2件。見つからなければ先頭1件）
-export function relatedTraps(lesson: Lesson, q?: Q): string[] {
+export function relatedTraps(lesson: Lesson, q?: { s: string; e: string }): string[] {
   const traps = lesson.traps || [];
   if (!q) return traps.slice(0, 2);
   const qb = bigrams(q.s + q.e);
@@ -375,11 +418,15 @@ export const SCENARIOS = [
 ];
 export type FieldStat = { n: number; c: number; q: number; tot: number; rn: number; rc: number };
 export function fieldStats(hist: Hist, r10: Recent = backfillRecent(hist)): Record<Field, FieldStat> {
-  const o = {} as Record<Field, FieldStat>;
-  FIELDS.forEach(([f]) => { o[f] = { n: 0, c: 0, q: 0, tot: 0, rn: 0, rc: 0 }; });
-  BANK.forEach(q => { const s = o[q.f]; s.tot++; const h = hist[q.k]; if (h) { s.n += h.n; s.c += h.c; s.q++; } });
+  return fieldStatsX(TAKKEN, hist, r10) as Record<Field, FieldStat>;
+}
+// 試験ごとの版（分野別10問テストのカード・水準別の合格の見込みでも使う）
+export function fieldStatsX(x: Exam, hist: Hist, r10: Recent = {}): Record<string, FieldStat> {
+  const o: Record<string, FieldStat> = {};
+  x.fields.forEach(([f]) => { o[f] = { n: 0, c: 0, q: 0, tot: 0, rn: 0, rc: 0 }; });
+  x.items.forEach(q => { const s = o[q.f]; s.tot++; const h = hist[q.k]; if (h) { s.n += h.n; s.c += h.c; s.q++; } });
   // 直近：論点ごとの直近10問を分野でまとめる
-  Object.entries(r10).forEach(([t, r]) => { const f = t.split('|')[0] as Field; if (o[f]) { o[f].rn += r.length; o[f].rc += ones(r); } });
+  Object.entries(r10).forEach(([t, r]) => { const f = t.split('|')[0]; if (o[f]) { o[f].rn += r.length; o[f].rc += ones(r); } });
   return o;
 }
 // ---- 過去問の4択に戻す：同じ「年度-問番号」の肢をまとめ、肢ごとの正答率から元の4択1問の正解率を推計 ----
@@ -482,11 +529,14 @@ export function adjustTopic(rc: number, rn: number, c: number, n: number): numbe
 export type AdjRate = { n: number; c: number; raw: number | null; adj: number };
 // 分野ごとの合格確率用の成績。n は直近の問題数（不確かさの幅は直近の数で決める）、c は補正後の正答数
 export function adjustedRates(hist: Hist, r10: Recent = backfillRecent(hist)): Record<Field, AdjRate> {
-  const st = fieldStats(hist, r10);
-  const o = {} as Record<Field, AdjRate>;
-  FIELDS.forEach(([f]) => { o[f] = { n: 0, c: 0, raw: st[f].rn ? st[f].rc / st[f].rn : null, adj: 0 }; });
-  topicStats(hist, r10).forEach(s => { if (!s.rn) return; const r = o[s.f]; r.n += s.rn; r.c += adjustTopic(s.rc, s.rn, s.c, s.n) * s.rn; });
-  FIELDS.forEach(([f]) => { const r = o[f], s = st[f]; if (!r.n) { r.n = s.n; r.c = s.c; } r.adj = r.n ? r.c / r.n : 0; });
+  return adjustedRatesX(TAKKEN, hist, r10) as Record<Field, AdjRate>;
+}
+export function adjustedRatesX(x: Exam, hist: Hist, r10: Recent = {}): Record<string, AdjRate> {
+  const st = fieldStatsX(x, hist, r10);
+  const o: Record<string, AdjRate> = {};
+  x.fields.forEach(([f]) => { o[f] = { n: 0, c: 0, raw: st[f].rn ? st[f].rc / st[f].rn : null, adj: 0 }; });
+  statsBy(x, hist, r10).forEach(s => { if (!s.rn) return; const r = o[s.f]; r.n += s.rn; r.c += adjustTopic(s.rc, s.rn, s.c, s.n) * s.rn; });
+  x.fields.forEach(([f]) => { const r = o[f], s = st[f]; if (!r.n) { r.n = s.n; r.c = s.c; } r.adj = r.n ? r.c / r.n : 0; });
   return o;
 }
 
@@ -575,4 +625,103 @@ export function passEstimate(hist: Hist, sims = 3000, r10: Recent = backfillRece
   const oxAll = Object.values(st).reduce((a, s) => a + s.c, 0) / total;
   const focus = FIELDS.map(([f]) => f).sort((a, b) => (EXAM_N[b] - M.exp[b]) - (EXAM_N[a] - M.exp[a]))[0];
   return { ready: true, total, st, adj, ox, oxAdj, oxAll, rn, scen, focus, limbs, ...M };
+}
+
+/* ---------- 水準別の合格の見込み（日本史○×：日東駒専・MARCH・早慶） ----------
+ * 入力（宅建の r10 の考え方を水準別にしたもの）
+ *  - 分野の実力 a_f：論点ごとの直近10問を過去平均で補正（adjustTopic）して分野で合算（adjustedRatesX。宅建と同じ）
+ *  - 水準の実力 b_l：水準ごとの直近10問（Progress.rl）を、その水準の全回答の正答率で補正（adjustTopic）。直近がない水準は全回答
+ *  - 分野×水準の○×正答率 = a_f + (b_l − o)（o＝水準の補正後正答率を回答数で平均したもの。0.01〜0.99 に収める）
+ * 入試のモデル：分野ごとの問題数＝5回分の出題数（rounds の合計）。1問ごとに大学群の水準の混ぜ方で水準を引き、
+ *  toExam(p, k) で4択に換算して正誤を引く。a_f・b_l はベータ分布で不確かさを入れ、合格ラインは [下限, 上限] の整数点を等確率。
+ *  固定シードで sims 回。分野別の予想点と「いちばん伸ばせる分野」は focusGroup の大学群・見出しの k で計算
+ */
+export type LevelStat = { lv: number; n: number; c: number; rn: number; rc: number; adj: number; cnt: number };
+export function levelStats(x: Exam, hist: Hist, rl: Recent = {}): LevelStat[] {
+  const L = (x.pass && x.pass !== 'takken' ? x.pass.levels.length : 3);
+  const o: LevelStat[] = Array.from({ length: L }, (_, i) => ({ lv: i + 1, n: 0, c: 0, rn: 0, rc: 0, adj: 0, cnt: 0 }));
+  const last: string[] = o.map(() => '');
+  x.items.forEach(q => { const s = o[(q.lv || 2) - 1]; if (!s) return; const h = hist[q.k]; if (h) { s.n += h.n; s.c += h.c; last[s.lv - 1] += h.last ? '1' : '0'; } });
+  o.forEach((s, i) => {
+    const r = rl[String(s.lv)] || last[i].slice(-10); // 順番の記録がない場合は各問の最後の結果で補う
+    s.rn = r.length; s.rc = ones(r);
+    s.adj = adjustTopic(s.rc, s.rn, s.c, s.n);
+    s.cnt = s.rn || s.n; // 不確かさの幅は直近の数で決める（宅建と同じ）
+  });
+  return o;
+}
+export type LevelGroupResult = { name: string; prob: number; byLine: number[]; lines: number[]; mean: number; lo: number; hi: number; four: number; exp: Record<string, number> };
+export type LevelScenario = { k: number; label: string; groups: LevelGroupResult[] };
+export type LevelPassInput = { fields: Record<string, { n: number; c: number }>; levels: { n: number; c: number }[] };
+export type LevelPassEstimate =
+  | { ready: false; total: number; need: number }
+  | { ready: true; total: number; need: number; cfg: LevelPassConfig; fst: Record<string, FieldStat>; adj: Record<string, AdjRate>; lst: LevelStat[]; scen: LevelScenario[]; head: LevelScenario; examN: Record<string, number>; focus: string };
+const clamp01 = (p: number) => Math.min(0.99, Math.max(0.01, p));
+// 合格ライン：得点率 [下限, 上限] → 整数点（下限〜上限を切り上げ）
+export const passLines = (line: number[], n: number) => { const a = Math.ceil(line[0] * n - 1e-9), b = Math.ceil(line[1] * n - 1e-9); return Array.from({ length: b - a + 1 }, (_, i) => a + i); };
+// 入試1回分の分野ごとの問題数（rounds の合計）。rounds がなければ n を分野数で割る
+export const examCounts = (x: Exam): Record<string, number> => {
+  const o: Record<string, number> = {}; x.fields.forEach(([f]) => { o[f] = 0; });
+  (x.rounds || []).forEach(m => Object.entries(m).forEach(([f, n]) => { o[f] = (o[f] || 0) + n; }));
+  return o;
+};
+// 本体（テストしやすいよう、成績の数だけを受け取る純粋な関数）
+export function simulateLevels(fields: [string, string][], examN: Record<string, number>, inp: LevelPassInput, cfg: LevelPassConfig, k: number, sims = cfg.sims): LevelGroupResult[] {
+  const N = Object.values(examN).reduce((a, b) => a + b, 0);
+  const lvs = inp.levels;
+  const tot = lvs.reduce((a, s) => a + s.n, 0);
+  const o = tot ? lvs.reduce((a, s) => a + s.c, 0) / tot : 0;
+  const point = (f: string, l: number, af?: number, bl?: number) => {
+    const F = inp.fields[f], Lv = lvs[l];
+    const a = af ?? (F.c + 1) / (F.n + 2);
+    const b = Lv.n ? bl ?? (Lv.c + 1) / (Lv.n + 2) : o;
+    return clamp01(a + (Lv.n ? b - o : 0));
+  };
+  return cfg.groups.map(g => {
+    const r = seeded(cfg.seed);
+    const beta = (a: number, b: number) => { const x = gammaS(a, r), y = gammaS(b, r); return x / (x + y); };
+    const cum = g.mix.map((_, i) => g.mix.slice(0, i + 1).reduce((a, b) => a + b, 0));
+    const sc: number[] = [];
+    for (let i = 0; i < sims; i++) {
+      const bl = lvs.map(s => (s.n ? beta(s.c + 1, s.n - s.c + 1) : o));
+      let x = 0;
+      fields.forEach(([f]) => {
+        const F = inp.fields[f]; const af = beta(F.c + 1, F.n - F.c + 1);
+        const ps = lvs.map((_, l) => examRateFast(point(f, l, af, bl[l]), k));
+        for (let j = 0; j < (examN[f] || 0); j++) {
+          const u = r(); let l = cum.findIndex(c => u < c); if (l < 0) l = cum.length - 1;
+          if (r() < ps[l]) x++;
+        }
+      });
+      sc.push(x);
+    }
+    sc.sort((a, b) => a - b);
+    const lines = passLines(g.line, N);
+    const byLine = lines.map(t => sc.filter(v => v >= t).length / sims);
+    const exp: Record<string, number> = {};
+    fields.forEach(([f]) => { exp[f] = (examN[f] || 0) * g.mix.reduce((a, m, l) => a + m * examRate(point(f, l), k), 0); });
+    return {
+      name: g.name, lines, byLine, prob: byLine.reduce((a, b) => a + b, 0) / byLine.length,
+      mean: sc.reduce((a, b) => a + b, 0) / sims, lo: sc[Math.floor(sims * 0.1)], hi: sc[Math.floor(sims * 0.9)],
+      exp, four: Object.values(exp).reduce((a, b) => a + b, 0) / N,
+    };
+  });
+}
+export function levelPassEstimate(x: Exam, p: Pick<Progress, 'hist' | 'r10' | 'rl'>, sims?: number): LevelPassEstimate {
+  const cfg = x.pass as LevelPassConfig;
+  const fst = fieldStatsX(x, p.hist, p.r10);
+  const total = Object.values(fst).reduce((a, s) => a + s.n, 0);
+  if (total < cfg.minAnswers) return { ready: false, total, need: cfg.minAnswers };
+  const adj = adjustedRatesX(x, p.hist, p.r10);
+  const lst = levelStats(x, p.hist, p.rl || {});
+  const inp: LevelPassInput = {
+    fields: Object.fromEntries(x.fields.map(([f]) => [f, { n: adj[f].n, c: adj[f].c }])),
+    levels: lst.map(s => ({ n: s.cnt, c: s.adj * s.cnt })),
+  };
+  const examN = examCounts(x);
+  const scen = cfg.ks.map(s => ({ k: s.k, label: s.label, groups: simulateLevels(x.fields, examN, inp, cfg, s.k, sims ?? cfg.sims) }));
+  const head = scen[cfg.headline];
+  const G = head.groups[cfg.focusGroup];
+  const focus = x.fields.map(([f]) => f).sort((a, b) => (examN[b] - G.exp[b]) - (examN[a] - G.exp[a]))[0];
+  return { ready: true, total, need: cfg.minAnswers, cfg, fst, adj, lst, scen, head, examN, focus };
 }

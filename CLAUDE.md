@@ -22,6 +22,8 @@ python3 web/build.py          # 宅建Web版（Claudeアーティファクト用
 python3 web/rikkyo/build.py   # 立教 世界史・日本史のWeb版を検査＋再生成
 python3 web/keio/build.py     # 慶應 経済・商の世界史・日本史のWeb版を検査＋再生成
 python3 web/univ/build.py     # 近大・日大・明治・早稲田・東大・税理士のWeb版を検査＋再生成（一覧は docs/WEB_PAGES.md）
+python3 web/nihonshi/build.py # 日本史○×10分模試のWeb版（web/nihonshi/nihonshi-ox.html）を検査＋再生成
+python3 scripts/nihonshi-merge.py  # 日本史○×：content-work/nihonshi/<分野>.items.json・.lessons.json を検査して src/data/nihonshi-*.json へ取り込む（--dry-run で検査のみ）
 npm run variants              # 試験ごとの別アプリ設定（variants.json・eas.json）を src/exams.ts から作り直す
 uv run --with pillow python design/make_assets.py                  # アイコン案・スクショ案を design/spec.json から作る
 uv run --with pillow --with openpyxl python design/build_xlsx.py   # design/デザイン案.xlsx と docs/store-listing.md・privacy-policy.md を作る
@@ -35,6 +37,7 @@ uv run --with openpyxl python design/read_feedback.py              # Excel の�
 - `design/` アイコン・スクショ・掲載文・プライバシーポリシーの案（spec.json／text.json が元。Excel のコメントを読んで直し、作り直す）
 - 英単語フラッシュは 2026-10-22 に別リポジトリ `eitango-flash` へ切り出した。**このアプリには同居させない**（本人指示）
 - `web/` 宅建Web版、`web/rikkyo/` 立教Web版、`web/keio/` 慶應Web版のテンプレートとビルド
+- 日本史○×（`nihonshi-ox`）：宅建と同じ機能（論点タイル・即時解説・体系ページ・分野別10問）＋水準別の合格の見込み（日東駒専・MARCH・早慶）。仕様 `docs/content/nihonshi-ox-spec.md`、設定（分野・論点・回ごとの内訳・水準・合格判定の仮の値）は `src/data/nihonshi-config.json` にまとめてある。`src/data/nihonshi-ox.json`・`nihonshi-lessons.json` は現在サンプル（36問・解説は1論点以外仮）で、取り込みスクリプトで置き換える
 
 ## 注意
 - `npx expo install` が失敗する環境では `expo/bundledNativeModules.json` の版を `npm install` で指定する

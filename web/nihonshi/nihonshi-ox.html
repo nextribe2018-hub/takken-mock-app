@@ -1,0 +1,634 @@
+<title>日本史 10分模試</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+/* layout: ホーム（合格の見込み3水準・5回セット・論点マップ）→ 試験画面（タイマー＋1問ずつ）→ 結果 → 解説と確認例題3問 */
+:root{
+  --bg:#f3f4f1; --paper:#ffffff; --ink:#1f2a2e; --muted:#5d6a6e; --line:#d9ded9;
+  --ai:#24476b; --ai-soft:#e3ebf3; --ok:#2f7a4b; --ok-soft:#e2f1e7; --ng:#b8402c; --ng-soft:#f8e4df; --warn:#9a6b12; --warn-soft:#f6ecd6; --or:#b85a16; --or-soft:#fbe5d3;
+  --f-disp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a1d; --paper:#1d2529; --ink:#e7ecea; --muted:#9aa8ab; --line:#33403f;
+  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; --or:#f0a060; --or-soft:#3f2a1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a1d; --paper:#1d2529; --ink:#e7ecea; --muted:#9aa8ab; --line:#33403f;
+  --ai:#8fb4d9; --ai-soft:#22324a; --ok:#7cc795; --ok-soft:#1f3a2a; --ng:#ee8b75; --ng-soft:#40241f; --warn:#e3b65c; --warn-soft:#3a3020; --or:#f0a060; --or-soft:#3f2a1a; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75}
+.wrap{max-width:720px;margin:0 auto;padding-inline:16px;padding-block:20px 56px;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--f-disp);font-weight:800;font-size:1.7rem;margin:0}
+h2{font-family:var(--f-disp);font-size:1.15rem;margin:0}
+.sub{color:var(--muted);margin:2px 0 0;font-size:.88rem}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.btn{font:inherit;font-weight:700;padding:10px 14px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--ai)}
+.btn.pri{background:var(--ai);color:var(--paper);border-color:var(--ai)}
+.btn:focus-visible{outline:2px solid var(--ai);outline-offset:2px}
+.btn[disabled]{opacity:.5;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.sets{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.slot{border:1px solid var(--line);border-radius:8px;padding:8px 4px;text-align:center;font-size:.8rem;font-variant-numeric:tabular-nums}
+.slot b{display:block;font-size:1.05rem;font-family:var(--f-disp)}
+.slot.now{border-color:var(--ai);background:var(--ai-soft)}
+.kpi{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.kp{background:var(--bg);border-radius:8px;padding:10px 12px}
+.kp span{font-size:.78rem;color:var(--muted)} .kp b{display:block;font-size:1.3rem;font-family:var(--f-disp);font-variant-numeric:tabular-nums}
+.topics{display:flex;flex-direction:column;gap:14px}
+.tgroup h3{font-size:.85rem;margin:0 0 6px;color:var(--muted);letter-spacing:.05em}
+.tlist{display:flex;flex-wrap:wrap;gap:6px}
+.tp{font:inherit;font-size:.8rem;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.tp.t-none{opacity:.75}
+.tp.t-perfect{--c:var(--ok);--b:var(--ok);background:var(--ok);border-color:var(--ok);color:var(--paper);font-weight:700}
+.tp.t-good{--c:var(--ok);--b:var(--ok-soft)}
+.tp.t-mid{--c:var(--warn);--b:var(--warn-soft)}
+.tp.t-low{--c:var(--or);--b:var(--or-soft)}
+.tp.t-bad{--c:var(--ng);--b:var(--ng-soft)}
+.tp.t-good,.tp.t-mid,.tp.t-low,.tp.t-bad{background:var(--b);border-color:var(--c);color:var(--c)}
+.tp.few{border-style:dashed;background:color-mix(in srgb,var(--b) 45%,var(--paper));border-color:color-mix(in srgb,var(--c) 55%,var(--paper));font-weight:400}
+.tp.t-perfect.few{color:var(--ink);background:color-mix(in srgb,var(--ok) 28%,var(--paper));border-color:var(--ok)}
+.tp.few .tpr small{font-weight:700}
+.lg{display:inline-block;font-size:.72rem;padding:0 7px;border-radius:999px;border:1px solid var(--line);margin:2px 2px 0 0;cursor:default}
+.legend{font-size:.75rem;color:var(--muted)}
+.exam-top{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding-block:8px;display:flex;justify-content:space-between;align-items:center;gap:10px;z-index:2;border-bottom:1px solid var(--line)}
+.timer{font-family:var(--f-disp);font-size:1.6rem;font-weight:800;font-variant-numeric:tabular-nums}
+.timer.low{color:var(--ng)}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dot{width:22px;height:22px;border-radius:50%;border:1px solid var(--line);font-size:.7rem;display:grid;place-items:center;font-variant-numeric:tabular-nums;cursor:pointer;background:var(--paper);color:var(--ink)}
+.dot.ans{background:var(--ai-soft);border-color:var(--ai)}
+.dot.cur{outline:2px solid var(--ai)}
+.meta{font-size:.75rem;letter-spacing:.05em;color:var(--ai);font-weight:700}
+.stmt{font-size:1.05rem;margin:0}
+.ox{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ox .btn{font-size:1.5rem;padding:10px}
+.ox .btn.sel{background:var(--ai);color:var(--paper);border-color:var(--ai)}
+.res{border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.res.ok{background:var(--ok-soft)} .res.ng{background:var(--ng-soft)}
+.v{font-weight:700} .res.ok .v{color:var(--ok)} .res.ng .v{color:var(--ng)}
+.memo{font-size:.86rem;color:var(--muted)} .memo b{color:var(--ink)}
+.big{font-family:var(--f-disp);font-size:2.6rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2}
+.judge{display:inline-block;font-weight:700;padding:3px 12px;border-radius:999px;font-size:.9rem}
+.j-ok{background:var(--ok-soft);color:var(--ok)} .j-mid{background:var(--warn-soft);color:var(--warn)} .j-ng{background:var(--ng-soft);color:var(--ng)}
+.rv{display:flex;flex-direction:column;gap:10px}
+.ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.trap{background:var(--warn-soft);border-radius:8px;padding:10px 12px}
+.trap b{color:var(--warn)}
+.relg{display:flex;flex-direction:column;gap:10px}
+.relg .ul{font-size:.9rem}
+/* 体系解説：全体像ツリー・流れ図・比較表 */
+.ov{margin:0;font-size:.95rem}
+.systree{display:flex;flex-direction:column}
+.sysroot{align-self:flex-start;background:var(--ai);color:var(--paper);font-weight:700;border-radius:10px;padding:8px 14px;font-family:var(--f-disp);font-size:1.05rem}
+.sysbr{position:relative;margin-left:16px;padding:12px 0 0 18px;display:flex;flex-direction:column;gap:10px}
+.sysbr::before{content:"";position:absolute;left:0;top:0;bottom:24px;border-left:2px solid var(--line)}
+.br{position:relative;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--paper)}
+.br::before{content:"";position:absolute;left:-19px;top:22px;width:18px;border-top:2px solid var(--line)}
+.br h4{margin:0 0 4px;font-size:.95rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.br h4 .no{display:inline-grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--ai-soft);color:var(--ai);font-size:.75rem;font-variant-numeric:tabular-nums}
+.br ul{margin:0;padding-left:1.1em;font-size:.88rem;line-height:1.65}
+.br.hit{border-color:var(--ng);border-width:2px;background:var(--ng-soft)}
+.br.hit::before{border-top-color:var(--ng)}
+.br .tag{font-size:.72rem;font-weight:700;color:var(--paper);background:var(--ng);border-radius:999px;padding:1px 8px}
+.br li.hit{font-weight:700;color:var(--ng)}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.flow li{position:relative;display:flex;gap:12px;align-items:flex-start;padding-bottom:12px}
+.flow li:last-child{padding-bottom:0}
+.flow li:not(:last-child)::before{content:"";position:absolute;left:13px;top:30px;bottom:2px;border-left:2px solid var(--ai)}
+.flow .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--ai);color:var(--paper);display:grid;place-items:center;font-weight:700;font-size:.85rem;font-variant-numeric:tabular-nums}
+.flow .s{padding-top:3px;font-size:.92rem}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:8px}
+.st{border-collapse:collapse;width:100%;font-size:.84rem;line-height:1.5;min-width:100%}
+.st caption{text-align:left;font-weight:700;padding:0 0 6px;font-size:.9rem}
+.st th{background:var(--ai-soft);color:var(--ink);text-align:left;font-weight:700;padding:7px 9px;white-space:nowrap;border-bottom:1px solid var(--line)}
+.st td{padding:7px 9px;border-top:1px solid var(--line);vertical-align:top}
+.st td:first-child{font-weight:700;min-width:6.5em}
+.st tr:nth-child(even) td{background:color-mix(in srgb,var(--bg) 60%,transparent)}
+.st .o{color:var(--ok);font-weight:700}.st .x{color:var(--ng);font-weight:700}
+.tbls{display:flex;flex-direction:column;gap:14px}
+.mini{display:flex;flex-wrap:wrap;gap:6px}
+.mchip{font:inherit;font-size:.82rem;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.mchip .no{display:inline-grid;place-items:center;min-width:18px;height:18px;border-radius:50%;background:var(--ai-soft);color:var(--ai);font-size:.7rem;font-weight:700}
+.mchip.on{border-color:var(--ng);background:var(--ng-soft);color:var(--ng);font-weight:700}
+.mchip.rel{border-style:dashed;color:var(--ai)}
+.deeplink{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;border-color:var(--ai);color:var(--ai)}
+.deeplink::after{content:"→";position:absolute;right:16px}
+.deeplink{position:relative;padding-right:36px}
+.sub2{font-size:.78rem;font-weight:500;color:var(--muted)}
+.br.focus{outline:3px solid var(--ai);outline-offset:2px}
+.card>.br::before{display:none}
+.tpr{font-size:.92em}.tpr small{opacity:.7;margin-left:1px}
+.lbs{display:flex;gap:3px;margin-top:3px}.lb{display:inline-grid;place-items:center;min-width:1.5em;height:1.5em;font-size:.7rem;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
+.lb.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}.lb.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}.lb.mi{border-style:dashed}
+.lnk{font:inherit;background:none;border:0;padding:0;color:var(--ai);text-decoration:underline;cursor:pointer;text-align:left}
+.exb{border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.exb.near{border-color:var(--ai);background:var(--ai-soft)}
+.exb p{margin:0}.exb .exp{font-weight:700}
+.exb .tag{align-self:flex-start;font-size:.72rem;font-weight:700;color:var(--ai);border:1px solid var(--ai);border-radius:999px;padding:0 8px}
+.cpt{color:var(--warn)}
+.more{display:flex;flex-direction:column;gap:8px}.more summary{cursor:pointer;color:var(--ai);font-weight:700;padding:4px 0}.more[open]>.exb{margin-top:8px}
+.ard{margin:0;display:grid;gap:8px}.ard dt{font-weight:700}.ard dd{margin:0;color:var(--ink)}
+.fourcard{font:inherit;color:inherit;background:none;border:0;padding:0;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;cursor:pointer}
+.fourcard .fc-l{display:flex;flex-direction:column;gap:2px}.fourcard .fc-t{font-family:var(--f-disp);font-weight:700;font-size:1.15rem}
+.fourcard .fc-r{display:flex;flex-direction:column;align-items:flex-end}.fourcard .fc-r .fp{font-size:1.8rem;line-height:1.1}
+.fourcard:focus-visible{outline:2px solid var(--ai);outline-offset:4px}
+.fp{font-size:1.25rem;font-family:var(--f-disp)}
+.vok{color:var(--ok)}.vmid{color:var(--warn)}.vng{color:var(--ng)}
+.dot.okd{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.dot.ngd{background:var(--ng-soft);border-color:var(--ng);color:var(--ng)}
+.pbar,.mbar{height:8px;border-radius:999px;background:var(--line);overflow:hidden}
+.pbar i,.mbar i{display:block;height:100%;background:var(--ai);border-radius:999px}
+.st tr.focus td{background:var(--warn-soft)}
+.fx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fx .btn{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left}
+.sync{font-size:.78rem;margin:4px 0 0;color:var(--muted)}
+.sync[data-s="ok"]{color:var(--ok)}
+.sync[data-s="err"]{color:var(--ng)}
+.hist{display:flex;flex-direction:column}
+.hrow{display:grid;grid-template-columns:1.4fr .8fr .9fr 1fr;gap:8px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.88rem;font-variant-numeric:tabular-nums}
+.note{font-size:.78rem;color:var(--muted)}
+.confirm{background:var(--ng-soft);border-radius:8px;padding:10px 12px}
+@media (prefers-reduced-motion:no-preference){.res{animation:in .18s ease-out}@keyframes in{from{transform:translateY(4px)}to{transform:none}}}
+</style>
+
+<div class="wrap" id="app"></div>
+
+<script>
+const BANK=[{"f":"古代","t":"律令国家の成立","ref":"KO-9001","lv":1,"s":"大宝律令は701年に完成した。","a":1,"e":"（サンプル）大宝律令は701年、文武天皇のもとで完成した。律は刑法、令は行政法などにあたり、これで律令国家の仕組みが整った。","m":"なおい（701）大宝律令","y":701},{"f":"古代","t":"律令国家の成立","ref":"KO-9002","lv":2,"s":"大宝律令の編纂の中心となったのは、刑部親王と藤原不比等である。","a":1,"e":"（サンプル）大宝律令は刑部親王と藤原不比等らが中心となって編纂した。不比等はのちの養老律令の編纂にも関わった。","m":"大宝＝刑部親王＋不比等","y":701},{"f":"古代","t":"律令国家の成立","ref":"KO-9003","lv":2,"s":"律令制で郡を治める郡司には、中央の貴族が任期つきで派遣された。","a":0,"e":"（サンプル）誤り：郡司は中央から派遣されない。正しくは、郡司には地方の豪族が任じられ終身制であった。中央から任期つきで派遣されたのは国司である。","m":"国司は中央・郡司は地元"},{"f":"古代","t":"律令国家の成立","ref":"KO-9004","lv":1,"s":"班田収授法では、口分田は6歳以上の男子にのみ与えられた。","a":0,"e":"（サンプル）誤り：口分田は男子だけではない。正しくは、6歳以上の男女に与えられ、女子は男子の3分の2であった。","m":"口分田 男2段・女はその2/3"},{"f":"古代","t":"律令国家の成立","ref":"KO-9005","lv":3,"s":"庸は、都での労役の代わりに布などを納める税で、正丁などに課された。","a":1,"e":"（サンプル）庸は歳役（都での年10日の労役）の代わりに布などを納める税で、成人男子に課された。調・庸は運脚によって都まで運ばれた。","m":"庸＝労役の代わりに布"},{"f":"古代","t":"律令国家の成立","ref":"KO-9006","lv":3,"s":"八省のうち、文官の人事や大学の管理を担当したのは兵部省である。","a":0,"e":"（サンプル）誤り：兵部省は武官の人事や軍事を担当した。正しくは、文官の人事や大学を担当したのは式部省である。","m":"文官＝式部・武官＝兵部"},{"f":"中世","t":"鎌倉幕府の成立と執権政治","ref":"CH-9001","lv":1,"s":"源頼朝は1185年、守護・地頭の設置を朝廷に認めさせた。","a":1,"e":"（サンプル）1185年、源頼朝は源義経の追討を名目に、国ごとに守護、荘園・公領に地頭を置くことを朝廷に認めさせた。","m":"1185 守護・地頭","y":1185},{"f":"中世","t":"鎌倉幕府の成立と執権政治","ref":"CH-9002","lv":2,"s":"御成敗式目は1232年、執権北条時頼によって制定された。","a":0,"e":"（サンプル）誤り：制定したのは北条時頼ではない。正しくは3代執権北条泰時で、御家人の裁判の基準として51か条を定めた。","m":"1232 泰時の式目51か条","y":1232},{"f":"中世","t":"鎌倉幕府の成立と執権政治","ref":"CH-9003","lv":2,"s":"承久の乱の後、朝廷の監視などのため京都に六波羅探題が置かれた。","a":1,"e":"（サンプル）承久の乱（1221年）の後、幕府は京都に六波羅探題を置き、朝廷の監視と西国御家人の統轄にあたらせた。","m":"承久の乱→六波羅探題","y":1221},{"f":"中世","t":"鎌倉幕府の成立と執権政治","ref":"CH-9004","lv":3,"s":"評定衆は、北条泰時が執権のときに設置された。","a":1,"e":"（サンプル）北条泰時は1225年に評定衆を置き、有力御家人らの合議で政治や裁判を行う体制を整えた。連署も同じ時期に置かれた。","m":"泰時＝連署・評定衆・式目","y":1225},{"f":"中世","t":"鎌倉幕府の成立と執権政治","ref":"CH-9005","lv":3,"s":"引付衆は北条義時が執権のときに設置され、所領に関する訴訟を担当した。","a":0,"e":"（サンプル）誤り：引付衆を置いたのは北条義時ではない。正しくは1249年、5代執権北条時頼が設置し、御家人の所領訴訟の迅速化を図った。","m":"時頼＝引付衆","y":1249},{"f":"中世","t":"鎌倉幕府の成立と執権政治","ref":"CH-9006","lv":1,"s":"承久の乱を起こしたのは後白河上皇である。","a":0,"e":"（サンプル）誤り：後白河上皇ではない。正しくは1221年、後鳥羽上皇が北条義時追討の院宣を出して挙兵したが、幕府軍に敗れた。","m":"承久＝後鳥羽","y":1221},{"f":"近世","t":"享保の改革と田沼時代","ref":"KS-9001","lv":1,"s":"享保の改革を行ったのは、5代将軍徳川綱吉である。","a":0,"e":"（サンプル）誤り：綱吉ではない。正しくは享保の改革は8代将軍徳川吉宗が1716年から進めた。綱吉は文治政治・元禄期の将軍である。","m":"享保＝8代吉宗","y":1716},{"f":"近世","t":"享保の改革と田沼時代","ref":"KS-9002","lv":1,"s":"徳川吉宗は、庶民の意見を聞くため目安箱を設置した。","a":1,"e":"（サンプル）吉宗は評定所の前に目安箱を置き、庶民の意見を取り入れた。投書をもとに小石川養生所が設けられた。","m":"目安箱→小石川養生所","y":1721},{"f":"近世","t":"享保の改革と田沼時代","ref":"KS-9003","lv":3,"s":"上げ米では、参勤交代の江戸在府期間を半年に縮める代わりに、1万石につき100石の米を上納させた。","a":1,"e":"（サンプル）上げ米（1722年）は財政難への対策で、大名に1万石につき100石を上納させ、その代わりに江戸在府期間を半年に短縮した。","m":"上げ米 1万石に100石","y":1722},{"f":"近世","t":"享保の改革と田沼時代","ref":"KS-9004","lv":2,"s":"公事方御定書は、田沼意次の時代に編纂された裁判の基準である。","a":0,"e":"（サンプル）誤り：田沼時代ではない。正しくは公事方御定書は徳川吉宗の享保の改革のもとで1742年に完成した、裁判や刑罰の基準である。","m":"御定書＝吉宗","y":1742},{"f":"近世","t":"享保の改革と田沼時代","ref":"KS-9005","lv":2,"s":"田沼意次は株仲間を広く公認し、運上や冥加を徴収した。","a":1,"e":"（サンプル）田沼意次は商業の力を利用する政策をとり、株仲間を広く公認して運上・冥加などの営業税を徴収した。","m":"田沼＝株仲間で税"},{"f":"近世","t":"享保の改革と田沼時代","ref":"KS-9006","lv":3,"s":"田沼意次は蝦夷地の開発を計画し、調査のため間宮林蔵を派遣した。","a":0,"e":"（サンプル）誤り：田沼時代に派遣されたのは間宮林蔵ではない。正しくは最上徳内らで、間宮林蔵の樺太探査は19世紀初め（1808年）である。","m":"田沼の蝦夷地調査＝最上徳内","y":1785},{"f":"近代","t":"条約改正と日清戦争","ref":"KD-9001","lv":1,"s":"1894年、陸奥宗光外相のもとで日英通商航海条約が調印され、領事裁判権が撤廃された。","a":1,"e":"（サンプル）1894年、陸奥宗光外相のもとで日英通商航海条約が結ばれ、領事裁判権の撤廃が実現した。日清戦争の直前のことである。","m":"1894 陸奥で治外法権撤廃","y":1894},{"f":"近代","t":"条約改正と日清戦争","ref":"KD-9002","lv":1,"s":"関税自主権の完全な回復は、1899年に青木周蔵外相のもとで実現した。","a":0,"e":"（サンプル）誤り：1899年・青木周蔵ではない。正しくは関税自主権の完全回復は1911年、小村寿太郎外相のもとで実現した。","m":"1911 小村で関税自主権","y":1911},{"f":"近代","t":"条約改正と日清戦争","ref":"KD-9003","lv":2,"s":"下関条約で、清は遼東半島・台湾・樺太を日本に割譲した。","a":0,"e":"（サンプル）誤り：樺太は含まれない。正しくは下関条約（1895年）で清が割譲したのは遼東半島・台湾・澎湖諸島である。","m":"下関＝遼東・台湾・澎湖","y":1895},{"f":"近代","t":"条約改正と日清戦争","ref":"KD-9004","lv":2,"s":"三国干渉で遼東半島の返還を求めたのは、ロシア・ドイツ・イギリスである。","a":0,"e":"（サンプル）誤り：イギリスは加わっていない。正しくは三国干渉はロシア・ドイツ・フランスの3国によるもので、日本は遼東半島を清に返還した。","m":"三国干渉＝露・独・仏","y":1895},{"f":"近代","t":"条約改正と日清戦争","ref":"KD-9005","lv":3,"s":"大隈重信外相は、大審院に外国人判事を任用する案が問題となる中、襲撃されて負傷した。","a":1,"e":"（サンプル）大隈重信外相の改正案は大審院への外国人判事任用を含んでいたため反発を招き、1889年に玄洋社の社員に襲われて負傷し、交渉は中止された。","m":"大隈＝大審院の外国人判事","y":1889},{"f":"近代","t":"条約改正と日清戦争","ref":"KD-9006","lv":3,"s":"大津事件のときの外相は青木周蔵で、事件の責任をとって辞任した。","a":1,"e":"（サンプル）1891年の大津事件でロシア皇太子が負傷し、当時の外相青木周蔵は責任をとって辞任した。これにより交渉は一時中断した。","m":"大津事件→青木辞任","y":1891},{"f":"現代","t":"占領と民主化","ref":"GD-9001","lv":1,"s":"連合国軍最高司令官総司令部（GHQ）の最高司令官は、マッカーサーである。","a":1,"e":"（サンプル）占領期の日本では、マッカーサーを最高司令官とするGHQが日本政府に指令・勧告を出す間接統治の方式がとられた。","m":"GHQ＝マッカーサー・間接統治","y":1945},{"f":"現代","t":"占領と民主化","ref":"GD-9002","lv":1,"s":"日本国憲法は、1947年5月3日に公布された。","a":0,"e":"（サンプル）誤り：1947年5月3日は施行日である。正しくは日本国憲法は1946年11月3日に公布され、1947年5月3日に施行された。","m":"公布11/3・施行5/3","y":1946},{"f":"現代","t":"占領と民主化","ref":"GD-9003","lv":3,"s":"第二次農地改革では、在村地主の貸付地は都府県で平均1町歩までとされた。","a":1,"e":"（サンプル）第二次農地改革（1946年）では不在地主の貸付地はすべて、在村地主の貸付地は都府県で平均1町歩（北海道は4町歩）を超える分が買い上げられた。","m":"在村地主1町歩（北海道4）","y":1946},{"f":"現代","t":"占領と民主化","ref":"GD-9004","lv":3,"s":"過度経済力集中排除法で指定された企業のうち、実際に分割されたのは11社にとどまった。","a":1,"e":"（サンプル）過度経済力集中排除法（1947年）では325社が指定されたが、占領政策の転換もあって、実際に分割されたのは日本製鉄など11社にとどまった。","m":"集排法 325社→分割11社","y":1947},{"f":"現代","t":"占領と民主化","ref":"GD-9005","lv":2,"s":"労働三法のうち、最初に制定されたのは労働基準法である。","a":0,"e":"（サンプル）誤り：最初は労働基準法ではない。正しくは1945年に労働組合法、1946年に労働関係調整法、1947年に労働基準法の順に制定された。","m":"組合→調整→基準","y":1945},{"f":"現代","t":"占領と民主化","ref":"GD-9006","lv":2,"s":"1945年の衆議院議員選挙法改正で、満25歳以上の男女に選挙権が与えられた。","a":0,"e":"（サンプル）誤り：満25歳ではない。正しくは1945年の改正で満20歳以上の男女に選挙権が与えられ、翌年の総選挙で女性議員39人が当選した。","m":"1945 20歳以上の男女","y":1945},{"f":"文化","t":"古代の文化（飛鳥〜国風）","ref":"BK-9001","lv":1,"s":"法隆寺は、蘇我馬子が建立したと伝えられる。","a":0,"e":"（サンプル）誤り：蘇我馬子が建てたのは飛鳥寺である。正しくは法隆寺は厩戸王（聖徳太子）が建立したと伝えられる。","m":"飛鳥寺＝馬子・法隆寺＝厩戸王"},{"f":"文化","t":"古代の文化（飛鳥〜国風）","ref":"BK-9002","lv":1,"s":"『古事記』は712年、『日本書紀』は720年に完成した。","a":1,"e":"（サンプル）『古事記』は太安万侶が稗田阿礼の誦習をもとに712年に筆録し、『日本書紀』は舎人親王らが720年に完成させた。","m":"古事記712・書紀720","y":712},{"f":"文化","t":"古代の文化（飛鳥〜国風）","ref":"BK-9003","lv":2,"s":"聖武天皇は、紫香楽宮で大仏造立の詔を出した。","a":1,"e":"（サンプル）聖武天皇は743年、紫香楽宮で大仏造立の詔を出した。大仏はのちに平城京の東大寺で完成し、752年に開眼供養が行われた。","m":"743 紫香楽で大仏の詔","y":743},{"f":"文化","t":"古代の文化（飛鳥〜国風）","ref":"BK-9004","lv":2,"s":"『万葉集』は、紀貫之らが編纂した最初の勅撰和歌集である。","a":0,"e":"（サンプル）誤り：紀貫之らが編纂した最初の勅撰和歌集は『古今和歌集』である。『万葉集』は勅撰ではなく、大伴家持が編纂に関わったとされる。","m":"最初の勅撰＝古今和歌集","y":905},{"f":"文化","t":"古代の文化（飛鳥〜国風）","ref":"BK-9005","lv":3,"s":"『往生要集』を著して浄土教を広めたのは、空也である。","a":0,"e":"（サンプル）誤り：空也は市聖と呼ばれ、京の市で念仏を説いた僧である。正しくは『往生要集』を著したのは源信（恵心僧都）である。","m":"往生要集＝源信","y":985},{"f":"文化","t":"古代の文化（飛鳥〜国風）","ref":"BK-9006","lv":3,"s":"白鳳文化を代表する薬師寺東塔は、各層に裳階をつけた三重塔である。","a":1,"e":"（サンプル）薬師寺東塔は各層に裳階がつくため六重に見えるが、実際は三重塔である。白鳳文化を代表する建築とされる。","m":"薬師寺東塔＝裳階つき三重塔"}];
+const LESSON={"古代|原始・弥生":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"古代|ヤマト政権と古墳":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"古代|推古朝と大化改新":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"古代|律令国家の成立":{"pts":["（サンプル）701年の大宝律令で律令国家の仕組みが整った（刑部親王・藤原不比等）。","中央は二官（神祇官・太政官）八省、地方は国・郡・里。","国司は中央の貴族を派遣、郡司は地方豪族を終身で任命。","班田収授法：6歳以上の男女に口分田（女子は男子の2/3）。","税は租・調・庸・雑徭など。調・庸は運脚で都へ運ぶ。"],"traps":["郡司と国司の入れ替え（中央派遣は国司）。","大宝律令（701）と養老律令（718編纂・757施行）の取り違え。","文官人事の式部省と武官人事の兵部省の入れ替え。"],"rel":["古代|推古朝と大化改新","古代|奈良時代の政治"],"bridge":"大化改新で示された方針が、大宝律令で制度として完成する。","sys":{"overview":"7世紀後半から8世紀初めにかけて、唐にならった律令による中央集権国家が完成した。","tree":[{"h":"律令の制定","items":["近江令（伝）・飛鳥浄御原令","大宝律令 701年","養老律令 718年編纂・757年施行"]},{"h":"中央の官制","items":["神祇官と太政官","八省（式部省・兵部省など）","弾正台・衛府"]},{"h":"地方の仕組み","items":["国・郡・里","国司は中央から派遣","郡司は地方豪族・終身"]},{"h":"土地と税","items":["班田収授法（6歳以上の男女）","租・調・庸・雑徭","運脚で都へ運ぶ"]}],"flow":{"title":"律令の整備","steps":["近江令（伝）","飛鳥浄御原令 689年","大宝律令 701年","養老律令 718年"]},"tables":[{"title":"国司と郡司","head":["","国司","郡司"],"rows":[["任命","中央の貴族","地方豪族"],["任期","任期つき","終身"]]}]}},"古代|奈良時代の政治":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"古代|平安初期の政治":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"古代|摂関政治と国風化":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"古代|荘園と武士の成長":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"中世|院政と平氏政権":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"中世|鎌倉幕府の成立と執権政治":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":["（サンプル）ひっかけの例は準備中です。"],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"中世|蒙古襲来と鎌倉後期":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"中世|建武の新政と南北朝":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"中世|室町幕府と守護大名":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"中世|室町の外交と経済・惣村":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"中世|応仁の乱と戦国大名":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|織豊政権":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|江戸幕府の成立と幕藩体制":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|江戸初期の外交（鎖国）":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|文治政治と元禄期":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|享保の改革と田沼時代":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":["（サンプル）ひっかけの例は準備中です。"],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|寛政の改革と列強接近":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|天保の改革と藩政改革":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近世|江戸の経済と交通・身分":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|開国と幕末の動乱":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|明治維新と諸改革":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|自由民権運動と立憲体制":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|条約改正と日清戦争":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":["（サンプル）ひっかけの例は準備中です。"],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|日露戦争と韓国併合":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|産業革命と社会問題":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|大正政治と第一次世界大戦":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|政党政治と恐慌":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"近代|満州事変と日中戦争・太平洋戦争":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"現代|占領と民主化":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":["（サンプル）ひっかけの例は準備中です。"],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"現代|講和と55年体制":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"現代|高度経済成長":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"現代|戦後外交（日米・日中・日韓）":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"現代|石油危機以後・平成":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"文化|古代の文化（飛鳥〜国風）":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":["（サンプル）ひっかけの例は準備中です。"],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"文化|中世の文化（院政期〜東山）":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"文化|近世の文化（桃山〜化政）":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"文化|近代の文化と学問・教育":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}},"文化|仏教史・宗教史":{"pts":["（サンプル）この論点の解説は準備中です。正式なデータの取り込み（scripts/nihonshi-merge.py）で置き換わります。"],"traps":[],"rel":[],"bridge":"","sys":{"overview":"（サンプル）準備中","tree":[{"h":"準備中","items":["解説データの取り込み後に表示されます"]}],"flow":null,"tables":[]}}};
+const CFG={"_note":"日本史○×10分模試の設定（docs/content/nihonshi-ox-spec.md）。アプリ（src/exams.ts・src/logic.ts）・Web版（web/nihonshi/build.py）・取り込み（scripts/nihonshi-merge.py）が共通で読む。合格判定の値（pass）は仮。本人と調整するときはここだけ直す","fields":[{"f":"古代","range":"原始〜平安","ref":"KO","topics":["原始・弥生","ヤマト政権と古墳","推古朝と大化改新","律令国家の成立","奈良時代の政治","平安初期の政治","摂関政治と国風化","荘園と武士の成長"]},{"f":"中世","range":"院政〜戦国","ref":"CH","topics":["院政と平氏政権","鎌倉幕府の成立と執権政治","蒙古襲来と鎌倉後期","建武の新政と南北朝","室町幕府と守護大名","室町の外交と経済・惣村","応仁の乱と戦国大名"]},{"f":"近世","range":"織豊〜江戸","ref":"KS","topics":["織豊政権","江戸幕府の成立と幕藩体制","江戸初期の外交（鎖国）","文治政治と元禄期","享保の改革と田沼時代","寛政の改革と列強接近","天保の改革と藩政改革","江戸の経済と交通・身分"]},{"f":"近代","range":"開国〜太平洋戦争","ref":"KD","topics":["開国と幕末の動乱","明治維新と諸改革","自由民権運動と立憲体制","条約改正と日清戦争","日露戦争と韓国併合","産業革命と社会問題","大正政治と第一次世界大戦","政党政治と恐慌","満州事変と日中戦争・太平洋戦争"]},{"f":"現代","range":"占領期〜平成","ref":"GD","topics":["占領と民主化","講和と55年体制","高度経済成長","戦後外交（日米・日中・日韓）","石油危機以後・平成"]},{"f":"文化","range":"全時代の文化史","ref":"BK","topics":["古代の文化（飛鳥〜国風）","中世の文化（院政期〜東山）","近世の文化（桃山〜化政）","近代の文化と学問・教育","仏教史・宗教史"]}],"rounds":[{"古代":2,"中世":2,"近世":2,"近代":2,"現代":1,"文化":1},{"古代":2,"中世":2,"近世":2,"近代":2,"現代":1,"文化":1},{"古代":2,"中世":2,"近世":2,"近代":2,"現代":1,"文化":1},{"古代":1,"中世":1,"近世":2,"近代":3,"現代":2,"文化":1},{"古代":2,"中世":2,"近世":2,"近代":2,"現代":0,"文化":2}],"lvMix":[4,4,2],"pass":{"levels":["日東駒専","MARCH","早慶"],"groups":[{"name":"日東駒専","mix":[0.6,0.35,0.05],"line":[0.6,0.7]},{"name":"MARCH","mix":[0.25,0.5,0.25],"line":[0.65,0.75]},{"name":"早慶","mix":[0.1,0.4,0.5],"line":[0.7,0.8]}],"ks":[{"k":0,"label":"慎重（誤りはすべて思い込み）"},{"k":0.5,"label":"標準"},{"k":1,"label":"消去法が効く（誤りはすべて迷い）"}],"headline":1,"focusGroup":1,"n":50,"sims":3000,"seed":20261128,"minAnswers":30}}; // 分野・回ごとの内訳・水準・合格判定の値（src/data/nihonshi-config.json）
+BANK.forEach((q,i)=>q.i=i);
+{const seen={};BANK.forEach(q=>{let k=q.f+"|"+q.t+"|"+q.ref;seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+="#"+seen[k];q.k=k})}
+const BYKEY={};BANK.forEach(q=>BYKEY[q.k]=q);
+const FIELDS=CFG.fields.map(F=>[F.f,F.f]);
+const MIX=CFG.rounds; // 5回で入試50問（古代9・中世9・近世10・近代11・現代5・文化6）
+const LVMIX=CFG.lvMix; // 1回の水準の目標（lv1 4・lv2 4・lv3 2）
+const PASS=CFG.pass;
+const LIMIT=600;
+const ls={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let H=ls.get("nox-hist",{}); // key -> {n,c,last}
+// 旧形式（問題番号キー）を新しいキーに移す
+if(Object.keys(H).some(k=>/^\d+$/.test(k))){const nh={};Object.keys(H).forEach(k=>{const q=/^\d+$/.test(k)?BANK[+k]:BYKEY[k];if(q)nh[q.k]=H[k]});H=nh}
+let SET=ls.get("nox-set",{round:0,scores:[]});
+let LOG=[]; // 模試の履歴 {at,round,score,sec}
+// 論点ごとの直近10問の正誤（古い→新しい、"1"=正解）。既存の記録しかない論点は各問の最後の結果で埋める
+const tkey=q=>q.f+"|"+q.t;
+function backfillR10(h,base){const o={...(base||{})};const tmp={};BANK.forEach(q=>{const x=h[q.k];if(x&&x.n){const t=tkey(q);(tmp[t]=tmp[t]||"");tmp[t]+=(x.last?"1":"0")}});
+  Object.keys(tmp).forEach(t=>{if(!o[t])o[t]=tmp[t].slice(-10)});return o}
+let R10=backfillR10(H,ls.get("nox-r10",{}));
+let RL=ls.get("nox-rl",{}); // 水準ごとの直近10問（キー "1"〜"3"）
+function mergeR10(a,b){const o={...(a||{})};Object.keys(b||{}).forEach(k=>{if(!o[k]||(b[k]||"").length>=o[k].length)o[k]=b[k]});return o}
+/* ---- server sync (db) ---- */
+const SYNC={db:null,ref:null,status:"local",busy:false,dirty:false,timer:null};
+function syncLabel(){const el=document.getElementById("sync");if(!el)return;const m={local:"この端末だけに保存中（サーバーに接続できません）",nort:"この端末だけに保存中：この開き方ではサーバー保存が使えません。下の「記録の引き継ぎ」でコピーを取ってください",nodb:"この端末だけに保存中：この画面ではサーバー保存が使えません（アプリの種類による）。下の「記録の引き継ぎ」でコピーを取ってください",nouser:"この端末だけに保存中：ログイン情報を取得できません。下の「記録の引き継ぎ」でコピーを取ってください",loading:"サーバーから読み込み中…",ok:"サーバーに保存済み",saving:"サーバーに保存中…",err:"サーバー保存に失敗しました（この端末には保存済み。次の回答時に再送します）"};el.textContent=m[SYNC.status]||"";el.dataset.s=SYNC.status}
+async function push(){
+  if(!SYNC.ref){return}
+  if(SYNC.busy){SYNC.dirty=true;return}
+  SYNC.busy=true;SYNC.status="saving";syncLabel();
+  const doc=()=>({v:2,hist:H,r10:R10,rl:RL,set:SET,log:LOG.slice(-200),updatedAt:new Date().toISOString()});
+  try{await SYNC.ref.set(doc());SYNC.status="ok"}
+  catch(e){if(e&&e.code==="unavailable"){await new Promise(r=>setTimeout(r,800+Math.random()*800));try{await SYNC.ref.set(doc());SYNC.status="ok"}catch(e2){SYNC.status="err"}}else SYNC.status="err"}
+  SYNC.busy=false;syncLabel();
+  if(SYNC.dirty){SYNC.dirty=false;push()}
+}
+const save=()=>{PE_CACHE=null;ls.set("nox-hist",H);ls.set("nox-r10",R10);ls.set("nox-rl",RL);ls.set("nox-set",SET);ls.set("nox-log",LOG);clearTimeout(SYNC.timer);SYNC.timer=setTimeout(push,600)};
+LOG=ls.get("nox-log",[]);
+function mergeHist(a,b){const o={...a};Object.keys(b||{}).forEach(k=>{const x=o[k],y=b[k];o[k]=!x||((y.n||0)>(x.n||0))?y:x});return o}
+async function connect(){
+  try{
+    if(!window.claude||!window.claude.use){SYNC.status="nort";syncLabel();return}
+    SYNC.status="loading";syncLabel();
+    const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+    const uid=user?await user.id():null;
+    if(!db||!uid){SYNC.status=!db?"nodb":"nouser";syncLabel();return}
+    SYNC.db=db;SYNC.ref=db.doc("data/users/"+uid+"/nihonshi-ox"); // 宅建（.../progress）とは別の保存先
+    const snap=await SYNC.ref.get();
+    if(snap.exists){const d=snap.data()||{};
+      const localHad=Object.keys(H).length>0;
+      H=mergeHist(d.hist||{},H);R10=backfillR10(H,mergeR10(d.r10||{},R10));RL=mergeR10(d.rl||{},RL);
+      if(d.set&&(!localHad||(d.set.scores||[]).length>=(SET.scores||[]).length))SET=JSON.parse(JSON.stringify(d.set));
+      const seenAt=new Set((d.log||[]).map(x=>x.at));LOG=[...(d.log||[]),...LOG.filter(x=>!seenAt.has(x.at))].sort((a,b)=>a.at<b.at?-1:1);
+      ls.set("nox-hist",H);ls.set("nox-rl",RL);ls.set("nox-set",SET);ls.set("nox-log",LOG);
+      SYNC.status="ok";
+      if(localHad)push();
+    }else{SYNC.status="ok";if(Object.keys(H).length||LOG.length)await push()}
+    syncLabel();
+    if(document.getElementById("homeRoot"))home();
+  }catch(e){SYNC.status="local";syncLabel()}
+}
+function render0(){SYNC.status="local";syncLabel()}
+const enc=o=>"NOX1:"+btoa(unescape(encodeURIComponent(JSON.stringify(o))));
+const dec=t=>{t=(t||"").trim().replace(/\s+/g,"");if(!t.startsWith("NOX1:"))throw new Error("形式");return JSON.parse(decodeURIComponent(escape(atob(t.slice(5)))))};
+function exportRec(){
+  const code=enc({hist:H,r10:R10,rl:RL,set:SET,log:LOG.slice(-200)});
+  const n=Object.keys(H).length;
+  $("#bk").innerHTML=`<p class="note" id="bkmsg">${n}問分の記録です。下の文字列をすべてコピーして、メモ帳などに保存してください。</p><textarea id="bkt" readonly rows="4" style="width:100%;font:12px monospace;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--bg);color:var(--ink)">${code}</textarea>`;
+  const ta=$("#bkt");ta.focus();ta.select();
+  const done=()=>{$("#bkmsg").textContent=n+"問分の記録をコピーしました。メモ帳などに貼り付けて保存してください。"};
+  try{navigator.clipboard.writeText(code).then(done,()=>{try{if(document.execCommand("copy"))done()}catch(e){}})}catch(e){try{if(document.execCommand("copy"))done()}catch(e2){}}
+}
+function importRec(){
+  $("#bk").innerHTML=`<p class="note">保存しておいた文字列（NOX1: で始まる）を貼り付けて「復元する」を押してください。</p><textarea id="bki" rows="4" style="width:100%;font:12px monospace;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--paper);color:var(--ink)"></textarea><div class="row"><button class="btn pri" id="bkgo">復元する</button><span class="note" id="bkerr"></span></div>`;
+  $("#bkgo").onclick=()=>{
+    let d;try{d=dec($("#bki").value)}catch(e){$("#bkerr").textContent="読み取れませんでした。NOX1: から最後まで、全部を貼り付けてください。";return}
+    const hist={};Object.keys(d.hist||{}).forEach(k=>{if(BYKEY[k])hist[k]=d.hist[k]});
+    H=mergeHist(H,hist);R10=backfillR10(H,mergeR10(d.r10||{},R10));RL=mergeR10(d.rl||{},RL);
+    if(d.set&&Array.isArray(d.set.scores)&&(d.set.scores.length>=(SET.scores||[]).length))SET=JSON.parse(JSON.stringify(d.set));
+    const seenAt=new Set(LOG.map(x=>x.at));LOG=[...LOG,...(d.log||[]).filter(x=>x&&x.at&&!seenAt.has(x.at))].sort((a,b)=>a.at<b.at?-1:1);
+    save();home();
+  };
+}
+const $=s=>document.querySelector(s);
+const app=$("#app");
+let timerId=null;
+
+/* speech */
+const canSpeak=("speechSynthesis" in window)&&("SpeechSynthesisUtterance" in window);
+const clean=t=>t.replace(/○/g,"まる").replace(/×/g,"ばつ").replace(/㎡/g,"平方メートル").replace(/％|%/g,"パーセント");
+function speak(t){if(!canSpeak)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(clean(t));u.lang="ja-JP";const v=speechSynthesis.getVoices().find(x=>x.lang&&x.lang.toLowerCase().startsWith("ja"));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+let voice=ls.get("nox-voice",false);
+
+function rec(q,ok){const h=H[q.k]||{n:0,c:0};h.n++;if(ok)h.c++;h.last=ok?1:0;H[q.k]=h;const t=tkey(q);R10[t]=((R10[t]||"")+(ok?"1":"0")).slice(-10);if(q.lv){const l=String(q.lv);RL[l]=((RL[l]||"")+(ok?"1":"0")).slice(-10)}}
+function prio(q){const h=H[q.k];if(!h)return 0;if(h.last===0)return 1;return 2+h.n}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+// 5回のセットで論点を一巡させる選び方（src/logic.ts の pickCover と同じ）：持ち越し論点 → このセットで未出題の論点 → 出した論点
+function pickCover(pool,n,exclude){const used=new Set(SET.topics||[]),carry=new Set(SET.carry||[]);
+  const rank=q=>{const k=q.f+"|"+q.t;return carry.has(k)&&!used.has(k)?0:used.has(k)?2:1};
+  const c=shuffle(pool.filter(q=>!exclude.has(q.i)));c.sort((a,b)=>rank(a)-rank(b)||prio(a)-prio(b));
+  const out=[],seen=new Set();for(const q of c){if(out.length>=n)break;if(!seen.has(q.t)){out.push(q);seen.add(q.t)}}
+  for(const q of c){if(out.length>=n)break;if(!out.includes(q))out.push(q)}return out}
+// 水準の目標つき（src/logic.ts の pickCoverLv と同じ）：同じ論点を避ける → 論点の順位 → 未出題／前回不正解／正解済み → 水準（目標が残る水準、なければ近い水準）→ 回答の少ない順
+function pickCoverLv(pool,n,exclude,need){const used=new Set(SET.topics||[]),carry=new Set(SET.carry||[]);
+  const rank=q=>{const k=q.f+"|"+q.t;return carry.has(k)&&!used.has(k)?0:used.has(k)?2:1};
+  const c=shuffle(pool.filter(q=>!exclude.has(q.i)));c.sort((a,b)=>rank(a)-rank(b)||prio(a)-prio(b));
+  const lvCost=q=>{const l=(q.lv||2)-1;if(need[l]>0||need.every(v=>v<=0))return 0;let d=9;need.forEach((v,i)=>{if(v>0)d=Math.min(d,Math.abs(i-l))});return d};
+  const cmp=(a,b)=>{for(let j=0;j<a.length;j++)if(a[j]!==b[j])return a[j]-b[j];return 0};
+  const out=[],seen=new Set();
+  while(out.length<n){let best=-1,bk=null;c.forEach((q,i)=>{if(out.includes(q))return;const key=[seen.has(q.t)?1:0,rank(q),Math.min(2,prio(q)),lvCost(q),i];if(best<0||cmp(key,bk)<0){best=i;bk=key}});
+    if(best<0)break;const q=c[best];out.push(q);seen.add(q.t);const l=(q.lv||2)-1;if(need[l]>0)need[l]--}
+  return out}
+// 1回分の水準の割り当て：lvMix を並べて混ぜ、分野の出題枠に順に配る（src/logic.ts の levelNeeds と同じ）
+function levelNeeds(mix){const lv=shuffle(LVMIX.flatMap((n,i)=>Array(n).fill(i)));const o={};let k=0;
+  FIELDS.forEach(([f])=>{o[f]=LVMIX.map(()=>0);for(let j=0;j<(mix[f]||0);j++,k++)if(k<lv.length)o[f][lv[k]]++});return o}
+function pick(pool,n,exclude){
+  const c=shuffle(pool.filter(q=>!exclude.has(q.i)));
+  c.sort((a,b)=>prio(a)-prio(b));
+  // spread topics: take best-priority but avoid same topic twice when possible
+  const out=[],used=new Set();
+  for(const q of c){if(out.length>=n)break;if(!used.has(q.t)){out.push(q);used.add(q.t)}}
+  for(const q of c){if(out.length>=n)break;if(!out.includes(q))out.push(q)}
+  return out;
+}
+function topicStats(){
+  const m={};
+  BANK.forEach(q=>{const k=q.f+"|"+q.t;m[k]=m[k]||{f:q.f,t:q.t,total:0,n:0,c:0,recentWrong:0};const s=m[k];s.total++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;if(h.last===0)s.recentWrong++}});
+  Object.values(m).forEach(s=>{const r=R10[s.f+"|"+s.t]||"";s.rn=r.length;s.rc=(r.match(/1/g)||[]).length});
+  return Object.values(m);
+}
+function tier(s){const rn=s.rn||0;if(!rn)return"t-none";const r=s.rc/rn;const t=r>=1?"t-perfect":r>=0.8?"t-good":r>=0.6?"t-mid":r>=0.4?"t-low":"t-bad";return t+(rn<5?" few":"")}
+function state(s){if(!s.n)return 0;const r=s.c/s.n;if(s.recentWrong>0||r<0.6)return 1;if(r<0.8||s.n<5)return 2;return 3}
+
+/* ---------- home ---------- */
+/* ---------- 合格の見込み（3水準：日東駒専・MARCH・早慶。src/logic.ts の levelPassEstimate と同じ計算） ---------- */
+const FNAME=f=>FIELDS.find(x=>x[0]===f)[1];
+const ABBR=f=>FIELDS.filter(([g])=>g[0]===f[0]).length>1?f:f[0]; // 5回の内訳の略号（近世・近代は分野名のまま）
+function fieldStats(){const o={};FIELDS.forEach(([f])=>o[f]={n:0,c:0,q:0,tot:0,rn:0,rc:0});
+  BANK.forEach(q=>{const s=o[q.f];s.tot++;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;s.q++}});
+  // 直近：論点ごとの直近10問を分野でまとめる
+  Object.keys(R10).forEach(t=>{const f=t.split("|")[0];if(!o[f])return;const r=R10[t];o[f].rn+=r.length;o[f].rc+=(r.match(/1/g)||[]).length});return o}
+function seeded(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gammaS(k,r){if(k<1)return gammaS(k+1,r)*Math.pow(r()||1e-12,1/k);const d=k-1/3,c=1/Math.sqrt(9*d);
+  for(;;){let x,v;do{const u1=r()||1e-12,u2=r();x=Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);v=1+c*x}while(v<=0);v=v*v*v;const u=r();
+    if(u<1-0.0331*x*x*x*x)return d*v;if(Math.log(u||1e-12)<0.5*x*x+d*(1-v+Math.log(v)))return d*v}}
+// ○×の正答率 p から4択1問の正答率を推計（消去法・2択への絞り込みを含む。宅建と同じ toExam）
+// 各肢の判断：S＝確信して正しく判定／U＝迷う（○×なら半々）／W＝確信して誤る。p = S + U/2、k＝○×の誤りのうち「迷い」の割合
+function toExam(p,k){if(k==null)k=0.5;if(p<1)k=Math.min(k,p/(1-p));const u=2*(1-p)*k,w=(1-p)*(1-k),s=Math.max(0,p-k*(1-p));const pr=[s,u,w];let P=0;
+  for(let i=0;i<81;i++){const st=[i%3,(i/3|0)%3,(i/9|0)%3,(i/27|0)%3];let q=1;for(const x of st)q*=pr[x];if(!q)continue;
+    const flag=[],uns=[];st.forEach((x,j)=>{if((j===0&&x===0)||(j>0&&x===2))flag.push(j);if(x===1)uns.push(j)});
+    const cand=flag.length?flag:uns.length?uns:[0,1,2,3];if(cand.includes(0))P+=q/cand.length}
+  return P}
+const RATE_TABLE={};
+function examRateFast(p,k){let t=RATE_TABLE[k];if(!t){t=RATE_TABLE[k]=new Float64Array(1001);for(let i=0;i<=1000;i++)t[i]=toExam(i/1000,k)}return t[Math.round(Math.min(1,Math.max(0,p))*1000)]}
+// 直近の極端な不調の補正（src/logic.ts の adjustTopic / adjustedRatesX と同じ）
+const ADJ_PRIOR=10,ADJ_FLOOR=0.10;
+function adjustTopic(rc,rn,c,n){if(!rn)return n?c/n:0;const all=n?c/n:rc/rn;return Math.max((rc+ADJ_PRIOR*all)/(rn+ADJ_PRIOR),all-ADJ_FLOOR)}
+function adjustedRates(){const st=fieldStats();const o={};FIELDS.forEach(([f])=>o[f]={n:0,c:0,raw:st[f].rn?st[f].rc/st[f].rn:null,adj:0});
+  topicStats().forEach(s=>{if(!s.rn)return;const r=o[s.f];r.n+=s.rn;r.c+=adjustTopic(s.rc,s.rn,s.c,s.n)*s.rn});
+  FIELDS.forEach(([f])=>{const r=o[f],x=st[f];if(!r.n){r.n=x.n;r.c=x.c}r.adj=r.n?r.c/r.n:0});return o}
+// 水準ごとの成績：直近10問（RL）を全回答の正答率で補正。直近の記録がない水準は各問の最後の結果で補う
+function levelStats(){const o=PASS.levels.map((_,i)=>({lv:i+1,n:0,c:0,rn:0,rc:0,adj:0,cnt:0})),last=o.map(()=>"");
+  BANK.forEach(q=>{const s=o[(q.lv||2)-1];if(!s)return;const h=H[q.k];if(h){s.n+=h.n;s.c+=h.c;last[s.lv-1]+=h.last?"1":"0"}});
+  o.forEach((s,i)=>{const r=RL[String(s.lv)]||last[i].slice(-10);s.rn=r.length;s.rc=(r.match(/1/g)||[]).length;s.adj=adjustTopic(s.rc,s.rn,s.c,s.n);s.cnt=s.rn||s.n});return o}
+const EXAM_N=(()=>{const o={};FIELDS.forEach(([f])=>o[f]=0);MIX.forEach(m=>Object.keys(m).forEach(f=>o[f]=(o[f]||0)+m[f]));return o})();
+const passLines=(line,n)=>{const a=Math.ceil(line[0]*n-1e-9),b=Math.ceil(line[1]*n-1e-9);return Array.from({length:b-a+1},(_,i)=>a+i)};
+function simulateLevels(inp,k){const N=Object.values(EXAM_N).reduce((a,b)=>a+b,0),lvs=inp.levels,tot=lvs.reduce((a,s)=>a+s.n,0);
+  const o=tot?lvs.reduce((a,s)=>a+s.c,0)/tot:0;const cl=p=>Math.min(0.99,Math.max(0.01,p));
+  const point=(f,l,af,bl)=>{const F=inp.fields[f],Lv=lvs[l];const a=af!=null?af:(F.c+1)/(F.n+2);const b=Lv.n?(bl!=null?bl:(Lv.c+1)/(Lv.n+2)):o;return cl(a+(Lv.n?b-o:0))};
+  return PASS.groups.map(g=>{const r=seeded(PASS.seed),S=PASS.sims;const beta=(a,b)=>{const x=gammaS(a,r),y=gammaS(b,r);return x/(x+y)};
+    const cum=g.mix.map((_,i)=>g.mix.slice(0,i+1).reduce((a,b)=>a+b,0));const sc=[];
+    for(let i=0;i<S;i++){const bl=lvs.map(s=>s.n?beta(s.c+1,s.n-s.c+1):o);let x=0;
+      FIELDS.forEach(([f])=>{const F=inp.fields[f];const af=beta(F.c+1,F.n-F.c+1);const ps=lvs.map((_,l)=>examRateFast(point(f,l,af,bl[l]),k));
+        for(let j=0;j<(EXAM_N[f]||0);j++){const u=r();let l=cum.findIndex(c=>u<c);if(l<0)l=cum.length-1;if(r()<ps[l])x++}});sc.push(x)}
+    sc.sort((a,b)=>a-b);const lines=passLines(g.line,N);const byLine=lines.map(t=>sc.filter(v=>v>=t).length/S);
+    const exp={};FIELDS.forEach(([f])=>{exp[f]=(EXAM_N[f]||0)*g.mix.reduce((a,m,l)=>a+m*toExam(point(f,l),k),0)});
+    return {name:g.name,lines,byLine,prob:byLine.reduce((a,b)=>a+b,0)/byLine.length,mean:sc.reduce((a,b)=>a+b,0)/S,lo:sc[Math.floor(S*0.1)],hi:sc[Math.floor(S*0.9)],exp,four:Object.values(exp).reduce((a,b)=>a+b,0)/N}})}
+let PE_CACHE=null; // 合格の見込みの計算結果（記録が変わったら save() で破棄）
+function passEst(){if(PE_CACHE)return PE_CACHE;return PE_CACHE=passEstRaw()}
+function passEstRaw(){
+  const fst=fieldStats();const total=Object.values(fst).reduce((a,s)=>a+s.n,0);
+  if(total<PASS.minAnswers)return {ready:false,total};
+  const adj=adjustedRates(),lst=levelStats();
+  const inp={fields:Object.fromEntries(FIELDS.map(([f])=>[f,{n:adj[f].n,c:adj[f].c}])),levels:lst.map(s=>({n:s.cnt,c:s.adj*s.cnt}))};
+  const scen=PASS.ks.map(s=>({k:s.k,label:s.label,groups:simulateLevels(inp,s.k)}));const head=scen[PASS.headline];const G=head.groups[PASS.focusGroup];
+  // いちばん伸ばせる分野＝focusGroup の大学群・見出しの k で、落とす見込みの点が最も多い分野
+  const focus=FIELDS.map(([f])=>f).sort((a,b)=>(EXAM_N[b]-G.exp[b])-(EXAM_N[a]-G.exp[a]))[0];
+  return {ready:true,total,fst,adj,lst,scen,head,focus};
+}
+function passHtml(){
+  const P=passEst();
+  if(!P.ready)return `<section class="card"><h2>合格の見込み（3水準）</h2><p class="note" style="margin:0">あと <b>${PASS.minAnswers-P.total}問</b> 解くと判定します（${PASS.minAnswers}問以上の回答で表示）。</p><div class="pbar"><i style="width:${Math.round(P.total/PASS.minAnswers*100)}%"></i></div></section>`;
+  const pc=x=>Math.round(x*100)+"%";const jt=x=>x>=0.8?"j-ok":x>=0.5?"j-mid":"j-ng";const G=P.head.groups[PASS.focusGroup];
+  const tiles=P.head.groups.map(g=>`<div class="kp"><span>${g.name}</span><b>${pc(g.prob)}</b><span class="judge ${jt(g.prob)}" style="font-size:.72rem">${g.prob>=0.8?"合格圏":g.prob>=0.5?"合格ライン付近":"要強化"}</span><br><span>予想 ${Math.round(g.mean)}/${PASS.n}点（8割の確率で ${g.lo}〜${g.hi}点）</span></div>`).join("");
+  const lvl=P.lst.map((s,i)=>`${PASS.levels[i]}レベル ${s.rn?pc(s.rc/s.rn):"—"}→<b>${s.cnt?pc(s.adj):"—"}</b>`).join("／");
+  const rows=FIELDS.map(([f,n])=>{const s=P.fst[f],e=G.exp[f],N=EXAM_N[f]||0;
+    return `<tr class="${f===P.focus?"focus":""}"><td>${n}</td><td><b>${Math.round(P.adj[f].adj*100)}%</b>${s.rn?`<br><small class="note">直近${pc(s.rc/s.rn)}</small>`:""}</td><td>${s.n?pc(s.c/s.n):"—"}</td><td>${N?Math.round(e/N*100)+"%":"—"}</td><td style="white-space:nowrap">${e.toFixed(1)}/${N}</td></tr>`}).join("");
+  return `<section class="card"><h2>合格の見込み（3水準）</h2>
+  <div class="kpi" style="grid-template-columns:repeat(3,minmax(0,1fr))">${tiles}</div>
+  <p style="margin:0">水準別の○×正答率（直近→補正）：${lvl}</p>
+  <div class="tw"><table class="st"><thead><tr><th>4択での解き方</th>${P.head.groups.map(g=>`<th>${g.name}</th>`).join("")}</tr></thead><tbody>${P.scen.map((x,i)=>`<tr class="${i===PASS.headline?"focus":""}"><td>${x.label}（k=${x.k}）</td>${x.groups.map(g=>`<td>${i===PASS.headline?`<b>${pc(g.prob)}</b>`:pc(g.prob)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+  <p class="note" style="margin:0">合格ライン（4択換算の得点）：${P.head.groups.map(g=>`${g.name} ${g.lines[0]}〜${g.lines[g.lines.length-1]}点`).join("／")}（${PASS.n}点満点。どの点も同じ確率と仮定）</p>
+  <div class="tw"><table class="st"><caption>分野別の予想点（${G.name}の水準・標準）</caption><thead><tr><th>分野</th><th>採用</th><th>全体</th><th>推定4択</th><th>予想点</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="row"><button class="btn pri" data-fx="${P.focus}">いちばん伸ばせる「${FNAME(P.focus)}」の10問テスト</button></div>
+  <p class="note" style="margin:0">目安です（合格を保証するものではありません）。水準ごとの直近10問と分野ごとの直近の正答率を4択に換算し、入試${PASS.n}問を${PASS.sims}回シミュレーションしています（乱数は固定）。大学群ごとの出題の水準と合格ラインは仮の値です。</p></section>`;
+}
+function home(){
+  clearInterval(timerId);PE_CACHE=null;
+  const done=Object.keys(H).filter(k=>BYKEY[k]).length;
+  let tn=0,tc=0;Object.keys(H).forEach(k=>{if(!BYKEY[k])return;const h=H[k];tn+=h.n;tc+=h.c});
+  const rate=tn?Math.round(tc/tn*100):null;
+  const r=SET.round;
+  const setTotal=SET.scores.reduce((a,b)=>a+b,0);
+  const ts=topicStats();
+  const weak=ts.filter(s=>state(s)===1).length;
+  app.innerHTML=`
+  <header id="homeRoot"><h1>日本史 10分模試</h1><p class="sync" id="sync"></p><p class="sub">入試と同じ時代比率の○×10問を10分。5回で50問＝入試1回分。日東駒専・MARCH・早慶の3水準で合格の見込みを出します。</p></header>
+  <section class="card">
+    <div class="row" style="justify-content:space-between"><h2>今回のセット　第${r+1}回 / 5回</h2><span class="note">${SET.scores.length?`ここまで ${setTotal} / ${SET.scores.length*10}点`:"まだ1回も解いていません"}</span></div>
+    <div class="sets">${[0,1,2,3,4].map(k=>`<div class="slot ${k===r?"now":""}">第${k+1}回<b>${SET.scores[k]!=null?SET.scores[k]+"点":"—"}</b>${FIELDS.map(([f],i)=>(i&&i%2===0?"<br>":"")+ABBR(f)+MIX[k][f]).join("")}</div>`).join("")}</div>
+    <div class="row"><button class="btn pri" id="go">第${r+1}回を始める（10問・10分）</button>
+    <label class="row note" style="gap:6px"><input type="checkbox" id="vc" ${voice?"checked":""} ${canSpeak?"":"disabled"}> 音声で出題</label></div>
+    <p class="note">目安：1回10問中 <b>8問以上</b>で合格圏、7問は合格ライン上。5回合計で <b>35点</b>が7割、<b>37点以上</b>なら安全圏です。大学群ごとの見込みは下の「合格の見込み」で。</p>
+  </section>
+  ${passHtml()}
+  <section class="card">
+    <h2>分野別10問テスト</h2>
+    <p class="note" style="margin:0">1つの分野だけを10問・10分。まだ解いていない問題と前回間違えた問題を優先して出します。5回セットの記録には入りません。</p>
+    <div class="fx">${(()=>{const st=fieldStats();return FIELDS.map(([f,n])=>{const s=st[f];return `<button class="btn" data-fx="${f}"><b>${n}</b><span class="note">${s.n?Math.round(s.c/s.n*100)+"%":"未着手"}　${s.q}/${s.tot}問</span></button>`}).join("")})()}</div>
+  </section>
+  <section class="card">
+    <h2>今の実力</h2>
+    <div class="kpi">
+      <div class="kp"><span>正答率</span><b>${rate==null?"—":rate+"%"}</b></div>
+      <div class="kp"><span>解いた問題</span><b>${done} / ${BANK.length}</b></div>
+      ${FIELDS.map(([f,n])=>{let a=0,c=0;BANK.filter(q=>q.f===f).forEach(q=>{const h=H[q.k];if(h){a+=h.n;c+=h.c}});return `<div class="kp"><span>${n}</span><b>${a?Math.round(c/a*100)+"%":"—"}</b></div>`}).join("")}
+    </div>
+    ${weak?`<button class="btn" id="weakAll">要復習の論点（${weak}件）を解説から復習</button>`:""}
+  </section>
+  ${LOG.length?`<section class="card"><h2>模試の履歴</h2><div class="hist">${LOG.slice(-10).reverse().map(x=>`<div class="hrow"><span>${x.at.slice(5,10).replace("-","/")} ${x.at.slice(11,16)}</span><span>${x.field?FNAME(x.field):`第${x.round}回`}</span><b>${x.score} / 10</b><span>${Math.floor(x.sec/60)}分${x.sec%60}秒</span></div>`).join("")}</div><p class="note">直近10回を表示（全${LOG.length}回）。</p></section>`:""}
+  <section class="card">
+    <h2>論点マップ</h2>
+    <p class="legend">押すと、その論点の解説と確認例題3問。数字は直近10問の正答率／全回答の正答率。色は<b>直近10問</b>で決まります。<br><span class="tp lg t-perfect">濃い緑 100%</span><span class="tp lg t-good">緑 80%以上</span><span class="tp lg t-mid">黄 60〜79%</span><span class="tp lg t-low">橙 40〜59%</span><span class="tp lg t-bad">赤 40%未満</span><span class="tp lg t-good few">点線・薄い色＝5問未満（まだ参考値）</span><span class="tp lg t-none">無色＝未着手</span></p>
+    <div class="topics">${FIELDS.map(([f,n])=>`<div class="tgroup"><h3>${n}</h3><div class="tlist">${ts.filter(s=>s.f===f).map(s=>`<button class="tp ${tier(s)}" data-k="${s.f}|${s.t}">${s.t}${s.n?` <span class="tpr">直近${Math.round(s.rc/Math.max(1,s.rn)*100)}%<small>/${s.rn}問</small>・全${Math.round(s.c/s.n*100)}%</span>`:""}</button>`).join("")}</div></div>`).join("")}</div>
+  </section>
+  <section class="card">
+    <h2>記録の引き継ぎ</h2>
+    <p class="note">サーバーに保存できない画面では、記録はこの端末の中だけにあり、アプリを閉じると消えることがあります。「記録をコピー」でメモ帳などに貼って保管し、別の端末やあとで「貼り付けて復元」すると続きから再開できます（今の記録と合算します）。</p>
+    <div class="row"><button class="btn" id="exp">記録をコピー</button><button class="btn" id="imp">貼り付けて復元</button></div>
+    <div id="bk"></div>
+  </section>
+  <section class="card">
+    <div class="row"><button class="btn" id="resetSet">セットを第1回からやり直す</button><button class="btn" id="resetAll">学習記録をすべて消す</button></div>
+    <div id="cf"></div>
+    <p class="note">上に「サーバーに保存済み」と出ている画面では、学習記録はサーバー（このページ専用のあなた個人の保存領域）に保存され、他の人には見えません。「この端末だけに保存中」と出ている画面では、「記録の引き継ぎ」でコピーを取ってください。問題は教科書の定説にもとづく自作の○×問題で、番号（例 KO-0001）は分野の頭文字＋連番です。水準は lv1＝日東駒専・lv2＝MARCH・lv3＝早慶の目安です。</p>
+  </section>`;
+  syncLabel();
+  $("#go").onclick=()=>startExam();
+  document.querySelectorAll("[data-fx]").forEach(b=>b.onclick=()=>startExam(b.dataset.fx));
+  if(canSpeak)$("#vc").onchange=e=>{voice=e.target.checked;ls.set("nox-voice",voice)};
+  document.querySelectorAll("[data-k]").forEach(b=>b.onclick=()=>startReview([{key:b.dataset.k}]));
+  if(weak)$("#weakAll").onclick=()=>startReview(ts.filter(s=>state(s)===1).map(s=>({key:s.f+"|"+s.t})));
+  $("#resetSet").onclick=()=>{SET={round:0,scores:[]};save();home()};
+  $("#exp").onclick=exportRec;$("#imp").onclick=importRec;
+  $("#resetAll").onclick=()=>{$("#cf").innerHTML=`<div class="confirm row"><span>解いた記録と正答率がすべて消えます。</span><button class="btn" id="yes">消す</button><button class="btn" id="no">やめる</button></div>`;$("#yes").onclick=()=>{H={};R10={};RL={};SET={round:0,scores:[]};LOG=[];save();home()};$("#no").onclick=()=>$("#cf").innerHTML=""};
+  window.scrollTo(0,0);
+}
+
+/* ---------- exam ---------- */
+function startExam(field){
+  const qs=[];const ex=new Set();
+  if(field){pick(BANK.filter(q=>q.f===field),10,ex).forEach(q=>qs.push(q))}
+  else{const mix=MIX[SET.round],need=levelNeeds(mix);FIELDS.forEach(([f])=>{pickCoverLv(BANK.filter(q=>q.f===f),mix[f]||0,ex,need[f]).forEach(q=>{qs.push(q);ex.add(q.i)})})}
+  const label=field?FNAME(field)+" 10問":`第${SET.round+1}回`;
+  const E={qs,ans:Array(qs.length).fill(null),cur:0,left:LIMIT,start:Date.now(),field,label};
+  const render=()=>{
+    const q=E.qs[E.cur];const m=Math.floor(E.left/60),s=E.left%60;
+    app.innerHTML=`
+    <div class="exam-top"><div><div class="note">${E.label}　${E.ans.filter(a=>a!=null).length}/${E.qs.length}問 回答済み</div><div class="timer ${E.left<=60?"low":""}" id="tm">${m}:${String(s).padStart(2,"0")}</div></div><button class="btn" id="fin">採点する</button></div>
+    <div class="dots">${E.qs.map((x,k)=>`<button class="dot ${E.ans[k]!=null?(E.ans[k]===x.a?"okd":"ngd"):""} ${k===E.cur?"cur":""}" data-k="${k}" aria-label="${k+1}問目">${k+1}</button>`).join("")}</div>
+    <article class="card"><div class="meta">問${E.cur+1}　${FIELDS.find(x=>x[0]===q.f)[1]}</div><p class="stmt">${q.s}</p>
+    ${canSpeak?`<button class="btn" id="spk" style="align-self:flex-start;font-weight:500;font-size:.85rem">読み上げ</button>`:""}
+    <div class="ox"><button class="btn ${E.ans[E.cur]===1?"sel":""}" id="o" ${E.ans[E.cur]!=null?"disabled":""}>○</button><button class="btn ${E.ans[E.cur]===0?"sel":""}" id="x" ${E.ans[E.cur]!=null?"disabled":""}>×</button></div>
+    ${E.ans[E.cur]!=null?(()=>{const ok=E.ans[E.cur]===q.a;return `<div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　答え：${q.a?"○":"×"}　<span class="note">${q.t}　${q.ref==="確認"?"確認問題":q.ref}</span></span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div>`})():""}
+    <div class="row" style="justify-content:space-between"><button class="btn" id="prev" ${E.cur?"":"disabled"}>前へ</button><button class="btn ${E.ans[E.cur]!=null?"pri":""}" id="next">${E.cur<E.qs.length-1?"次へ":"採点する"}</button></div></article>
+    <div id="cf"></div>`;
+    const choose=v=>{
+      // 1問ごとにその場で正誤と解説を表示（答えは確定）。10問テスト・分野別とも同じ
+      if(E.ans[E.cur]!=null)return;E.ans[E.cur]=v;const q0=E.qs[E.cur];render();if(voice)speak((v===q0.a?"正解。":"不正解。")+"答えは"+(q0.a?"まる":"ばつ")+"。"+q0.e)};
+    $("#o").onclick=()=>choose(1);$("#x").onclick=()=>choose(0);
+    $("#prev").onclick=()=>{E.cur--;render()};
+    $("#next").onclick=()=>{if(E.cur<E.qs.length-1){E.cur++;render();if(voice)speak(E.qs[E.cur].s)}else askFinish()};
+    $("#fin").onclick=askFinish;
+    if(canSpeak)$("#spk").onclick=()=>speak(q.s);
+    document.querySelectorAll(".dot").forEach(d=>d.onclick=()=>{E.cur=+d.dataset.k;render()});
+  };
+  const askFinish=()=>{const un=E.ans.filter(a=>a==null).length;if(!un){finish();return}
+    $("#cf").innerHTML=`<div class="confirm row"><span>未回答が${un}問あります。未回答は不正解になります。</span><button class="btn" id="yes">採点する</button><button class="btn" id="no">続ける</button></div>`;
+    $("#yes").onclick=finish;$("#no").onclick=()=>$("#cf").innerHTML=""};
+  const finish=()=>{clearInterval(timerId);if(canSpeak)speechSynthesis.cancel();
+    const used=LIMIT-E.left;let sc=0;E.qs.forEach((q,k)=>{const ok=E.ans[k]===q.a;if(ok)sc++;rec(q,ok)});
+    const at=new Date(Date.now()+9*3600e3).toISOString().slice(0,19);
+    if(E.field){LOG.push({at,round:0,field:E.field,score:sc,sec:used});save();result(E,sc,used,null);return}
+    LOG.push({at,round:SET.round+1,score:sc,sec:used});
+    // このセットで出した論点を記録し、セットが終わったら出し切れなかった論点を次のセットへ持ち越す
+    SET.topics=[...new Set([...(SET.round===0?[]:SET.topics||[]),...E.qs.map(q=>q.f+"|"+q.t)])];
+    SET.scores[SET.round]=sc;SET.round=(SET.round+1)%5;const setDone=SET.round===0;const setScores=[...SET.scores];
+    if(setDone){const allT=[...new Set(BANK.map(q=>q.f+"|"+q.t))];SET.carry=allT.filter(k=>!SET.topics.includes(k));SET.topics=[];SET.scores=[]}save();
+    result(E,sc,used,setDone?setScores:null)};
+  render(); if(voice)speak(E.qs[0].s);
+  clearInterval(timerId);
+  timerId=setInterval(()=>{E.left--;const t=$("#tm");if(t){t.textContent=Math.floor(E.left/60)+":"+String(E.left%60).padStart(2,"0");if(E.left<=60)t.classList.add("low")}if(E.left<=0){clearInterval(timerId);finish()}},1000);
+  window.scrollTo(0,0);
+}
+function judge(sc){return sc>=8?["j-ok","合格圏"]:sc===7?["j-mid","合格ライン上"]:["j-ng","要復習"]}
+function result(E,sc,used,setScores){
+  const [jc,jt]=judge(sc);
+  const wrongItems=[];const seen=new Set();E.qs.forEach((q,k)=>{if(E.ans[k]!==q.a){const key=q.f+"|"+q.t;if(!seen.has(key)){seen.add(key);wrongItems.push({key,missed:{q,your:E.ans[k]}})}}});
+  let setHtml="";
+  if(setScores){const tot=setScores.reduce((a,b)=>a+b,0);const sj=tot>=37?["j-ok","安全圏"]:tot>=35?["j-mid","合格ライン（7割）"]:["j-ng","あと"+(35-tot)+"点で7割"];
+    setHtml=`<section class="card"><h2>5回セットの合計（入試1回分）</h2><div class="row"><span class="big">${tot}<span style="font-size:1.2rem"> / 50</span></span><span class="judge ${sj[0]}">${sj[1]}</span></div><p class="note">各回：${setScores.map((s,k)=>`第${k+1}回 ${s}点`).join("　")}</p></section>`}
+  app.innerHTML=`
+  <section class="card"><h2>${E.field?E.label+"の結果":`第${(SET.round+4)%5+1}回の結果`}</h2>
+    <div class="row"><span class="big">${sc}<span style="font-size:1.2rem"> / ${E.qs.length}</span></span><span class="judge ${jc}">${jt}</span></div>
+    <p class="note">かかった時間 ${Math.floor(used/60)}分${used%60}秒 / 10分</p>
+    ${wrongItems.length?`<p class="note">間違えた論点ごとに「解説（要点・ひっかけ） → 付随する論点 → 確認例題3問」の順で復習します。</p>
+    <button class="btn pri" id="allw">間違えた${wrongItems.length}論点を復習する</button>
+    <div class="row">${wrongItems.map((w,j)=>`<button class="btn" data-w="${j}">${w.key.split("|")[1]}だけ</button>`).join("")}</div>`:`<p>全問正解です。${E.field?"続けて解くと見込みの精度が上がります。":"次の回に進みましょう。"}</p>`}
+    <div class="row"><button class="btn" id="home">ホームへ</button><button class="btn" id="nx">${E.field?`もう一度 ${FNAME(E.field)} 10問`:`第${SET.round+1}回へ進む`}</button></div>
+  </section>
+  ${setHtml}
+  <section class="rv">${E.qs.map((q,k)=>{const ok=E.ans[k]===q.a;return `<article class="card"><div class="meta">問${k+1}　${q.t}　${q.ref==="確認"?"確認問題":q.ref}</div><p class="stmt">${q.s}</p>
+    <div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　あなた：${E.ans[k]==null?"未回答":E.ans[k]?"○":"×"}　答え：${q.a?"○":"×"}</span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div></article>`}).join("")}</section>`;
+  document.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>startReview([wrongItems[+b.dataset.w]]));
+  if(wrongItems.length)$("#allw").onclick=()=>startReview(wrongItems);
+  $("#home").onclick=home;$("#nx").onclick=()=>startExam(E.field);
+  window.scrollTo(0,0);
+}
+
+/* ---------- review: 解説（要点・ひっかけ・体系） → 付随論点 → 確認例題3問（1問ごとに正誤と解説） ---------- */
+const esc=x=>String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+// 間違えた問題と最も関係の深い枝（大項目）を文字の2文字組の重なりで推定する
+function bigr(x){const s=String(x).replace(/[\s、。・：（）()「」，,．.0-9０-９]/g,"");const o=new Set();for(let i=0;i<s.length-1;i++)o.add(s.slice(i,i+2));return o}
+function overlap(a,b){let n=0;b.forEach(x=>{if(a.has(x))n++});return n}
+function cellHtml(x){x=esc(x);if(/^(○|◯|必要|可|あり|できる)/.test(x))return `<span class="o">${x}</span>`;if(/^(×|✕|不要|不可|なし|できない)/.test(x))return `<span class="x">${x}</span>`;return x}
+// 間違えた問題に最も関係する枝・項目を推定（2文字組の重なり）
+function hitOf(S,missed){
+  let b=-1,it=-1;if(!S||!missed)return {b,it};
+  const qb=bigr(missed.q.s+missed.q.e);let best=1;
+  S.tree.forEach((x,i)=>{const sc=overlap(qb,bigr(x.h+x.items.join("")));if(sc>best){best=sc;b=i}});
+  if(b>=0){let bi=0;S.tree[b].items.forEach((x,j)=>{const sc=overlap(qb,bigr(x));if(sc>bi){bi=sc;it=j}})}
+  return {b,it};
+}
+const brHtml=(x,i,hit,tag)=>`<div class="br ${hit.b===i?"hit":""}" id="br-${i}"><h4><span class="no">${i+1}</span>${esc(x.h)}${hit.b===i&&tag?`<span class="tag">${tag}</span>`:""}</h4><ul>${x.items.map((y,j)=>`<li class="${hit.b===i&&hit.it===j?"hit":""}">${esc(y)}</li>`).join("")}</ul></div>`;
+const tblHtml=(tb,rows,note)=>`<div><div style="font-weight:700;margin-bottom:6px">${esc(tb.title)}</div><div class="tw"><table class="st"><thead><tr>${tb.head.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${cellHtml(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${note?`<p class="note" style="margin:4px 0 0">${note}</p>`:""}</div>`;
+const missedHtml=missed=>missed?`<article class="card"><div class="meta">あなたが間違えた問題　${missed.q.ref==="確認"?"確認問題":missed.q.ref}</div><p class="stmt">${missed.q.s}</p>
+    <div class="res ng"><span class="v">あなた：${missed.your==null?"未回答":missed.your?"○":"×"}　答え：${missed.q.a?"○":"×"}</span><span>${missed.q.e}</span><span class="memo">覚え方：<b>${missed.q.m}</b></span></div></article>`:"";
+
+/* 1段目：間違えた範囲だけに絞った解説＋体系へのリンク */
+// 具体例と周辺知識（src/logic.ts の orderExamples と同じ並べ方）
+function orderExamples(L,q){const ex=L.ex||[];if(!q)return ex.map(x=>({ex:x,near:false}));const text=q.s+q.e;
+  const sc=ex.map((x,i)=>({x,i,n:x.kw.filter(k=>text.includes(k)).length}));sc.sort((a,b)=>b.n-a.n||a.i-b.i);return sc.map((o,j)=>({ex:o.x,near:j===0&&o.n>0}))}
+function exHtml(L,missed){const o=orderExamples(L,missed&&missed.q);if(!o.length)return "";
+  return `<article class="card"><div class="meta">具体例で理解する</div>${o.map(({ex,near})=>`<div class="exb${near?" near":""}">${near?`<span class="tag">この問題に近い例</span>`:""}<b>${esc(ex.t)}</b><p>${esc(ex.s)}</p><p class="exp">→ ${esc(ex.p)}</p></div>`).join("")}</article>`}
+// 判例：問題に関係する判例を先頭に3件、残りは折りたたみ（src/logic.ts の orderByKw と同じ並べ方）
+function orderByKw(list,q){if(!q)return list.map(x=>({item:x,near:false}));const text=q.s+q.e;
+  const sc=list.map((x,i)=>({x,i,n:x.kw.filter(k=>text.includes(k)).length}));sc.sort((a,b)=>b.n-a.n||a.i-b.i);return sc.map(o=>({item:o.x,near:o.n>0}))}
+function casesHtml(L,missed){const o=orderByKw(L.cases||[],missed&&missed.q);if(!o.length)return "";
+  const one=({item:c,near})=>`<div class="exb${near?" near":""}">${near?`<span class="tag">この問題に関係する判例</span>`:""}<b>${esc(c.n)}</b><p><b>事案</b>　${esc(c.f)}</p><p><b>判断</b>　${esc(c.h)}</p><p class="cpt"><b>試験では</b>　${esc(c.pt)}</p></div>`;
+  return `<article class="card"><div class="meta">判例で理解する（${o.length}件）</div>${o.slice(0,3).map(one).join("")}${o.length>3?`<details class="more"><summary>ほかの判例も見る（あと${o.length-3}件）</summary>${o.slice(3).map(one).join("")}</details>`:""}</article>`}
+function aroundHtml(L){const a=L.around||[];if(!a.length)return "";
+  return `<article class="card"><div class="meta">あわせて覚える周辺知識</div><dl class="ard">${a.map(x=>`<dt>${esc(x.h)}</dt><dd>${esc(x.b)}</dd>`).join("")}</dl></article>`}
+function focusHtml(key,missed){
+  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const S=L.sys;const t=key.split("|")[1];
+  const qb=missed?bigr(missed.q.s+missed.q.e):null;
+  const hit=hitOf(S,missed);
+  let body="";
+  if(S&&hit.b>=0){body+=brHtml(S.tree[hit.b],hit.b,hit,"間違えた範囲")}
+  else{body+=`<ul class="ul">${L.pts.slice(0,4).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}
+  // 関係する表の行だけを抜き出す
+  if(S&&qb){let best=null;
+    S.tables.forEach(tb=>{const rs=tb.rows.map((r,i)=>({i,r,sc:overlap(qb,bigr(r.join("")))})).filter(o=>o.sc>=2);
+      const top=rs.sort((a,b)=>b.sc-a.sc).slice(0,4).sort((a,b)=>a.i-b.i);const sc=top.reduce((a,o)=>a+o.sc,0);
+      if(top.length&&(!best||sc>best.sc))best={tb,top,sc}});
+    if(best)body+=tblHtml(best.tb,best.top.map(o=>o.r),best.top.length<best.tb.rows.length?`表の一部（${best.top.length}／${best.tb.rows.length}行）。全体は下の「体系的に学ぶ」で。`:"")}
+  // 関係するひっかけ
+  let traps=L.traps||[];
+  if(qb){const r=traps.map(x=>({x,sc:overlap(qb,bigr(x))})).filter(o=>o.sc>=2).sort((a,b)=>b.sc-a.sc).slice(0,2).map(o=>o.x);traps=r.length?r:traps.slice(0,1)}else traps=traps.slice(0,2);
+  if(traps.length)body+=`<div class="trap"><b>この範囲のひっかけ</b><ul class="ul">${traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+  const head=S&&hit.b>=0?`${esc(t)}：${esc(S.tree[hit.b].h)}`:`${esc(t)}の要点`;
+  const map=S?`<div class="mini">${S.tree.map((x,i)=>`<button class="mchip ${i===hit.b?"on":""}" data-deep="${i}"><span class="no">${i+1}</span>${esc(x.h)}</button>`).join("")}</div>`:"";
+  const rel=(L.rel||[]).filter(k=>LESSON[k]);
+  return `<article class="card"><div class="meta">間違えた範囲の解説</div><h2>${head}</h2>${body}</article>
+  ${exHtml(L,missed)}${casesHtml(L,missed)}${aroundHtml(L)}
+  ${S?`<article class="card"><div class="meta">体系的に広げる</div><p class="note" style="margin:0">「${esc(t)}」は全${S.tree.length}項目。項目を押すと、その場所から詳しい解説を開きます。</p>${map}
+    <button class="btn deeplink" data-deep="all">${esc(t)}を体系的に学ぶ<span class="sub2">全体像・流れ図・比較表・要点</span></button>
+    ${rel.length?`<div><div class="note" style="margin-bottom:6px">${esc(L.bridge||"関連する論点")}</div><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></div>`:""}</article>`:""}`;
+}
+
+/* 2段目：論点を体系的に深く学ぶページ */
+function deepHtml(key,missed){
+  const L=LESSON[key]||{pts:[],traps:[],rel:[]};const S=L.sys;const [f,t]=key.split("|");
+  const hit=hitOf(S,missed);
+  let h="";
+  if(S){
+    h+=`<article class="card"><div class="meta">全体像（体系図）　${FIELDS.find(x=>x[0]===f)[1]}</div><h2>${esc(t)}の全体像</h2><p class="ov">${esc(S.overview)}</p><div class="systree"><div class="sysroot">${esc(t)}</div><div class="sysbr">${S.tree.map((x,i)=>brHtml(x,i,hit,"間違えた範囲")).join("")}</div></div></article>`;
+    if(S.flow&&S.flow.steps&&S.flow.steps.length)h+=`<article class="card"><div class="meta">流れで覚える</div><h2>${esc(S.flow.title)}</h2><ol class="flow">${S.flow.steps.map((x,i)=>`<li><span class="n">${i+1}</span><span class="s">${esc(x)}</span></li>`).join("")}</ol></article>`;
+    if(S.tables&&S.tables.length)h+=`<article class="card"><div class="meta">比較表・数字</div><div class="tbls">${S.tables.map(tb=>tblHtml(tb,tb.rows,"")).join("")}</div></article>`;
+  }
+  h+=`<article class="card"><div class="meta">要点のまとめ</div><h2>${esc(t)}の要点</h2><ul class="ul">${L.pts.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>${L.traps&&L.traps.length?`<div class="trap"><b>よく出るひっかけ</b><ul class="ul">${L.traps.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:""}</article>`;
+  h+=exHtml(L,missed)+casesHtml(L,missed)+aroundHtml(L);
+  const rel=(L.rel||[]).filter(k=>LESSON[k]);
+  if(rel.length)h+=`<article class="card"><div class="meta">つながる論点</div><p style="margin:0">${esc(L.bridge||"")}</p><div class="mini">${rel.map(k=>`<button class="mchip rel" data-deeprel="${k}">${esc(k.split("|")[1])} →</button>`).join("")}</div></article>`;
+  return h;
+}
+function deepView(key,focus,missed,back,trail){
+  trail=trail||[];const t=key.split("|")[1];
+  app.innerHTML=`<div class="exam-top"><div><div class="note">体系的に学ぶ${trail.length?"　"+trail.map(k=>esc(k.split("|")[1])).join(" › ")+" ›":""}</div><div style="font-weight:700">${esc(t)}</div></div><button class="btn" id="back">← 復習に戻る</button></div>
+  ${deepHtml(key,missed)}
+  <div class="row"><button class="btn pri" id="back2">← 復習に戻る</button></div>`;
+  $("#back").onclick=back;$("#back2").onclick=back;
+  document.querySelectorAll("[data-deeprel]").forEach(b=>b.onclick=()=>deepView(b.dataset.deeprel,-1,null,back,[...trail,key]));
+  if(focus>=0){const el=document.getElementById("br-"+focus);if(el){el.classList.add("focus");el.scrollIntoView({block:"center"});return}}
+  window.scrollTo(0,0);
+}
+function startReview(queue){ // queue: [{key, missed?}]
+  if(!queue.length){home();return}
+  const item=queue[0],rest=queue.slice(1);const key=item.key;const [f,t]=key.split("|");
+  app.innerHTML=`<div class="exam-top"><div><div class="note">復習　残り${queue.length}論点</div><div style="font-weight:700">${t}</div></div><button class="btn" id="home">ホームへ</button></div>
+  ${missedHtml(item.missed)}
+  ${focusHtml(key,item.missed)}
+  <div class="row"><button class="btn pri" id="toq">確認例題3問へ</button></div>`;
+  $("#home").onclick=home;
+  $("#toq").onclick=()=>checkQs(item,rest);
+  const back=()=>startReview(queue);
+  document.querySelectorAll("[data-deep]").forEach(b=>b.onclick=()=>deepView(key,b.dataset.deep==="all"?-1:+b.dataset.deep,item.missed,back));
+  document.querySelectorAll("[data-deeprel]").forEach(b=>b.onclick=()=>deepView(b.dataset.deeprel,-1,null,back,[key]));
+  if(voice){const L=LESSON[key];if(L){const S=L.sys,h=hitOf(S,item.missed);speak(h.b>=0?t+"、"+S.tree[h.b].h+"。"+S.tree[h.b].items.join("。"):t+"の要点。"+L.pts.slice(0,4).join("。"))}}
+  window.scrollTo(0,0);
+}
+function checkQs(item,rest){
+  const [f,t]=item.key.split("|");
+  const ex=new Set(item.missed?[item.missed.q.i]:[]);
+  let pool=BANK.filter(q=>q.f===f&&q.t===t);
+  let real=pool.filter(q=>q.ref!=="確認");
+  const N=3; // 確認例題の問題数（src/exams.ts の reviewN と同じ）
+  const qs=pick(real.length>=N?real:pool,N,ex);
+  let k=0,right=0;
+  const render=()=>{
+    if(k>=qs.length){
+      const J=right>=Math.ceil(qs.length*0.8)?["j-ok","習得"]:right>=Math.ceil(qs.length*0.6)?["j-mid","もう一息"]:["j-ng","要復習"];const ok=J[0]==="j-ok";
+      app.innerHTML=`<section class="card"><h2>${t}　確認例題の結果</h2><div class="row"><span class="big">${right}<span style="font-size:1.2rem"> / ${qs.length}</span></span><span class="judge ${J[0]}">${J[1]}</span></div>
+      <p class="note">${ok?"この論点は理解できています。":"もう一度、解説を読んでから別の3問に挑戦できます。"}</p>
+      <div class="row">${ok?"":`<button class="btn" id="again">解説に戻ってもう一度</button>`}
+      ${rest.length?`<button class="btn pri" id="next">次の論点へ（残り${rest.length}）</button>`:`<button class="btn pri" id="nx">第${SET.round+1}回の模試へ</button>`}
+      <button class="btn" id="home">ホームへ</button></div></section>`;
+      if(!ok)$("#again").onclick=()=>startReview([{key:item.key,missed:item.missed},...rest]);
+      if(rest.length)$("#next").onclick=()=>startReview(rest);else $("#nx").onclick=()=>startExam();
+      $("#home").onclick=home;window.scrollTo(0,0);return}
+    const q=qs[k];
+    app.innerHTML=`<div class="exam-top"><div><div class="note">確認例題　${k+1} / ${qs.length}　正解 ${right}</div><div style="font-weight:700">${t}</div></div><button class="btn" id="home">ホームへ</button></div>
+    <article class="card"><div class="meta">確認例題　${q.ref}</div><p class="stmt">${q.s}</p>
+    ${canSpeak?`<button class="btn" id="spk" style="align-self:flex-start;font-weight:500;font-size:.85rem">読み上げ</button>`:""}
+    <div class="ox"><button class="btn" id="o">○</button><button class="btn" id="x">×</button></div><div id="res"></div></article>`;
+    const go=v=>{$("#o").disabled=$("#x").disabled=true;const ok=v===q.a;if(ok)right++;rec(q,ok);save();
+      $("#res").innerHTML=`<div class="res ${ok?"ok":"ng"}"><span class="v">${ok?"正解":"不正解"}　答えは ${q.a?"○":"×"}</span><span>${q.e}</span><span class="memo">覚え方：<b>${q.m}</b></span></div><div class="row" style="margin-top:10px"><button class="btn pri" id="nx">次へ</button></div>`;
+      if(voice)speak((ok?"正解。":"不正解。")+"答えは"+(q.a?"まる":"ばつ")+"。"+q.e);
+      $("#nx").onclick=()=>{k++;render();if(voice&&k<qs.length)speak(qs[k].s)};$("#nx").focus()};
+    $("#o").onclick=()=>go(1);$("#x").onclick=()=>go(0);$("#home").onclick=home;
+    if(canSpeak)$("#spk").onclick=()=>speak(q.s);
+    window.scrollTo(0,0);
+  };
+  render();if(voice&&qs.length)speak(qs[0].s);
+}
+if(canSpeak){try{speechSynthesis.getVoices()}catch(e){}}
+home();
+connect();
+</script>

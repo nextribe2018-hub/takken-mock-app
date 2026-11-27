@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as Haptics from 'expo-haptics';
 import { EXAM, Exam, ExamId, Item } from './src/exams';
 import {
-  buildFieldExam, EXAM_N, FIELDS, fieldStats, finishFieldExam, PASS_LINES, passEstimate, LESSON, Progress, Q,
+  EXAM_N, FIELDS, fieldStatsX, finishFieldExam, PASS_LINES, passEstimate, lessonsOf, levelPassEstimate, Progress, Q,
   buildRound, choiceOrder, emptyProgress, fieldStatsBy, finishRound, freeExam, judge, pick, judgeSet, LessonSys, record,
   relatedBranch, relatedRows, relatedTraps, reviewQuestions, reviewCount, reviewJudge, statsBy, topicState, topicTier, Tier, fourChoice, orderExamples, orderByKw, Lesson, wrongGroups,
 } from './src/logic';
@@ -27,9 +27,9 @@ type ReviewItem = { key: string; missed?: Missed };
 type Screen =
   | { name: 'select' }
   | { name: 'home' }
-  // field は宅建の分野別10問テスト
-  | { name: 'exam'; qs: Item[]; orders: Order[]; round: number; field?: Q['f'] }
-  | { name: 'result'; qs: Item[]; orders: Order[]; ans: Ans[]; score: number; round: number; used: number; setScores: number[] | null; field?: Q['f'] }
+  // field は宅建型の分野別10問テスト
+  | { name: 'exam'; qs: Item[]; orders: Order[]; round: number; field?: string }
+  | { name: 'result'; qs: Item[]; orders: Order[]; ans: Ans[]; score: number; round: number; used: number; setScores: number[] | null; field?: string }
   | { name: 'lesson'; queue: ReviewItem[] }
   | { name: 'check'; item: ReviewItem; rest: ReviewItem[]; qs: Item[]; orders: Order[] }
   | { name: 'deep'; key: string; focus: number; missed?: Q; back: Screen; trail: string[] }
@@ -39,8 +39,8 @@ type Screen =
   | { name: 'four' };
 
 const ordersFor = (x: Exam, qs: Item[]): Order[] => qs.map(q => (x.format === 'choice' ? choiceOrder(q) : []));
-// 宅建だけの機能（合格の見込み・分野別10問・体系解説・1問ごとの即時採点など）を出すか
-const isTakken = (x: Exam) => x.id === 'takken';
+// 宅建型の機能（論点タイル・分野別10問・体系解説・1問ごとの即時採点など）を出すか。論点解説（lessons）のある試験＝宅建・日本史○×
+const isFull = (x: Exam) => !!x.lessons;
 
 export default function App() {
   return (
@@ -167,6 +167,8 @@ const groupLabel = (x: Exam, key: string) => {
   const [f, t] = key.split('|');
   return x.reviewBy === 'topic' ? t : fieldName(x, f);
 };
+// 5回の内訳の略号：分野の頭文字（宅建 業・権・法・税）。頭文字が重なる分野（近世・近代）は分野名のまま
+const abbr = (x: Exam, f: string) => (x.fields.filter(([g]) => g[0] === f[0]).length > 1 ? f : f[0]);
 const nextLabel = (x: Exam, p: Progress) => (x.rounds ? `第${p.set.round + 1}回へ進む` : 'もう1回（10問）');
 const startExam = (ctx: Ctx) => {
   const { x, p, go } = ctx;
@@ -174,18 +176,18 @@ const startExam = (ctx: Ctx) => {
   const qs = buildRound(x, p.hist, round, Math.random, p.set); // 5回のセットで論点が一巡するように
   go({ name: 'exam', qs, orders: ordersFor(x, qs), round });
 };
-// 宅建の分野別10問テストを始める
-const startFieldExam = (ctx: Ctx, f: Q['f']) => {
+// 分野別10問テストを始める（宅建型の試験）
+const startFieldExam = (ctx: Ctx, f: string) => {
   const { x, p, go } = ctx;
-  // 無料版は無料の問題（x.items）の中から出す
-  const qs = ctx.shop.full ? buildFieldExam(p.hist, f) : (pick(p.hist, x.items.filter(q => q.f === f), 10, new Set()) as Q[]);
+  // その分野から10問（未出題・前回不正解を優先、論点を分散）。無料版は x が無料の問題だけなので、その中から出す
+  const qs = pick(p.hist, x.items.filter(q => q.f === f), 10, new Set());
   go({ name: 'exam', qs, orders: ordersFor(x, qs), round: 0, field: f });
 };
 // 復習を始める：解説（宅建）か間違えた問題があれば解説画面、なければ確認例題へ直接
 const startReview = (ctx: Ctx, queue: ReviewItem[]) => {
   const { x, p, go } = ctx;
   const item = queue[0];
-  if (item.missed || (x.reviewBy === 'topic' && LESSON[item.key])) { go({ name: 'lesson', queue }); return; }
+  if (item.missed || (x.reviewBy === 'topic' && lessonsOf(x)[item.key])) { go({ name: 'lesson', queue }); return; }
   const qs = reviewQuestions(x, p.hist, item.key);
   go({ name: 'check', item, rest: queue.slice(1), qs, orders: ordersFor(x, qs) });
 };
@@ -339,7 +341,7 @@ function Home({ ctx }: { ctx: Ctx }) {
   // 宅建は topicStats(hist, p.r10) と同じ（論点ごと・直近10問つき）
   const ts = x.reviewBy === 'topic' ? statsBy(x, hist, p.r10) : fieldStatsBy(x, hist, p.r10);
   const weak = ts.filter(s => topicState(s) === 1);
-  const tk = isTakken(x);
+  const tk = isFull(x);
   const stateColor = [c.line, c.ng, c.warn, c.ok];
   const stateBg = [c.paper, c.ngSoft, c.warnSoft, c.okSoft];
   const unit = x.reviewBy === 'topic' ? '論点' : '分野';
@@ -360,7 +362,7 @@ function Home({ ctx }: { ctx: Ctx }) {
         <Text style={st.h1}>{x.name}</Text>
         <Text style={st.sub}>
           {x.rounds
-            ? `本試験と同じ分野比率で10問を10分。${R}回で${R * x.size}問＝1回分の本試験です。`
+            ? `${x.examWord ?? '本試験'}と同じ分野比率で10問を10分。${R}回で${R * x.size}問＝1回分の${x.examWord ?? '本試験'}です。`
             : `${x.desc}出題は未出題・前回間違えた問題が優先です。`}
         </Text>
       </View>
@@ -378,7 +380,7 @@ function Home({ ctx }: { ctx: Ctx }) {
                   <Text style={st.slotText}>第{k + 1}回</Text>
                   <Text style={st.slotScore}>{p.set.scores[k] != null ? `${p.set.scores[k]}点` : '—'}</Text>
                   <Text style={st.slotMix}>
-                    {x.fields.map(([f], i) => `${i === 2 ? '\n' : ''}${f[0]}${m[f]}`).join('')}
+                    {x.fields.map(([f], i) => `${i && i % 2 === 0 ? '\n' : ''}${abbr(x, f)}${m[f]}`).join('')}
                   </Text>
                 </View>
               ))}
@@ -395,13 +397,14 @@ function Home({ ctx }: { ctx: Ctx }) {
 
       {!ctx.shop.full && <Unlock ctx={ctx} done={done} />}
 
-      {tk && <PassCard ctx={ctx} />}
+      {x.pass === 'takken' && <PassCard ctx={ctx} />}
+      {!!x.pass && x.pass !== 'takken' && <LevelPassCard ctx={ctx} />}
 
       {tk && <Card ctx={ctx}>
         <Text style={st.h2}>分野別10問テスト</Text>
         <Text style={st.note}>1つの分野だけを10問・10分。まだ解いていない問題と前回間違えた問題を優先します。5回セットの記録には入りません。</Text>
         <View style={st.wrapRow}>
-          {(() => { const fs = fieldStatsOf(hist); return FIELDS.map(([f, n]) => (
+          {(() => { const fs = fieldStatsX(EXAM[x.id], hist); return x.fields.map(([f, n]) => (
             <Pressable key={f} onPress={() => startFieldExam(ctx, f)}
               style={({ pressed }) => [st.kpi, { flexBasis: '47%' }, pressed && st.pressed]}>
               <Text style={st.bold}>{n}</Text>
@@ -461,7 +464,7 @@ function Home({ ctx }: { ctx: Ctx }) {
             : <View style={st.wrapRow}>{ts.map(s => chip(s, `${s.f}|`))}</View>}
       </Card>
 
-      {tk && <FourRow ctx={ctx} />}
+      {x.id === 'takken' && <FourRow ctx={ctx} />}
 
       <Card ctx={ctx}>
         <View style={st.wrapRow}>
@@ -479,7 +482,7 @@ function Home({ ctx }: { ctx: Ctx }) {
         )}
         <Text style={st.note}>
           学習記録はこの端末に試験ごとに保存されます。
-          {x.format === 'ox' ? '問題は各論点を○×形式で確認するもので、出典は「年度-問-肢」で表示します。' : '選択肢の順番は毎回入れ替わります。'}
+          {x.format === 'ox' ? (x.id === 'takken' ? '問題は各論点を○×形式で確認するもので、出典は「年度-問-肢」で表示します。' : '問題は各論点を○×形式で確認するものです（自作の問題）。') : '選択肢の順番は毎回入れ替わります。'}
           {x.kinds ? `問題は「${x.kinds.map(k => k[1]).join('」と「')}」の2種類です。` : ''}
         </Text>
         <View style={st.wrapRow}>
@@ -597,7 +600,6 @@ function Kpi({ ctx, label, value }: { ctx: Ctx; label: string; value: string }) 
 }
 
 /* ---------- 合格の見込み ---------- */
-const fieldStatsOf = (h: Progress['hist']) => fieldStats(h);
 function PassCard({ ctx }: { ctx: Ctx }) {
   const { c, st, p, go } = ctx;
   const P = useMemo(() => passEstimate(p.hist, 3000, p.r10), [p.hist, p.r10]);
@@ -659,6 +661,71 @@ function PassCard({ ctx }: { ctx: Ctx }) {
       <Btn ctx={ctx} primary label={`いちばん伸ばせる「${fieldName(ctx.x, P.focus)}」の10問テスト`}
         onPress={() => startFieldExam(ctx, P.focus)} />
       <NotesLink ctx={ctx} sec="pass" lead="目安です（合格を保証するものではありません）。" />
+    </Card>
+  );
+}
+
+/* 水準別の合格の見込み（日本史○×）：日東駒専・MARCH・早慶の合格確率を並べる。計算は src/logic.ts の levelPassEstimate */
+function LevelPassCard({ ctx }: { ctx: Ctx }) {
+  const { c, st, x, p } = ctx;
+  const full = EXAM[x.id];
+  const P = useMemo(() => levelPassEstimate(full, { hist: p.hist, r10: p.r10, rl: p.rl }), [full, p.hist, p.r10, p.rl]);
+  if (!P.ready) {
+    return (
+      <Card ctx={ctx}>
+        <Text style={st.h2}>合格の見込み（3水準）</Text>
+        <Text style={st.note}>あと {P.need - P.total}問 解くと判定します（{P.need}問以上の回答で表示）。</Text>
+        <View style={st.barBg}><View style={[st.barFg, { width: `${Math.round((P.total / P.need) * 100)}%` }]} /></View>
+      </Card>
+    );
+  }
+  const pc = (v: number) => `${Math.round(v * 100)}%`;
+  const tone = (v: number) => (v >= 0.8 ? 'ok' as const : v >= 0.5 ? 'mid' as const : 'ng' as const);
+  const G = P.head.groups[P.cfg.focusGroup];
+  return (
+    <Card ctx={ctx}>
+      <Text style={st.h2}>合格の見込み（3水準）</Text>
+      <View style={st.kpis}>
+        {P.head.groups.map(g => (
+          <View key={g.name} style={[st.kpi, { borderWidth: 1, borderColor: tone(g.prob) === 'ok' ? c.ok : tone(g.prob) === 'mid' ? c.warn : c.ng }]}>
+            <Text style={st.note}>{g.name}</Text>
+            <Text style={st.kpiVal}>{pc(g.prob)}</Text>
+            <Text style={st.note}>予想 {Math.round(g.mean)}/{P.cfg.n}点</Text>
+          </View>
+        ))}
+      </View>
+      <Text style={st.body}>
+        水準別の○×正答率（直近→補正）：{P.lst.map((s, i) => `${P.cfg.levels[i]}レベル ${s.rn ? pc(s.rc / s.rn) : '—'}→${s.cnt ? pc(s.adj) : '—'}`).join('／')}
+      </Text>
+      <View style={st.tblWrap}>
+        <View style={[st.tblRow, { backgroundColor: c.aiSoft }]}>
+          {['4択での解き方', ...P.head.groups.map(g => g.name)].map((h, i) => <Text key={h} style={[st.tblCell, st.tblHead, i === 0 && { flex: 2.2 }]}>{h}</Text>)}
+        </View>
+        {P.scen.map((sc, i) => (
+          <View key={sc.k} style={[st.tblRow, i === P.cfg.headline && { backgroundColor: c.warnSoft }]}>
+            <Text style={[st.tblCell, { flex: 2.2 }]}>{sc.label}（k={sc.k}）</Text>
+            {sc.groups.map(g => <Text key={g.name} style={[st.tblCell, i === P.cfg.headline && st.tblHead]}>{pc(g.prob)}</Text>)}
+          </View>
+        ))}
+      </View>
+      <Text style={st.note}>合格ライン（4択換算の得点率）：{P.head.groups.map(g => `${g.name} ${g.lines[0]}〜${g.lines[g.lines.length - 1]}点`).join('／')}（{P.cfg.n}点満点、どの点も同じ確率と仮定）</Text>
+      <Text style={st.meta}>分野別の予想点（{G.name}の水準）</Text>
+      {x.fields.map(([f, n]) => {
+        const e = G.exp[f], N = P.examN[f] || 0, s = P.fst[f];
+        return (
+          <View key={f} style={[st.passRow, f === P.focus && { backgroundColor: c.warnSoft }]}>
+            <Text style={[st.bold, { width: 56 }]}>{n}</Text>
+            <View style={{ width: 52 }}>
+              <Text style={st.bold}>{Math.round(P.adj[f].adj * 100)}%</Text>
+              {!!s.rn && <Text style={[st.note, { fontSize: 10 }]}>直近{Math.round((s.rc / s.rn) * 100)}%</Text>}
+            </View>
+            <Text style={[st.note, { width: 64 }]}>{e.toFixed(1)}/{N}</Text>
+            <View style={[st.barBg, { flex: 1 }]}><View style={[st.barFg, { width: `${N ? Math.round((e / N) * 100) : 0}%` }]} /></View>
+          </View>
+        );
+      })}
+      <Btn ctx={ctx} primary label={`いちばん伸ばせる「${fieldName(x, P.focus)}」の10問テスト`} onPress={() => startFieldExam(ctx, P.focus)} />
+      <Text style={st.note}>目安です（合格を保証するものではありません）。水準ごとの直近10問と分野ごとの直近の正答率を4択に換算し、入試50問を{P.cfg.sims}回シミュレーションしています。大学群ごとの出題の水準と合格ラインは仮の値です。</Text>
     </Card>
   );
 }
@@ -734,7 +801,7 @@ function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }
   const { c, st, x, p, update, go } = ctx;
   const { qs, orders, round, field } = s;
   // 宅建は1問ごとにその場で正誤と解説を表示（10問テスト・分野別とも）。他の試験は採点まで正誤を出さない
-  const instant = isTakken(x);
+  const instant = isFull(x);
   const [ans, setAns] = useState<Ans[]>(() => qs.map(() => null));
   const [cur, setCur] = useState(0);
   const [left, setLeft] = useState(x.limit);
@@ -749,7 +816,7 @@ function ExamView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'exam' }> }
     finished.current = true;
     const used = Math.min(x.limit, Math.round((Date.now() - start.current) / 1000));
     if (field) {
-      const r = finishFieldExam(p, field, qs as Q[], ansRef.current as (0 | 1 | null)[], used);
+      const r = finishFieldExam(p, field, qs, ansRef.current, used);
       update(r.next);
       go({ name: 'result', qs, orders, ans: ansRef.current, score: r.score, round: 0, used, setScores: null, field });
       return;
@@ -851,7 +918,7 @@ function Result({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'result' }> }
           <>
             <Text style={st.note}>
               {x.reviewBy === 'topic'
-                ? '間違えた論点ごとに「解説（具体例・周辺知識つき） → 付随する論点 → 確認例題5問」の順で復習します。'
+                ? `間違えた論点ごとに「解説（${x.id === 'takken' ? '具体例・周辺知識つき' : '要点・ひっかけ'}） → 付随する論点 → 確認例題${reviewCount(x)}問」の順で復習します。`
                 : '間違えた分野ごとに「間違えた問題の解説 → 同じ分野の確認例題3問」の順で復習します。'}
             </Text>
             <Btn ctx={ctx} primary label={`間違えた${wrong.length}${unit}を復習する`} onPress={() => startReview(ctx, wrong)} />
@@ -893,7 +960,7 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
   const { st, x, p, go } = ctx;
   const item = queue[0];
   const t = item.key.split('|')[1];
-  const L = x.reviewBy === 'topic' ? LESSON[item.key] : undefined;
+  const L = x.reviewBy === 'topic' ? lessonsOf(x)[item.key] : undefined;
   const title = groupLabel(x, item.key);
   const toCheck = () => {
     const qs = reviewQuestions(x, p.hist, item.key, item.missed?.q);
@@ -955,13 +1022,14 @@ function TableView({ ctx, title, head, rows, note }: { ctx: Ctx; title: string; 
 }
 function FocusView({ ctx, k, missed }: { ctx: Ctx; k: string; missed?: Q }) {
   const { c, st, go, screen } = ctx;
-  const L = LESSON[k] || { pts: [], traps: [], rel: [] };
+  const LS = lessonsOf(ctx.x);
+  const L = LS[k] || { pts: [], traps: [], rel: [] };
   const t = k.split('|')[1];
   const S = L.sys;
   const hit = S ? relatedBranch(S, missed) : { branch: -1, item: -1 };
   const rows = S ? relatedRows(S, missed) : null;
   const traps = relatedTraps(L, missed);
-  const rel = (L.rel || []).filter(x => LESSON[x]);
+  const rel = (L.rel || []).filter(x => LS[x]);
   const deep = (key: string, focus: number, m?: Q, trail: string[] = []) => go({ name: 'deep', key, focus, missed: m, back: screen, trail });
   return (
     <>
@@ -1108,9 +1176,10 @@ function NotesView({ ctx, sec, back }: { ctx: Ctx; sec: string; back?: Screen })
 
 function DeepView({ ctx, s }: { ctx: Ctx; s: Extract<Screen, { name: 'deep' }> }) {
   const { c, st, go, scrollToNode } = ctx;
-  const L = LESSON[s.key] || { pts: [], traps: [], rel: [] };
+  const LS = lessonsOf(ctx.x);
+  const L = LS[s.key] || { pts: [], traps: [], rel: [] };
   const t = s.key.split('|')[1];
-  const rel = (L.rel || []).filter(x => LESSON[x]);
+  const rel = (L.rel || []).filter(x => LS[x]);
   const focusRef = useRef<View>(null);
   useEffect(() => {
     if (s.focus < 0) return;

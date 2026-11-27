@@ -19,7 +19,8 @@ export async function loadProgress(x: Exam = EXAM.takken): Promise<Progress> {
     return {
       ...base,
       hist: hist as Progress['hist'],
-      r10: backfillRecent(hist as Progress['hist'], d.r10 && typeof d.r10 === 'object' ? d.r10 : {}),
+      r10: backfillRecent(hist as Progress['hist'], d.r10 && typeof d.r10 === 'object' ? d.r10 : {}, x.lessons ? x.items : undefined),
+      ...(d.rl && typeof d.rl === 'object' ? { rl: d.rl } : {}), // 水準ごとの直近10問（日本史○×）
       set: d.set && Array.isArray(d.set.scores) ? d.set : base.set,
       log: Array.isArray(d.log) ? d.log : [],
       voice: !!d.voice,

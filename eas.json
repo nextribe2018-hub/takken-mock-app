@@ -243,6 +243,12 @@
       "env": {
         "EXPO_PUBLIC_EXAM": "todai-sekaishi"
       }
+    },
+    "nihonshi-ox": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "nihonshi-ox"
+      }
     }
   },
   "submit": {

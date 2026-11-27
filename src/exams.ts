@@ -38,6 +38,11 @@ import wsKokugo from './data/waseda-kokugo.json';
 import zrBoki from './data/zeirishi-boki.json';
 import zrHoujin from './data/zeirishi-houjin.json';
 import tdSekaishi from './data/todai-sekaishi.json';
+import takkenLessons from './data/lessons.json';
+import nihonshiOxRaw from './data/nihonshi-ox.json';
+import nihonshiLessons from './data/nihonshi-lessons.json';
+import nihonshiConfig from './data/nihonshi-config.json';
+import type { Lesson } from './logic';
 
 export type ExamId =
   | 'takken' | 'rikkyo-sekaishi' | 'rikkyo-nihonshi'
@@ -45,7 +50,7 @@ export type ExamId =
   | 'kindai-nihonshi' | 'kindai-sekaishi' | 'kindai-eigo' | 'kindai-kokugo' | 'nichidai-nihonshi' | 'nichidai-sekaishi' | 'nichidai-eigo' | 'nichidai-kokugo'
   | 'meiji-nihonshi' | 'meiji-sekaishi' | 'meiji-eigo' | 'meiji-kokugo'
   | 'zeirishi-zaihyo' | 'zeirishi-souzoku' | 'zeirishi-shouhi' | 'zeirishi-shotoku' | 'todai-eigo' | 'todai-chiri' | 'todai-seibutsu' | 'waseda-eigo'
-  | 'todai-kokugo' | 'todai-sugaku-bun' | 'todai-sugaku-ri' | 'todai-butsuri' | 'todai-kagaku' | 'todai-nihonshi' | 'waseda-nihonshi' | 'waseda-sekaishi' | 'waseda-kokugo' | 'zeirishi-boki' | 'zeirishi-houjin' | 'todai-sekaishi';
+  | 'todai-kokugo' | 'todai-sugaku-bun' | 'todai-sugaku-ri' | 'todai-butsuri' | 'todai-kagaku' | 'todai-nihonshi' | 'waseda-nihonshi' | 'waseda-sekaishi' | 'waseda-kokugo' | 'zeirishi-boki' | 'zeirishi-houjin' | 'todai-sekaishi' | 'nihonshi-ox';
 export type Format = 'ox' | 'choice';
 
 // 共通の問題形式。ox は a: 1＝○／0＝×、choice は a＝正解の c の番号
@@ -64,6 +69,17 @@ export type Item = {
   m: string;      // 覚え方
   y?: number;     // 年（歴史。紀元前はマイナス）
   kind?: string;  // 出題区分（例 past／plan）
+  lv?: number;    // 水準 1〜3（日本史○×：1＝日東駒専・2＝MARCH・3＝早慶）
+};
+
+// 水準別の合格判定（日本史○×）。値は src/data/nihonshi-config.json の pass
+export type LevelPassConfig = {
+  levels: string[];                                          // 水準の名前（lv1, lv2, lv3 の順）
+  groups: { name: string; mix: number[]; line: number[] }[]; // 大学群：水準の混ぜ方（合計1）と合格ライン [下限, 上限]（4択換算の得点率）
+  ks: { k: number; label: string }[];                        // toExam の k（慎重・標準・消去法）
+  headline: number;                                          // 見出しに使う ks の番号
+  focusGroup: number;                                        // 「いちばん伸ばせる分野」を決める大学群の番号
+  n: number; sims: number; seed: number; minAnswers: number;
 };
 
 export type Exam = {
@@ -81,6 +97,12 @@ export type Exam = {
   kinds?: [string, string][];                 // 出題区分 [キー, 表示名]
   storageKey: string;
   items: Item[];
+  // 以下は宅建型（論点ごとの解説・1問ごとの即時解説・論点タイル・分野別10問・合格の見込み）の試験だけ
+  lessons?: Record<string, Lesson>;           // 論点ごとの解説（キー「分野|論点」）。あれば宅建と同じ復習・体系ページ・タイル
+  reviewN?: number;                           // 確認例題の問題数（省略時：論点ごと5問・分野ごと3問）
+  lvMix?: number[];                           // 1回の水準の目標 [lv1, lv2, lv3]（足りなければ近い水準で補う）
+  pass?: 'takken' | LevelPassConfig;          // 合格の見込み：宅建の計算／水準別（大学群ごと）
+  examWord?: string;                          // 「本試験」に当たる言葉（ホームの説明）
 };
 
 // 宅建：安定キーは 分野|論点|出典（重複は #n）。既存の学習記録と互換
@@ -94,6 +116,14 @@ const takkenItems = (): Item[] => {
     return { ...q, i, k };
   });
 };
+
+// 日本史○×：安定キーは 分野|論点|出典（ref は一度振ったら変えない）。分野・論点・回ごとの内訳は nihonshi-config.json
+type NihonshiRaw = { f: string; t: string; ref: string; lv: number; s: string; a: 0 | 1; e: string; m: string; y?: number };
+export const NIHONSHI = nihonshiConfig as unknown as {
+  fields: { f: string; range: string; ref: string; topics: string[] }[];
+  rounds: Record<string, number>[]; lvMix: number[]; pass: LevelPassConfig;
+};
+const nihonshiItems = (): Item[] => (nihonshiOxRaw as NihonshiRaw[]).map((q, i) => ({ ...q, i, k: `${q.f}|${q.t}|${q.ref}` }));
 
 // 立教：安定キーは id（Web版の学習記録と同じ）
 type RikkyoRaw = {
@@ -168,6 +198,7 @@ export const EXAMS: Exam[] = [
       { 業法: 4, 権利: 2, 法令: 1, 税他: 3 },
     ],
     reviewBy: 'topic', storageKey: 'tkm-progress-v2', items: takkenItems(),
+    lessons: takkenLessons as unknown as Record<string, Lesson>, pass: 'takken',
   },
   {
     id: 'rikkyo-sekaishi', name: '立教 世界史', short: '世界史', group: '大学入試',
@@ -221,6 +252,14 @@ export const EXAMS: Exam[] = [
   univ('zeirishi-boki', '税理士 簿記論', '簿記論', zrBoki),
   univ('zeirishi-houjin', '税理士 法人税法', '法人税法', zrHoujin),
   univ('todai-sekaishi', '東京大学 世界史', '東大 世界史', tdSekaishi),
+  {
+    id: 'nihonshi-ox', name: '日本史 10分模試', short: '日本史', group: '大学入試',
+    desc: '入試と同じ時代比率の○×10問。5回で入試1回分。日東駒専・MARCH・早慶の3水準で判定。', format: 'ox',
+    fields: NIHONSHI.fields.map(x => [x.f, x.f] as [string, string]),
+    size: 10, limit: 600, rounds: NIHONSHI.rounds, reviewBy: 'topic', reviewN: 3, lvMix: NIHONSHI.lvMix,
+    storageKey: 'exam-progress-v1:nihonshi-ox', items: nihonshiItems(),
+    lessons: nihonshiLessons as unknown as Record<string, Lesson>, pass: NIHONSHI.pass, examWord: '入試',
+  },
 ];
 
 export const EXAM: Record<ExamId, Exam> = Object.fromEntries(EXAMS.map(x => [x.id, x])) as Record<ExamId, Exam>;
