@@ -37,7 +37,7 @@ uv run --with openpyxl python design/read_feedback.py              # Excel の�
 - `design/` アイコン・スクショ・掲載文・プライバシーポリシーの案（spec.json／text.json が元。Excel のコメントを読んで直し、作り直す）
 - 英単語フラッシュは 2026-10-22 に別リポジトリ `eitango-flash` へ切り出した。**このアプリには同居させない**（本人指示）
 - `web/` 宅建Web版、`web/rikkyo/` 立教Web版、`web/keio/` 慶應Web版のテンプレートとビルド
-- 日本史○×（`nihonshi-ox`）：宅建と同じ機能（論点タイル・即時解説・体系ページ・分野別10問）＋水準別の合格の見込み（日東駒専・MARCH・早慶）。仕様 `docs/content/nihonshi-ox-spec.md`、設定（分野・論点・回ごとの内訳・水準・合格判定の仮の値）は `src/data/nihonshi-config.json` にまとめてある。`src/data/nihonshi-ox.json`・`nihonshi-lessons.json` は現在サンプル（36問・解説は1論点以外仮）で、取り込みスクリプトで置き換える
+- 日本史○×（`nihonshi-ox`）：宅建と同じ機能（論点タイル・即時解説・体系ページ・分野別10問）＋水準別の合格の見込み（日東駒専・MARCH・早慶）。仕様 `docs/content/nihonshi-ox-spec.md`、設定（分野・論点・回ごとの内訳・水準・合格判定の仮の値）は `src/data/nihonshi-config.json` にまとめてある。`src/data/nihonshi-ox.json`・`nihonshi-lessons.json` は1,527問・42論点（作成→別担当の校閲済み。校閲記録は content-work/nihonshi/check-*.md）
 
 ## 注意
 - `npx expo install` が失敗する環境では `expo/bundledNativeModules.json` の版を `npm install` で指定する
