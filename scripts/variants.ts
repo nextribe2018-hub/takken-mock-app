@@ -37,7 +37,8 @@ if (process.argv[1]?.endsWith('variants.ts')) {
   eas.submit = keep(eas.submit ?? {});
   for (const id of Object.keys(v)) {
     eas.build[id] = { extends: 'production', env: { EXPO_PUBLIC_EXAM: id } };
-    if (v[id].ascAppId) eas.submit[id] = { ios: { ascAppId: v[id].ascAppId } };
+    // submit は EXPO_PUBLIC_EXAM を読まないので、バンドルIDを明示しないと宅建（app.json の既定）のアプリへ送られてしまう
+    eas.submit[id] = { ios: { bundleIdentifier: v[id].bundleId, appName: v[id].name, language: 'ja', ...(v[id].ascAppId && { ascAppId: v[id].ascAppId }) } };
   }
   writeFileSync(root + 'eas.json', JSON.stringify(eas, null, 2) + '\n');
   console.log(`OK: ${Object.keys(v).length}アプリ分の設定を variants.json と eas.json に書き出しました`);
