@@ -26,7 +26,8 @@ PREFIX = {F["f"]: F["ref"] for F in cfg["fields"]}
 TOPICS = {F["f"]: F["topics"] for F in cfg["fields"]}
 ALL_TOPICS = [f"{F['f']}|{t}" for F in cfg["fields"] for t in F["topics"]]
 ITEM_KEYS = {"f", "t", "ref", "lv", "s", "a", "e", "m"}
-ITEM_OPT = {"y"}
+ITEM_OPT = {"y", "g", "w"}
+GENRES = cfg.get("genres", {})
 
 errors, warns = [], []
 err = errors.append
@@ -60,6 +61,7 @@ def check_item(q, fname, i):
     for k in ("s", "e", "m"):
         if not isinstance(q[k], str) or not q[k].strip(): err(f"{at}: {k} が空")
     if "y" in q and (not isinstance(q["y"], int) or isinstance(q["y"], bool)): err(f"{at}: y は整数（紀元前はマイナス）")
+    if "g" in q and q["g"] not in GENRES.get(f"{q.get('f')}|{q.get('t')}", []): err(f"{at}: g「{q['g']}」は config の genres にない")
     if isinstance(q.get("e"), str) and not (60 <= len(q["e"]) <= 150): warn(f"{at}: 解説 e が {len(q['e'])}字（目安60〜150字）")
     if isinstance(q.get("m"), str) and not (10 <= len(q["m"]) <= 30): warn(f"{at}: 覚え方 m が {len(q['m'])}字（目安10〜30字）")
     if q.get("a") == 0 and isinstance(q.get("e"), str) and "正しくは" not in q["e"]: warn(f"{at}: ×の解説に「正しくは」がない")
@@ -113,7 +115,7 @@ for f in FIELDS:
                 for i, q in enumerate(data):
                     if check_item(q, ip.name, i):
                         if q["f"] != f: err(f"{ip.name} {q['ref']}: 分野 f が「{q['f']}」（ファイルは「{f}」）")
-                        items.append({k: q[k] for k in ("f", "t", "ref", "lv", "s", "a", "e", "m", "y") if k in q})
+                        items.append({k: q[k] for k in ("f", "t", "ref", "lv", "s", "a", "e", "m", "y", "g", "w") if k in q})
                 done.append(f)
     else:
         warn(f"{ip.name} がない → 「{f}」の問題は{'今のまま残す' if KEEP else '入れない'}")

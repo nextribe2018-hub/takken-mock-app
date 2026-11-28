@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View,
+  ActivityIndicator, Linking, Pressable, ScrollView, StyleSheet, Text, View,
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
@@ -92,7 +92,7 @@ function Root() {
   }, [unlock]);
 
   // 無料版は x を無料の問題だけの Exam にする（出題・復習・集計がすべて無料の範囲になる）
-  const full = !!unlocked[examId];
+  const full = !!unlocked[examId] || !!EXAM[examId].free;
   const x = full ? EXAM[examId] : freeExam(EXAM[examId]);
   const update = useCallback((next: Progress) => {
     setAll(a => (a ? { ...a, [examId]: next } : a));
@@ -159,7 +159,9 @@ type Shop = {
 };
 
 /* ---------- 試験ごとの表示の小道具 ---------- */
-const fieldName = (x: Exam, f: string) => x.fields.find(([k]) => k === f)?.[1] ?? f;
+// f は分野、または「分野|論点|ジャンル」（ジャンル別10問）
+const fieldName = (x: Exam, f: string) => (f.includes('|') ? f.split('|')[2] : x.fields.find(([k]) => k === f)?.[1] ?? f);
+const inScope = (q: Item, f: string) => (f.includes('|') ? `${q.f}|${q.t}|${q.g}` === f : q.f === f);
 const kindName = (x: Exam, q: Item) => x.kinds?.find(([k]) => k === q.kind)?.[1];
 const refLabel = (q: Item) => (q.ref === '確認' ? '確認問題' : q.ref);
 const ansText = (q: Item, a: Ans) => (a == null ? '未回答' : q.c ? q.c[a] : a ? '○' : '×');
@@ -180,7 +182,7 @@ const startExam = (ctx: Ctx) => {
 const startFieldExam = (ctx: Ctx, f: string) => {
   const { x, p, go } = ctx;
   // その分野から10問（未出題・前回不正解を優先、論点を分散）。無料版は x が無料の問題だけなので、その中から出す
-  const qs = pick(p.hist, x.items.filter(q => q.f === f), 10, new Set());
+  const qs = pick(p.hist, x.items.filter(q => inScope(q, f)), 10, new Set());
   go({ name: 'exam', qs, orders: ordersFor(x, qs), round: 0, field: f });
 };
 // 復習を始める：解説（宅建）か間違えた問題があれば解説画面、なければ確認例題へ直接
@@ -269,6 +271,28 @@ function Explain({ ctx, q, your, ok }: { ctx: Ctx; q: Item; your?: Ans; ok: bool
       )}
       <Text style={st.body}>{q.e}</Text>
       {!!q.m && <Text style={st.memo}>覚え方：<Text style={st.bold}>{q.m}</Text></Text>}
+      {!!q.w && <LearnLinks ctx={ctx} w={q.w} />}
+    </View>
+  );
+}
+
+// 解説の「もっと調べる」：キーワードで Wikipedia（一致する記事があれば記事、なければ検索結果）と YouTube の検索を開く
+function LearnLinks({ ctx, w }: { ctx: Ctx; w: string }) {
+  const { c, st } = ctx;
+  const q = encodeURIComponent(w);
+  const links: [string, string][] = [
+    ['Wikipedia', `https://ja.wikipedia.org/w/index.php?search=${q}`],
+    ['YouTube', `https://www.youtube.com/results?search_query=${encodeURIComponent(w + ' 日本史')}`],
+  ];
+  return (
+    <View style={[st.wrapRow, { alignItems: 'center' }]}>
+      <Text style={st.note}>「{w}」を調べる：</Text>
+      {links.map(([label, url]) => (
+        <Pressable key={label} accessibilityRole="link" accessibilityLabel={`${w}を${label}で調べる`} onPress={() => Linking.openURL(url).catch(() => {})}
+          style={({ pressed }) => [{ paddingVertical: 4, paddingHorizontal: 10, borderRadius: 999, borderWidth: 1, borderColor: c.ai }, pressed && st.pressed]}>
+          <Text style={{ color: c.ai, fontWeight: '700', fontSize: 13 }}>{label} ↗</Text>
+        </Pressable>
+      ))}
     </View>
   );
 }
@@ -308,7 +332,7 @@ function Select({ ctx, all, unlocked, last, onChoose }: {
                   <Text style={st.h2}>{x.name}</Text>
                   <View style={st.row}>
                     {x.id === last && <Text style={st.tag}>前回</Text>}
-                    {!unlocked[x.id] && <Text style={st.tag}>無料版</Text>}
+                    {!unlocked[x.id] && !x.free && <Text style={st.tag}>無料版</Text>}
                   </View>
                 </View>
                 <Text style={st.note}>{x.desc}</Text>
@@ -982,9 +1006,37 @@ function LessonView({ ctx, queue }: { ctx: Ctx; queue: ReviewItem[] }) {
           <Explain ctx={ctx} q={item.missed.q} your={item.missed.your} ok={false} />
         </Card>
       )}
+      {!item.missed && <GenreCard ctx={ctx} k={item.key} />}
       {x.reviewBy === 'topic' && <FocusView ctx={ctx} k={item.key} missed={item.missed?.q as Q | undefined} />}
       <Btn ctx={ctx} primary label={x.reviewBy === 'topic' ? `確認例題${reviewCount(x)}問へ` : `${title}の確認例題${reviewCount(x)}問へ`} onPress={toCheck} />
     </>
+  );
+}
+
+/* ---------- 論点の中のジャンル（日本史○×）：ジャンルごとの解いた数・正解数とジャンル別10問 ---------- */
+function GenreCard({ ctx, k }: { ctx: Ctx; k: string }) {
+  const { c, st, x, p } = ctx;
+  const names = x.genres?.[k];
+  const rows = useMemo(() => (names || []).map(g => {
+    const qs = x.items.filter(q => `${q.f}|${q.t}` === k && q.g === g);
+    let done = 0, ok = 0;
+    qs.forEach(q => { const h = p.hist[q.k]; if (h) { done++; if (h.last === 1) ok++; } });
+    return { g, n: qs.length, done, ok };
+  }).filter(r => r.n > 0), [names, x.items, k, p.hist]);
+  if (!rows.length) return null;
+  return (
+    <Card ctx={ctx}>
+      <Text style={st.meta}>ジャンル別に解く</Text>
+      <Text style={st.h2}>{k.split('|')[1]}のジャンル</Text>
+      {rows.map(r => (
+        <Pressable key={r.g} accessibilityRole="button" accessibilityLabel={`${r.g} 全${r.n}問中${r.done}問解答・${r.ok}問正解。10問解く`}
+          onPress={() => startFieldExam(ctx, `${k}|${r.g}`)}
+          style={({ pressed }) => [st.rowBetween, { paddingVertical: 10, borderTopWidth: 1, borderTopColor: c.line }, pressed && st.pressed]}>
+          <Text style={[st.body, { flex: 1 }]}>{r.g}</Text>
+          <Text style={st.note}>{r.done}/{r.n}問・正解{r.ok}　<Text style={{ color: c.ai, fontWeight: '700' }}>10問 →</Text></Text>
+        </Pressable>
+      ))}
+    </Card>
   );
 }
 

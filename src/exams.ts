@@ -70,6 +70,8 @@ export type Item = {
   y?: number;     // 年（歴史。紀元前はマイナス）
   kind?: string;  // 出題区分（例 past／plan）
   lv?: number;    // 水準 1〜3（日本史○×：1＝日東駒専・2＝MARCH・3＝早慶）
+  g?: string;     // ジャンル（論点の中の細分。日本史○×）
+  w?: string;     // 調べるキーワード（解説の Wikipedia・YouTube リンク。日本史○×）
 };
 
 // 水準別の合格判定（日本史○×）。値は src/data/nihonshi-config.json の pass
@@ -84,6 +86,10 @@ export type LevelPassConfig = {
 
 export type Exam = {
   id: ExamId;
+  /** true なら購入なしで全問を出す（課金アイテムを用意していない試験） */
+  free?: boolean;
+  /** 論点ごとのジャンル（"分野|論点" → ジャンル名の並び）。論点の画面でジャンル別10問を出す */
+  genres?: Record<string, string[]>;
   name: string;
   short: string;
   group: string;                              // 入口の画面での見出し（資格試験／大学入試）
@@ -121,7 +127,7 @@ const takkenItems = (): Item[] => {
 type NihonshiRaw = { f: string; t: string; ref: string; lv: number; s: string; a: 0 | 1; e: string; m: string; y?: number };
 export const NIHONSHI = nihonshiConfig as unknown as {
   fields: { f: string; range: string; ref: string; topics: string[] }[];
-  rounds: Record<string, number>[]; lvMix: number[]; pass: LevelPassConfig;
+  rounds: Record<string, number>[]; lvMix: number[]; pass: LevelPassConfig; genres?: Record<string, string[]>;
 };
 const nihonshiItems = (): Item[] => (nihonshiOxRaw as NihonshiRaw[]).map((q, i) => ({ ...q, i, k: `${q.f}|${q.t}|${q.ref}` }));
 
@@ -258,7 +264,7 @@ export const EXAMS: Exam[] = [
     fields: NIHONSHI.fields.map(x => [x.f, x.f] as [string, string]),
     size: 10, limit: 600, rounds: NIHONSHI.rounds, reviewBy: 'topic', reviewN: 3, lvMix: NIHONSHI.lvMix,
     storageKey: 'exam-progress-v1:nihonshi-ox', items: nihonshiItems(),
-    lessons: nihonshiLessons as unknown as Record<string, Lesson>, pass: NIHONSHI.pass, examWord: '入試',
+    lessons: nihonshiLessons as unknown as Record<string, Lesson>, pass: NIHONSHI.pass, examWord: '入試', free: true, genres: NIHONSHI.genres,
   },
 ];
 
