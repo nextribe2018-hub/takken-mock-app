@@ -3,8 +3,9 @@ import assert from 'node:assert/strict';
 import {
   BANK, FIELDS, LESSON, MIX, buildExam, buildFieldExam, finishFieldExam, passEstimate, record, backfillRecent, relatedBranch, adjustTopic, adjustedRates, ADJ_FLOOR, topicTier, toExam, orderExamples, topicPlan, limbExam, limbExamBy, knownRate, fourChoice, fourFromLimbs, FOUR_GROUPS, refLabelJa, relatedRows, relatedTraps, checkQuestions, emptyProgress, finishExam, topicStats, wrongTopics,
   buildRound, choiceOrder, fieldStatsBy, freeExam, finishRound, TAKKEN, quotas, reviewQuestions, statsBy, wrongGroups,
+  lessonsOf, reviewCount, pickCoverLv, levelPassEstimate, simulateLevels, passLines, examCounts,
 } from '../src/logic';
-import { EXAMS, byKey } from '../src/exams';
+import { EXAM, EXAMS, NIHONSHI, byKey, type Item } from '../src/exams';
 import { buildVariants, type Variant } from './variants';
 import variantsJson from '../variants.json';
 
@@ -347,6 +348,112 @@ assert.equal(new Set(Object.values(V).map(v => v.bundleId)).size, EXAMS.length, 
   assert.ok(withCases.length >= 15, `判例のある論点: ${withCases.length}`);
   withCases.forEach(([k, L]) => L.cases!.forEach(c => assert.ok(c.n && c.f && c.h && c.pt && c.kw.length >= 2, `判例の形: ${k} ${c.n}`)));
   console.log(`判例: ${withCases.length}論点・${withCases.reduce((a, [, L]) => a + L.cases!.length, 0)}件`);
+}
+
+// ---- 日本史○×（nihonshi-ox）：5回の分野比率・水準の選び方・水準別の合格の見込み・データ ----
+{
+  const X = EXAM['nihonshi-ox'];
+  const C = NIHONSHI;
+  // 22) 5回合計＝古代9・中世9・近世10・近代11・現代5・文化6、各回10問。安定キーは 分野|論点|出典、保存先は専用キー
+  const tot: Record<string, number> = {};
+  X.rounds!.forEach(m => { assert.equal(Object.values(m).reduce((a, b) => a + b, 0), 10); Object.entries(m).forEach(([f, n]) => (tot[f] = (tot[f] || 0) + n)); });
+  assert.deepEqual(tot, { 古代: 9, 中世: 9, 近世: 10, 近代: 11, 現代: 5, 文化: 6 });
+  assert.deepEqual(examCounts(X), tot);
+  assert.equal(X.storageKey, 'exam-progress-v1:nihonshi-ox');
+  X.items.forEach(q => assert.equal(q.k, `${q.f}|${q.t}|${q.ref}`));
+  assert.equal(reviewCount(X), 3);
+  assert.equal(reviewCount(TAKKEN), 5);
+
+  // 23) データ：分野・論点は仕様の表どおり、ref は分野の頭文字＋4桁で一意、lv は1〜3、a は0/1、42論点すべてに解説、rel は実在の論点
+  const prefix = Object.fromEntries(C.fields.map(F => [F.f, F.ref]));
+  const topics = new Set(C.fields.flatMap(F => F.topics.map(t => `${F.f}|${t}`)));
+  assert.equal(topics.size, 42);
+  assert.deepEqual(X.fields.map(([f]) => f), ['古代', '中世', '近世', '近代', '現代', '文化']);
+  const refs = new Set<string>();
+  X.items.forEach(q => {
+    assert.ok(topics.has(`${q.f}|${q.t}`), `未定義の論点 ${q.f}|${q.t}`);
+    assert.match(q.ref, new RegExp(`^${prefix[q.f]}-\\d{4}$`), `ref の形式 ${q.ref}`);
+    assert.ok(!refs.has(q.ref), `ref が重複 ${q.ref}`); refs.add(q.ref);
+    assert.ok(q.lv === 1 || q.lv === 2 || q.lv === 3, `lv ${q.ref}`);
+    assert.ok(q.a === 0 || q.a === 1, `a ${q.ref}`);
+    assert.ok(q.s && q.e && q.m, `本文 ${q.ref}`);
+  });
+  const LS = lessonsOf(X);
+  assert.deepEqual(Object.keys(LS).sort(), [...topics].sort());
+  Object.entries(LS).forEach(([k, L]) => {
+    assert.ok(L.pts.length >= 1 && L.sys && L.sys.tree.length >= 1, `解説 ${k}`);
+    L.rel.forEach(r => assert.ok(LS[r], `${k}: rel ${r} がない`));
+    L.sys!.tables.forEach(t => t.rows.forEach(r => assert.equal(r.length, t.head.length, `${k} ${t.title}`)));
+  });
+
+  // 24) 水準：1回10問は lv1 4・lv2 4・lv3 2（各分野に各水準があれば必ず）。足りない水準は近い水準で補う
+  const lvCount = (qs: Item[]) => [1, 2, 3].map(l => qs.filter(q => q.lv === l).length);
+  for (let t = 0; t < 100; t++) {
+    const r = t % 3; // 第1〜3回は1分野2問以下なので、サンプルでも必ず 4・4・2 にできる
+    const qs = buildRound(X, {}, r);
+    assert.deepEqual(lvCount(qs), [4, 4, 2], `第${r + 1}回の水準`);
+  }
+  let agg = [0, 0, 0];
+  for (let t = 0; t < 200; t++) lvCount(buildRound(X, {}, t % 5)).forEach((v, i) => { agg[i] += v; });
+  agg = agg.map(v => v / 200);
+  assert.ok(Math.abs(agg[0] - 4) < 0.6 && Math.abs(agg[1] - 4) < 0.6 && Math.abs(agg[2] - 2) < 0.6, `水準の平均 ${agg}`);
+  {
+    const pool = X.items.filter(q => q.f === '古代' && q.lv === 1); // lv1 しかない
+    const got = pickCoverLv({}, pool, 2, new Set(), { round: 0, scores: [] }, [0, 0, 2]);
+    assert.equal(got.length, 2);
+    const mixed = X.items.filter(q => q.f === '古代' && q.lv !== 3); // lv3 がない → lv2 で補う
+    const g2 = pickCoverLv({}, mixed, 2, new Set(), { round: 0, scores: [] }, [0, 0, 2]);
+    assert.deepEqual(g2.map(q => q.lv), [2, 2]);
+  }
+  // 1セット（5回）を通すと出題数は分野比率どおり、水準の記録 rl は最大10件
+  {
+    let pr = emptyProgress(); const per: Record<string, number> = {};
+    for (let r = 0; r < 5; r++) {
+      const qs = buildRound(X, pr.hist, pr.set.round, Math.random, pr.set);
+      qs.forEach(q => { per[q.f] = (per[q.f] || 0) + 1; });
+      pr = finishRound(X, pr, qs, qs.map(q => q.a), 300).next;
+    }
+    assert.deepEqual(per, tot);
+    assert.equal(pr.set.round, 0);
+    assert.ok(pr.rl && Object.values(pr.rl).every(v => v.length <= 10 && /^1+$/.test(v)));
+    const p0 = emptyProgress(); const tk = record(p0, BANK[0], true); assert.equal(tk.rl, undefined); // 宅建は rl を持たない
+  }
+
+  // 25) 水準別の合格の見込み：30問未満は非表示、正答率が高いほど確率が上がる、同じ実力なら 早慶 ≤ MARCH ≤ 日東駒専
+  assert.equal(levelPassEstimate(X, emptyProgress()).ready, false);
+  const cfg = C.pass;
+  assert.deepEqual(passLines(cfg.groups[0].line, 50), [30, 31, 32, 33, 34, 35]);
+  assert.deepEqual(passLines(cfg.groups[2].line, 50), [35, 36, 37, 38, 39, 40]);
+  cfg.groups.forEach(g => assert.ok(Math.abs(g.mix.reduce((a, b) => a + b, 0) - 1) < 1e-9, `${g.name} の水準の合計`));
+  const inp = (p: number, d = 0.08) => ({
+    fields: Object.fromEntries(X.fields.map(([f]) => [f, { n: 40, c: 40 * p }])),
+    levels: [p + d, p, p - d].map(v => ({ n: 10, c: 10 * Math.min(1, v) })),
+  });
+  const run = (p: number, k = 0.5) => simulateLevels(X.fields, tot, inp(p), cfg, k, 1000);
+  const lv = [0.6, 0.75, 0.85, 0.95].map(p => run(p));
+  for (let i = 1; i < lv.length; i++) lv[i].forEach((g, j) => {
+    assert.ok(g.prob >= lv[i - 1][j].prob, `${g.name}: 正答率が上がると確率が上がる`);
+    assert.ok(g.mean > lv[i - 1][j].mean, `${g.name}: 正答率が上がると予想点が上がる`);
+  });
+  lv.forEach(gs => assert.ok(gs[2].prob <= gs[1].prob && gs[1].prob <= gs[0].prob, '早慶 ≤ MARCH ≤ 日東駒専'));
+  // 水準の差がなくても（全水準同じ正答率）並びは変わらない（合格ラインが高い順）
+  const flat = simulateLevels(X.fields, tot, { ...inp(0.85), levels: [0, 1, 2].map(() => ({ n: 10, c: 8.5 })) }, cfg, 0.5, 1000);
+  assert.ok(flat[2].prob <= flat[1].prob && flat[1].prob <= flat[0].prob);
+  // k（慎重 < 標準 < 消去法）で予想点が上がる。固定シードなので同じ入力なら同じ結果
+  const ks = [0, 0.5, 1].map(k => run(0.8, k)[1].mean);
+  assert.ok(ks[0] < ks[1] && ks[1] < ks[2]);
+  assert.deepEqual(run(0.8), run(0.8));
+  // 実データの形で：全問を解いた記録から見込みが出る（3水準・3通りの k、見出しは標準 k=0.5）
+  const h: Record<string, { n: number; c: number; last: 0 | 1 }> = {};
+  X.items.forEach((q, i) => { const ok = i % 5 !== 0; h[q.k] = { n: 1, c: ok ? 1 : 0, last: ok ? 1 : 0 }; });
+  const E = levelPassEstimate(X, { hist: h, r10: backfillRecent(h, {}, X.items) }, 500);
+  assert.ok(E.ready);
+  if (E.ready) {
+    assert.equal(E.scen.length, 3); assert.equal(E.head.k, 0.5); assert.equal(E.head.groups.length, 3);
+    assert.ok(X.fields.some(([f]) => f === E.focus));
+    console.log(`日本史○× 水準別の合格確率（○×80%・標準）: ${E.head.groups.map(g => `${g.name} ${Math.round(g.prob * 100)}%`).join('／')}`);
+  }
+  console.log(`日本史○× 正答率60/75/85/95% → ${lv.map(gs => gs.map(g => Math.round(g.prob * 100)).join('・')).join(' → ')}（日東駒専・MARCH・早慶）`);
 }
 
 console.log(`OK: ${BANK.length}問・${Object.keys(LESSON).length}論点・すべてのテストに合格`);

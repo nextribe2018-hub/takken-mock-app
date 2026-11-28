@@ -39,3 +39,9 @@
 | `zeirishi-souzoku` | 100 | 63 | https://claude.ai/artifact/Vej7vSWRrpFQJJ4fL4CTPQ |
 
 | `vocab`（英単語フラッシュ） | 1500語 | 2026-10-22 別リポ `eitango-flash` へ移動 | https://claude.ai/artifact/QCu5mtepbvXK69S4AWoyVC |
+
+## 日本史○×10分模試
+
+| id | 問題数 | URL |
+|---|---|---|
+| `nihonshi-ox` | 1527 | https://claude.ai/artifact/V3HB5QTkTVBFNvje9odDEW |

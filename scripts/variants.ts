@@ -13,7 +13,7 @@ export const bundleIdOf = (id: string) => (id === 'takken' ? 'jp.icurate.takkenm
 // 課金アイテムIDは英数字・ピリオド・下線のみ（ハイフン不可）
 export const skuOf = (id: string) => `${bundleIdOf(id).replace(/-/g, '_')}.full`;
 // ストアのアプリ名（30字以内）。「宅建10分模試」の形（App Store Connect の登録名とそろえる）
-export const appNameOf = (id: string, name: string, short: string) => `${(id === 'takken' ? short : name).replace(/\s+/g, '')}10分模試`;
+export const appNameOf = (id: string, name: string, short: string) => `${(id === 'takken' ? short : name).replace(/\s+/g, '').replace(/10分模試$/, '')}10分模試`;
 
 export function buildVariants(prev: Record<string, Variant> = {}): Record<string, Variant> {
   return Object.fromEntries(EXAMS.map(x => [x.id, {
@@ -37,7 +37,8 @@ if (process.argv[1]?.endsWith('variants.ts')) {
   eas.submit = keep(eas.submit ?? {});
   for (const id of Object.keys(v)) {
     eas.build[id] = { extends: 'production', env: { EXPO_PUBLIC_EXAM: id } };
-    if (v[id].ascAppId) eas.submit[id] = { ios: { ascAppId: v[id].ascAppId } };
+    // submit は EXPO_PUBLIC_EXAM を読まないので、バンドルIDを明示しないと宅建（app.json の既定）のアプリへ送られてしまう
+    eas.submit[id] = { ios: { bundleIdentifier: v[id].bundleId, appName: v[id].name, language: 'ja', ...(v[id].ascAppId && { ascAppId: v[id].ascAppId }) } };
   }
   writeFileSync(root + 'eas.json', JSON.stringify(eas, null, 2) + '\n');
   console.log(`OK: ${Object.keys(v).length}アプリ分の設定を variants.json と eas.json に書き出しました`);

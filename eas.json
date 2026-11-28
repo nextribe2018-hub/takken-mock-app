@@ -243,12 +243,295 @@
       "env": {
         "EXPO_PUBLIC_EXAM": "todai-sekaishi"
       }
+    },
+    "nihonshi-ox": {
+      "extends": "production",
+      "env": {
+        "EXPO_PUBLIC_EXAM": "nihonshi-ox"
+      }
     }
   },
   "submit": {
     "takken": {
       "ios": {
+        "bundleIdentifier": "jp.icurate.takkenmock",
+        "appName": "宅建10分模試",
+        "language": "ja",
         "ascAppId": "6823208571"
+      }
+    },
+    "rikkyo-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.rikkyo-sekaishi",
+        "appName": "立教世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "rikkyo-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.rikkyo-nihonshi",
+        "appName": "立教日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "keio-econ-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.keio-econ-sekaishi",
+        "appName": "慶應経済学部世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "keio-econ-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.keio-econ-nihonshi",
+        "appName": "慶應経済学部日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "keio-comm-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.keio-comm-sekaishi",
+        "appName": "慶應商学部世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "keio-comm-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.keio-comm-nihonshi",
+        "appName": "慶應商学部日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "kindai-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.kindai-nihonshi",
+        "appName": "近畿大学日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "kindai-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.kindai-sekaishi",
+        "appName": "近畿大学世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "kindai-eigo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.kindai-eigo",
+        "appName": "近畿大学英語10分模試",
+        "language": "ja"
+      }
+    },
+    "kindai-kokugo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.kindai-kokugo",
+        "appName": "近畿大学国語10分模試",
+        "language": "ja"
+      }
+    },
+    "nichidai-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.nichidai-nihonshi",
+        "appName": "日本大学日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "nichidai-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.nichidai-sekaishi",
+        "appName": "日本大学世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "nichidai-eigo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.nichidai-eigo",
+        "appName": "日本大学英語10分模試",
+        "language": "ja"
+      }
+    },
+    "nichidai-kokugo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.nichidai-kokugo",
+        "appName": "日本大学国語10分模試",
+        "language": "ja"
+      }
+    },
+    "meiji-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.meiji-nihonshi",
+        "appName": "明治大学日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "meiji-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.meiji-sekaishi",
+        "appName": "明治大学世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "meiji-eigo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.meiji-eigo",
+        "appName": "明治大学英語10分模試",
+        "language": "ja"
+      }
+    },
+    "meiji-kokugo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.meiji-kokugo",
+        "appName": "明治大学国語10分模試",
+        "language": "ja"
+      }
+    },
+    "zeirishi-zaihyo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.zeirishi-zaihyo",
+        "appName": "税理士財務諸表論10分模試",
+        "language": "ja"
+      }
+    },
+    "zeirishi-souzoku": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.zeirishi-souzoku",
+        "appName": "税理士相続税法10分模試",
+        "language": "ja"
+      }
+    },
+    "zeirishi-shouhi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.zeirishi-shouhi",
+        "appName": "税理士消費税法10分模試",
+        "language": "ja"
+      }
+    },
+    "zeirishi-shotoku": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.zeirishi-shotoku",
+        "appName": "税理士所得税法10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-eigo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-eigo",
+        "appName": "東京大学英語10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-chiri": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-chiri",
+        "appName": "東京大学地理10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-seibutsu": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-seibutsu",
+        "appName": "東京大学生物10分模試",
+        "language": "ja"
+      }
+    },
+    "waseda-eigo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.waseda-eigo",
+        "appName": "早稲田大学英語10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-kokugo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-kokugo",
+        "appName": "東京大学国語10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-sugaku-bun": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-sugaku-bun",
+        "appName": "東京大学数学（文科）10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-sugaku-ri": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-sugaku-ri",
+        "appName": "東京大学数学（理科）10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-butsuri": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-butsuri",
+        "appName": "東京大学物理10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-kagaku": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-kagaku",
+        "appName": "東京大学化学10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-nihonshi",
+        "appName": "東京大学日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "waseda-nihonshi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.waseda-nihonshi",
+        "appName": "早稲田大学日本史10分模試",
+        "language": "ja"
+      }
+    },
+    "waseda-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.waseda-sekaishi",
+        "appName": "早稲田大学世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "waseda-kokugo": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.waseda-kokugo",
+        "appName": "早稲田大学国語10分模試",
+        "language": "ja"
+      }
+    },
+    "zeirishi-boki": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.zeirishi-boki",
+        "appName": "税理士簿記論10分模試",
+        "language": "ja"
+      }
+    },
+    "zeirishi-houjin": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.zeirishi-houjin",
+        "appName": "税理士法人税法10分模試",
+        "language": "ja"
+      }
+    },
+    "todai-sekaishi": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.todai-sekaishi",
+        "appName": "東京大学世界史10分模試",
+        "language": "ja"
+      }
+    },
+    "nihonshi-ox": {
+      "ios": {
+        "bundleIdentifier": "jp.icurate.tenmin.nihonshi-ox",
+        "appName": "日本史10分模試",
+        "language": "ja",
+        "ascAppId": "6840256171"
       }
     }
   }
